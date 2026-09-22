@@ -1,0 +1,2986 @@
+{
+ "已知成功：medicube US": {
+  "code": 200,
+  "request_id": "dc160f3b-232f-4d85-8ced-3194550fe42c",
+  "message": "Request successful. This request will incur a charge.",
+  "message_zh": "请求成功，本次请求将被计费。",
+  "support": "Discord: https://discord.gg/aMEAS8Xsvz",
+  "time": "2026-09-19 23:15:28",
+  "time_stamp": 1789884928,
+  "time_zone": "America/Los_Angeles",
+  "docs": "https://api.tikhub.io/#/TikTok-Shop-Web-API/fetch_product_detail_v3_api_v1_tiktok_shop_web_fetch_product_detail_v3_get",
+  "cache_message": "This response is cached and accessible via the URL below for 24 hours at no extra cost. The cache is for request tracing only — it doesn't affect the API's data freshness and won't be returned through the API again.",
+  "cache_message_zh": "本次响应已缓存，可通过下方 URL 直接查看，有效期 24 小时，访问缓存链接无额外费用。缓存仅用于请求溯源，不影响接口数据的时效性，也不会再次通过接口返回。",
+  "cache_url": "https://cache.tikhub.io/api/v1/cache/public/dc160f3b-232f-4d85-8ced-3194550fe42c?sign=307acc14a8406c5f975a935324572adc671b2e7476598dcb62ca9b3c39063a29",
+  "router": "/api/v1/tiktok/shop/web/fetch_product_detail_v3",
+  "params": {
+   "product_id": "1732052189676081387",
+   "region": "US"
+  },
+  "data": {
+   "product_data": {
+    "ab_test": {
+     "user_level": {
+      "shouldJumpH5Pay": 1
+     },
+     "page_level": {
+      "page_id": "579709597885323454",
+      "vids": [],
+      "params": {}
+     }
+    },
+    "page_config": {
+     "global_fe_config": {},
+     "components_map": [
+      {
+       "component_type": "user_info",
+       "component_name": "user_info",
+       "fe_config": {}
+      },
+      {
+       "component_type": "page_header",
+       "component_name": "page_header",
+       "fe_config": {}
+      },
+      {
+       "component_type": "call_app_bottom_popup",
+       "component_name": "call_app_bottom_popup",
+       "fe_config": {
+        "target": "wrapper_pdp"
+       }
+      },
+      {
+       "component_type": "coupon_popup",
+       "component_name": "coupon_popup",
+       "fe_config": {}
+      },
+      {
+       "component_type": "product_detail",
+       "component_name": "product_detail",
+       "fe_config": {
+        "data_source": {
+         "skip_data_return": true
+        }
+       }
+      },
+      {
+       "component_type": "deals_info",
+       "component_name": "deals_info",
+       "fe_config": {
+        "data_source": {
+         "skip_data_return": true
+        }
+       }
+      },
+      {
+       "component_type": "product_info",
+       "component_name": "product_info",
+       "fe_config": {
+        "show_protections_policy": true,
+        "show_empty_page": true,
+        "is_pay_supported": true,
+        "is_cart_supported": true,
+        "data_source": {
+         "has_pre_dependency": true,
+         "pre_dependency_modules": [
+          "product_detail",
+          "category_info",
+          "shop_info",
+          "deals_info"
+         ]
+        }
+       },
+       "component_data": {
+        "error_code": 0,
+        "error_message": "success",
+        "product_info": {
+         "product_model": {
+          "product_id": "1732052189676081387",
+          "seller_id": "7495514739648989419",
+          "sold_count": "294027",
+          "name": "[medicube] Smooth & Clear Body Care Set | Hypochlorous Acid Body Peel Shot, Kojic Acid Turmeric Body Wash, Toner Pad, Toner, Mist | Exfoliating for Dead Skin Cells & Excess Sebum & Clearing for After Spots, Texture & Uneven Skin Tone | K-Beauty",
+          "description": "[{\"type\":\"text\",\"text\":\"Smooth, clear, and brighten your skin with every shower!\",\"sub\":[{\"t\":\"Smooth, clear, and brighten your skin with every shower!\",\"b\":true,\"em\":true,\"u\":true,\"align\":1,\"h\":2}]},{\"type\":\"image\",\"image\":{\"height\":800,\"width\":800,\"uri\":\"tos-useast5-i-omjb5zjo8w-tx/7f0c1b321f24477eb811561ac0dcb9a4\",\"url_list\":[\"https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/7f0c1b321f24477eb811561ac0dcb9a4~tplv-fhlh96nyum-origin-jpeg.jpeg?dr=12178&t=555f072d&ps=933b5bde&shp=a3510d86&shcp=6ce186a1&idc=useast5&from=2739998086\",\"https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/7f0c1b321f24477eb811561ac0dcb9a4~tplv-fhlh96nyum-origin-jpeg.jpeg?dr=12178&t=555f072d&ps=933b5bde&shp=a3510d86&shcp=6ce186a1&idc=useast5&from=2739998086\"],\"remove_gap\":\"false\"}},{\"type\":\"text\",\"text\":\"Introducing medicube's body care products, now available in a full set for all in one easy routine!\",\"sub\":[{\"t\":\"Introducing medicube's body care products, now available in a full set for all in one easy routine!\",\"align\":1,\"h\":3}]},{\"type\":\"text\",\"text\":\"This powerful set gently exfoliates, cleanses and hydrates the body, revealing a brighter, more balanced complexion while improving skin texture and tone.\",\"sub\":[{\"t\":\"This powerful set gently exfoliates, cleanses and hydrates the body, revealing a brighter, more balanced complexion while improving skin texture and tone.\",\"align\":1,\"h\":3}]},{\"type\":\"text\",\"text\":\"[Variant 1: Simple Body Glow Routine]\",\"sub\":[{\"t\":\"[Variant 1: Simple Body Glow Routine]\",\"b\":true}]},{\"type\":\"text\",\"text\":\"INCLUDES\",\"sub\":[{\"t\":\"INCLUDES\",\"b\":true,\"u\":true}]},{\"type\":\"text\",\"text\":\"Hypochlorous Acid Body Peel Shot + Kojic Acid Turmeric Vita Brightening Body Wash\",\"sub\":[{\"t\":\"Hypochlorous Acid Body Peel Shot + Kojic Acid Turmeric Vita Brightening Body Wash\"}]},{\"type\":\"text\",\"text\":\"1) Hypochlorous Acid Body Peel Shot (for body) – 280ml\",\"sub\":[{\"t\":\"1) Hypochlorous Acid Body Peel Shot (for body) – 280ml\",\"b\":true}]},{\"type\":\"text\",\"text\":\"Powered by Hypochlorous Acid and Rice Extract, this unique formula helps exfoliate, purify, and smooth the skin by lifting away rough buildup, excess sebum, and dead skin cells that can contribute to trouble skin and visible skin concerns.\",\"sub\":[{\"t\":\"Powered by Hypochlorous Acid and Rice Extract, this unique formula helps exfoliate, purify, and smooth the skin by lifting away rough buildup, excess sebum, and dead skin cells that can contribute to trouble skin and visible skin concerns.\"}]},{\"type\":\"ul\",\"content\":[\"Easy exfoliation at home as visible impurities roll away with every massage.\",\"Targets ingrown hairs, rough patches & uneven texture on the body\",\"Hypochlorous Acid concentration doubled for thicker body skin\",\"Suitable for rough, bumpy, textured body areas, dark elbows/underarms/ankles.  \"],\"li_sub\":[[{\"t\":\"Easy exfoliation at home as visible impurities roll away with every massage.\"}],[{\"t\":\"Targets ingrown hairs, rough patches & uneven texture on the body\"}],[{\"t\":\"Hypochlorous Acid concentration doubled for thicker body skin\"}],[{\"t\":\"Suitable for rough, bumpy, textured body areas, dark elbows/underarms/ankles.  \"}]]},{\"type\":\"text\",\"text\":\"2) Kojic Acid Turmeric Vita Brightening Body Wash - 400ml\",\"sub\":[{\"t\":\"2) Kojic Acid Turmeric Vita Brightening Body Wash - 400ml\",\"b\":true}]},{\"type\":\"text\",\"text\":\"A body wash designed for troubled and uneven skin, formulated to help improve the appearance of marks and uneven skin tone while gently cleansing.\",\"sub\":[{\"t\":\"A body wash designed for troubled and uneven skin, formulated to help improve the appearance of marks and uneven skin tone while gently cleansing.\"}]},{\"type\":\"ul\",\"content\":[\"20,220 ppm brightening complex (Kojic Acid, Turmeric, Vitamin C, Niacinamide) helps balance the appearance of skin tone and visible marks.\",\"Formulated with gentle chemical exfoliants (AHA, BHA) to help the look of areas with bumps or uneven texture\",\"Fresh citrus scent leaves skin feeling clean and revitalized\",\"Clinically tested to reduce appearance of rough or uneven areas by up to 48.45% after 2 weeks*\"],\"li_sub\":[[{\"t\":\"20,220 ppm brightening complex (Kojic Acid, Turmeric, Vitamin C, Niacinamide) helps balance the appearance of skin tone and visible marks.\"}],[{\"t\":\"Formulated with gentle chemical exfoliants (AHA, BHA) to help the look of areas with bumps or uneven texture\"}],[{\"t\":\"Fresh citrus scent leaves skin feeling clean and revitalized\"}],[{\"t\":\"Clinically tested to reduce appearance of rough or uneven areas by up to 48.45% after 2 weeks*\"}]]},{\"type\":\"text\",\"text\":\"*Clinically Tested by ‘Global Institute of Dermatological Science / Individual results may vary.\",\"sub\":[{\"t\":\"*Clinically Tested by ‘Global Institute of Dermatological Science / Individual results may vary.\",\"em\":true}]},{\"type\":\"text\",\"text\":\"HOW TO USE\",\"sub\":[{\"t\":\"HOW TO USE\",\"b\":true,\"u\":true}]},{\"type\":\"text\",\"text\":\"Step 1. Exfoliate\",\"sub\":[{\"t\":\"Step 1. Exfoliate\",\"b\":true}]},{\"type\":\"ul\",\"content\":[\"Before shower, apply an appropriate amount of Hypochlorous Acid Body Peel Shot to dry, rough or textured areas (Shake well before use)\",\"Gently massage over the skin as impurities and dead skin cells form visible clumps and rinse or wipe away*Great for rough, flaky areas such as elbows, knees, and underarms\",\"Use around 2 times per week for optimal results  \"],\"li_sub\":[[{\"t\":\"Before shower, apply an appropriate amount of Hypochlorous Acid Body Peel Shot to dry, rough or textured areas (Shake well before use)\"}],[{\"t\":\"Gently massage over the skin as impurities and dead skin cells form visible clumps and rinse or wipe away*Great for rough, flaky areas such as elbows, knees, and underarms\"}],[{\"t\":\"Use around 2 times per week for optimal results  \"}]]},{\"type\":\"text\",\"text\":\"Step 2. Cleanse\",\"sub\":[{\"t\":\"Step 2. Cleanse\",\"b\":true}]},{\"type\":\"ul\",\"content\":[\"Dispense an appropriate amount of Kojic Acid Turmeric Body Wash and lather\",\"Use over your body, paying attention to areas with rough or uneven-looking skin.\",\"Rinse thoroughly with lukewarm water. Follow with a moisturizer or a cream.\",\"Use daily for soft, smooth, and refreshed-feeling skin.\"],\"li_sub\":[[{\"t\":\"Dispense an appropriate amount of Kojic Acid Turmeric Body Wash and lather\"}],[{\"t\":\"Use over your body, paying attention to areas with rough or uneven-looking skin.\"}],[{\"t\":\"Rinse thoroughly with lukewarm water. Follow with a moisturizer or a cream.\"}],[{\"t\":\"Use daily for soft, smooth, and refreshed-feeling skin.\"}]]},{\"type\":\"text\",\"text\":\"[Variant 2: Full Body Glow Routine] \",\"sub\":[{\"t\":\"[Variant 2: Full Body Glow Routine] \",\"b\":true}]},{\"type\":\"text\",\"text\":\"INCLUDES\",\"sub\":[{\"t\":\"INCLUDES\",\"b\":true,\"u\":true}]},{\"type\":\"text\",\"text\":\"Hypochlorous Acid Body Peel Shot + Kojic Acid Turmeric Vita Brightening Body Wash + Kojic Acid Turmeric Clarifying Toner Pad + Kojic Acid Turmeric Toner + Kojic Acid Jelly Mist\",\"sub\":[{\"t\":\"Hypochlorous Acid Body Peel Shot + Kojic Acid Turmeric Vita Brightening Body Wash + Kojic Acid Turmeric Clarifying Toner Pad + Kojic Acid Turmeric Toner + Kojic Acid Jelly Mist\"}]},{\"type\":\"text\",\"text\":\"3) Kojic Acid Turmeric Clarifying Toner Pad for Face & Body - 70 Pads, 1 Pack\",\"sub\":[{\"t\":\"3) Kojic Acid Turmeric Clarifying Toner Pad for Face & Body - 70 Pads, 1 Pack\",\"b\":true}]},{\"type\":\"text\",\"text\":\"For radiant, trouble-free skin. Swipe it, love it, no more worries.\",\"sub\":[{\"t\":\"For radiant, trouble-free skin. Swipe it, love it, no more worries.\"}]},{\"type\":\"ul\",\"content\":[\"Antioxidant-rich Kojic Acid & Turmeric help brighten and protect troubled skin while improving uneven tone and texture — ideal for use after spot care. \",\"Glycolic acid and Niacinamide refine pores and smooth skin texture while being gentle enough for daily use. Great to be used on areas like shoulders or upper back. \",\"Appearance of uneven patches reduced by 39.22%*\"],\"li_sub\":[[{\"t\":\"Antioxidant-rich Kojic Acid & Turmeric help brighten and protect troubled skin while improving uneven tone and texture — ideal for use after spot care. \"}],[{\"t\":\"Glycolic acid and Niacinamide refine pores and smooth skin texture while being gentle enough for daily use. Great to be used on areas like shoulders or upper back. \"}],[{\"t\":\"Appearance of uneven patches reduced by 39.22%*\"}]]},{\"type\":\"text\",\"text\":\"*Clinically Tested by 'Global Institute of Dermatological Sciences'/ Results may vary depending on individual skin types.\",\"sub\":[{\"t\":\"*Clinically Tested by 'Global Institute of Dermatological Sciences'/ Results may vary depending on individual skin types.\",\"em\":true}]},{\"type\":\"text\",\"text\":\"4) Kojic Acid Turmeric Toner for Face & Body - 250ml\",\"sub\":[{\"t\":\"4) Kojic Acid Turmeric Toner for Face & Body - 250ml\",\"b\":true}]},{\"type\":\"text\",\"text\":\"A lightweight, non-sticky toner that helps fade and brighten the look of dark areas and boosts clarity—for visibly healthier, glowing skin. \",\"sub\":[{\"t\":\"A lightweight, non-sticky toner that helps fade and brighten the look of dark areas and boosts clarity—for visibly healthier, glowing skin. \"}]},{\"type\":\"ul\",\"content\":[\"Powered by Glycolic Acid, this toner gently exfoliates and refines rough skin — leaving your skin visibly smoother, softer, and visibly more balanced. \",\"A potent blend of Kojic Acid, Turmeric, Glycolic Acid, and Niacinamide that works in harmony to exfoliate, smooth, and brighten overall skin tone\",\"Hands-free tip delivers powerful ingredients directly to skin while keeping them fresh and protected. Apply to underarms, elbows, knees—anywhere you want smoother tone and texture. \"],\"li_sub\":[[{\"t\":\"Powered by Glycolic Acid, this toner gently exfoliates and refines rough skin — leaving your skin visibly smoother, softer, and visibly more balanced. \"}],[{\"t\":\"A potent blend of Kojic Acid, Turmeric, Glycolic Acid, and Niacinamide that works in harmony to exfoliate, smooth, and brighten overall skin tone\"}],[{\"t\":\"Hands-free tip delivers powerful ingredients directly to skin while keeping them fresh and protected. Apply to underarms, elbows, knees—anywhere you want smoother tone and texture. \"}]]},{\"type\":\"text\",\"text\":\"5) Gold Kojic Acid Vita Jelly Mist - 100ml\",\"sub\":[{\"t\":\"5) Gold Kojic Acid Vita Jelly Mist - 100ml\",\"b\":true}]},{\"type\":\"text\",\"text\":\"Reach for the Gold Kojic Acid Vita Mist when you want to refresh your glow and brighten uneven tone. A quick spritz is all it takes for hydrated, luminous skin anytime, anywhere. \",\"sub\":[{\"t\":\"Reach for the Gold Kojic Acid Vita Mist when you want to refresh your glow and brighten uneven tone. A quick spritz is all it takes for hydrated, luminous skin anytime, anywhere. \"}]},{\"type\":\"ul\",\"content\":[\"A dual-texture jelly mist serum duo that delivers the power of a serum and the convenience of a mist in one. \",\"Adjust the spray distance to switch between a rich serum mist for deep care or a fine mist for an all-day glow.\",\"Packed with vitamin-rich brightening complex that helps boost glow and refine the look of skin tone.\",\"Delivers hydration and revitalizing nutrients for a naturally bright, glowing complexion. \"],\"li_sub\":[[{\"t\":\"A dual-texture jelly mist serum duo that delivers the power of a serum and the convenience of a mist in one. \"}],[{\"t\":\"Adjust the spray distance to switch between a rich serum mist for deep care or a fine mist for an all-day glow.\"}],[{\"t\":\"Packed with vitamin-rich brightening complex that helps boost glow and refine the look of skin tone.\"}],[{\"t\":\"Delivers hydration and revitalizing nutrients for a naturally bright, glowing complexion. \"}]]},{\"type\":\"text\",\"text\":\"HOW TO USE\\n**Patch testing is recommended before use.\\n\\n\",\"sub\":[{\"t\":\"HOW TO USE\",\"b\":true,\"u\":true},{\"t\":\"\\n\"},{\"t\":\"**Patch testing is recommended before use.\",\"u\":true},{\"t\":\"\\n\"},{\"t\":\"\\n\"}]},{\"type\":\"text\",\"text\":\"Step 3. Smooth\",\"sub\":[{\"t\":\"Step 3. Smooth\",\"b\":true}]},{\"type\":\"ul\",\"content\":[\"After shower, with the textured side, gently swipe across to exfoliate and remove dead skin cells\",\"Follow along with the softer side to gently swipe one more time to hydrate and soothe\",\"Use on areas with roughness or visible clumps like chest, back or arms \"],\"li_sub\":[[{\"t\":\"After shower, with the textured side, gently swipe across to exfoliate and remove dead skin cells\"}],[{\"t\":\"Follow along with the softer side to gently swipe one more time to hydrate and soothe\"}],[{\"t\":\"Use on areas with roughness or visible clumps like chest, back or arms \"}]]},{\"type\":\"text\",\"text\":\"Step 4. Hydrate\",\"sub\":[{\"t\":\"Step 4. Hydrate\",\"b\":true}]},{\"type\":\"ul\",\"content\":[\"Apply directly with the nozzle — no hands needed. \",\"The hygienic tip delivers powerful ingredients while keeping them fresh. \",\"Use on underarms, elbows, knees — anywhere you need tone & texture care. \"],\"li_sub\":[[{\"t\":\"Apply directly with the nozzle — no hands needed. \"}],[{\"t\":\"The hygienic tip delivers powerful ingredients while keeping them fresh. \"}],[{\"t\":\"Use on underarms, elbows, knees — anywhere you need tone & texture care. \"}]]},{\"type\":\"text\",\"text\":\"Step 5. Spritz\",\"sub\":[{\"t\":\"Step 5. Spritz\",\"b\":true}]},{\"type\":\"ul\",\"content\":[\"For serum-like care: shake and spray the Gold Kojic Acid Vita Mist close for a richer, concentrated texture that absorbs like a serum. \",\"For mist-like refresh: shake and spray from 10–20cm away for a soft, even veil of hydration and glow. \",\"Micro-mist pump delivers a soft, even veil of moisture and radiance — perfect for layering throughout the day or before/after make-up.  \"],\"li_sub\":[[{\"t\":\"For serum-like care: shake and spray the Gold Kojic Acid Vita Mist close for a richer, concentrated texture that absorbs like a serum. \"}],[{\"t\":\"For mist-like refresh: shake and spray from 10–20cm away for a soft, even veil of hydration and glow. \"}],[{\"t\":\"Micro-mist pump delivers a soft, even veil of moisture and radiance — perfect for layering throughout the day or before/after make-up.  \"}]]},{\"type\":\"text\",\"text\":\"[FAQ] \",\"sub\":[{\"t\":\"[FAQ] \",\"b\":true}]},{\"type\":\"text\",\"text\":\"Q: Can I use it daily? \",\"sub\":[{\"t\":\"Q: Can I use it daily? \",\"b\":true}]},{\"type\":\"text\",\"text\":\"This set is designed to be used as a daily body care routine, but for the Body Peel Shot, we recommend using it around 2 times per week as a focused care. It is especially effective when dead skin cells have built up. \",\"sub\":[{\"t\":\"This set is designed to be used as a daily body care routine, but for the Body Peel Shot, we recommend using it around 2 times per week as a focused care. It is especially effective when dead skin cells have built up. \"}]},{\"type\":\"text\",\"text\":\"Although our product has been formulated with gentle ingredients, please keep in mind that over exfoliation is not good for the skin and can cause irritation. \",\"sub\":[{\"t\":\"Although our product has been formulated with gentle ingredients, please keep in mind that over exfoliation is not good for the skin and can cause irritation. \"}]},{\"type\":\"text\",\"text\":\"Q: Can I use the products on the face and vice versa? \",\"sub\":[{\"t\":\"Q: Can I use the products on the face and vice versa? \",\"b\":true}]},{\"type\":\"text\",\"text\":\"The Body Peel Shot & Body Wash are formulated to be used on the body. Each formula is tailored to the specific skin type and concerns of its intended area. Since facial and body skin differ in texture and needs, please use them as directed for optimal results.\",\"sub\":[{\"t\":\"The Body Peel Shot & Body Wash are formulated to be used on the body. Each formula is tailored to the specific skin type and concerns of its intended area. Since facial and body skin differ in texture and needs, please use them as directed for optimal results.\"}]},{\"type\":\"text\",\"text\":\"Our toner pad, toner, and jelly mist work well for both face and body.\",\"sub\":[{\"t\":\"Our toner pad, toner, and jelly mist work well for both face and body.\"}]}]",
+          "images": [
+           {
+            "height": 2000,
+            "width": 2000,
+            "uri": "tos-useast5-i-omjb5zjo8w-tx/5cf5212fe8f3451fb063a8ee7d0c1de1",
+            "url_list": [
+             "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/5cf5212fe8f3451fb063a8ee7d0c1de1~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839",
+             "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/5cf5212fe8f3451fb063a8ee7d0c1de1~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839"
+            ]
+           },
+           {
+            "height": 2000,
+            "width": 2000,
+            "uri": "tos-useast5-i-omjb5zjo8w-tx/9373aed563454dacb1e1ed6bfbcf2338",
+            "url_list": [
+             "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/9373aed563454dacb1e1ed6bfbcf2338~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839",
+             "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/9373aed563454dacb1e1ed6bfbcf2338~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839"
+            ]
+           },
+           {
+            "height": 1080,
+            "width": 1080,
+            "uri": "tos-useast5-i-omjb5zjo8w-tx/4892cc947de24b5999ce7b234588b103",
+            "url_list": [
+             "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/4892cc947de24b5999ce7b234588b103~tplv-fhlh96nyum-crop-webp:1080:1080.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839",
+             "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/4892cc947de24b5999ce7b234588b103~tplv-fhlh96nyum-crop-webp:1080:1080.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839"
+            ]
+           },
+           {
+            "height": 1080,
+            "width": 1080,
+            "uri": "tos-useast5-i-omjb5zjo8w-tx/fecb7556c1fc4bbf8b703a3fca247663",
+            "url_list": [
+             "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/fecb7556c1fc4bbf8b703a3fca247663~tplv-fhlh96nyum-crop-webp:1080:1080.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839",
+             "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/fecb7556c1fc4bbf8b703a3fca247663~tplv-fhlh96nyum-crop-webp:1080:1080.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839"
+            ]
+           },
+           {
+            "height": 2000,
+            "width": 2000,
+            "uri": "tos-useast5-i-omjb5zjo8w-tx/650b7e6bc0044473a967c6ed29b7b38b",
+            "url_list": [
+             "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/650b7e6bc0044473a967c6ed29b7b38b~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839",
+             "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/650b7e6bc0044473a967c6ed29b7b38b~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839"
+            ]
+           },
+           {
+            "height": 2000,
+            "width": 2000,
+            "uri": "tos-useast5-i-omjb5zjo8w-tx/41258dfbd45642138149e035fa35742d",
+            "url_list": [
+             "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/41258dfbd45642138149e035fa35742d~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839",
+             "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/41258dfbd45642138149e035fa35742d~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839"
+            ]
+           },
+           {
+            "height": 2000,
+            "width": 2000,
+            "uri": "tos-useast5-i-omjb5zjo8w-tx/c4d39e2dc53d4eaf81a329afa1c87769",
+            "url_list": [
+             "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/c4d39e2dc53d4eaf81a329afa1c87769~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839",
+             "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/c4d39e2dc53d4eaf81a329afa1c87769~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839"
+            ]
+           },
+           {
+            "height": 2000,
+            "width": 2000,
+            "uri": "tos-useast5-i-omjb5zjo8w-tx/fdc389c4316a40b8b18f33d6ab30150a",
+            "url_list": [
+             "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/fdc389c4316a40b8b18f33d6ab30150a~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839",
+             "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/fdc389c4316a40b8b18f33d6ab30150a~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839"
+            ]
+           },
+           {
+            "height": 2000,
+            "width": 2000,
+            "uri": "tos-useast5-i-omjb5zjo8w-tx/704d2ace094043c1a98a558e55db76d1",
+            "url_list": [
+             "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/704d2ace094043c1a98a558e55db76d1~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839",
+             "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/704d2ace094043c1a98a558e55db76d1~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839"
+            ]
+           }
+          ],
+          "sale_properties": [
+           {
+            "property_id": "7074870192706242310",
+            "has_image": true,
+            "property_name": "OPTIONS",
+            "property_values": [
+             {
+              "property_value_id": "7654553838766147342",
+              "property_value_name": "Full",
+              "image": {
+               "height": 2000,
+               "width": 2000,
+               "uri": "tos-useast5-i-omjb5zjo8w-tx/0f9bf8ec60d04e77bb7cffc6c57a1456",
+               "url_list": [
+                "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/0f9bf8ec60d04e77bb7cffc6c57a1456~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839",
+                "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/0f9bf8ec60d04e77bb7cffc6c57a1456~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839"
+               ]
+              }
+             },
+             {
+              "property_value_id": "7637435111050512148",
+              "property_value_name": "Simple",
+              "image": {
+               "height": 2000,
+               "width": 2000,
+               "uri": "tos-useast5-i-omjb5zjo8w-tx/ad2fbbf28c1e49e2a6dd9ca5f08f1b0b",
+               "url_list": [
+                "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/ad2fbbf28c1e49e2a6dd9ca5f08f1b0b~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839",
+                "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/ad2fbbf28c1e49e2a6dd9ca5f08f1b0b~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839"
+               ]
+              }
+             }
+            ],
+            "property_label": {
+             "key_property": false,
+             "binding_property": false,
+             "shopping_guide_property": false,
+             "logistics_property": false,
+             "gne_property": false,
+             "customs_property": false,
+             "spu_same_product_property": false,
+             "legal_property": false,
+             "hide_c_side_property": false,
+             "non_merchant_filled": false
+            },
+            "property_value_id_to_grouping_properties": {}
+           }
+          ],
+          "product_properties": [
+           {
+            "property_id": "101395",
+            "has_image": false,
+            "property_name": "CA prop 65: repro. chems",
+            "property_values": [
+             {
+              "property_value_id": "1000059",
+              "property_value_name": "No"
+             }
+            ],
+            "property_label": {
+             "key_property": false,
+             "binding_property": false,
+             "shopping_guide_property": false,
+             "logistics_property": false,
+             "gne_property": false,
+             "customs_property": false,
+             "spu_same_product_property": false,
+             "legal_property": true,
+             "hide_c_side_property": false,
+             "non_merchant_filled": false
+            },
+            "property_value_id_to_grouping_properties": {}
+           },
+           {
+            "property_id": "101400",
+            "has_image": false,
+            "property_name": "CA prop 65: carcinogens",
+            "property_values": [
+             {
+              "property_value_id": "1000059",
+              "property_value_name": "No"
+             }
+            ],
+            "property_label": {
+             "key_property": false,
+             "binding_property": false,
+             "shopping_guide_property": false,
+             "logistics_property": false,
+             "gne_property": false,
+             "customs_property": false,
+             "spu_same_product_property": false,
+             "legal_property": true,
+             "hide_c_side_property": false,
+             "non_merchant_filled": false
+            },
+            "property_value_id_to_grouping_properties": {}
+           },
+           {
+            "property_id": "101619",
+            "has_image": false,
+            "property_name": "Dangerous goods or hazardous materials",
+            "property_values": [
+             {
+              "property_value_id": "1000059",
+              "property_value_name": "No"
+             }
+            ],
+            "property_label": {
+             "key_property": false,
+             "binding_property": false,
+             "shopping_guide_property": false,
+             "logistics_property": false,
+             "gne_property": false,
+             "customs_property": false,
+             "spu_same_product_property": false,
+             "legal_property": true,
+             "hide_c_side_property": false,
+             "non_merchant_filled": false
+            },
+            "property_value_id_to_grouping_properties": {}
+           },
+           {
+            "property_id": "100334",
+            "has_image": false,
+            "property_name": "Skin type",
+            "property_values": [
+             {
+              "property_value_id": "1000880",
+              "property_value_name": "All skin types"
+             }
+            ],
+            "property_label": {
+             "key_property": false,
+             "binding_property": false,
+             "shopping_guide_property": true,
+             "logistics_property": false,
+             "gne_property": false,
+             "customs_property": false,
+             "spu_same_product_property": false,
+             "legal_property": false,
+             "hide_c_side_property": false,
+             "non_merchant_filled": false
+            },
+            "property_value_id_to_grouping_properties": {}
+           },
+           {
+            "property_id": "100336",
+            "has_image": false,
+            "property_name": "Region of origin",
+            "property_values": [
+             {
+              "property_value_id": "1000857",
+              "property_value_name": "Korea"
+             }
+            ],
+            "property_label": {
+             "key_property": false,
+             "binding_property": false,
+             "shopping_guide_property": true,
+             "logistics_property": false,
+             "gne_property": false,
+             "customs_property": false,
+             "spu_same_product_property": false,
+             "legal_property": false,
+             "hide_c_side_property": false,
+             "non_merchant_filled": false
+            },
+            "property_value_id_to_grouping_properties": {}
+           },
+           {
+            "property_id": "100346",
+            "has_image": false,
+            "property_name": "Ingredients",
+            "property_values": [
+             {
+              "property_value_id": "7550519583833147150",
+              "property_value_name": "WATER"
+             },
+             {
+              "property_value_id": "7249133799232227098",
+              "property_value_name": "SODIUM C14-16 OLEFIN SULFONATE"
+             },
+             {
+              "property_value_id": "7524624445970040590",
+              "property_value_name": "GLYCERIN"
+             },
+             {
+              "property_value_id": "7256878449611228971",
+              "property_value_name": "COCO-BETAINE"
+             },
+             {
+              "property_value_id": "7260534649372346154",
+              "property_value_name": "COCAMIDE MIPA"
+             },
+             {
+              "property_value_id": "6999842185424209666",
+              "property_value_name": "NIACINAMIDE"
+             },
+             {
+              "property_value_id": "7402102057925101358",
+              "property_value_name": "C12-13 ALKETH-9"
+             },
+             {
+              "property_value_id": "7258634804265027354",
+              "property_value_name": "DISODIUM COCOAMPHODIACETATE"
+             },
+             {
+              "property_value_id": "7065182475093346050",
+              "property_value_name": "FRAGRANCE"
+             },
+             {
+              "property_value_id": "7148995682047936283",
+              "property_value_name": "SODIUM CHLORIDE"
+             },
+             {
+              "property_value_id": "7213681767843235611",
+              "property_value_name": "SODIUM BENZOATE"
+             },
+             {
+              "property_value_id": "6999843900303279873",
+              "property_value_name": "SALICYLIC ACID"
+             },
+             {
+              "property_value_id": "7514473975678994218",
+              "property_value_name": "CITRIC ACID"
+             },
+             {
+              "property_value_id": "7524624546473936653",
+              "property_value_name": "ETHYLHEXYLGLYCERIN"
+             },
+             {
+              "property_value_id": "7263377526649603872",
+              "property_value_name": "POLYQUATERNIUM-10"
+             },
+             {
+              "property_value_id": "7077377796290053894",
+              "property_value_name": "SORBITOL"
+             },
+             {
+              "property_value_id": "7524624445970024206",
+              "property_value_name": "BUTYLENE GLYCOL"
+             },
+             {
+              "property_value_id": "7213681767843120923",
+              "property_value_name": "POLYQUATERNIUM-7"
+             },
+             {
+              "property_value_id": "7252621187401123610",
+              "property_value_name": "TRISODIUM ETHYLENEDIAMINE DISUCCINATE"
+             },
+             {
+              "property_value_id": "7311484509546153733",
+              "property_value_name": "ZINC RICINOLEATE"
+             },
+             {
+              "property_value_id": "7063021058731050754",
+              "property_value_name": "KOJIC ACID"
+             },
+             {
+              "property_value_id": "7257200770372994862",
+              "property_value_name": "TETRASODIUM GLUTAMATE DIACETATE"
+             },
+             {
+              "property_value_id": "7256881915435779886",
+              "property_value_name": "HEXYLENE GLYCOL"
+             },
+             {
+              "property_value_id": "7174019060596819738",
+              "property_value_name": "PROPANEDIOL"
+             },
+             {
+              "property_value_id": "7290288187988117290",
+              "property_value_name": "DIOSPYROS KAKI FRUIT EXTRACT"
+             },
+             {
+              "property_value_id": "7290288480888932139",
+              "property_value_name": "CHLORAMINE T"
+             },
+             {
+              "property_value_id": "7514474785586693931",
+              "property_value_name": "SODIUM BICARBONATE"
+             },
+             {
+              "property_value_id": "7268551072896108321",
+              "property_value_name": "YELLOW 6 (CI 15985)"
+             },
+             {
+              "property_value_id": "7006230694141691649",
+              "property_value_name": "ASCORBIC ACID"
+             },
+             {
+              "property_value_id": "7265788923320895278",
+              "property_value_name": "CURCUMA LONGA (TURMERIC) ROOT EXTRACT"
+             },
+             {
+              "property_value_id": "7253041988080076571",
+              "property_value_name": "SODIUM CARBONATE"
+             },
+             {
+              "property_value_id": "7207562675025463046",
+              "property_value_name": "LIMONENE"
+             },
+             {
+              "property_value_id": "7210486608288810758",
+              "property_value_name": "GERANIOL"
+             },
+             {
+              "property_value_id": "7210486608288859910",
+              "property_value_name": "CITRAL"
+             },
+             {
+              "property_value_id": "7207550537305376518",
+              "property_value_name": "HEXYL CINNAMAL"
+             },
+             {
+              "property_value_id": "7192970796548245253",
+              "property_value_name": "LINALOOL"
+             }
+            ],
+            "property_label": {
+             "key_property": false,
+             "binding_property": false,
+             "shopping_guide_property": false,
+             "logistics_property": false,
+             "gne_property": true,
+             "customs_property": false,
+             "spu_same_product_property": false,
+             "legal_property": false,
+             "hide_c_side_property": false,
+             "non_merchant_filled": false
+            },
+            "property_value_id_to_grouping_properties": {}
+           },
+           {
+            "property_id": "100628",
+            "has_image": true,
+            "property_name": "Scent",
+            "property_values": [
+             {
+              "property_value_id": "1000917",
+              "property_value_name": "Natural",
+              "image": {
+               "width": 200,
+               "height": 200,
+               "uri": "tos-alisg-i-aphluv4xwc-sg/eca91255cdb349e2ae725a35b7cbf1c5",
+               "image_source": 0
+              }
+             }
+            ],
+            "property_label": {
+             "key_property": false,
+             "binding_property": false,
+             "shopping_guide_property": true,
+             "logistics_property": false,
+             "gne_property": false,
+             "customs_property": false,
+             "spu_same_product_property": false,
+             "legal_property": false,
+             "hide_c_side_property": false,
+             "non_merchant_filled": false
+            },
+            "property_value_id_to_grouping_properties": {}
+           },
+           {
+            "property_id": "101622",
+            "has_image": false,
+            "property_name": "Benefits",
+            "property_values": [
+             {
+              "property_value_id": "1000969",
+              "property_value_name": "Moisturizing"
+             },
+             {
+              "property_value_id": "1048822",
+              "property_value_name": "Daily care"
+             },
+             {
+              "property_value_id": "1001007",
+              "property_value_name": "Exfoliating"
+             },
+             {
+              "property_value_id": "1000864",
+              "property_value_name": "Hydrating"
+             },
+             {
+              "property_value_id": "1020284",
+              "property_value_name": "Smoothening"
+             }
+            ],
+            "property_label": {
+             "key_property": false,
+             "binding_property": false,
+             "shopping_guide_property": true,
+             "logistics_property": false,
+             "gne_property": false,
+             "customs_property": false,
+             "spu_same_product_property": false,
+             "legal_property": false,
+             "hide_c_side_property": false,
+             "non_merchant_filled": false
+            },
+            "property_value_id_to_grouping_properties": {}
+           },
+           {
+            "property_id": "100335",
+            "has_image": false,
+            "property_name": "Product form",
+            "property_values": [
+             {
+              "property_value_id": "1000049",
+              "property_value_name": "Liquid"
+             }
+            ],
+            "property_label": {
+             "key_property": false,
+             "binding_property": false,
+             "shopping_guide_property": false,
+             "logistics_property": false,
+             "gne_property": false,
+             "customs_property": false,
+             "spu_same_product_property": false,
+             "legal_property": false,
+             "hide_c_side_property": false,
+             "non_merchant_filled": false
+            },
+            "property_value_id_to_grouping_properties": {}
+           }
+          ],
+          "skus": [
+           {
+            "sku_id": "1732606169427382507",
+            "pre_order_ship_day": 0,
+            "is_pre_order": false,
+            "package_weight": 245,
+            "package_length": 6,
+            "package_width": 13,
+            "package_height": 16,
+            "sku_name": "KUSMEA1772",
+            "sku_status": 1,
+            "property_pairs": [
+             {
+              "sku_property_id": "7074870192706242310",
+              "sku_property_value_id": "7654553838766147342",
+              "sku_property_name": "OPTIONS",
+              "sku_property_value_name": "Full"
+             }
+            ],
+            "sku_quantity": {
+             "warehouse_id": "7338008143740323630",
+             "available_quantity": 20732
+            },
+            "sku_image": {
+             "width": 2000,
+             "height": 2000,
+             "uri": "tos-useast5-i-omjb5zjo8w-tx/0f9bf8ec60d04e77bb7cffc6c57a1456",
+             "image_source": 0
+            },
+            "sku_stock_status": 1,
+            "combo_sub_skus": [
+             {
+              "sku_id": "1732575266392477931",
+              "sku_num": 1,
+              "product_id": "1732575250878337259",
+              "item_index": [
+               0
+              ]
+             },
+             {
+              "sku_id": "1731893153750290667",
+              "sku_num": 1,
+              "product_id": "1731893082802589931",
+              "item_index": [
+               0
+              ]
+             },
+             {
+              "sku_id": "1731674973325922539",
+              "sku_num": 1,
+              "product_id": "1731416487804506347",
+              "item_index": [
+               0
+              ]
+             },
+             {
+              "sku_id": "1731391373447500011",
+              "sku_num": 1,
+              "product_id": "1731391357821554923",
+              "item_index": [
+               0
+              ]
+             },
+             {
+              "sku_id": "1732575277679808747",
+              "sku_num": 1,
+              "product_id": "1732575270511153387",
+              "item_index": [
+               0
+              ]
+             }
+            ],
+            "dimension": {
+             "length": "2",
+             "width": "5",
+             "height": "6",
+             "unit": 2
+            },
+            "weight": {
+             "weight": "0.54",
+             "unit": 2
+            },
+            "sale_modes": [
+             5
+            ],
+            "app_to_sku_status": {
+             "0": 1
+            },
+            "sku_transparent_field": "{\"sale_modes\":[5]}",
+            "dimension_v2": {
+             "length": "2",
+             "width": "5",
+             "height": "6",
+             "unit": 2
+            },
+            "weight_v2": {
+             "weight": "0.54",
+             "unit": 2
+            },
+            "support_sale_formats": [
+             0
+            ]
+           },
+           {
+            "sku_id": "1732606169427448043",
+            "pre_order_ship_day": 0,
+            "is_pre_order": false,
+            "package_weight": 245,
+            "package_length": 6,
+            "package_width": 13,
+            "package_height": 16,
+            "sku_name": "KUSMEA1773",
+            "sku_status": 1,
+            "property_pairs": [
+             {
+              "sku_property_id": "7074870192706242310",
+              "sku_property_value_id": "7637435111050512148",
+              "sku_property_name": "OPTIONS",
+              "sku_property_value_name": "Simple"
+             }
+            ],
+            "sku_quantity": {
+             "warehouse_id": "7338008143740323630",
+             "available_quantity": 25002
+            },
+            "sku_image": {
+             "width": 2000,
+             "height": 2000,
+             "uri": "tos-useast5-i-omjb5zjo8w-tx/ad2fbbf28c1e49e2a6dd9ca5f08f1b0b",
+             "image_source": 0
+            },
+            "sku_stock_status": 1,
+            "combo_sub_skus": [
+             {
+              "sku_id": "1732575266392477931",
+              "sku_num": 1,
+              "product_id": "1732575250878337259",
+              "item_index": [
+               0
+              ]
+             },
+             {
+              "sku_id": "1731893153750290667",
+              "sku_num": 1,
+              "product_id": "1731893082802589931",
+              "item_index": [
+               0
+              ]
+             }
+            ],
+            "dimension": {
+             "length": "2",
+             "width": "5",
+             "height": "6",
+             "unit": 2
+            },
+            "weight": {
+             "weight": "0.54",
+             "unit": 2
+            },
+            "sale_modes": [
+             5
+            ],
+            "app_to_sku_status": {
+             "0": 1
+            },
+            "sku_transparent_field": "{\"sale_modes\":[5]}",
+            "dimension_v2": {
+             "length": "2",
+             "width": "5",
+             "height": "6",
+             "unit": 2
+            },
+            "weight_v2": {
+             "weight": "0.54",
+             "unit": 2
+            },
+            "support_sale_formats": [
+             0
+            ]
+           }
+          ],
+          "videos": {},
+          "biz_type": 0,
+          "sku_property_image_map": {
+           "7654553838766147342": {
+            "height": 2000,
+            "width": 2000,
+            "uri": "tos-useast5-i-omjb5zjo8w-tx/0f9bf8ec60d04e77bb7cffc6c57a1456",
+            "url_list": [
+             "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/0f9bf8ec60d04e77bb7cffc6c57a1456~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839",
+             "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/0f9bf8ec60d04e77bb7cffc6c57a1456~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839"
+            ]
+           },
+           "7637435111050512148": {
+            "height": 2000,
+            "width": 2000,
+            "uri": "tos-useast5-i-omjb5zjo8w-tx/ad2fbbf28c1e49e2a6dd9ca5f08f1b0b",
+            "url_list": [
+             "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/ad2fbbf28c1e49e2a6dd9ca5f08f1b0b~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839",
+             "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/ad2fbbf28c1e49e2a6dd9ca5f08f1b0b~tplv-fhlh96nyum-crop-webp:2000:2000.webp?dr=12190&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=useast5&from=2378011839"
+            ]
+           }
+          }
+         },
+         "logistic_model": {
+          "pkg_of_service": {
+           "7480241405839968042": {
+            "delivery_min_days": 7,
+            "delivery_max_days": 11,
+            "delivery_min_time": "1790489727",
+            "delivery_max_time": "1790835327",
+            "delivery_min_bd_days": 6,
+            "delivery_max_bd_days": 8,
+            "cutoff_min_time": 0,
+            "cutoff_max_time": 0,
+            "cod_available": false,
+            "aging_display_status": true,
+            "fulfillable": true,
+            "reachable_item_list": [
+             {
+              "sub_fulfill_id": "0",
+              "order_line_id": "1732606169427382507",
+              "product_id": "1732052189676081387",
+              "sku_id": "1732606169427382507",
+              "length": 6,
+              "width": 13,
+              "height": 16,
+              "weight": 245,
+              "category_id": "601490",
+              "category_type": 1,
+              "currency": "USD",
+              "shipping_fee": "4.84",
+              "dimension_v2": {
+               "length": "2",
+               "width": "5",
+               "height": "6",
+               "unit": 2
+              },
+              "weight_v2": {
+               "weight": "0.54",
+               "unit": 2
+              },
+              "dimension_raw_data": {
+               "length": "2",
+               "width": "5",
+               "height": "6",
+               "unit": 2
+              },
+              "weight_raw_data": {
+               "weight": "0.54",
+               "unit": 2
+              },
+              "sub_combines": [
+               {
+                "sku_id": "1732575266392477931",
+                "product_id": "1732575250878337259",
+                "warehouse_id": "7338008143740323630",
+                "category_type": 0,
+                "length": 9,
+                "width": 6,
+                "height": 9,
+                "weight": 214,
+                "unique_id": "1732575266392477931",
+                "dimension_v2": {
+                 "length": "3.15",
+                 "width": "2.36",
+                 "height": "3.15",
+                 "unit": 2
+                },
+                "weight_v2": {
+                 "weight": "0.47",
+                 "unit": 2
+                },
+                "dimension_raw_data": {
+                 "length": "3.15",
+                 "width": "2.36",
+                 "height": "3.15",
+                 "unit": 2
+                },
+                "weight_raw_data": {
+                 "weight": "0.47",
+                 "unit": 2
+                },
+                "fee": "0.69",
+                "currency": "USD"
+               },
+               {
+                "sku_id": "1731893153750290667",
+                "product_id": "1731893082802589931",
+                "warehouse_id": "7338008143740323630",
+                "category_type": 0,
+                "length": 6,
+                "width": 6,
+                "height": 11,
+                "weight": 454,
+                "unique_id": "1731893153750290667",
+                "dimension_v2": {
+                 "length": "2",
+                 "width": "2",
+                 "height": "4",
+                 "unit": 2
+                },
+                "weight_v2": {
+                 "weight": "1",
+                 "unit": 2
+                },
+                "dimension_raw_data": {
+                 "length": "2",
+                 "width": "2",
+                 "height": "4",
+                 "unit": 2
+                },
+                "weight_raw_data": {
+                 "weight": "1",
+                 "unit": 2
+                },
+                "fee": "1.48",
+                "currency": "USD"
+               },
+               {
+                "sku_id": "1731674973325922539",
+                "product_id": "1731416487804506347",
+                "warehouse_id": "7338008143740323630",
+                "category_type": 0,
+                "length": 8,
+                "width": 8,
+                "height": 11,
+                "weight": 323,
+                "unique_id": "1731674973325922539",
+                "dimension_v2": {
+                 "length": "3",
+                 "width": "3",
+                 "height": "4",
+                 "unit": 2
+                },
+                "weight_v2": {
+                 "weight": "0.71",
+                 "unit": 2
+                },
+                "dimension_raw_data": {
+                 "length": "3",
+                 "width": "3",
+                 "height": "4",
+                 "unit": 2
+                },
+                "weight_raw_data": {
+                 "weight": "0.71",
+                 "unit": 2
+                },
+                "fee": "1.05",
+                "currency": "USD"
+               },
+               {
+                "sku_id": "1731391373447500011",
+                "product_id": "1731391357821554923",
+                "warehouse_id": "7338008143740323630",
+                "category_type": 0,
+                "length": 6,
+                "width": 6,
+                "height": 16,
+                "weight": 327,
+                "unique_id": "1731391373447500011",
+                "dimension_v2": {
+                 "length": "2",
+                 "width": "2",
+                 "height": "6",
+                 "unit": 2
+                },
+                "weight_v2": {
+                 "weight": "0.72",
+                 "unit": 2
+                },
+                "dimension_raw_data": {
+                 "length": "2",
+                 "width": "2",
+                 "height": "6",
+                 "unit": 2
+                },
+                "weight_raw_data": {
+                 "weight": "0.72",
+                 "unit": 2
+                },
+                "fee": "1.07",
+                "currency": "USD"
+               },
+               {
+                "sku_id": "1732575277679808747",
+                "product_id": "1732575270511153387",
+                "warehouse_id": "7338008143740323630",
+                "category_type": 0,
+                "length": 9,
+                "width": 6,
+                "height": 11,
+                "weight": 168,
+                "unique_id": "1732575277679808747",
+                "dimension_v2": {
+                 "length": "3.15",
+                 "width": "2.36",
+                 "height": "3.94",
+                 "unit": 2
+                },
+                "weight_v2": {
+                 "weight": "0.37",
+                 "unit": 2
+                },
+                "dimension_raw_data": {
+                 "length": "3.15",
+                 "width": "2.36",
+                 "height": "3.94",
+                 "unit": 2
+                },
+                "weight_raw_data": {
+                 "weight": "0.37",
+                 "unit": 2
+                },
+                "fee": "0.55",
+                "currency": "USD"
+               }
+              ]
+             }
+            ],
+            "logistics_service": {
+             "service_id": "7480241405839968042",
+             "service_name": "LSV-TTS-US-NEW-4PL-Std",
+             "delivery_option": 1,
+             "display_starling_key": "ecom_logistics_type_Standard",
+             "trackingMode": 1,
+             "booking_type": 1,
+             "party": 1,
+             "level": 2,
+             "transportType": 1,
+             "fulfill_solution": 1
+            },
+            "shipping_fee": "4.84",
+            "currency": "USD",
+            "cod_max_price": "50000",
+            "fulfillment_plan": {
+             "promise_edt": {
+              "delivery_min_day": 7,
+              "delivery_max_day": 11
+             },
+             "fulfillment_snapshot": {}
+            },
+            "fulfillment_snapshot": {},
+            "leadtime_display_strategy": {
+             "display_edt": true
+            },
+            "logistics_identity": "L2L_4PL_US",
+            "extra_info": {
+             "4": "{\"edt_metrics\":\"{\\\"base_info\\\":{\\\"override\\\":[\\\"algo\\\"],\\\"time_zone\\\":\\\"America/New_York\\\",\\\"fulfill_solution\\\":1},\\\"algo_out\\\":{\\\"alg_3dd\\\":\\\"0\\\",\\\"edt_algo_out\\\":\\\"7_11\\\",\\\"is_stable\\\":\\\"0\\\",\\\"kv_3dd_prob\\\":\\\"0.0042\\\",\\\"kv_3dd_threshold\\\":\\\"0.97\\\",\\\"model_3dd_prob\\\":\\\"0.0042\\\",\\\"use_stable\\\":\\\"0\\\",\\\"xdd_th_src\\\":\\\"2\\\"},\\\"exp_out\\\":{\\\"algo_edt\\\":\\\"7-11\\\",\\\"exp_edt\\\":\\\"7_11\\\",\\\"before_xdd_flatten\\\":\\\"7_11\\\",\\\"seller_xdd_status\\\":1,\\\"ship_time\\\":{\\\"cd\\\":3,\\\"bd\\\":2}}}\"}"
+            }
+           }
+          }
+         },
+         "promotion_model": {
+          "promotion_product_price": {
+           "min_price": {
+            "sku_id": "1732606169427448043",
+            "symbol_position": 1,
+            "show_currency_space": false,
+            "currency_show_mode": 1,
+            "currency_name": "USD",
+            "currency_symbol": "$",
+            "sale_price_decimal": "40.3",
+            "origin_price_decimal": "87.1",
+            "sale_price_format": "40.30",
+            "origin_price_format": "87.10",
+            "discount_format": "54%",
+            "discount_decimal": "0.54",
+            "price_prefix": "From",
+            "reduce_price_format": "Saving $46.80",
+            "single_product_price_format": "40.30",
+            "single_product_price_decimal": "40.3",
+            "sale_price_integer_part_format": "40",
+            "sale_price_decimal_part_format": "30",
+            "decimal_point_symbol": ".",
+            "promotion_deduction_details": {
+             "seller_subtotal_deduction": "56.10",
+             "seller_subtotal_deduction_decimal": "56.1"
+            },
+            "raw_origin_price_decimal": "87.1",
+            "raw_origin_price_format": "87.10"
+           },
+           "skus_price": {
+            "1732606169427382507": {
+             "sku_id": "1732606169427382507",
+             "symbol_position": 1,
+             "show_currency_space": false,
+             "currency_show_mode": 1,
+             "currency_name": "USD",
+             "currency_symbol": "$",
+             "sale_price_decimal": "110.5",
+             "origin_price_decimal": "202.8",
+             "sale_price_format": "110.50",
+             "origin_price_format": "202.80",
+             "discount_format": "46%",
+             "discount_decimal": "0.46",
+             "reduce_price_format": "Saving $92.30",
+             "single_product_price_format": "110.50",
+             "single_product_price_decimal": "110.5",
+             "sale_price_integer_part_format": "110",
+             "sale_price_decimal_part_format": "50",
+             "decimal_point_symbol": ".",
+             "promotion_deduction_details": {
+              "seller_subtotal_deduction": "117.80",
+              "seller_subtotal_deduction_decimal": "117.8"
+             },
+             "raw_origin_price_decimal": "202.8",
+             "raw_origin_price_format": "202.80"
+            },
+            "1732606169427448043": {
+             "sku_id": "1732606169427448043",
+             "symbol_position": 1,
+             "show_currency_space": false,
+             "currency_show_mode": 1,
+             "currency_name": "USD",
+             "currency_symbol": "$",
+             "sale_price_decimal": "40.3",
+             "origin_price_decimal": "87.1",
+             "sale_price_format": "40.30",
+             "origin_price_format": "87.10",
+             "discount_format": "54%",
+             "discount_decimal": "0.54",
+             "reduce_price_format": "Saving $46.80",
+             "single_product_price_format": "40.30",
+             "single_product_price_decimal": "40.3",
+             "sale_price_integer_part_format": "40",
+             "sale_price_decimal_part_format": "30",
+             "decimal_point_symbol": ".",
+             "promotion_deduction_details": {
+              "seller_subtotal_deduction": "56.10",
+              "seller_subtotal_deduction_decimal": "56.1"
+             },
+             "raw_origin_price_decimal": "87.1",
+             "raw_origin_price_format": "87.10"
+            }
+           },
+           "range_price": {
+            "min_price_sku_id": "1732606169427448043",
+            "max_price_sku_id": "1732606169427382507",
+            "symbol_position": 1,
+            "show_currency_space": false,
+            "currency_show_mode": 1,
+            "currency_name": "USD",
+            "currency_symbol": "$",
+            "range_price": "40.30 - 110.50",
+            "min_price_integer_part_format": "40",
+            "min_price_decimal_part_format": "30",
+            "max_price_integer_part_format": "110",
+            "max_price_decimal_part_format": "50",
+            "decimal_point_symbol": "."
+           },
+           "feature": [
+            {
+             "property_name": "price_after_coupon_schema",
+             "property_value": "aweme://roma_redirect/?spark_page=roma_schema_price_after_voucher&roma_group_key=spark_page_roma_schema_price_after_voucher&roma_page_key=p&product_id={pid}&track_params={trackParams}&sku_id={skuID}&is_sku_selected={isSkuSelected}",
+             "property_type": 1
+            }
+           ]
+          },
+          "promotion_logistic_list": [
+           {
+            "deliveryOption": 1,
+            "freeShipping": true,
+            "deliveryName": "Standard shipping",
+            "shippingFee": {
+             "origin_price": "4.84",
+             "real_price": "0",
+             "currency": "USD",
+             "real_price_desc": "$0.00",
+             "logistics_shipping_voucher": {}
+            },
+            "logisticsServiceId": "7480241405839968042",
+            "event_tracking": {
+             "shipping_type": "standard"
+            }
+           }
+          ],
+          "reserve_stock_map": {}
+         },
+         "review_model": {
+          "product_overall_score": 4.6,
+          "product_review_count": "15738"
+         },
+         "seller_model": {
+          "shop_name": "medicube US Store",
+          "shop_logo": {
+           "height": 300,
+           "width": 300,
+           "uri": "tos-useast5-i-omjb5zjo8w-tx/3fda6fbf695c4a8792a3059b4e1546e3",
+           "url_list": [
+            "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/3fda6fbf695c4a8792a3059b4e1546e3~tplv-fhlh96nyum-resize-png:300:300.png?dr=12184&t=555f072d&ps=933b5bde&shp=905da467&shcp=6ce186a1&idc=useast5&from=2422056039",
+            "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/3fda6fbf695c4a8792a3059b4e1546e3~tplv-fhlh96nyum-resize-png:300:300.png?dr=12184&t=555f072d&ps=933b5bde&shp=905da467&shcp=6ce186a1&idc=useast5&from=2422056039"
+           ]
+          }
+         },
+         "safety_model": {
+          "legit_warnings": [],
+          "business_compliance_info": {
+           "business_name": "APR US INC",
+           "business_address": "41 GREENFIELD, Irvine, California, 92614, United States"
+          }
+         },
+         "availability_model": {
+          "reason": 0
+         },
+         "base_resp": {
+          "StatusCode": 0,
+          "StatusMessage": "success"
+         }
+        },
+        "shop_info": {
+         "seller_id": "7495514739648989419",
+         "sold_count": 9283638,
+         "on_sell_product_count": 151,
+         "review_count": 549826,
+         "global_seller_id": "7495514739648989419",
+         "global_sold_count": "9283638",
+         "followers_count": "656494",
+         "video_count": "1032",
+         "enable_follow": true,
+         "shop_name": "medicube US Store",
+         "shop_logo": {
+          "height": 300,
+          "width": 300,
+          "uri": "tos-useast5-i-omjb5zjo8w-tx/3fda6fbf695c4a8792a3059b4e1546e3",
+          "url_list": [
+           "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/3fda6fbf695c4a8792a3059b4e1546e3~tplv-fhlh96nyum-resize-webp:300:300.webp?dr=12185&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039",
+           "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/3fda6fbf695c4a8792a3059b4e1546e3~tplv-fhlh96nyum-resize-webp:300:300.webp?dr=12185&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039"
+          ]
+         },
+         "shop_rating": "4.6",
+         "shop_link": "https://shop.tiktok.com/us/store/medicube-us-store/7495514739648989419",
+         "background": {
+          "is_default": false,
+          "image": {
+           "height": 1536,
+           "width": 1600,
+           "uri": "tos-useast5-i-reeeghz8mm-tx/8284f375f04c4e5bace4087bc9de0962",
+           "url_list": [
+            "https://p16-oec-shop-sign.tiktokcdn-us.com/tos-useast5-i-reeeghz8mm-tx/8284f375f04c4e5bace4087bc9de0962~tplv-reeeghz8mm-image-webp.webp?lk3s=905da467&x-expires=1790489727&x-signature=yUYhhB12r4CidjNG2IeEcsChc1g%3D"
+           ]
+          },
+          "shop_background_type": 0
+         },
+         "format_sold_count": "9.3M",
+         "region": "US",
+         "display_on_sell_product_count": "151",
+         "format_global_sold_count": "9.3M",
+         "format_followers_count": "656.4K+",
+         "format_video_count": "1032",
+         "store_sub_score": [
+          {
+           "score": 0.991506511674383,
+           "type": 1,
+           "score_percentage": "99",
+           "high_light_tag": 1,
+           "platform_rate_type": 0
+          },
+          {
+           "score": 0,
+           "type": 2,
+           "score_percentage": "0",
+           "high_light_tag": 0,
+           "platform_rate_type": 0
+          },
+          {
+           "score": 0.8895312370669438,
+           "type": 3,
+           "score_percentage": "89",
+           "platform_rate_type": 0
+          }
+         ],
+         "worst_rating": "0",
+         "best_rating": "5",
+         "creator_name": "medicube US Store",
+         "shop_identity_label": {
+          "label_type": 2,
+          "identity_label_text": "OFFICIAL SHOP",
+          "identity_logo_light": {
+           "height": 144,
+           "width": 144,
+           "ratio": 0,
+           "minetype": "image/png",
+           "uri": "tos-useast5-i-omjb5zjo8w-tx/e6ee5e25d8a049b39c897d02fe9d3fd4",
+           "url_list": [
+            "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/e6ee5e25d8a049b39c897d02fe9d3fd4~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039",
+            "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/e6ee5e25d8a049b39c897d02fe9d3fd4~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039"
+           ]
+          },
+          "identity_logo_dark": {
+           "height": 144,
+           "width": 144,
+           "ratio": 0,
+           "minetype": "image/png",
+           "uri": "tos-useast5-i-omjb5zjo8w-tx/884194976a2c47d1937a1af6e850f18b",
+           "url_list": [
+            "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/884194976a2c47d1937a1af6e850f18b~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039",
+            "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/884194976a2c47d1937a1af6e850f18b~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039"
+           ]
+          },
+          "identity_label_bg_color_light": "#000000",
+          "identity_label_bg_color_dark": "#FFFFFF",
+          "identity_label_text_color_light": "#FFFFFF",
+          "identity_label_text_color_dark": "#000000",
+          "shop_explanation_page_schema": "aweme://lynxview_popup?url=https%3A%2F%2Flf16-gecko-source.tiktokcdn.com%2Fobj%2Fbyte-gurd-source-sg%2Ftiktok%2Ffe%2Flive%2Ftiktok_ecommerce_mall_brand_explanation_runtime%2Fbrand-explanation-page%2Ftemplate.js&use_new_container=1&use_spark=1&target_handler=webcast%2Cecom&trans_status_bar=1&hide_nav_bar=1&status_font_mode=light&enable_prefetch=1&enable_code_cache=1&show_mask=1&mask_bg_color=00000080&height_percent=90&bdhm_bid=astro_behavior_lynx&btm_page_code=b7749&enable_lynx_prefetch=1&radius=12&transition_animation=bottom&enable_pull_down_close=1&seller_id=7495514739648989419",
+          "label_without_bg_style": {
+           "identity_label_text": "OFFICIAL SHOP",
+           "identity_logo_light": {
+            "height": 144,
+            "width": 144,
+            "ratio": 0,
+            "minetype": "image/png",
+            "uri": "tos-useast5-i-omjb5zjo8w-tx/0e45808816064a18964335bd484b3ba2",
+            "url_list": [
+             "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/0e45808816064a18964335bd484b3ba2~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039",
+             "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/0e45808816064a18964335bd484b3ba2~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039"
+            ]
+           },
+           "identity_logo_dark": {
+            "height": 144,
+            "width": 144,
+            "ratio": 0,
+            "minetype": "image/png",
+            "uri": "tos-useast5-i-omjb5zjo8w-tx/e7529b51819146f4ad1c73168abae039",
+            "url_list": [
+             "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/e7529b51819146f4ad1c73168abae039~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039",
+             "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/e7529b51819146f4ad1c73168abae039~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039"
+            ]
+           },
+           "identity_label_text_color_light": "#000000",
+           "identity_label_text_color_dark": "#FFFFFF",
+           "style_type": 2
+          },
+          "brand_info": {
+           "is_brand": true,
+           "brand_style_list": [
+            {
+             "identity_logo_light": {
+              "height": 36,
+              "width": 36,
+              "ratio": 0,
+              "minetype": "image/png",
+              "uri": "tos-useast5-i-omjb5zjo8w-tx/232f7b8dbe7b498e800e08e82e3419fb",
+              "url_list": [
+               "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/232f7b8dbe7b498e800e08e82e3419fb~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039",
+               "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/232f7b8dbe7b498e800e08e82e3419fb~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039"
+              ]
+             },
+             "identity_logo_dark": {
+              "height": 36,
+              "width": 36,
+              "ratio": 0,
+              "minetype": "image/png",
+              "uri": "tos-useast5-i-omjb5zjo8w-tx/e6132af16c8a41a8a232b402aa0bd0d5",
+              "url_list": [
+               "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/e6132af16c8a41a8a232b402aa0bd0d5~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039",
+               "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/e6132af16c8a41a8a232b402aa0bd0d5~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039"
+              ]
+             },
+             "style_type": 1,
+             "identity_image_logo": {
+              "light": {
+               "height": 36,
+               "width": 36,
+               "ratio": 0,
+               "minetype": "image/png",
+               "uri": "tos-useast5-i-omjb5zjo8w-tx/2f6c3073c36c45509b773368fd85b46e",
+               "url_list": [
+                "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/2f6c3073c36c45509b773368fd85b46e~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039",
+                "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/2f6c3073c36c45509b773368fd85b46e~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039"
+               ]
+              },
+              "dark": {
+               "height": 36,
+               "width": 36,
+               "ratio": 0,
+               "minetype": "image/png",
+               "uri": "tos-useast5-i-omjb5zjo8w-tx/ddee6760fa964ba3bc29481b898d1ac0",
+               "url_list": [
+                "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/ddee6760fa964ba3bc29481b898d1ac0~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039",
+                "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/ddee6760fa964ba3bc29481b898d1ac0~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039"
+               ]
+              }
+             }
+            }
+           ]
+          },
+          "ShopIdentityLabelKey": "official",
+          "style_type": 1,
+          "identity_image_logo": {
+           "light": {
+            "height": 42,
+            "width": 288,
+            "ratio": 0,
+            "minetype": "image/png",
+            "uri": "tos-useast5-i-omjb5zjo8w-tx/111dfc99d0024e58bd69d5a74a9fa0e0",
+            "url_list": [
+             "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/111dfc99d0024e58bd69d5a74a9fa0e0~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039",
+             "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/111dfc99d0024e58bd69d5a74a9fa0e0~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039"
+            ]
+           },
+           "dark": {
+            "height": 42,
+            "width": 288,
+            "ratio": 0,
+            "minetype": "image/png",
+            "uri": "tos-useast5-i-omjb5zjo8w-tx/dfc9fbeb5d7947c2a03c60bc1750e9f4",
+            "url_list": [
+             "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/dfc9fbeb5d7947c2a03c60bc1750e9f4~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039",
+             "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/dfc9fbeb5d7947c2a03c60bc1750e9f4~tplv-fhlh96nyum-origin-png.png?dr=12181&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039"
+            ]
+           }
+          }
+         },
+         "store_brand_show": {
+          "label_image_light": {
+           "height": 36,
+           "width": 36,
+           "uri": "tos-maliva-i-acgf4d7es9-us/store_blue_v_fixed.png",
+           "url_list": [
+            "https://p16-oec-general.ttcdn-us.com/tos-maliva-i-acgf4d7es9-us/store_blue_v_fixed.png~tplv-fhlh96nyum-resize-png:36:36.png?dr=12184&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039",
+            "https://p19-oec-general.ttcdn-us.com/tos-maliva-i-acgf4d7es9-us/store_blue_v_fixed.png~tplv-fhlh96nyum-resize-png:36:36.png?dr=12184&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039"
+           ]
+          },
+          "label_image_dark": {
+           "height": 36,
+           "width": 36,
+           "uri": "tos-maliva-i-acgf4d7es9-us/store_blue_v_fixed.png",
+           "url_list": [
+            "https://p16-oec-general.ttcdn-us.com/tos-maliva-i-acgf4d7es9-us/store_blue_v_fixed.png~tplv-fhlh96nyum-resize-png:36:36.png?dr=12184&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039",
+            "https://p19-oec-general.ttcdn-us.com/tos-maliva-i-acgf4d7es9-us/store_blue_v_fixed.png~tplv-fhlh96nyum-resize-png:36:36.png?dr=12184&t=555f072d&ps=933b5bde&shp=905da467&shcp=e1be8f53&idc=useast5&from=2422056039"
+           ]
+          },
+          "brand_type": 3,
+          "label_type_str": "blue_v"
+         },
+         "desc": "Shop medicube US Store on TikTok Shop! 9.3M sold, 656.4K+ followers. 89+% positive feedback. 0+% Ships in 48h, 99+% replies in 24h. Join the trend!",
+         "shop_exp_scores": [
+          {
+           "score": 0.87,
+           "shop_sub_score_type": 4,
+           "score_percentage": "87",
+           "format_score": "87%",
+           "score_description": "Positive feedback",
+           "experience_format_type": 1,
+           "experience_format_description": "Good",
+           "score_level": 2,
+           "format_numeric_score": "87%"
+          },
+          {
+           "score": 0.99,
+           "shop_sub_score_type": 5,
+           "score_percentage": "99",
+           "format_score": "99%",
+           "score_description": "On-time delivery",
+           "experience_format_type": 1,
+           "experience_format_description": "Excellent",
+           "score_level": 3,
+           "format_numeric_score": "99%"
+          },
+          {
+           "score": 4,
+           "shop_sub_score_type": 6,
+           "score_percentage": "",
+           "format_score": "<4h",
+           "score_description": "Issue resolution",
+           "experience_format_type": 1,
+           "experience_format_description": "Excellent",
+           "score_level": 3,
+           "format_numeric_score": "<4h"
+          },
+          {
+           "score": 0.72,
+           "shop_sub_score_type": 7,
+           "score_percentage": "72",
+           "format_score": "Fair",
+           "score_description": "Chat satisfaction",
+           "experience_format_type": 2,
+           "experience_format_description": "Fair",
+           "score_level": 1,
+           "format_numeric_score": "72%"
+          }
+         ]
+        },
+        "vouchers": [],
+        "reviews_info": {},
+        "category_info": {
+         "recommended_categories": [
+          {
+           "category_id": "601450",
+           "category_name": "Beauty & Personal Care",
+           "category_name_en": "beauty-personal-care"
+          },
+          {
+           "category_id": "849160",
+           "category_name": "Bath & Body Care",
+           "category_name_en": "bath-body-care"
+          },
+          {
+           "category_id": "601490",
+           "category_name": "Body Care Sets",
+           "category_name_en": "body-care-sets"
+          }
+         ]
+        },
+        "shop_performance": [],
+        "hot_reviews": []
+       }
+      },
+      {
+       "component_type": "shop_info",
+       "component_name": "shop_info",
+       "fe_config": {
+        "data_source": {
+         "has_pre_dependency": true,
+         "skip_data_return": true,
+         "pre_dependency_modules": [
+          "product_detail"
+         ]
+        }
+       }
+      },
+      {
+       "component_type": "category_info",
+       "component_name": "category_info",
+       "fe_config": {
+        "data_source": {
+         "skip_data_return": true
+        }
+       }
+      },
+      {
+       "component_type": "hot_reviews",
+       "component_name": "hot_reviews",
+       "fe_config": {
+        "data_source": {
+         "request_order": 1,
+         "skip_data_return": true,
+         "has_pre_dependency": true,
+         "pre_dependency_modules": [
+          "product_detail"
+         ]
+        }
+       }
+      },
+      {
+       "component_type": "related_videos",
+       "component_name": "related_videos",
+       "fe_config": {
+        "data_source": {
+         "request_order": 1,
+         "has_pre_dependency": true,
+         "pre_dependency_modules": [
+          "product_detail"
+         ]
+        }
+       }
+      },
+      {
+       "component_type": "feed_list",
+       "component_name": "feed_list_more_from",
+       "fe_config": {
+        "title": "Explore more from {s_shopName}",
+        "is_horizontal": true,
+        "data_source": {
+         "request_order": 1,
+         "type": "more_from",
+         "params": {
+          "count": 10,
+          "shop_page": 2,
+          "product_component": 3
+         },
+         "need_load_more": false,
+         "has_pre_dependency": true,
+         "pre_dependency_modules": [
+          "product_detail"
+         ]
+        }
+       }
+      },
+      {
+       "component_type": "feed_list",
+       "component_name": "feed_list_you_may_like",
+       "fe_config": {
+        "title": "You may also like",
+        "data_source": {
+         "request_order": 1,
+         "type": "recommended_for_you",
+         "params": {
+          "count": 20,
+          "shop_page": 2,
+          "product_component": 9
+         },
+         "use_rule_based_recommendation": true,
+         "need_load_more": false,
+         "has_pre_dependency": true,
+         "pre_dependency_modules": [
+          "product_detail"
+         ]
+        }
+       }
+      },
+      {
+       "component_type": "related_link",
+       "component_name": "related_link",
+       "fe_config": {
+        "title": "People also searched for",
+        "data_source": {
+         "request_order": 1
+        }
+       }
+      },
+      {
+       "component_type": "bread_crumbs",
+       "component_name": "bread_crumbs",
+       "fe_config": {
+        "data_source": {
+         "request_order": 1,
+         "has_pre_dependency": true,
+         "pre_dependency_modules": [
+          "category_info"
+         ]
+        }
+       }
+      },
+      {
+       "component_type": "page_footer",
+       "component_name": "page_footer",
+       "fe_config": {
+        "need_expose_pool": true,
+        "data_source": {
+         "request_order": 1
+        }
+       }
+      },
+      {
+       "component_type": "call_app",
+       "component_name": "call_app",
+       "fe_config": {
+        "data_source": {}
+       },
+       "component_data": {
+        "banners": [],
+        "popups": [
+         {
+          "name": "popup_pdp",
+          "jump_link_type": "default",
+          "launch_type": "tiktok_app",
+          "image": "https://lf16-tiktok-common.ibytedtos.com/obj/tiktok-web-common-sg/mtact/static/images/tiktok/rebrand-logo.png",
+          "title": "Get the full experience on the app",
+          "description": "Follow your favorite accounts, explore new trends, and create your own videos",
+          "action_button_text": "Open TikTok",
+          "dismiss_button_text": "Not now",
+          "popup_url": {
+           "url_schemes": [
+            "snssdk1233://ec/pdp?biz_type=0&gd_label={{gd_label}}&need_mall=1&needlaunchlog=1&page_name=reflow_pdp&params_url=https%3A%2F%2Fshop.tiktok.com%2Fus%2Fpdp%2F1732052189676081387%3Fsource%3Dproduct_detail%26first_entrance%3Dproduct_detail%26first_entrance_tt_scene%3Dseo&refer=web&requestParams=%7B%22product_id%22%3A%5B%221732052189676081387%22%5D%7D&trackParams="
+           ],
+           "url_fallback": "https://snssdk1233.onelink.me/bIdt?domain_source=tiktok&af_dp={{schema}}",
+           "extra": ""
+          }
+         }
+        ],
+        "buttons": [],
+        "wrappers": [
+         {
+          "name": "wrapper_pdp",
+          "jump_link_type": "default",
+          "launch_type": "tiktok_app",
+          "wrapper_url": {
+           "url_schemes": [
+            "snssdk1233://ec/pdp?biz_type=0&gd_label={{gd_label}}&need_mall=1&needlaunchlog=1&page_name=reflow_pdp&params_url=https%3A%2F%2Fshop.tiktok.com%2Fus%2Fpdp%2F1732052189676081387%3Fsource%3Dproduct_detail%26first_entrance%3Dproduct_detail%26first_entrance_tt_scene%3Dseo&refer=web&requestParams=%7B%22product_id%22%3A%5B%221732052189676081387%22%5D%7D&trackParams="
+           ],
+           "url_fallback": "https://snssdk1233.onelink.me/bIdt?domain_source=tiktok&af_dp={{schema}}",
+           "extra": ""
+          }
+         },
+         {
+          "name": "wrapper_coupon_open_homepage",
+          "jump_link_type": "default",
+          "launch_type": "tiktok_app",
+          "wrapper_url": {
+           "url_schemes": [
+            "snssdk1233://shop/open_homepage?biz_type=0&gd_label={{gd_label}}&needlaunchlog=1&params_url=https%3A%2F%2Fshop.tiktok.com%2Fus%2Fpdp%2F1732052189676081387%3Fsource%3Dproduct_detail%26first_entrance%3Dproduct_detail%26first_entrance_tt_scene%3Dseo&refer=web&requestParams=%7B%22product_id%22%3A%5B%221732052189676081387%22%5D%7D&trackParams="
+           ],
+           "url_fallback": "https://snssdk1233.onelink.me/bIdt?domain_source=tiktok&af_dp={{schema}}",
+           "extra": ""
+          }
+         },
+         {
+          "name": "wrapper_my_coupons",
+          "jump_link_type": "default",
+          "launch_type": "tiktok_app",
+          "wrapper_url": {
+           "url_schemes": [
+            "snssdk1233://roma_redirect?biz_type=0&gd_label={{gd_label}}&needlaunchlog=1&params_url=https%3A%2F%2Fshop.tiktok.com%2Fus%2Fpdp%2F1732052189676081387%3Fsource%3Dproduct_detail%26first_entrance%3Dproduct_detail%26first_entrance_tt_scene%3Dseo&refer=web&requestParams=%7B%22product_id%22%3A%5B%221732052189676081387%22%5D%7D&roma_group_key=spark_page_roma_schema_your_offer&roma_page_key=p&spark_page=roma_schema_your_offer&trackParams="
+           ],
+           "url_fallback": "https://snssdk1233.onelink.me/bIdt?domain_source=tiktok&af_dp={{schema}}",
+           "extra": ""
+          }
+         },
+         {
+          "name": "wrapper_ad_open_homepage",
+          "jump_link_type": "default",
+          "launch_type": "tiktok_app",
+          "wrapper_url": {
+           "url_schemes": [
+            "snssdk1233://shop/open_homepage?biz_type=0&needlaunchlog=1&params_url=https%3A%2F%2Fshop.tiktok.com%2Fus%2Fpdp%2F1732052189676081387%3Fsource%3Dproduct_detail%26first_entrance%3Dproduct_detail%26first_entrance_tt_scene%3Dseo&refer=web&request_params=%257B%2522product_id%2522%253A%255B%25221732052189676081387%2522%255D%257D&track_params="
+           ],
+           "url_fallback": "https://snssdk1233.onelink.me/bIdt?domain_source=tiktok&af_dp={{schema}}",
+           "extra": ""
+          }
+         }
+        ],
+        "page_context": {
+         "idc": "US-TTP",
+         "biz_name": "ECSharing",
+         "page_name": "Pdp",
+         "region": "US"
+        }
+       }
+      },
+      {
+       "component_type": "bottom_button",
+       "component_name": "bottom_button",
+       "fe_config": {
+        "is_pay_supported": true,
+        "is_cart_supported": true
+       }
+      },
+      {
+       "component_type": "reviews",
+       "component_name": "reviews",
+       "fe_config": {
+        "data_source": {
+         "request_order": 1,
+         "skip_data_return": true
+        }
+       }
+      }
+     ]
+    }
+   }
+  }
+ },
+ "已知成功：JJ Glow ID": {
+  "code": 200,
+  "request_id": "5d9d8834-5274-4f4d-82c7-bd6187efd0d8",
+  "message": "Request successful. This request will incur a charge.",
+  "message_zh": "请求成功，本次请求将被计费。",
+  "support": "Discord: https://discord.gg/aMEAS8Xsvz",
+  "time": "2026-09-19 23:15:31",
+  "time_stamp": 1789884931,
+  "time_zone": "America/Los_Angeles",
+  "docs": "https://api.tikhub.io/#/TikTok-Shop-Web-API/fetch_product_detail_v3_api_v1_tiktok_shop_web_fetch_product_detail_v3_get",
+  "cache_message": "This response is cached and accessible via the URL below for 24 hours at no extra cost. The cache is for request tracing only — it doesn't affect the API's data freshness and won't be returned through the API again.",
+  "cache_message_zh": "本次响应已缓存，可通过下方 URL 直接查看，有效期 24 小时，访问缓存链接无额外费用。缓存仅用于请求溯源，不影响接口数据的时效性，也不会再次通过接口返回。",
+  "cache_url": "https://cache.tikhub.io/api/v1/cache/public/5d9d8834-5274-4f4d-82c7-bd6187efd0d8?sign=acbda71eca53d66cd49b5866905be380fb103bc4cbfd62f5c8116e37f9108569",
+  "router": "/api/v1/tiktok/shop/web/fetch_product_detail_v3",
+  "params": {
+   "product_id": "1735304940106318937",
+   "region": "ID"
+  },
+  "data": {
+   "product_data": {
+    "ab_test": {
+     "user_level": {},
+     "page_level": {
+      "page_id": "71638950174112378",
+      "vids": [],
+      "params": {}
+     }
+    },
+    "page_config": {
+     "global_fe_config": {},
+     "components_map": [
+      {
+       "component_type": "page_header",
+       "component_name": "page_header",
+       "fe_config": {
+        "disable_search": true
+       }
+      },
+      {
+       "component_type": "call_app_bottom_popup",
+       "component_name": "call_app_bottom_popup",
+       "fe_config": {
+        "target": "wrapper_pdp"
+       }
+      },
+      {
+       "component_type": "coupon_popup",
+       "component_name": "coupon_popup",
+       "fe_config": {}
+      },
+      {
+       "component_type": "product_detail",
+       "component_name": "product_detail",
+       "fe_config": {
+        "data_source": {
+         "skip_data_return": true
+        }
+       }
+      },
+      {
+       "component_type": "product_info",
+       "component_name": "product_info",
+       "fe_config": {
+        "show_protections_policy": true,
+        "show_empty_page": true,
+        "data_source": {
+         "has_pre_dependency": true,
+         "pre_dependency_modules": [
+          "product_detail",
+          "category_info"
+         ]
+        }
+       },
+       "component_data": {
+        "error_code": 0,
+        "error_message": "success",
+        "product_info": {
+         "product_model": {
+          "product_id": "1735304940106318937",
+          "seller_id": "7493990105736971353",
+          "sold_count": "1299383",
+          "name": "[ BEST SELLER ] JJ Glow Sabun Gluta Pink Barsoap Gluta Pink Soap With 10X Brightening Formula Glowing Niacinamide Kojic Acid Glutathione Alpha Arbutin Mencerahkan",
+          "description": "[{\"type\":\"text\",\"text\":\"JJ Glow Gluta Pink Brightening Soap\",\"sub\":[{\"t\":\"JJ Glow Gluta Pink Brightening Soap\",\"b\":true,\"align\":1,\"h\":1}]},{\"type\":\"text\",\"text\":\"With 10X Brightening Formula\",\"sub\":[{\"t\":\"With 10X Brightening Formula\",\"b\":true}]},{\"type\":\"text\",\"text\":\"Sabun batang dengan formula brightening yang membantu membersihkan kulit sekaligus memberikan tampilan lebih cerah, halus, dan sehat. Cocok untuk kamu yang ingin kulit tampak lebih fresh, glowing, dan terawat setiap hari.\\n\\nMANFAAT UTAMA\",\"sub\":[{\"t\":\"Sabun batang dengan formula brightening yang membantu membersihkan kulit sekaligus memberikan tampilan lebih cerah, halus, dan sehat. Cocok untuk kamu yang ingin kulit tampak lebih fresh, glowing, dan terawat setiap hari.\"},{\"t\":\"\\n\"},{\"t\":\"\\n\"},{\"t\":\"MANFAAT UTAMA\",\"b\":true}]},{\"type\":\"text\",\"text\":\"Membantu mencerahkan tampilan kulit\\nMembersihkan kotoran & minyak berlebih\\nMembuat kulit terasa lebih halus & lembut\\nMembantu meratakan warna kulit\\nMemberikan efek fresh & bersih setelah pemakaian\",\"sub\":[{\"t\":\"Membantu mencerahkan tampilan kulit\"},{\"t\":\"\\n\"},{\"t\":\"Membersihkan kotoran & minyak berlebih\"},{\"t\":\"\\n\"},{\"t\":\"Membuat kulit terasa lebih halus & lembut\"},{\"t\":\"\\n\"},{\"t\":\"Membantu meratakan warna kulit\"},{\"t\":\"\\n\"},{\"t\":\"Memberikan efek fresh & bersih setelah pemakaian\"}]},{\"type\":\"text\",\"text\":\"\\nKANDUNGAN UTAMA\",\"sub\":[{\"t\":\"\\n\"},{\"t\":\"KANDUNGAN UTAMA\",\"b\":true}]},{\"type\":\"ul\",\"content\":[\"Niacinamide membantu mencerahkan & meratakan warna kulit\",\"Glutathione membantu tampilan kulit lebih glowing\",\"Kojic Acid bantu menyamarkan kusam\",\"Alpha Arbutin membantu brightening\",\"Tranexamic Acid bantu tampilan kulit lebih cerah merata\",\"Licorice Extract menenangkan & membantu mencerahkan\",\"DNA Salmon membantu menjaga kelembapan kulit\"],\"li_sub\":[[{\"t\":\"Niacinamide\",\"b\":true},{\"t\":\" membantu mencerahkan & meratakan warna kulit\"}],[{\"t\":\"Glutathione\",\"b\":true},{\"t\":\" membantu tampilan kulit lebih glowing\"}],[{\"t\":\"Kojic Acid\",\"b\":true},{\"t\":\" bantu menyamarkan kusam\"}],[{\"t\":\"Alpha Arbutin\",\"b\":true},{\"t\":\" membantu brightening\"}],[{\"t\":\"Tranexamic Acid\",\"b\":true},{\"t\":\" bantu tampilan kulit lebih cerah merata\"}],[{\"t\":\"Licorice Extract\",\"b\":true},{\"t\":\" menenangkan & membantu mencerahkan\"}],[{\"t\":\"DNA Salmon\",\"b\":true},{\"t\":\" membantu menjaga kelembapan kulit\"}]]},{\"type\":\"text\",\"text\":\"CARA PAKAI\",\"sub\":[{\"t\":\"CARA PAKAI\",\"b\":true,\"align\":1,\"h\":1}]},{\"type\":\"ol\",\"content\":[\"Basahi kulit terlebih dahulu\",\"Gosok sabun hingga berbusa\",\"Aplikasikan ke tubuh/area yang diinginkan\",\"Diamkan sebentar (opsional) lalu bilas hingga bersih\"],\"li_sub\":[[{\"t\":\"Basahi kulit terlebih dahulu\"}],[{\"t\":\"Gosok sabun hingga berbusa\"}],[{\"t\":\"Aplikasikan ke tubuh/area yang diinginkan\"}],[{\"t\":\"Diamkan sebentar (opsional) lalu bilas hingga bersih\"}]]},{\"type\":\"text\",\"text\":\"Gunakan secara rutin untuk hasil maksimal\\n\\nKEUNGGULAN PRODUK\",\"sub\":[{\"t\":\"Gunakan secara rutin untuk hasil maksimal\"},{\"t\":\"\\n\"},{\"t\":\"\\n\"},{\"t\":\"KEUNGGULAN PRODUK\",\"b\":true}]},{\"type\":\"text\",\"text\":\"Formula brightening ringan & nyaman digunakan\\nCocok untuk pemakaian sehari-hari\\nMembersihkan tanpa membuat kulit terasa kaku\\nMembantu tampilan kulit lebih sehat & glowing\\nBisa digunakan untuk badan\",\"sub\":[{\"t\":\"Formula brightening ringan & nyaman digunakan\"},{\"t\":\"\\n\"},{\"t\":\"Cocok untuk pemakaian sehari-hari\"},{\"t\":\"\\n\"},{\"t\":\"Membersihkan tanpa membuat kulit terasa kaku\"},{\"t\":\"\\n\"},{\"t\":\"Membantu tampilan kulit lebih sehat & glowing\"},{\"t\":\"\\n\"},{\"t\":\"Bisa digunakan untuk badan\"}]}]",
+          "images": [
+           {
+            "height": 1254,
+            "width": 1254,
+            "uri": "tos-alisg-i-aphluv4xwc-sg/ce70fdf2e41c4230adeb604243271bc8",
+            "url_list": [
+             "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/ce70fdf2e41c4230adeb604243271bc8~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839",
+             "https://p19-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/ce70fdf2e41c4230adeb604243271bc8~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839"
+            ]
+           },
+           {
+            "height": 1254,
+            "width": 1254,
+            "uri": "tos-alisg-i-aphluv4xwc-sg/83b6b3198caa44c1bc4c0f59cc788fa2",
+            "url_list": [
+             "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/83b6b3198caa44c1bc4c0f59cc788fa2~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839",
+             "https://p19-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/83b6b3198caa44c1bc4c0f59cc788fa2~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839"
+            ]
+           },
+           {
+            "height": 1254,
+            "width": 1254,
+            "uri": "tos-alisg-i-aphluv4xwc-sg/9603c78af94e4bb0b3b85ebd32b77cb0",
+            "url_list": [
+             "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/9603c78af94e4bb0b3b85ebd32b77cb0~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839",
+             "https://p19-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/9603c78af94e4bb0b3b85ebd32b77cb0~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839"
+            ]
+           },
+           {
+            "height": 1254,
+            "width": 1254,
+            "uri": "tos-alisg-i-aphluv4xwc-sg/62cdf762bb9a4ac8b18e2990d90f9319",
+            "url_list": [
+             "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/62cdf762bb9a4ac8b18e2990d90f9319~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839",
+             "https://p19-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/62cdf762bb9a4ac8b18e2990d90f9319~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839"
+            ]
+           },
+           {
+            "height": 1254,
+            "width": 1254,
+            "uri": "tos-alisg-i-aphluv4xwc-sg/84add16d207a4805b5ee5a922d239b90",
+            "url_list": [
+             "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/84add16d207a4805b5ee5a922d239b90~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839",
+             "https://p19-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/84add16d207a4805b5ee5a922d239b90~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839"
+            ]
+           },
+           {
+            "height": 1254,
+            "width": 1254,
+            "uri": "tos-alisg-i-aphluv4xwc-sg/cc7a244e69bc4dfc8220b2343ba33055",
+            "url_list": [
+             "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/cc7a244e69bc4dfc8220b2343ba33055~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839",
+             "https://p19-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/cc7a244e69bc4dfc8220b2343ba33055~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839"
+            ]
+           },
+           {
+            "height": 1254,
+            "width": 1254,
+            "uri": "tos-alisg-i-aphluv4xwc-sg/907a2099a24d4323855d0dae2b44302d",
+            "url_list": [
+             "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/907a2099a24d4323855d0dae2b44302d~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839",
+             "https://p19-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/907a2099a24d4323855d0dae2b44302d~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839"
+            ]
+           },
+           {
+            "height": 1254,
+            "width": 1254,
+            "uri": "tos-alisg-i-aphluv4xwc-sg/79f3968f62444330b5c35aa1024a06cc",
+            "url_list": [
+             "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/79f3968f62444330b5c35aa1024a06cc~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839",
+             "https://p19-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/79f3968f62444330b5c35aa1024a06cc~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839"
+            ]
+           },
+           {
+            "height": 1254,
+            "width": 1254,
+            "uri": "tos-alisg-i-aphluv4xwc-sg/cb074cd7b41040b78102a6556dea9bb4",
+            "url_list": [
+             "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/cb074cd7b41040b78102a6556dea9bb4~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839",
+             "https://p19-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/cb074cd7b41040b78102a6556dea9bb4~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839"
+            ]
+           }
+          ],
+          "sale_properties": [
+           {
+            "property_id": "100089",
+            "has_image": true,
+            "property_name": "Spesifikasi",
+            "property_values": [
+             {
+              "property_value_id": "7113004303341815558",
+              "property_value_name": "1 box isi 2 sabun",
+              "image": {
+               "height": 1254,
+               "width": 1254,
+               "uri": "tos-alisg-i-aphluv4xwc-sg/8c58e7f3992347d59fc969e4239d90a4",
+               "url_list": [
+                "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/8c58e7f3992347d59fc969e4239d90a4~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839",
+                "https://p19-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/8c58e7f3992347d59fc969e4239d90a4~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839"
+               ]
+              }
+             },
+             {
+              "property_value_id": "7658611172845389588",
+              "property_value_name": "2 box dapat 4 sabun + 1 jaring",
+              "image": {
+               "height": 1254,
+               "width": 1254,
+               "uri": "tos-alisg-i-aphluv4xwc-sg/f7e344d5e2b943778f5df323c7e737b9",
+               "url_list": [
+                "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/f7e344d5e2b943778f5df323c7e737b9~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839",
+                "https://p19-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/f7e344d5e2b943778f5df323c7e737b9~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839"
+               ]
+              }
+             },
+             {
+              "property_value_id": "7664500108580914965",
+              "property_value_name": "1 box sabun isi 2 + 1 body lotion (Combo Booster)",
+              "image": {
+               "height": 1254,
+               "width": 1254,
+               "uri": "tos-alisg-i-aphluv4xwc-sg/53a891325cd24afcb5bebfa00b867ac7",
+               "url_list": [
+                "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/53a891325cd24afcb5bebfa00b867ac7~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839",
+                "https://p19-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/53a891325cd24afcb5bebfa00b867ac7~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839"
+               ]
+              }
+             }
+            ],
+            "property_label": {
+             "key_property": false,
+             "binding_property": false,
+             "shopping_guide_property": false,
+             "logistics_property": false,
+             "gne_property": false,
+             "customs_property": false,
+             "spu_same_product_property": false,
+             "legal_property": false,
+             "hide_c_side_property": false,
+             "non_merchant_filled": false
+            },
+            "property_value_id_to_grouping_properties": {}
+           }
+          ],
+          "product_properties": [
+           {
+            "property_id": "101066",
+            "has_image": false,
+            "property_name": "Nomor Ijin Edar  (BPOM / PIRT)",
+            "property_values": [
+             {
+              "property_value_id": "7636213155286550273",
+              "property_value_name": "NA18260500350"
+             }
+            ],
+            "property_label": {
+             "key_property": false,
+             "binding_property": false,
+             "shopping_guide_property": false,
+             "logistics_property": false,
+             "gne_property": true,
+             "customs_property": false,
+             "spu_same_product_property": false,
+             "legal_property": false,
+             "hide_c_side_property": false,
+             "non_merchant_filled": false
+            },
+            "property_value_id_to_grouping_properties": {}
+           }
+          ],
+          "skus": [
+           {
+            "sku_id": "1735467171332392025",
+            "pre_order_ship_day": 0,
+            "is_pre_order": false,
+            "package_weight": 45,
+            "package_length": 5,
+            "package_width": 5,
+            "package_height": 5,
+            "sku_name": "JJ0004-1",
+            "sku_status": 1,
+            "property_pairs": [
+             {
+              "sku_property_id": "100089",
+              "sku_property_value_id": "7113004303341815558",
+              "sku_property_name": "Spesifikasi",
+              "sku_property_value_name": "1 box isi 2 sabun"
+             }
+            ],
+            "sku_quantity": {
+             "warehouse_id": "6993182189689014017",
+             "available_quantity": 67355
+            },
+            "sku_image": {
+             "width": 1254,
+             "height": 1254,
+             "uri": "tos-alisg-i-aphluv4xwc-sg/8c58e7f3992347d59fc969e4239d90a4",
+             "image_source": 0
+            },
+            "sku_stock_status": 1,
+            "dimension": {
+             "length": "5",
+             "width": "5",
+             "height": "5",
+             "unit": 1
+            },
+            "weight": {
+             "weight": "45",
+             "unit": 1
+            },
+            "sale_modes": [],
+            "app_to_sku_status": {
+             "0": 1,
+             "1": 1
+            },
+            "toko_url": "new-launching-barsoap-1735304940106318937-1735467171332392025",
+            "sku_transparent_field": "{}",
+            "dimension_v2": {
+             "length": "5",
+             "width": "5",
+             "height": "5",
+             "unit": 1
+            },
+            "weight_v2": {
+             "weight": "45",
+             "unit": 1
+            },
+            "support_sale_formats": [
+             0
+            ]
+           },
+           {
+            "sku_id": "1735467171332457561",
+            "pre_order_ship_day": 0,
+            "is_pre_order": false,
+            "package_weight": 90,
+            "package_length": 5,
+            "package_width": 5,
+            "package_height": 5,
+            "sku_name": "JJ0004-2J1",
+            "sku_status": 1,
+            "property_pairs": [
+             {
+              "sku_property_id": "100089",
+              "sku_property_value_id": "7658611172845389588",
+              "sku_property_name": "Spesifikasi",
+              "sku_property_value_name": "2 box dapat 4 sabun + 1 jaring"
+             }
+            ],
+            "sku_quantity": {
+             "warehouse_id": "6993182189689014017",
+             "available_quantity": 68528
+            },
+            "sku_image": {
+             "width": 1254,
+             "height": 1254,
+             "uri": "tos-alisg-i-aphluv4xwc-sg/f7e344d5e2b943778f5df323c7e737b9",
+             "image_source": 0
+            },
+            "sku_stock_status": 1,
+            "dimension": {
+             "length": "5",
+             "width": "5",
+             "height": "5",
+             "unit": 1
+            },
+            "weight": {
+             "weight": "90",
+             "unit": 1
+            },
+            "sale_modes": [],
+            "app_to_sku_status": {
+             "0": 1,
+             "1": 1
+            },
+            "toko_url": "new-launching-barsoap-1735304940106318937-1735467171332457561",
+            "sku_transparent_field": "{}",
+            "dimension_v2": {
+             "length": "5",
+             "width": "5",
+             "height": "5",
+             "unit": 1
+            },
+            "weight_v2": {
+             "weight": "90",
+             "unit": 1
+            },
+            "support_sale_formats": [
+             0
+            ]
+           },
+           {
+            "sku_id": "1736613420319147097",
+            "pre_order_ship_day": 0,
+            "is_pre_order": false,
+            "package_weight": 240,
+            "package_length": 5,
+            "package_width": 5,
+            "package_height": 5,
+            "sku_name": "JJ0004-1BL",
+            "sku_status": 1,
+            "property_pairs": [
+             {
+              "sku_property_id": "100089",
+              "sku_property_value_id": "7664500108580914965",
+              "sku_property_name": "Spesifikasi",
+              "sku_property_value_name": "1 box sabun isi 2 + 1 body lotion (Combo Booster)"
+             }
+            ],
+            "sku_quantity": {
+             "warehouse_id": "6993182189689014017",
+             "available_quantity": 85336
+            },
+            "sku_image": {
+             "width": 1254,
+             "height": 1254,
+             "uri": "tos-alisg-i-aphluv4xwc-sg/53a891325cd24afcb5bebfa00b867ac7",
+             "image_source": 0
+            },
+            "sku_stock_status": 1,
+            "dimension": {
+             "length": "5",
+             "width": "5",
+             "height": "5",
+             "unit": 1
+            },
+            "weight": {
+             "weight": "240",
+             "unit": 1
+            },
+            "sale_modes": [],
+            "app_to_sku_status": {
+             "0": 1,
+             "1": 1
+            },
+            "toko_url": "new-launching-barsoap-1735304940106318937-1736613420319147097",
+            "sku_transparent_field": "{}",
+            "dimension_v2": {
+             "length": "5",
+             "width": "5",
+             "height": "5",
+             "unit": 1
+            },
+            "weight_v2": {
+             "weight": "240",
+             "unit": 1
+            },
+            "support_sale_formats": [
+             0
+            ]
+           }
+          ],
+          "videos": {
+           "v10c21g50000d9abkc7og65jgk46hlng": {
+            "duration": 40.007,
+            "id": "v10c21g50000d9abkc7og65jgk46hlng",
+            "post_url": "https://p16-common-sign.tiktokcdn.com/tos-alisg-v-f466fc-sg/ow6hUiUPiS0YjBlI1FAhhUQSwJaBAvz0oEuMB~tplv-noop.image?dr=18692&refresh_token=2e0ef659&x-expires=1789906570&x-signature=6Zeo8kDpuVjPjHyal%2Fq0UtiVgTw%3D&t=9276707c&ps=14f1eb3e&shp=9e36835a&shcp=6ce186a1&idc=my&VideoID=v10c21g50000d9abkc7og65jgk46hlng",
+            "media_type": "video",
+            "video_infos": [
+             {
+              "url_expire": 1789906570,
+              "width": 576,
+              "height": 1024,
+              "size": 4758351,
+              "bitrate": 951503,
+              "main_url": "https://v16m-default.tiktokcdn.com/ae97c11a3b3e80523465c1dd06159ab5/6aafce8a/video/tos/alisg/tos-alisg-v-f466fc-sg/oEQ8ULCUwqpdRLjfOeyGLAgEgWDeGhFEGIJCIX/?a=0&bti=PDM8QDI2M2A%3D&&bt=929&ft=cApXJCz7ThWHHr.QLGZmo0P&mime_type=video_mp4&rc=Zjw5ZDYzaGVlaDNkOWhmNEBpam85bm05cmZlPDMzODRmNEAxYTU0MTVgNV8xYy1iXjBhYSNrZTFkMmQ0aF5hLS1kLy1zcw%3D%3D&vvpl=1&l=202609201415303F6E9A613D4375041069&btag=e00048000",
+              "backup_url": "https://v16m.byteicdn.com/ae97c11a3b3e80523465c1dd06159ab5/6aafce8a/video/tos/alisg/tos-alisg-v-f466fc-sg/oEQ8ULCUwqpdRLjfOeyGLAgEgWDeGhFEGIJCIX/?a=0&bti=PDM8QDI2M2A%3D&&bt=929&ft=cApXJCz7ThWHHr.QLGZmo0P&mime_type=video_mp4&rc=Zjw5ZDYzaGVlaDNkOWhmNEBpam85bm05cmZlPDMzODRmNEAxYTU0MTVgNV8xYy1iXjBhYSNrZTFkMmQ0aF5hLS1kLy1zcw%3D%3D&vvpl=1&l=202609201415303F6E9A613D4375041069&btag=e00048000",
+              "file_hash": "b425d44557a18116bea259f766be3592",
+              "format": "mp4",
+              "video_quality": "normal"
+             },
+             {
+              "url_expire": 1789906570,
+              "width": 720,
+              "height": 1280,
+              "size": 6085538,
+              "bitrate": 1216894,
+              "main_url": "https://v16m-default.tiktokcdn.com/df35d06b02e3ca3c48686d4891b3b160/6aafce8a/video/tos/alisg/tos-alisg-v-f466fc-sg/owEAwvjP6AQizhzhaMSzlBhUuUiIonFY1Z4Qa/?a=0&bti=PDM8QDI2M2A%3D&&bt=1188&ft=cApXJCz7ThWHHr.QLGZmo0P&mime_type=video_mp4&rc=NTNlZ2ZnaGZnZjVpNDpoNEBpam85bm05cmZlPDMzODRmNEA2YzVgNDUuNmIxYWIyMy01YSNrZTFkMmQ0aF5hLS1kLy1zcw%3D%3D&vvpl=1&l=202609201415303F6E9A613D4375041069&btag=e00048000",
+              "backup_url": "https://v16m.byteicdn.com/df35d06b02e3ca3c48686d4891b3b160/6aafce8a/video/tos/alisg/tos-alisg-v-f466fc-sg/owEAwvjP6AQizhzhaMSzlBhUuUiIonFY1Z4Qa/?a=0&bti=PDM8QDI2M2A%3D&&bt=1188&ft=cApXJCz7ThWHHr.QLGZmo0P&mime_type=video_mp4&rc=NTNlZ2ZnaGZnZjVpNDpoNEBpam85bm05cmZlPDMzODRmNEA2YzVgNDUuNmIxYWIyMy01YSNrZTFkMmQ0aF5hLS1kLy1zcw%3D%3D&vvpl=1&l=202609201415303F6E9A613D4375041069&btag=e00048000",
+              "file_hash": "b1544bd9c3482082f2668843101e0e8f",
+              "format": "mp4",
+              "video_quality": "normal"
+             }
+            ]
+           }
+          },
+          "biz_type": 0,
+          "sku_property_image_map": {
+           "7113004303341815558": {
+            "height": 1254,
+            "width": 1254,
+            "uri": "tos-alisg-i-aphluv4xwc-sg/8c58e7f3992347d59fc969e4239d90a4",
+            "url_list": [
+             "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/8c58e7f3992347d59fc969e4239d90a4~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839",
+             "https://p19-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/8c58e7f3992347d59fc969e4239d90a4~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839"
+            ]
+           },
+           "7658611172845389588": {
+            "height": 1254,
+            "width": 1254,
+            "uri": "tos-alisg-i-aphluv4xwc-sg/f7e344d5e2b943778f5df323c7e737b9",
+            "url_list": [
+             "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/f7e344d5e2b943778f5df323c7e737b9~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839",
+             "https://p19-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/f7e344d5e2b943778f5df323c7e737b9~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839"
+            ]
+           },
+           "7664500108580914965": {
+            "height": 1254,
+            "width": 1254,
+            "uri": "tos-alisg-i-aphluv4xwc-sg/53a891325cd24afcb5bebfa00b867ac7",
+            "url_list": [
+             "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/53a891325cd24afcb5bebfa00b867ac7~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839",
+             "https://p19-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/53a891325cd24afcb5bebfa00b867ac7~tplv-aphluv4xwc-crop-webp:1254:1254.webp?dr=15592&t=555f072d&ps=933b5bde&shp=8dbd94bf&shcp=e1be8f53&idc=my&from=2378011839"
+            ]
+           }
+          }
+         },
+         "logistic_model": {
+          "pkg_of_service": {
+           "6956478737705600769": {
+            "delivery_min_days": 3,
+            "delivery_max_days": 6,
+            "delivery_min_time": "1790144130",
+            "delivery_max_time": "1790403330",
+            "cutoff_min_time": 0,
+            "cutoff_max_time": 57600,
+            "cod_available": true,
+            "aging_display_status": true,
+            "fulfillable": true,
+            "reachable_item_list": [
+             {
+              "sub_fulfill_id": "0",
+              "order_line_id": "1735467171332392025",
+              "product_id": "1735304940106318937",
+              "sku_id": "1735467171332392025",
+              "length": 5,
+              "width": 5,
+              "height": 5,
+              "weight": 45,
+              "category_id": "601493",
+              "category_type": 1,
+              "currency": "IDR",
+              "shipping_fee": "19000",
+              "dimension_v2": {
+               "length": "5",
+               "width": "5",
+               "height": "5",
+               "unit": 1
+              },
+              "weight_v2": {
+               "weight": "45",
+               "unit": 1
+              },
+              "dimension_raw_data": {
+               "length": "5",
+               "width": "5",
+               "height": "5",
+               "unit": 1
+              },
+              "weight_raw_data": {
+               "weight": "45",
+               "unit": 1
+              }
+             }
+            ],
+            "logistics_service": {
+             "service_id": "6956478737705600769",
+             "service_name": "LSV-Standard-ID",
+             "delivery_option": 1,
+             "display_starling_key": "ecom_logistics_type_Standard",
+             "trackingMode": 1,
+             "booking_type": 1,
+             "party": 1,
+             "level": 2,
+             "transportType": 1,
+             "fulfill_solution": 1
+            },
+            "shipping_fee": "19000",
+            "currency": "IDR",
+            "cod_max_price": "5000000",
+            "fulfillment_plan": {
+             "promise_edt": {
+              "delivery_min_day": 3,
+              "delivery_max_day": 6
+             },
+             "fulfillment_snapshot": {
+              "network_biz_version_code": "ID-Domestic_V20260910143339"
+             }
+            },
+            "fulfillment_snapshot": {
+             "network_biz_version_code": "ID-Domestic_V20260910143339"
+            },
+            "leadtime_display_strategy": {
+             "display_edt": true
+            },
+            "logistics_identity": "L2L_4PL_ID",
+            "extra_info": {
+             "4": "{\"edt_metrics\":\"{\\\"base_info\\\":{\\\"time_zone\\\":\\\"Asia/Jakarta\\\",\\\"fulfill_solution\\\":1},\\\"exp_out\\\":{\\\"algo_edt\\\":\\\"3-6\\\",\\\"exp_edt\\\":\\\"3_6\\\",\\\"before_xdd_flatten\\\":\\\"3_6\\\"}}\"}"
+            }
+           },
+           "7133128197851318017": {
+            "delivery_min_days": 6,
+            "delivery_max_days": 9,
+            "delivery_min_time": "1790403330",
+            "delivery_max_time": "1790662530",
+            "cutoff_min_time": 0,
+            "cutoff_max_time": 0,
+            "cod_available": true,
+            "aging_display_status": true,
+            "fulfillable": true,
+            "reachable_item_list": [
+             {
+              "sub_fulfill_id": "0",
+              "order_line_id": "1735467171332392025",
+              "product_id": "1735304940106318937",
+              "sku_id": "1735467171332392025",
+              "length": 5,
+              "width": 5,
+              "height": 5,
+              "weight": 45,
+              "category_id": "601493",
+              "category_type": 1,
+              "currency": "IDR",
+              "shipping_fee": "12000",
+              "dimension_v2": {
+               "length": "5",
+               "width": "5",
+               "height": "5",
+               "unit": 1
+              },
+              "weight_v2": {
+               "weight": "45",
+               "unit": 1
+              },
+              "dimension_raw_data": {
+               "length": "5",
+               "width": "5",
+               "height": "5",
+               "unit": 1
+              },
+              "weight_raw_data": {
+               "weight": "45",
+               "unit": 1
+              }
+             }
+            ],
+            "logistics_service": {
+             "service_id": "7133128197851318017",
+             "service_name": "LSV-J&T-ID-ECO",
+             "delivery_option": 3,
+             "display_starling_key": "ecom_logistics_type_Economical",
+             "trackingMode": 1,
+             "booking_type": 1,
+             "party": 1,
+             "level": 3,
+             "transportType": 1,
+             "fulfill_solution": 1
+            },
+            "shipping_fee": "12000",
+            "currency": "IDR",
+            "cod_max_price": "5000000",
+            "fulfillment_plan": {
+             "promise_edt": {
+              "delivery_min_day": 6,
+              "delivery_max_day": 9
+             },
+             "fulfillment_snapshot": {
+              "network_biz_version_code": "ID-Domestic_V20260910143339"
+             }
+            },
+            "fulfillment_snapshot": {
+             "network_biz_version_code": "ID-Domestic_V20260910143339"
+            },
+            "leadtime_display_strategy": {
+             "display_edt": true
+            },
+            "logistics_identity": "L2L_4PL_ID",
+            "extra_info": {
+             "4": "{\"edt_metrics\":\"{\\\"base_info\\\":{\\\"time_zone\\\":\\\"Asia/Jakarta\\\",\\\"fulfill_solution\\\":1},\\\"exp_out\\\":{\\\"algo_edt\\\":\\\"6-9\\\",\\\"exp_edt\\\":\\\"6_9\\\",\\\"before_xdd_flatten\\\":\\\"6_9\\\"}}\"}"
+            }
+           },
+           "7529469306648823569": {
+            "delivery_min_days": 12,
+            "delivery_max_days": 46,
+            "delivery_min_time": "1790921730",
+            "delivery_max_time": "1793859330",
+            "cutoff_min_time": 0,
+            "cutoff_max_time": 0,
+            "cod_available": true,
+            "aging_display_status": true,
+            "fulfillable": true,
+            "reachable_item_list": [
+             {
+              "sub_fulfill_id": "0",
+              "order_line_id": "1735467171332392025",
+              "product_id": "1735304940106318937",
+              "sku_id": "1735467171332392025",
+              "length": 5,
+              "width": 5,
+              "height": 5,
+              "weight": 45,
+              "category_id": "601493",
+              "category_type": 1,
+              "currency": "IDR",
+              "shipping_fee": "19000",
+              "dimension_v2": {
+               "length": "5",
+               "width": "5",
+               "height": "5",
+               "unit": 1
+              },
+              "weight_v2": {
+               "weight": "45",
+               "unit": 1
+              },
+              "dimension_raw_data": {
+               "length": "5",
+               "width": "5",
+               "height": "5",
+               "unit": 1
+              },
+              "weight_raw_data": {
+               "weight": "45",
+               "unit": 1
+              }
+             }
+            ],
+            "logistics_service": {
+             "service_id": "7529469306648823569",
+             "service_name": "LSV-ID-Standard-DG",
+             "delivery_option": 1,
+             "display_starling_key": "ecom_dangergoods_eco_logistics_service",
+             "trackingMode": 1,
+             "booking_type": 1,
+             "party": 1,
+             "level": 2,
+             "transportType": 1,
+             "fulfill_solution": 1
+            },
+            "shipping_fee": "19000",
+            "currency": "IDR",
+            "cod_max_price": "5000000",
+            "fulfillment_plan": {
+             "promise_edt": {
+              "delivery_min_day": 12,
+              "delivery_max_day": 46
+             },
+             "fulfillment_snapshot": {
+              "network_biz_version_code": "ID-Domestic_V20260910143339"
+             }
+            },
+            "fulfillment_snapshot": {
+             "network_biz_version_code": "ID-Domestic_V20260910143339"
+            },
+            "leadtime_display_strategy": {
+             "display_edt": true
+            },
+            "logistics_identity": "L2L_4PL_ID",
+            "extra_info": {
+             "4": "{\"edt_metrics\":\"{\\\"base_info\\\":{\\\"time_zone\\\":\\\"Asia/Jakarta\\\",\\\"fulfill_solution\\\":1},\\\"exp_out\\\":{\\\"algo_edt\\\":\\\"12-46\\\",\\\"exp_edt\\\":\\\"12_46\\\",\\\"before_xdd_flatten\\\":\\\"12_46\\\"}}\"}"
+            }
+           }
+          }
+         },
+         "promotion_model": {
+          "promotion_product_price": {
+           "min_price": {
+            "sku_id": "1735467171332392025",
+            "symbol_position": 1,
+            "show_currency_space": false,
+            "currency_show_mode": 1,
+            "currency_name": "IDR",
+            "currency_symbol": "Rp",
+            "sale_price_decimal": "106",
+            "origin_price_decimal": "104956",
+            "sale_price_format": "106",
+            "origin_price_format": "104.956",
+            "discount_format": "99%",
+            "discount_decimal": "0.99",
+            "reduce_price_format": "Hemat Rp104.850",
+            "single_product_price_format": "26.128",
+            "single_product_price_decimal": "26128",
+            "sale_price_integer_part_format": "106",
+            "sale_price_decimal_part_format": "",
+            "decimal_point_symbol": "",
+            "promotion_deduction_details": {
+             "seller_subtotal_deduction": "80.336",
+             "seller_subtotal_deduction_decimal": "80336"
+            },
+            "raw_origin_price_decimal": "104956",
+            "raw_origin_price_format": "104.956"
+           },
+           "skus_price": {
+            "1736613420319147097": {
+             "sku_id": "1736613420319147097",
+             "symbol_position": 1,
+             "show_currency_space": false,
+             "currency_show_mode": 1,
+             "currency_name": "IDR",
+             "currency_symbol": "Rp",
+             "sale_price_decimal": "58983",
+             "origin_price_decimal": "412819",
+             "sale_price_format": "58.983",
+             "origin_price_format": "412.819",
+             "discount_format": "86%",
+             "discount_decimal": "0.86",
+             "reduce_price_format": "Hemat Rp353.836",
+             "single_product_price_format": "90.820",
+             "single_product_price_decimal": "90820",
+             "sale_price_integer_part_format": "58.983",
+             "sale_price_decimal_part_format": "",
+             "decimal_point_symbol": "",
+             "promotion_deduction_details": {
+              "seller_subtotal_deduction": "327.239",
+              "seller_subtotal_deduction_decimal": "327239"
+             },
+             "raw_origin_price_decimal": "412819",
+             "raw_origin_price_format": "412.819"
+            },
+            "1735467171332392025": {
+             "sku_id": "1735467171332392025",
+             "symbol_position": 1,
+             "show_currency_space": false,
+             "currency_show_mode": 1,
+             "currency_name": "IDR",
+             "currency_symbol": "Rp",
+             "sale_price_decimal": "106",
+             "origin_price_decimal": "104956",
+             "sale_price_format": "106",
+             "origin_price_format": "104.956",
+             "discount_format": "99%",
+             "discount_decimal": "0.99",
+             "reduce_price_format": "Hemat Rp104.850",
+             "single_product_price_format": "26.128",
+             "single_product_price_decimal": "26128",
+             "sale_price_integer_part_format": "106",
+             "sale_price_decimal_part_format": "",
+             "decimal_point_symbol": "",
+             "promotion_deduction_details": {
+              "seller_subtotal_deduction": "80.336",
+              "seller_subtotal_deduction_decimal": "80336"
+             },
+             "raw_origin_price_decimal": "104956",
+             "raw_origin_price_format": "104.956"
+            },
+            "1735467171332457561": {
+             "sku_id": "1735467171332457561",
+             "symbol_position": 1,
+             "show_currency_space": false,
+             "currency_show_mode": 1,
+             "currency_name": "IDR",
+             "currency_symbol": "Rp",
+             "sale_price_decimal": "21967",
+             "origin_price_decimal": "209063",
+             "sale_price_format": "21.967",
+             "origin_price_format": "209.063",
+             "discount_format": "89%",
+             "discount_decimal": "0.89",
+             "reduce_price_format": "Hemat Rp187.096",
+             "single_product_price_format": "53.804",
+             "single_product_price_decimal": "53804",
+             "sale_price_integer_part_format": "21.967",
+             "sale_price_decimal_part_format": "",
+             "decimal_point_symbol": "",
+             "promotion_deduction_details": {
+              "seller_subtotal_deduction": "158.363",
+              "seller_subtotal_deduction_decimal": "158363"
+             },
+             "raw_origin_price_decimal": "209063",
+             "raw_origin_price_format": "209.063"
+            }
+           },
+           "range_price": {
+            "min_price_sku_id": "1735467171332392025",
+            "max_price_sku_id": "1736613420319147097",
+            "symbol_position": 1,
+            "show_currency_space": false,
+            "currency_show_mode": 1,
+            "currency_name": "IDR",
+            "currency_symbol": "Rp",
+            "range_price": "106 - 58.983",
+            "max_discount_decimal": "0.99",
+            "discount_txt": "Hemat hingga 99%",
+            "origin_range_price": "104.956 - 412.819",
+            "min_price_integer_part_format": "106",
+            "min_price_decimal_part_format": "",
+            "max_price_integer_part_format": "58.983",
+            "max_price_decimal_part_format": "",
+            "decimal_point_symbol": ""
+           },
+           "feature": []
+          },
+          "promotion_logistic_list": [
+           {
+            "deliveryOption": 3,
+            "isDefault": false,
+            "freeShipping": false,
+            "deliveryName": "Ekonomi",
+            "shippingFee": {
+             "origin_price": "12000",
+             "real_price": "12000",
+             "currency": "IDR",
+             "real_price_desc": "Dari Rp12.000",
+             "logistics_shipping_voucher": {}
+            },
+            "logisticText": {
+             "discountViews": [
+              {
+               "discountDescText": "Diskon ongkir Rp100rb, Tanpa minimum belanja"
+              }
+             ]
+            },
+            "logisticsServiceId": "7133128197851318017",
+            "daInfo": "{\"coupon_type\":\"0\",\"coupon_name\":\"100000\",\"threshold_amount\":null,\"coupon_type_info\":\"{\\\"cost_role\\\":\\\"platform\\\",\\\"business_type\\\":\\\"free_shipping\\\",\\\"user_type\\\":\\\"platform_new_user\\\",\\\"channel\\\":\\\"all\\\",\\\"task_type\\\":\\\"no\\\",\\\"use_channel\\\":\\\"all\\\",\\\"extra_info\\\":\\\"\\\",\\\"coupon_enhance_info\\\":\\\"\\\",\\\"logistics_services\\\":\\\"\\\"}\",\"coupon_cost_role\":\"platform\",\"coupon_style\":\"\",\"shop_id\":\"\",\"available_limit\":\"\",\"coupon_id\":\"-1\",\"coupon_type_id\":\"7662284071268026119\",\"task_type\":\"no\",\"residual_claim_quantity\":\"15216400\",\"unusable_reason_type\":\"\",\"is_from_cashback\":0,\"promotion_label_level\":\"\",\"promotion_code\":\"\",\"dmp_set_id\":\"no\",\"product_scope\":1,\"rights_cnt\":0,\"rights_content\":\"\",\"source_key\":\"\",\"template_key\":\"\",\"coupon_enhance_info\":\"\",\"promotion_container_type\":\"free_shipping_coupons\",\"coupon_amount_value\":\"100000\",\"coupon_threshold_value\":\"0\",\"valid_time_start\":0,\"valid_time_end\":0,\"benefit_type\":\"\",\"is_plus_tag\":0,\"coupon_deduction_value\":\"\",\"coupon_logo_type\":null,\"instance_key\":\"\",\"is_plus_tagged\":0}",
+            "logisticPromotionView": {
+             "promotionItems": [
+              {
+               "promotionType": 3,
+               "promotionTitle": "Voucher ongkir",
+               "promotionThresholdText": "Diskon ongkir Rp100rb, Tanpa minimum belanja"
+              }
+             ]
+            },
+            "event_tracking": {
+             "shipping_type": "economy"
+            }
+           },
+           {
+            "deliveryOption": 1,
+            "isDefault": true,
+            "freeShipping": true,
+            "deliveryName": "Pengiriman produk spesial",
+            "shippingFee": {
+             "need_icon": true,
+             "origin_price": "19000",
+             "real_price": "0",
+             "currency": "IDR",
+             "best_voucher_type_ids": [
+              "7662284071268026119"
+             ],
+             "real_price_desc": "Gratis",
+             "logistics_shipping_voucher": {},
+             "shipping_discount_by_voucher_type_id": {
+              "7662284071268026119": "40000"
+             }
+            },
+            "originalShippingFee": "Rp19.000",
+            "logisticText": {
+             "discountViews": [
+              {
+               "discountDescText": "Diskon ongkir Rp100rb, Tanpa minimum belanja"
+              }
+             ]
+            },
+            "logisticsServiceId": "7529469306648823569",
+            "daInfo": "{\"coupon_type\":\"0\",\"coupon_name\":\"100000\",\"threshold_amount\":null,\"coupon_type_info\":\"{\\\"cost_role\\\":\\\"platform\\\",\\\"business_type\\\":\\\"free_shipping\\\",\\\"user_type\\\":\\\"platform_new_user\\\",\\\"channel\\\":\\\"all\\\",\\\"task_type\\\":\\\"no\\\",\\\"use_channel\\\":\\\"all\\\",\\\"extra_info\\\":\\\"\\\",\\\"coupon_enhance_info\\\":\\\"\\\",\\\"logistics_services\\\":\\\"\\\"}\",\"coupon_cost_role\":\"platform\",\"coupon_style\":\"\",\"shop_id\":\"\",\"available_limit\":\"\",\"coupon_id\":\"-1\",\"coupon_type_id\":\"7662284071268026119\",\"task_type\":\"no\",\"residual_claim_quantity\":\"15216400\",\"unusable_reason_type\":\"\",\"is_from_cashback\":0,\"promotion_label_level\":\"\",\"promotion_code\":\"\",\"dmp_set_id\":\"no\",\"product_scope\":1,\"rights_cnt\":0,\"rights_content\":\"\",\"source_key\":\"\",\"template_key\":\"\",\"coupon_enhance_info\":\"\",\"promotion_container_type\":\"free_shipping_coupons\",\"coupon_amount_value\":\"100000\",\"coupon_threshold_value\":\"0\",\"valid_time_start\":0,\"valid_time_end\":0,\"benefit_type\":\"\",\"is_plus_tag\":0,\"coupon_deduction_value\":\"\",\"coupon_logo_type\":null,\"instance_key\":\"\",\"is_plus_tagged\":0}",
+            "logisticPromotionView": {
+             "promotionItems": [
+              {
+               "promotionType": 3,
+               "promotionTitle": "Voucher ongkir",
+               "promotionThresholdText": "Diskon ongkir Rp100rb, Tanpa minimum belanja"
+              }
+             ]
+            },
+            "event_tracking": {
+             "shipping_type": "standard"
+            }
+           },
+           {
+            "deliveryOption": 1,
+            "isDefault": false,
+            "freeShipping": true,
+            "deliveryName": "Pengiriman standar",
+            "shippingFee": {
+             "need_icon": true,
+             "origin_price": "19000",
+             "real_price": "0",
+             "currency": "IDR",
+             "best_voucher_type_ids": [
+              "7662284071268026119"
+             ],
+             "real_price_desc": "Gratis",
+             "logistics_shipping_voucher": {},
+             "shipping_discount_by_voucher_type_id": {
+              "7662284071268026119": "40000"
+             }
+            },
+            "originalShippingFee": "Rp19.000",
+            "logisticText": {
+             "discountViews": [
+              {
+               "discountDescText": "Diskon ongkir Rp100rb, Tanpa minimum belanja"
+              }
+             ]
+            },
+            "logisticsServiceId": "6956478737705600769",
+            "daInfo": "{\"coupon_type\":\"0\",\"coupon_name\":\"100000\",\"threshold_amount\":null,\"coupon_type_info\":\"{\\\"cost_role\\\":\\\"platform\\\",\\\"business_type\\\":\\\"free_shipping\\\",\\\"user_type\\\":\\\"platform_new_user\\\",\\\"channel\\\":\\\"all\\\",\\\"task_type\\\":\\\"no\\\",\\\"use_channel\\\":\\\"all\\\",\\\"extra_info\\\":\\\"\\\",\\\"coupon_enhance_info\\\":\\\"\\\",\\\"logistics_services\\\":\\\"\\\"}\",\"coupon_cost_role\":\"platform\",\"coupon_style\":\"\",\"shop_id\":\"\",\"available_limit\":\"\",\"coupon_id\":\"-1\",\"coupon_type_id\":\"7662284071268026119\",\"task_type\":\"no\",\"residual_claim_quantity\":\"15216400\",\"unusable_reason_type\":\"\",\"is_from_cashback\":0,\"promotion_label_level\":\"\",\"promotion_code\":\"\",\"dmp_set_id\":\"no\",\"product_scope\":1,\"rights_cnt\":0,\"rights_content\":\"\",\"source_key\":\"\",\"template_key\":\"\",\"coupon_enhance_info\":\"\",\"promotion_container_type\":\"free_shipping_coupons\",\"coupon_amount_value\":\"100000\",\"coupon_threshold_value\":\"0\",\"valid_time_start\":0,\"valid_time_end\":0,\"benefit_type\":\"\",\"is_plus_tag\":0,\"coupon_deduction_value\":\"\",\"coupon_logo_type\":null,\"instance_key\":\"\",\"is_plus_tagged\":0}",
+            "logisticPromotionView": {
+             "promotionItems": [
+              {
+               "promotionType": 3,
+               "promotionTitle": "Voucher ongkir",
+               "promotionThresholdText": "Diskon ongkir Rp100rb, Tanpa minimum belanja"
+              }
+             ]
+            },
+            "event_tracking": {
+             "shipping_type": "standard"
+            }
+           }
+          ],
+          "reserve_stock_map": {}
+         },
+         "review_model": {
+          "product_overall_score": 4.8,
+          "product_review_count": "126132"
+         },
+         "seller_model": {
+          "shop_name": "JJ Glow Skin",
+          "shop_logo": {
+           "height": 300,
+           "width": 300,
+           "uri": "tos-alisg-i-aphluv4xwc-sg/540c02d2ee024f7ea08149c294675da4",
+           "url_list": [
+            "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/540c02d2ee024f7ea08149c294675da4~tplv-aphluv4xwc-resize-png:300:300.png?dr=15580&t=555f072d&ps=933b5bde&shp=905da467&shcp=6ce186a1&idc=my&from=2422056039",
+            "https://p19-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/540c02d2ee024f7ea08149c294675da4~tplv-aphluv4xwc-resize-png:300:300.png?dr=15580&t=555f072d&ps=933b5bde&shp=905da467&shcp=6ce186a1&idc=my&from=2422056039"
+           ]
+          }
+         },
+         "safety_model": {
+          "legit_warnings": []
+         },
+         "availability_model": {
+          "reason": 0
+         },
+         "base_resp": {
+          "StatusCode": 0,
+          "StatusMessage": "success"
+         }
+        },
+        "vouchers": [],
+        "reviews_info": {},
+        "category_info": {
+         "recommended_categories": [
+          {
+           "category_id": "601450",
+           "category_name": "Beauty & Personal Care",
+           "category_name_en": "beauty-personal-care"
+          },
+          {
+           "category_id": "849160",
+           "category_name": "Bath & Body Care",
+           "category_name_en": "bath-body-care"
+          },
+          {
+           "category_id": "601493",
+           "category_name": "Bath & Shower",
+           "category_name_en": "bath-shower"
+          }
+         ]
+        },
+        "shop_performance": [],
+        "hot_reviews": []
+       }
+      },
+      {
+       "component_type": "category_info",
+       "component_name": "category_info",
+       "fe_config": {
+        "data_source": {
+         "skip_data_return": true
+        }
+       }
+      },
+      {
+       "component_type": "feed_list",
+       "component_name": "feed_list_more_from",
+       "fe_config": {
+        "title": "Temukan lainnya dari {s_shopName}",
+        "is_horizontal": true,
+        "data_source": {
+         "request_order": 1,
+         "type": "more_from",
+         "params": {
+          "count": 10,
+          "shop_page": 2,
+          "product_component": 3
+         },
+         "need_load_more": false,
+         "has_pre_dependency": true,
+         "pre_dependency_modules": [
+          "product_detail"
+         ]
+        }
+       }
+      },
+      {
+       "component_type": "feed_list",
+       "component_name": "feed_list_you_may_like",
+       "fe_config": {
+        "title": "Anda juga mungkin menyukai",
+        "data_source": {
+         "request_order": 1,
+         "type": "recommended_for_you",
+         "params": {
+          "count": 20,
+          "shop_page": 2,
+          "product_component": 9
+         },
+         "need_load_more": true
+        }
+       }
+      },
+      {
+       "component_type": "bread_crumbs",
+       "component_name": "bread_crumbs",
+       "fe_config": {
+        "data_source": {
+         "request_order": 1,
+         "has_pre_dependency": true,
+         "pre_dependency_modules": [
+          "category_info"
+         ]
+        }
+       }
+      },
+      {
+       "component_type": "page_footer",
+       "component_name": "page_footer",
+       "fe_config": {
+        "need_expose_pool": true,
+        "data_source": {
+         "request_order": 1
+        }
+       }
+      },
+      {
+       "component_type": "call_app",
+       "component_name": "call_app",
+       "fe_config": {
+        "data_source": {}
+       },
+       "component_data": {
+        "banners": [],
+        "popups": [
+         {
+          "name": "popup_pdp",
+          "jump_link_type": "default",
+          "launch_type": "tiktok_app",
+          "image": "https://lf16-tiktok-common.ibytedtos.com/obj/tiktok-web-common-sg/mtact/static/images/tiktok/rebrand-logo.png",
+          "title": "Dapatkan pengalaman menyeluruh di aplikasi",
+          "description": "Ikuti akun favorit Anda, jelajahi tren baru, dan buat video Anda sendiri",
+          "action_button_text": "Buka TikTok",
+          "dismiss_button_text": "Nanti saja",
+          "popup_url": {
+           "url_schemes": [
+            "snssdk1180://ec/pdp?biz_type=0&gd_label={{gd_label}}&need_mall=1&needlaunchlog=1&page_name=reflow_pdp&params_url=https%3A%2F%2Fshop-id.tokopedia.com%2Fpdp%2F1735304940106318937%3Fsource%3Dproduct_detail%26enter_method%3Durl_semantic_301&refer=web&requestParams=%7B%22product_id%22%3A%5B%221735304940106318937%22%5D%7D&trackParams="
+           ],
+           "url_fallback": "https://snssdk1180.onelink.me/BAuo?domain_source=tiktok&af_dp={{schema}}",
+           "extra": ""
+          }
+         }
+        ],
+        "buttons": [],
+        "wrappers": [
+         {
+          "name": "wrapper_pdp",
+          "jump_link_type": "default",
+          "launch_type": "tiktok_app",
+          "wrapper_url": {
+           "url_schemes": [
+            "snssdk1180://ec/pdp?biz_type=0&gd_label={{gd_label}}&need_mall=1&needlaunchlog=1&page_name=reflow_pdp&params_url=https%3A%2F%2Fshop-id.tokopedia.com%2Fpdp%2F1735304940106318937%3Fsource%3Dproduct_detail%26enter_method%3Durl_semantic_301&refer=web&requestParams=%7B%22product_id%22%3A%5B%221735304940106318937%22%5D%7D&trackParams="
+           ],
+           "url_fallback": "https://snssdk1180.onelink.me/BAuo?domain_source=tiktok&af_dp={{schema}}",
+           "extra": ""
+          }
+         },
+         {
+          "name": "wrapper_coupon_open_homepage",
+          "jump_link_type": "default",
+          "launch_type": "tiktok_app",
+          "wrapper_url": {
+           "url_schemes": [
+            "snssdk1180://shop/open_homepage?biz_type=0&gd_label={{gd_label}}&needlaunchlog=1&params_url=https%3A%2F%2Fshop-id.tokopedia.com%2Fpdp%2F1735304940106318937%3Fsource%3Dproduct_detail%26enter_method%3Durl_semantic_301&refer=web&requestParams=%7B%22product_id%22%3A%5B%221735304940106318937%22%5D%7D&trackParams="
+           ],
+           "url_fallback": "https://snssdk1180.onelink.me/BAuo?domain_source=tiktok&af_dp={{schema}}",
+           "extra": ""
+          }
+         },
+         {
+          "name": "wrapper_my_coupons",
+          "jump_link_type": "default",
+          "launch_type": "tiktok_app",
+          "wrapper_url": {
+           "url_schemes": [
+            "snssdk1180://roma_redirect?biz_type=0&gd_label={{gd_label}}&needlaunchlog=1&params_url=https%3A%2F%2Fshop-id.tokopedia.com%2Fpdp%2F1735304940106318937%3Fsource%3Dproduct_detail%26enter_method%3Durl_semantic_301&refer=web&requestParams=%7B%22product_id%22%3A%5B%221735304940106318937%22%5D%7D&roma_group_key=spark_page_roma_schema_your_offer&roma_page_key=p&spark_page=roma_schema_your_offer&trackParams="
+           ],
+           "url_fallback": "https://snssdk1180.onelink.me/BAuo?domain_source=tiktok&af_dp={{schema}}",
+           "extra": ""
+          }
+         },
+         {
+          "name": "wrapper_ad_open_homepage",
+          "jump_link_type": "default",
+          "launch_type": "tiktok_app",
+          "wrapper_url": {
+           "url_schemes": [
+            "snssdk1180://shop/open_homepage?biz_type=0&needlaunchlog=1&params_url=https%3A%2F%2Fshop-id.tokopedia.com%2Fpdp%2F1735304940106318937%3Fsource%3Dproduct_detail%26enter_method%3Durl_semantic_301&refer=web&request_params=%257B%2522product_id%2522%253A%255B%25221735304940106318937%2522%255D%257D&track_params="
+           ],
+           "url_fallback": "https://snssdk1180.onelink.me/BAuo?domain_source=tiktok&af_dp={{schema}}",
+           "extra": ""
+          }
+         }
+        ],
+        "page_context": {
+         "idc": "ALISG",
+         "biz_name": "ECSharing",
+         "page_name": "Pdp",
+         "region": "ID"
+        }
+       }
+      },
+      {
+       "component_type": "bottom_button",
+       "component_name": "bottom_button",
+       "fe_config": {}
+      },
+      {
+       "component_type": "reviews",
+       "component_name": "reviews",
+       "fe_config": {
+        "data_source": {
+         "request_order": 1,
+         "skip_data_return": true
+        }
+       }
+      }
+     ]
+    }
+   }
+  }
+ }
+}

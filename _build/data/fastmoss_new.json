@@ -1,0 +1,390 @@
+{
+ "source": "FastMoss",
+ "listUrl": "https://www.fastmoss.com/zh/e-commerce/newProducts",
+ "l1_cid": "14",
+ "fetchedAt": "2026-09-19T17:09:53.237Z",
+ "heads": [
+  "排名",
+  "商品",
+  "国家/地区",
+  "所属店铺",
+  "商品分类",
+  "佣金比例",
+  "三日销量",
+  "三日销售额",
+  "总销量",
+  "总销售额",
+  "操作"
+ ],
+ "count": 21,
+ "rows": [
+  {
+   "page": 1,
+   "cells": [
+    "no"
+   ],
+   "productId": "",
+   "href": ""
+  },
+  {
+   "page": 2,
+   "cells": [
+    "11",
+    "COD Bàn Chải Đánh Răng 3 Mặt - Lông Siêu Mềm 0.01mm, Đầu Chữ U 3 Chiều, Làm Sạch Nhanh Gấp 3 Lần, Tích Hợp Cạo Lưỡi, Giảm Hôi Miệng, Sạch Mảng Bám 售价：48,771 ₫ - 54,190 ₫ 上架时间：2026-09-15",
+    "越南",
+    "CoreHaven. 店铺销量：2027",
+    "美妆个护",
+    "-",
+    "373",
+    "1900.18万₫",
+    "373",
+    "1900.18万₫",
+    ""
+   ],
+   "productId": "1737442201360369117",
+   "href": "/zh/e-commerce/detail/1737442201360369117"
+  },
+  {
+   "page": 2,
+   "cells": [
+    "12",
+    "【Đại hạ giá giá sàn】Bút phấn mắt 3 màu, nhiều bảng màu để chọn, lên màu rõ nét, giữ màu lâu, nhỏ gọn dễ mang theo【COD】 售价：54,708 ₫ 上架时间：2026-09-15",
+    "越南",
+    "Veyra Tide Aura Skin Hub 店铺销量：2050",
+    "美妆个护",
+    "-",
+    "369",
+    "2079.04万₫",
+    "811",
+    "4355.17万₫",
+    ""
+   ],
+   "productId": "1737319235077769064",
+   "href": "/zh/e-commerce/detail/1737319235077769064"
+  },
+  {
+   "page": 2,
+   "cells": [
+    "13",
+    "Hanya Rp9999! 28 Bulu Mata Verania Self Adhesive Wispy Alami, Lembut & Nyaman Dipakai, Pilihan Makeup Cantik Untuk Kegiatan Sehari‑hari 售价：Rp9,999 上架时间：2026-09-15",
+    "印尼",
+    "VeraniaLashTrend 店铺销量：871",
+    "美妆个护",
+    "-",
+    "331",
+    "Rp330.96万",
+    "331",
+    "Rp330.96万",
+    ""
+   ],
+   "productId": "1737475131551155808",
+   "href": "/zh/e-commerce/detail/1737475131551155808"
+  },
+  {
+   "page": 2,
+   "cells": [
+    "14",
+    "【Đang khuyến mãi】Mặt nạ mắt dạng thạch màu xanh, giúp bổ sung nước và cấp ẩm - chất thạch mát mịn, ôm sát không trượt【COD】 售价：76,550 ₫ 上架时间：2026-09-15",
+    "越南",
+    "Celestique Beauty Studio 店铺销量：1035",
+    "美妆个护",
+    "-",
+    "327",
+    "2441.09万₫",
+    "586",
+    "4444.71万₫",
+    ""
+   ],
+   "productId": "1737362537317041689",
+   "href": "/zh/e-commerce/detail/1737362537317041689"
+  },
+  {
+   "page": 2,
+   "cells": [
+    "15",
+    "[LIVE EXCLUSIVE] Strokes The Silk Veil Set [Silk Veil Powder Foundation & Kabuki Veil Brush + FREE Dear Blush in Smolder] 售价：₱854.85 上架时间：2026-09-15",
+    "菲律宾",
+    "Strokes Beauty 店铺销量：73.51万",
+    "美妆个护",
+    "-",
+    "322",
+    "₱27.52万",
+    "322",
+    "₱27.52万",
+    ""
+   ],
+   "productId": "1737507383277946314",
+   "href": "/zh/e-commerce/detail/1737507383277946314"
+  },
+  {
+   "page": 2,
+   "cells": [
+    "16",
+    "[LIVE EXCLUSIVE] Strokes Silk Veil Powder Foundation [Soft Touch Matte Powder Foundation] 售价：₱467.40 上架时间：2026-09-15",
+    "菲律宾",
+    "Strokes Beauty 店铺销量：73.51万",
+    "美妆个护",
+    "-",
+    "290",
+    "₱13.55万",
+    "337",
+    "₱15.75万",
+    ""
+   ],
+   "productId": "1737509230513849802",
+   "href": "/zh/e-commerce/detail/1737509230513849802"
+  },
+  {
+   "page": 2,
+   "cells": [
+    "17",
+    "Pemotong rambut elektrik, alat cukur kepala elektrik, gunting rambut elektrik, gunting untuk gaya rambut bertekstur halus, pisau cukur kepala, gunting potong kepala botak 售价：RM15.00 上架时间：2026-09-15",
+    "马来西亚",
+    "Stellar Tenderness 店铺销量：1715",
+    "美妆个护",
+    "-",
+    "289",
+    "RM4468",
+    "1299",
+    "RM1.96万",
+    ""
+   ],
+   "productId": "1737450238239343677",
+   "href": "/zh/e-commerce/detail/1737450238239343677"
+  },
+  {
+   "page": 2,
+   "cells": [
+    "18",
+    "[LIVE EXCLUSIVE] Strokes Best Hits [Silk Veil Powder Foundation & Soft Veil Filter Foundation + FREE Dear Blush in Smolder] 售价：₱717.50 上架时间：2026-09-15",
+    "菲律宾",
+    "Strokes Beauty 店铺销量：73.51万",
+    "美妆个护",
+    "-",
+    "280",
+    "₱20.09万",
+    "280",
+    "₱20.09万",
+    ""
+   ],
+   "productId": "1737506872868505034",
+   "href": "/zh/e-commerce/detail/1737506872868505034"
+  },
+  {
+   "page": 2,
+   "cells": [
+    "19",
+    "[Torriden & KOL] Set Độc Quyền Tiktok Shop Serum HA 50ml Kem Gel HA 100ml Mặt Nạ HA 27mlx2 Toner pad HA 10 miếng 26ml cấp ẩm làm mát dịu da [1] 售价：619,000₫ 上架时间：2026-09-15",
+    "越南",
+    "Torriden VN 店铺销量：2335.89万",
+    "美妆个护",
+    "-",
+    "280",
+    "1.73亿₫",
+    "430",
+    "2.66亿₫",
+    ""
+   ],
+   "productId": "1737203658173744875",
+   "href": "/zh/e-commerce/detail/1737203658173744875"
+  },
+  {
+   "page": 2,
+   "cells": [
+    "20",
+    "【โปรโมชั่นจำกัดเวลา】เครื่องกันคิ้วไฟฟ้าแบบอัตโนมัติ เครื่องโกนคิ้วไฟฟ้า เครื่องตัดแต่งคิ้ว อุปกรณ์กันคิ้ว เครื่องกำจัดขนคิ้ว สำหรับผู้หญิง ใช้งานง่าย มือใหม่ก็ใช้ได้ กันคิ้วได้รูป หัวตัดแม่นยำ พกพาสะดวก ชาร์จไฟได้ 50% OFF รับประกันสินค้าแท้ 售价：฿141.00 上架时间：2026-09-15",
+    "泰国",
+    "yuide218 店铺销量：700",
+    "美妆个护",
+    "-",
+    "275",
+    "฿3.51万",
+    "392",
+    "฿5.08万",
+    ""
+   ],
+   "productId": "1737467445700363891",
+   "href": "/zh/e-commerce/detail/1737467445700363891"
+  },
+  {
+   "page": 3,
+   "cells": [
+    "21",
+    "【ส่วนลดสุดคุ้ม】สร้างฟองนุ่มละมุน ล้างออกไม่ทิ้งคราบ กลิ่นหอมละมุนเหมาะใช้ประจำวัน 【COD】 售价：฿93.00 上架时间：2026-09-15",
+    "泰国",
+    "Rosavelle Glow Studio 店铺销量：899",
+    "美妆个护",
+    "13.5%",
+    "250",
+    "฿2.16万",
+    "706",
+    "฿5.76万",
+    ""
+   ],
+   "productId": "1737407406581843285",
+   "href": "/zh/e-commerce/detail/1737407406581843285"
+  },
+  {
+   "page": 3,
+   "cells": [
+    "22",
+    "Kit Reve Eternel & Please Call me - Real Time 100ml cada 售价：R$ 155,00 上架时间：2026-09-15",
+    "巴西",
+    "Lider Parfum 店铺销量：9162",
+    "美妆个护",
+    "-",
+    "233",
+    "R$3.61万",
+    "233",
+    "R$3.61万",
+    ""
+   ],
+   "productId": "1737497351028246081",
+   "href": "/zh/e-commerce/detail/1737497351028246081"
+  },
+  {
+   "page": 3,
+   "cells": [
+    "23",
+    "Stiker Sepak Bola Temporer Tahan Air Motif Bola Sepak Untuk Anak Random 1 Lembar Souvenir Hadiah Pesta Ulang Tahun 售价：Rp23,783 上架时间：2026-09-15",
+    "印尼",
+    "zivoka.TK 店铺销量：11.37万",
+    "美妆个护",
+    "-",
+    "228",
+    "Rp516.81万",
+    "676",
+    "Rp1460.52万",
+    ""
+   ],
+   "productId": "1737125619660522832",
+   "href": "/zh/e-commerce/detail/1737125619660522832"
+  },
+  {
+   "page": 3,
+   "cells": [
+    "24",
+    "BELI 1 GRATIS 1 - Zaitun Olive Oil With Collagen 60ml - Perawatan Tubuh Tangan Utk Membantu Kulit Tetap Lembab Halus & Glowing BEST SELLER 售价：Rp34,417 上架时间：2026-09-15",
+    "印尼",
+    "Griya's Herbal Store 店铺销量：1362",
+    "美妆个护",
+    "-",
+    "225",
+    "Rp724.19万",
+    "332",
+    "Rp1064.14万",
+    ""
+   ],
+   "productId": "1737301778207639431",
+   "href": "/zh/e-commerce/detail/1737301778207639431"
+  },
+  {
+   "page": 3,
+   "cells": [
+    "25",
+    "[Chính Hãng]Tinh Dầu Nâng Cao Sống Mũi Cho Mũi Tẹt, Mũi Lõm, Mũi Gãy - Tinh Dầu Chăm Sóc Cánh Mũi 售价：118,824 ₫ 上架时间：2026-09-15",
+    "越南",
+    "Nexloo 店铺销量：1387",
+    "美妆个护",
+    "-",
+    "217",
+    "2562.34万₫",
+    "425",
+    "5017.99万₫",
+    ""
+   ],
+   "productId": "1737447821866599906",
+   "href": "/zh/e-commerce/detail/1737447821866599906"
+  },
+  {
+   "page": 3,
+   "cells": [
+    "26",
+    "【Sản phẩm giá tốt】Dầu dưỡng móng gừng, chất dầu mềm mịn, nuôi dưỡng bề mặt móng, cải thiện móng khô ráp, chăm sóc da quanh móng【COD】 售价：56,941 ₫ 上架时间：2026-09-15",
+    "越南",
+    "Floraselle Glow Cosmetics 店铺销量：1183",
+    "美妆个护",
+    "-",
+    "213",
+    "1116.79万₫",
+    "413",
+    "2157.73万₫",
+    ""
+   ],
+   "productId": "1737446684148270555",
+   "href": "/zh/e-commerce/detail/1737446684148270555"
+  },
+  {
+   "page": 3,
+   "cells": [
+    "27",
+    "THE SKIN101 Wrapping Mask Technology from Korea Dr. Khongkwan 售价：฿145.00 上架时间：2026-09-15",
+    "泰国",
+    "Dr.Khongkwan 店铺销量：6.73万",
+    "美妆个护",
+    "-",
+    "209",
+    "฿3.03万",
+    "209",
+    "฿3.03万",
+    ""
+   ],
+   "productId": "1737490481422501513",
+   "href": "/zh/e-commerce/detail/1737490481422501513"
+  },
+  {
+   "page": 3,
+   "cells": [
+    "28",
+    "ดินสอเขียนคิ้วสี่แฉก สีสม่ำเสมอ ดูเป็นธรรมชาติ กันรอยเปื้อน ติดทนดี เหมาะกับหลายสไตล์การแต่งหน้า[COD] 售价：฿64.00 上架时间：2026-09-15",
+    "泰国",
+    "Honey Thicket Loft 店铺销量：1157",
+    "美妆个护",
+    "-",
+    "207",
+    "฿1.40万",
+    "531",
+    "฿3.61万",
+    ""
+   ],
+   "productId": "1737303641707284206",
+   "href": "/zh/e-commerce/detail/1737303641707284206"
+  },
+  {
+   "page": 3,
+   "cells": [
+    "29",
+    "Chai Tinh Dầu Nước Hoa, Khử Mùi Trong Phòng ngủ, Phòng Khách, Trên Xe, hương thơm sang trọng, khuếch tán đều khắp không gian, mang lại bầu không khí thư giãn và dễ chịu, phù hợp cho mọi gia đình, có thể dùng hàng ngày [COD] 售价：91,106 ₫ 上架时间：2026-09-15",
+    "越南",
+    "Luminous Tide Grove 店铺销量：1097",
+    "美妆个护",
+    "-",
+    "205",
+    "1860.61万₫",
+    "420",
+    "3778.56万₫",
+    ""
+   ],
+   "productId": "1737336683077731599",
+   "href": "/zh/e-commerce/detail/1737336683077731599"
+  },
+  {
+   "page": 3,
+   "cells": [
+    "30",
+    "The Men's Grooming Kit Bundle. Advent Addition Worth Over £700 售价：£89.10 上架时间：2026-09-15",
+    "英国",
+    "Latest in Beauty 店铺销量：15.41万",
+    "美妆个护",
+    "5%",
+    "205",
+    "£1.97万",
+    "205",
+    "£1.97万",
+    ""
+   ],
+   "productId": "1729911641231759762",
+   "href": "/zh/e-commerce/detail/1729911641231759762"
+  }
+ ]
+}

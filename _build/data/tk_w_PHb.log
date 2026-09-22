@@ -1,0 +1,19 @@
+目标 13 条｜已成功 0 条｜本轮待拉 13 条｜间隔 1.2s
+[  1/ 13] ✓ PH      sold=398105    score=4.5  rev=70      desc=28    legal=0  MISS SXY
+[  2/ 13] ✓ PH      sold=180171    score=4.6  rev=21989   desc=589   legal=1  Rosmarskinessentials
+[  3/ 13] ✓ PH      sold=915509    score=4.7  rev=93074   desc=148   legal=1  A&J Beauty and Welln
+[  4/ 13] ✓ PH →ID  sold=2750807   score=4.8  rev=279438  desc=1598  legal=1  The Originote.PH
+[  5/ 13] ✓ PH      sold=124876    score=4.8  rev=7102    desc=994   legal=1  Pretty Jin Shop
+[  6/ 13] ✓ PH      sold=852188    score=4.8  rev=67866   desc=1292  legal=1  Dermorepubliq
+[  7/ 13] ✓ PH      sold=313313    score=4.8  rev=15579   desc=793   legal=1  Pyary Philippines Ma
+[  8/ 13] ✓ PH      sold=229385    score=4.6  rev=17439   desc=351   legal=1  ASEP SKIN
+[  9/ 13] ✓ PH      sold=207262    score=4.7  rev=17109   desc=180   legal=0  EASY LIVE 001
+[ 10/ 13] ✓ PH      sold=302       score=4.2  rev=6       desc=0     legal=0  Velentique Beauty Bo
+[ 11/ 13] ✓ PH →ID  sold=558       score=4.2  rev=6       desc=0     legal=0  Elavique Blush Studi
+[ 12/ 13] ✓ PH      sold=322       score=4.8  rev=9       desc=0     legal=0  Breezy Pasar Corner
+[ 13/ 13] ✗ PH  5-in-1 Vitamin Concealer, Pe   no_product_info_component
+
+本轮 成功 12 / 失败 1 ｜ 耗时 268 秒
+累计成功 12 / 13 条（92%）
+有评分 12｜有评价数 12｜有描述(>50字) 8｜有店铺名 12｜有法规属性 7
+失败原因 TOP: [('no_product_info_component', 1)]

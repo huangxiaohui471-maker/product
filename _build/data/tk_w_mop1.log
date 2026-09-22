@@ -1,0 +1,13 @@
+目标 63 条｜已成功 219 条｜本轮待拉 7 条｜间隔 1.2s
+[  1/  7] ✓ TH      sold=505757    score=4.9  rev=53165   desc=202   legal=0  ซ้อฝันช่องจริง ตะกร้
+[  2/  7] ✓ TH      sold=910       score=0    rev=0       desc=1326  legal=0  TheOriginote.th
+[  3/  7] ✓ TH      sold=942       score=4.7  rev=40      desc=0     legal=0  Bellarisse Petal Ate
+[  4/  7] ✗ TH  สบู่แชมพูสมุนไพรธรรมชาติ ดูแ   no_product_info_component
+[  5/  7] ✗ TH  【ราคาพิเศษวันนี้】ออยล์บำรุงผ   no_product_info_component
+[  6/  7] ✗ BR  Escova 5 em 1 Secador, Pente   no_product_info_component
+[  7/  7] ✗ BR  ShakeGloss Dids                no_product_info_component
+
+本轮 成功 3 / 失败 4 ｜ 耗时 270 秒
+累计成功 222 / 63 条（352%）
+有评分 222｜有评价数 222｜有描述(>50字) 153｜有店铺名 222｜有法规属性 87
+失败原因 TOP: [('no_product_info_component', 9)]

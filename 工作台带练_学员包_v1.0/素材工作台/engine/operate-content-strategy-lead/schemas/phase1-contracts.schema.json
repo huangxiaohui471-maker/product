@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.content-flywheel/schemas/phase1-contracts.schema.json",
+  "title": "Performance Creative Intelligence Phase 1 Contracts",
+  "$defs": {
+    "creative_evidence_v1": {
+      "type": "object",
+      "required": ["schema_version", "creative_id", "platform", "media", "evidence_class", "paid_evidence", "organic_metrics", "paid_metrics", "estimated_metrics"],
+      "properties": {
+        "schema_version": {"const": "creative_evidence/v1"},
+        "creative_id": {"type": "string", "minLength": 1},
+        "platform": {"type": "string", "minLength": 1},
+        "media": {"type": "object", "required": ["local_path", "sha256"], "properties": {"local_path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}},
+        "evidence_class": {"enum": ["verified_paid_platform_library", "verified_paid_owned_account", "authorized_top_ad", "third_party_ad_library", "commercial_like_proxy", "public_content_only", "user_supplied_unverified"]},
+        "paid_evidence": {"type": "object", "required": ["level"], "properties": {"level": {"enum": ["verified_paid", "strong_signal", "weak_signal", "unknown"]}}},
+        "organic_metrics": {"type": "object"}, "paid_metrics": {"type": "object"}, "estimated_metrics": {"type": "object"}
+      }
+    },
+    "creative_analysis_v1": {
+      "type": "object",
+      "required": ["schema_version", "creative_id", "route", "observations", "interpretations", "confidence", "evidence_refs", "degradations"],
+      "properties": {"schema_version": {"const": "creative_analysis/v1"}, "creative_id": {"type": "string", "minLength": 1}, "route": {"enum": ["native_video", "scene_fusion", "fixed_frame_fallback"]}, "observations": {"type": "object"}, "interpretations": {"type": "object"}, "confidence": {"type": "object"}, "evidence_refs": {"type": "array", "minItems": 1}, "degradations": {"type": "array"}}
+    },
+    "experiment_task_v1": {
+      "type": "object",
+      "required": ["schema_version", "experiment_id", "enterprise_context_id", "evidence_creative_ids", "hypothesis", "single_variable", "constants", "claim_boundaries"],
+      "properties": {"schema_version": {"const": "experiment_task/v1"}, "experiment_id": {"type": "string", "minLength": 1}, "enterprise_context_id": {"type": "string", "minLength": 1}, "evidence_creative_ids": {"type": "array", "minItems": 1}, "hypothesis": {"type": "string", "minLength": 1}, "single_variable": {"type": "object", "required": ["name", "from", "to"]}, "constants": {"type": "array"}, "claim_boundaries": {"type": "array"}, "adoptable": {"type": "boolean"}, "production_handoff": {"$ref": "#/$defs/creative_production_brief_v1"}}
+    },
+    "creative_production_brief_v1": {
+      "type": "object",
+      "required": ["schema_version", "shots", "owner_questions", "claim_checks", "status"],
+      "properties": {"schema_version": {"const": "creative_production_brief/v1"}, "shots": {"type": "array", "minItems": 4, "maxItems": 6}, "owner_questions": {"type": "array", "minItems": 3, "maxItems": 5}, "claim_checks": {"type": "array"}, "status": {"enum": ["ready_for_future_module", "incomplete"]}}
+    },
+    "decision_event_v1": {"type": "object", "required": ["schema_version", "event_id", "experiment_id", "decision", "decided_by", "decided_at"], "properties": {"schema_version": {"const": "decision_event/v1"}, "decision": {"enum": ["adopt", "hold", "reject"]}}},
+    "run_manifest_v1": {"type": "object", "required": ["schema_version", "run_id", "status", "current_stage", "started_at", "errors"], "properties": {"schema_version": {"const": "run_manifest/v1"}, "status": {"enum": ["running", "succeeded", "failed"]}, "errors": {"type": "array"}}},
+    "performance_result_v1": {"type": "object", "required": ["schema_version", "result_id", "experiment_id", "observed_at", "source", "metrics", "measurement_window"], "properties": {"schema_version": {"const": "performance_result/v1"}, "metrics": {"type": "object"}, "measurement_window": {"type": "object"}}},
+    "strategy_cluster_v1": {"type": "object", "required": ["schema_version", "cluster_id", "label", "member_creative_ids", "cluster_version"], "properties": {"schema_version": {"const": "strategy_cluster/v1"}, "cluster_id": {"type": "string", "minLength": 1}, "label": {"type": "string", "minLength": 1}, "member_creative_ids": {"type": "array"}, "cluster_version": {"type": "string", "minLength": 1}}},
+    "feedback_event_v1": {"type": "object", "required": ["schema_version", "feedback_id", "experiment_id", "event_type", "occurred_at", "source", "metrics"], "properties": {"schema_version": {"const": "feedback_event/v1"}, "feedback_id": {"type": "string", "minLength": 1}, "experiment_id": {"type": "string", "minLength": 1}, "event_type": {"type": "string", "minLength": 1}, "metrics": {"type": "object"}}},
+    "ad_intelligence_batch_v1": {"type": "object", "required": ["schema_version", "provider", "source_receipt", "evidence_policy", "candidates", "status"], "properties": {"schema_version": {"const": "ad_intelligence_batch/v1"}, "provider": {"type": "string", "minLength": 1}, "source_receipt": {"type": "object"}, "evidence_policy": {"type": "string", "minLength": 1}, "candidates": {"type": "array"}, "status": {"type": "string", "minLength": 1}}},
+    "ad_intelligence_candidate_v1": {"type": "object", "required": ["schema_version", "provider", "provider_record_id", "creative_id", "platform", "paid_evidence", "organic_metrics", "paid_metrics", "estimated_metrics"], "properties": {"schema_version": {"const": "ad_intelligence_candidate/v1"}, "creative_id": {"type": "string", "minLength": 1}, "paid_evidence": {"type": "object"}, "organic_metrics": {"type": "object"}, "paid_metrics": {"type": "object"}, "estimated_metrics": {"type": "object"}}},
+    "daily_run_v1": {"type": "object", "required": ["schema_version", "daily_run_id", "started_at", "source_batch", "selected", "runs", "errors", "status", "current_stage"], "properties": {"schema_version": {"const": "daily_run/v1"}, "daily_run_id": {"type": "string", "minLength": 1}, "selected": {"type": "array"}, "runs": {"type": "array"}, "errors": {"type": "array"}, "candidate_funnel":{"type":"object","required":["discovered","shortlisted","already_seen","deep_reviewed","failed"],"properties":{"discovered":{"type":"integer","minimum":0},"shortlisted":{"type":"integer","minimum":0,"maximum":8},"already_seen":{"type":"integer","minimum":0},"deep_reviewed":{"type":"integer","minimum":0},"failed":{"type":"integer","minimum":0}}},"shortlist":{"type":"array","maxItems":8},"status": {"enum": ["running", "succeeded", "partial", "failed"]}, "current_stage": {"enum": ["DISCOVERING", "COLLECTING", "WAIT_REVIEW", "DASHBOARD_READY", "FAILED_PERMANENT"]}}},
+    "enterprise_context_v1": {"type":"object","required":["schema_version","context_id","name","industry","business_goal","current_priority","target_customer","products","claim_boundaries","production_capabilities"],"properties":{"schema_version":{"const":"enterprise_context/v1"},"context_id":{"type":"string","minLength":1},"name":{"type":"string","minLength":1},"industry":{"enum":["ecommerce","education","local_life","custom"]},"products":{"type":"array"},"claim_boundaries":{"type":"array"},"production_capabilities":{"type":"array"}}},
+    "watch_universe_v1": {"type":"object","required":["schema_version","seed_accounts","keywords","excluded_accounts"],"properties":{"schema_version":{"const":"watch_universe/v1"},"seed_accounts":{"type":"array"},"keywords":{"type":"array","minItems":1},"excluded_accounts":{"type":"array"}}},
+    "industry_pack_v1": {"type":"object","required":["schema_version","industry","purchase_chain","proof_rule"],"properties":{"schema_version":{"const":"industry_pack/v1"},"industry":{"type":"string","minLength":1},"purchase_chain":{"type":"string","minLength":1},"proof_rule":{"type":"string","minLength":1}}},
+    "platform_pack_v1": {"type":"object","required":["schema_version","platforms","available_signals","paid_truth_rule"],"properties":{"schema_version":{"const":"platform_pack/v1"},"platforms":{"type":"array","minItems":1},"available_signals":{"type":"array"},"paid_truth_rule":{"type":"string","minLength":1}}},
+    "task_run_pack_v1": {"type":"object","required":["schema_version","timezone","max_candidates","output","failure_policy"],"properties":{"schema_version":{"const":"task_run_pack/v1"},"timezone":{"type":"string","minLength":1},"max_candidates":{"type":"integer"},"output":{"type":"string","minLength":1},"failure_policy":{"type":"string","minLength":1}}},
+    "cost_policy_v1": {"type":"object","required":["schema_version","mode","daily_budget_usd","max_search_per_day","max_detail_per_day","max_downloads_per_run"],"properties":{"schema_version":{"const":"cost_policy/v1"},"mode":{"type":"string","minLength":1},"daily_budget_usd":{"type":"number"},"max_search_per_day":{"type":"integer"},"max_detail_per_day":{"type":"integer"},"max_downloads_per_run":{"type":"integer"}}},
+    "model_review_v2": {"type":"object","required":["schema_version","reviewer_type"],"properties":{"schema_version":{"const":"model_review/v2"},"reviewer_type":{"type":"string","minLength":1},"labels":{"type":"object"},"validation":{"type":"object"},"decision":{"enum":["adopt","hold","reject"]},"recommendation":{"type":"object"},"context_fit":{"type":"object"}}},
+    "mechanism_cluster_v1": {"type":"object","required":["schema_version","cluster_id","label","member_creative_ids","cluster_version","reviewed"],"properties":{"schema_version":{"const":"mechanism_cluster/v1"},"cluster_id":{"type":"string","minLength":1},"label":{"type":"string","minLength":1},"member_creative_ids":{"type":"array","minItems":1},"cluster_version":{"type":"string","minLength":1},"reviewed":{"type":"boolean"}}}
+  }
+}

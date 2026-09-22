@@ -1,0 +1,91 @@
+{
+  "items": [
+    {
+      "creative_id": "douyin:7685980516650142995",
+      "platform": "douyin",
+      "canonical_url": "https://www.douyin.com/video/7685980516650142995",
+      "title": "掉发姐妹终于有救了！这个精华液不仅能控油去屑，居然还能防脱！！",
+      "author_name": "婷婷优选",
+      "published_at": "2026-09-16 12:09:56",
+      "search_metrics": {
+        "likes": "794"
+      },
+      "search_flags": {
+        "low_fans_hot": false,
+        "high_completion": false,
+        "high_fan_growth": false,
+        "high_like_rate": false
+      }
+    },
+    {
+      "creative_id": "douyin:7685001212517375075",
+      "platform": "douyin",
+      "canonical_url": "https://www.douyin.com/video/7685001212517375075",
+      "title": "#护肤 太方便了好用，每天洗完脸喷一喷，真的太爱了#精华液 #补水保湿",
+      "author_name": "小爱麻麻",
+      "published_at": "2026-09-13 20:49:39",
+      "search_metrics": {
+        "likes": "1575"
+      },
+      "search_flags": {
+        "low_fans_hot": true,
+        "high_completion": false,
+        "high_fan_growth": false,
+        "high_like_rate": false
+      }
+    },
+    {
+      "creative_id": "douyin:7686136095004025465",
+      "platform": "douyin",
+      "canonical_url": "https://www.douyin.com/video/7686136095004025465",
+      "title": "经常晚睡，小脸黯淡无光还有斑点的姐妹，又想要出门美美的，那就赶紧试试这款#韩束 #次抛精华液 次抛的设计，一次一支干净又方便#提亮肤色#好皮肤养出来 #韩束亮白棒",
+      "author_name": "韩韩麻麻",
+      "published_at": "2026-09-16 22:13:34",
+      "search_metrics": {
+        "likes": "162"
+      },
+      "search_flags": {
+        "low_fans_hot": false,
+        "high_completion": false,
+        "high_fan_growth": false,
+        "high_like_rate": false
+      }
+    },
+    {
+      "creative_id": "douyin:7685276170775417195",
+      "platform": "douyin",
+      "canonical_url": "https://www.douyin.com/video/7685276170775417195",
+      "title": "双方父母第一次见面我竟然把时间记错了？！ #男生皮肤管理 #优斐斯氨甲环酸精华液",
+      "author_name": "嘉嘉Austin",
+      "published_at": "2026-09-14 14:36:38",
+      "search_metrics": {
+        "likes": "1154"
+      },
+      "search_flags": {
+        "low_fans_hot": false,
+        "high_completion": false,
+        "high_fan_growth": false,
+        "high_like_rate": false
+      }
+    },
+    {
+      "creative_id": "douyin:7686090816318050993",
+      "platform": "douyin",
+      "canonical_url": "https://www.douyin.com/video/7686090816318050993",
+      "title": "你涂的精华液，原料居然是猪蹄？揭秘胶原蛋白工业化生产全过程 #猪蹄 #胶原蛋白 #分享你的科普视频 #创作者中心 #创作灵感",
+      "author_name": "模力Model Studio",
+      "published_at": "2026-09-16 19:17:52",
+      "search_metrics": {
+        "likes": "706"
+      },
+      "search_flags": {
+        "low_fans_hot": false,
+        "high_completion": false,
+        "high_fan_growth": false,
+        "high_like_rate": false
+      }
+    }
+  ],
+  "count": 5,
+  "coverage": "该适配器当前查询返回的一批，不代表全量或穷尽。"
+}

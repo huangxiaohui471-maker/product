@@ -1,0 +1,38 @@
+{
+  "_说明": "TikTok 内容侧搜索词（必须英文：实测中文词在非中文区无效）。这是**内容化**词——比商品词多一层「怎么拍」的意图（review / routine / before after），键名即轨道，脚本自动拍平；_ 开头的键被忽略。",
+  "_数据来源": "TikHub /api/v1/tiktok/app/v3/fetch_video_search_result",
+  "_region_note": "region 只是排序倾向不是过滤器；要美国就传 US，实际结果里会混入少量其它地区，脚本会统计真实地区分布。",
+
+  "功效成分": [
+    "niacinamide serum review",
+    "retinol results",
+    "vitamin c serum review",
+    "salicylic acid acne",
+    "hyaluronic acid serum",
+    "peptide serum review"
+  ],
+  "问题解决": [
+    "acne before after",
+    "dark spot removal",
+    "pore care routine",
+    "skin barrier repair",
+    "anti aging routine",
+    "sensitive skin routine"
+  ],
+  "趋势概念": [
+    "glass skin routine",
+    "korean skincare routine",
+    "clean beauty",
+    "vegan skincare",
+    "slugging skincare",
+    "skin cycling"
+  ],
+  "内容形态": [
+    "nighttime skincare routine",
+    "skincare mistakes",
+    "dermatologist skincare tips",
+    "5 step skincare",
+    "honest product review",
+    "30 day skincare results"
+  ]
+}

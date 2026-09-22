@@ -1,0 +1,62 @@
+{
+  "title": "全球新品库",
+  "properties": [
+    { "name": "商品名称", "config": { "text": "" } },
+    { "name": "品牌", "config": { "text": "" } },
+    { "name": "商品ID", "config": { "text": "" } },
+    { "name": "品类", "config": { "select": { "options": [
+      { "text": "护肤" }, { "text": "彩妆" }, { "text": "个护" },
+      { "text": "身体" }, { "text": "香氛" }, { "text": "工具" }
+    ] } } },
+    { "name": "细分品类", "config": { "text": "" } },
+    { "name": "价格", "config": { "number": { "decimalPlaces": 2, "useSeparate": true } } },
+    { "name": "上市日期", "config": { "date": "2026-09-19T00:00:00Z" } },
+    { "name": "数据来源", "config": { "select": { "options": [
+      { "text": "抖音罗盘" }, { "text": "蝉妈妈" }, { "text": "FastMoss" }, { "text": "其他" }
+    ] } } },
+    { "name": "所属市场", "config": { "select": { "options": [
+      { "text": "中国" }, { "text": "韩国" }, { "text": "日本" }, { "text": "欧美" }, { "text": "东南亚" }
+    ] } } },
+    { "name": "销量", "config": { "number": { "decimalPlaces": 0, "useSeparate": true } } },
+    { "name": "销售额", "config": { "number": { "decimalPlaces": 0, "useSeparate": true } } },
+    { "name": "环比增速", "config": { "number": { "decimalPlaces": 0, "useSeparate": true } } },
+    { "name": "关联达人数", "config": { "number": { "decimalPlaces": 0, "useSeparate": true } } },
+    { "name": "退货率", "config": { "number": { "decimalPlaces": 1, "useSeparate": true } } },
+    { "name": "榜单排名", "config": { "text": "" } },
+    { "name": "核心功效成分", "config": { "text": "" } },
+    { "name": "剂型", "config": { "select": { "options": [
+      { "text": "水" }, { "text": "乳" }, { "text": "霜" }, { "text": "油" },
+      { "text": "膏" }, { "text": "喷雾" }, { "text": "粉" }
+    ] } } },
+    { "name": "概念标签", "config": { "text": "" } },
+    { "name": "质地描述", "config": { "text": "" } },
+    { "name": "功效宣称", "config": { "text": "" } },
+    { "name": "技术壁垒", "config": { "select": { "options": [
+      { "text": "无壁垒" }, { "text": "配方工艺" }, { "text": "独家原料" }, { "text": "专利技术" }
+    ] } } },
+    { "name": "评价数", "config": { "number": { "decimalPlaces": 0, "useSeparate": true } } },
+    { "name": "评分", "config": { "number": { "decimalPlaces": 1, "useSeparate": true } } },
+    { "name": "差评关键词", "config": { "text": "" } },
+    { "name": "备案路径", "config": { "select": { "options": [
+      { "text": "普通化妆品备案" }, { "text": "特殊化妆品注册" },
+      { "text": "进口备案" }, { "text": "暂无" }
+    ] } } },
+    { "name": "宣称支撑难度", "config": { "select": { "options": [
+      { "text": "无需评价" }, { "text": "需文献资料" }, { "text": "需人体功效试验" }
+    ] } } },
+    { "name": "预估成本", "config": { "number": { "decimalPlaces": 2, "useSeparate": true } } },
+    { "name": "与我方价格带匹配", "config": { "select": { "options": [
+      { "text": "匹配" }, { "text": "偏高" }, { "text": "偏低" }
+    ] } } },
+    { "name": "与我方客群匹配", "config": { "select": { "options": [
+      { "text": "匹配" }, { "text": "需教育" }, { "text": "不符" }
+    ] } } },
+    { "name": "与我方 SKU 重合度", "config": { "select": { "options": [
+      { "text": "全新" }, { "text": "部分重合" }, { "text": "高度重合" }
+    ] } } },
+    { "name": "决策状态", "config": { "select": { "options": [
+      { "text": "待评" }, { "text": "候选池" }, { "text": "打样评估" }, { "text": "已否决" }
+    ] } } },
+    { "name": "选品笔记", "config": { "text": "" } }
+  ]
+}

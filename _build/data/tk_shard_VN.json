@@ -1,0 +1,753 @@
+{
+ "1735502560219661421": {
+  "pid": "1735502560219661421",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "【CRUSH BRAND DAY】Teashell Xà Phòng Trắng Da (Kèm Túi Tạo Bọt)｜Da Mịn Sáng｜Làm Sáng Da｜Dịu Nhẹ Không Kích Ứng",
+  "ok": true,
+  "name": "【CRUSH BRAND DAY】Teashell Xà Phòng Trắng Da (Kèm Túi Tạo Bọt)｜Da Mịn Sáng｜Làm Sáng Da｜Dịu Nhẹ Không Kích Ứng",
+  "sold_count": 251482,
+  "score": 4.4,
+  "review_count": 16498,
+  "shop_name": "Teashell VN",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Bath & Body Care",
+   "Bath & Shower"
+  ],
+  "cat_ids": [
+   "601450",
+   "849160",
+   "601493"
+  ],
+  "sku_count": 7,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1733604699347060663": {
+  "pid": "1733604699347060663",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "【SAFEMILD Hàng chính hãng】Dầu gội và dầu xả chống rụng tóc SAFEMILD hàng chính hãng, kích thích mọc tóc",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"21031bbd-a366-49e5-9621-dfa320698a0b\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "【SAFEMILD Hàng chính hãng】Dầu gội và dầu xả chống rụng tóc SAFEMILD hàng chính hãng, kích thích mọc tóc",
+  "sold_count": 99341,
+  "score": 4.5,
+  "review_count": 2626,
+  "shop_name": "SAFEMILD Skincare Store VN02",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Haircare & Styling",
+   "Hair Loss Products"
+  ],
+  "cat_ids": [
+   "601450",
+   "848904",
+   "806160"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1737375713931986219": {
+  "pid": "1737375713931986219",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "quà tặng là thẻ bảo hành nhé",
+  "ok": true,
+  "name": "quà tặng là thẻ bảo hành nhé",
+  "sold_count": 41069,
+  "score": 0,
+  "review_count": 0,
+  "shop_name": "GINBI VIỆT NAM",
+  "description": "quà tặng là thẻ bảo hành nhéquà tặng là thẻ bảo hành nhé dầu gội",
+  "desc_len": 64,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Haircare & Styling",
+   "Shampoo & Conditioner"
+  ],
+  "cat_ids": [
+   "601450",
+   "848904",
+   "601469"
+  ],
+  "sku_count": 7,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1732477657493964617": {
+  "pid": "1732477657493964617",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[Quà tặng không bán] Combo 2 Khăn Ướt Tẩy Trang COLORKEY",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"2c0918fa-b438-45e0-9878-c87773737710\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "[Quà tặng không bán] Combo 2 Khăn Ướt Tẩy Trang COLORKEY",
+  "sold_count": 277921,
+  "score": 5,
+  "review_count": 3,
+  "shop_name": "COLORKEY COSMETICS VIỆT NAM",
+  "description": "[Quà tặng không bán] Combo 2 Khăn Ướt Tẩy Trang COLORKEY",
+  "desc_len": 56,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "Makeup Remover"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "601618"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1735368001356465881": {
+  "pid": "1735368001356465881",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "tặng 1 thư cảm ơn thôi anh ơiIIIII",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "tặng 1 thư cảm ơn thôi anh ơiIIIII",
+  "sold_count": 319061,
+  "score": 0,
+  "review_count": 0,
+  "shop_name": "KTINO VIETNAM",
+  "description": "Đây là một sản phẩm nước hoa, được thiết kế để mang lại hương thơm dễ chịu và tạo cảm giác tự tin cho người sử dụng. Với khả năng giúp làm sạch và khử mùi hiệu quả, sản phẩm này sẽ giúp bạn luôn cảm thấy tươi mới và sạch sẽ.\nNgoài ra, nước hoa còn có khả năng tăng cường sự quyến rũ và thu hút sự chú ý của người khác. Với một mùi hương đặc trưng, sản phẩm này sẽ giúp bạn tạo nên ấn tượng mạnh mẽ và thu hút sự chú ý của mọi người xung quanh.\nVới những lợi ích trên, sản phẩm nước hoa này sẽ là một lựa chọn tuyệt vời cho những ai muốn tạo nên ấn tượng mạnh mẽ và tự tin hơn trong cuộc sống hàng ngày.",
+  "desc_len": 602,
+  "cat_names": [
+   "Menswear & Underwear",
+   "Men's Special Occasion Clothing",
+   "Costumes & Accessories"
+  ],
+  "cat_ids": [
+   "824328",
+   "840328",
+   "840968"
+  ],
+  "sku_count": 7,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1733171385181833033": {
+  "pid": "1733171385181833033",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[Quà tặng không bán] Gương Cầm Tay Màu Đen",
+  "ok": true,
+  "name": "[Quà tặng không bán] Gương Cầm Tay Màu Đen",
+  "sold_count": 555103,
+  "score": 4.8,
+  "review_count": 50,
+  "shop_name": "COLORKEY COSMETICS VIỆT NAM",
+  "description": "[Quà tặng không bán] Gương Cầm Tay Màu Đen",
+  "desc_len": 42,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "Makeup Mirrors"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "852752"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1736313981494002697": {
+  "pid": "1736313981494002697",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[MỚI] Kem Đánh Răng P/S Ultra White Trắng Bật 5 Tông trong 1 tuần 100g - Với bộ Đôi công nghệ độc quyền Blue HAP & Microwhitening C [v]",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"92b37028-9c32-493a-9410-7cb01821ccc2\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "[MỚI] Kem Đánh Răng P/S Ultra White Trắng Bật 5 Tông trong 1 tuần 100g - Với bộ Đôi công nghệ độc quyền Blue HAP & Microwhitening C [v]",
+  "sold_count": 194005,
+  "score": 4.7,
+  "review_count": 3774,
+  "shop_name": "Unilever - Chăm Sóc Cá Nhân",
+  "description": "Kem đánh răng P/S Ultra White với công nghệ độc quyền Microwhitening-C & Blue HAP giúp\n**Dựa trên kết quả thử nghiệm phòng thí nghiệm tại Ý (2025) trên bề mặt răng mô phỏng. Kết quả có thể thay đổi tùy điều kiện sử dụng và người dùng\n^Dựa trên nghiên cứu in vitro tại Ý (2019), so với kem đánh răng không chứa hydroxyapatite. Sử dụng 2 lần/ngày.\n**Dựa trên kết quả thử nghiệm phòng thí nghiệm tại Ý (2025) trên bề mặt răng mô phỏng. Kết quả có thể thay đổi tùy điều kiện sử dụng và người dùng\n\n\n^Dựa trên nghiên cứu in vitro tại Ý (2019), so với kem đánh răng không chứa hydroxyapatite. Sử dụng 2 lần/ngày.\nP/S Ultra White 100g với 2 Dòng sản phẩm:\n1. Ultimate Bright: Cho nụ cười trắng sáng đầy khí chất\n2. Purified Shine: Dành cho người dùng trà, cà phê\n\nCÔNG NGHỆ MICROWHITENING-C\nTrắng bật 5 tông trong 1 tuần**\nCÔNG NGHỆ ĐỘC QUYỀN BLUE HAP\nGiúp men răng trông như mới^\n\nHướng dẫn sử dụng:\n1. Chải răng ít nhất ngày 2 lần theo hướng dẫn của nha sĩ.\n2. Dùng đủ ít nhất 1g kem đánh răng.\n3. Sản phẩm có chứa \"\"\"\"Sodium Fluoride\"\"\"\". Trẻ em dưới 6 tuổi chỉ sử dụng một lượng nhỏ bằng hạt đậu dưới sự hướng dẫn của người lớn. Tham khảo ý kiến của bác sĩ khi nuốt phải.\n4. Đậy nắp ống kem sau khi sử dụng.\n5. Tránh để kem ngoài ánh nắng trực tiếp trong 1 thời gian dài.\n\n\nP/S Ultra White 100g với 2 Dòng sản phẩm:\n1. Ultimate Bright: Cho nụ cười trắng sáng đầy khí chất\n2. Purified Shine: Dành cho người dùng trà, cà phê\nCÔNG NGHỆ MICROWHITENING-C\nTrắng bật 5 tông trong 1 tuần**\nCÔNG NGHỆ ĐỘC QUYỀN BLUE HAP\nGiúp men răng trông như mới^\nHướng dẫn sử dụng:\n1. Chải răng ít nhất ngày 2 lần theo hướng dẫn của nha sĩ.\n2. Dùng đủ ít nhất 1g kem đánh răng.\n3. Sản phẩm có chứa \n\"\"\"\"Sodium Fluoride\"\"\"\".\n Trẻ em dưới 6 tuổi chỉ sử dụng một lượng nhỏ bằng hạt đậu dưới sự hướng dẫn của người lớn. Tham khảo ý kiến của bác sĩ khi nuốt phải.\n4. Đậy nắp ống kem sau khi sử dụng.\n5. Tránh để kem ngoài ánh nắng trực tiếp trong 1 thời gian dài.\nHạn sử dụng: 36 tháng kể từ NSX",
+  "desc_len": 1964,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Nasal & Oral Care",
+   "Toothpastes"
+  ],
+  "cat_ids": [
+   "601450",
+   "849672",
+   "601696"
+  ],
+  "sku_count": 5,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1735003765990655573": {
+  "pid": "1735003765990655573",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "MILAI Mi giả tự dính | Tự nhiên, dày đẹp | 7 hộp chỉ 99K – 4 hộp chỉ 65K | Mua từ 3 hộp tặng nhíp | Chọn nhiều mẫu",
+  "ok": true,
+  "name": "MILAI Mi giả tự dính | Tự nhiên, dày đẹp | 7 hộp chỉ 99K – 4 hộp chỉ 65K | Mua từ 3 hộp tặng nhíp | Chọn nhiều mẫu",
+  "sold_count": 665982,
+  "score": 4.8,
+  "review_count": 21605,
+  "shop_name": "MIlai Nhật ký",
+  "description": "MILAI Mua 7 hộp 99K,Mua 3 hộp tặng nhíp yelashes Winter Love Song\n1.Mua 3 hộp tặng nhíp\n2.Mua 7 hộp 99K",
+  "desc_len": 103,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "False Eyelashes & Adhesives"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "824720"
+  ],
+  "sku_count": 45,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1729635652383050166": {
+  "pid": "1729635652383050166",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[HÀNG TẶNG KHÔNG BÁN] Sữa dưỡng thể cho da thường đến khô 30ml",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"df3a7590-c4d4-4dec-967d-299aed5e04cb\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "[HÀNG TẶNG KHÔNG BÁN] Sữa dưỡng thể cho da thường đến khô 30ml",
+  "sold_count": 406991,
+  "score": 3,
+  "review_count": 1,
+  "shop_name": "CeraVe Việt Nam",
+  "description": "[HÀNG TẶNG KHÔNG BÁN] Sữa dưỡng thể cho da thường đến khô 20ml ",
+  "desc_len": 63,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Bath & Body Care",
+   "Body Moisturizers"
+  ],
+  "cat_ids": [
+   "601450",
+   "849160",
+   "601492"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1737066171563148290": {
+  "pid": "1737066171563148290",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "(Deal Mở Bán) Nước Hoa Dubai Nhỏ Gọn – Thơm Lâu, Hương Dứa Rừng Sa Mạc Bí Ẩn Quyến Rũ, Cuốn Hút",
+  "ok": true,
+  "name": "(Deal Mở Bán) Nước Hoa Dubai Nhỏ Gọn – Thơm Lâu, Hương Dứa Rừng Sa Mạc Bí Ẩn Quyến Rũ, Cuốn Hút",
+  "sold_count": 42893,
+  "score": 4.3,
+  "review_count": 2298,
+  "shop_name": "LOVIRA STORE",
+  "description": "Nước Hoa Dubai Nhỏ Gọn – Thơm Lâu\n✨ Hương thơm quyến rũ:\nNước hoa Dubai mang đến hương thơm quyến rũ, diu nhẹ. Sản phẩm giúp khử mùi hiệu quả, mang lại cảm giác thoải mái. Hương thơm lưu lâu, tạo ấn tượng lâu dài. 💫\n✨ \nHương thơm quyến rũ:\n\n\nNước hoa Dubai mang đến hương thơm quyến rũ, diu nhẹ. Sản phẩm giúp khử mùi hiệu quả, mang lại cảm giác thoải mái. Hương thơm lưu lâu, tạo ấn tượng lâu dài. 💫\n✨ An toàn và tiện lợi:\nVới công thức an toàn, nước hoa Dubai phù hợp cho mọi người dùng. Hương thơm diu nhẹ, không gây khó chịu. Sản phẩm là lựa chọn hoàn hảo cho những ai yêu thích hương thơm lâu dài. 🌟\nAn toàn và tiện lợi:\nVới công thức an toàn, nước hoa Dubai phù hợp cho mọi người dùng. Hương thơm diu nhẹ, không gây khó chịu. Sản phẩm là lựa chọn hoàn hảo cho những ai yêu thích hương thơm lâu dài. 🌟\nThông tin sản phẩm:\nNước hoa Dubai - Thơm Lâu Diu Nhẹ. Hương thơm quyến rũ, khử mùi hiệu quả. An toàn và lưu hương lâu dài. 🌸\nĐặc điểm:\nTươi mát tự nhiên, sang trọng đẳng cấp, lưu hương tận 3 ngày. 💎",
+  "desc_len": 1006,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Fragrance",
+   "Unisex Fragrance"
+  ],
+  "cat_ids": [
+   "601450",
+   "856208",
+   "855824"
+  ],
+  "sku_count": 11,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1734528729413093014": {
+  "pid": "1734528729413093014",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[L-Gift] Quà tặng miễn phí – Nhận ngay khi mua hàng",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "[L-Gift] Quà tặng miễn phí – Nhận ngay khi mua hàng",
+  "sold_count": 62924,
+  "score": 0,
+  "review_count": 0,
+  "shop_name": "MISTINE BWG VN",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "Concealer & Foundation"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "601554"
+  ],
+  "sku_count": 30,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1734895346717001537": {
+  "pid": "1734895346717001537",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "MILAI 10 bộ mi sẵn keo | Kiểu tự nhiên & dày đẹp | Mua từ 3 hộp tặng 1 nhíp + 1 kẹp mi",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "MILAI 10 bộ mi sẵn keo | Kiểu tự nhiên & dày đẹp | Mua từ 3 hộp tặng 1 nhíp + 1 kẹp mi",
+  "sold_count": 402571,
+  "score": 4.7,
+  "review_count": 11172,
+  "shop_name": "MILAI Vietnam",
+  "description": "MILAI 10 bộ mi sẵn keo. Mua 2 hộp tặng nhíp, mua 3 hộp tặng kẹp mi\n1.These false eyelashes have built-in adhesive, no extra glue needed. They enable easy, mess-free, time-saving application for busy users.\n2.Engineered for beginners, these lashes have an ultra-low learning curve, letting new users get a natural, professional lash look easily.\n3.Tiered free gifts (tweezers, eyelash curler) for bulk purchases, maximizing cost-effectiveness and offering a one-stop lash solution\n4.Multiple lash styles available, fit different eye shapes, suit diverse makeup looks for daily, commute, date and more\n5.10 rows of lashes per box, large capacity for long-term use, great value for money, cost-effective for daily wear",
+  "desc_len": 715,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "False Eyelashes & Adhesives"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "824720"
+  ],
+  "sku_count": 18,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1734639262526441171": {
+  "pid": "1734639262526441171",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[GIFT] Sữa Dưỡng Thể Vaseline Gluta-Hya Nữ 70ml",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "[GIFT] Sữa Dưỡng Thể Vaseline Gluta-Hya Nữ 70ml",
+  "sold_count": 610209,
+  "score": 3,
+  "review_count": 2,
+  "shop_name": "Unilever Beauty",
+  "description": "[hàng tặng không bán] Sữa dưỡng thể Vaseline 70ml\nCông dụng: \nBảo quản:\nHướng dẫn sử dụng:\nBước 1: Làm sạch da cơ thể\nBước 2: Cho một lượng sản phẩm vừa đủ vào lòng bàn tay\nBước 3: Thoa Vaseline để dưỡng ẩm ngay cho cơ thể\n*Sử dụng 2 lần mỗi ngày để cho kết quả tốt nhất.\nXuất xứ: Thái Lan\nHSD: 24 tháng",
+  "desc_len": 303,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Bath & Body Care",
+   "Body Moisturizers"
+  ],
+  "cat_ids": [
+   "601450",
+   "849160",
+   "601492"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1731532531219465457": {
+  "pid": "1731532531219465457",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[99K/7 hộp] [65K/4 hộp]FANEYES mi giả Mi giả sẵn keo Mi giả đơn cụm cong xinh,chống nước chống mồ hôi， kiểu phân đoạn không cần tẩy, có 36 kiểu lựa chọn, cong trẻ em, lông mi tự nhiên, vật thần chụp ảnh, làm to mắt tự nhiên, giúp lông mi dày dài hơn",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "[99K/7 hộp] [65K/4 hộp]FANEYES mi giả Mi giả sẵn keo Mi giả đơn cụm cong xinh,chống nước chống mồ hôi， kiểu phân đoạn không cần tẩy, có 36 kiểu lựa chọn, cong trẻ em, lông mi tự nhiên, vật thần chụp ảnh, làm to mắt tự nhiên, giúp lông mi dày dài hơn",
+  "sold_count": 1651119,
+  "score": 4.6,
+  "review_count": 62849,
+  "shop_name": "FANEYES SHOP1",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "False Eyelashes & Adhesives"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "824720"
+  ],
+  "sku_count": 39,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1737198687610439048": {
+  "pid": "1737198687610439048",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "Túi thơm hoa sen thương hiệu VEKO ----- Tặng kèm theo đơn hàng, quà tặng miễn phí, không bán riêng lẻ, mỗi đơn đều được tặng",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"4beae24d-eba6-4d4e-892b-5062b6de62df\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "Túi thơm hoa sen thương hiệu VEKO ----- Tặng kèm theo đơn hàng, quà tặng miễn phí, không bán riêng lẻ, mỗi đơn đều được tặng",
+  "sold_count": 39157,
+  "score": 0,
+  "review_count": 0,
+  "shop_name": "Cửa hàng hàng đầu của VK",
+  "description": "Túi thơm thương hiệu VEKO\n✨ Túi thơm VEKO - món quà đặc biệt kèm theo mỗi đơn hàng. Sản phẩm không bán riêng lẻ, chỉ được tặng miễn phí.\n✨ \nTúi thơm VEKO\n - món quà đặc biệt kèm theo mỗi đơn hàng. Sản phẩm không bán riêng lẻ, chỉ được tặng miễn phí.\n✨ Lợi ích: Túi thơm VEKO mang đến hương thơm dễ chịu, tạo không gian thoải mái.\nLợi ích\n: Túi thơm VEKO mang đến hương thơm dễ chịu, tạo không gian thoải mái.\n✨ Lưu ý: Sản phẩm chỉ được tặng kèm với đơn hàng, không có sẵn để mua riêng.\nLưu ý\n: Sản phẩm chỉ được tặng kèm với đơn hàng, không có sẵn để mua riêng.",
+  "desc_len": 561,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "Makeup Sets"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "601529"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1731287345329572278": {
+  "pid": "1731287345329572278",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[Hàng tặng không bán] Sữa rửa mặt giúp làm sạch sâu dành cho da dầu Cerave Foaming Facial Cleanse 30ML",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "[Hàng tặng không bán] Sữa rửa mặt giúp làm sạch sâu dành cho da dầu Cerave Foaming Facial Cleanse 30ML",
+  "sold_count": 1992256,
+  "score": 5,
+  "review_count": 1,
+  "shop_name": "CeraVe Việt Nam",
+  "description": "[HB GIFT HÀNG TẶNG KHÔNG BÁN] Sữa rửa mặt giúp làm sạch sâu dành cho da dầu Cerave Foaming Facial Cleanse 30ML ",
+  "desc_len": 111,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Skincare",
+   "Facial Cleansers"
+  ],
+  "cat_ids": [
+   "601450",
+   "848776",
+   "601609"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1737232071154435339": {
+  "pid": "1737232071154435339",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "Combo 3 tặng 1 Cao Xoa Bóp LI SHI ZHEN CAO – Hỗ Trợ Thư Giãn Cổ Vai Gáy, Thắt Lưng, Đầu Gối Và Các Khớp & Dùng Ngoài Da",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"638cb79c-1ac6-41c8-b25c-d74d84d0cbfb\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "Combo 3 tặng 1 Cao Xoa Bóp LI SHI ZHEN CAO – Hỗ Trợ Thư Giãn Cổ Vai Gáy, Thắt Lưng, Đầu Gối Và Các Khớp & Dùng Ngoài Da",
+  "sold_count": 22217,
+  "score": 5,
+  "review_count": 14,
+  "shop_name": "Cô Nông Dân 1981",
+  "description": "CAO XOA BÓP XƯƠNG KHỚP LI SHI ZHEN MIAO JIANG TOU GU GAO\nCao xoa bóp xương khớp Li Shi Zhen Miao Jiang Tou Gu Gao là sản phẩm dạng cao dùng ngoài da, phù hợp để xoa bóp và chăm sóc vùng cơ khớp khi cảm thấy đau mỏi, ê nhức hoặc tê bì.\nCao xoa bóp xương khớp \nLi Shi Zhen Miao Jiang Tou Gu Gao\n là sản phẩm dạng cao dùng ngoài da, phù hợp để \nxoa bóp và chăm sóc vùng cơ khớp\n khi cảm thấy đau mỏi, ê nhức hoặc tê bì.\nCông dụng\nThành phần\nSản phẩm sử dụng các thành phần thảo mộc theo công thức truyền thống của người Miêu (Miao Jiang), trong đó có các loại thảo dược như hồng hoa, xuyên khung, ngải cứu...\nSản phẩm sử dụng các thành phần thảo mộc theo công thức truyền thống của người Miêu (Miao Jiang), trong đó có các loại thảo dược như \nhồng hoa, xuyên khung, ngải cứu...\nCách sử dụng\nLấy một lượng cao vừa đủ thoa lên vùng cần chăm sóc, sau đó xoa bóp nhẹ nhàng cho đến khi sản phẩm thấm đều. Có thể sử dụng 2–3 lần/ngày hoặc theo hướng dẫn trên bao bì sản phẩm.\nLấy một lượng cao vừa đủ thoa lên vùng cần chăm sóc, sau đó \nxoa bóp nhẹ nhàng\n cho đến khi sản phẩm thấm đều. Có thể sử dụng \n2–3 lần/ngày\n hoặc theo hướng dẫn trên bao bì sản phẩm.\nThông tin sản phẩm\nLưu ý\nChỉ sử dụng ngoài da. Không bôi lên mắt, niêm mạc, vết thương hở hoặc vùng da đang bị kích ứng. Ngưng sử dụng nếu xuất hiện kích ứng bất thường. Sản phẩm không thay thế thuốc điều trị.\nChỉ sử dụng ngoài da. Không bôi lên mắt, niêm mạc, vết thương hở hoặc vùng da đang bị kích ứng. Ngưng sử dụng nếu xuất hiện kích ứng bất thường. Sản phẩm \nkhông thay thế thuốc điều trị\n.",
+  "desc_len": 1546,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Bath & Body Care",
+   "Body & Massage Oil"
+  ],
+  "cat_ids": [
+   "601450",
+   "849160",
+   "873736"
+  ],
+  "sku_count": 6,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1729635645715417526": {
+  "pid": "1729635645715417526",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[HÀNG TẶNG KHÔNG BÁN] Sữa rửa mặt giúp làm sạch sâu dành cho da thường và da khô 30ML",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "[HÀNG TẶNG KHÔNG BÁN] Sữa rửa mặt giúp làm sạch sâu dành cho da thường và da khô 30ML",
+  "sold_count": 1281670,
+  "score": 5,
+  "review_count": 2,
+  "shop_name": "CeraVe Việt Nam",
+  "description": "[HÀNG TẶNG KHÔNG BÁN] Sữa rửa mặt giúp làm sạch sâu dành cho da thường và da khô 20ML ",
+  "desc_len": 86,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Skincare",
+   "Facial Cleansers"
+  ],
+  "cat_ids": [
+   "601450",
+   "848776",
+   "601609"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1732805663640815024": {
+  "pid": "1732805663640815024",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[KOL] Khuyến Mãi Đặc Biệt – Mua 2 Tuýp Kem Đánh Răng làm trắng hương hoa nhài JASMEEN!Sản phẩm làm trắng răng an toàn,đem lại hơi thở thơm mát ,giảm tình trạng hôi miệng,ngăn ngừa vết ố vàng, dành cho mọi đối tượng ( 100g*2)",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"e844947f-99ad-4bce-b57f-9905d2c46f04\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "[KOL] Khuyến Mãi Đặc Biệt – Mua 2 Tuýp Kem Đánh Răng làm trắng hương hoa nhài JASMEEN!Sản phẩm làm trắng răng an toàn,đem lại hơi thở thơm mát ,giảm tình trạng hôi miệng,ngăn ngừa vết ố vàng, dành cho mọi đối tượng ( 100g*2)",
+  "sold_count": 897728,
+  "score": 4.7,
+  "review_count": 48133,
+  "shop_name": "Jasmeen White & Fresh",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Nasal & Oral Care",
+   "Toothpastes"
+  ],
+  "cat_ids": [
+   "601450",
+   "849672",
+   "601696"
+  ],
+  "sku_count": 11,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1734324112765716380": {
+  "pid": "1734324112765716380",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "【CRUSH BRAND DAY】JMCY - DAV Chứng Nhận - Xịt Khoá Nền Lâu Trôi 100ml – Sương Mù Siêu Mịn, Giữ Lớp Trang Điểm 24 Giờ, Chống Mồ Hôi & Kiềm Dầu, SPF25 PA++",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"39dd3c9c-318a-4b55-9b2e-9951b68bdc2a\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "【CRUSH BRAND DAY】JMCY - DAV Chứng Nhận - Xịt Khoá Nền Lâu Trôi 100ml – Sương Mù Siêu Mịn, Giữ Lớp Trang Điểm 24 Giờ, Chống Mồ Hôi & Kiềm Dầu, SPF25 PA++",
+  "sold_count": 152329,
+  "score": 4.6,
+  "review_count": 11488,
+  "shop_name": "JMCY Cosmetics VN",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "Makeup Fixing Spray"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "601552"
+  ],
+  "sku_count": 5,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1733632857358238729": {
+  "pid": "1733632857358238729",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "Sữa rửa mặt Hyaluronic Acid 60g 30g với thành phần Amino Acid làm sạch mồ hôi và dầu thừa, da vẫn ẩm mịn sau khi rửa, kiểm soát dầu nhẹ nhàng, phù hợp nhiều loại da, thích hợp cho cả nam & nữ dưỡng ẩm Hyaluronic Acid Tea Tree BHA",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "Sữa rửa mặt Hyaluronic Acid 60g 30g với thành phần Amino Acid làm sạch mồ hôi và dầu thừa, da vẫn ẩm mịn sau khi rửa, kiểm soát dầu nhẹ nhàng, phù hợp nhiều loại da, thích hợp cho cả nam & nữ dưỡng ẩm Hyaluronic Acid Tea Tree BHA",
+  "sold_count": 547806,
+  "score": 4.5,
+  "review_count": 54710,
+  "shop_name": "Y&W STORE.VN",
+  "description": "Sữa Rửa Mặt 60g – 3 phiên bản chăm sóc da hằng ngày\nGồm 3 phiên bản:\nMàu xanh – Sữa rửa mặt Hyaluronic Acid\nMàu hồng – Sữa rửa mặt dưỡng ẩm Hyaluronic Acid\nMàu xanh lá – Sữa Rửa Mặt Tea Tree BHA\nSữa Rửa Mặt có kết cấu mềm mịn, dễ tạo bọt, giúp làm sạch bụi bẩn, mồ hôi và cảm giác dầu thừa trên bề mặt da. Ba phiên bản mang lại cảm giác sử dụng khác nhau, giúp bạn dễ dàng lựa chọn theo nhu cầu chăm sóc da hằng ngày.\nĐiểm nổi bật\n• Bọt mềm mịn, dễ tạo bọt\n• Làm sạch da mặt dịu nhẹ\n• Mang lại cảm giác sạch và thoải mái sau khi rửa\n• 3 phiên bản phù hợp với nhu cầu chăm sóc da khác nhau\n• Thiết kế nhỏ gọn 60g, tiện sử dụng hằng ngày\n3 phiên bản – Chọn theo nhu cầu\n• Làm sạch dịu nhẹ hằng ngày\n• Bọt mềm mịn, dễ rửa sạch\n• Cho cảm giác da sạch, tươi mát và dễ chịu\n• Phù hợp với người thích cảm giác làm sạch nhẹ nhàng, thoải mái\n• Bọt mịn dày và mềm mại\n• Làm sạch hằng ngày, không tạo cảm giác quá khô\n• Sau khi rửa, da có cảm giác mềm ẩm và dễ chịu\n• Phù hợp với người chú trọng cảm giác mềm mại sau khi rửa\n• Làm sạch bụi bẩn và dầu thừa trên bề mặt da\n• Giúp giảm cảm giác dầu và bết dính\n• Mang lại cảm giác sạch thoáng, tươi mát sau khi rửa\n• Phù hợp với người thường có cảm giác da nhiều dầu\nPhù hợp với\n• Người cần làm sạch da mặt hằng ngày\n• Người thích bọt mềm mịn, dễ sử dụng\n• Người muốn lựa chọn sản phẩm theo cảm giác da sau khi rửa\n• Phù hợp cho cả nam và nữ\n• Có thể lựa chọn phiên bản phù hợp theo nhu cầu chăm sóc da\nGợi ý chọn phiên bản\n• Muốn cảm giác sạch nhẹ nhàng, tươi mát: chọn màu xanh\n• Muốn cảm giác mềm ẩm, dễ chịu sau khi rửa: chọn màu hồng\n• Da thường có cảm giác dầu và bết dính: chọn màu xanh lá\nCách sử dụng\nLàm ướt mặt bằng nước sạch. Lấy một lượng sữa rửa mặt vừa đủ ra lòng bàn tay, thêm một ít nước và tạo bọt. Massage nhẹ nhàng lên da mặt, sau đó rửa sạch lại với nước. Có thể sử dụng hằng ngày vào buổi sáng và buổi tối.\nThông tin sản phẩm\nLoại sản phẩm: Sữa rửa mặt\nKhối lượng tịnh: 60g\nPhiên bản:\n• Màu xanh: Sữa rửa mặt Hyaluronic Acid\n• Màu hồng: Sữa rửa mặt dưỡng ẩm Hyaluronic Acid\n• Màu xanh lá: Sữa Rửa Mặt Tea Tree BHA\nDùng cho: Da mặt\nĐối tượng sử dụng: Nam và nữ\nPhong cách sử dụng: Làm sạch da mặt hằng ngày\nLưu ý\nChỉ sử dụng ngoài da. Tránh tiếp xúc trực tiếp với mắt. Nếu sản phẩm dính vào mắt, hãy rửa sạch với nước. Nếu da có dấu hiệu không phù hợp, hãy ngưng sử dụng. Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp.",
+  "desc_len": 2388,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Skincare",
+   "Facial Cleansers"
+  ],
+  "cat_ids": [
+   "601450",
+   "848776",
+   "601609"
+  ],
+  "sku_count": 18,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1733587704713479830": {
+  "pid": "1733587704713479830",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[L-GIFT]MISTINE Son Kem Bóng Pha  1.3g【Shade sent at random】",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "[L-GIFT]MISTINE Son Kem Bóng Pha  1.3g【Shade sent at random】",
+  "sold_count": 238105,
+  "score": 4,
+  "review_count": 2,
+  "shop_name": "MISTINE BWG VN",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "Lipstick & Lip Gloss"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "601534"
+  ],
+  "sku_count": 5,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1733508661684831318": {
+  "pid": "1733508661684831318",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[QUÀ TẶNG] [NGẪU NHIÊN] 1 Bông Mút Rửa Mặt COLORKEY LUMINOUS",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"2a7234ac-00b6-47f0-bcf1-5a932b724eeb\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "[QUÀ TẶNG] [NGẪU NHIÊN] 1 Bông Mút Rửa Mặt COLORKEY LUMINOUS",
+  "sold_count": 249578,
+  "score": 4.8,
+  "review_count": 117,
+  "shop_name": "COLORKEY LUMINOUS VIỆT NAM",
+  "description": "[QUÀ TẶNG] [NGẪU NHIÊN] 1 Bông Mút Rửa Mặt COLORKEY LUMINOUS\nHàng Tặng Không Bán\n[QUÀ TẶNG] [NGẪU NHIÊN] 1 Bông Mút Rửa Mặt COLORKEY LUMINOUS\n\n\nHàng Tặng Không Bán",
+  "desc_len": 163,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Skincare",
+   "Skincare Tools"
+  ],
+  "cat_ids": [
+   "601450",
+   "848776",
+   "601733"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1737541442471757697": {
+  "pid": "1737541442471757697",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[Quà tặng] KHI MUA BÀN CHẢI tặng NGẪU NHIÊN (Sticker - Chun buộc tóc,) Tặng kèm khi khách hàng mua bàn chải TOKYO ELITE",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"00f2e11e-5af4-4ca4-82f7-15766216842f\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "[Quà tặng] KHI MUA BÀN CHẢI tặng NGẪU NHIÊN (Sticker - Chun buộc tóc,) Tặng kèm khi khách hàng mua bàn chải TOKYO ELITE",
+  "sold_count": 1726,
+  "score": 0,
+  "review_count": 0,
+  "shop_name": "TOKYO ELITE-Lông Mềm Thay Đầu",
+  "description": "MUA BÀN CHẢI NHẬN QUÀ TO\nSTICKER TokyoElite – QUÀ TẶNG NHỎ, THÊM NIỀM VUI MỖI NGÀY\nMUA BÀN CHẢI NHẬN QUÀ TO\n\n\nSTICKER TokyoElite – QUÀ TẶNG NHỎ, THÊM NIỀM VUI MỖI NGÀY\nMột tấm sticker nhỏ nhưng mang đến dấu ấn rất riêng cho những món đồ bạn sử dụng hằng ngày.\nTokyocare gửi tặng bộ sticker đáng yêu để bạn tự do trang trí bàn chải, hộp đựng, điện thoại, sổ tay, laptop hoặc bất kỳ vật dụng nào mình yêu thích. Một chi tiết nhỏ giúp việc chăm sóc răng miệng trở nên thú vị và mang đậm dấu ấn cá nhân hơn.\nĐặc điểm nổi bật\nTrang trí theo phong cách riêng\nThoải mái dán lên bàn chải, hộp bàn chải, điện thoại, sổ tay, bình nước hoặc nhiều vật dụng cá nhân khác.\nTrang trí theo phong cách riêng\nThoải mái dán lên bàn chải, hộp bàn chải, điện thoại, sổ tay, bình nước hoặc nhiều vật dụng cá nhân khác.\nNhiều mẫu sticker đáng yêu\nHọa tiết đa dạng với phong cách trẻ trung, dễ thương, phù hợp nhiều sở thích.\nNhiều mẫu sticker đáng yêu\nHọa tiết đa dạng với phong cách trẻ trung, dễ thương, phù hợp nhiều sở thích.\nKích thước nhỏ gọn, dễ sử dụng\nDễ bóc, dễ dán, giúp bạn thay đổi diện mạo cho đồ dùng chỉ trong vài giây.\nKích thước nhỏ gọn, dễ sử dụng\nDễ bóc, dễ dán, giúp bạn thay đổi diện mạo cho đồ dùng chỉ trong vài giây.\nTạo niềm vui từ những điều nhỏ bé\nMột món quà nhỏ giúp mỗi lần sử dụng bàn chải trở nên vui vẻ và nhiều cảm hứng hơn.\nTạo niềm vui từ những điều nhỏ bé\nMột món quà nhỏ giúp mỗi lần sử dụng bàn chải trở nên vui vẻ và nhiều cảm hứng hơn.\nQuà tặng từ Tokyocare\nKhông chỉ là sticker, đây còn là lời cảm ơn dành cho khách hàng đã đồng hành cùng Tokyocare trên hành trình chăm sóc răng miệng mỗi ngày.\nQuà tặng từ Tokyocare\nKhông chỉ là sticker, đây còn là lời cảm ơn dành cho khách hàng đã đồng hành cùng Tokyocare trên hành trình chăm sóc răng miệng mỗi ngày.\nThông tin sản phẩm\nLưu ý\nTokyoElite gửi gắm\nMột nụ cười sạch khỏe cũng có thể bắt đầu từ những niềm vui rất nhỏ.\nHy vọng bộ sticker xinh xắn này sẽ giúp bạn cá nhân hóa những món đồ yêu thích và khiến việc chăm sóc răng miệng mỗi ngày trở nên thú vị, gần gũi hơn.",
+  "desc_len": 2038,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Nasal & Oral Care",
+   "Toothbrushes"
+  ],
+  "cat_ids": [
+   "601450",
+   "849672",
+   "601697"
+  ],
+  "sku_count": 15,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1737501335948265424": {
+  "pid": "1737501335948265424",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[HÀNG TẶNG KHÔNG BÁN] Giấy hướng dẫn sử dụng Khăn ướt tẩy trang bưởi đỏ Skindylis",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"24a2ab27-1214-473e-8419-20b565b33f64\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "[HÀNG TẶNG KHÔNG BÁN] Giấy hướng dẫn sử dụng Khăn ướt tẩy trang bưởi đỏ Skindylis",
+  "sold_count": 826,
+  "score": 0,
+  "review_count": 0,
+  "shop_name": "SkinDilys Viet Nam",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "Makeup Remover"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "601618"
+  ],
+  "sku_count": 12,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ }
+}

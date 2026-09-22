@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI内容飞轮总控"
+  short_description: "接住老板任务，串行调度三位内容负责人并验收真实交接"
+  default_prompt: "请读取企业共同上下文和三位负责人的真实状态，判断这件事应从哪一环进入，派给正确负责人，并只给我当前最需要的一步。"

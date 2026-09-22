@@ -1,0 +1,938 @@
+
+/* =============================================================
+   美妆情报台 · 单文件工作台
+   数据：WorkBuddy 资料库在线数据表（云端存储 + 双向同步）
+   降级：运行环境没有数据表能力时，自动切换本机离线存储
+   ============================================================= */
+
+/* ---------- 1. 数据表 ---------- */
+var DATABASE_ID = 'SByOmCvTOwY3Ae700nplNF';
+var DB = {
+  intel:   { databaseId: 'SByOmCvTOwY3Ae700nplNF' },
+  content: { databaseId: 'qHCJ3Y0oFm8Q3GGMxEjVWv' },
+  review:  { databaseId: 'uuAoD57OB4hm0O9WGcCvDV' },
+  source:  { databaseId: 'fkttmXeeL5yZEHYsmCgCPb' }
+};
+
+/* ---------- 2. 栏目与字段定义 ---------- */
+var MODULES = [
+  {
+    key: 'intel', view: 'intel', name: '情报库',
+    desc: '多平台情报的收集、拆解与筛选',
+    icon: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>',
+    primary: '标题', statusField: '状态', dateField: '采集日期',
+    fields: [
+      { n: '标题', t: 'text', req: true, ph: '一句话说清这条情报是什么' },
+      { n: '情报类型', t: 'select', opts: ['行业趋势', '竞品动态', '法规政策', '成分技术', '营销玩法', '消费者洞察'] },
+      { n: '来源平台', t: 'select', opts: ['小红书', '抖音', '公众号', '微博', '外网RSS', 'KEV美妆圈', '巨量研报', '其他'] },
+      { n: '区域', t: 'select', opts: ['中国', '韩国', '欧美', '日本', '其他'] },
+      { n: '状态', t: 'select', opts: ['待筛', '已选', '已归档'], def: '待筛' },
+      { n: '热度', t: 'number', ph: '点赞 / 阅读等，可留空' },
+      { n: '原文链接', t: 'url', ph: 'https://' },
+      { n: '拆解笔记', t: 'textarea', ph: '为什么值得做、能怎么用' },
+      { n: '采集日期', t: 'date', def: 'today' }
+    ],
+    filterKeys: ['情报类型', '来源平台', '区域', '状态'],
+    tags: ['情报类型', '区域'], meta: ['来源平台', '采集日期'], note: '拆解笔记', link: '原文链接', num: '热度'
+  },
+  {
+    key: 'content', view: 'content', name: '选题与内容',
+    desc: '从情报到选题、从提纲到发布',
+    icon: '<path d="M4 6h10M4 12h10M4 18h6"/><path d="M17.5 14.5l3 3-5 2 2-5z"/>',
+    primary: '选题标题', statusField: '状态', dateField: '计划发布日期',
+    fields: [
+      { n: '选题标题', t: 'text', req: true, ph: '这条内容要讲什么' },
+      { n: '状态', t: 'select', opts: ['灵感', '写作中', '待发布', '已发布'], def: '灵感' },
+      { n: '优先级', t: 'select', opts: ['P0', 'P1', 'P2'], def: 'P1' },
+      { n: '发布平台', t: 'select', opts: ['小红书', '抖音', '公众号', '视频号', '知乎', '其他'] },
+      { n: '关联情报', t: 'text', ph: '来自哪条情报／素材' },
+      { n: '计划发布日期', t: 'date' },
+      { n: '正文提纲', t: 'textarea', ph: '开头钩子 / 核心论点 / 结尾引导' }
+    ],
+    filterKeys: ['优先级', '发布平台', '状态'],
+    tags: ['优先级'], meta: ['发布平台', '计划发布日期'], note: '正文提纲', link: '关联情报'
+  },
+  {
+    key: 'review', view: 'review', name: '数据复盘',
+    desc: '各平台发布表现与结论沉淀',
+    icon: '<path d="M5 20V11M12 20V5M19 20v-6"/><path d="M3 20h18"/>',
+    primary: '内容标题', statusField: '平台', dateField: '发布日期',
+    fields: [
+      { n: '内容标题', t: 'text', req: true, ph: '已发布内容的标题' },
+      { n: '平台', t: 'select', opts: ['小红书', '抖音', '公众号', '视频号', '知乎', '其他'] },
+      { n: '发布日期', t: 'date', def: 'today' },
+      { n: '阅读播放', t: 'number' }, { n: '点赞', t: 'number' },
+      { n: '收藏', t: 'number' }, { n: '评论', t: 'number' },
+      { n: '复盘结论', t: 'textarea', ph: '哪个点有效、下次怎么调' }
+    ],
+    filterKeys: ['平台'],
+    numFields: ['阅读播放', '点赞', '收藏', '评论']
+  },
+  {
+    key: 'source', view: 'source', name: '信息源',
+    desc: '订阅源与数据来源的维护台账',
+    icon: '<circle cx="6" cy="18" r="2"/><path d="M4 12a8 8 0 0 1 8 8"/><path d="M4 5a15 15 0 0 1 15 15"/>',
+    primary: '信息源名称', statusField: '状态',
+    fields: [
+      { n: '信息源名称', t: 'text', req: true, ph: '如：小红书·美妆观察' },
+      { n: '类型', t: 'select', opts: ['RSS', '公众号', '小红书账号', '抖音号', '网站', 'API', '其他'] },
+      { n: '地址', t: 'url', ph: 'https://' },
+      { n: '覆盖区域', t: 'select', opts: ['中国', '韩国', '欧美', '日本', '其他'] },
+      { n: '更新频率', t: 'select', opts: ['实时', '每日', '每周', '手动'], def: '每日' },
+      { n: '状态', t: 'select', opts: ['正常', '待接入', '已停用'], def: '正常' },
+      { n: '备注', t: 'textarea', ph: '抓取方式、负责人、注意点' }
+    ],
+    filterKeys: ['类型', '覆盖区域', '状态'],
+    tags: ['类型', '状态'], meta: ['更新频率', '覆盖区域'], note: '备注', link: '地址'
+  }
+];
+function mod(key) { for (var i = 0; i < MODULES.length; i++) { if (MODULES[i].key === key) return MODULES[i]; } return MODULES[0]; }
+function fieldsOf(m) { return m.fields; }
+function fieldDef(m, name) { for (var i = 0; i < m.fields.length; i++) { if (m.fields[i].n === name) return m.fields[i]; } return null; }
+
+/* ---------- 3. 工具 ---------- */
+function $(s, r) { return (r || document).querySelector(s); }
+function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+function esc(v) {
+  return String(v == null ? '' : v).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+function pad(n) { return (n < 10 ? '0' : '') + n; }
+function todayStr() { var d = new Date(); return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+function dayStr(v) {
+  if (v == null || v === '') return '';
+  if (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}/.test(v)) return v.slice(0, 10);
+  var d = new Date(v);
+  if (isNaN(d.getTime())) return String(v);
+  return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+}
+function msOf(v) { var s = dayStr(v); if (!s) return NaN; var t = new Date(s + 'T00:00:00').getTime(); return isNaN(t) ? NaN : t; }
+function daysFromToday(v) {
+  var a = msOf(v), b = msOf(todayStr());
+  if (isNaN(a) || isNaN(b)) return null;
+  return Math.round((a - b) / 86400000);
+}
+function cnDate(v) {
+  var s = dayStr(v); if (!s) return '';
+  var p = s.split('-');
+  if (p.length !== 3) return s;
+  return Number(p[1]) + '月' + Number(p[2]) + '日';
+}
+function num(v) { return typeof v === 'number' ? v : (v === '' || v == null ? null : Number(v)); }
+function fmtNum(v) { return v == null || v === '' || isNaN(Number(v)) ? '—' : Number(v).toLocaleString('zh-CN'); }
+function uid() { return 'l' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
+function firstLine(s, n) {
+  var t = String(s == null ? '' : s).replace(/\s+/g, ' ').trim();
+  return t.length > n ? t.slice(0, n) + '…' : t;
+}
+function toast(msg) {
+  var el = $('#toast'); el.textContent = msg; el.classList.add('on');
+  clearTimeout(el._t); el._t = setTimeout(function () { el.classList.remove('on'); }, 2200);
+}
+function isDemo(r, m) { return String(r[m.primary] || '').indexOf('【示例】') === 0; }
+
+/* ---------- 4. 运行环境：在线数据表 or 本机离线 ---------- */
+var db = (window.__SMART_PAGE__ && window.__SMART_PAGE__.database) ? window.__SMART_PAGE__.database : null;
+var ONLINE = !!db;
+var LS_KEY = 'wb_beauty_intel_v1';
+var LS_DRAFT = 'wb_beauty_intel_draft';
+
+var state = {
+  view: 'intel',
+  data: { intel: [], content: [], review: [], source: [] },
+  schema: {},
+  ready: { intel: false, content: false, review: false, source: false },
+  filter: {}, query: {}, open: {}, busy: false
+};
+MODULES.forEach(function (m) { state.filter[m.key] = {}; state.query[m.key] = ''; });
+
+function optText(m, name, val) {
+  if (val == null || val === '') return '';
+  var sc = state.schema[m.key];
+  if (sc) {
+    for (var i = 0; i < sc.length; i++) {
+      if (sc[i].name === name && sc[i].options) {
+        for (var j = 0; j < sc[i].options.length; j++) {
+          if (sc[i].options[j].id === val) return sc[i].options[j].text;
+        }
+      }
+    }
+  }
+  return String(val);
+}
+function optId(m, name, text) {
+  var sc = state.schema[m.key];
+  if (sc) {
+    for (var i = 0; i < sc.length; i++) {
+      if (sc[i].name === name && sc[i].options) {
+        for (var j = 0; j < sc[i].options.length; j++) {
+          if (sc[i].options[j].text === text) return sc[i].options[j].id;
+        }
+      }
+    }
+  }
+  return text;
+}
+function optionsFor(m, name) {
+  var sc = state.schema[m.key];
+  if (sc) {
+    for (var i = 0; i < sc.length; i++) {
+      if (sc[i].name === name && sc[i].options && sc[i].options.length) return sc[i].options;
+    }
+  }
+  var def = fieldDef(m, name);
+  return (def && def.opts ? def.opts : []).map(function (t) { return { text: t, id: t }; });
+}
+function msgOf(err) { return (err && (err.message || err.msg)) ? String(err.message || err.msg) : '未知错误'; }
+
+/* ---------- 5. 数据读写（统一出口，上层不直接碰 SDK） ---------- */
+function dbQueryAll(DATABASE_ID, startCursor, acc, guard) {
+  acc = acc || []; guard = guard || 0;
+  if (guard > 100) return Promise.resolve(acc);
+  return db.query({ databaseId: DATABASE_ID, pageSize: 200, startCursor: startCursor })
+    .then(function (qres) {
+      acc = acc.concat(qres.results || []);
+      var next = qres.nextCursor;
+      if (qres.hasMore && next && next !== startCursor && (qres.results || []).length) {
+        return dbQueryAll(DATABASE_ID, next, acc, guard + 1);
+      }
+      return acc;
+    });
+}
+function dbGetSchema(DATABASE_ID) { return db.getSchema({ databaseId: DATABASE_ID }); }
+function dbAdd(DATABASE_ID, payload) { return db.addRecord({ databaseId: DATABASE_ID, properties: payload }); }
+function dbUpdate(DATABASE_ID, recordId, payload) { return db.updateRecord({ databaseId: DATABASE_ID, recordId: recordId, properties: payload }); }
+function dbDelete(DATABASE_ID, recordId) { return db.deleteRecord({ databaseId: DATABASE_ID, recordId: recordId }); }
+
+function lsRead() { try { return JSON.parse(localStorage.getItem(LS_KEY) || '{}') || {}; } catch (e) { return {}; } }
+function lsWrite(d) { try { localStorage.setItem(LS_KEY, JSON.stringify(d)); } catch (e) { } }
+function lsDel() { try { localStorage.removeItem(LS_KEY); } catch (e) { } }
+
+function loadOne(key) {
+  var m = mod(key);
+  if (!ONLINE) {
+    var all = lsRead();
+    state.data[key] = all[key] || [];
+    state.ready[key] = true;
+    return Promise.resolve();
+  }
+  var schemaP = dbGetSchema(DB[key].databaseId).then(function (sc) {
+    var list = [];
+    ((sc && sc.properties) || []).forEach(function (f) {
+      list.push({
+        name: f.name, type: f.type,
+        options: (f.config && f.config.options) ? f.config.options.slice() : null
+      });
+    });
+    state.schema[key] = list;
+  }).catch(function () { state.schema[key] = null; });
+  return schemaP.then(function () {
+    return dbQueryAll(DB[key].databaseId).then(function (rows) {
+      state.data[key] = (rows || []).filter(function (r) { return r && r._id; });
+      state.ready[key] = true;
+    });
+  }).catch(function (err) {
+    state.ready[key] = true;
+    toast('「' + m.name + '」读取失败：' + msgOf(err));
+  });
+}
+function loadAll() {
+  setSync('busy', '同步中…');
+  var jobs = MODULES.map(function (m) { return loadOne(m.key); });
+  return Promise.all(jobs).then(function () {
+    setSync(ONLINE ? 'ok' : 'off', ONLINE ? '云端已同步' : '离线模式');
+  });
+}
+function writeOne(key, recId, payload) {
+  if (!ONLINE) {
+    var all = lsRead();
+    var rows = all[key] || [];
+    if (recId) {
+      rows = rows.map(function (r) { if (r._id === recId) { for (var k in payload) r[k] = payload[k]; } return r; });
+    } else { payload._id = uid(); rows.push(payload); }
+    all[key] = rows; lsWrite(all);
+    return Promise.resolve();
+  }
+  return recId ? dbUpdate(DB[key].databaseId, recId, payload) : dbAdd(DB[key].databaseId, payload);
+}
+function removeOne(key, recId) {
+  if (!ONLINE) {
+    var all = lsRead();
+    all[key] = (all[key] || []).filter(function (r) { return r._id !== recId; });
+    lsWrite(all);
+    return Promise.resolve();
+  }
+  return dbDelete(DB[key].databaseId, recId);
+}
+function setSync(kind, text) {
+  var d = $('#syncDot');
+  d.className = 'sync-dot' + (kind === 'off' ? ' off' : (kind === 'busy' ? ' busy' : ''));
+  $('#syncText').textContent = text;
+}
+
+/* ---------- 6. 计算层（只读 state，不碰 DOM） ---------- */
+function recs(key) { return state.data[key] || []; }
+function cellText(m, r, name) {
+  var f = fieldDef(m, name);
+  var v = r[name];
+  if (f && (f.t === 'select' || f.t === 'url')) return optText(m, name, v) || (f.t === 'url' ? urlOf(v) : '');
+  if (f && f.t === 'date') return dayStr(v);
+  return v == null ? '' : String(v);
+}
+function urlOf(v) {
+  if (!v) return '';
+  if (typeof v === 'object') return v.link || v.text || '';
+  if (typeof v === 'string' && /^https?:\/\//.test(v)) return v;
+  return '';
+}
+function matches(m, r, q) {
+  if (q) {
+    var hay = '';
+    m.fields.forEach(function (f) { hay += ' ' + (f.t === 'select' ? optText(m, f.n, r[f.n]) : (urlOf(r[f.n]) || (r[f.n] == null ? '' : r[f.n]))); });
+    if (hay.toLowerCase().indexOf(q.toLowerCase()) === -1) return false;
+  }
+  var fl = state.filter[m.key] || {};
+  for (var k in fl) {
+    if (!fl[k]) continue;
+    if (optText(m, k, r[k]) !== fl[k]) return false;
+  }
+  return true;
+}
+function filtered(key) {
+  var m = mod(key), q = state.query[key] || '';
+  return recs(key).filter(function (r) { return matches(m, r, q); });
+}
+function countBy(key, field) {
+  var m = mod(key), out = {};
+  recs(key).forEach(function (r) {
+    var v = optText(m, field, r[field]);
+    if (v) out[v] = (out[v] || 0) + 1;
+  });
+  return out;
+}
+function statusCount(key) {
+  var m = mod(key), out = {}, fd = fieldDef(m, m.statusField);
+  ((fd && fd.opts) || []).forEach(function (o) { out[o] = 0; });
+  recs(key).forEach(function (r) {
+    var v = optText(m, m.statusField, r[m.statusField]);
+    if (v) out[v] = (out[v] || 0) + 1;
+  });
+  return out;
+}
+function todayItems() {
+  var out = [], mc = mod('content');
+  recs('content').forEach(function (r) {
+    if (optText(mc, '状态', r['状态']) === '已发布') return;
+    var d = daysFromToday(r['计划发布日期']);
+    if (d === null) return;
+    var base = { key: 'content', id: r._id, title: r['选题标题'] || '(未命名选题)' };
+    if (d < 0) {
+      out.push({ o: base, over: true, flag: 'over', d: d, meta: '计划发布 ' + cnDate(r['计划发布日期']) + ' · <b>已逾期 ' + (-d) + ' 天</b>', act: 'postpone', actText: '顺延到今天' });
+    } else if (d === 0) {
+      out.push({ o: base, flag: '', d: 0, meta: '今天该发布' + (r['发布平台'] ? ' · ' + optText(mc, '发布平台', r['发布平台']) : ''), act: 'markPublished', actText: '标为已发布' });
+    } else if (d <= 2) {
+      out.push({ o: base, flag: 'soon', d: d, meta: '还有 ' + d + ' 天到期 · ' + cnDate(r['计划发布日期']), act: 'edit', actText: '去写' });
+    }
+  });
+  out.sort(function (a, b) { return a.d - b.d; });
+  var mi = mod('intel'), pend = [];
+  recs('intel').forEach(function (r) {
+    if (optText(mi, '状态', r['状态']) !== '待筛') return;
+    pend.push(r);
+  });
+  pend.sort(function (a, b) { return (msOf(b['采集日期']) || 0) - (msOf(a['采集日期']) || 0); });
+  pend.slice(0, 3).forEach(function (r) {
+    out.push({
+      o: { key: 'intel', id: r._id, title: r['标题'] || '(未命名情报)' },
+      flag: 'soon', meta: '待筛情报 · ' + (optText(mi, '来源平台', r['来源平台']) || '来源未记') + (r['采集日期'] ? ' · ' + cnDate(r['采集日期']) : ''),
+      act: 'pickIntel', actText: '标为已选'
+    });
+  });
+  var ms = mod('source');
+  recs('source').forEach(function (r) {
+    if (optText(ms, '状态', r['状态']) !== '待接入') return;
+    out.push({
+      o: { key: 'source', id: r._id, title: r['信息源名称'] || '(未命名信息源)' },
+      flag: 'soon', meta: '信息源待接入 · ' + (optText(ms, '类型', r['类型']) || '类型未记'),
+      act: 'activateSource', actText: '标为正常'
+    });
+  });
+  return out;
+}
+
+/* ---------- 7. 渲染层（只写自己的容器，互不调用） ---------- */
+function bindDb(container, key) {
+  var id = DB[key].databaseId;
+  $$('.bind', container).forEach(function (el) {
+    el.setAttribute('data-sp-bindable', 'database');
+    el.setAttribute('data-sp-database-id', id);
+  });
+}
+var STATUS_TAG = { '待筛': 'amber', '已选': 'blue', '已归档': 'gray', '灵感': 'gray', '写作中': 'blue', '待发布': 'amber', '已发布': 'green', 'P0': 'red', 'P1': 'amber', 'P2': 'gray', '正常': 'green', '待接入': 'amber', '已停用': 'gray' };
+
+function renderNav() {
+  var navHtml = '', tabHtml = '';
+  MODULES.forEach(function (m) {
+    var n = recs(m.key).length;
+    navHtml += '<button class="nav-item' + (state.view === m.key ? ' on' : '') + '" data-go="' + m.key + '">' +
+      '<svg class="ico" viewBox="0 0 24 24">' + m.icon + '</svg>' +
+      '<span class="nav-label">' + esc(m.name) + '</span><span class="nav-count">' + n + '</span></button>';
+    tabHtml += '<button class="tab' + (state.view === m.key ? ' on' : '') + '" data-go="' + m.key + '">' +
+      '<svg viewBox="0 0 24 24">' + m.icon + '</svg><span>' + esc(m.name.slice(0, 4)) + '</span></button>';
+  });
+  $('#nav').innerHTML = navHtml;
+  $('#tabbar').innerHTML = tabHtml;
+}
+
+function renderToday() {
+  var items = todayItems(), box = $('#todayList');
+  var d = new Date(), wk = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'][d.getDay()];
+  $('#todayDate').textContent = (d.getMonth() + 1) + '月' + d.getDate() + '日 ' + wk;
+  var over = items.filter(function (i) { return i.over; }).length;
+  var badge = $('#todayOver');
+  if (over > 0) { badge.textContent = '逾期 ' + over; badge.classList.remove('hide'); }
+  else badge.classList.add('hide');
+  if (!items.length) {
+    box.innerHTML = '<div class="today-empty">今天没有待办。可以去情报库筛一批新素材，或补一条复盘。</div>';
+    return;
+  }
+  box.innerHTML = items.map(function (i) {
+    return '<div class="today-row">' +
+      '<span class="today-flag ' + i.flag + '"></span>' +
+      '<div class="today-main"><div class="today-title bind" data-open="' + i.o.key + '" data-id="' + i.o.id + '">' + esc(i.o.title) + '</div>' +
+      '<div class="today-meta">' + i.meta + '</div></div>' +
+      '<button class="btn sm' + (i.over ? ' danger-b' : '') + '" data-act="' + i.act + '" data-key="' + i.o.key + '" data-id="' + i.o.id + '">' + esc(i.actText) + '</button>' +
+      '</div>';
+  }).join('');
+}
+
+function renderFilterBar(key) {
+  var m = mod(key), host = $('#' + 'f' + key.charAt(0).toUpperCase() + key.slice(1));
+  if (!host) return;
+  var html = '';
+  m.filterKeys.forEach(function (fn) {
+    var cur = (state.filter[m.key] || {})[fn] || '';
+    html += '<select class="sel" data-filter="' + esc(m.key) + '" data-field="' + esc(fn) + '" style="margin-right:6px">' +
+      '<option value="">全部' + esc(fn) + '</option>' +
+      optionsFor(m, fn).map(function (o) { return '<option value="' + esc(o.text) + '"' + (cur === o.text ? ' selected' : '') + '>' + esc(o.text) + '</option>'; }).join('') +
+      '</select>';
+  });
+  var used = Object.keys(state.filter[m.key] || {}).some(function (k) { return state.filter[m.key][k]; });
+  if (used) html += '<button class="chip" data-filter-clear="' + esc(m.key) + '">清除筛选</button>';
+  host.innerHTML = html;
+}
+
+function cardHtml(key, r) {
+  var m = mod(key);
+  var tags = (m.tags || []).map(function (f) {
+    var v = cellText(m, r, f);
+    return v ? '<span class="tag ' + (STATUS_TAG[v] || 'gray') + '">' + esc(v) + '</span>' : '';
+  }).join('');
+  var meta = (m.meta || []).map(function (f) {
+    var v = cellText(m, r, f);
+    if (!v) return '';
+    if (f === m.dateField) v = cnDate(v) || v;
+    var warn = (f === m.dateField && v) ? daysFromToday(r[f]) : null;
+    var cls = (warn !== null && warn < 0 && m.key === 'content' && optText(m, '状态', r['状态']) !== '已发布') ? ' style="color:var(--red)"' : '';
+    return '<span class="mini"' + cls + '>' + esc(v) + '</span>';
+  }).join('');
+  var note = m.note ? cellText(m, r, m.note) : '';
+  var link = m.link ? urlOf(r[m.link]) : '';
+  var numv = m.num ? r[m.num] : null;
+  return '<article class="card">' +
+    '<div class="card-top"><div class="card-title bind">' + esc(r[m.primary] || '(未命名)') + '</div>' +
+    (numv != null && numv !== '' ? '<span class="mini b">' + fmtNum(numv) + '</span>' : '') + '</div>' +
+    (note ? '<div class="card-note">' + esc(note) + '</div>' : '') +
+    '<div class="card-foot">' + tags + meta +
+    (link ? '<a class="mini" href="' + esc(link) + '" target="_blank" rel="noopener">原文</a>' : '') +
+    '<span class="card-acts">' +
+    '<button class="icon-btn" data-edit="' + key + '" data-id="' + r._id + '" title="编辑"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>' +
+    '<button class="icon-btn" data-del="' + key + '" data-id="' + r._id + '" title="删除"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg></button>' +
+    '</span></div></article>';
+}
+
+function renderIntel() {
+  var host = $('#intelBody'), list = filtered('intel');
+  host.innerHTML = list.length
+    ? '<div class="grid">' + list.map(function (r) { return cardHtml('intel', r); }).join('') + '</div>'
+    : '<div class="empty"><b>' + (recs('intel').length ? '没有符合筛选的情报' : '情报库还是空的') + '</b>' +
+      (recs('intel').length ? '换个筛选条件，或清除筛选。' : '把小红书、抖音、公众号、外网 RSS 上值得跟的条目先扔进来。') + '</div>';
+  bindDb(host, 'intel');
+}
+
+function renderContent() {
+  var host = $('#contentBody'), m = mod('content');
+  var list = filtered('content');
+  var cols = ['灵感', '写作中', '待发布', '已发布'];
+  var html = '<div class="board">';
+  cols.forEach(function (c) {
+    var items = list.filter(function (r) {
+      var v = optText(m, '状态', r['状态']) || '灵感';
+      return v === c;
+    });
+    html += '<div class="col"><div class="col-head">' + esc(c) + '<span class="n">' + items.length + '</span></div><div class="col-body">';
+    html += items.map(function (r) {
+      var pr = optText(m, '优先级', r['优先级']);
+      var pf = optText(m, '发布平台', r['发布平台']);
+      var d = dayStr(r['计划发布日期']);
+      var late = d && c !== '已发布' && daysFromToday(d) < 0;
+      return '<div class="tcard">' +
+        '<div class="tcard-title bind">' + esc(r['选题标题'] || '(未命名)') + '</div>' +
+        '<div class="tcard-meta">' +
+        (pr ? '<span class="tag ' + (STATUS_TAG[pr] || 'gray') + '">' + esc(pr) + '</span>' : '') +
+        (pf ? '<span class="mini">' + esc(pf) + '</span>' : '') +
+        (d ? '<span class="mini"' + (late ? ' style="color:var(--red)"' : '') + '>' + esc(cnDate(d)) + '</span>' : '') +
+        '</div>' +
+        '<div class="tcard-meta">' + nextButtons(m, r) +
+        '<span class="card-acts">' +
+        '<button class="icon-btn" data-edit="content" data-id="' + r._id + '" title="编辑"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>' +
+        '<button class="icon-btn" data-del="content" data-id="' + r._id + '" title="删除"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg></button>' +
+        '</span></div></div>';
+    }).join('') || '<div class="today-empty" style="padding:12px 4px">暂无</div>';
+    html += '</div><button class="col-add" data-new="content" data-status="' + esc(c) + '">+ 加一条</button></div>';
+  });
+  html += '</div>';
+  host.innerHTML = html;
+  bindDb(host, 'content');
+}
+function nextButtons(m, r) {
+  var cur = optText(m, '状态', r['状态']) || '灵感';
+  var order = ['灵感', '写作中', '待发布', '已发布'];
+  var i = order.indexOf(cur);
+  var out = '';
+  if (i < order.length - 1) out += '<button class="mini b" data-move="content" data-id="' + r._id + '" data-to="' + order[i + 1] + '" style="cursor:pointer">→ ' + order[i + 1] + '</button>';
+  return out;
+}
+
+function renderReview() {
+  var host = $('#reviewBody'), m = mod('review'), list = filtered('review');
+  var sum = { '阅读播放': 0, '点赞': 0, '收藏': 0, '评论': 0 };
+  list.forEach(function (r) { m.numFields.forEach(function (f) { sum[f] += Number(r[f]) || 0; }); });
+  var inter = sum['阅读播放'] > 0 ? ((sum['点赞'] + sum['收藏'] + sum['评论']) / sum['阅读播放'] * 100) : 0;
+  var kpis = [
+    { l: '内容条数', v: list.length, s: '已记录发布内容' },
+    { l: '阅读 / 播放', v: fmtNum(sum['阅读播放']), s: '合计' },
+    { l: '点赞', v: fmtNum(sum['点赞']), s: '合计' },
+    { l: '收藏', v: fmtNum(sum['收藏']), s: '合计' },
+    { l: '评论', v: fmtNum(sum['评论']), s: '合计' },
+    { l: '互动率', v: inter.toFixed(1) + '%', s: '(赞+藏+评)/阅读' }
+  ];
+  var byPlat = {};
+  list.forEach(function (r) {
+    var p = optText(m, '平台', r['平台']) || '未标注';
+    byPlat[p] = (byPlat[p] || 0) + (Number(r['阅读播放']) || 0);
+  });
+  var arr = Object.keys(byPlat).map(function (k) { return { k: k, v: byPlat[k] }; }).sort(function (a, b) { return b.v - a.v; });
+  var max = arr.length ? Math.max.apply(null, arr.map(function (x) { return x.v; })) : 0;
+
+  var html = '<div class="kpis">' + kpis.map(function (k) {
+    return '<div class="kpi"><div class="kpi-l">' + k.l + '</div><div class="kpi-v bind">' + esc(k.v) + '</div><div class="kpi-s">' + k.s + '</div></div>';
+  }).join('') + '</div>';
+
+  html += '<div class="panelbox"><h3>各平台阅读 / 播放</h3><div class="h3s">按已记录内容的合计值排序</div>';
+  if (!arr.length) html += '<div class="today-empty">还没有数据。发布后把平台数据补进来，这里就会出对比。</div>';
+  else html += '<div class="bars">' + arr.map(function (x) {
+    var w = max ? Math.round(x.v / max * 100) : 0;
+    return '<div class="bar-row"><span class="bar-name">' + esc(x.k) + '</span>' +
+      '<span class="bar-track"><span class="bar-fill" style="width:' + w + '%"></span></span>' +
+      '<span class="bar-val bind">' + fmtNum(x.v) + '</span></div>';
+  }).join('') + '</div></div>';
+
+  var head = '<tr><th>内容标题</th><th>平台</th><th>发布日期</th><th style="text-align:right">阅读播放</th><th style="text-align:right">点赞</th><th style="text-align:right">收藏</th><th style="text-align:right">评论</th><th style="text-align:right">互动率</th><th>复盘结论</th><th></th></tr>';
+  var body = list.length ? list.map(function (r) {
+    var rd = Number(r['阅读播放']) || 0;
+    var it = rd > 0 ? ((Number(r['点赞']) || 0) + (Number(r['收藏']) || 0) + (Number(r['评论']) || 0)) / rd * 100 : 0;
+    return '<tr><td class="wrap bind">' + esc(r['内容标题'] || '(未命名)') + '</td>' +
+      '<td>' + esc(optText(m, '平台', r['平台']) || '—') + '</td>' +
+      '<td>' + esc(dayStr(r['发布日期']) || '—') + '</td>' +
+      '<td class="num bind">' + fmtNum(r['阅读播放']) + '</td>' +
+      '<td class="num bind">' + fmtNum(r['点赞']) + '</td>' +
+      '<td class="num bind">' + fmtNum(r['收藏']) + '</td>' +
+      '<td class="num bind">' + fmtNum(r['评论']) + '</td>' +
+      '<td class="num bind">' + (rd > 0 ? it.toFixed(1) + '%' : '—') + '</td>' +
+      '<td class="wrap">' + esc(firstLine(r['复盘结论'], 60) || '—') + '</td>' +
+      '<td><span class="card-acts">' +
+      '<button class="icon-btn" data-edit="review" data-id="' + r._id + '" title="编辑"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>' +
+      '<button class="icon-btn" data-del="review" data-id="' + r._id + '" title="删除"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg></button>' +
+      '</span></td></tr>';
+  }).join('') : '<tr><td colspan="10" style="text-align:center;color:var(--text3);padding:26px">还没有复盘记录</td></tr>';
+
+  html += '<div class="tbl-wrap"><table><thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>';
+  host.innerHTML = html;
+  bindDb(host, 'review');
+}
+
+function renderSources() {
+  var host = $('#sourceBody'), m = mod('source'), list = filtered('source');
+  if (!list.length) {
+    host.innerHTML = '<div class="empty"><b>' + (recs('source').length ? '没有符合筛选的信息源' : '还没有信息源') + '</b>' +
+      (recs('source').length ? '换个筛选条件试试。' : '把你在跟的 RSS、公众号、小红书号、抖音号登记进来，一眼看清哪些在跑、哪些待接入。') + '</div>';
+    return;
+  }
+  host.innerHTML = '<div class="rows">' + list.map(function (r) {
+    var tags = (m.tags || []).map(function (f) {
+      var v = cellText(m, r, f);
+      return v ? '<span class="tag ' + (STATUS_TAG[v] || 'gray') + '">' + esc(v) + '</span>' : '';
+    }).join('');
+    var meta = (m.meta || []).map(function (f) {
+      var v = cellText(m, r, f);
+      return v ? '<span>' + esc(f) + '：' + esc(v) + '</span>' : '';
+    }).join(' · ');
+    var u = urlOf(r['地址']);
+    var note = r['备注'] ? firstLine(r['备注'], 70) : '';
+    return '<div class="row"><div class="row-main">' +
+      '<div class="row-title bind">' + esc(r['信息源名称'] || '(未命名)') + tags + '</div>' +
+      '<div class="row-sub">' + meta + (note ? ' · ' + esc(note) : '') + '</div>' +
+      (u ? '<div class="row-sub"><a href="' + esc(u) + '" target="_blank" rel="noopener">' + esc(u) + '</a></div>' : '') +
+      '</div><div class="row-right">' +
+      '<button class="icon-btn" data-edit="source" data-id="' + r._id + '" title="编辑"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>' +
+      '<button class="icon-btn" data-del="source" data-id="' + r._id + '" title="删除"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg></button>' +
+      '</div></div>';
+  }).join('') + '</div>';
+  bindDb(host, 'source');
+}
+
+function renderShell() {
+  var m = mod(state.view);
+  $('#pageTitle').textContent = m.name;
+  $('#pageDesc').textContent = m.desc;
+  $('#btnNewText').textContent = '新建' + (m.key === 'source' ? '信息源' : m.key === 'review' ? '复盘' : '');
+  $$('.view').forEach(function (v) { v.classList.toggle('on', v.getAttribute('data-view') === state.view); });
+}
+
+/* 唯一刷新入口：按固定顺序调度所有渲染，渲染函数之间互不调用 */
+function refreshAll() {
+  renderShell();
+  renderNav();
+  renderToday();
+  renderIntel();
+  renderContent();
+  renderReview();
+  renderSources();
+  MODULES.forEach(function (m) { renderFilterBar(m.key); });
+}
+
+/* ---------- 8. 表单抽屉 ---------- */
+var formVals = {}, draftTimer = null;
+function openDrawer(sel) { $(sel).classList.add('on'); $('#mask').classList.add('on'); }
+function closeDrawers() {
+  $$('.drawer').forEach(function (d) { d.classList.remove('on'); });
+  $('#mask').classList.remove('on');
+}
+function toValue(m, f, v) {
+  var s = v == null ? '' : String(v);
+  if (f.t === 'number') return s === '' ? null : { number: Number(s) };
+  if (f.t === 'date') return s === '' ? null : { date: s };
+  if (f.t === 'url') return s === '' ? null : { url: { text: '原文', link: s } };
+  if (f.t === 'select') return s === '' ? null : { select: optId(m, f.n, s) };
+  return { text: s };
+}
+function fromValue(m, f, raw) {
+  if (raw == null) return '';
+  if (f.t === 'number') return String(raw);
+  if (f.t === 'date') return dayStr(raw);
+  if (f.t === 'url') return urlOf(raw);
+  if (f.t === 'select') return optText(m, f.n, raw);
+  return String(raw);
+}
+function openForm(key, rec, preset) {
+  var m = mod(key);
+  state.editing = { key: key, id: rec ? rec._id : null };
+  formVals = {};
+  m.fields.forEach(function (f) {
+    formVals[f.n] = rec ? fromValue(m, f, rec[f.n]) : '';
+  });
+  if (!rec) {
+    m.fields.forEach(function (f) {
+      if (!formVals[f.n] && f.def === 'today') formVals[f.n] = todayStr();
+      else if (!formVals[f.n] && f.def) formVals[f.n] = f.def;
+    });
+    if (preset && preset.statusField) formVals[m.statusField] = preset.statusField;
+    if (preset && preset[state.editing.key]) formVals = Object.assign(formVals, preset[state.editing.key]);
+    var d = readDraft(key);
+    if (d) { for (var k in d) { if (formVals[k] === '' && d[k]) formVals[k] = d[k]; } }
+  } else if (preset && preset.statusField) {
+    formVals[m.statusField] = preset.statusField;
+  }
+  $('#formTitle').textContent = (rec ? '编辑' : '新建') + m.name;
+  $('#formBody').innerHTML = m.fields.map(function (f) { return fieldHtml(m, f); }).join('');
+  openDrawer('#formDrawer');
+}
+function fieldHtml(m, f) {
+  var v = formVals[f.n] || '';
+  var label = '<label>' + esc(f.n) + (f.req ? ' <span style="color:var(--red)">*</span>' : '') + '</label>';
+  if (f.t === 'textarea') {
+    return '<div class="field">' + label + '<textarea data-f="' + esc(f.n) + '" placeholder="' + esc(f.ph || '') + '">' + esc(v) + '</textarea></div>';
+  }
+  if (f.t === 'select') {
+    var opts = optionsFor(m, f.n);
+    return '<div class="field">' + label + '<div class="opt-row" data-optgroup="' + esc(f.n) + '">' +
+      '<button type="button" class="opt' + (v === '' ? ' on' : '') + '" data-opt="" data-of="' + esc(f.n) + '">未选</button>' +
+      opts.map(function (o) {
+        return '<button type="button" class="opt' + (v === o.text ? ' on' : '') + '" data-opt="' + esc(o.text) + '" data-of="' + esc(f.n) + '">' + esc(o.text) + '</button>';
+      }).join('') + '</div></div>';
+  }
+  var type = f.t === 'number' ? 'number' : (f.t === 'date' ? 'date' : (f.t === 'url' ? 'url' : 'text'));
+  return '<div class="field">' + label + '<input type="' + type + '" data-f="' + esc(f.n) + '" value="' + esc(v) + '" placeholder="' + esc(f.ph || '') + '"></div>';
+}
+function collectForm() {
+  $$('#formBody [data-f]').forEach(function (el) { formVals[el.getAttribute('data-f')] = el.value; });
+  return formVals;
+}
+function readDraft(key) {
+  try {
+    var d = JSON.parse(localStorage.getItem(LS_DRAFT) || 'null');
+    if (d && d.key === key && !d.id) return d.vals || null;
+  } catch (e) { }
+  return null;
+}
+function saveDraft() {
+  if (!state.editing) return;
+  try { localStorage.setItem(LS_DRAFT, JSON.stringify({ key: state.editing.key, id: state.editing.id, vals: collectForm() })); } catch (e) { }
+}
+function clearDraft() { try { localStorage.removeItem(LS_DRAFT); } catch (e) { } }
+function saveForm() {
+  var key = state.editing.key, m = mod(key);
+  collectForm();
+  var payload = {}, missing = [];
+  m.fields.forEach(function (f) {
+    var v = formVals[f.n];
+    if (f.req && !String(v == null ? '' : v).trim()) missing.push(f.n);
+    var pv = toValue(m, f, v);
+    if (pv !== null) payload[f.n] = pv;
+    else if (state.editing.id && (f.t === 'text' || f.t === 'textarea')) payload[f.n] = { text: '' };
+  });
+  if (missing.length) { toast('还差必填：' + missing.join('、')); return; }
+  var btn = $('#formSave'); btn.disabled = true; btn.textContent = '保存中…';
+  writeOne(key, state.editing.id, payload).then(function () {
+    clearDraft(); closeDrawers(); toast(state.editing.id ? '已保存' : '已新建');
+    return refreshTable(key);
+  }).catch(function (err) {
+    toast('保存失败：' + msgOf(err));
+  }).then(function () {
+    btn.disabled = false; btn.textContent = '保存';
+  });
+}
+function refreshTable(key) {
+  return loadOne(key).then(function () { refreshAll(); });
+}
+
+/* ---------- 9. 设置 / 备份 ---------- */
+function exportJson() {
+  var dump = { app: '美妆情报台', exportedAt: new Date().toISOString(), data: state.data };
+  var blob = new Blob([JSON.stringify(dump, null, 2)], { type: 'application/json' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '美妆情报台_备份_' + todayStr() + '.json';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function () { URL.revokeObjectURL(a.href); }, 3000);
+  toast('已导出备份文件');
+}
+function importJson(text) {
+  var parsed;
+  try { parsed = JSON.parse(text); } catch (e) { toast('文件不是有效的 JSON'); return; }
+  var data = parsed && parsed.data ? parsed.data : parsed;
+  if (!data || typeof data !== 'object') { toast('文件里没有可恢复的数据'); return; }
+  var chain = Promise.resolve(), added = 0;
+  MODULES.forEach(function (m) {
+    var rows = data[m.key];
+    if (!Array.isArray(rows) || !rows.length) return;
+    chain = chain.then(function () {
+      var sub = Promise.resolve();
+      rows.forEach(function (r) {
+        var payload = {};
+        m.fields.forEach(function (f) {
+          var pv = toValue(m, f, fromValue(m, f, r[f.n]));
+          if (pv !== null) payload[f.n] = pv;
+        });
+        if (!payload[m.primary]) return;
+        sub = sub.then(function () { added++; return writeOne(m.key, null, payload); });
+      });
+      return sub.then(function () { return loadOne(m.key); });
+    });
+  });
+  chain.then(function () { refreshAll(); toast('导入完成，新增 ' + added + ' 条'); })
+    .catch(function (err) { toast('导入出错：' + msgOf(err)); refreshAll(); });
+}
+function clearDemo() {
+  var jobs = [];
+  MODULES.forEach(function (m) {
+    recs(m.key).forEach(function (r) { if (isDemo(r, m)) jobs.push(removeOne(m.key, r._id)); });
+  });
+  if (!jobs.length) { toast('没有找到示例数据'); return; }
+  Promise.all(jobs).then(function () {
+    MODULES.forEach(function (m) { if (state.ready[m.key]) loadOne(m.key); });
+    return new Promise(function (res) { setTimeout(res, 400); });
+  }).then(function () { loadAll().then(refreshAll); toast('示例数据已清空'); })
+    .catch(function (err) { toast('清空失败：' + msgOf(err)); });
+}
+function clearAll() {
+  if (!window.confirm('确定要清空全部数据吗？四张表的记录都会被删除，无法恢复。')) return;
+  if (!window.confirm('再确认一次：真的删除全部业务记录？')) return;
+  var jobs = [];
+  MODULES.forEach(function (m) { recs(m.key).forEach(function (r) { jobs.push(removeOne(m.key, r._id)); }); });
+  if (!ONLINE) lsDel();
+  Promise.all(jobs).then(function () { lsDel(); return loadAll(); }).then(function () { refreshAll(); toast('已清空全部记录'); })
+    .catch(function (err) { toast('清空失败：' + msgOf(err)); });
+}
+
+/* ---------- 10. 今日动作 ---------- */
+function doAction(act, key, id) {
+  var m = mod(key), r = null;
+  recs(key).forEach(function (x) { if (x._id === id) r = x; });
+  if (!r) return;
+  var payload = null;
+  if (act === 'postpone') payload = { '计划发布日期': { date: todayStr() } };
+  else if (act === 'markPublished') payload = { '状态': { select: optId(m, '状态', '已发布') } };
+  else if (act === 'pickIntel') payload = { '状态': { select: optId(m, '状态', '已选') } };
+  else if (act === 'activateSource') payload = { '状态': { select: optId(m, '状态', '正常') } };
+  else if (act === 'edit') { openForm(key, r); return; }
+  if (!payload) return;
+  writeOne(key, id, payload).then(function () { return refreshTable(key); })
+    .then(function () { toast('已更新'); })
+    .catch(function (err) { toast('更新失败：' + msgOf(err)); });
+}
+function moveStatus(key, id, to) {
+  var m = mod(key);
+  writeOne(key, id, { '状态': { select: optId(m, '状态', to) } })
+    .then(function () { return refreshTable(key); }).then(function () { toast('已移到「' + to + '」'); })
+    .catch(function (err) { toast('移动失败：' + msgOf(err)); });
+}
+function delRecord(key, id) {
+  var m = mod(key), name = '';
+  recs(key).forEach(function (r) { if (r._id === id) name = r[m.primary]; });
+  if (!window.confirm('删除「' + (name || '这条记录') + '」？无法恢复。')) return;
+  removeOne(key, id).then(function () { return refreshTable(key); }).then(function () { toast('已删除'); })
+    .catch(function (err) { toast('删除失败：' + msgOf(err)); });
+}
+
+/* ---------- 11. 事件绑定 ---------- */
+function bindEvents() {
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest('[data-go],[data-edit],[data-del],[data-new],[data-act],[data-move],[data-open],[data-opt],[data-filter-clear]') : null;
+    if (!t) return;
+    var g;
+    if ((g = t.getAttribute('data-go'))) { state.view = g; refreshAll(); return; }
+    if ((g = t.getAttribute('data-filter-clear'))) { state.filter[g] = {}; refreshAll(); return; }
+    if ((g = t.getAttribute('data-opt')) !== null && t.hasAttribute('data-opt')) {
+      var of = t.getAttribute('data-of');
+      formVals[of] = g;
+      $$('[data-of="' + of + '"]', $('#formBody')).forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-opt') === g); });
+      saveDraft(); return;
+    }
+    if ((g = t.getAttribute('data-edit'))) { var r = null; recs(g).forEach(function (x) { if (x._id === t.getAttribute('data-id')) r = x; }); if (r) openForm(g, r); return; }
+    if ((g = t.getAttribute('data-del'))) { delRecord(g, t.getAttribute('data-id')); return; }
+    if ((g = t.getAttribute('data-act'))) { doAction(g, t.getAttribute('data-key'), t.getAttribute('data-id')); return; }
+    if ((g = t.getAttribute('data-move'))) { moveStatus(g, t.getAttribute('data-id'), t.getAttribute('data-to')); return; }
+    if ((g = t.getAttribute('data-open'))) {
+      var r2 = null; recs(g).forEach(function (x) { if (x._id === t.getAttribute('data-id')) r2 = x; });
+      if (r2) openForm(g, r2);
+      return;
+    }
+    if ((g = t.getAttribute('data-new'))) {
+      if (g === 'content') openForm('content', null, { statusField: t.getAttribute('data-status') });
+      else openForm(g, null);
+      return;
+    }
+  });
+  document.addEventListener('change', function (e) {
+    var el = e.target;
+    if (el.getAttribute && el.getAttribute('data-filter')) {
+      var key = el.getAttribute('data-filter'), fn = el.getAttribute('data-field');
+      state.filter[key][fn] = el.value; refreshAll(); return;
+    }
+  });
+  document.addEventListener('input', function (e) {
+    var el = e.target, f = el.getAttribute && el.getAttribute('data-f');
+    if (f) { formVals[f] = el.value; clearTimeout(draftTimer); draftTimer = setTimeout(saveDraft, 300); return; }
+    if (el.id === 'qIntel' || el.id === 'qContent' || el.id === 'qSource') {
+      var key = el.id === 'qIntel' ? 'intel' : (el.id === 'qContent' ? 'content' : 'source');
+      state.query[key] = el.value;
+      clearTimeout(el._t); el._t = setTimeout(refreshAll, 160);
+    }
+  });
+  $('#btnNew').addEventListener('click', function () { openForm(state.view, null); });
+  $('#btnRefresh').addEventListener('click', function () { loadAll().then(function () { refreshAll(); toast('已刷新'); }); });
+  $('#btnSettings').addEventListener('click', function () { openDrawer('#setDrawer'); });
+  $('#mask').addEventListener('click', closeDrawers);
+  $('#formClose').addEventListener('click', closeDrawers);
+  $('#formCancel').addEventListener('click', closeDrawers);
+  $('#setClose').addEventListener('click', closeDrawers);
+  $('#formSave').addEventListener('click', saveForm);
+  $('#btnExport').addEventListener('click', exportJson);
+  $('#btnImport').addEventListener('click', function () { $('#fileImport').click(); });
+  $('#fileImport').addEventListener('change', function (e) {
+    var f = e.target.files && e.target.files[0];
+    if (!f) return;
+    var fr = new FileReader();
+    fr.onload = function () { importJson(String(fr.result)); };
+    fr.onerror = function () { toast('读取文件失败'); };
+    fr.readAsText(f);
+    e.target.value = '';
+  });
+  $('#btnClearDemo').addEventListener('click', clearDemo);
+  $('#btnClearAll').addEventListener('click', clearAll);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDrawers(); });
+}
+
+/* ---------- 12. 变更订阅（整页只注册一次） ---------- */
+function subscribeUpdates() {
+  if (!db || typeof db.onUpdated !== 'function') return;
+  var timer = null;
+  db.onUpdated(function (payload) {
+    var ids = (payload && payload.databaseIds) || [];
+    var keys = [];
+    MODULES.forEach(function (m) { if (ids.indexOf(DB[m.key].databaseId) !== -1) keys.push(m.key); });
+    if (!keys.length) return;
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(function () {
+      timer = null;
+      Promise.all(keys.map(loadOne)).then(refreshAll);
+    }, 400);
+  });
+}
+
+/* ---------- 13. 离线模式示例数据（首次打开避免空白） ---------- */
+function seedLocalIfEmpty() {
+  var all = lsRead();
+  var has = MODULES.some(function (m) { return (all[m.key] || []).length; });
+  if (has) return;
+  var t = todayStr();
+  var d = new Date(Date.now() - 3 * 86400000);
+  var overdue = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  all.intel = [
+    { _id: uid(), '标题': '【示例】以油养肤在抖音的搜索量近三个月的变化', '情报类型': '行业趋势', '来源平台': '巨量研报', '区域': '中国', '状态': '待筛', '热度': 12800, '原文链接': { text: '原文', link: 'https://www.oceanengine.com/' }, '拆解笔记': '示例：可拆一期「为什么秋冬大家都在说以油养肤」，配自家精华油的成分对比。', '采集日期': t },
+    { _id: uid(), '标题': '【示例】某韩系品牌新品主推「屏障修护 + 冷霜质地」', '情报类型': '竞品动态', '来源平台': '小红书', '区域': '韩国', '状态': '待筛', '热度': 3400, '原文链接': null, '拆解笔记': '示例：注意它的质地表达方式，可以对照自家身体冷霜的话术。', '采集日期': t }
+  ];
+  all.content = [
+    { _id: uid(), '选题标题': '【示例】秋冬换季，精华油到底该怎么用', '状态': '写作中', '优先级': 'P0', '发布平台': '小红书', '关联情报': '以油养肤趋势', '计划发布日期': overdue, '正文提纲': '示例：开头痛点（换季干痒）→ 三种用法 → 成分避坑 → 引导收藏。' },
+    { _id: uid(), '选题标题': '【示例】把「浴后冷霜」讲成人话', '状态': '灵感', '优先级': 'P1', '发布平台': '抖音', '关联情报': '韩系竞品冷霜', '计划发布日期': '', '正文提纲': '示例：先说使用场景，再讲质地差异。' }
+  ];
+  all.review = [
+    { _id: uid(), '内容标题': '【示例】夏天身体乳怎么选', '平台': '小红书', '发布日期': overdue, '阅读播放': 18600, '点赞': 742, '收藏': 420, '评论': 63, '复盘结论': '示例：收藏率偏高，说明清单型内容有用，下期做成对比表。' }
+  ];
+  all.source = [
+    { _id: uid(), '信息源名称': '【示例】巨量算数·美妆个护', '类型': '网站', '地址': { text: '来源', link: 'https://trendinsight.oceanengine.com/' }, '覆盖区域': '中国', '更新频率': '每周', '状态': '正常', '备注': '示例：看趋势词和人群画像。' },
+    { _id: uid(), '信息源名称': '【示例】KEV 美妆圈中国区', '类型': 'API', '地址': null, '覆盖区域': '中国', '更新频率': '每日', '状态': '待接入', '备注': '示例：待打通接口后并入情报库。' }
+  ];
+  lsWrite(all);
+}
+
+/* ---------- 14. 初始化（固定顺序：读数据 → 绑事件 → 订阅 → 渲染） ---------- */
+function init() {
+  if (!ONLINE) {
+    seedLocalIfEmpty();
+    $('#offBanner').classList.remove('hide');
+  }
+  $('#setWhere').textContent = ONLINE
+    ? '四张数据表存放在 WorkBuddy 资料库，云端存储、多设备自动同步。'
+    : '数据只存在这台设备的浏览器里（离线模式），建议定期导出备份。';
+  state.view = 'intel';
+  bindEvents();
+  subscribeUpdates();
+  refreshAll();
+  loadAll().then(refreshAll);
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+else init();

@@ -1,0 +1,23 @@
+目标 109 条｜已成功 92 条｜本轮待拉 17 条｜间隔 1.2s
+[  1/ 17] ✓ JP  sold=285       score=4.3  rev=3       desc=191   legal=0  SAKURA GLOW
+[  2/ 17] ✓ MY  sold=854496    score=4.8  rev=27366   desc=838   legal=0  ROREC Malaysia
+[  3/ 17] ✗ MY  Bar Syampu Daun Thuja | Penj   HTTP 400 {"detail":{"code":400,"request_id":"79c0031d-7fd1-473c-8963-a
+[  4/ 17] ✓ MY  sold=581       score=4.9  rev=8       desc=0     legal=0  Chunni Beauty
+[  5/ 17] ✓ MY  sold=264       score=5    rev=5       desc=0     legal=0  gfhyu992
+[  6/ 17] ✓ MY  sold=194       score=3    rev=2       desc=0     legal=0  ZhongxiangTrading
+[  7/ 17] ✓ MY  sold=497       score=4.4  rev=32      desc=940   legal=0  Tongye Trading
+[  8/ 17] ✗ MY  【Tawaran Masa Terhad】Maskara   HTTP 400 {"detail":{"code":400,"request_id":"b835172f-c86d-43fb-81ba-b
+[  9/ 17] ✓ MY  sold=156       score=4.9  rev=10      desc=0     legal=0  Rosorique Cosmetic H
+[ 10/ 17] ✗ MY  【COD】Bebola Penghalau Tikus    HTTP 400 {"detail":{"code":400,"request_id":"bb5144c0-cc10-41c6-aa63-a
+[ 11/ 17] ✗ MY  [Stok tersedia & sedia dihan   HTTP 400 {"detail":{"code":400,"request_id":"a74f12bb-87cf-480f-b151-5
+[ 12/ 17] ✗ MY  Krim kulit melembapkan OGULI   HTTP 400 {"detail":{"code":400,"request_id":"ee424931-e74b-4501-9385-4
+[ 13/ 17] ✗ MY  Sabun pencuci rambut herba b   HTTP 400 {"detail":{"code":400,"request_id":"36fc3061-19d2-45d9-932c-a
+[ 14/ 17] ✓ MY  sold=139       score=4.7  rev=7       desc=0     legal=0  HKMYCBGWLLVB
+[ 15/ 17] ✗ MY  【Terlaris dalam 7 hari, 8,69   HTTP 400 {"detail":{"code":400,"request_id":"d82e59d2-2bf3-4e2f-916a-6
+[ 16/ 17] ✗ MY  Bahan herba terpilih! Resipi   HTTP 400 {"detail":{"code":400,"request_id":"512bc4ca-40ee-473f-aed6-7
+[ 17/ 17] ✓ MY  sold=159       score=4.5  rev=4       desc=0     legal=0  RiaMart MY
+
+本轮 成功 9 / 失败 8 ｜ 耗时 358 秒
+累计成功 101 / 109 条（93%）
+有评分 101｜有评价数 101｜有描述(>50字) 89｜有店铺名 101｜有法规属性 72
+失败原因 TOP: [('HTTP 400 {"detail":{"code":400,"request_', 8)]

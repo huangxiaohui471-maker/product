@@ -1,0 +1,21 @@
+{
+  "title": "信息源",
+  "properties": [
+    { "name": "信息源名称", "config": { "text": "" } },
+    { "name": "类型", "config": { "select": { "options": [
+      { "text": "RSS" }, { "text": "公众号" }, { "text": "小红书账号" }, { "text": "抖音号" },
+      { "text": "网站" }, { "text": "API" }, { "text": "其他" }
+    ] } } },
+    { "name": "地址", "config": { "url": { "text": "来源", "link": "" } } },
+    { "name": "覆盖区域", "config": { "select": { "options": [
+      { "text": "中国" }, { "text": "韩国" }, { "text": "欧美" }, { "text": "日本" }, { "text": "其他" }
+    ] } } },
+    { "name": "更新频率", "config": { "select": { "options": [
+      { "text": "实时" }, { "text": "每日" }, { "text": "每周" }, { "text": "手动" }
+    ] } } },
+    { "name": "状态", "config": { "select": { "options": [
+      { "text": "正常" }, { "text": "待接入" }, { "text": "已停用" }
+    ] } } },
+    { "name": "备注", "config": { "text": "" } }
+  ]
+}

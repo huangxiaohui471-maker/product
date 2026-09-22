@@ -1,0 +1,1035 @@
+{
+ "source": "FastMoss filterInfo + Kimi 译名（平台真实中文路径校验）",
+ "validate": {
+  "total": 66,
+  "match": 66,
+  "mismatch": []
+ },
+ "tree": [
+  {
+   "cid": "14",
+   "name": "Beauty & Personal Care",
+   "zh": "美妆个护",
+   "children": [
+    {
+     "cid": "849032",
+     "name": "Hand, Foot & Nail Care",
+     "zh": "手足及指甲护理",
+     "children": [
+      {
+       "cid": "601454",
+       "name": "Hand & Foot Masks",
+       "zh": "手足膜"
+      },
+      {
+       "cid": "601456",
+       "name": "Foot Odor Control",
+       "zh": "足部除臭"
+      },
+      {
+       "cid": "601480",
+       "name": "Hand Lotions, Creams & Scrubs",
+       "zh": "护手足霜、乳液与磨砂膏"
+      },
+      {
+       "cid": "601508",
+       "name": "Hand Wash",
+       "zh": "洗手液"
+      },
+      {
+       "cid": "601591",
+       "name": "Nail Art & Nail Polish",
+       "zh": "指甲油"
+      },
+      {
+       "cid": "700790",
+       "name": "Manicure & Pedicure Tools",
+       "zh": "手足工具与配件"
+      },
+      {
+       "cid": "824336",
+       "name": "Nail Art Kits",
+       "zh": "美甲套装"
+      },
+      {
+       "cid": "977672",
+       "name": "Nail Treatments",
+       "zh": "指甲护理"
+      },
+      {
+       "cid": "1004552",
+       "name": "Hand Sanitizers",
+       "zh": "免洗洗手液"
+      },
+      {
+       "cid": "1004680",
+       "name": "Nail Polish Removers",
+       "zh": "洗甲水"
+      },
+      {
+       "cid": "852112",
+       "name": "Nail Art Decoration & Accessories",
+       "zh": "美甲装饰和配饰"
+      }
+     ]
+    },
+    {
+     "cid": "849544",
+     "name": "Eye & Ear Care",
+     "zh": "眼镜耳朵护理",
+     "children": [
+      {
+       "cid": "601461",
+       "name": "Lens Solutions & Eyedrops",
+       "zh": "隐形眼镜护理液"
+      },
+      {
+       "cid": "601462",
+       "name": "Contact Lens",
+       "zh": "隐形眼镜"
+      },
+      {
+       "cid": "601463",
+       "name": "Contact Lens Conditioning Kits",
+       "zh": "隐形眼镜护理套装"
+      },
+      {
+       "cid": "601737",
+       "name": "Sleep Masks",
+       "zh": "眼罩"
+      },
+      {
+       "cid": "874760",
+       "name": "Reading Glasses",
+       "zh": "老花镜"
+      },
+      {
+       "cid": "874888",
+       "name": "Ear Drops",
+       "zh": "滴耳液"
+      },
+      {
+       "cid": "875016",
+       "name": "Earwax Removal Products",
+       "zh": "耳垢清洁产品和工具"
+      },
+      {
+       "cid": "875144",
+       "name": "Ear Plugs",
+       "zh": "耳塞"
+      },
+      {
+       "cid": "854160",
+       "name": "Colored Contact Lens",
+       "zh": "彩色隐形眼镜"
+      }
+     ]
+    },
+    {
+     "cid": "848904",
+     "name": "Haircare & Styling",
+     "zh": "头部护理与造型",
+     "children": [
+      {
+       "cid": "601469",
+       "name": "Shampoo & Conditioner",
+       "zh": "洗发护发"
+      },
+      {
+       "cid": "601513",
+       "name": "Mousse & Gel",
+       "zh": "摩丝与啫喱"
+      },
+      {
+       "cid": "601516",
+       "name": "Hair Dye",
+       "zh": "染发用品"
+      },
+      {
+       "cid": "700789",
+       "name": "Heatless Styling Tools",
+       "zh": "无热造型工具"
+      },
+      {
+       "cid": "806160",
+       "name": "Hair Loss Products",
+       "zh": "脱发产品"
+      },
+      {
+       "cid": "981512",
+       "name": "Hair Treatments/Scalp Treatments",
+       "zh": "头发与头皮养护"
+      },
+      {
+       "cid": "1004168",
+       "name": "Hair Styling Powders",
+       "zh": "造型粉"
+      },
+      {
+       "cid": "851984",
+       "name": "Hair Brushes & Combs",
+       "zh": "梳子与发刷"
+      },
+      {
+       "cid": "2168464",
+       "name": "Scalp Treatments",
+       "zh": "头皮护理"
+      },
+      {
+       "cid": "2168592",
+       "name": "Hairdresser Furnishings",
+       "zh": "美发家具"
+      },
+      {
+       "cid": "2168720",
+       "name": "Hair Relaxers",
+       "zh": "直发膏"
+      },
+      {
+       "cid": "2168848",
+       "name": "Hair Perms & Texturizers",
+       "zh": "烫发剂"
+      },
+      {
+       "cid": "2168976",
+       "name": "Hair Lice Treatments",
+       "zh": "除虱产品"
+      },
+      {
+       "cid": "1011080",
+       "name": "Hair Fragrance",
+       "zh": "发用香氛"
+      }
+     ]
+    },
+    {
+     "cid": "849800",
+     "name": "Feminine Care",
+     "zh": "女性私密处护理",
+     "children": [
+      {
+       "cid": "601475",
+       "name": "Vaginal Cream",
+       "zh": "阴道护理霜"
+      },
+      {
+       "cid": "601476",
+       "name": "Feminine Hygiene",
+       "zh": "私密处清洁用品"
+      },
+      {
+       "cid": "601477",
+       "name": "Sanitary Towels",
+       "zh": "卫生巾"
+      },
+      {
+       "cid": "805648",
+       "name": "Menopause Products",
+       "zh": "更年期用品"
+      },
+      {
+       "cid": "875528",
+       "name": "Tampons",
+       "zh": "卫生棉条"
+      },
+      {
+       "cid": "875784",
+       "name": "Menstrual Cups",
+       "zh": "月经杯"
+      },
+      {
+       "cid": "1004296",
+       "name": "Intimate Deodorants",
+       "zh": "私密除臭剂"
+      },
+      {
+       "cid": "2169104",
+       "name": "Menstrual Underwear",
+       "zh": "经期内裤"
+      },
+      {
+       "cid": "1011208",
+       "name": "Menstrual Cup Case and Sterilizer",
+       "zh": "月经杯盒与消毒器"
+      }
+     ]
+    },
+    {
+     "cid": "849160",
+     "name": "Bath & Body Care",
+     "zh": "洗浴与身体护理",
+     "children": [
+      {
+       "cid": "601490",
+       "name": "Body Care Kits",
+       "zh": "身体护理套装"
+      },
+      {
+       "cid": "601492",
+       "name": "Body Creams & Lotions",
+       "zh": "身体霜、乳"
+      },
+      {
+       "cid": "601493",
+       "name": "Body Wash & Soap",
+       "zh": "沐浴露与香皂"
+      },
+      {
+       "cid": "601494",
+       "name": "Talcum Powder",
+       "zh": "爽身粉"
+      },
+      {
+       "cid": "601495",
+       "name": "Hair Removal Cream, Wax & Shave",
+       "zh": "除毛乳、除毛蜜蜡&除毛器"
+      },
+      {
+       "cid": "601498",
+       "name": "Deodorants & Antiperspirants",
+       "zh": "止汗露"
+      },
+      {
+       "cid": "601506",
+       "name": "Body Scrubs & Peels",
+       "zh": "身体磨砂膏、去角质"
+      },
+      {
+       "cid": "601511",
+       "name": "Breast Care",
+       "zh": "胸部护理"
+      },
+      {
+       "cid": "601686",
+       "name": "Body Shaping Cream",
+       "zh": "塑形霜"
+      },
+      {
+       "cid": "700785",
+       "name": "Manual Massage Tools",
+       "zh": "手动按摩用品"
+      },
+      {
+       "cid": "853512",
+       "name": "Bathing Accessories",
+       "zh": "洗澡工具"
+      },
+      {
+       "cid": "873608",
+       "name": "Body Masks",
+       "zh": "身体膜"
+      },
+      {
+       "cid": "873736",
+       "name": "Body & Massage Oil",
+       "zh": "保湿油、按摩油"
+      },
+      {
+       "cid": "873864",
+       "name": "Sunscreen & Sun Care",
+       "zh": "防晒与晒后护理"
+      },
+      {
+       "cid": "978056",
+       "name": "Tanning Oils & Self Tanners",
+       "zh": "美黑油与自晒乳"
+      },
+      {
+       "cid": "1003784",
+       "name": "Neck Care",
+       "zh": "颈部护理"
+      },
+      {
+       "cid": "2169232",
+       "name": "Tattoo Aftercare Balms & Creams",
+       "zh": "纹身后护理"
+      }
+     ]
+    },
+    {
+     "cid": "849288",
+     "name": "Men's Care",
+     "zh": "男士护理",
+     "children": [
+      {
+       "cid": "601520",
+       "name": "Bath & Body Care",
+       "zh": "男士洗浴与身体护理"
+      },
+      {
+       "cid": "601565",
+       "name": "Makeup",
+       "zh": "美妆"
+      },
+      {
+       "cid": "601627",
+       "name": "Skincare",
+       "zh": "美容护肤"
+      },
+      {
+       "cid": "601644",
+       "name": "Shaving Foam & Aftershave",
+       "zh": "剃须泡沫与须后护理"
+      },
+      {
+       "cid": "601681",
+       "name": "Hair Care",
+       "zh": "头发护理"
+      },
+      {
+       "cid": "700791",
+       "name": "Razors",
+       "zh": "剃须刀"
+      },
+      {
+       "cid": "1004808",
+       "name": "Shaving Tool Sets",
+       "zh": "剃须工具套装"
+      },
+      {
+       "cid": "1004936",
+       "name": "Manual Shaving Accessories",
+       "zh": "男士手动剃须工具"
+      },
+      {
+       "cid": "2168080",
+       "name": "Men's Intimate Care & Wipes",
+       "zh": "男士私密护理与湿巾"
+      },
+      {
+       "cid": "2168208",
+       "name": "Men's Grooming",
+       "zh": "男士理容"
+      },
+      {
+       "cid": "2168336",
+       "name": "Men's Deodorant",
+       "zh": "男士止汗剂"
+      }
+     ]
+    },
+    {
+     "cid": "848648",
+     "name": "Makeup",
+     "zh": "美妆",
+     "children": [
+      {
+       "cid": "601529",
+       "name": "Makeup Sets",
+       "zh": "美妆套装"
+      },
+      {
+       "cid": "601534",
+       "name": "Lipstick & Lip Gloss",
+       "zh": "口红与唇彩"
+      },
+      {
+       "cid": "601537",
+       "name": "Makeup Tools",
+       "zh": "化妆工具"
+      },
+      {
+       "cid": "601550",
+       "name": "Blemish Balm and Color Control",
+       "zh": "BB霜与CC霜"
+      },
+      {
+       "cid": "601552",
+       "name": "Makeup Fixing Spray",
+       "zh": "定妆喷雾"
+      },
+      {
+       "cid": "601554",
+       "name": "Concealer & Foundation",
+       "zh": "遮瑕与粉底"
+      },
+      {
+       "cid": "601555",
+       "name": "Bronzer & Highlighter",
+       "zh": "修容与高光"
+      },
+      {
+       "cid": "601556",
+       "name": "Makeup Base and Primers",
+       "zh": "妆前乳与眼影打底膏"
+      },
+      {
+       "cid": "601558",
+       "name": "Powder",
+       "zh": "散粉"
+      },
+      {
+       "cid": "601560",
+       "name": "Blush",
+       "zh": "腮红"
+      },
+      {
+       "cid": "601582",
+       "name": "Body Makeup",
+       "zh": "身体彩妆"
+      },
+      {
+       "cid": "601585",
+       "name": "Mascara",
+       "zh": "睫毛膏"
+      },
+      {
+       "cid": "601586",
+       "name": "Eyebrow Pencils/Powder/Paste",
+       "zh": "眉笔&眉粉&眉胶"
+      },
+      {
+       "cid": "601587",
+       "name": "Eyeliner & Lipliner",
+       "zh": "眼线笔与唇线笔"
+      },
+      {
+       "cid": "601588",
+       "name": "Eyeshadow",
+       "zh": "眼影"
+      },
+      {
+       "cid": "601618",
+       "name": "Makeup Remover",
+       "zh": "卸妆"
+      },
+      {
+       "cid": "824592",
+       "name": "Temporary Tattoos",
+       "zh": "临时纹身"
+      },
+      {
+       "cid": "824720",
+       "name": "False Eyelashes & Adhesives",
+       "zh": "假睫毛与胶水"
+      },
+      {
+       "cid": "993672",
+       "name": "Tattoo Machines & Kits",
+       "zh": "纹身机器与套装"
+      },
+      {
+       "cid": "1004424",
+       "name": "Tattoo Removal",
+       "zh": "纹身去除"
+      },
+      {
+       "cid": "852752",
+       "name": "Makeup Mirrors",
+       "zh": "化妆镜"
+      },
+      {
+       "cid": "852880",
+       "name": "Makeup Brushes",
+       "zh": "化妆刷"
+      },
+      {
+       "cid": "853008",
+       "name": "Makeup Blenders & Sponges",
+       "zh": "美妆蛋与海绵"
+      },
+      {
+       "cid": "853136",
+       "name": "Cotton Swabs",
+       "zh": "棉签"
+      },
+      {
+       "cid": "853264",
+       "name": "Powder Puffs",
+       "zh": "粉扑"
+      },
+      {
+       "cid": "853392",
+       "name": "Eyelash Curlers",
+       "zh": "睫毛夹"
+      },
+      {
+       "cid": "853520",
+       "name": "Lash Enhancers & Primers",
+       "zh": "睫毛增长液与打底膏"
+      }
+     ]
+    },
+    {
+     "cid": "856208",
+     "name": "Perfume",
+     "zh": "香水",
+     "children": [
+      {
+       "cid": "601583",
+       "name": "Perfume",
+       "zh": "香水"
+      },
+      {
+       "cid": "855696",
+       "name": "Men's Fragrance",
+       "zh": "男士香水"
+      },
+      {
+       "cid": "855824",
+       "name": "Unisex Perfume",
+       "zh": "男女通用香水"
+      },
+      {
+       "cid": "855952",
+       "name": "Women's Fragrance",
+       "zh": "女士香水"
+      },
+      {
+       "cid": "856080",
+       "name": "Perfume Sets",
+       "zh": "香水套装"
+      }
+     ]
+    },
+    {
+     "cid": "848776",
+     "name": "Skincare",
+     "zh": "美容护肤",
+     "children": [
+      {
+       "cid": "601595",
+       "name": "Lip Treatments",
+       "zh": "唇部护理"
+      },
+      {
+       "cid": "601602",
+       "name": "Facial Sunscreen & Sun Care",
+       "zh": "脸部防晒霜与晒后修复"
+      },
+      {
+       "cid": "601608",
+       "name": "Toners",
+       "zh": "爽肤水、化妆水"
+      },
+      {
+       "cid": "601609",
+       "name": "Facial Cleansers",
+       "zh": "洗面乳"
+      },
+      {
+       "cid": "601610",
+       "name": "Facial Massage Cream",
+       "zh": "面部按摩霜"
+      },
+      {
+       "cid": "601611",
+       "name": "Skin Care Kits",
+       "zh": "面部护理套装"
+      },
+      {
+       "cid": "601613",
+       "name": "Face Scrubs & Peels",
+       "zh": "面部磨砂膏与去角质"
+      },
+      {
+       "cid": "601615",
+       "name": "Moisturizers & Mists",
+       "zh": "保湿乳液、乳霜与喷雾"
+      },
+      {
+       "cid": "601616",
+       "name": "Face Masks",
+       "zh": "面膜"
+      },
+      {
+       "cid": "601619",
+       "name": "Serums & Essences",
+       "zh": "面部精华液"
+      },
+      {
+       "cid": "601646",
+       "name": "Eye Treatments",
+       "zh": "眼部护理"
+      },
+      {
+       "cid": "601653",
+       "name": "Nasal Treatment",
+       "zh": "鼻部清洁用品"
+      },
+      {
+       "cid": "601733",
+       "name": "Skincare Tools",
+       "zh": "面部护理工具"
+      },
+      {
+       "cid": "873480",
+       "name": "Acne Treatments",
+       "zh": "痘痘、粉刺护理"
+      }
+     ]
+    },
+    {
+     "cid": "849416",
+     "name": "Personal Care Appliances",
+     "zh": "美容、个护电器",
+     "children": [
+      {
+       "cid": "601660",
+       "name": "Massage Devices",
+       "zh": "按摩器"
+      },
+      {
+       "cid": "601664",
+       "name": "Body Beauty Devices",
+       "zh": "身体美容仪"
+      },
+      {
+       "cid": "601669",
+       "name": "Electric Eyebrow Shapers",
+       "zh": "电动修眉器"
+      },
+      {
+       "cid": "601672",
+       "name": "Facial Beauty Devices",
+       "zh": "面部美容仪"
+      },
+      {
+       "cid": "601677",
+       "name": "Accessories",
+       "zh": "配件"
+      },
+      {
+       "cid": "824464",
+       "name": "Hair Removal Device",
+       "zh": "脱毛仪"
+      },
+      {
+       "cid": "848016",
+       "name": "Massage Chairs",
+       "zh": "按摩椅"
+      },
+      {
+       "cid": "873992",
+       "name": "Electric Shavers",
+       "zh": "电动剃须刀"
+      },
+      {
+       "cid": "874120",
+       "name": "Electric Toothbrushes",
+       "zh": "电动牙刷"
+      },
+      {
+       "cid": "874248",
+       "name": "Oral Irrigators",
+       "zh": "冲牙器"
+      },
+      {
+       "cid": "874376",
+       "name": "Hair Dryers",
+       "zh": "吹风机"
+      },
+      {
+       "cid": "874504",
+       "name": "Curlers & Straighteners",
+       "zh": "卷、直发器"
+      },
+      {
+       "cid": "874632",
+       "name": "Hair Trimmers & Clippers",
+       "zh": "理发器"
+      },
+      {
+       "cid": "854032",
+       "name": "Nose & Ear Hair Trimmers",
+       "zh": "鼻耳毛修剪器"
+      },
+      {
+       "cid": "1027208",
+       "name": "Refurbished Haircare Device",
+       "zh": "翻新护发电器"
+      },
+      {
+       "cid": "2167568",
+       "name": "Heating Pad",
+       "zh": "加热垫"
+      },
+      {
+       "cid": "2167696",
+       "name": "Electronic Otoscopes",
+       "zh": "电子耳镜"
+      },
+      {
+       "cid": "2167824",
+       "name": "Body Hair Trimmers",
+       "zh": "体毛修剪器"
+      }
+     ]
+    },
+    {
+     "cid": "849672",
+     "name": "Nasal & Oral Care",
+     "zh": "鼻子口腔护理",
+     "children": [
+      {
+       "cid": "601690",
+       "name": "Teeth Whitening",
+       "zh": "牙齿美白"
+      },
+      {
+       "cid": "601692",
+       "name": "Oral Care Kits",
+       "zh": "口腔护理套装"
+      },
+      {
+       "cid": "601693",
+       "name": "Oral Spray",
+       "zh": "口腔喷剂"
+      },
+      {
+       "cid": "601694",
+       "name": "Mouthwash",
+       "zh": "漱口水"
+      },
+      {
+       "cid": "601696",
+       "name": "Toothpastes",
+       "zh": "牙膏"
+      },
+      {
+       "cid": "601697",
+       "name": "Toothbrushes",
+       "zh": "手动牙刷"
+      },
+      {
+       "cid": "601698",
+       "name": "Dental Floss & Picks",
+       "zh": "牙线和牙签"
+      },
+      {
+       "cid": "824208",
+       "name": "Tongue Cleaners",
+       "zh": "舌苔清洁器"
+      },
+      {
+       "cid": "875272",
+       "name": "Denture Care",
+       "zh": "假牙护理"
+      },
+      {
+       "cid": "875400",
+       "name": "Nasal Cleaning",
+       "zh": "鼻部清洁用品"
+      },
+      {
+       "cid": "978184",
+       "name": "Orthodontic Accessories",
+       "zh": "正畸配件"
+      },
+      {
+       "cid": "2167952",
+       "name": "Teeth Grinding Guards",
+       "zh": "防磨牙牙套"
+      }
+     ]
+    },
+    {
+     "cid": "981128",
+     "name": "Special Personal Care",
+     "zh": "特殊个护",
+     "children": [
+      {
+       "cid": "700662",
+       "name": "Heat Patches",
+       "zh": "暖宝宝"
+      },
+      {
+       "cid": "856328",
+       "name": "Ice Packs",
+       "zh": "冰袋"
+      },
+      {
+       "cid": "981256",
+       "name": "Adult Diapers",
+       "zh": "成人纸尿裤"
+      },
+      {
+       "cid": "981384",
+       "name": "Insect Repellents",
+       "zh": "驱虫剂"
+      },
+      {
+       "cid": "1005064",
+       "name": "Incontinence Bed Pads",
+       "zh": "隔尿垫"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "cid": "2",
+   "name": "Womenswear & Underwear",
+   "zh": "女装与内衣",
+   "children": []
+  },
+  {
+   "cid": "25",
+   "name": "Health",
+   "zh": "健康",
+   "children": []
+  },
+  {
+   "cid": "8",
+   "name": "Fashion Accessories",
+   "zh": "时尚配饰",
+   "children": []
+  },
+  {
+   "cid": "9",
+   "name": "Sports & Outdoor",
+   "zh": "运动与户外",
+   "children": []
+  },
+  {
+   "cid": "16",
+   "name": "Phones & Electronics",
+   "zh": "手机与数码",
+   "children": []
+  },
+  {
+   "cid": "10",
+   "name": "Home Supplies",
+   "zh": "家居用品",
+   "children": []
+  },
+  {
+   "cid": "24",
+   "name": "Food & Beverages",
+   "zh": "食品饮料",
+   "children": []
+  },
+  {
+   "cid": "23",
+   "name": "Automotive & Motorcycle",
+   "zh": "汽车与摩托车",
+   "children": []
+  },
+  {
+   "cid": "3",
+   "name": "Menswear & Underwear",
+   "zh": "男装与内衣",
+   "children": []
+  },
+  {
+   "cid": "30",
+   "name": "Collectibles",
+   "zh": "收藏品",
+   "children": []
+  },
+  {
+   "cid": "19",
+   "name": "Toys & Hobbies",
+   "zh": "玩具与爱好",
+   "children": []
+  },
+  {
+   "cid": "11",
+   "name": "Kitchenware",
+   "zh": "厨房用品",
+   "children": []
+  },
+  {
+   "cid": "22",
+   "name": "Home Improvement",
+   "zh": "家居装修",
+   "children": []
+  },
+  {
+   "cid": "15",
+   "name": "Computers & Office Equipment",
+   "zh": "电脑与办公设备",
+   "children": []
+  },
+  {
+   "cid": "7",
+   "name": "Luggage & Bags",
+   "zh": "箱包",
+   "children": []
+  },
+  {
+   "cid": "6",
+   "name": "Shoes",
+   "zh": "鞋靴",
+   "children": []
+  },
+  {
+   "cid": "21",
+   "name": "Tools & Hardware",
+   "zh": "工具与五金",
+   "children": []
+  },
+  {
+   "cid": "12",
+   "name": "Textiles & Soft Furnishings",
+   "zh": "家纺与软装",
+   "children": []
+  },
+  {
+   "cid": "13",
+   "name": "Household Appliances",
+   "zh": "家用电器",
+   "children": []
+  },
+  {
+   "cid": "17",
+   "name": "Pet Supplies",
+   "zh": "宠物用品",
+   "children": []
+  },
+  {
+   "cid": "28",
+   "name": "Jewelry Accessories & Derivatives",
+   "zh": "珠宝配饰及衍生品",
+   "children": []
+  },
+  {
+   "cid": "26",
+   "name": "Books, Magazines & Audio",
+   "zh": "图书、杂志与音频",
+   "children": []
+  },
+  {
+   "cid": "18",
+   "name": "Baby & Maternity",
+   "zh": "母婴用品",
+   "children": []
+  },
+  {
+   "cid": "20",
+   "name": "Furniture",
+   "zh": "家具",
+   "children": []
+  },
+  {
+   "cid": "4",
+   "name": "Kids' Fashion",
+   "zh": "童装",
+   "children": []
+  },
+  {
+   "cid": "5",
+   "name": "Muslim Fashion",
+   "zh": "穆斯林时尚",
+   "children": []
+  },
+  {
+   "cid": "31",
+   "name": "Pre-Owned",
+   "zh": "二手商品",
+   "children": []
+  },
+  {
+   "cid": "2344592",
+   "name": "Bookings & Vouchers",
+   "zh": "预订与礼券",
+   "children": []
+  },
+  {
+   "cid": "27",
+   "name": "Virtual Products",
+   "zh": "虚拟商品",
+   "children": []
+  }
+ ]
+}

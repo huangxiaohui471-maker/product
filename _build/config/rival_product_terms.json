@@ -1,0 +1,48 @@
+{
+  "_说明": "TikTok 商品搜索词（必须英文：实测中文词在非中文区会返回无关商品）。键名即轨道，脚本会自动拍平；以 _ 开头的键会被忽略。",
+  "_数据来源": "TikHub /api/v1/tiktok/shop/web/fetch_search_products_list",
+
+  "核心功效": [
+    "niacinamide serum",
+    "retinol cream",
+    "vitamin c serum",
+    "hyaluronic acid serum",
+    "salicylic acid cleanser",
+    "peptide serum",
+    "ceramide cream",
+    "azelaic acid",
+    "tranexamic acid serum",
+    "snail mucin essence",
+    "centella serum",
+    "collagen cream"
+  ],
+  "问题解决": [
+    "acne treatment",
+    "dark spot corrector",
+    "pore care toner",
+    "barrier repair cream",
+    "anti aging serum",
+    "brightening serum",
+    "hydrating serum",
+    "eye cream dark circle",
+    "blackhead remover",
+    "sensitive skin moisturizer"
+  ],
+  "品类扩面": [
+    "face mask sheet",
+    "sunscreen spf50",
+    "exfoliating toner",
+    "body lotion",
+    "hair loss shampoo",
+    "lip mask",
+    "facial cleansing brush",
+    "makeup foundation"
+  ],
+  "趋势概念": [
+    "glass skin",
+    "korean skincare",
+    "vegan skincare",
+    "clean beauty",
+    "post procedure skincare"
+  ]
+}

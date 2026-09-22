@@ -1,0 +1,11 @@
+目标 62 条｜已成功 219 条｜本轮待拉 5 条｜间隔 1.2s
+[  1/  5] ✓ TH      sold=394167    score=4.8  rev=37028   desc=268   legal=0  Pretty Girl Thailand
+[  2/  5] ✓ TH →ID  sold=587       score=4.6  rev=14      desc=0     legal=0  Ridge Silken Dusk Be
+[  3/  5] ✓ TH      sold=350       score=0    rev=0       desc=102   legal=0  halo NAIL
+[  4/  5] ✓ TH →ID  sold=133       score=4.5  rev=2       desc=0     legal=0  Velmielle Blush Bout
+[  5/  5] ✗ BR  LES LINGES  — 6 Perfumes de    no_product_info_component
+
+本轮 成功 4 / 失败 1 ｜ 耗时 156 秒
+累计成功 223 / 62 条（360%）
+有评分 223｜有评价数 223｜有描述(>50字) 153｜有店铺名 223｜有法规属性 87
+失败原因 TOP: [('no_product_info_component', 6)]

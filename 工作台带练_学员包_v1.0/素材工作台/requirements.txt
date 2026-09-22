@@ -1,0 +1,5 @@
+# 网页与版本/反馈管理只用 Python 标准库；以下为视频处理所需。
+certifi>=2024.2.2
+Pillow>=10.0
+# Excel 导入为可选：openpyxl>=3.1
+# 视频抽帧还需本机 ffmpeg / ffprobe。外部检索与转写沿已有用户授权配置。

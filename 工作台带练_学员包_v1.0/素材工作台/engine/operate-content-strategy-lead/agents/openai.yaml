@@ -1,0 +1,4 @@
+interface:
+  display_name: "内容策略负责人"
+  short_description: "认识企业、发现市场机会，交付今天值得做的方向"
+  default_prompt: "Use $operate-content-strategy-lead to understand my enterprise, create or update the shared people-offer-scene whitepaper, discover public and optional paid-creative opportunities, and hand one evidence-backed direction to the content production lead."

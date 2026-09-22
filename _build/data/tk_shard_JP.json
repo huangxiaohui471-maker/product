@@ -1,0 +1,10 @@
+{
+ "1737529234028464024": {
+  "pid": "1737529234028464024",
+  "region": "JP",
+  "country": "日本",
+  "src_name": "国内発送 送料無料 まつ毛下地 マスカラベース ロングボリューム カールキープ 螺旋ブラシ 防水 にじまない 持続力アップ セパレート仕上げ",
+  "ok": false,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"3cc4953b-3b6d-4b53-8b97-d9cd5c35e385\",\"message\":\"Request failed. Please retry. Check the docs below to verify your "
+ }
+}

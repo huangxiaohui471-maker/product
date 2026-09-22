@@ -1,0 +1,15 @@
+{
+  "title": "数据复盘",
+  "properties": [
+    { "name": "内容标题", "config": { "text": "" } },
+    { "name": "平台", "config": { "select": { "options": [
+      { "text": "小红书" }, { "text": "抖音" }, { "text": "公众号" }, { "text": "视频号" }, { "text": "知乎" }, { "text": "其他" }
+    ] } } },
+    { "name": "发布日期", "config": { "date": "2026-09-19T00:00:00Z" } },
+    { "name": "阅读播放", "config": { "number": { "decimalPlaces": 0, "useSeparate": true } } },
+    { "name": "点赞", "config": { "number": { "decimalPlaces": 0, "useSeparate": true } } },
+    { "name": "收藏", "config": { "number": { "decimalPlaces": 0, "useSeparate": true } } },
+    { "name": "评论", "config": { "number": { "decimalPlaces": 0, "useSeparate": true } } },
+    { "name": "复盘结论", "config": { "text": "" } }
+  ]
+}

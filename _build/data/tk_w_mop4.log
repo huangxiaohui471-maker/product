@@ -1,0 +1,16 @@
+目标 62 条｜已成功 219 条｜本轮待拉 10 条｜间隔 1.2s
+[  1/ 10] ✓ VN      sold=618       score=5    rev=9       desc=0     legal=0  Dr.ville VN shop
+[  2/ 10] ✓ VN      sold=337       score=4.5  rev=2       desc=0     legal=0  Floratique Velvet St
+[  3/ 10] ✓ VN      sold=374       score=4.8  rev=4       desc=0     legal=0  Floratique Velvet St
+[  4/ 10] ✓ VN      sold=1904      score=4.2  rev=44      desc=0     legal=0  Eloravie Petal Bouti
+[  5/ 10] ✓ TH →ID  sold=1351659   score=4.9  rev=139506  desc=825   legal=0  Oukeya Thailand Shop
+[  6/ 10] ✓ TH      sold=550       score=0    rev=0       desc=74    legal=0  Prestige Imports
+[  7/ 10] ✓ TH →ID  sold=320       score=4.2  rev=13      desc=0     legal=0  Bellestique Velvet C
+[  8/ 10] ✓ TH →ID  sold=160       score=5    rev=1       desc=0     legal=0  Seranest
+[  9/ 10] ✗ BR  Reparador de Pontas Gloss co   no_product_info_component
+[ 10/ 10] ✗ BR  Kit Gel para Alongamento + T   no_product_info_component
+
+本轮 成功 8 / 失败 2 ｜ 耗时 271 秒
+累计成功 227 / 62 条（366%）
+有评分 227｜有评价数 227｜有描述(>50字) 153｜有店铺名 227｜有法规属性 87
+失败原因 TOP: [('no_product_info_component', 7)]

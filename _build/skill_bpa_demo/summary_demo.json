@@ -1,0 +1,5352 @@
+{
+  "generated_at": "2026-09-21 18:14:54",
+  "source": "/Users/huizidemac/WorkBuddy/2026-09-19-21-23-47/_build/cloud_platform.json",
+  "n": 360,
+  "n_demo": 0,
+  "warn": "",
+  "categories": {
+    "个护 / 身体清洁 / 沐浴露与香皂": 60,
+    "身体 / 身体清洁 / 香皂": 9,
+    "护肤 / 精华 / 面部精华": 9,
+    "个护 / 口腔清洁 / 牙膏": 9,
+    "身体 / 身体保湿 / 身体乳": 8,
+    "护肤 / 面部清洁": 7,
+    "护肤 / 面膜": 7,
+    "彩妆 / 唇妆": 6,
+    "彩妆 / 唇妆 / 唇釉": 6,
+    "彩妆 / 眼妆 / 假睫毛": 6,
+    "彩妆 / 底妆": 5,
+    "个护 / 身体清洁 / 香皂": 5
+  },
+  "sources": {
+    "FastMoss": 250,
+    "抖音罗盘": 60,
+    "蝉妈妈": 50
+  },
+  "heat_info": {
+    "销量": {
+      "weight": 0.5,
+      "max": 62500.0
+    },
+    "评价数": {
+      "weight": 0.3,
+      "max": 851804.0
+    },
+    "销售额": {
+      "weight": 0.2,
+      "max": 175000000.0
+    }
+  },
+  "elements": {
+    "功效": {
+      "coverage": 216,
+      "coverage_pct": 60.0,
+      "rows": [
+        {
+          "value": "保湿滋润",
+          "count": 84,
+          "weighted_share": 25.28,
+          "top_items": [
+            {
+              "name": "到手2瓶 玫瑰香氛洗发沐浴二合一持久留香滋润保450ml*2瓶",
+              "id": "3841541675960893601",
+              "heat": 0.689151,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【爆款推荐】买一送一大瓶持久留香玫瑰香氛花瓣精华沐浴露滋润保湿",
+              "id": "3664353046361688348",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "3斤装山茶花沐浴露持久留香补水保湿香水香氛大容量家庭装男女士",
+              "id": "3690309473789935743",
+              "heat": 0.669568,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "3斤装乌木玫瑰沐浴油露持久留香温和清洁补水保湿滋润高级小众香",
+              "id": "3766022610962481574",
+              "heat": 0.669568,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "珍维丝氨基酸桂花香水沐浴露润肤大容量滋养沐浴乳水润保湿",
+              "id": "3746576403525665237",
+              "heat": 0.666022,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "香氛",
+          "count": 81,
+          "weighted_share": 26.75,
+          "top_items": [
+            {
+              "name": "[ BEST SELLER ] JJ Glow Sabun Gluta Pink Barsoap Gluta Pink Soap With 10X Brightening Formula Glowing Niacinamide Kojic Acid Glutathione Alpha Arbutin Mencerahkan",
+              "id": "1735304940106318937",
+              "heat": 0.704873,
+              "source": "FastMoss"
+            },
+            {
+              "name": "到手2瓶 玫瑰香氛洗发沐浴二合一持久留香滋润保450ml*2瓶",
+              "id": "3841541675960893601",
+              "heat": 0.689151,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【超值套组】舒肤佳纯白经典沐浴露清香清洁大容量家庭装香氛爆款",
+              "id": "3837481046367142550",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【爆款推荐】买一送一大瓶持久留香玫瑰香氛花瓣精华沐浴露滋润保湿",
+              "id": "3664353046361688348",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【爆款推荐】力士依兰香沐浴露持久留香经典幽莲家庭装官方正品",
+              "id": "3682885932039667745",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "清洁",
+          "count": 76,
+          "weighted_share": 24.61,
+          "top_items": [
+            {
+              "name": "到手2瓶 玫瑰香氛洗发沐浴二合一持久留香滋润保450ml*2瓶",
+              "id": "3841541675960893601",
+              "heat": 0.689151,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【拍2支更划算！徐璐力荐】乎刻果酸酶沐浴露抗氧化酸酶双刷祛痘嫩肤",
+              "id": "3763995072891322514",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【超值套组】舒肤佳纯白经典沐浴露清香清洁大容量家庭装香氛爆款",
+              "id": "3837481046367142550",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【爆款推荐】买一送一大瓶持久留香玫瑰香氛花瓣精华沐浴露滋润保湿",
+              "id": "3664353046361688348",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【爆款推荐】力士依兰香沐浴露持久留香经典幽莲家庭装官方正品",
+              "id": "3682885932039667745",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "美白提亮",
+          "count": 54,
+          "weighted_share": 16.64,
+          "top_items": [
+            {
+              "name": "[ BEST SELLER ] JJ Glow Sabun Gluta Pink Barsoap Gluta Pink Soap With 10X Brightening Formula Glowing Niacinamide Kojic Acid Glutathione Alpha Arbutin Mencerahkan",
+              "id": "1735304940106318937",
+              "heat": 0.704873,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[BUY 1 BOX GET 2 SABUN] KIME Luminizing Jeju Brightening Soap 100GR | Sabun Mandi Batang Mencerahkan Kulit Pencerah Badan Wajah Glowing Pemutih Tubuh Leher Kaki Tangan Ketiak Whitening Eksfoliasi Flek Hitam | Volcanic Ash Charcoal Niacinamide Collagen",
+              "id": "1729427766722726591",
+              "heat": 0.688213,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[NEW] Seoul Secrets 10X Whitening Soap 72-Hours Long-Lasting Fresh Fragrance for Body | Brightening Body Soap | Moisturizing Beauty Bar | Deep Clean | All Skin Types",
+              "id": "1736482358295496010",
+              "heat": 0.67,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[Favorit CIKI] METOO PASTA GIGI MW3- BPOM-pemutih gigi / Bebas Sensitif odol/ Bebas Karang Gigi / Pasta Gigi Probiotik / Karang Gigi / Gusi Sensitif / Membersihkan Noda Gigi- METOO MW-3 Advanced Whitening Tooth Paste 100 gr*1/2/3",
+              "id": "1730484051937297557",
+              "heat": 0.661407,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Moicare Brightening Underarm Pencerah Ketiak With Niacinamide & Collagen Mencerahkan, Perawatan Tubuh,  Memutihkan Leher, Selangkangan",
+              "id": "1729678876513437868",
+              "heat": 0.661128,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "舒缓修护",
+          "count": 28,
+          "weighted_share": 6.73,
+          "top_items": [
+            {
+              "name": "[New Packaging] Hikari UltraFresh Sunscreen 50ML for all skin type, whitening, brightening, no white cast, easy to blend, sun protection",
+              "id": "1730531415480895463",
+              "heat": 0.64811,
+              "source": "FastMoss"
+            },
+            {
+              "name": "SOONIISE奢护香氛沐浴露持久留香保湿嫩肤深层清洁舒缓肌肤沐浴乳",
+              "id": "3830268591488499958",
+              "heat": 0.635061,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "怦然心动无患子皂苷香氛沐浴露持久留香补水保湿温和舒缓沐浴乳",
+              "id": "3806635291343716426",
+              "heat": 0.631515,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "ครีมกันแดดซ้อฝันตะกร้าของแท้  PinkAura",
+              "id": "1734370073563137102",
+              "heat": 0.590933,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[กด3ชิ้นเพื่อรับของแถม] Dr.PONG U9.9 RENEWAL CREAM 50g  ครีมสำหรับผู้ที่มีปัญหาผิวลอก แตก แห้งกร้าน พร้อมคืนผิวใหม่",
+              "id": "1733715098127468497",
+              "heat": 0.590541,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "控油",
+          "count": 24,
+          "weighted_share": 7.28,
+          "top_items": [
+            {
+              "name": "【男士专研】魅蓝香男士沐浴露洗发水持久留香72小时全身香控油套装",
+              "id": "3828323881844867311",
+              "heat": 0.669568,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【欧豪同款】海洋至尊男士香氛沐浴露夏持久留香控油祛痘保湿清洁",
+              "id": "3678591892448215244",
+              "heat": 0.588447,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "仙花秀可可香氛香水滋润沐浴露控油保湿持久留香升级版2.0家庭装",
+              "id": "3718157659493499356",
+              "heat": 0.579518,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【蔡徐坤代言】BUV绿泥洗面奶控油深层清洁细腻毛孔去闭口男女通用",
+              "id": "3632234840075719990",
+              "heat": 0.571081,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "【欧豪同款】海洋至尊香氛沐浴露男士持久留香清爽控油保湿祛背痘",
+              "id": "3607413486822491959",
+              "heat": 0.556394,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "抗老抗皱",
+          "count": 14,
+          "weighted_share": 4.08,
+          "top_items": [
+            {
+              "name": "【中秋盛典】韩束金蛮腰胶原紧致弹力精粹水乳保湿锁水护肤",
+              "id": "3777948719551479842",
+              "heat": 0.565814,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "韩国VEIRFOO原装进口 水光美白弹润精华面膜HSS",
+              "id": "3842839501286277365",
+              "heat": 0.551129,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "【徐艺洋同款】eiio水光面膜补水保湿透亮嫩肤紧致抗皱滋养敏肌可用",
+              "id": "3632053459521540584",
+              "heat": 0.54496,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "【林心如代言】效妆PDRN小金瓶眼油眼部精华油紧致抗皱保湿官方正品",
+              "id": "3810728158953604184",
+              "heat": 0.540498,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "【徐艺洋推荐】温博士B5水细毛孔控油紧致 提亮维稳屏障换季补水",
+              "id": "3687900549140840897",
+              "heat": 0.539916,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "去角质",
+          "count": 12,
+          "weighted_share": 3.46,
+          "top_items": [
+            {
+              "name": "Azalea Smooth Foot Cream - Melembabkan & Menghaluskan Kulit Kaki Pecah-Pecah dengan Zaitun Oil & Honey - Mengurangi Bau Tidak Sedap",
+              "id": "1729584239350876522",
+              "heat": 0.642407,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【明星同款】CLINSIS法式香氛沐浴露温和清洁持久留香氨基酸去角质",
+              "id": "3674008451610181876",
+              "heat": 0.635061,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "[Exfo Pad Series] NPURE Acne Clear Pad Cica / Licorice Bright & Glow Exfoliating Pad - Kapas Eksfoliasi untuk Wajah / Kulit  Berjerawat & Normal / Treatment Wajah / Travel Pack Eksfoliasi Pad/kapas mencerahkan/ membersihkan pori-pori",
+              "id": "1729385223046727059",
+              "heat": 0.631907,
+              "source": "FastMoss"
+            },
+            {
+              "name": "(1 PCS)  GENTLE EXFOLIATING DAILY BODY TONER  .  AFTERMYSKIN MOIST SKIN HYDRATING",
+              "id": "1734370656454084052",
+              "heat": 0.586667,
+              "source": "FastMoss"
+            },
+            {
+              "name": "สครับผิว วีไวท์ (V-WHITE) ขนาด 250 กรัม (ของแท้ ตะกร้าบริษัท)",
+              "id": "1734713141732803974",
+              "heat": 0.585969,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "祛痘",
+          "count": 11,
+          "weighted_share": 3.44,
+          "top_items": [
+            {
+              "name": "【拍2支更划算！徐璐力荐】乎刻果酸酶沐浴露抗氧化酸酶双刷祛痘嫩肤",
+              "id": "3763995072891322514",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "[Exfo Pad Series] NPURE Acne Clear Pad Cica / Licorice Bright & Glow Exfoliating Pad - Kapas Eksfoliasi untuk Wajah / Kulit  Berjerawat & Normal / Treatment Wajah / Travel Pack Eksfoliasi Pad/kapas mencerahkan/ membersihkan pori-pori",
+              "id": "1729385223046727059",
+              "heat": 0.631907,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Leeva Sabun Exotic Acne 250ml - Sabun Mandi Perawatan Kulit Sensitif, Mengatasi Jerawat Punggung & Panu, Melembabkan Kulit Kering, Solusi Membersihkan Kulit Tubuh Sehat dan Bersih dari Kotoran",
+              "id": "1730173758070490903",
+              "heat": 0.607745,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【欧豪同款】海洋至尊男士香氛沐浴露夏持久留香控油祛痘保湿清洁",
+              "id": "3678591892448215244",
+              "heat": 0.588447,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【韦雪力荐】乎刻果酸酶沐浴露酸酶双刷美白身体乳VC留香祛痘中秋女",
+              "id": "3633719138016483237",
+              "heat": 0.584901,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "防晒",
+          "count": 10,
+          "weighted_share": 3.17,
+          "top_items": [
+            {
+              "name": "[New Packaging] Hikari UltraFresh Sunscreen 50ML for all skin type, whitening, brightening, no white cast, easy to blend, sun protection",
+              "id": "1730531415480895463",
+              "heat": 0.64811,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Bonita Himalayan Pink Salt Oil SPF 30 Organic Face & Body Care & massage oil  Comfort, Hydrating, Skin Toning, Cleanser, Moisture Skincare aroma Hydrate Moisturizer Moisturize  VANILLA Cosmetic Non-sticky Acne Blemishes Pampaputi itch dry skin lightweight",
+              "id": "1729397741999852940",
+              "heat": 0.647346,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【新香上市】独特艾琳香氛沐浴露可卸防晒冰爽留香氨基酸温和清洁ZB",
+              "id": "3563970498599755243",
+              "heat": 0.610983,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "ครีมกันแดดซ้อฝันตะกร้าของแท้  PinkAura",
+              "id": "1734370073563137102",
+              "heat": 0.590933,
+              "source": "FastMoss"
+            },
+            {
+              "name": "JUNNY - Skin Tint Perfecting Flawless 30gr, Natural tone-up daycream, Glow Drop, UV-filter, sunscreen moist | B3 Niacinamide + calming, centella asitica + arbutin | Mencerahkan, tidak menyumbat pori, Cocok Semua Jenis Kulit",
+              "id": "1734378651231618866",
+              "heat": 0.589136,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "蓬松去屑",
+          "count": 10,
+          "weighted_share": 2.37,
+          "top_items": [
+            {
+              "name": "Makarizo Hair Energy Fibertherapy Hair & Scalp Creambath 5X Conditioning Royal Jelly Extract 100 mL",
+              "id": "1733341601830176103",
+              "heat": 0.627242,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【COD】【10.10】TODDA คาเวียร์ ครีมหมักผม 500g เท่านั้นเคราตินสดเกรด กรดอะมิโน ครีมยืด ไม่ต้องอบไอน้ำ ฟื้นฟูเส้นผมตรงนุ่มสลวยระดับซาลอน Caviar ทรีตเม้นท์ผม ได้ทุกสภาพผม  หยิก ป้องกันผมขาด ป้องกันผม สีผมติดทน",
+              "id": "1732577904423045020",
+              "heat": 0.613862,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Hair Serum Rambut Rontok & Kering – Melembutkan & Menumbuhkan | 20ml Serum Rambut Viral",
+              "id": "1731451183138309878",
+              "heat": 0.573783,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【SAFEMILD Hàng chính hãng】Dầu gội và dầu xả chống rụng tóc SAFEMILD hàng chính hãng, kích thích mọc tóc",
+              "id": "1733604699347060663",
+              "heat": 0.552253,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Reparador de Pontas Gloss com Silicones Ultra Luminosos Protege Contra Raios Solares e Anti-Frizz para Todos os Tipos de Cabelos Selando As Cutículas Brilho Alto Agressores Externos Textura Leve",
+              "id": "1731916815699052495",
+              "heat": 0.351952,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "去黑头",
+          "count": 5,
+          "weighted_share": 1.44,
+          "top_items": [
+            {
+              "name": "【徐璐同款】RNW抛光洗面奶 抛光提亮 卸妆去黑头控油温和不刺激",
+              "id": "3836347866574618833",
+              "heat": 0.541751,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "【赵荀推荐】éLL壬二酸清洁泥膜清洁黑头闭口控油细腻毛孔男女",
+              "id": "3707015702461416239",
+              "heat": 0.508118,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "【沈月推荐拍1发5】éLL全脸温和卸妆深层清洁黑头闭口控油细腻毛孔",
+              "id": "3636840537551695797",
+              "heat": 0.490095,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "MIORIO米澳拉去角质亲肤去黑头温和去死皮深层清洁舒缓嫩肤毛孔",
+              "id": "3497726475027749707",
+              "heat": 0.485363,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "升级款小气泡黑头仪去黑头清洁油脂护理洁面器电动美容仪",
+              "id": "3841131094275653814",
+              "heat": 0.481604,
+              "source": "蝉妈妈"
+            }
+          ]
+        }
+      ]
+    },
+    "产品内料形态": {
+      "coverage": 260,
+      "coverage_pct": 72.2,
+      "rows": [
+        {
+          "value": "乳",
+          "count": 61,
+          "weighted_share": 20.71,
+          "top_items": [
+            {
+              "name": "到手2瓶 玫瑰香氛洗发沐浴二合一持久留香滋润保450ml*2瓶",
+              "id": "3841541675960893601",
+              "heat": 0.689151,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【拍2支更划算！徐璐力荐】乎刻果酸酶沐浴露抗氧化酸酶双刷祛痘嫩肤",
+              "id": "3763995072891322514",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【超值套组】舒肤佳纯白经典沐浴露清香清洁大容量家庭装香氛爆款",
+              "id": "3837481046367142550",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【爆款推荐】买一送一大瓶持久留香玫瑰香氛花瓣精华沐浴露滋润保湿",
+              "id": "3664353046361688348",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【爆款推荐】力士依兰香沐浴露持久留香经典幽莲家庭装官方正品",
+              "id": "3682885932039667745",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "水",
+          "count": 41,
+          "weighted_share": 11.88,
+          "top_items": [
+            {
+              "name": "[Harga Spesial] MLAN Bulu Mata Palsu C Curl Natural Bold Serat Kapas Hitam Pekat 14 Model Lengkap Lentik Tebal Nyaman Dipakai",
+              "id": "1737157204719797891",
+              "heat": 0.648495,
+              "source": "FastMoss"
+            },
+            {
+              "name": "ดินสอเขียนคิ้ว กันน้ำ ดินสอเขียนคิ้วแบบหมุน 2 in 1 มีแปรงปัดคิ้วในตัว มี 5 สีให้เลือก GMB",
+              "id": "1729643078414797473",
+              "heat": 0.640245,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Nature x Science Rosemary Water and Rice Water |100% Natural Extract | Soft & Smooth Hair Non-Greasy & Fast Absorbing | 200 ml",
+              "id": "1731528580940468633",
+              "heat": 0.631815,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【NEW LAUNCH】SCARLETT Eau De Parfum & Extrait De Parfum 30ml Wangi Tahan Lama - Wangi Mewah - Parfum Uniseks",
+              "id": "1736755585903592824",
+              "heat": 0.626336,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Bella Vita Luxury's Honey Oud | Eau de Parfum 100ml (3.4 fl oz) | Patchouli, Vanilla, Bergamot | Floral & Spicy | Made with Clean & Vegan Essentials Oils | Cruelty Free Fragrance Perfume",
+              "id": "1729413742968869814",
+              "heat": 0.616553,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "膏",
+          "count": 39,
+          "weighted_share": 9.44,
+          "top_items": [
+            {
+              "name": "[Favorit CIKI] METOO PASTA GIGI MW3- BPOM-pemutih gigi / Bebas Sensitif odol/ Bebas Karang Gigi / Pasta Gigi Probiotik / Karang Gigi / Gusi Sensitif / Membersihkan Noda Gigi- METOO MW-3 Advanced Whitening Tooth Paste 100 gr*1/2/3",
+              "id": "1730484051937297557",
+              "heat": 0.661407,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Azalea Smooth Foot Cream - Melembabkan & Menghaluskan Kulit Kaki Pecah-Pecah dengan Zaitun Oil & Honey - Mengurangi Bau Tidak Sedap",
+              "id": "1729584239350876522",
+              "heat": 0.642407,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Bikini Pain-Free Hair Removal Cream for Sensitive Skin, Hypoallergenic Formula-Gentle & Fast-Acting Depilatory with Citrus Scent, Aloe & Hyaluronic Acid for Soothing Care, Suitable for Men & Women,backtoschool",
+              "id": "1731625997827871273",
+              "heat": 0.586933,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[KOL] Khuyến Mãi Đặc Biệt – Mua 2 Tuýp Kem Đánh Răng làm trắng hương hoa nhài JASMEEN!Sản phẩm làm trắng răng an toàn,đem lại hơi thở thơm mát ,giảm tình trạng hôi miệng,ngăn ngừa vết ố vàng, dành cho mọi đối tượng ( 100g*2)",
+              "id": "1732805663640815024",
+              "heat": 0.586639,
+              "source": "FastMoss"
+            },
+            {
+              "name": "สครับผิว วีไวท์ (V-WHITE) ขนาด 250 กรัม (ของแท้ ตะกร้าบริษัท)",
+              "id": "1734713141732803974",
+              "heat": 0.585969,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "霜",
+          "count": 35,
+          "weighted_share": 9.87,
+          "top_items": [
+            {
+              "name": "Moicare Brightening Underarm Pencerah Ketiak With Niacinamide & Collagen Mencerahkan, Perawatan Tubuh,  Memutihkan Leher, Selangkangan",
+              "id": "1729678876513437868",
+              "heat": 0.661128,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[BEST SELLER] The Originote Brightening Moisturizer 50 ml – Whitening Cream Tone Up Moisturizer Dark Spot Remover Cream Rejuvinating Cream Repair Hydrate Moisture Hydrating",
+              "id": "1730346047548459676",
+              "heat": 0.652574,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[New Packaging] Hikari UltraFresh Sunscreen 50ML for all skin type, whitening, brightening, no white cast, easy to blend, sun protection",
+              "id": "1730531415480895463",
+              "heat": 0.64811,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Bonita Himalayan Pink Salt Oil SPF 30 Organic Face & Body Care & massage oil  Comfort, Hydrating, Skin Toning, Cleanser, Moisture Skincare aroma Hydrate Moisturizer Moisturize  VANILLA Cosmetic Non-sticky Acne Blemishes Pampaputi itch dry skin lightweight",
+              "id": "1729397741999852940",
+              "heat": 0.647346,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[BEST SELLER] BEAUTY TALK AHA Collagen Body Booster 100 ML | Whitening Lotion dengan AHA Collagen untuk Kulit Cerah dan Lembap Mencerahkan Tubuh Mengangkat sel kulit mati dan Mempercepat Pencerahan Tangan Kusam Hingga Seluruh Tubuh",
+              "id": "1730890423685842221",
+              "heat": 0.640725,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "固体",
+          "count": 26,
+          "weighted_share": 7.81,
+          "top_items": [
+            {
+              "name": "[ BEST SELLER ] JJ Glow Sabun Gluta Pink Barsoap Gluta Pink Soap With 10X Brightening Formula Glowing Niacinamide Kojic Acid Glutathione Alpha Arbutin Mencerahkan",
+              "id": "1735304940106318937",
+              "heat": 0.704873,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[BUY 1 BOX GET 2 SABUN] KIME Luminizing Jeju Brightening Soap 100GR | Sabun Mandi Batang Mencerahkan Kulit Pencerah Badan Wajah Glowing Pemutih Tubuh Leher Kaki Tangan Ketiak Whitening Eksfoliasi Flek Hitam | Volcanic Ash Charcoal Niacinamide Collagen",
+              "id": "1729427766722726591",
+              "heat": 0.688213,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[NEW] Seoul Secrets 10X Whitening Soap 72-Hours Long-Lasting Fresh Fragrance for Body | Brightening Body Soap | Moisturizing Beauty Bar | Deep Clean | All Skin Types",
+              "id": "1736482358295496010",
+              "heat": 0.67,
+              "source": "FastMoss"
+            },
+            {
+              "name": "BONITA Tawas Calamansi Persimmon Odor Eliminator + Whitening Soap 80g Natural Deodorant Bar Face & Body Pampaputi ng Kili-kili Niacinamide Brightening  & Body Odor Solution Deodorize Antibacterial Daily Sensitive Cleanser Cleansing Skin Repair  Smoother",
+              "id": "1731831790309442956",
+              "heat": 0.637783,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【CRUSH BRAND DAY】Teashell Xà Phòng Trắng Da (Kèm Túi Tạo Bọt)｜Da Mịn Sáng｜Làm Sáng Da｜Dịu Nhẹ Không Kích Ứng",
+              "id": "1735502560219661421",
+              "heat": 0.627461,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "液体",
+          "count": 21,
+          "weighted_share": 5.45,
+          "top_items": [
+            {
+              "name": "Brand Sale【Hot】 เซรั่มเพื่อความกระจ่างใส FDA Teashell - ไนอะซินาไมด์ 5% , ลดเลือนจุดด่างดำ, ให้ความชุ่มชื้นและฟื้นบarier ของผิว",
+              "id": "1733880509179069549",
+              "heat": 0.615616,
+              "source": "FastMoss"
+            },
+            {
+              "name": "OMG Oh My Glam Coverlast Liquid Foundation - Flawless Coverage & Tahan 12 Jam",
+              "id": "1729425592012474771",
+              "heat": 0.601371,
+              "source": "FastMoss"
+            },
+            {
+              "name": "(COD) Essence Retinol DRVE – Membantu Kulit Lebih Agar Lebih Cerah & Kencang dan Menutrisi dari Dalam Kulit yang sehat",
+              "id": "1730707277340509254",
+              "heat": 0.593745,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[BPOM] Glad2Glow Flawless Blurring Skin Tint Foundation Ringan Mengandung Squalane Melembabkan Skin Barrier Coverage Medium Buildable Menyamarkan Pori Pori Hasil Akhir Natural Soft Matte Oil Control Tahan Lama Seharian",
+              "id": "1732964878878475554",
+              "heat": 0.586073,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【蔡徐坤代言】BUV绿泥洗面奶控油深层清洁细腻毛孔去闭口男女通用",
+              "id": "3632234840075719990",
+              "heat": 0.571081,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "喷雾",
+          "count": 13,
+          "weighted_share": 3.03,
+          "top_items": [
+            {
+              "name": "Sandrinna Berry Sparkling / Rose Melody / Caramel Vanilla / Cherry Fairy / Blooming Love / Tropical Romance / Breeze Ocean Parfum mist - Keharuman Romantis & Manis Tahan Lama Halal BPOM",
+              "id": "1733451515021723133",
+              "heat": 0.590135,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[PRICE DROP] [HAJIE ALEJANDRO APPROVED] Sea Makeup Lock It Matte Acne Setting Spray 100ml - Helps makeup stay matte smudge-proof and oil-free. Doubles as primer and fixer Suitable for acne-prone skin. Transfer-resistant finish",
+              "id": "1729938411245897881",
+              "heat": 0.572794,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Rosemary & Rice Water Hair Spray- 200ml pack of 3 Natural Soft Hair Nourishing Hair",
+              "id": "1729505063356962201",
+              "heat": 0.55959,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【CRUSH BRAND DAY】JMCY - DAV Chứng Nhận - Xịt Khoá Nền Lâu Trôi 100ml – Sương Mù Siêu Mịn, Giữ Lớp Trang Điểm 24 Giờ, Chống Mồ Hôi & Kiềm Dầu, SPF25 PA++",
+              "id": "1734324112765716380",
+              "heat": 0.554581,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【DEAL】JMCY สเปรย์ล็อคเมคอัพติดทน 24ชม. ทนเหงื่อ ปราศจากแอลกอฮอล์ ละออง 0.25มม. เพิ่มความชุ่มชื้น ผิวเรียบเนียน",
+              "id": "1734353975719855230",
+              "heat": 0.550353,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "凝胶",
+          "count": 10,
+          "weighted_share": 2.46,
+          "top_items": [
+            {
+              "name": "【BEST SELLER】 NEW SYB FORTE Red Jelly Serum 20ml with Niacinamide 10% untuk mencerahkan kulit wajah & mengurangi kusam",
+              "id": "1729419906221509377",
+              "heat": 0.662182,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Makarizo Hair Energy Fibertherapy Hair & Scalp Creambath 5X Conditioning Royal Jelly Extract 100 mL",
+              "id": "1733341601830176103",
+              "heat": 0.627242,
+              "source": "FastMoss"
+            },
+            {
+              "name": "NEW SYB FORTE Red Jelly Serum 20ml with Niacinamide 10% untuk mencerahkan kulit wajah & mengurangi kusam",
+              "id": "1733316612331505636",
+              "heat": 0.582798,
+              "source": "FastMoss"
+            },
+            {
+              "name": "New SYB Forte Red Jelly Serum 20ml with Niacinamide 10% - Serum Pencerah Wajah & Mengurangi Kusam.",
+              "id": "1729606041083151463",
+              "heat": 0.58045,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【白云山】烟酰胺凝胶&熊果苷乳霜改善暗沉提亮肤色保湿滋润",
+              "id": "3742227521672970300",
+              "heat": 0.477036,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "油",
+          "count": 9,
+          "weighted_share": 2.99,
+          "top_items": [
+            {
+              "name": "3斤装乌木玫瑰沐浴油露持久留香温和清洁补水保湿滋润高级小众香",
+              "id": "3766022610962481574",
+              "heat": 0.669568,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "3斤装乌木玫瑰沐浴油露持久留香温和清洁补水保湿滋润高级小众香",
+              "id": "3770082022983336625",
+              "heat": 0.666022,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "澳雪碌柚叶柚子叶沐浴露持久留香沐浴乳沐浴油家庭装大容量套装TL",
+              "id": "3751203792658497781",
+              "heat": 0.594751,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【中秋礼物】浴见修护沐浴油香氛保湿滋润身体清洁洗卸养合一zy",
+              "id": "3586958242040969427",
+              "heat": 0.565322,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "白导师白番茄精华沐浴油果酸香留香持久舒缓滋润肌肤BY1",
+              "id": "3827941954168160348",
+              "heat": 0.556394,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "纯油",
+          "count": 2,
+          "weighted_share": 0.6,
+          "top_items": [
+            {
+              "name": "【林心如代言】效妆PDRN小金瓶眼油眼部精华油紧致抗皱保湿官方正品",
+              "id": "3810728158953604184",
+              "heat": 0.540498,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "【眼部SPA】紧塑淡纹眼部精华油滚珠紧致抗皱淡纹改善养眼",
+              "id": "3836666804445511925",
+              "heat": 0.502242,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "粉末",
+          "count": 2,
+          "weighted_share": 0.57,
+          "top_items": [
+            {
+              "name": "【3.0保湿肽】蒂洛薇云雾水散粉保湿肽控油持久定妆散粉不脱妆DBt",
+              "id": "3691955998945312930",
+              "heat": 0.501066,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "【金靖同款】PRAMY柏瑞美大码补光蜜粉散粉定妆保湿控油粉彩风",
+              "id": "3739497606032785707",
+              "heat": 0.4892,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "泡沫",
+          "count": 1,
+          "weighted_share": 0.17,
+          "top_items": [
+            {
+              "name": "【ซื้อ 1 แถม 1】โฟมล้างหน้า ฟองนุ่มละเอียด อ่อนโยนต่อผม ทำความสะอาดใบหน้า ทำความสะอาดผิวประจำวัน【COD】",
+              "id": "1737406257167501017",
+              "heat": 0.290914,
+              "source": "FastMoss"
+            }
+          ]
+        }
+      ]
+    },
+    "包装形式": {
+      "coverage": 19,
+      "coverage_pct": 5.3,
+      "rows": [
+        {
+          "value": "贴片",
+          "count": 6,
+          "weighted_share": 1.59,
+          "top_items": [
+            {
+              "name": "ELDORE Beauty Masker Facial Sheet Mask 30g - Melembabkan & Mencerahkan Kulit dengan Antioksidan Melembutkan Mencerahkan Wajah",
+              "id": "1731629638739199223",
+              "heat": 0.607192,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Mask มาส์กหน้า แผ่นมาส์กหน้า มาส์กมาส์กบำรุงล้ำลึกให้ความชุ่มชื้น มะเขือเทศ vc แตงกวา เอสเซ้น 24k มาส์กให้ความชุ่มชื้นหลากหลายสไตล์ Skincare ใบหน้า",
+              "id": "1730620339309808598",
+              "heat": 0.586992,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【韩国首发 咖啡因眼膜】【拍5发6片】冰美式咖啡因黑蝶眼膜",
+              "id": "3842319754517938760",
+              "heat": 0.548854,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "【官方正品】WIS黑晶光蕴蓄能面膜护肤保湿抗皱紧致控油轻享面膜贴k",
+              "id": "3781784743771766820",
+              "heat": 0.487314,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "NEW Laneige Korean Hydrogel Eye Mask Patches - Bouncy, Firming Skincare Eye Treatment",
+              "id": "1732520989900050765",
+              "heat": 0.310732,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "瓶装",
+          "count": 4,
+          "weighted_share": 1.46,
+          "top_items": [
+            {
+              "name": "【爆款推荐】买一送一大瓶持久留香玫瑰香氛花瓣精华沐浴露滋润保湿",
+              "id": "3664353046361688348",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "Malizia/玛莉吉亚意大利进口香氛沐浴乳滋润持久留香沐浴露大瓶",
+              "id": "3747288255649939647",
+              "heat": 0.635061,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【大瓶3斤装】蔚蓝香氛三合一洗脸洗发水魅蓝沐浴露保湿留香大容量",
+              "id": "3775625855116640683",
+              "heat": 0.631515,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "力士依兰香沐浴露持久留香氛大瓶幽莲魅肤沐浴乳男女推荐官方正品",
+              "id": "3633001934161590799",
+              "heat": 0.594751,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "滚珠",
+          "count": 3,
+          "weighted_share": 0.9,
+          "top_items": [
+            {
+              "name": "(PAKET HEMAT ISI 4) NIVEA MEN Deodorant Antiperspirant Roll On Cool Kick 25ml - Deodoran pria perlindungan ekstra kering dari keringat bau badan dan sensasi dingin dan wangi sporty seharian - Tidak mengandung ethyl alkohol cocok untuk semua jenis kulit",
+              "id": "1731354187921721088",
+              "heat": 0.553521,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【颈霜破价专场】美诗虫草8D颈霜滚珠按摩美颈淡纹紧致嫩滑颈纹霜",
+              "id": "3843216818592416141",
+              "heat": 0.510307,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "【眼部SPA】紧塑淡纹眼部精华油滚珠紧致抗皱淡纹改善养眼",
+              "id": "3836666804445511925",
+              "heat": 0.502242,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "盒装",
+          "count": 2,
+          "weighted_share": 0.45,
+          "top_items": [
+            {
+              "name": "尔木萄ok粉扑套盒棉花糖粉扑亲肤柔软扒脸匀妆干湿两用上妆服帖",
+              "id": "3841341421030343124",
+              "heat": 0.509089,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "25 Day Advent Calendar - 30 full-sized beauty products worth £280  - The Beauty Crop",
+              "id": "1729913021708147293",
+              "heat": 0.279362,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "袋装",
+          "count": 2,
+          "weighted_share": 0.61,
+          "top_items": [
+            {
+              "name": "เซรั่มพริตตี้เกิร์ล 1 ถุง",
+              "id": "1733644817540678968",
+              "heat": 0.578007,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Infused Whitening Sachet 10ml || special price",
+              "id": "1737375467045422828",
+              "heat": 0.478414,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "次抛",
+          "count": 2,
+          "weighted_share": 0.39,
+          "top_items": [
+            {
+              "name": "ถุงมือแบบหนาชนิดใช้แล้วทิ้ง เกรดอาหาร ใส่สบาย กันน้ำมันและคราบสกปรก ใส วัสดุทนทาน ยืดหยุ่นดี ใช้งานสะดวก ปลอดภัยและสะอาด ใช้ได้หลากหลาย เหมาะสำหรับใช้ในบ้านและร้านอาหาร[COD]",
+              "id": "1737411609045272148",
+              "heat": 0.367004,
+              "source": "FastMoss"
+            },
+            {
+              "name": "ถุงมือแบบหนาชนิดใช้แล้วทิ้ง เกรดอาหาร ใส่สบาย กันน้ำมันและคราบสกปรก ใส วัสดุทนทาน ยืดหยุ่นดี ใช้งานสะดวก ปลอดภัยและสะอาด ใช้ได้หลากหลาย เหมาะสำหรับใช้ในบ้านและร้านอาหาร[COD]",
+              "id": "1737411628543280724",
+              "heat": 0.305416,
+              "source": "FastMoss"
+            }
+          ]
+        }
+      ]
+    },
+    "香型": {
+      "coverage": 62,
+      "coverage_pct": 17.2,
+      "rows": [
+        {
+          "value": "草本植物",
+          "count": 19,
+          "weighted_share": 3.87,
+          "top_items": [
+            {
+              "name": "Nature x Science Rosemary Water and Rice Water |100% Natural Extract | Soft & Smooth Hair Non-Greasy & Fast Absorbing | 200 ml",
+              "id": "1731528580940468633",
+              "heat": 0.631815,
+              "source": "FastMoss"
+            },
+            {
+              "name": "(อ่านก่อน!! “ห้ามซื้อก้อนเดียว” )!! * “กดสั่งซื้อ2ก้อน” ขึ้นไปเท่านั้น!!* “ขนาดทดลอง 15g.” สบู่สมุนไพรรวม ice cream chocolate mint [สำหรับผิวหน้า ร่างกาย และจุดซ่อนเร้น] สบู่มิ้นสาธิดาเฮิร์บ",
+              "id": "1731533745095673554",
+              "heat": 0.600137,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Rosemary & Rice Water Hair Spray- 200ml pack of 3 Natural Soft Hair Nourishing Hair",
+              "id": "1729505063356962201",
+              "heat": 0.55959,
+              "source": "FastMoss"
+            },
+            {
+              "name": "ยาสีฟัน Bubble Fresh กลิ่นเสาวรส มินต์ 100 กรัม ปกป้องเหงือก ลมหายใจสะอาด",
+              "id": "1736018469258822978",
+              "heat": 0.557963,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【祛痘修护舒缓控油】植物大师多效草本祛痘膏青春痘植萃保湿壬二酸",
+              "id": "3729617134674903196",
+              "heat": 0.515793,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "玫瑰",
+          "count": 9,
+          "weighted_share": 3.18,
+          "top_items": [
+            {
+              "name": "到手2瓶 玫瑰香氛洗发沐浴二合一持久留香滋润保450ml*2瓶",
+              "id": "3841541675960893601",
+              "heat": 0.689151,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【爆款推荐】买一送一大瓶持久留香玫瑰香氛花瓣精华沐浴露滋润保湿",
+              "id": "3664353046361688348",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "3斤装乌木玫瑰沐浴油露持久留香温和清洁补水保湿滋润高级小众香",
+              "id": "3766022610962481574",
+              "heat": 0.669568,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "3斤装乌木玫瑰沐浴油露持久留香温和清洁补水保湿滋润高级小众香",
+              "id": "3770082022983336625",
+              "heat": 0.666022,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "Azalea Zaitun Oil with Rosehip Oil 135ml – All-In-One Oil untuk Wajah & Tubuh, Melembapkan, Menutrisi, Haluskan Bekas Luka",
+              "id": "1729382371067331946",
+              "heat": 0.615416,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "花香",
+          "count": 8,
+          "weighted_share": 2.62,
+          "top_items": [
+            {
+              "name": "珍维丝氨基酸桂花香水沐浴露润肤大容量滋养沐浴乳水润保湿",
+              "id": "3746576403525665237",
+              "heat": 0.666022,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【热巴同款】半亩花田鲜花精华沐浴露滋润养肤持久留香温和ST",
+              "id": "3809311908436246939",
+              "heat": 0.642365,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【平台加补】半亩花田鲜花精华沐浴露滋润养肤持久留香温和清洁ST",
+              "id": "3799038647496475093",
+              "heat": 0.635061,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【田栩宁同款】半亩花田鲜花精华沐浴露滋润养肤持久留香温和清洁ST",
+              "id": "3798648228476485738",
+              "heat": 0.600134,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "[KOL] Khuyến Mãi Đặc Biệt – Mua 2 Tuýp Kem Đánh Răng làm trắng hương hoa nhài JASMEEN!Sản phẩm làm trắng răng an toàn,đem lại hơi thở thơm mát ,giảm tình trạng hôi miệng,ngăn ngừa vết ố vàng, dành cho mọi đối tượng ( 100g*2)",
+              "id": "1732805663640815024",
+              "heat": 0.586639,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "清新调",
+          "count": 7,
+          "weighted_share": 1.46,
+          "top_items": [
+            {
+              "name": "【囤货家庭装】LUX/力士气泡沐浴露持久留香大容量清爽香氛官方正品",
+              "id": "3832455520351027229",
+              "heat": 0.635061,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【安野屋 | 轻松小熊超萌上新】安野屋沐浴露氨基酸留香清爽香体",
+              "id": "3841922442050273447",
+              "heat": 0.556394,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【ซื้อ 1 แถม 1】ยาสีฟัน ช่วยให้ลมหายใจสดชื่น ฟองมากมาย ลมหายใจสดชื่นนาน เหมาะสำหรับใช้ในครอบครัว【COD】",
+              "id": "1737316230070830193",
+              "heat": 0.287555,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【Buy 1 Get 1 Free】Toothpaste, rich creamy foam, fresh breath, gently clean tooth surface, ideal for daily oral care【COD】",
+              "id": "1737463492820305102",
+              "heat": 0.278377,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【Buy 1 Get 1 Free】Toothpaste, rich creamy foam, fresh breath, gently clean tooth surface, ideal for daily oral care【COD】",
+              "id": "1737463883176707278",
+              "heat": 0.276459,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "木质",
+          "count": 5,
+          "weighted_share": 1.82,
+          "top_items": [
+            {
+              "name": "3斤装乌木玫瑰沐浴油露持久留香温和清洁补水保湿滋润高级小众香",
+              "id": "3766022610962481574",
+              "heat": 0.669568,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "3斤装乌木玫瑰沐浴油露持久留香温和清洁补水保湿滋润高级小众香",
+              "id": "3770082022983336625",
+              "heat": 0.666022,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【店铺福利】舒肤佳奢护沐浴露留香持久山茶雪松红石榴海棠乌木保湿",
+              "id": "3629841652211919581",
+              "heat": 0.631515,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【视频同款】舒肤佳新升级奢护沐浴露红石榴山茶花乌木持久留香*",
+              "id": "3745769714253693134",
+              "heat": 0.626133,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "舒肤佳奢护沐浴红石榴青竹龙井山茶花乌木玫瑰持久留香保湿",
+              "id": "3793828414046208007",
+              "heat": 0.584901,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "东方调",
+          "count": 4,
+          "weighted_share": 0.93,
+          "top_items": [
+            {
+              "name": "【BPOM COD】No.1 Cyeecare Ginger Hair Care Serum 20g - Memperkuat Akar Rambut & Menambah Volume Alami - Aroma Segar - Untuk Rambut Lebih Tebal & Lembut",
+              "id": "1733106257641309500",
+              "heat": 0.583561,
+              "source": "FastMoss"
+            },
+            {
+              "name": "PYARY TURMERIC HANDMADE SOAP 75 GRAMS | OFFICIAL IMPORTER",
+              "id": "1730838328297686212",
+              "heat": 0.566994,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【ซื้อ 1 แถม 1】ครีมให้ความชุ่มชื้นสูตรขมิ้น ｜ ช่วยเติมน้ำให้ผิว ｜ ช่วยให้ผิวนุ่มลื่น ｜ เนื้อบางเบา ซึมเร็ว ｜ เหมาะใช้ประจำวัน【COD】",
+              "id": "1737460158071801269",
+              "heat": 0.243113,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【Terlaris dalam 7 hari, 8,698 unit】Halia tua tanpa gula, dibungkus secara individu, manis dan sedap, sesuai untuk memasak sup dan membancuh air, komited terhadap kualiti, dijual terus dari kilang",
+              "id": "1737339252230096358",
+              "heat": 0.233987,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "依兰",
+          "count": 3,
+          "weighted_share": 1.06,
+          "top_items": [
+            {
+              "name": "【爆款推荐】力士依兰香沐浴露持久留香经典幽莲家庭装官方正品",
+              "id": "3682885932039667745",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "力士依兰香沐浴露持久留香氛大瓶幽莲魅肤沐浴乳男女推荐官方正品",
+              "id": "3633001934161590799",
+              "heat": 0.594751,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "新升级 2.0夏伯雅莲依兰香香氛沐浴露多肽精油沐浴露ALPAALIN666g",
+              "id": "3712173713379164617",
+              "heat": 0.579518,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "海洋",
+          "count": 3,
+          "weighted_share": 1.04,
+          "top_items": [
+            {
+              "name": "【男士专研】魅蓝香男士沐浴露洗发水持久留香72小时全身香控油套装",
+              "id": "3828323881844867311",
+              "heat": 0.669568,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【欧豪同款】海洋至尊男士香氛沐浴露夏持久留香控油祛痘保湿清洁",
+              "id": "3678591892448215244",
+              "heat": 0.588447,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【欧豪同款】海洋至尊香氛沐浴露男士持久留香清爽控油保湿祛背痘",
+              "id": "3607413486822491959",
+              "heat": 0.556394,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "香草",
+          "count": 3,
+          "weighted_share": 1.06,
+          "top_items": [
+            {
+              "name": "Bonita Himalayan Pink Salt Oil SPF 30 Organic Face & Body Care & massage oil  Comfort, Hydrating, Skin Toning, Cleanser, Moisture Skincare aroma Hydrate Moisturizer Moisturize  VANILLA Cosmetic Non-sticky Acne Blemishes Pampaputi itch dry skin lightweight",
+              "id": "1729397741999852940",
+              "heat": 0.647346,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Bella Vita Luxury's Honey Oud | Eau de Parfum 100ml (3.4 fl oz) | Patchouli, Vanilla, Bergamot | Floral & Spicy | Made with Clean & Vegan Essentials Oils | Cruelty Free Fragrance Perfume",
+              "id": "1729413742968869814",
+              "heat": 0.616553,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Sandrinna Berry Sparkling / Rose Melody / Caramel Vanilla / Cherry Fairy / Blooming Love / Tropical Romance / Breeze Ocean Parfum mist - Keharuman Romantis & Manis Tahan Lama Halal BPOM",
+              "id": "1733451515021723133",
+              "heat": 0.590135,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "茶香",
+          "count": 2,
+          "weighted_share": 0.7,
+          "top_items": [
+            {
+              "name": "【熊猫和花×联名盲盒】舒肤佳净透轻盈沐浴露青竹龙井空山烟雨留香",
+              "id": "3790097311623938401",
+              "heat": 0.642365,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "舒肤佳奢护沐浴红石榴青竹龙井山茶花乌木玫瑰持久留香保湿",
+              "id": "3793828414046208007",
+              "heat": 0.584901,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "果香",
+          "count": 2,
+          "weighted_share": 0.5,
+          "top_items": [
+            {
+              "name": "Voyage Nova | Rosey Fruity Floral | Extrait De Parfum 50ml/100ml | Long Lasting Luxury Fragrance | Daily women's perfume Alluring Summervibes sohochic",
+              "id": "1732263142232921043",
+              "heat": 0.579847,
+              "source": "FastMoss"
+            },
+            {
+              "name": "KORMESIC Hand Cream 30g Peach Lemon Rose Aroma Krim Tangan Melembabkan Kulit Kering Tidak Lengket Travel Size",
+              "id": "1737336414608000717",
+              "heat": 0.300227,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "樱花",
+          "count": 2,
+          "weighted_share": 0.48,
+          "top_items": [
+            {
+              "name": "[KKM] FEREENA WHITE SAKURA SOAP 10g Advance Formula",
+              "id": "1734593080952784836",
+              "heat": 0.560447,
+              "source": "FastMoss"
+            },
+            {
+              "name": "国内発送 送料無料 まつ毛下地 マスカラベース ロングボリューム カールキープ 螺旋ブラシ 防水 にじまない 持続力アップ セパレート仕上げ",
+              "id": "1737529234028464024",
+              "heat": 0.272777,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "桂花",
+          "count": 1,
+          "weighted_share": 0.38,
+          "top_items": [
+            {
+              "name": "珍维丝氨基酸桂花香水沐浴露润肤大容量滋养沐浴乳水润保湿",
+              "id": "3746576403525665237",
+              "heat": 0.666022,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "柑橘",
+          "count": 1,
+          "weighted_share": 0.34,
+          "top_items": [
+            {
+              "name": "澳雪碌柚叶柚子叶沐浴露持久留香沐浴乳沐浴油家庭装大容量套装TL",
+              "id": "3751203792658497781",
+              "heat": 0.594751,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "美食调",
+          "count": 1,
+          "weighted_share": 0.34,
+          "top_items": [
+            {
+              "name": "(อ่านก่อน!! “ห้ามซื้อก้อนเดียว” )!! * “กดสั่งซื้อ2ก้อน” ขึ้นไปเท่านั้น!!* “ขนาดทดลอง 15g.” สบู่สมุนไพรรวม ice cream chocolate mint [สำหรับผิวหน้า ร่างกาย และจุดซ่อนเร้น] สบู่มิ้นสาธิดาเฮิร์บ",
+              "id": "1731533745095673554",
+              "heat": 0.600137,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "茉莉",
+          "count": 1,
+          "weighted_share": 0.34,
+          "top_items": [
+            {
+              "name": "[KOL] Khuyến Mãi Đặc Biệt – Mua 2 Tuýp Kem Đánh Răng làm trắng hương hoa nhài JASMEEN!Sản phẩm làm trắng răng an toàn,đem lại hơi thở thơm mát ,giảm tình trạng hôi miệng,ngăn ngừa vết ố vàng, dành cho mọi đối tượng ( 100g*2)",
+              "id": "1732805663640815024",
+              "heat": 0.586639,
+              "source": "FastMoss"
+            }
+          ]
+        }
+      ]
+    },
+    "主打成分": {
+      "coverage": 167,
+      "coverage_pct": 46.4,
+      "rows": [
+        {
+          "value": "香精",
+          "count": 53,
+          "weighted_share": 17.69,
+          "top_items": [
+            {
+              "name": "MAYBELLINE Superstay Matte Ink Liquid Long Lasting Waterproof Matte Lipstick Lipcream Make Up Transferproof Tahan 16 Jam",
+              "id": "1729382420060341472",
+              "heat": 0.707236,
+              "source": "FastMoss"
+            },
+            {
+              "name": "到手2瓶 玫瑰香氛洗发沐浴二合一持久留香滋润保450ml*2瓶",
+              "id": "3841541675960893601",
+              "heat": 0.689151,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【超值套组】舒肤佳纯白经典沐浴露清香清洁大容量家庭装香氛爆款",
+              "id": "3837481046367142550",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【爆款推荐】买一送一大瓶持久留香玫瑰香氛花瓣精华沐浴露滋润保湿",
+              "id": "3664353046361688348",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "[NEW] Seoul Secrets 10X Whitening Soap 72-Hours Long-Lasting Fresh Fragrance for Body | Brightening Body Soap | Moisturizing Beauty Bar | Deep Clean | All Skin Types",
+              "id": "1736482358295496010",
+              "heat": 0.67,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "烟酰胺",
+          "count": 34,
+          "weighted_share": 10.98,
+          "top_items": [
+            {
+              "name": "[ BEST SELLER ] JJ Glow Sabun Gluta Pink Barsoap Gluta Pink Soap With 10X Brightening Formula Glowing Niacinamide Kojic Acid Glutathione Alpha Arbutin Mencerahkan",
+              "id": "1735304940106318937",
+              "heat": 0.704873,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[BUY 1 BOX GET 2 SABUN] KIME Luminizing Jeju Brightening Soap 100GR | Sabun Mandi Batang Mencerahkan Kulit Pencerah Badan Wajah Glowing Pemutih Tubuh Leher Kaki Tangan Ketiak Whitening Eksfoliasi Flek Hitam | Volcanic Ash Charcoal Niacinamide Collagen",
+              "id": "1729427766722726591",
+              "heat": 0.688213,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【BEST SELLER】 NEW SYB FORTE Red Jelly Serum 20ml with Niacinamide 10% untuk mencerahkan kulit wajah & mengurangi kusam",
+              "id": "1729419906221509377",
+              "heat": 0.662182,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Moicare Brightening Underarm Pencerah Ketiak With Niacinamide & Collagen Mencerahkan, Perawatan Tubuh,  Memutihkan Leher, Selangkangan",
+              "id": "1729678876513437868",
+              "heat": 0.661128,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[BEST SELLER] BEAUTY TALK AHA Collagen Body Booster 100 ML | Whitening Lotion dengan AHA Collagen untuk Kulit Cerah dan Lembap Mencerahkan Tubuh Mengangkat sel kulit mati dan Mempercepat Pencerahan Tangan Kusam Hingga Seluruh Tubuh",
+              "id": "1730890423685842221",
+              "heat": 0.640725,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "维生素",
+          "count": 23,
+          "weighted_share": 7.12,
+          "top_items": [
+            {
+              "name": "[BUY 1 BOX GET 2 SABUN] KIME Luminizing Jeju Brightening Soap 100GR | Sabun Mandi Batang Mencerahkan Kulit Pencerah Badan Wajah Glowing Pemutih Tubuh Leher Kaki Tangan Ketiak Whitening Eksfoliasi Flek Hitam | Volcanic Ash Charcoal Niacinamide Collagen",
+              "id": "1729427766722726591",
+              "heat": 0.688213,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[Favorit CIKI] METOO PASTA GIGI MW3- BPOM-pemutih gigi / Bebas Sensitif odol/ Bebas Karang Gigi / Pasta Gigi Probiotik / Karang Gigi / Gusi Sensitif / Membersihkan Noda Gigi- METOO MW-3 Advanced Whitening Tooth Paste 100 gr*1/2/3",
+              "id": "1730484051937297557",
+              "heat": 0.661407,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[New Packaging] Hikari UltraFresh Sunscreen 50ML for all skin type, whitening, brightening, no white cast, easy to blend, sun protection",
+              "id": "1730531415480895463",
+              "heat": 0.64811,
+              "source": "FastMoss"
+            },
+            {
+              "name": "ครีมโสมไฮยา [สูตรใหม่] YERPALL Intensive active ginseng night cream",
+              "id": "1729734701700713167",
+              "heat": 0.627009,
+              "source": "FastMoss"
+            },
+            {
+              "name": "OMG OH MY GLAM Mattelast Lip Cream 2.9 g - Lip Cream Matte Dengan Warna Intense, Tahan Lama & Ringan",
+              "id": "1729615507258049939",
+              "heat": 0.625764,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "胶原蛋白",
+          "count": 15,
+          "weighted_share": 4.94,
+          "top_items": [
+            {
+              "name": "[BUY 1 BOX GET 2 SABUN] KIME Luminizing Jeju Brightening Soap 100GR | Sabun Mandi Batang Mencerahkan Kulit Pencerah Badan Wajah Glowing Pemutih Tubuh Leher Kaki Tangan Ketiak Whitening Eksfoliasi Flek Hitam | Volcanic Ash Charcoal Niacinamide Collagen",
+              "id": "1729427766722726591",
+              "heat": 0.688213,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【BEST SELLER】 NEW SYB FORTE Red Jelly Serum 20ml with Niacinamide 10% untuk mencerahkan kulit wajah & mengurangi kusam",
+              "id": "1729419906221509377",
+              "heat": 0.662182,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Moicare Brightening Underarm Pencerah Ketiak With Niacinamide & Collagen Mencerahkan, Perawatan Tubuh,  Memutihkan Leher, Selangkangan",
+              "id": "1729678876513437868",
+              "heat": 0.661128,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[BEST SELLER] BEAUTY TALK AHA Collagen Body Booster 100 ML | Whitening Lotion dengan AHA Collagen untuk Kulit Cerah dan Lembap Mencerahkan Tubuh Mengangkat sel kulit mati dan Mempercepat Pencerahan Tangan Kusam Hingga Seluruh Tubuh",
+              "id": "1730890423685842221",
+              "heat": 0.640725,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[BEST SELLER] BEAUTY TALK AHA Collagen Body Booster - 100ML Whitening Lotion dengan AHA Collagen untuk   Mencerahkan dan Melembabkan Kulit Tubuh",
+              "id": "1729863618733181659",
+              "heat": 0.634524,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "果酸",
+          "count": 13,
+          "weighted_share": 4.51,
+          "top_items": [
+            {
+              "name": "【拍2支更划算！徐璐力荐】乎刻果酸酶沐浴露抗氧化酸酶双刷祛痘嫩肤",
+              "id": "3763995072891322514",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【BEST SELLER】 NEW SYB FORTE Red Jelly Serum 20ml with Niacinamide 10% untuk mencerahkan kulit wajah & mengurangi kusam",
+              "id": "1729419906221509377",
+              "heat": 0.662182,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[BEST SELLER] BEAUTY TALK AHA Collagen Body Booster 100 ML | Whitening Lotion dengan AHA Collagen untuk Kulit Cerah dan Lembap Mencerahkan Tubuh Mengangkat sel kulit mati dan Mempercepat Pencerahan Tangan Kusam Hingga Seluruh Tubuh",
+              "id": "1730890423685842221",
+              "heat": 0.640725,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[BEST SELLER] BEAUTY TALK AHA Collagen Body Booster - 100ML Whitening Lotion dengan AHA Collagen untuk   Mencerahkan dan Melembabkan Kulit Tubuh",
+              "id": "1729863618733181659",
+              "heat": 0.634524,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[Exfo Pad Series] NPURE Acne Clear Pad Cica / Licorice Bright & Glow Exfoliating Pad - Kapas Eksfoliasi untuk Wajah / Kulit  Berjerawat & Normal / Treatment Wajah / Travel Pack Eksfoliasi Pad/kapas mencerahkan/ membersihkan pori-pori",
+              "id": "1729385223046727059",
+              "heat": 0.631907,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "熊果苷",
+          "count": 12,
+          "weighted_share": 3.92,
+          "top_items": [
+            {
+              "name": "[ BEST SELLER ] JJ Glow Sabun Gluta Pink Barsoap Gluta Pink Soap With 10X Brightening Formula Glowing Niacinamide Kojic Acid Glutathione Alpha Arbutin Mencerahkan",
+              "id": "1735304940106318937",
+              "heat": 0.704873,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[ SPECIAL MEGA LIVE ] JJ Glow Sabun Gluta Pink Barsoap Gluta Pink Soap With 10X Brightening Formula Glowing Niacinamide Kojic Acid Glutathione Alpha Arbutin Mencerahkan",
+              "id": "1736356735016207449",
+              "heat": 0.623052,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[10K EXTRA DISCOUNT] Glad2Glow 2in1 Day And Night Body Lotion Set- Niacinamide+Retinol Paket Siang Malam Mencerahkan Kulit Menghaluskan Kulit Melembabkan Kulit Perawatan Tubuh Serum Tubuh Glowing Paket Serum Body Serum Vitamin B5 Vitamin E Kulit Cerah",
+              "id": "1733528074510763298",
+              "heat": 0.621522,
+              "source": "FastMoss"
+            },
+            {
+              "name": "ROSMAR SKIN ESSENTIALS Kagayaku Alpha Arbutin Cream 3+ Whitening Booster",
+              "id": "1734812377390876496",
+              "heat": 0.615347,
+              "source": "FastMoss"
+            },
+            {
+              "name": "MOSSÈRU Shower Gel for Brightening with Tranexamic | Sabun Mandi Mencerahkan | Sabun Mandi Cair Pencerah Tubuh | Body Wash | Melembapkan",
+              "id": "1734084304357918411",
+              "heat": 0.606508,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "维生素E",
+          "count": 12,
+          "weighted_share": 4.16,
+          "top_items": [
+            {
+              "name": "[BUY 1 BOX GET 2 SABUN] KIME Luminizing Jeju Brightening Soap 100GR | Sabun Mandi Batang Mencerahkan Kulit Pencerah Badan Wajah Glowing Pemutih Tubuh Leher Kaki Tangan Ketiak Whitening Eksfoliasi Flek Hitam | Volcanic Ash Charcoal Niacinamide Collagen",
+              "id": "1729427766722726591",
+              "heat": 0.688213,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[New Packaging] Hikari UltraFresh Sunscreen 50ML for all skin type, whitening, brightening, no white cast, easy to blend, sun protection",
+              "id": "1730531415480895463",
+              "heat": 0.64811,
+              "source": "FastMoss"
+            },
+            {
+              "name": "OMG OH MY GLAM Mattelast Lip Cream 2.9 g - Lip Cream Matte Dengan Warna Intense, Tahan Lama & Ringan",
+              "id": "1729615507258049939",
+              "heat": 0.625764,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[10K EXTRA DISCOUNT] Glad2Glow 2in1 Day And Night Body Lotion Set- Niacinamide+Retinol Paket Siang Malam Mencerahkan Kulit Menghaluskan Kulit Melembabkan Kulit Perawatan Tubuh Serum Tubuh Glowing Paket Serum Body Serum Vitamin B5 Vitamin E Kulit Cerah",
+              "id": "1733528074510763298",
+              "heat": 0.621522,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Azalea Zaitun Oil with Rosehip Oil 135ml – All-In-One Oil untuk Wajah & Tubuh, Melembapkan, Menutrisi, Haluskan Bekas Luka",
+              "id": "1729382371067331946",
+              "heat": 0.615416,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "玻尿酸",
+          "count": 11,
+          "weighted_share": 3.2,
+          "top_items": [
+            {
+              "name": "[BEST SELLER] The Originote Brightening Moisturizer 50 ml – Whitening Cream Tone Up Moisturizer Dark Spot Remover Cream Rejuvinating Cream Repair Hydrate Moisture Hydrating",
+              "id": "1730346047548459676",
+              "heat": 0.652574,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[BEST SELLER] BEAUTY TALK AHA Collagen Body Booster 100 ML | Whitening Lotion dengan AHA Collagen untuk Kulit Cerah dan Lembap Mencerahkan Tubuh Mengangkat sel kulit mati dan Mempercepat Pencerahan Tangan Kusam Hingga Seluruh Tubuh",
+              "id": "1730890423685842221",
+              "heat": 0.640725,
+              "source": "FastMoss"
+            },
+            {
+              "name": "HANASUI Next Level Butter Balm Tint - Color Butter Balm Tinted Lip Balm Melembabkan & Mencerahkan Bibir Lightweight & Cover Bibir Gelap Beauty Hyper Gloss Lip Balm",
+              "id": "1730892278872310787",
+              "heat": 0.625092,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Bikini Pain-Free Hair Removal Cream for Sensitive Skin, Hypoallergenic Formula-Gentle & Fast-Acting Depilatory with Citrus Scent, Aloe & Hyaluronic Acid for Soothing Care, Suitable for Men & Women,backtoschool",
+              "id": "1731625997827871273",
+              "heat": 0.586933,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Sữa rửa mặt Hyaluronic Acid 60g 30g với thành phần Amino Acid làm sạch mồ hôi và dầu thừa, da vẫn ẩm mịn sau khi rửa, kiểm soát dầu nhẹ nhàng, phù hợp nhiều loại da, thích hợp cho cả nam & nữ dưỡng ẩm Hyaluronic Acid Tea Tree BHA",
+              "id": "1733632857358238729",
+              "heat": 0.586477,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "玫瑰",
+          "count": 10,
+          "weighted_share": 3.34,
+          "top_items": [
+            {
+              "name": "到手2瓶 玫瑰香氛洗发沐浴二合一持久留香滋润保450ml*2瓶",
+              "id": "3841541675960893601",
+              "heat": 0.689151,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【爆款推荐】买一送一大瓶持久留香玫瑰香氛花瓣精华沐浴露滋润保湿",
+              "id": "3664353046361688348",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "3斤装乌木玫瑰沐浴油露持久留香温和清洁补水保湿滋润高级小众香",
+              "id": "3766022610962481574",
+              "heat": 0.669568,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "3斤装乌木玫瑰沐浴油露持久留香温和清洁补水保湿滋润高级小众香",
+              "id": "3770082022983336625",
+              "heat": 0.666022,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "Sandrinna Berry Sparkling / Rose Melody / Caramel Vanilla / Cherry Fairy / Blooming Love / Tropical Romance / Breeze Ocean Parfum mist - Keharuman Romantis & Manis Tahan Lama Halal BPOM",
+              "id": "1733451515021723133",
+              "heat": 0.590135,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "泛醇",
+          "count": 10,
+          "weighted_share": 2.95,
+          "top_items": [
+            {
+              "name": "【BEST SELLER】 NEW SYB FORTE Red Jelly Serum 20ml with Niacinamide 10% untuk mencerahkan kulit wajah & mengurangi kusam",
+              "id": "1729419906221509377",
+              "heat": 0.662182,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[10K EXTRA DISCOUNT] Glad2Glow 2in1 Day And Night Body Lotion Set- Niacinamide+Retinol Paket Siang Malam Mencerahkan Kulit Menghaluskan Kulit Melembabkan Kulit Perawatan Tubuh Serum Tubuh Glowing Paket Serum Body Serum Vitamin B5 Vitamin E Kulit Cerah",
+              "id": "1733528074510763298",
+              "heat": 0.621522,
+              "source": "FastMoss"
+            },
+            {
+              "name": "NEW SYB FORTE Red Jelly Serum 20ml with Niacinamide 10% untuk mencerahkan kulit wajah & mengurangi kusam",
+              "id": "1733316612331505636",
+              "heat": 0.582798,
+              "source": "FastMoss"
+            },
+            {
+              "name": "New SYB Forte Red Jelly Serum 20ml with Niacinamide 10% - Serum Pencerah Wajah & Mengurangi Kusam.",
+              "id": "1729606041083151463",
+              "heat": 0.58045,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[PRICE DROP] [HAJIE ALEJANDRO APPROVED] Sea Makeup Lock It Matte Acne Setting Spray 100ml - Helps makeup stay matte smudge-proof and oil-free. Doubles as primer and fixer Suitable for acne-prone skin. Transfer-resistant finish",
+              "id": "1729938411245897881",
+              "heat": 0.572794,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "甘草",
+          "count": 9,
+          "weighted_share": 2.72,
+          "top_items": [
+            {
+              "name": "【BEST SELLER】 NEW SYB FORTE Red Jelly Serum 20ml with Niacinamide 10% untuk mencerahkan kulit wajah & mengurangi kusam",
+              "id": "1729419906221509377",
+              "heat": 0.662182,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[Exfo Pad Series] NPURE Acne Clear Pad Cica / Licorice Bright & Glow Exfoliating Pad - Kapas Eksfoliasi untuk Wajah / Kulit  Berjerawat & Normal / Treatment Wajah / Travel Pack Eksfoliasi Pad/kapas mencerahkan/ membersihkan pori-pori",
+              "id": "1729385223046727059",
+              "heat": 0.631907,
+              "source": "FastMoss"
+            },
+            {
+              "name": "MOSSÈRU Shower Gel for Brightening with Tranexamic | Sabun Mandi Mencerahkan | Sabun Mandi Cair Pencerah Tubuh | Body Wash | Melembapkan",
+              "id": "1734084304357918411",
+              "heat": 0.606508,
+              "source": "FastMoss"
+            },
+            {
+              "name": "DermoBody Kojic Acid Dipalmitate + Glutathione + Alpha Arbutin Whitening Soap",
+              "id": "1729388988847459814",
+              "heat": 0.603008,
+              "source": "FastMoss"
+            },
+            {
+              "name": "NEW SYB FORTE Red Jelly Serum 20ml with Niacinamide 10% untuk mencerahkan kulit wajah & mengurangi kusam",
+              "id": "1733316612331505636",
+              "heat": 0.582798,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "谷胱甘肽",
+          "count": 8,
+          "weighted_share": 2.66,
+          "top_items": [
+            {
+              "name": "[ BEST SELLER ] JJ Glow Sabun Gluta Pink Barsoap Gluta Pink Soap With 10X Brightening Formula Glowing Niacinamide Kojic Acid Glutathione Alpha Arbutin Mencerahkan",
+              "id": "1735304940106318937",
+              "heat": 0.704873,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[ SPECIAL MEGA LIVE ] JJ Glow Sabun Gluta Pink Barsoap Gluta Pink Soap With 10X Brightening Formula Glowing Niacinamide Kojic Acid Glutathione Alpha Arbutin Mencerahkan",
+              "id": "1736356735016207449",
+              "heat": 0.623052,
+              "source": "FastMoss"
+            },
+            {
+              "name": "DermoBody Kojic Acid Dipalmitate + Glutathione + Alpha Arbutin Whitening Soap",
+              "id": "1729388988847459814",
+              "heat": 0.603008,
+              "source": "FastMoss"
+            },
+            {
+              "name": "ASEPSKIN Milky Gluta White Niacinamide 20x Whitening Soap Dark Spot, Ance and Oily Skin Cleanser",
+              "id": "1734020712207452128",
+              "heat": 0.565733,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[KKM] FEREENA WHITE SAKURA SOAP 10g Advance Formula",
+              "id": "1734593080952784836",
+              "heat": 0.560447,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "氨基酸",
+          "count": 7,
+          "weighted_share": 2.45,
+          "top_items": [
+            {
+              "name": "珍维丝氨基酸桂花香水沐浴露润肤大容量滋养沐浴乳水润保湿",
+              "id": "3746576403525665237",
+              "heat": 0.666022,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【新香上新】宝玑米氨基酸沐浴露持久留香清洁保湿润肤大容量",
+              "id": "3806645930095149475",
+              "heat": 0.635061,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【明星同款】CLINSIS法式香氛沐浴露温和清洁持久留香氨基酸去角质",
+              "id": "3674008451610181876",
+              "heat": 0.635061,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【新香上市】独特艾琳香氛沐浴露可卸防晒冰爽留香氨基酸温和清洁ZB",
+              "id": "3563970498599755243",
+              "heat": 0.610983,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "Sữa rửa mặt Hyaluronic Acid 60g 30g với thành phần Amino Acid làm sạch mồ hôi và dầu thừa, da vẫn ẩm mịn sau khi rửa, kiểm soát dầu nhẹ nhàng, phù hợp nhiều loại da, thích hợp cho cả nam & nữ dưỡng ẩm Hyaluronic Acid Tea Tree BHA",
+              "id": "1733632857358238729",
+              "heat": 0.586477,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "芦荟",
+          "count": 7,
+          "weighted_share": 2.17,
+          "top_items": [
+            {
+              "name": "ELDORE Beauty Masker Facial Sheet Mask 30g - Melembabkan & Mencerahkan Kulit dengan Antioksidan Melembutkan Mencerahkan Wajah",
+              "id": "1731629638739199223",
+              "heat": 0.607192,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Olaif Daily Triple Blade Women's Shaver - 3pcs",
+              "id": "1729421705238776344",
+              "heat": 0.600593,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Bikini Pain-Free Hair Removal Cream for Sensitive Skin, Hypoallergenic Formula-Gentle & Fast-Acting Depilatory with Citrus Scent, Aloe & Hyaluronic Acid for Soothing Care, Suitable for Men & Women,backtoschool",
+              "id": "1731625997827871273",
+              "heat": 0.586933,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Veet Pure Formula Aloe Vera & Rose Extracts Hair Removal Cream - Krim Penghilang Bulu Ketiak, Kaki dan Tangan Lembabkan Kulit Anti Iritasi Krim Perontok Bulu Efektif Hilangkan Bulu",
+              "id": "1729824018458511123",
+              "heat": 0.58452,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Hair Serum Rambut Rontok & Kering – Melembutkan & Menumbuhkan | 20ml Serum Rambut Viral",
+              "id": "1731451183138309878",
+              "heat": 0.573783,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "薄荷",
+          "count": 7,
+          "weighted_share": 1.98,
+          "top_items": [
+            {
+              "name": "[Favorit CIKI] METOO PASTA GIGI MW3- BPOM-pemutih gigi / Bebas Sensitif odol/ Bebas Karang Gigi / Pasta Gigi Probiotik / Karang Gigi / Gusi Sensitif / Membersihkan Noda Gigi- METOO MW-3 Advanced Whitening Tooth Paste 100 gr*1/2/3",
+              "id": "1730484051937297557",
+              "heat": 0.661407,
+              "source": "FastMoss"
+            },
+            {
+              "name": "(อ่านก่อน!! “ห้ามซื้อก้อนเดียว” )!! * “กดสั่งซื้อ2ก้อน” ขึ้นไปเท่านั้น!!* “ขนาดทดลอง 15g.” สบู่สมุนไพรรวม ice cream chocolate mint [สำหรับผิวหน้า ร่างกาย และจุดซ่อนเร้น] สบู่มิ้นสาธิดาเฮิร์บ",
+              "id": "1731533745095673554",
+              "heat": 0.600137,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Tisha Beauty Bloom Balm Magic Colour & UV Filter - Stain +10hour 4,5gr",
+              "id": "1731944111513241553",
+              "heat": 0.583831,
+              "source": "FastMoss"
+            },
+            {
+              "name": "ยาสีฟัน Bubble Fresh กลิ่นเสาวรส มินต์ 100 กรัม ปกป้องเหงือก ลมหายใจสะอาด",
+              "id": "1736018469258822978",
+              "heat": 0.557963,
+              "source": "FastMoss"
+            },
+            {
+              "name": "KoKei 7-in-1 Cologne Perfumed Bar | Long-Lasting Marine Cologne | Oil Control, Mite Defense, Gentle Cleanse Soap",
+              "id": "1734547706174014855",
+              "heat": 0.527158,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "甘油",
+          "count": 7,
+          "weighted_share": 1.94,
+          "top_items": [
+            {
+              "name": "[ SONIK SCENTS SKIN NICE ] BODY TONER MERAH 200 ML Glycerin, Niacinamide, Glycolic Acid, allantoin",
+              "id": "1735023876315513947",
+              "heat": 0.591951,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Bikini Pain-Free Hair Removal Cream for Sensitive Skin, Hypoallergenic Formula-Gentle & Fast-Acting Depilatory with Citrus Scent, Aloe & Hyaluronic Acid for Soothing Care, Suitable for Men & Women,backtoschool",
+              "id": "1731625997827871273",
+              "heat": 0.586933,
+              "source": "FastMoss"
+            },
+            {
+              "name": "PYARY TURMERIC HANDMADE SOAP 75 GRAMS | OFFICIAL IMPORTER",
+              "id": "1730838328297686212",
+              "heat": 0.566994,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[KKM] FEREENA WHITE SAKURA SOAP 10g Advance Formula",
+              "id": "1734593080952784836",
+              "heat": 0.560447,
+              "source": "FastMoss"
+            },
+            {
+              "name": "(พรีออเดอร์) Feyre - เทสเตอร์ 5ml Bare Skin Foundation Serum เซรั่มรองพื้น SPF 10 PA++++ งานผิว ผิวฉ่ำโกลว ดูไบร์ทขึ้น ดูสุขภาพดี ผิวกระจก",
+              "id": "1737099206242894973",
+              "heat": 0.532068,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "维生素C",
+          "count": 7,
+          "weighted_share": 1.8,
+          "top_items": [
+            {
+              "name": "[Favorit CIKI] METOO PASTA GIGI MW3- BPOM-pemutih gigi / Bebas Sensitif odol/ Bebas Karang Gigi / Pasta Gigi Probiotik / Karang Gigi / Gusi Sensitif / Membersihkan Noda Gigi- METOO MW-3 Advanced Whitening Tooth Paste 100 gr*1/2/3",
+              "id": "1730484051937297557",
+              "heat": 0.661407,
+              "source": "FastMoss"
+            },
+            {
+              "name": "เซรั่มพริตตี้เกิร์ล 1 ถุง",
+              "id": "1733644817540678968",
+              "heat": 0.578007,
+              "source": "FastMoss"
+            },
+            {
+              "name": "NEW! Emina Gelato Cleanser Series 100 ml- Facial Wash Gentle Brightening, Face Wash Mencerahkan Glowing, Sabun Cuci Muka Mencerahkan Lembab Tanpa Ketarik, Facial Wash Soothing, Sabun Cuci Muka Jerawat, Oil Control Acne Prone,Cocok untuk Semua Jenis Kulit",
+              "id": "1735694259361908299",
+              "heat": 0.569318,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Brightening Body Wash with Vitamin C & Glycolic Acid - 8fl oz | Helps even out skin tone",
+              "id": "1731200101340581930",
+              "heat": 0.55895,
+              "source": "FastMoss"
+            },
+            {
+              "name": "HANASUI Tone Up Serum Sunscreen 30g - Ringan Instant Mencerahkan Tanpa Dempul,UV Protection,Non Comedogenic",
+              "id": "1736741222908331466",
+              "heat": 0.273395,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "橄榄",
+          "count": 6,
+          "weighted_share": 1.93,
+          "top_items": [
+            {
+              "name": "ELDORE Beauty Masker Facial Sheet Mask 30g - Melembabkan & Mencerahkan Kulit dengan Antioksidan Melembutkan Mencerahkan Wajah",
+              "id": "1731629638739199223",
+              "heat": 0.607192,
+              "source": "FastMoss"
+            },
+            {
+              "name": "JUNNY - Skin Tint Perfecting Flawless 30gr, Natural tone-up daycream, Glow Drop, UV-filter, sunscreen moist | B3 Niacinamide + calming, centella asitica + arbutin | Mencerahkan, tidak menyumbat pori, Cocok Semua Jenis Kulit",
+              "id": "1734378651231618866",
+              "heat": 0.589136,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[KKM] FEREENA WHITE SAKURA SOAP 10g Advance Formula",
+              "id": "1734593080952784836",
+              "heat": 0.560447,
+              "source": "FastMoss"
+            },
+            {
+              "name": "欧铂雅橄榄香氛沐浴油洗澡养肤清洁保湿持久留香沐浴露丝滑嫩肤",
+              "id": "3842457929999581635",
+              "heat": 0.556394,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "KoKei 7-in-1 Cologne Perfumed Bar | Long-Lasting Marine Cologne | Oil Control, Mite Defense, Gentle Cleanse Soap",
+              "id": "1734547706174014855",
+              "heat": 0.527158,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "神经酰胺",
+          "count": 6,
+          "weighted_share": 1.88,
+          "top_items": [
+            {
+              "name": "[BEST SELLER] The Originote Brightening Moisturizer 50 ml – Whitening Cream Tone Up Moisturizer Dark Spot Remover Cream Rejuvinating Cream Repair Hydrate Moisture Hydrating",
+              "id": "1730346047548459676",
+              "heat": 0.652574,
+              "source": "FastMoss"
+            },
+            {
+              "name": "OMG OH MY GLAM Mattelast Lip Cream 2.9 g - Lip Cream Matte Dengan Warna Intense, Tahan Lama & Ringan",
+              "id": "1729615507258049939",
+              "heat": 0.625764,
+              "source": "FastMoss"
+            },
+            {
+              "name": "OMG Oh My Glam Coverlast Liquid Foundation - Flawless Coverage & Tahan 12 Jam",
+              "id": "1729425592012474771",
+              "heat": 0.601371,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Tisha Beauty Bloom Balm Magic Colour & UV Filter - Stain +10hour 4,5gr",
+              "id": "1731944111513241553",
+              "heat": 0.583831,
+              "source": "FastMoss"
+            },
+            {
+              "name": "(พรีออเดอร์) Feyre - เทสเตอร์ 5ml Bare Skin Foundation Serum เซรั่มรองพื้น SPF 10 PA++++ งานผิว ผิวฉ่ำโกลว ดูไบร์ทขึ้น ดูสุขภาพดี ผิวกระจก",
+              "id": "1737099206242894973",
+              "heat": 0.532068,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "积雪草",
+          "count": 6,
+          "weighted_share": 1.65,
+          "top_items": [
+            {
+              "name": "[Exfo Pad Series] NPURE Acne Clear Pad Cica / Licorice Bright & Glow Exfoliating Pad - Kapas Eksfoliasi untuk Wajah / Kulit  Berjerawat & Normal / Treatment Wajah / Travel Pack Eksfoliasi Pad/kapas mencerahkan/ membersihkan pori-pori",
+              "id": "1729385223046727059",
+              "heat": 0.631907,
+              "source": "FastMoss"
+            },
+            {
+              "name": "JUNNY - Skin Tint Perfecting Flawless 30gr, Natural tone-up daycream, Glow Drop, UV-filter, sunscreen moist | B3 Niacinamide + calming, centella asitica + arbutin | Mencerahkan, tidak menyumbat pori, Cocok Semua Jenis Kulit",
+              "id": "1734378651231618866",
+              "heat": 0.589136,
+              "source": "FastMoss"
+            },
+            {
+              "name": "BIOAQUA Centella Collagen Hydrating Moisturizing Refreshing Moisturizing Facial Mask (1pcs) Face Skincare",
+              "id": "1729484971361928411",
+              "heat": 0.568913,
+              "source": "FastMoss"
+            },
+            {
+              "name": "(พรีออเดอร์) Feyre - เทสเตอร์ 5ml Bare Skin Foundation Serum เซรั่มรองพื้น SPF 10 PA++++ งานผิว ผิวฉ่ำโกลว ดูไบร์ทขึ้น ดูสุขภาพดี ผิวกระจก",
+              "id": "1737099206242894973",
+              "heat": 0.532068,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【GIFT】The Originote Retinol B3 เรตินอล เซรั่ม",
+              "id": "1737287203146532496",
+              "heat": 0.288955,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "水杨酸",
+          "count": 6,
+          "weighted_share": 1.84,
+          "top_items": [
+            {
+              "name": "[Exfo Pad Series] NPURE Acne Clear Pad Cica / Licorice Bright & Glow Exfoliating Pad - Kapas Eksfoliasi untuk Wajah / Kulit  Berjerawat & Normal / Treatment Wajah / Travel Pack Eksfoliasi Pad/kapas mencerahkan/ membersihkan pori-pori",
+              "id": "1729385223046727059",
+              "heat": 0.631907,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Leeva Sabun Exotic Acne 250ml - Sabun Mandi Perawatan Kulit Sensitif, Mengatasi Jerawat Punggung & Panu, Melembabkan Kulit Kering, Solusi Membersihkan Kulit Tubuh Sehat dan Bersih dari Kotoran",
+              "id": "1730173758070490903",
+              "heat": 0.607745,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Sữa rửa mặt Hyaluronic Acid 60g 30g với thành phần Amino Acid làm sạch mồ hôi và dầu thừa, da vẫn ẩm mịn sau khi rửa, kiểm soát dầu nhẹ nhàng, phù hợp nhiều loại da, thích hợp cho cả nam & nữ dưỡng ẩm Hyaluronic Acid Tea Tree BHA",
+              "id": "1733632857358238729",
+              "heat": 0.586477,
+              "source": "FastMoss"
+            },
+            {
+              "name": "NEW! Emina Gelato Cleanser Series 100 ml- Facial Wash Gentle Brightening, Face Wash Mencerahkan Glowing, Sabun Cuci Muka Mencerahkan Lembab Tanpa Ketarik, Facial Wash Soothing, Sabun Cuci Muka Jerawat, Oil Control Acne Prone,Cocok untuk Semua Jenis Kulit",
+              "id": "1735694259361908299",
+              "heat": 0.569318,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Pretty Jin Retinol Oatmeal Bleachinig Soap (70g)",
+              "id": "1729626193581935178",
+              "heat": 0.554943,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "香草",
+          "count": 6,
+          "weighted_share": 1.86,
+          "top_items": [
+            {
+              "name": "Bonita Himalayan Pink Salt Oil SPF 30 Organic Face & Body Care & massage oil  Comfort, Hydrating, Skin Toning, Cleanser, Moisture Skincare aroma Hydrate Moisturizer Moisturize  VANILLA Cosmetic Non-sticky Acne Blemishes Pampaputi itch dry skin lightweight",
+              "id": "1729397741999852940",
+              "heat": 0.647346,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[10K EXTRA DISCOUNT] Glad2Glow 2in1 Day And Night Body Lotion Set- Niacinamide+Retinol Paket Siang Malam Mencerahkan Kulit Menghaluskan Kulit Melembabkan Kulit Perawatan Tubuh Serum Tubuh Glowing Paket Serum Body Serum Vitamin B5 Vitamin E Kulit Cerah",
+              "id": "1733528074510763298",
+              "heat": 0.621522,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Bella Vita Luxury's Honey Oud | Eau de Parfum 100ml (3.4 fl oz) | Patchouli, Vanilla, Bergamot | Floral & Spicy | Made with Clean & Vegan Essentials Oils | Cruelty Free Fragrance Perfume",
+              "id": "1729413742968869814",
+              "heat": 0.616553,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Sandrinna Berry Sparkling / Rose Melody / Caramel Vanilla / Cherry Fairy / Blooming Love / Tropical Romance / Breeze Ocean Parfum mist - Keharuman Romantis & Manis Tahan Lama Halal BPOM",
+              "id": "1733451515021723133",
+              "heat": 0.590135,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Beli 1 Dapat 3 Parfum Bluehill xScandalous EDP 35ml Parfum But Ter Fly Era Aroma Mewah Elegant Fresh Bebas Pilih Aroma",
+              "id": "1736478855386268966",
+              "heat": 0.563829,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "柑橘",
+          "count": 6,
+          "weighted_share": 2.04,
+          "top_items": [
+            {
+              "name": "[10K EXTRA DISCOUNT] Glad2Glow 2in1 Day And Night Body Lotion Set- Niacinamide+Retinol Paket Siang Malam Mencerahkan Kulit Menghaluskan Kulit Melembabkan Kulit Perawatan Tubuh Serum Tubuh Glowing Paket Serum Body Serum Vitamin B5 Vitamin E Kulit Cerah",
+              "id": "1733528074510763298",
+              "heat": 0.621522,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Bella Vita Luxury's Honey Oud | Eau de Parfum 100ml (3.4 fl oz) | Patchouli, Vanilla, Bergamot | Floral & Spicy | Made with Clean & Vegan Essentials Oils | Cruelty Free Fragrance Perfume",
+              "id": "1729413742968869814",
+              "heat": 0.616553,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Sandrinna Berry Sparkling / Rose Melody / Caramel Vanilla / Cherry Fairy / Blooming Love / Tropical Romance / Breeze Ocean Parfum mist - Keharuman Romantis & Manis Tahan Lama Halal BPOM",
+              "id": "1733451515021723133",
+              "heat": 0.590135,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Bikini Pain-Free Hair Removal Cream for Sensitive Skin, Hypoallergenic Formula-Gentle & Fast-Acting Depilatory with Citrus Scent, Aloe & Hyaluronic Acid for Soothing Care, Suitable for Men & Women,backtoschool",
+              "id": "1731625997827871273",
+              "heat": 0.586933,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Voyage Nova | Rosey Fruity Floral | Extrait De Parfum 50ml/100ml | Long Lasting Luxury Fragrance | Daily women's perfume Alluring Summervibes sohochic",
+              "id": "1732263142232921043",
+              "heat": 0.579847,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "精油",
+          "count": 5,
+          "weighted_share": 1.32,
+          "top_items": [
+            {
+              "name": "【达人专属】威露士精油沐浴露450ml去汗味多香型持久留香",
+              "id": "3807562149623103547",
+              "heat": 0.631515,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "新升级 2.0夏伯雅莲依兰香香氛沐浴露多肽精油沐浴露ALPAALIN666g",
+              "id": "3712173713379164617",
+              "heat": 0.579518,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "BEAST/野兽派植萃精油沐浴露千叶玫瑰保湿留香润肤乳沐浴洗护用品",
+              "id": "3788093178826064161",
+              "heat": 0.475328,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【ลดราคาครั้งใหญ่！】สเปรย์ออยล์บำรุงผม ช่วยจัดการผมชี้ฟู ผมนุ่มเงางาม ช่วยให้ทรงผมสวยมั่นใจ【COD】",
+              "id": "1737426293097334120",
+              "heat": 0.317131,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【ลดราคาครั้งใหญ่！】สเปรย์ออยล์บำรุงผม ฉีดปุ๊บผมลื่นปั๊บ ช่วยให้ผมเบาสบาย ไม่เหนียวไม่ลีบ ไม่ต้องล้างออก【COD】",
+              "id": "1737425622830254019",
+              "heat": 0.297622,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "视黄醇",
+          "count": 5,
+          "weighted_share": 1.46,
+          "top_items": [
+            {
+              "name": "[10K EXTRA DISCOUNT] Glad2Glow 2in1 Day And Night Body Lotion Set- Niacinamide+Retinol Paket Siang Malam Mencerahkan Kulit Menghaluskan Kulit Melembabkan Kulit Perawatan Tubuh Serum Tubuh Glowing Paket Serum Body Serum Vitamin B5 Vitamin E Kulit Cerah",
+              "id": "1733528074510763298",
+              "heat": 0.621522,
+              "source": "FastMoss"
+            },
+            {
+              "name": "(COD) Essence Retinol DRVE – Membantu Kulit Lebih Agar Lebih Cerah & Kencang dan Menutrisi dari Dalam Kulit yang sehat",
+              "id": "1730707277340509254",
+              "heat": 0.593745,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Pretty Jin Retinol Oatmeal Bleachinig Soap (70g)",
+              "id": "1729626193581935178",
+              "heat": 0.554943,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【视黄醇】 需建立耐受！科妍蜜淡纹紧致精华液双A醇抗皱紧致 王佳佳",
+              "id": "3790859945176596802",
+              "heat": 0.492285,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "【GIFT】The Originote Retinol B3 เรตินอล เซรั่ม",
+              "id": "1737287203146532496",
+              "heat": 0.288955,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "尿囊素",
+          "count": 5,
+          "weighted_share": 1.49,
+          "top_items": [
+            {
+              "name": "MOSSÈRU Shower Gel for Brightening with Tranexamic | Sabun Mandi Mencerahkan | Sabun Mandi Cair Pencerah Tubuh | Body Wash | Melembapkan",
+              "id": "1734084304357918411",
+              "heat": 0.606508,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[ SONIK SCENTS SKIN NICE ] BODY TONER MERAH 200 ML Glycerin, Niacinamide, Glycolic Acid, allantoin",
+              "id": "1735023876315513947",
+              "heat": 0.591951,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Bikini Pain-Free Hair Removal Cream for Sensitive Skin, Hypoallergenic Formula-Gentle & Fast-Acting Depilatory with Citrus Scent, Aloe & Hyaluronic Acid for Soothing Care, Suitable for Men & Women,backtoschool",
+              "id": "1731625997827871273",
+              "heat": 0.586933,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[KKM] FEREENA WHITE SAKURA SOAP 10g Advance Formula",
+              "id": "1734593080952784836",
+              "heat": 0.560447,
+              "source": "FastMoss"
+            },
+            {
+              "name": "The Original ดิ ออริจินัล ไฮยาลูรอน แอคเน่ เอ็กซ์เพิร์ท 15 มล.",
+              "id": "1731296043663000716",
+              "heat": 0.259731,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "椰子油",
+          "count": 5,
+          "weighted_share": 1.43,
+          "top_items": [
+            {
+              "name": "DermoBody Kojic Acid Dipalmitate + Glutathione + Alpha Arbutin Whitening Soap",
+              "id": "1729388988847459814",
+              "heat": 0.603008,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Sandrinna Berry Sparkling / Rose Melody / Caramel Vanilla / Cherry Fairy / Blooming Love / Tropical Romance / Breeze Ocean Parfum mist - Keharuman Romantis & Manis Tahan Lama Halal BPOM",
+              "id": "1733451515021723133",
+              "heat": 0.590135,
+              "source": "FastMoss"
+            },
+            {
+              "name": "PYARY TURMERIC HANDMADE SOAP 75 GRAMS | OFFICIAL IMPORTER",
+              "id": "1730838328297686212",
+              "heat": 0.566994,
+              "source": "FastMoss"
+            },
+            {
+              "name": "KoKei 7-in-1 Cologne Perfumed Bar | Long-Lasting Marine Cologne | Oil Control, Mite Defense, Gentle Cleanse Soap",
+              "id": "1734547706174014855",
+              "heat": 0.527158,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Mille Douce for Women Eau De Parfum Spray by Hekayat Attar 100ml/3.4oz",
+              "id": "1732640404373082138",
+              "heat": 0.210721,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "白麝香",
+          "count": 5,
+          "weighted_share": 1.44,
+          "top_items": [
+            {
+              "name": "[10K EXTRA DISCOUNT] Glad2Glow 2in1 Day And Night Body Lotion Set- Niacinamide+Retinol Paket Siang Malam Mencerahkan Kulit Menghaluskan Kulit Melembabkan Kulit Perawatan Tubuh Serum Tubuh Glowing Paket Serum Body Serum Vitamin B5 Vitamin E Kulit Cerah",
+              "id": "1733528074510763298",
+              "heat": 0.621522,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Sandrinna Berry Sparkling / Rose Melody / Caramel Vanilla / Cherry Fairy / Blooming Love / Tropical Romance / Breeze Ocean Parfum mist - Keharuman Romantis & Manis Tahan Lama Halal BPOM",
+              "id": "1733451515021723133",
+              "heat": 0.590135,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Beli 1 Dapat 3 Parfum Bluehill xScandalous EDP 35ml Parfum But Ter Fly Era Aroma Mewah Elegant Fresh Bebas Pilih Aroma",
+              "id": "1736478855386268966",
+              "heat": 0.563829,
+              "source": "FastMoss"
+            },
+            {
+              "name": "KoKei 7-in-1 Cologne Perfumed Bar | Long-Lasting Marine Cologne | Oil Control, Mite Defense, Gentle Cleanse Soap",
+              "id": "1734547706174014855",
+              "heat": 0.527158,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Mille Douce for Women Eau De Parfum Spray by Hekayat Attar 100ml/3.4oz",
+              "id": "1732640404373082138",
+              "heat": 0.210721,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "山茶花",
+          "count": 4,
+          "weighted_share": 1.24,
+          "top_items": [
+            {
+              "name": "3斤装山茶花沐浴露持久留香补水保湿香水香氛大容量家庭装男女士",
+              "id": "3690309473789935743",
+              "heat": 0.669568,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【视频同款】舒肤佳新升级奢护沐浴露红石榴山茶花乌木持久留香*",
+              "id": "3745769714253693134",
+              "heat": 0.626133,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "舒肤佳奢护沐浴红石榴青竹龙井山茶花乌木玫瑰持久留香保湿",
+              "id": "3793828414046208007",
+              "heat": 0.584901,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【GIFT】The Originote Retinol B3 เรตินอล เซรั่ม",
+              "id": "1737287203146532496",
+              "heat": 0.288955,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "PDRN",
+          "count": 4,
+          "weighted_share": 1.12,
+          "top_items": [
+            {
+              "name": "【赵露思同款】掌中花园PDRN水光沐浴蜜香氛保湿持久留香水光沐浴蜜",
+              "id": "3799793290438639978",
+              "heat": 0.556394,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "[Sungboon] EGF Tox Toner | Forehead Firming & Wrinkle Care, Iron Out Fine Lines | PDRN & Collagen & NAD+ EGF Complex | EGF Plumping for Forehead, Longevity Anti-Aging Routine | Korean Skincare, K-Beauty",
+              "id": "1732040365570888316",
+              "heat": 0.545653,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【林心如代言】效妆PDRN小金瓶眼油眼部精华油紧致抗皱保湿官方正品",
+              "id": "3810728158953604184",
+              "heat": 0.540498,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "NEW Laneige Korean Hydrogel Eye Mask Patches - Bouncy, Firming Skincare Eye Treatment",
+              "id": "1732520989900050765",
+              "heat": 0.310732,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "曲酸",
+          "count": 4,
+          "weighted_share": 1.46,
+          "top_items": [
+            {
+              "name": "[ BEST SELLER ] JJ Glow Sabun Gluta Pink Barsoap Gluta Pink Soap With 10X Brightening Formula Glowing Niacinamide Kojic Acid Glutathione Alpha Arbutin Mencerahkan",
+              "id": "1735304940106318937",
+              "heat": 0.704873,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[ SPECIAL MEGA LIVE ] JJ Glow Sabun Gluta Pink Barsoap Gluta Pink Soap With 10X Brightening Formula Glowing Niacinamide Kojic Acid Glutathione Alpha Arbutin Mencerahkan",
+              "id": "1736356735016207449",
+              "heat": 0.623052,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[medicube] Smooth & Clear Body Care Set | Hypochlorous Acid Body Peel Shot, Kojic Acid Turmeric Body Wash, Toner Pad, Toner, Mist | Exfoliating for Dead Skin Cells & Excess Sebum & Clearing for After Spots, Texture & Uneven Skin Tone | K-Beauty",
+              "id": "1732052189676081387",
+              "heat": 0.608101,
+              "source": "FastMoss"
+            },
+            {
+              "name": "DermoBody Kojic Acid Dipalmitate + Glutathione + Alpha Arbutin Whitening Soap",
+              "id": "1729388988847459814",
+              "heat": 0.603008,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "大米",
+          "count": 4,
+          "weighted_share": 1.35,
+          "top_items": [
+            {
+              "name": "Nature x Science Rosemary Water and Rice Water |100% Natural Extract | Soft & Smooth Hair Non-Greasy & Fast Absorbing | 200 ml",
+              "id": "1731528580940468633",
+              "heat": 0.631815,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[medicube] Smooth & Clear Body Care Set | Hypochlorous Acid Body Peel Shot, Kojic Acid Turmeric Body Wash, Toner Pad, Toner, Mist | Exfoliating for Dead Skin Cells & Excess Sebum & Clearing for After Spots, Texture & Uneven Skin Tone | K-Beauty",
+              "id": "1732052189676081387",
+              "heat": 0.608101,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[KKM] FEREENA WHITE SAKURA SOAP 10g Advance Formula",
+              "id": "1734593080952784836",
+              "heat": 0.560447,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Rosemary & Rice Water Hair Spray- 200ml pack of 3 Natural Soft Hair Nourishing Hair",
+              "id": "1729505063356962201",
+              "heat": 0.55959,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "aha",
+          "count": 4,
+          "weighted_share": 0.79,
+          "top_items": [
+            {
+              "name": "[ 1 pcs ] Lipstik Putar Murah & Tahan Lama - Pilihan Warna Cocok untuk Kebutuhan Anda Lipstick Liquid Waterproof Kosmetik Bibir Lipcream Lasting lip cream lipgloss",
+              "id": "1737029486986495527",
+              "heat": 0.503585,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Bar Syampu Daun Thuja | Penjagaan Rambut Berbahan Herba | Syampu Padat | Pembersihan Harian yang Mudah",
+              "id": "1737414264680777572",
+              "heat": 0.367142,
+              "source": "FastMoss"
+            },
+            {
+              "name": "A【HOT】Pensel Eyeliner Gel Ultra Halus 1.7mm Kalis Air dan Peluh, Tahan Lama, Pigmen Tinggi – 01 Hitam Pekat / 02 Coklat Natural",
+              "id": "1737430285342901373",
+              "heat": 0.290378,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Bahan herba terpilih! Resipi tradisional Hong Kong, selamat & boleh dipercayai. Tiada bahan kimia yang keras, sesuai untuk kulit sensitif.",
+              "id": "1737463167048451652",
+              "heat": 0.225079,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "蜂蜜",
+          "count": 3,
+          "weighted_share": 1.07,
+          "top_items": [
+            {
+              "name": "Azalea Smooth Foot Cream - Melembabkan & Menghaluskan Kulit Kaki Pecah-Pecah dengan Zaitun Oil & Honey - Mengurangi Bau Tidak Sedap",
+              "id": "1729584239350876522",
+              "heat": 0.642407,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Bella Vita Luxury's Honey Oud | Eau de Parfum 100ml (3.4 fl oz) | Patchouli, Vanilla, Bergamot | Floral & Spicy | Made with Clean & Vegan Essentials Oils | Cruelty Free Fragrance Perfume",
+              "id": "1729413742968869814",
+              "heat": 0.616553,
+              "source": "FastMoss"
+            },
+            {
+              "name": "ELDORE Beauty Masker Facial Sheet Mask 30g - Melembabkan & Mencerahkan Kulit dengan Antioksidan Melembutkan Mencerahkan Wajah",
+              "id": "1731629638739199223",
+              "heat": 0.607192,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "传明酸",
+          "count": 3,
+          "weighted_share": 0.92,
+          "top_items": [
+            {
+              "name": "MOSSÈRU Shower Gel for Brightening with Tranexamic | Sabun Mandi Mencerahkan | Sabun Mandi Cair Pencerah Tubuh | Body Wash | Melembapkan",
+              "id": "1734084304357918411",
+              "heat": 0.606508,
+              "source": "FastMoss"
+            },
+            {
+              "name": "NEW SYB【WHITENING DAY CREAM】NIACINAMIDE 10% + TRANEXAMID ACID 0,5% Tone-Up Cream For Natural Glow 10GR",
+              "id": "1736016152683841281",
+              "heat": 0.514178,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Infused Whitening Sachet 10ml || special price",
+              "id": "1737375467045422828",
+              "heat": 0.478414,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "氟化钠",
+          "count": 3,
+          "weighted_share": 0.85,
+          "top_items": [
+            {
+              "name": "[Favorit CIKI] METOO PASTA GIGI MW3- BPOM-pemutih gigi / Bebas Sensitif odol/ Bebas Karang Gigi / Pasta Gigi Probiotik / Karang Gigi / Gusi Sensitif / Membersihkan Noda Gigi- METOO MW-3 Advanced Whitening Tooth Paste 100 gr*1/2/3",
+              "id": "1730484051937297557",
+              "heat": 0.661407,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[MỚI] Kem Đánh Răng P/S Ultra White Trắng Bật 5 Tông trong 1 tuần 100g - Với bộ Đôi công nghệ độc quyền Blue HAP & Microwhitening C [v]",
+              "id": "1736313981494002697",
+              "heat": 0.543758,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Advanced Whitening Tooth Paste 1pcs-pemutih gigi/Bebas Sensitif/Bebas Karanf Gigi/Pasta Gigi Probiotik/Gusi Sensitif/Membersihkan Noda Gigi",
+              "id": "1737364762872480791",
+              "heat": 0.270933,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "水杨酸去屑",
+          "count": 3,
+          "weighted_share": 0.82,
+          "top_items": [
+            {
+              "name": "Leeva Sabun Exotic Acne 250ml - Sabun Mandi Perawatan Kulit Sensitif, Mengatasi Jerawat Punggung & Panu, Melembabkan Kulit Kering, Solusi Membersihkan Kulit Tubuh Sehat dan Bersih dari Kotoran",
+              "id": "1730173758070490903",
+              "heat": 0.607745,
+              "source": "FastMoss"
+            },
+            {
+              "name": "NEW! Emina Gelato Cleanser Series 100 ml- Facial Wash Gentle Brightening, Face Wash Mencerahkan Glowing, Sabun Cuci Muka Mencerahkan Lembab Tanpa Ketarik, Facial Wash Soothing, Sabun Cuci Muka Jerawat, Oil Control Acne Prone,Cocok untuk Semua Jenis Kulit",
+              "id": "1735694259361908299",
+              "heat": 0.569318,
+              "source": "FastMoss"
+            },
+            {
+              "name": "The Original ดิ ออริจินัล ไฮยาลูรอน แอคเน่ เอ็กซ์เพิร์ท 15 มล.",
+              "id": "1731296043663000716",
+              "heat": 0.259731,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "多肽",
+          "count": 2,
+          "weighted_share": 0.69,
+          "top_items": [
+            {
+              "name": "HANASUI Next Level Butter Balm Tint - Color Butter Balm Tinted Lip Balm Melembabkan & Mencerahkan Bibir Lightweight & Cover Bibir Gelap Beauty Hyper Gloss Lip Balm",
+              "id": "1730892278872310787",
+              "heat": 0.625092,
+              "source": "FastMoss"
+            },
+            {
+              "name": "新升级 2.0夏伯雅莲依兰香香氛沐浴露多肽精油沐浴露ALPAALIN666g",
+              "id": "3712173713379164617",
+              "heat": 0.579518,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "泥",
+          "count": 2,
+          "weighted_share": 0.6,
+          "top_items": [
+            {
+              "name": "【蔡徐坤代言】BUV绿泥洗面奶控油深层清洁细腻毛孔去闭口男女通用",
+              "id": "3632234840075719990",
+              "heat": 0.571081,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "【开学焕白季】韩束男士377小白泥洗面奶焕白净透美白控油保湿护肤",
+              "id": "3789967562834575649",
+              "heat": 0.483426,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "咖啡因",
+          "count": 2,
+          "weighted_share": 0.66,
+          "top_items": [
+            {
+              "name": "[NEW SHADE] DAZZLE ME Ink-Vinyl Lip Lacquer Lip Cream Lipstik Glossy Tahan Lama 16 Jam Lip Vinyl Transferproof Waterproof Anti Luntur Lipstick Lip Gloss Bibir Plump Non-Sticky Make Up Lip",
+              "id": "1732073687126673289",
+              "heat": 0.599197,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【韩国首发 咖啡因眼膜】【拍5发6片】冰美式咖啡因黑蝶眼膜",
+              "id": "3842319754517938760",
+              "heat": 0.548854,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "壬二酸",
+          "count": 2,
+          "weighted_share": 0.59,
+          "top_items": [
+            {
+              "name": "【祛痘修护舒缓控油】植物大师多效草本祛痘膏青春痘植萃保湿壬二酸",
+              "id": "3729617134674903196",
+              "heat": 0.515793,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "【赵荀推荐】éLL壬二酸清洁泥膜清洁黑头闭口控油细腻毛孔男女",
+              "id": "3707015702461416239",
+              "heat": 0.508118,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "燕麦",
+          "count": 2,
+          "weighted_share": 0.41,
+          "top_items": [
+            {
+              "name": "【金允植推荐】木柯诗双头唇釉韩系口红镜面裸色唇釉不沾杯燕麦格雷",
+              "id": "3781567102662607446",
+              "heat": 0.508658,
+              "source": "蝉妈妈"
+            },
+            {
+              "name": "GIFT - Tẩy tế bào chết yến mạch Dermalogica Daily Milkfoliant làm dịu & làm sáng mượt tức thì sample",
+              "id": "1737393310209639767",
+              "heat": 0.213643,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "二氧化钛",
+          "count": 2,
+          "weighted_share": 0.71,
+          "top_items": [
+            {
+              "name": "MAYBELLINE Superstay Matte Ink Liquid Long Lasting Waterproof Matte Lipstick Lipcream Make Up Transferproof Tahan 16 Jam",
+              "id": "1729382420060341472",
+              "heat": 0.707236,
+              "source": "FastMoss"
+            },
+            {
+              "name": "(พรีออเดอร์) Feyre - เทสเตอร์ 5ml Bare Skin Foundation Serum เซรั่มรองพื้น SPF 10 PA++++ งานผิว ผิวฉ่ำโกลว ดูไบร์ทขึ้น ดูสุขภาพดี ผิวกระจก",
+              "id": "1737099206242894973",
+              "heat": 0.532068,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "二甲基硅油",
+          "count": 2,
+          "weighted_share": 0.71,
+          "top_items": [
+            {
+              "name": "MAYBELLINE Superstay Matte Ink Liquid Long Lasting Waterproof Matte Lipstick Lipcream Make Up Transferproof Tahan 16 Jam",
+              "id": "1729382420060341472",
+              "heat": 0.707236,
+              "source": "FastMoss"
+            },
+            {
+              "name": "(พรีออเดอร์) Feyre - เทสเตอร์ 5ml Bare Skin Foundation Serum เซรั่มรองพื้น SPF 10 PA++++ งานผิว ผิวฉ่ำโกลว ดูไบร์ทขึ้น ดูสุขภาพดี ผิวกระจก",
+              "id": "1737099206242894973",
+              "heat": 0.532068,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "PHA",
+          "count": 2,
+          "weighted_share": 0.57,
+          "top_items": [
+            {
+              "name": "[Exfo Pad Series] NPURE Acne Clear Pad Cica / Licorice Bright & Glow Exfoliating Pad - Kapas Eksfoliasi untuk Wajah / Kulit  Berjerawat & Normal / Treatment Wajah / Travel Pack Eksfoliasi Pad/kapas mencerahkan/ membersihkan pori-pori",
+              "id": "1729385223046727059",
+              "heat": 0.631907,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[L-GIFT]MISTINE Son Kem Bóng Pha  1.3g【Shade sent at random】",
+              "id": "1733587704713479830",
+              "heat": 0.370562,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "EGF",
+          "count": 2,
+          "weighted_share": 0.45,
+          "top_items": [
+            {
+              "name": "[Sungboon] EGF Tox Toner | Forehead Firming & Wrinkle Care, Iron Out Fine Lines | PDRN & Collagen & NAD+ EGF Complex | EGF Plumping for Forehead, Longevity Anti-Aging Routine | Korean Skincare, K-Beauty",
+              "id": "1732040365570888316",
+              "heat": 0.545653,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Sérum Capilar Roll-On con Deoxirribosa para Fortalecer el Cuero Cabelludo y Dar Volumen - Con Romero, EGF y Cafeína para Cabello Fino | Cuidado Capilar Coreano K-Beauty",
+              "id": "1737250870758114605",
+              "heat": 0.24329,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "马齿苋",
+          "count": 2,
+          "weighted_share": 0.5,
+          "top_items": [
+            {
+              "name": "Bikini Pain-Free Hair Removal Cream for Sensitive Skin, Hypoallergenic Formula-Gentle & Fast-Acting Depilatory with Citrus Scent, Aloe & Hyaluronic Acid for Soothing Care, Suitable for Men & Women,backtoschool",
+              "id": "1731625997827871273",
+              "heat": 0.586933,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【GIFT】The Originote Retinol B3 เรตินอล เซรั่ม",
+              "id": "1737287203146532496",
+              "heat": 0.288955,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "人参",
+          "count": 2,
+          "weighted_share": 0.52,
+          "top_items": [
+            {
+              "name": "ครีมโสมไฮยา [สูตรใหม่] YERPALL Intensive active ginseng night cream",
+              "id": "1729734701700713167",
+              "heat": 0.627009,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Krim kulit melembapkan OGULIA Ginseng. Memutihkan kulit, mengurangkan titik gelap dan bintik-bintik, membantu kulit menjadi licin, cerah, dan mencegah penuaan.",
+              "id": "1736329826035860647",
+              "heat": 0.272424,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "金缕梅",
+          "count": 2,
+          "weighted_share": 0.62,
+          "top_items": [
+            {
+              "name": "[PRICE DROP] [HAJIE ALEJANDRO APPROVED] Sea Makeup Lock It Matte Acne Setting Spray 100ml - Helps makeup stay matte smudge-proof and oil-free. Doubles as primer and fixer Suitable for acne-prone skin. Transfer-resistant finish",
+              "id": "1729938411245897881",
+              "heat": 0.572794,
+              "source": "FastMoss"
+            },
+            {
+              "name": "NEW SYB【WHITENING DAY CREAM】NIACINAMIDE 10% + TRANEXAMID ACID 0,5% Tone-Up Cream For Natural Glow 10GR",
+              "id": "1736016152683841281",
+              "heat": 0.514178,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "茶树",
+          "count": 2,
+          "weighted_share": 0.68,
+          "top_items": [
+            {
+              "name": "Leeva Sabun Exotic Acne 250ml - Sabun Mandi Perawatan Kulit Sensitif, Mengatasi Jerawat Punggung & Panu, Melembabkan Kulit Kering, Solusi Membersihkan Kulit Tubuh Sehat dan Bersih dari Kotoran",
+              "id": "1730173758070490903",
+              "heat": 0.607745,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Sữa rửa mặt Hyaluronic Acid 60g 30g với thành phần Amino Acid làm sạch mồ hôi và dầu thừa, da vẫn ẩm mịn sau khi rửa, kiểm soát dầu nhẹ nhàng, phù hợp nhiều loại da, thích hợp cho cả nam & nữ dưỡng ẩm Hyaluronic Acid Tea Tree BHA",
+              "id": "1733632857358238729",
+              "heat": 0.586477,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "乳木果",
+          "count": 2,
+          "weighted_share": 0.64,
+          "top_items": [
+            {
+              "name": "Tisha Beauty Bloom Balm Magic Colour & UV Filter - Stain +10hour 4,5gr",
+              "id": "1731944111513241553",
+              "heat": 0.583831,
+              "source": "FastMoss"
+            },
+            {
+              "name": "KoKei 7-in-1 Cologne Perfumed Bar | Long-Lasting Marine Cologne | Oil Control, Mite Defense, Gentle Cleanse Soap",
+              "id": "1734547706174014855",
+              "heat": 0.527158,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "薰衣草",
+          "count": 2,
+          "weighted_share": 0.64,
+          "top_items": [
+            {
+              "name": "Sandrinna Berry Sparkling / Rose Melody / Caramel Vanilla / Cherry Fairy / Blooming Love / Tropical Romance / Breeze Ocean Parfum mist - Keharuman Romantis & Manis Tahan Lama Halal BPOM",
+              "id": "1733451515021723133",
+              "heat": 0.590135,
+              "source": "FastMoss"
+            },
+            {
+              "name": "KoKei 7-in-1 Cologne Perfumed Bar | Long-Lasting Marine Cologne | Oil Control, Mite Defense, Gentle Cleanse Soap",
+              "id": "1734547706174014855",
+              "heat": 0.527158,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "绿茶",
+          "count": 2,
+          "weighted_share": 0.5,
+          "top_items": [
+            {
+              "name": "NEW! Emina Gelato Cleanser Series 100 ml- Facial Wash Gentle Brightening, Face Wash Mencerahkan Glowing, Sabun Cuci Muka Mencerahkan Lembab Tanpa Ketarik, Facial Wash Soothing, Sabun Cuci Muka Jerawat, Oil Control Acne Prone,Cocok untuk Semua Jenis Kulit",
+              "id": "1735694259361908299",
+              "heat": 0.569318,
+              "source": "FastMoss"
+            },
+            {
+              "name": "NEW Laneige Korean Hydrogel Eye Mask Patches - Bouncy, Firming Skincare Eye Treatment",
+              "id": "1732520989900050765",
+              "heat": 0.310732,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "生姜",
+          "count": 2,
+          "weighted_share": 0.67,
+          "top_items": [
+            {
+              "name": "【BPOM COD】No.1 Cyeecare Ginger Hair Care Serum 20g - Memperkuat Akar Rambut & Menambah Volume Alami - Aroma Segar - Untuk Rambut Lebih Tebal & Lembut",
+              "id": "1733106257641309500",
+              "heat": 0.583561,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Voyage Nova | Rosey Fruity Floral | Extrait De Parfum 50ml/100ml | Long Lasting Luxury Fragrance | Daily women's perfume Alluring Summervibes sohochic",
+              "id": "1732263142232921043",
+              "heat": 0.579847,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "玻色因",
+          "count": 1,
+          "weighted_share": 0.31,
+          "top_items": [
+            {
+              "name": "【每里美物专属】Sephora/丝芙兰丰盈蜜润唇釉特添玻色因镜面嘟嘟唇",
+              "id": "3827594895007285422",
+              "heat": 0.548262,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "b5",
+          "count": 1,
+          "weighted_share": 0.31,
+          "top_items": [
+            {
+              "name": "【徐艺洋推荐】温博士B5水细毛孔控油紧致 提亮维稳屏障换季补水",
+              "id": "3687900549140840897",
+              "heat": 0.539916,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "活性炭",
+          "count": 1,
+          "weighted_share": 0.39,
+          "top_items": [
+            {
+              "name": "[BUY 1 BOX GET 2 SABUN] KIME Luminizing Jeju Brightening Soap 100GR | Sabun Mandi Batang Mencerahkan Kulit Pencerah Badan Wajah Glowing Pemutih Tubuh Leher Kaki Tangan Ketiak Whitening Eksfoliasi Flek Hitam | Volcanic Ash Charcoal Niacinamide Collagen",
+              "id": "1729427766722726591",
+              "heat": 0.688213,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "洋甘菊",
+          "count": 1,
+          "weighted_share": 0.31,
+          "top_items": [
+            {
+              "name": "(พรีออเดอร์) Feyre - เทสเตอร์ 5ml Bare Skin Foundation Serum เซรั่มรองพื้น SPF 10 PA++++ งานผิว ผิวฉ่ำโกลว ดูไบร์ทขึ้น ดูสุขภาพดี ผิวกระจก",
+              "id": "1737099206242894973",
+              "heat": 0.532068,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "光甘草定",
+          "count": 1,
+          "weighted_share": 0.35,
+          "top_items": [
+            {
+              "name": "DermoBody Kojic Acid Dipalmitate + Glutathione + Alpha Arbutin Whitening Soap",
+              "id": "1729388988847459814",
+              "heat": 0.603008,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "锌",
+          "count": 1,
+          "weighted_share": 0.33,
+          "top_items": [
+            {
+              "name": "[PRICE DROP] [HAJIE ALEJANDRO APPROVED] Sea Makeup Lock It Matte Acne Setting Spray 100ml - Helps makeup stay matte smudge-proof and oil-free. Doubles as primer and fixer Suitable for acne-prone skin. Transfer-resistant finish",
+              "id": "1729938411245897881",
+              "heat": 0.572794,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "白藜芦醇",
+          "count": 1,
+          "weighted_share": 0.33,
+          "top_items": [
+            {
+              "name": "[PRICE DROP] [HAJIE ALEJANDRO APPROVED] Sea Makeup Lock It Matte Acne Setting Spray 100ml - Helps makeup stay matte smudge-proof and oil-free. Doubles as primer and fixer Suitable for acne-prone skin. Transfer-resistant finish",
+              "id": "1729938411245897881",
+              "heat": 0.572794,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "角鲨烷",
+          "count": 1,
+          "weighted_share": 0.34,
+          "top_items": [
+            {
+              "name": "[BPOM] Glad2Glow Flawless Blurring Skin Tint Foundation Ringan Mengandung Squalane Melembabkan Skin Barrier Coverage Medium Buildable Menyamarkan Pori Pori Hasil Akhir Natural Soft Matte Oil Control Tahan Lama Seharian",
+              "id": "1732964878878475554",
+              "heat": 0.586073,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "檀香",
+          "count": 1,
+          "weighted_share": 0.34,
+          "top_items": [
+            {
+              "name": "Sandrinna Berry Sparkling / Rose Melody / Caramel Vanilla / Cherry Fairy / Blooming Love / Tropical Romance / Breeze Ocean Parfum mist - Keharuman Romantis & Manis Tahan Lama Halal BPOM",
+              "id": "1733451515021723133",
+              "heat": 0.590135,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "水杨酸盐",
+          "count": 1,
+          "weighted_share": 0.34,
+          "top_items": [
+            {
+              "name": "Sandrinna Berry Sparkling / Rose Melody / Caramel Vanilla / Cherry Fairy / Blooming Love / Tropical Romance / Breeze Ocean Parfum mist - Keharuman Romantis & Manis Tahan Lama Halal BPOM",
+              "id": "1733451515021723133",
+              "heat": 0.590135,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "摩洛哥油",
+          "count": 1,
+          "weighted_share": 0.33,
+          "top_items": [
+            {
+              "name": "Hair Serum Rambut Rontok & Kering – Melembutkan & Menumbuhkan | 20ml Serum Rambut Viral",
+              "id": "1731451183138309878",
+              "heat": 0.573783,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "霍霍巴",
+          "count": 1,
+          "weighted_share": 0.3,
+          "top_items": [
+            {
+              "name": "KoKei 7-in-1 Cologne Perfumed Bar | Long-Lasting Marine Cologne | Oil Control, Mite Defense, Gentle Cleanse Soap",
+              "id": "1734547706174014855",
+              "heat": 0.527158,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "皂基",
+          "count": 1,
+          "weighted_share": 0.32,
+          "top_items": [
+            {
+              "name": "[KKM] FEREENA WHITE SAKURA SOAP 10g Advance Formula",
+              "id": "1734593080952784836",
+              "heat": 0.560447,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "vc",
+          "count": 1,
+          "weighted_share": 0.34,
+          "top_items": [
+            {
+              "name": "Mask มาส์กหน้า แผ่นมาส์กหน้า มาส์กมาส์กบำรุงล้ำลึกให้ความชุ่มชื้น มะเขือเทศ vc แตงกวา เอสเซ้น 24k มาส์กให้ความชุ่มชื้นหลากหลายสไตล์ Skincare ใบหน้า",
+              "id": "1730620339309808598",
+              "heat": 0.586992,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "尿素",
+          "count": 1,
+          "weighted_share": 0.34,
+          "top_items": [
+            {
+              "name": "Veet Pure Formula Aloe Vera & Rose Extracts Hair Removal Cream - Krim Penghilang Bulu Ketiak, Kaki dan Tangan Lembabkan Kulit Anti Iritasi Krim Perontok Bulu Efektif Hilangkan Bulu",
+              "id": "1729824018458511123",
+              "heat": 0.58452,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "艾草",
+          "count": 1,
+          "weighted_share": 0.17,
+          "top_items": [
+            {
+              "name": "【GIFT】The Originote Retinol B3 เรตินอล เซรั่ม",
+              "id": "1737287203146532496",
+              "heat": 0.288955,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "辅酶Q10",
+          "count": 1,
+          "weighted_share": 0.17,
+          "top_items": [
+            {
+              "name": "【GIFT】The Originote Retinol B3 เรตินอล เซรั่ม",
+              "id": "1737287203146532496",
+              "heat": 0.288955,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "麦角硫因",
+          "count": 1,
+          "weighted_share": 0.17,
+          "top_items": [
+            {
+              "name": "【GIFT】The Originote Retinol B3 เรตินอล เซรั่ม",
+              "id": "1737287203146532496",
+              "heat": 0.288955,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "透明质酸",
+          "count": 1,
+          "weighted_share": 0.17,
+          "top_items": [
+            {
+              "name": "【ราคาพิเศษ】เซรั่มไฮยาลูโรนิก — เติมความชุ่มชื้น ปรับผิวให้ดูกระจ่างใส ผิวเนียนนุ่ม ดูสุขภาพดี ใช้ได้ทุกวัน 【COD】",
+              "id": "1737447600397452711",
+              "heat": 0.293356,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "姜黄",
+          "count": 1,
+          "weighted_share": 0.14,
+          "top_items": [
+            {
+              "name": "【ซื้อ 1 แถม 1】ครีมให้ความชุ่มชื้นสูตรขมิ้น ｜ ช่วยเติมน้ำให้ผิว ｜ ช่วยให้ผิวนุ่มลื่น ｜ เนื้อบางเบา ซึมเร็ว ｜ เหมาะใช้ประจำวัน【COD】",
+              "id": "1737460158071801269",
+              "heat": 0.243113,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "樟脑",
+          "count": 1,
+          "weighted_share": 0.15,
+          "top_items": [
+            {
+              "name": "The Original ดิ ออริจินัล ไฮยาลูรอน แอคเน่ เอ็กซ์เพิร์ท 15 มล.",
+              "id": "1731296043663000716",
+              "heat": 0.259731,
+              "source": "FastMoss"
+            }
+          ]
+        }
+      ]
+    },
+    "规格": {
+      "coverage": 90,
+      "coverage_pct": 25.0,
+      "rows": [
+        {
+          "value": "100ml",
+          "count": 9,
+          "weighted_share": 2.87,
+          "top_items": [
+            {
+              "name": "[BEST SELLER] BEAUTY TALK AHA Collagen Body Booster 100 ML | Whitening Lotion dengan AHA Collagen untuk Kulit Cerah dan Lembap Mencerahkan Tubuh Mengangkat sel kulit mati dan Mempercepat Pencerahan Tangan Kusam Hingga Seluruh Tubuh",
+              "id": "1730890423685842221",
+              "heat": 0.640725,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[BEST SELLER] BEAUTY TALK AHA Collagen Body Booster - 100ML Whitening Lotion dengan AHA Collagen untuk   Mencerahkan dan Melembabkan Kulit Tubuh",
+              "id": "1729863618733181659",
+              "heat": 0.634524,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Makarizo Hair Energy Fibertherapy Hair & Scalp Creambath 5X Conditioning Royal Jelly Extract 100 mL",
+              "id": "1733341601830176103",
+              "heat": 0.627242,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Bella Vita Luxury's Honey Oud | Eau de Parfum 100ml (3.4 fl oz) | Patchouli, Vanilla, Bergamot | Floral & Spicy | Made with Clean & Vegan Essentials Oils | Cruelty Free Fragrance Perfume",
+              "id": "1729413742968869814",
+              "heat": 0.616553,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Voyage Nova | Rosey Fruity Floral | Extrait De Parfum 50ml/100ml | Long Lasting Luxury Fragrance | Daily women's perfume Alluring Summervibes sohochic",
+              "id": "1732263142232921043",
+              "heat": 0.579847,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "30ml",
+          "count": 8,
+          "weighted_share": 1.84,
+          "top_items": [
+            {
+              "name": "【NEW LAUNCH】SCARLETT Eau De Parfum & Extrait De Parfum 30ml Wangi Tahan Lama - Wangi Mewah - Parfum Uniseks",
+              "id": "1736755585903592824",
+              "heat": 0.626336,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【SPECIAL】SCARLETT Eau De Parfum & Extrait De Parfum 30ml Wangi Tahan Lama - Wangi Mewah - Parfum Uniseks",
+              "id": "1734500043509499256",
+              "heat": 0.600022,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【Link1 Hadiah Percuma】Teashell Serum Pemutih 5% Niacinamide & Alpha Arbutin 30ml Hilangkan Bintik Gelap, Cerahkan Kulit Kusam, Melembapkan Sepanjang Hari",
+              "id": "1735545818410943597",
+              "heat": 0.393301,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[HÀNG TẶNG KHÔNG BÁN] Sữa dưỡng thể cho da thường đến khô 30ml",
+              "id": "1729635652383050166",
+              "heat": 0.377009,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[HÀNG TẶNG KHÔNG BÁN] Sữa rửa mặt giúp làm sạch sâu dành cho da thường và da khô 30ML",
+              "id": "1729635645715417526",
+              "heat": 0.375783,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "100g",
+          "count": 6,
+          "weighted_share": 1.89,
+          "top_items": [
+            {
+              "name": "[BUY 1 BOX GET 2 SABUN] KIME Luminizing Jeju Brightening Soap 100GR | Sabun Mandi Batang Mencerahkan Kulit Pencerah Badan Wajah Glowing Pemutih Tubuh Leher Kaki Tangan Ketiak Whitening Eksfoliasi Flek Hitam | Volcanic Ash Charcoal Niacinamide Collagen",
+              "id": "1729427766722726591",
+              "heat": 0.688213,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[Favorit CIKI] METOO PASTA GIGI MW3- BPOM-pemutih gigi / Bebas Sensitif odol/ Bebas Karang Gigi / Pasta Gigi Probiotik / Karang Gigi / Gusi Sensitif / Membersihkan Noda Gigi- METOO MW-3 Advanced Whitening Tooth Paste 100 gr*1/2/3",
+              "id": "1730484051937297557",
+              "heat": 0.661407,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[KOL] Khuyến Mãi Đặc Biệt – Mua 2 Tuýp Kem Đánh Răng làm trắng hương hoa nhài JASMEEN!Sản phẩm làm trắng răng an toàn,đem lại hơi thở thơm mát ,giảm tình trạng hôi miệng,ngăn ngừa vết ố vàng, dành cho mọi đối tượng ( 100g*2)",
+              "id": "1732805663640815024",
+              "heat": 0.586639,
+              "source": "FastMoss"
+            },
+            {
+              "name": "ยาสีฟัน Bubble Fresh กลิ่นเสาวรส มินต์ 100 กรัม ปกป้องเหงือก ลมหายใจสะอาด",
+              "id": "1736018469258822978",
+              "heat": 0.557963,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[MỚI] Kem Đánh Răng P/S Ultra White Trắng Bật 5 Tông trong 1 tuần 100g - Với bộ Đôi công nghệ độc quyền Blue HAP & Microwhitening C [v]",
+              "id": "1736313981494002697",
+              "heat": 0.543758,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "20ml",
+          "count": 5,
+          "weighted_share": 1.53,
+          "top_items": [
+            {
+              "name": "【BEST SELLER】 NEW SYB FORTE Red Jelly Serum 20ml with Niacinamide 10% untuk mencerahkan kulit wajah & mengurangi kusam",
+              "id": "1729419906221509377",
+              "heat": 0.662182,
+              "source": "FastMoss"
+            },
+            {
+              "name": "NEW SYB FORTE Red Jelly Serum 20ml with Niacinamide 10% untuk mencerahkan kulit wajah & mengurangi kusam",
+              "id": "1733316612331505636",
+              "heat": 0.582798,
+              "source": "FastMoss"
+            },
+            {
+              "name": "New SYB Forte Red Jelly Serum 20ml with Niacinamide 10% - Serum Pencerah Wajah & Mengurangi Kusam.",
+              "id": "1729606041083151463",
+              "heat": 0.58045,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Hair Serum Rambut Rontok & Kering – Melembutkan & Menumbuhkan | 20ml Serum Rambut Viral",
+              "id": "1731451183138309878",
+              "heat": 0.573783,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[FREE GIFT - DO NOT ORDER] Animate Power Bright Eye Gel 20 ml",
+              "id": "1737446034629494008",
+              "heat": 0.273165,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "30g",
+          "count": 5,
+          "weighted_share": 1.35,
+          "top_items": [
+            {
+              "name": "ELDORE Beauty Masker Facial Sheet Mask 30g - Melembabkan & Mencerahkan Kulit dengan Antioksidan Melembutkan Mencerahkan Wajah",
+              "id": "1731629638739199223",
+              "heat": 0.607192,
+              "source": "FastMoss"
+            },
+            {
+              "name": "JUNNY - Skin Tint Perfecting Flawless 30gr, Natural tone-up daycream, Glow Drop, UV-filter, sunscreen moist | B3 Niacinamide + calming, centella asitica + arbutin | Mencerahkan, tidak menyumbat pori, Cocok Semua Jenis Kulit",
+              "id": "1734378651231618866",
+              "heat": 0.589136,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Sữa rửa mặt Hyaluronic Acid 60g 30g với thành phần Amino Acid làm sạch mồ hôi và dầu thừa, da vẫn ẩm mịn sau khi rửa, kiểm soát dầu nhẹ nhàng, phù hợp nhiều loại da, thích hợp cho cả nam & nữ dưỡng ẩm Hyaluronic Acid Tea Tree BHA",
+              "id": "1733632857358238729",
+              "heat": 0.586477,
+              "source": "FastMoss"
+            },
+            {
+              "name": "KORMESIC Hand Cream 30g Peach Lemon Rose Aroma Krim Tangan Melembabkan Kulit Kering Tidak Lengket Travel Size",
+              "id": "1737336414608000717",
+              "heat": 0.300227,
+              "source": "FastMoss"
+            },
+            {
+              "name": "HANASUI Tone Up Serum Sunscreen 30g - Ringan Instant Mencerahkan Tanpa Dempul,UV Protection,Non Comedogenic",
+              "id": "1736741222908331466",
+              "heat": 0.273395,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "1g",
+          "count": 5,
+          "weighted_share": 1.28,
+          "top_items": [
+            {
+              "name": "[BUY 1 GET 3 FREE GIFT] Madame Gie Always On Lip Comfort Matte - Makeup Lip Cream Matte | Smudgeproof | Transferproof | Longlasting | Double UV Filter",
+              "id": "1735123075139208867",
+              "heat": 0.606699,
+              "source": "FastMoss"
+            },
+            {
+              "name": "BUY 1 GET 6 plus 1 pasang motif premium + 5 pasang cat eye warna solid premium, 6 lembar lem dan 1 alat kikir",
+              "id": "1737339010128380943",
+              "heat": 0.554072,
+              "source": "FastMoss"
+            },
+            {
+              "name": "BUY 1 GET 11 plus 1 pasang motif premium + 10 pasang cat eye warna solid premium,11 lembar lem dan 2 alat kikir",
+              "id": "1737422918439830543",
+              "heat": 0.510361,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【Buy 1 Get 1 Free】Toothpaste, rich creamy foam, fresh breath, gently clean tooth surface, ideal for daily oral care【COD】",
+              "id": "1737463492820305102",
+              "heat": 0.278377,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【Buy 1 Get 1 Free】Toothpaste, rich creamy foam, fresh breath, gently clean tooth surface, ideal for daily oral care【COD】",
+              "id": "1737463883176707278",
+              "heat": 0.276459,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "10ml",
+          "count": 4,
+          "weighted_share": 1.09,
+          "top_items": [
+            {
+              "name": "Ness (ขนาดมินิ) ออยล์บำรุงผิวกระจ่างใส เซตมินิผิวฉ่ำ 11 กลิ่นขายดี 10ml",
+              "id": "1735933480387970400",
+              "heat": 0.641959,
+              "source": "FastMoss"
+            },
+            {
+              "name": "INFUSED WHITENING SACHET by Drify 10ml",
+              "id": "1736800803684779756",
+              "heat": 0.556986,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Infused Whitening Sachet 10ml || special price",
+              "id": "1737375467045422828",
+              "heat": 0.478414,
+              "source": "FastMoss"
+            },
+            {
+              "name": "La Roche Posay Vitamin C Serum 10ml",
+              "id": "1734482613935572850",
+              "heat": 0.231186,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "200ml",
+          "count": 4,
+          "weighted_share": 1.34,
+          "top_items": [
+            {
+              "name": "Nature x Science Rosemary Water and Rice Water |100% Natural Extract | Soft & Smooth Hair Non-Greasy & Fast Absorbing | 200 ml",
+              "id": "1731528580940468633",
+              "heat": 0.631815,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[ SONIK SCENTS SKIN NICE ] BODY TONER MERAH 200 ML Glycerin, Niacinamide, Glycolic Acid, allantoin",
+              "id": "1735023876315513947",
+              "heat": 0.591951,
+              "source": "FastMoss"
+            },
+            {
+              "name": "ขวดปั๊มทำความสะอาดจุดซ่อนเร้นสำหรับผู้หญิง New Loresh ขนาด 200 มล.ความจุใหญ่ ขวดเจลอาบน้ำสำหรับการดูแลส่วนตัว แบบเติมได้ พกพาสะดวก สูตรอ่อนโยนเพื่อรักษาความสะอาด ตัวช่วยที่ดีเยี่ยมสำหรับการดูแลความสะ",
+              "id": "1735321159879853932",
+              "heat": 0.561307,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Rosemary & Rice Water Hair Spray- 200ml pack of 3 Natural Soft Hair Nourishing Hair",
+              "id": "1729505063356962201",
+              "heat": 0.55959,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "15g",
+          "count": 3,
+          "weighted_share": 0.83,
+          "top_items": [
+            {
+              "name": "(อ่านก่อน!! “ห้ามซื้อก้อนเดียว” )!! * “กดสั่งซื้อ2ก้อน” ขึ้นไปเท่านั้น!!* “ขนาดทดลอง 15g.” สบู่สมุนไพรรวม ice cream chocolate mint [สำหรับผิวหน้า ร่างกาย และจุดซ่อนเร้น] สบู่มิ้นสาธิดาเฮิร์บ",
+              "id": "1731533745095673554",
+              "heat": 0.600137,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[NEW PACKAGING] Liora Perfect Glowing Powder Foundation 15g I 2in1 Foundation + Setting Powder Long Lasting & Blur Effect",
+              "id": "1735363068661957933",
+              "heat": 0.593432,
+              "source": "FastMoss"
+            },
+            {
+              "name": "PAKET HEMAT 3 PIS SALEP HERBAL CHINA TRADISIONAL 15gr",
+              "id": "1737258363096303084",
+              "heat": 0.246509,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "50ml",
+          "count": 3,
+          "weighted_share": 1.08,
+          "top_items": [
+            {
+              "name": "[BEST SELLER] The Originote Brightening Moisturizer 50 ml – Whitening Cream Tone Up Moisturizer Dark Spot Remover Cream Rejuvinating Cream Repair Hydrate Moisture Hydrating",
+              "id": "1730346047548459676",
+              "heat": 0.652574,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[New Packaging] Hikari UltraFresh Sunscreen 50ML for all skin type, whitening, brightening, no white cast, easy to blend, sun protection",
+              "id": "1730531415480895463",
+              "heat": 0.64811,
+              "source": "FastMoss"
+            },
+            {
+              "name": "Voyage Nova | Rosey Fruity Floral | Extrait De Parfum 50ml/100ml | Long Lasting Luxury Fragrance | Daily women's perfume Alluring Summervibes sohochic",
+              "id": "1732263142232921043",
+              "heat": 0.579847,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "2g",
+          "count": 3,
+          "weighted_share": 0.99,
+          "top_items": [
+            {
+              "name": "[10K EXTRA DISCOUNT] Glad2Glow 2in1 Day And Night Body Lotion Set- Niacinamide+Retinol Paket Siang Malam Mencerahkan Kulit Menghaluskan Kulit Melembabkan Kulit Perawatan Tubuh Serum Tubuh Glowing Paket Serum Body Serum Vitamin B5 Vitamin E Kulit Cerah",
+              "id": "1733528074510763298",
+              "heat": 0.621522,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[BPOM] Glad2Glow Flawless Blurring Skin Tint Foundation Ringan Mengandung Squalane Melembabkan Skin Barrier Coverage Medium Buildable Menyamarkan Pori Pori Hasil Akhir Natural Soft Matte Oil Control Tahan Lama Seharian",
+              "id": "1732964878878475554",
+              "heat": 0.586073,
+              "source": "FastMoss"
+            },
+            {
+              "name": "PALA ไพรเมอร์ครีม (แบบซอง) ICE SENSATION PRIMER CREAM เบลอรูขุมขน บำรุงผิว เกลี่ยง่าย 2g. แบรนด์ไทย มีอ.ย.",
+              "id": "1732835801965561699",
+              "heat": 0.5163,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "450ml",
+          "count": 2,
+          "weighted_share": 0.76,
+          "top_items": [
+            {
+              "name": "到手2瓶 玫瑰香氛洗发沐浴二合一持久留香滋润保450ml*2瓶",
+              "id": "3841541675960893601",
+              "heat": 0.689151,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【达人专属】威露士精油沐浴露450ml去汗味多香型持久留香",
+              "id": "3807562149623103547",
+              "heat": 0.631515,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "2瓶",
+          "count": 2,
+          "weighted_share": 0.75,
+          "top_items": [
+            {
+              "name": "到手2瓶 玫瑰香氛洗发沐浴二合一持久留香滋润保450ml*2瓶",
+              "id": "3841541675960893601",
+              "heat": 0.689151,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "米妃亚米妃亚【男士款】魅蓝香氛沐浴露【推荐2瓶】持久留香清烟酰胺",
+              "id": "3740051435514101884",
+              "heat": 0.626133,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "70ml",
+          "count": 2,
+          "weighted_share": 0.56,
+          "top_items": [
+            {
+              "name": "Hirescent Parfum Nagita Aroma Wanita 70ML Premium Wangi Segar Tahan Lama",
+              "id": "1734876125684073985",
+              "heat": 0.600359,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[GIFT] Sữa Dưỡng Thể Vaseline Gluta-Hya Nữ 70ml",
+              "id": "1734639262526441171",
+              "heat": 0.382839,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "5ml",
+          "count": 2,
+          "weighted_share": 0.43,
+          "top_items": [
+            {
+              "name": "(พรีออเดอร์) Feyre - เทสเตอร์ 5ml Bare Skin Foundation Serum เซรั่มรองพื้น SPF 10 PA++++ งานผิว ผิวฉ่ำโกลว ดูไบร์ทขึ้น ดูสุขภาพดี ผิวกระจก",
+              "id": "1737099206242894973",
+              "heat": 0.532068,
+              "source": "FastMoss"
+            },
+            {
+              "name": "LES LINGES  — 6 Perfumes de 5 ml",
+              "id": "1737527440249685976",
+              "heat": 0.223095,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "500g",
+          "count": 2,
+          "weighted_share": 0.5,
+          "top_items": [
+            {
+              "name": "【COD】【10.10】TODDA คาเวียร์ ครีมหมักผม 500g เท่านั้นเคราตินสดเกรด กรดอะมิโน ครีมยืด ไม่ต้องอบไอน้ำ ฟื้นฟูเส้นผมตรงนุ่มสลวยระดับซาลอน Caviar ทรีตเม้นท์ผม ได้ทุกสภาพผม  หยิก ป้องกันผมขาด ป้องกันผม สีผมติดทน",
+              "id": "1732577904423045020",
+              "heat": 0.613862,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【COD】TODDA ครีมหมักผม ครีมยืดเคราติน เคราตินบำรุงผม 500g ซ่อมแซมผมระดับซาลอน ไม่ต้องอบไอน้ำ ทรีทเม้นเครติน ครีมหมักผมเสีย ชุ่มชื้น haircare",
+              "id": "1737235663004600263",
+              "heat": 0.25856,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "3支",
+          "count": 2,
+          "weighted_share": 0.49,
+          "top_items": [
+            {
+              "name": "Olaif Daily Triple Blade Women's Shaver - 3pcs",
+              "id": "1729421705238776344",
+              "heat": 0.600593,
+              "source": "FastMoss"
+            },
+            {
+              "name": "PAKET HEMAT 3 PIS SALEP HERBAL CHINA TRADISIONAL 15gr",
+              "id": "1737258363096303084",
+              "heat": 0.246509,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "800ml",
+          "count": 2,
+          "weighted_share": 0.5,
+          "top_items": [
+            {
+              "name": "Giv W Sabun Mandi Cair Mulberry & Collagen Pouch 800ml",
+              "id": "1729583055325071338",
+              "heat": 0.608046,
+              "source": "FastMoss"
+            },
+            {
+              "name": "GIV SABUN MANDI CAIR 800ML",
+              "id": "1736995093631108349",
+              "heat": 0.272025,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "10g",
+          "count": 2,
+          "weighted_share": 0.62,
+          "top_items": [
+            {
+              "name": "[KKM] FEREENA WHITE SAKURA SOAP 10g Advance Formula",
+              "id": "1734593080952784836",
+              "heat": 0.560447,
+              "source": "FastMoss"
+            },
+            {
+              "name": "NEW SYB【WHITENING DAY CREAM】NIACINAMIDE 10% + TRANEXAMID ACID 0,5% Tone-Up Cream For Natural Glow 10GR",
+              "id": "1736016152683841281",
+              "heat": 0.514178,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "2支",
+          "count": 1,
+          "weighted_share": 0.39,
+          "top_items": [
+            {
+              "name": "【拍2支更划算！徐璐力荐】乎刻果酸酶沐浴露抗氧化酸酶双刷祛痘嫩肤",
+              "id": "3763995072891322514",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "666g",
+          "count": 1,
+          "weighted_share": 0.33,
+          "top_items": [
+            {
+              "name": "新升级 2.0夏伯雅莲依兰香香氛沐浴露多肽精油沐浴露ALPAALIN666g",
+              "id": "3712173713379164617",
+              "heat": 0.579518,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "6片",
+          "count": 1,
+          "weighted_share": 0.31,
+          "top_items": [
+            {
+              "name": "【韩国首发 咖啡因眼膜】【拍5发6片】冰美式咖啡因黑蝶眼膜",
+              "id": "3842319754517938760",
+              "heat": 0.548854,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "20片",
+          "count": 1,
+          "weighted_share": 0.28,
+          "top_items": [
+            {
+              "name": "童颜纪白番茄熬夜焕亮面膜敏感肌可用 实发20片+1片到手21片",
+              "id": "3822443878443778190",
+              "heat": 0.48873,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "1片",
+          "count": 1,
+          "weighted_share": 0.28,
+          "top_items": [
+            {
+              "name": "童颜纪白番茄熬夜焕亮面膜敏感肌可用 实发20片+1片到手21片",
+              "id": "3822443878443778190",
+              "heat": 0.48873,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "21片",
+          "count": 1,
+          "weighted_share": 0.28,
+          "top_items": [
+            {
+              "name": "童颜纪白番茄熬夜焕亮面膜敏感肌可用 实发20片+1片到手21片",
+              "id": "3822443878443778190",
+              "heat": 0.48873,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "80g",
+          "count": 1,
+          "weighted_share": 0.37,
+          "top_items": [
+            {
+              "name": "BONITA Tawas Calamansi Persimmon Odor Eliminator + Whitening Soap 80g Natural Deodorant Bar Face & Body Pampaputi ng Kili-kili Niacinamide Brightening  & Body Odor Solution Deodorize Antibacterial Daily Sensitive Cleanser Cleansing Skin Repair  Smoother",
+              "id": "1731831790309442956",
+              "heat": 0.637783,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "4ml",
+          "count": 1,
+          "weighted_share": 0.35,
+          "top_items": [
+            {
+              "name": "[BEST SELLER] Animate Bubble Glow Pinkiss Lip 4 ml",
+              "id": "1734320654222132472",
+              "heat": 0.608882,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "135ml",
+          "count": 1,
+          "weighted_share": 0.35,
+          "top_items": [
+            {
+              "name": "Azalea Zaitun Oil with Rosehip Oil 135ml – All-In-One Oil untuk Wajah & Tubuh, Melembapkan, Menutrisi, Haluskan Bekas Luka",
+              "id": "1729382371067331946",
+              "heat": 0.615416,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "25ml",
+          "count": 1,
+          "weighted_share": 0.32,
+          "top_items": [
+            {
+              "name": "(PAKET HEMAT ISI 4) NIVEA MEN Deodorant Antiperspirant Roll On Cool Kick 25ml - Deodoran pria perlindungan ekstra kering dari keringat bau badan dan sensasi dingin dan wangi sporty seharian - Tidak mengandung ethyl alkohol cocok untuk semua jenis kulit",
+              "id": "1731354187921721088",
+              "heat": 0.553521,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "70g",
+          "count": 1,
+          "weighted_share": 0.32,
+          "top_items": [
+            {
+              "name": "Pretty Jin Retinol Oatmeal Bleachinig Soap (70g)",
+              "id": "1729626193581935178",
+              "heat": 0.554943,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "10对",
+          "count": 1,
+          "weighted_share": 0.32,
+          "top_items": [
+            {
+              "name": "MILAI 10 bộ mi sẵn keo | Kiểu tự nhiên & dày đẹp | Mua từ 3 hộp tặng 1 nhíp + 1 kẹp mi",
+              "id": "1734895346717001537",
+              "heat": 0.56435,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "2.9g",
+          "count": 1,
+          "weighted_share": 0.36,
+          "top_items": [
+            {
+              "name": "OMG OH MY GLAM Mattelast Lip Cream 2.9 g - Lip Cream Matte Dengan Warna Intense, Tahan Lama & Ringan",
+              "id": "1729615507258049939",
+              "heat": 0.625764,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "75g",
+          "count": 1,
+          "weighted_share": 0.33,
+          "top_items": [
+            {
+              "name": "PYARY TURMERIC HANDMADE SOAP 75 GRAMS | OFFICIAL IMPORTER",
+              "id": "1730838328297686212",
+              "heat": 0.566994,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "35ml",
+          "count": 1,
+          "weighted_share": 0.32,
+          "top_items": [
+            {
+              "name": "Beli 1 Dapat 3 Parfum Bluehill xScandalous EDP 35ml Parfum But Ter Fly Era Aroma Mewah Elegant Fresh Bebas Pilih Aroma",
+              "id": "1736478855386268966",
+              "heat": 0.563829,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "250ml",
+          "count": 1,
+          "weighted_share": 0.35,
+          "top_items": [
+            {
+              "name": "Leeva Sabun Exotic Acne 250ml - Sabun Mandi Perawatan Kulit Sensitif, Mengatasi Jerawat Punggung & Panu, Melembabkan Kulit Kering, Solusi Membersihkan Kulit Tubuh Sehat dan Bersih dari Kotoran",
+              "id": "1730173758070490903",
+              "heat": 0.607745,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "5g",
+          "count": 1,
+          "weighted_share": 0.33,
+          "top_items": [
+            {
+              "name": "Tisha Beauty Bloom Balm Magic Colour & UV Filter - Stain +10hour 4,5gr",
+              "id": "1731944111513241553",
+              "heat": 0.583831,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "50g",
+          "count": 1,
+          "weighted_share": 0.34,
+          "top_items": [
+            {
+              "name": "[กด3ชิ้นเพื่อรับของแถม] Dr.PONG U9.9 RENEWAL CREAM 50g  ครีมสำหรับผู้ที่มีปัญหาผิวลอก แตก แห้งกร้าน พร้อมคืนผิวใหม่",
+              "id": "1733715098127468497",
+              "heat": 0.590541,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "24g",
+          "count": 1,
+          "weighted_share": 0.32,
+          "top_items": [
+            {
+              "name": "【CRUSH BRAND DAY】JMCY - DAV Chứng Nhận - Xịt Khoá Nền Lâu Trôi 100ml – Sương Mù Siêu Mịn, Giữ Lớp Trang Điểm 24 Giờ, Chống Mồ Hôi & Kiềm Dầu, SPF25 PA++",
+              "id": "1734324112765716380",
+              "heat": 0.554581,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "20g",
+          "count": 1,
+          "weighted_share": 0.33,
+          "top_items": [
+            {
+              "name": "【BPOM COD】No.1 Cyeecare Ginger Hair Care Serum 20g - Memperkuat Akar Rambut & Menambah Volume Alami - Aroma Segar - Untuk Rambut Lebih Tebal & Lembut",
+              "id": "1733106257641309500",
+              "heat": 0.583561,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "4片",
+          "count": 1,
+          "weighted_share": 0.29,
+          "top_items": [
+            {
+              "name": "1 แถม 1  [ห่อ] Sofy โซฟี ผ้าอนามัยกลางคืน ผ้าอนามัยโซฟี ห่อละ 4 ชิ้น ยาว 29 ซม. ป้องกันการซึมเปื้อน กระชับสรีระ นุ่มสบาย",
+              "id": "1734501211299087390",
+              "heat": 0.50064,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "60g",
+          "count": 1,
+          "weighted_share": 0.34,
+          "top_items": [
+            {
+              "name": "Sữa rửa mặt Hyaluronic Acid 60g 30g với thành phần Amino Acid làm sạch mồ hôi và dầu thừa, da vẫn ẩm mịn sau khi rửa, kiểm soát dầu nhẹ nhàng, phù hợp nhiều loại da, thích hợp cho cả nam & nữ dưỡng ẩm Hyaluronic Acid Tea Tree BHA",
+              "id": "1733632857358238729",
+              "heat": 0.586477,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "1.3g",
+          "count": 1,
+          "weighted_share": 0.21,
+          "top_items": [
+            {
+              "name": "[L-GIFT]MISTINE Son Kem Bóng Pha  1.3g【Shade sent at random】",
+              "id": "1733587704713479830",
+              "heat": 0.370562,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "3对",
+          "count": 1,
+          "weighted_share": 0.16,
+          "top_items": [
+            {
+              "name": "Bulu Mata 3in1 Mix | Paket isi 3 | Bisa Request Model",
+              "id": "1737317483601299379",
+              "heat": 0.284242,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "24支",
+          "count": 1,
+          "weighted_share": 0.14,
+          "top_items": [
+            {
+              "name": "【ลด 50%!】ก้านทำความสะอาดหูแบบเหนียวนุ่ม 24 ชิ้น ช่วยเก็บสิ่งสกปรกและทำความสะอาดช่องหู ปลายนุ่มสบาย ไม่ระคายเคือง ใช้งานง่าย พกพาสะดวก เหมาะสำหรับใช้ในชีวิตประจำวัน E",
+              "id": "1737477992672233177",
+              "heat": 0.238581,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "15ml",
+          "count": 1,
+          "weighted_share": 0.15,
+          "top_items": [
+            {
+              "name": "The Original ดิ ออริจินัล ไฮยาลูรอน แอคเน่ เอ็กซ์เพิร์ท 15 มล.",
+              "id": "1731296043663000716",
+              "heat": 0.259731,
+              "source": "FastMoss"
+            }
+          ]
+        }
+      ]
+    },
+    "SKU": {
+      "coverage": 66,
+      "coverage_pct": 18.3,
+      "rows": [
+        {
+          "value": "套装/套组",
+          "count": 48,
+          "weighted_share": 10.24,
+          "top_items": [
+            {
+              "name": "【超值套组】舒肤佳纯白经典沐浴露清香清洁大容量家庭装香氛爆款",
+              "id": "3837481046367142550",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【男士专研】魅蓝香男士沐浴露洗发水持久留香72小时全身香控油套装",
+              "id": "3828323881844867311",
+              "heat": 0.669568,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "[10K EXTRA DISCOUNT] Glad2Glow 2in1 Day And Night Body Lotion Set- Niacinamide+Retinol Paket Siang Malam Mencerahkan Kulit Menghaluskan Kulit Melembabkan Kulit Perawatan Tubuh Serum Tubuh Glowing Paket Serum Body Serum Vitamin B5 Vitamin E Kulit Cerah",
+              "id": "1733528074510763298",
+              "heat": 0.621522,
+              "source": "FastMoss"
+            },
+            {
+              "name": "[medicube] Smooth & Clear Body Care Set | Hypochlorous Acid Body Peel Shot, Kojic Acid Turmeric Body Wash, Toner Pad, Toner, Mist | Exfoliating for Dead Skin Cells & Excess Sebum & Clearing for After Spots, Texture & Uneven Skin Tone | K-Beauty",
+              "id": "1732052189676081387",
+              "heat": 0.608101,
+              "source": "FastMoss"
+            },
+            {
+              "name": "澳雪碌柚叶柚子叶沐浴露持久留香沐浴乳沐浴油家庭装大容量套装TL",
+              "id": "3751203792658497781",
+              "heat": 0.594751,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "家庭装/大容量",
+          "count": 15,
+          "weighted_share": 5.18,
+          "top_items": [
+            {
+              "name": "【超值套组】舒肤佳纯白经典沐浴露清香清洁大容量家庭装香氛爆款",
+              "id": "3837481046367142550",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【爆款推荐】力士依兰香沐浴露持久留香经典幽莲家庭装官方正品",
+              "id": "3682885932039667745",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "3斤装山茶花沐浴露持久留香补水保湿香水香氛大容量家庭装男女士",
+              "id": "3690309473789935743",
+              "heat": 0.669568,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "珍维丝氨基酸桂花香水沐浴露润肤大容量滋养沐浴乳水润保湿",
+              "id": "3746576403525665237",
+              "heat": 0.666022,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【新香上新】宝玑米氨基酸沐浴露持久留香清洁保湿润肤大容量",
+              "id": "3806645930095149475",
+              "heat": 0.635061,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "试用/旅行装",
+          "count": 3,
+          "weighted_share": 0.75,
+          "top_items": [
+            {
+              "name": "INFUSED WHITENING SACHET by Drify 10ml",
+              "id": "1736800803684779756",
+              "heat": 0.556986,
+              "source": "FastMoss"
+            },
+            {
+              "name": "(พรีออเดอร์) Feyre - เทสเตอร์ 5ml Bare Skin Foundation Serum เซรั่มรองพื้น SPF 10 PA++++ งานผิว ผิวฉ่ำโกลว ดูไบร์ทขึ้น ดูสุขภาพดี ผิวกระจก",
+              "id": "1737099206242894973",
+              "heat": 0.532068,
+              "source": "FastMoss"
+            },
+            {
+              "name": "GIFT - Tẩy tế bào chết yến mạch Dermalogica Daily Milkfoliant làm dịu & làm sáng mượt tức thì sample",
+              "id": "1737393310209639767",
+              "heat": 0.213643,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "多件装",
+          "count": 2,
+          "weighted_share": 0.63,
+          "top_items": [
+            {
+              "name": "【爆款推荐】买一送一大瓶持久留香玫瑰香氛花瓣精华沐浴露滋润保湿",
+              "id": "3664353046361688348",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "[พร้อมส่ง] ยาดมคู่ SHOCK V ดับเบิ้ลนาซัล อินเฮเลอร์ รสมิ้นท์ แตงโม แบล็กเคอร์แรนต์ กลิ่นหอมสดชื่น ตื่นตัวตลอดวัน พกพาสะดวก เหมาะกับนักเรียนและคนทำงาน",
+              "id": "1737413351254951702",
+              "heat": 0.416499,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "分香型/分功效",
+          "count": 2,
+          "weighted_share": 0.7,
+          "top_items": [
+            {
+              "name": "【达人专属】威露士精油沐浴露450ml去汗味多香型持久留香",
+              "id": "3807562149623103547",
+              "heat": 0.631515,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "Mask มาส์กหน้า แผ่นมาส์กหน้า มาส์กมาส์กบำรุงล้ำลึกให้ความชุ่มชื้น มะเขือเทศ vc แตงกวา เอสเซ้น 24k มาส์กให้ความชุ่มชื้นหลากหลายสไตล์ Skincare ใบหน้า",
+              "id": "1730620339309808598",
+              "heat": 0.586992,
+              "source": "FastMoss"
+            }
+          ]
+        }
+      ]
+    },
+    "使用体验": {
+      "coverage": 77,
+      "coverage_pct": 21.4,
+      "rows": [
+        {
+          "value": "留香持久",
+          "count": 47,
+          "weighted_share": 16.42,
+          "top_items": [
+            {
+              "name": "到手2瓶 玫瑰香氛洗发沐浴二合一持久留香滋润保450ml*2瓶",
+              "id": "3841541675960893601",
+              "heat": 0.689151,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【爆款推荐】买一送一大瓶持久留香玫瑰香氛花瓣精华沐浴露滋润保湿",
+              "id": "3664353046361688348",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【爆款推荐】力士依兰香沐浴露持久留香经典幽莲家庭装官方正品",
+              "id": "3682885932039667745",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【男士专研】魅蓝香男士沐浴露洗发水持久留香72小时全身香控油套装",
+              "id": "3828323881844867311",
+              "heat": 0.669568,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "3斤装山茶花沐浴露持久留香补水保湿香水香氛大容量家庭装男女士",
+              "id": "3690309473789935743",
+              "heat": 0.669568,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "温和不刺激",
+          "count": 21,
+          "weighted_share": 6.44,
+          "top_items": [
+            {
+              "name": "3斤装乌木玫瑰沐浴油露持久留香温和清洁补水保湿滋润高级小众香",
+              "id": "3766022610962481574",
+              "heat": 0.669568,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "3斤装乌木玫瑰沐浴油露持久留香温和清洁补水保湿滋润高级小众香",
+              "id": "3770082022983336625",
+              "heat": 0.666022,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【热巴同款】半亩花田鲜花精华沐浴露滋润养肤持久留香温和ST",
+              "id": "3809311908436246939",
+              "heat": 0.642365,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【平台加补】半亩花田鲜花精华沐浴露滋润养肤持久留香温和清洁ST",
+              "id": "3799038647496475093",
+              "heat": 0.635061,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【明星同款】CLINSIS法式香氛沐浴露温和清洁持久留香氨基酸去角质",
+              "id": "3674008451610181876",
+              "heat": 0.635061,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "肤感滋润",
+          "count": 19,
+          "weighted_share": 6.05,
+          "top_items": [
+            {
+              "name": "到手2瓶 玫瑰香氛洗发沐浴二合一持久留香滋润保450ml*2瓶",
+              "id": "3841541675960893601",
+              "heat": 0.689151,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【爆款推荐】买一送一大瓶持久留香玫瑰香氛花瓣精华沐浴露滋润保湿",
+              "id": "3664353046361688348",
+              "heat": 0.676871,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "3斤装乌木玫瑰沐浴油露持久留香温和清洁补水保湿滋润高级小众香",
+              "id": "3766022610962481574",
+              "heat": 0.669568,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "3斤装乌木玫瑰沐浴油露持久留香温和清洁补水保湿滋润高级小众香",
+              "id": "3770082022983336625",
+              "heat": 0.666022,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【热巴同款】半亩花田鲜花精华沐浴露滋润养肤持久留香温和ST",
+              "id": "3809311908436246939",
+              "heat": 0.642365,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "肤感清爽",
+          "count": 15,
+          "weighted_share": 4.08,
+          "top_items": [
+            {
+              "name": "[New Packaging] Hikari UltraFresh Sunscreen 50ML for all skin type, whitening, brightening, no white cast, easy to blend, sun protection",
+              "id": "1730531415480895463",
+              "heat": 0.64811,
+              "source": "FastMoss"
+            },
+            {
+              "name": "【熊猫和花×联名盲盒】舒肤佳净透轻盈沐浴露青竹龙井空山烟雨留香",
+              "id": "3790097311623938401",
+              "heat": 0.642365,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【囤货家庭装】LUX/力士气泡沐浴露持久留香大容量清爽香氛官方正品",
+              "id": "3832455520351027229",
+              "heat": 0.635061,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【欧豪同款】海洋至尊香氛沐浴露男士持久留香清爽控油保湿祛背痘",
+              "id": "3607413486822491959",
+              "heat": 0.556394,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "蓝月亮净享泡沫沐浴露清爽酷爽水润清洁易冲多重香氛",
+              "id": "3839311239348092973",
+              "heat": 0.556394,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "质地顺滑",
+          "count": 4,
+          "weighted_share": 1.35,
+          "top_items": [
+            {
+              "name": "Sinhosoo仙花秀金钻黑松露香水沐浴露留香嫩肤香体润肤细腻丝滑",
+              "id": "3830558798225997971",
+              "heat": 0.660639,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "【中秋提前购】嫩肤保湿丝滑浓香72小时持久留香果酸沐浴露推荐",
+              "id": "3612757858594244647",
+              "heat": 0.579518,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "欧铂雅橄榄香氛沐浴油洗澡养肤清洁保湿持久留香沐浴露丝滑嫩肤",
+              "id": "3842457929999581635",
+              "heat": 0.556394,
+              "source": "抖音罗盘"
+            },
+            {
+              "name": "nak官方正品72小时持久留香全身香体香水沐浴露丝滑补水保湿润肤",
+              "id": "3632429820887095884",
+              "heat": 0.556394,
+              "source": "抖音罗盘"
+            }
+          ]
+        },
+        {
+          "value": "不搓泥",
+          "count": 1,
+          "weighted_share": 0.3,
+          "top_items": [
+            {
+              "name": "DPDP【视频同款调皮霜】控油持妆调皮霜10s伪素颜遮瑕保湿不卡粉",
+              "id": "3718850985184067998",
+              "heat": 0.517977,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "用完不紧绷",
+          "count": 1,
+          "weighted_share": 0.29,
+          "top_items": [
+            {
+              "name": "【中秋抢先购】自然堂洗面奶水润焕亮洁面洗卸合一不紧绷清洁控油",
+              "id": "3757290916805738924",
+              "heat": 0.501629,
+              "source": "蝉妈妈"
+            }
+          ]
+        },
+        {
+          "value": "泡沫绵密",
+          "count": 1,
+          "weighted_share": 0.17,
+          "top_items": [
+            {
+              "name": "【ซื้อ 1 แถม 1】โฟมล้างหน้า ฟองนุ่มละเอียด อ่อนโยนต่อผม ทำความสะอาดใบหน้า ทำความสะอาดผิวประจำวัน【COD】",
+              "id": "1737406257167501017",
+              "heat": 0.290914,
+              "source": "FastMoss"
+            }
+          ]
+        },
+        {
+          "value": "快速吸收",
+          "count": 1,
+          "weighted_share": 0.16,
+          "top_items": [
+            {
+              "name": "【Mua 1 tặng 1】Kem mắt dưỡng da, chất kem mềm mịn, dễ thấm vào da, chăm sóc vùng da mỏng manh quanh mắt【COD】",
+              "id": "1737410318687634606",
+              "heat": 0.272025,
+              "source": "FastMoss"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "matrix": {
+    "功效×香型": [
+      {
+        "a": "保湿滋润",
+        "b": "玫瑰",
+        "count": 7,
+        "weighted_share": 2.51
+      },
+      {
+        "a": "香氛",
+        "b": "玫瑰",
+        "count": 7,
+        "weighted_share": 2.49
+      },
+      {
+        "a": "清洁",
+        "b": "玫瑰",
+        "count": 6,
+        "weighted_share": 2.16
+      },
+      {
+        "a": "香氛",
+        "b": "花香",
+        "count": 6,
+        "weighted_share": 2.08
+      },
+      {
+        "a": "清洁",
+        "b": "木质",
+        "count": 5,
+        "weighted_share": 1.82
+      },
+      {
+        "a": "香氛",
+        "b": "木质",
+        "count": 5,
+        "weighted_share": 1.82
+      },
+      {
+        "a": "清洁",
+        "b": "花香",
+        "count": 5,
+        "weighted_share": 1.79
+      },
+      {
+        "a": "保湿滋润",
+        "b": "花香",
+        "count": 5,
+        "weighted_share": 1.79
+      },
+      {
+        "a": "保湿滋润",
+        "b": "木质",
+        "count": 4,
+        "weighted_share": 1.46
+      },
+      {
+        "a": "清洁",
+        "b": "依兰",
+        "count": 3,
+        "weighted_share": 1.06
+      },
+      {
+        "a": "香氛",
+        "b": "依兰",
+        "count": 3,
+        "weighted_share": 1.06
+      },
+      {
+        "a": "清洁",
+        "b": "海洋",
+        "count": 3,
+        "weighted_share": 1.04
+      },
+      {
+        "a": "香氛",
+        "b": "海洋",
+        "count": 3,
+        "weighted_share": 1.04
+      },
+      {
+        "a": "控油",
+        "b": "海洋",
+        "count": 3,
+        "weighted_share": 1.04
+      },
+      {
+        "a": "舒缓修护",
+        "b": "草本植物",
+        "count": 5,
+        "weighted_share": 0.95
+      },
+      {
+        "a": "清洁",
+        "b": "茶香",
+        "count": 2,
+        "weighted_share": 0.7
+      },
+      {
+        "a": "香氛",
+        "b": "茶香",
+        "count": 2,
+        "weighted_share": 0.7
+      },
+      {
+        "a": "香氛",
+        "b": "香草",
+        "count": 2,
+        "weighted_share": 0.69
+      },
+      {
+        "a": "清洁",
+        "b": "清新调",
+        "count": 2,
+        "weighted_share": 0.68
+      },
+      {
+        "a": "香氛",
+        "b": "清新调",
+        "count": 2,
+        "weighted_share": 0.68
+      },
+      {
+        "a": "保湿滋润",
+        "b": "海洋",
+        "count": 2,
+        "weighted_share": 0.66
+      },
+      {
+        "a": "清洁",
+        "b": "桂花",
+        "count": 1,
+        "weighted_share": 0.38
+      },
+      {
+        "a": "香氛",
+        "b": "桂花",
+        "count": 1,
+        "weighted_share": 0.38
+      },
+      {
+        "a": "保湿滋润",
+        "b": "桂花",
+        "count": 1,
+        "weighted_share": 0.38
+      },
+      {
+        "a": "防晒",
+        "b": "香草",
+        "count": 1,
+        "weighted_share": 0.37
+      },
+      {
+        "a": "祛痘",
+        "b": "海洋",
+        "count": 1,
+        "weighted_share": 0.34
+      },
+      {
+        "a": "保湿滋润",
+        "b": "茶香",
+        "count": 1,
+        "weighted_share": 0.34
+      },
+      {
+        "a": "清洁",
+        "b": "柑橘",
+        "count": 1,
+        "weighted_share": 0.34
+      },
+      {
+        "a": "香氛",
+        "b": "柑橘",
+        "count": 1,
+        "weighted_share": 0.34
+      },
+      {
+        "a": "香氛",
+        "b": "美食调",
+        "count": 1,
+        "weighted_share": 0.34
+      },
+      {
+        "a": "香氛",
+        "b": "草本植物",
+        "count": 1,
+        "weighted_share": 0.34
+      },
+      {
+        "a": "美白提亮",
+        "b": "花香",
+        "count": 1,
+        "weighted_share": 0.34
+      },
+      {
+        "a": "美白提亮",
+        "b": "茉莉",
+        "count": 1,
+        "weighted_share": 0.34
+      },
+      {
+        "a": "香氛",
+        "b": "果香",
+        "count": 1,
+        "weighted_share": 0.33
+      },
+      {
+        "a": "蓬松去屑",
+        "b": "草本植物",
+        "count": 2,
+        "weighted_share": 0.32
+      },
+      {
+        "a": "祛痘",
+        "b": "草本植物",
+        "count": 1,
+        "weighted_share": 0.3
+      },
+      {
+        "a": "保湿滋润",
+        "b": "草本植物",
+        "count": 1,
+        "weighted_share": 0.3
+      },
+      {
+        "a": "控油",
+        "b": "草本植物",
+        "count": 1,
+        "weighted_share": 0.3
+      },
+      {
+        "a": "去角质",
+        "b": "果香",
+        "count": 1,
+        "weighted_share": 0.17
+      },
+      {
+        "a": "美白提亮",
+        "b": "草本植物",
+        "count": 1,
+        "weighted_share": 0.15
+      }
+    ],
+    "产品内料形态×使用体验": [
+      {
+        "a": "乳",
+        "b": "留香持久",
+        "count": 41,
+        "weighted_share": 14.37
+      },
+      {
+        "a": "乳",
+        "b": "肤感滋润",
+        "count": 10,
+        "weighted_share": 3.59
+      },
+      {
+        "a": "乳",
+        "b": "温和不刺激",
+        "count": 10,
+        "weighted_share": 3.36
+      },
+      {
+        "a": "油",
+        "b": "留香持久",
+        "count": 6,
+        "weighted_share": 2.04
+      },
+      {
+        "a": "乳",
+        "b": "肤感清爽",
+        "count": 6,
+        "weighted_share": 2.01
+      },
+      {
+        "a": "油",
+        "b": "肤感滋润",
+        "count": 4,
+        "weighted_share": 1.41
+      },
+      {
+        "a": "乳",
+        "b": "质地顺滑",
+        "count": 3,
+        "weighted_share": 1.03
+      },
+      {
+        "a": "油",
+        "b": "温和不刺激",
+        "count": 2,
+        "weighted_share": 0.77
+      },
+      {
+        "a": "水",
+        "b": "肤感清爽",
+        "count": 3,
+        "weighted_share": 0.77
+      },
+      {
+        "a": "霜",
+        "b": "肤感清爽",
+        "count": 3,
+        "weighted_share": 0.73
+      },
+      {
+        "a": "水",
+        "b": "温和不刺激",
+        "count": 2,
+        "weighted_share": 0.51
+      },
+      {
+        "a": "膏",
+        "b": "温和不刺激",
+        "count": 1,
+        "weighted_share": 0.34
+      },
+      {
+        "a": "油",
+        "b": "质地顺滑",
+        "count": 1,
+        "weighted_share": 0.32
+      },
+      {
+        "a": "液体",
+        "b": "温和不刺激",
+        "count": 1,
+        "weighted_share": 0.31
+      },
+      {
+        "a": "霜",
+        "b": "不搓泥",
+        "count": 1,
+        "weighted_share": 0.3
+      },
+      {
+        "a": "水",
+        "b": "用完不紧绷",
+        "count": 1,
+        "weighted_share": 0.29
+      },
+      {
+        "a": "凝胶",
+        "b": "肤感滋润",
+        "count": 1,
+        "weighted_share": 0.27
+      },
+      {
+        "a": "泡沫",
+        "b": "泡沫绵密",
+        "count": 1,
+        "weighted_share": 0.17
+      },
+      {
+        "a": "泡沫",
+        "b": "温和不刺激",
+        "count": 1,
+        "weighted_share": 0.17
+      },
+      {
+        "a": "膏",
+        "b": "肤感清爽",
+        "count": 1,
+        "weighted_share": 0.17
+      },
+      {
+        "a": "凝胶",
+        "b": "肤感清爽",
+        "count": 1,
+        "weighted_share": 0.16
+      },
+      {
+        "a": "霜",
+        "b": "肤感滋润",
+        "count": 1,
+        "weighted_share": 0.16
+      },
+      {
+        "a": "霜",
+        "b": "快速吸收",
+        "count": 1,
+        "weighted_share": 0.16
+      },
+      {
+        "a": "液体",
+        "b": "肤感滋润",
+        "count": 1,
+        "weighted_share": 0.15
+      },
+      {
+        "a": "霜",
+        "b": "温和不刺激",
+        "count": 1,
+        "weighted_share": 0.15
+      }
+    ],
+    "功效×主打成分": [
+      {
+        "a": "香氛",
+        "b": "香精",
+        "count": 44,
+        "weighted_share": 14.88
+      },
+      {
+        "a": "清洁",
+        "b": "香精",
+        "count": 32,
+        "weighted_share": 11.02
+      },
+      {
+        "a": "保湿滋润",
+        "b": "香精",
+        "count": 21,
+        "weighted_share": 7.18
+      },
+      {
+        "a": "美白提亮",
+        "b": "烟酰胺",
+        "count": 20,
+        "weighted_share": 6.49
+      },
+      {
+        "a": "美白提亮",
+        "b": "熊果苷",
+        "count": 10,
+        "weighted_share": 3.24
+      },
+      {
+        "a": "美白提亮",
+        "b": "维生素",
+        "count": 10,
+        "weighted_share": 2.85
+      },
+      {
+        "a": "香氛",
+        "b": "玫瑰",
+        "count": 8,
+        "weighted_share": 2.83
+      },
+      {
+        "a": "清洁",
+        "b": "玫瑰",
+        "count": 6,
+        "weighted_share": 2.16
+      },
+      {
+        "a": "保湿滋润",
+        "b": "玫瑰",
+        "count": 6,
+        "weighted_share": 2.16
+      },
+      {
+        "a": "清洁",
+        "b": "氨基酸",
+        "count": 6,
+        "weighted_share": 2.11
+      },
+      {
+        "a": "香氛",
+        "b": "氨基酸",
+        "count": 6,
+        "weighted_share": 2.11
+      },
+      {
+        "a": "美白提亮",
+        "b": "谷胱甘肽",
+        "count": 6,
+        "weighted_share": 2.02
+      },
+      {
+        "a": "舒缓修护",
+        "b": "香精",
+        "count": 5,
+        "weighted_share": 1.69
+      },
+      {
+        "a": "美白提亮",
+        "b": "甘草",
+        "count": 5,
+        "weighted_share": 1.48
+      },
+      {
+        "a": "美白提亮",
+        "b": "维生素C",
+        "count": 6,
+        "weighted_share": 1.47
+      },
+      {
+        "a": "香氛",
+        "b": "烟酰胺",
+        "count": 4,
+        "weighted_share": 1.45
+      },
+      {
+        "a": "美白提亮",
+        "b": "胶原蛋白",
+        "count": 4,
+        "weighted_share": 1.4
+      },
+      {
+        "a": "美白提亮",
+        "b": "香精",
+        "count": 4,
+        "weighted_share": 1.39
+      },
+      {
+        "a": "清洁",
+        "b": "果酸",
+        "count": 4,
+        "weighted_share": 1.37
+      },
+      {
+        "a": "香氛",
+        "b": "柑橘",
+        "count": 4,
+        "weighted_share": 1.35
+      },
+      {
+        "a": "控油",
+        "b": "香精",
+        "count": 4,
+        "weighted_share": 1.31
+      },
+      {
+        "a": "祛痘",
+        "b": "香精",
+        "count": 4,
+        "weighted_share": 1.18
+      },
+      {
+        "a": "防晒",
+        "b": "维生素",
+        "count": 4,
+        "weighted_share": 1.17
+      },
+      {
+        "a": "香氛",
+        "b": "香草",
+        "count": 4,
+        "weighted_share": 1.14
+      },
+      {
+        "a": "美白提亮",
+        "b": "曲酸",
+        "count": 3,
+        "weighted_share": 1.11
+      },
+      {
+        "a": "香氛",
+        "b": "椰子油",
+        "count": 4,
+        "weighted_share": 1.11
+      },
+      {
+        "a": "祛痘",
+        "b": "果酸",
+        "count": 3,
+        "weighted_share": 1.09
+      },
+      {
+        "a": "清洁",
+        "b": "山茶花",
+        "count": 3,
+        "weighted_share": 1.08
+      },
+      {
+        "a": "香氛",
+        "b": "山茶花",
+        "count": 3,
+        "weighted_share": 1.08
+      },
+      {
+        "a": "香氛",
+        "b": "白麝香",
+        "count": 4,
+        "weighted_share": 1.08
+      },
+      {
+        "a": "去角质",
+        "b": "香精",
+        "count": 3,
+        "weighted_share": 1.04
+      },
+      {
+        "a": "美白提亮",
+        "b": "维生素E",
+        "count": 3,
+        "weighted_share": 1.04
+      },
+      {
+        "a": "保湿滋润",
+        "b": "维生素",
+        "count": 3,
+        "weighted_share": 1.04
+      },
+      {
+        "a": "香氛",
+        "b": "果酸",
+        "count": 3,
+        "weighted_share": 0.99
+      },
+      {
+        "a": "美白提亮",
+        "b": "果酸",
+        "count": 3,
+        "weighted_share": 0.99
+      },
+      {
+        "a": "清洁",
+        "b": "精油",
+        "count": 3,
+        "weighted_share": 0.97
+      },
+      {
+        "a": "香氛",
+        "b": "精油",
+        "count": 3,
+        "weighted_share": 0.97
+      },
+      {
+        "a": "保湿滋润",
+        "b": "橄榄",
+        "count": 3,
+        "weighted_share": 0.97
+      },
+      {
+        "a": "美白提亮",
+        "b": "泛醇",
+        "count": 3,
+        "weighted_share": 0.95
+      },
+      {
+        "a": "香氛",
+        "b": "橄榄",
+        "count": 3,
+        "weighted_share": 0.92
+      }
+    ]
+  },
+  "gaps": [
+    {
+      "field": "香型",
+      "value": "依兰",
+      "count": 3,
+      "weighted_share": 1.06,
+      "supply_ratio": 4.8,
+      "evidence": [
+        {
+          "name": "【爆款推荐】力士依兰香沐浴露持久留香经典幽莲家庭装官方正品",
+          "id": "3682885932039667745",
+          "heat": 0.676871,
+          "source": "抖音罗盘"
+        },
+        {
+          "name": "力士依兰香沐浴露持久留香氛大瓶幽莲魅肤沐浴乳男女推荐官方正品",
+          "id": "3633001934161590799",
+          "heat": 0.594751,
+          "source": "抖音罗盘"
+        },
+        {
+          "name": "新升级 2.0夏伯雅莲依兰香香氛沐浴露多肽精油沐浴露ALPAALIN666g",
+          "id": "3712173713379164617",
+          "heat": 0.579518,
+          "source": "抖音罗盘"
+        }
+      ],
+      "score": 2.65
+    },
+    {
+      "field": "香型",
+      "value": "香草",
+      "count": 3,
+      "weighted_share": 1.06,
+      "supply_ratio": 4.8,
+      "evidence": [
+        {
+          "name": "Bonita Himalayan Pink Salt Oil SPF 30 Organic Face & Body Care & massage oil  Comfort, Hydrating, Skin Toning, Cleanser, Moisture Skincare aroma Hydrate Moisturizer Moisturize  VANILLA Cosmetic Non-sticky Acne Blemishes Pampaputi itch dry skin lightweight",
+          "id": "1729397741999852940",
+          "heat": 0.647346,
+          "source": "FastMoss"
+        },
+        {
+          "name": "Bella Vita Luxury's Honey Oud | Eau de Parfum 100ml (3.4 fl oz) | Patchouli, Vanilla, Bergamot | Floral & Spicy | Made with Clean & Vegan Essentials Oils | Cruelty Free Fragrance Perfume",
+          "id": "1729413742968869814",
+          "heat": 0.616553,
+          "source": "FastMoss"
+        },
+        {
+          "name": "Sandrinna Berry Sparkling / Rose Melody / Caramel Vanilla / Cherry Fairy / Blooming Love / Tropical Romance / Breeze Ocean Parfum mist - Keharuman Romantis & Manis Tahan Lama Halal BPOM",
+          "id": "1733451515021723133",
+          "heat": 0.590135,
+          "source": "FastMoss"
+        }
+      ],
+      "score": 2.65
+    },
+    {
+      "field": "香型",
+      "value": "海洋",
+      "count": 3,
+      "weighted_share": 1.04,
+      "supply_ratio": 4.8,
+      "evidence": [
+        {
+          "name": "【男士专研】魅蓝香男士沐浴露洗发水持久留香72小时全身香控油套装",
+          "id": "3828323881844867311",
+          "heat": 0.669568,
+          "source": "抖音罗盘"
+        },
+        {
+          "name": "【欧豪同款】海洋至尊男士香氛沐浴露夏持久留香控油祛痘保湿清洁",
+          "id": "3678591892448215244",
+          "heat": 0.588447,
+          "source": "抖音罗盘"
+        },
+        {
+          "name": "【欧豪同款】海洋至尊香氛沐浴露男士持久留香清爽控油保湿祛背痘",
+          "id": "3607413486822491959",
+          "heat": 0.556394,
+          "source": "抖音罗盘"
+        }
+      ],
+      "score": 2.6
+    }
+  ],
+  "red_ocean": [
+    {
+      "field": "功效",
+      "value": "保湿滋润",
+      "weighted_share": 25.28,
+      "count": 84,
+      "top_items": [
+        {
+          "name": "到手2瓶 玫瑰香氛洗发沐浴二合一持久留香滋润保450ml*2瓶",
+          "id": "3841541675960893601",
+          "heat": 0.689151,
+          "source": "抖音罗盘"
+        },
+        {
+          "name": "【爆款推荐】买一送一大瓶持久留香玫瑰香氛花瓣精华沐浴露滋润保湿",
+          "id": "3664353046361688348",
+          "heat": 0.676871,
+          "source": "抖音罗盘"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "功效": {
+      "coverage_pct": 60.0,
+      "distinct": 12
+    },
+    "产品内料形态": {
+      "coverage_pct": 72.2,
+      "distinct": 12
+    },
+    "包装形式": {
+      "coverage_pct": 5.3,
+      "distinct": 6
+    },
+    "香型": {
+      "coverage_pct": 17.2,
+      "distinct": 16
+    },
+    "主打成分": {
+      "coverage_pct": 46.4,
+      "distinct": 75
+    },
+    "规格": {
+      "coverage_pct": 25.0,
+      "distinct": 45
+    },
+    "SKU": {
+      "coverage_pct": 18.3,
+      "distinct": 5
+    },
+    "使用体验": {
+      "coverage_pct": 21.4,
+      "distinct": 9
+    }
+  }
+}

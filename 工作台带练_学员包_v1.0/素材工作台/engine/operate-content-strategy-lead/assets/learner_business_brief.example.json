@@ -1,0 +1,16 @@
+{
+  "schema_version": "learner_business_brief/v1",
+  "name": "示例企业",
+  "industry": "local_life",
+  "long_term_business": "本地连锁门店增长",
+  "business_goal": "提升团购点击和到店核销",
+  "current_priority": "验证前三秒卖点表达",
+  "target_customer": "门店三公里内有即时消费需求的人",
+  "products": ["双人团购套餐"],
+  "proof_assets": ["门店实拍", "真实菜品"],
+  "claim_boundaries": ["不虚构销量和到店结果"],
+  "production_capabilities": ["门店实拍短视频"],
+  "keywords": ["冒菜团购", "附近冒菜"],
+  "seed_accounts": [],
+  "platforms": ["douyin"]
+}

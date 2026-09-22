@@ -1,0 +1,14 @@
+目标 62 条｜已成功 219 条｜本轮待拉 8 条｜间隔 1.2s
+[  1/  8] ✓ VN      sold=578       score=4.8  rev=8       desc=0     legal=0  Aureline Petal Ateli
+[  2/  8] ✓ VN      sold=188       score=2.3  rev=7       desc=0     legal=0  241-yn
+[  3/  8] ✓ VN →ID  sold=200       score=5    rev=1       desc=0     legal=0  Mermaid Fancy Free
+[  4/  8] ✓ VN →ID  sold=483       score=0    rev=0       desc=100   legal=0  Dermalogica Vietnam
+[  5/  8] ✓ TH →ID  sold=714334    score=4.8  rev=68759   desc=0     legal=0  JMCY Beauty.TH
+[  6/  8] ✓ TH →ID  sold=389       score=3.3  rev=7       desc=0     legal=0  Elowessa Beauty Cosm
+[  7/  8] ✓ TH      sold=176       score=5    rev=6       desc=0     legal=0  guibin88
+[  8/  8] ✗ BR  Kit 100 Unhas Postiça Almond   no_product_info_component
+
+本轮 成功 7 / 失败 1 ｜ 耗时 232 秒
+累计成功 226 / 62 条（365%）
+有评分 226｜有评价数 226｜有描述(>50字) 152｜有店铺名 226｜有法规属性 87
+失败原因 TOP: [('no_product_info_component', 7)]

@@ -1,0 +1,639 @@
+{
+ "1733604699347060663": {
+  "pid": "1733604699347060663",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "【SAFEMILD Hàng chính hãng】Dầu gội và dầu xả chống rụng tóc SAFEMILD hàng chính hãng, kích thích mọc tóc",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"8f88392b-eb66-4aec-ae0b-d83910bb3ba0\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "【SAFEMILD Hàng chính hãng】Dầu gội và dầu xả chống rụng tóc SAFEMILD hàng chính hãng, kích thích mọc tóc",
+  "sold_count": 99347,
+  "score": 4.5,
+  "review_count": 2626,
+  "shop_name": "SAFEMILD Skincare Store VN02",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Haircare & Styling",
+   "Hair Loss Products"
+  ],
+  "cat_ids": [
+   "601450",
+   "848904",
+   "806160"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1732477657493964617": {
+  "pid": "1732477657493964617",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[Quà tặng không bán] Combo 2 Khăn Ướt Tẩy Trang COLORKEY",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "[Quà tặng không bán] Combo 2 Khăn Ướt Tẩy Trang COLORKEY",
+  "sold_count": 277922,
+  "score": 5,
+  "review_count": 3,
+  "shop_name": "COLORKEY COSMETICS VIỆT NAM",
+  "description": "[Quà tặng không bán] Combo 2 Khăn Ướt Tẩy Trang COLORKEY",
+  "desc_len": 56,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "Makeup Remover"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "601618"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1733171385181833033": {
+  "pid": "1733171385181833033",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[Quà tặng không bán] Gương Cầm Tay Màu Đen",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "[Quà tặng không bán] Gương Cầm Tay Màu Đen",
+  "sold_count": 555122,
+  "score": 4.8,
+  "review_count": 50,
+  "shop_name": "COLORKEY COSMETICS VIỆT NAM",
+  "description": "[Quà tặng không bán] Gương Cầm Tay Màu Đen",
+  "desc_len": 42,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "Makeup Mirrors"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "852752"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1735003765990655573": {
+  "pid": "1735003765990655573",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "MILAI Mi giả tự dính | Tự nhiên, dày đẹp | 7 hộp chỉ 99K – 4 hộp chỉ 65K | Mua từ 3 hộp tặng nhíp | Chọn nhiều mẫu",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"bc43ef55-de2e-43d5-bea0-c2d34d4e9115\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "MILAI Mi giả tự dính | Tự nhiên, dày đẹp | 7 hộp chỉ 99K – 4 hộp chỉ 65K | Mua từ 3 hộp tặng nhíp | Chọn nhiều mẫu",
+  "sold_count": 666008,
+  "score": 4.8,
+  "review_count": 21605,
+  "shop_name": "MIlai Nhật ký",
+  "description": "MILAI Mua 7 hộp 99K,Mua 3 hộp tặng nhíp yelashes Winter Love Song\n1.Mua 3 hộp tặng nhíp\n2.Mua 7 hộp 99K",
+  "desc_len": 103,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "False Eyelashes & Adhesives"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "824720"
+  ],
+  "sku_count": 45,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1737066171563148290": {
+  "pid": "1737066171563148290",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "(Deal Mở Bán) Nước Hoa Dubai Nhỏ Gọn – Thơm Lâu, Hương Dứa Rừng Sa Mạc Bí Ẩn Quyến Rũ, Cuốn Hút",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "(Deal Mở Bán) Nước Hoa Dubai Nhỏ Gọn – Thơm Lâu, Hương Dứa Rừng Sa Mạc Bí Ẩn Quyến Rũ, Cuốn Hút",
+  "sold_count": 42918,
+  "score": 4.3,
+  "review_count": 2299,
+  "shop_name": "LOVIRA STORE",
+  "description": "Nước Hoa Dubai Nhỏ Gọn – Thơm Lâu\n✨ Hương thơm quyến rũ:\nNước hoa Dubai mang đến hương thơm quyến rũ, diu nhẹ. Sản phẩm giúp khử mùi hiệu quả, mang lại cảm giác thoải mái. Hương thơm lưu lâu, tạo ấn tượng lâu dài. 💫\n✨ \nHương thơm quyến rũ:\n\n\nNước hoa Dubai mang đến hương thơm quyến rũ, diu nhẹ. Sản phẩm giúp khử mùi hiệu quả, mang lại cảm giác thoải mái. Hương thơm lưu lâu, tạo ấn tượng lâu dài. 💫\n✨ An toàn và tiện lợi:\nVới công thức an toàn, nước hoa Dubai phù hợp cho mọi người dùng. Hương thơm diu nhẹ, không gây khó chịu. Sản phẩm là lựa chọn hoàn hảo cho những ai yêu thích hương thơm lâu dài. 🌟\nAn toàn và tiện lợi:\nVới công thức an toàn, nước hoa Dubai phù hợp cho mọi người dùng. Hương thơm diu nhẹ, không gây khó chịu. Sản phẩm là lựa chọn hoàn hảo cho những ai yêu thích hương thơm lâu dài. 🌟\nThông tin sản phẩm:\nNước hoa Dubai - Thơm Lâu Diu Nhẹ. Hương thơm quyến rũ, khử mùi hiệu quả. An toàn và lưu hương lâu dài. 🌸\nĐặc điểm:\nTươi mát tự nhiên, sang trọng đẳng cấp, lưu hương tận 3 ngày. 💎",
+  "desc_len": 1006,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Fragrance",
+   "Unisex Fragrance"
+  ],
+  "cat_ids": [
+   "601450",
+   "856208",
+   "855824"
+  ],
+  "sku_count": 11,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1734895346717001537": {
+  "pid": "1734895346717001537",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "MILAI 10 bộ mi sẵn keo | Kiểu tự nhiên & dày đẹp | Mua từ 3 hộp tặng 1 nhíp + 1 kẹp mi",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"4a0a009c-b57e-4c3a-a3b8-2b28c1ab8f66\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "MILAI 10 bộ mi sẵn keo | Kiểu tự nhiên & dày đẹp | Mua từ 3 hộp tặng 1 nhíp + 1 kẹp mi",
+  "sold_count": 402576,
+  "score": 4.7,
+  "review_count": 11172,
+  "shop_name": "MILAI Vietnam",
+  "description": "MILAI 10 bộ mi sẵn keo. Mua 2 hộp tặng nhíp, mua 3 hộp tặng kẹp mi\n1.These false eyelashes have built-in adhesive, no extra glue needed. They enable easy, mess-free, time-saving application for busy users.\n2.Engineered for beginners, these lashes have an ultra-low learning curve, letting new users get a natural, professional lash look easily.\n3.Tiered free gifts (tweezers, eyelash curler) for bulk purchases, maximizing cost-effectiveness and offering a one-stop lash solution\n4.Multiple lash styles available, fit different eye shapes, suit diverse makeup looks for daily, commute, date and more\n5.10 rows of lashes per box, large capacity for long-term use, great value for money, cost-effective for daily wear",
+  "desc_len": 715,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "False Eyelashes & Adhesives"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "824720"
+  ],
+  "sku_count": 18,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1731532531219465457": {
+  "pid": "1731532531219465457",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[99K/7 hộp] [65K/4 hộp]FANEYES mi giả Mi giả sẵn keo Mi giả đơn cụm cong xinh,chống nước chống mồ hôi， kiểu phân đoạn không cần tẩy, có 36 kiểu lựa chọn, cong trẻ em, lông mi tự nhiên, vật thần chụp ảnh, làm to mắt tự nhiên, giúp lông mi dày dài hơn",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "[99K/7 hộp] [65K/4 hộp]FANEYES mi giả Mi giả sẵn keo Mi giả đơn cụm cong xinh,chống nước chống mồ hôi， kiểu phân đoạn không cần tẩy, có 36 kiểu lựa chọn, cong trẻ em, lông mi tự nhiên, vật thần chụp ảnh, làm to mắt tự nhiên, giúp lông mi dày dài hơn",
+  "sold_count": 1651124,
+  "score": 4.6,
+  "review_count": 62849,
+  "shop_name": "FANEYES SHOP1",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "False Eyelashes & Adhesives"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "824720"
+  ],
+  "sku_count": 39,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1731287345329572278": {
+  "pid": "1731287345329572278",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[Hàng tặng không bán] Sữa rửa mặt giúp làm sạch sâu dành cho da dầu Cerave Foaming Facial Cleanse 30ML",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "[Hàng tặng không bán] Sữa rửa mặt giúp làm sạch sâu dành cho da dầu Cerave Foaming Facial Cleanse 30ML",
+  "sold_count": 1992258,
+  "score": 5,
+  "review_count": 1,
+  "shop_name": "CeraVe Việt Nam",
+  "description": "[HB GIFT HÀNG TẶNG KHÔNG BÁN] Sữa rửa mặt giúp làm sạch sâu dành cho da dầu Cerave Foaming Facial Cleanse 30ML ",
+  "desc_len": 111,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Skincare",
+   "Facial Cleansers"
+  ],
+  "cat_ids": [
+   "601450",
+   "848776",
+   "601609"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1729635645715417526": {
+  "pid": "1729635645715417526",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[HÀNG TẶNG KHÔNG BÁN] Sữa rửa mặt giúp làm sạch sâu dành cho da thường và da khô 30ML",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"6e183096-0d98-4988-af7c-6a1c2ea49f2a\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "[HÀNG TẶNG KHÔNG BÁN] Sữa rửa mặt giúp làm sạch sâu dành cho da thường và da khô 30ML",
+  "sold_count": 1281672,
+  "score": 5,
+  "review_count": 2,
+  "shop_name": "CeraVe Việt Nam",
+  "description": "[HÀNG TẶNG KHÔNG BÁN] Sữa rửa mặt giúp làm sạch sâu dành cho da thường và da khô 20ML ",
+  "desc_len": 86,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Skincare",
+   "Facial Cleansers"
+  ],
+  "cat_ids": [
+   "601450",
+   "848776",
+   "601609"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1734324112765716380": {
+  "pid": "1734324112765716380",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "【CRUSH BRAND DAY】JMCY - DAV Chứng Nhận - Xịt Khoá Nền Lâu Trôi 100ml – Sương Mù Siêu Mịn, Giữ Lớp Trang Điểm 24 Giờ, Chống Mồ Hôi & Kiềm Dầu, SPF25 PA++",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "【CRUSH BRAND DAY】JMCY - DAV Chứng Nhận - Xịt Khoá Nền Lâu Trôi 100ml – Sương Mù Siêu Mịn, Giữ Lớp Trang Điểm 24 Giờ, Chống Mồ Hôi & Kiềm Dầu, SPF25 PA++",
+  "sold_count": 152329,
+  "score": 4.6,
+  "review_count": 11488,
+  "shop_name": "JMCY Cosmetics VN",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "Makeup Fixing Spray"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "601552"
+  ],
+  "sku_count": 5,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1733587704713479830": {
+  "pid": "1733587704713479830",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[L-GIFT]MISTINE Son Kem Bóng Pha  1.3g【Shade sent at random】",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"c90e8d1b-3cbe-433d-ac41-3be524ca6d58\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "[L-GIFT]MISTINE Son Kem Bóng Pha  1.3g【Shade sent at random】",
+  "sold_count": 238105,
+  "score": 4,
+  "review_count": 2,
+  "shop_name": "MISTINE BWG VN",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "Lipstick & Lip Gloss"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "601534"
+  ],
+  "sku_count": 5,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1737541442471757697": {
+  "pid": "1737541442471757697",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[Quà tặng] KHI MUA BÀN CHẢI tặng NGẪU NHIÊN (Sticker - Chun buộc tóc,) Tặng kèm khi khách hàng mua bàn chải TOKYO ELITE",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"5278e449-cf7b-484b-92f0-b53ea7144dab\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "[Quà tặng] KHI MUA BÀN CHẢI tặng NGẪU NHIÊN (Sticker - Chun buộc tóc,) Tặng kèm khi khách hàng mua bàn chải TOKYO ELITE",
+  "sold_count": 1726,
+  "score": 0,
+  "review_count": 0,
+  "shop_name": "TOKYO ELITE-Lông Mềm Thay Đầu",
+  "description": "MUA BÀN CHẢI NHẬN QUÀ TO\nSTICKER TokyoElite – QUÀ TẶNG NHỎ, THÊM NIỀM VUI MỖI NGÀY\nMUA BÀN CHẢI NHẬN QUÀ TO\n\n\nSTICKER TokyoElite – QUÀ TẶNG NHỎ, THÊM NIỀM VUI MỖI NGÀY\nMột tấm sticker nhỏ nhưng mang đến dấu ấn rất riêng cho những món đồ bạn sử dụng hằng ngày.\nTokyocare gửi tặng bộ sticker đáng yêu để bạn tự do trang trí bàn chải, hộp đựng, điện thoại, sổ tay, laptop hoặc bất kỳ vật dụng nào mình yêu thích. Một chi tiết nhỏ giúp việc chăm sóc răng miệng trở nên thú vị và mang đậm dấu ấn cá nhân hơn.\nĐặc điểm nổi bật\nTrang trí theo phong cách riêng\nThoải mái dán lên bàn chải, hộp bàn chải, điện thoại, sổ tay, bình nước hoặc nhiều vật dụng cá nhân khác.\nTrang trí theo phong cách riêng\nThoải mái dán lên bàn chải, hộp bàn chải, điện thoại, sổ tay, bình nước hoặc nhiều vật dụng cá nhân khác.\nNhiều mẫu sticker đáng yêu\nHọa tiết đa dạng với phong cách trẻ trung, dễ thương, phù hợp nhiều sở thích.\nNhiều mẫu sticker đáng yêu\nHọa tiết đa dạng với phong cách trẻ trung, dễ thương, phù hợp nhiều sở thích.\nKích thước nhỏ gọn, dễ sử dụng\nDễ bóc, dễ dán, giúp bạn thay đổi diện mạo cho đồ dùng chỉ trong vài giây.\nKích thước nhỏ gọn, dễ sử dụng\nDễ bóc, dễ dán, giúp bạn thay đổi diện mạo cho đồ dùng chỉ trong vài giây.\nTạo niềm vui từ những điều nhỏ bé\nMột món quà nhỏ giúp mỗi lần sử dụng bàn chải trở nên vui vẻ và nhiều cảm hứng hơn.\nTạo niềm vui từ những điều nhỏ bé\nMột món quà nhỏ giúp mỗi lần sử dụng bàn chải trở nên vui vẻ và nhiều cảm hứng hơn.\nQuà tặng từ Tokyocare\nKhông chỉ là sticker, đây còn là lời cảm ơn dành cho khách hàng đã đồng hành cùng Tokyocare trên hành trình chăm sóc răng miệng mỗi ngày.\nQuà tặng từ Tokyocare\nKhông chỉ là sticker, đây còn là lời cảm ơn dành cho khách hàng đã đồng hành cùng Tokyocare trên hành trình chăm sóc răng miệng mỗi ngày.\nThông tin sản phẩm\nLưu ý\nTokyoElite gửi gắm\nMột nụ cười sạch khỏe cũng có thể bắt đầu từ những niềm vui rất nhỏ.\nHy vọng bộ sticker xinh xắn này sẽ giúp bạn cá nhân hóa những món đồ yêu thích và khiến việc chăm sóc răng miệng mỗi ngày trở nên thú vị, gần gũi hơn.",
+  "desc_len": 2038,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Nasal & Oral Care",
+   "Toothbrushes"
+  ],
+  "cat_ids": [
+   "601450",
+   "849672",
+   "601697"
+  ],
+  "sku_count": 15,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1737478254082753701": {
+  "pid": "1737478254082753701",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "【Sản phẩm giá tốt】Dung dịch chăm sóc da tươi mát, chất lỏng không dính bết, dịu nhẹ chăm sóc da, chăm sóc da cơ bản hàng ngày【COD】",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "【Sản phẩm giá tốt】Dung dịch chăm sóc da tươi mát, chất lỏng không dính bết, dịu nhẹ chăm sóc da, chăm sóc da cơ bản hàng ngày【COD】",
+  "sold_count": 1061,
+  "score": 3.7,
+  "review_count": 17,
+  "shop_name": "Lumessia Beauty House",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Bath & Body Care",
+   "Body Care Sets"
+  ],
+  "cat_ids": [
+   "601450",
+   "849160",
+   "601490"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1737362997587444886": {
+  "pid": "1737362997587444886",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "【Ưu đãi có thời hạn】Kem bôi dưỡng da, giúp làm dịu da vùng da cần chăm sóc, chất kem mịn mượt, chăm sóc ngoài da hàng ngày【COD】",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "【Ưu đãi có thời hạn】Kem bôi dưỡng da, giúp làm dịu da vùng da cần chăm sóc, chất kem mịn mượt, chăm sóc ngoài da hàng ngày【COD】",
+  "sold_count": 1676,
+  "score": 4.1,
+  "review_count": 17,
+  "shop_name": "Golden Hour Cosmetics",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Bath & Body Care",
+   "Body Moisturizers"
+  ],
+  "cat_ids": [
+   "601450",
+   "849160",
+   "601492"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1737301543186367607": {
+  "pid": "1737301543186367607",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "【ĐANG KHUYẾN MÃI】Miếng dán chân phục linh bát trân, giúp làm dịu bàn chân, chân nhẹ nhõm, công thức thảo dược, ôm sát lòng bàn chân, dễ sử dụng【COD】",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "【ĐANG KHUYẾN MÃI】Miếng dán chân phục linh bát trân, giúp làm dịu bàn chân, chân nhẹ nhõm, công thức thảo dược, ôm sát lòng bàn chân, dễ sử dụng【COD】",
+  "sold_count": 880,
+  "score": 4.5,
+  "review_count": 24,
+  "shop_name": "Thorne Iris Radiance Lab",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Bath & Body Care",
+   "Body Care Sets"
+  ],
+  "cat_ids": [
+   "601450",
+   "849160",
+   "601490"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1737425665641776221": {
+  "pid": "1737425665641776221",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "【Hàng Mới】 Dung dịch chăm sóc móng tay chân dưỡng ẩm phục hồi dịu nhẹ, cảm giác tươi mới tự nhiên cho mỗi ngày【COD】",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "【Hàng Mới】 Dung dịch chăm sóc móng tay chân dưỡng ẩm phục hồi dịu nhẹ, cảm giác tươi mới tự nhiên cho mỗi ngày【COD】",
+  "sold_count": 368,
+  "score": 5,
+  "review_count": 2,
+  "shop_name": "Rosavique Luxe Boutique",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Nail Treatments"
+  ],
+  "cat_ids": [
+   "601450",
+   "977672"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1736180912718185662": {
+  "pid": "1736180912718185662",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "[Quà Tặng Không Bán] Bông Tẩy Trang COLORKEY LUMINOUS 100 Miếng/Gói",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "[Quà Tặng Không Bán] Bông Tẩy Trang COLORKEY LUMINOUS 100 Miếng/Gói",
+  "sold_count": 268,
+  "score": 0,
+  "review_count": 0,
+  "shop_name": "COLORKEY VIỆT NAM",
+  "description": "Quà tặng không bán: bông tẩy trang COLORKEY LUMINOUS, 100 miếng/gói",
+  "desc_len": 67,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Makeup",
+   "Makeup Remover"
+  ],
+  "cat_ids": [
+   "601450",
+   "848648",
+   "601618"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1737461749387724294": {
+  "pid": "1737461749387724294",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "【Sản phẩm giá tốt】Kem tẩy lông, chất kem mềm mịn, làm mềm lông trên bề mặt da dễ dàng, da mượt mà sau khi dùng【COD】",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"36a757a5-8f2b-4362-bd9a-4cb496ba1953\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "【Sản phẩm giá tốt】Kem tẩy lông, chất kem mềm mịn, làm mềm lông trên bề mặt da dễ dàng, da mượt mà sau khi dùng【COD】",
+  "sold_count": 333,
+  "score": 2.9,
+  "review_count": 14,
+  "shop_name": "Opal Hush Flora Atelier",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Bath & Body Care",
+   "Hair Removal Cream, Wax & Shave"
+  ],
+  "cat_ids": [
+   "601450",
+   "849160",
+   "601495"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1737425671596312509": {
+  "pid": "1737425671596312509",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "【Sản phẩm giá tốt】Kem thơm rắn có 2 mùi hương hấp dẫn, tím Hương đêm yên tĩnh, hồng Hương ngọt ngào, thoa lên mang hương thơm nhẹ nhàng【COD】",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"58afc77d-6679-4c33-a59a-2e717f4abbd5\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "【Sản phẩm giá tốt】Kem thơm rắn có 2 mùi hương hấp dẫn, tím Hương đêm yên tĩnh, hồng Hương ngọt ngào, thoa lên mang hương thơm nhẹ nhàng【COD】",
+  "sold_count": 436,
+  "score": 3.3,
+  "review_count": 16,
+  "shop_name": "Lunamora Petal Atelier",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Bath & Body Care",
+   "Body Care Sets"
+  ],
+  "cat_ids": [
+   "601450",
+   "849160",
+   "601490"
+  ],
+  "sku_count": 2,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1737410318687634606": {
+  "pid": "1737410318687634606",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "【Mua 1 tặng 1】Kem mắt dưỡng da, chất kem mềm mịn, dễ thấm vào da, chăm sóc vùng da mỏng manh quanh mắt【COD】",
+  "ok": true,
+  "region_used": "ID",
+  "fallback": true,
+  "err": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"57f56901-6b50-4d60-945c-f1c706c3ac70\",\"message\":\"Request failed. Please retry. Check the docs below to verify your ",
+  "name": "【Mua 1 tặng 1】Kem mắt dưỡng da, chất kem mềm mịn, dễ thấm vào da, chăm sóc vùng da mỏng manh quanh mắt【COD】",
+  "sold_count": 873,
+  "score": 4.7,
+  "review_count": 13,
+  "shop_name": "Amavique Beauty Atelier",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Skincare",
+   "Eye Treatments"
+  ],
+  "cat_ids": [
+   "601450",
+   "848776",
+   "601646"
+  ],
+  "sku_count": 1,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ },
+ "1737198693191222795": {
+  "pid": "1737198693191222795",
+  "region": "VN",
+  "country": "越南",
+  "src_name": "【Sản phẩm giá trị tốt】Sữa dưỡng thể dưỡng da thoa toàn thân hàng ngày, giữ lại hương thơm nhẹ nhàng lâu dài, sau thoa da mềm mượt có độ bóng COD",
+  "ok": true,
+  "region_used": "VN",
+  "fallback": false,
+  "name": "【Sản phẩm giá trị tốt】Sữa dưỡng thể dưỡng da thoa toàn thân hàng ngày, giữ lại hương thơm nhẹ nhàng lâu dài, sau thoa da mềm mượt có độ bóng COD",
+  "sold_count": 484,
+  "score": 4.1,
+  "review_count": 15,
+  "shop_name": "Noir Wind Radiance Hub",
+  "description": "",
+  "desc_len": 0,
+  "cat_names": [
+   "Beauty & Personal Care",
+   "Bath & Body Care",
+   "Body Moisturizers"
+  ],
+  "cat_ids": [
+   "601450",
+   "849160",
+   "601492"
+  ],
+  "sku_count": 2,
+  "legal": [],
+  "status": "success",
+  "tries": 1
+ }
+}

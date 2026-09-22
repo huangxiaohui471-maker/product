@@ -1,0 +1,4510 @@
+{
+ "source": "FastMoss",
+ "kind": "sales",
+ "l1_cid": "14",
+ "channel": "SageSurf-CDP-54982",
+ "fetchedAt": "2026-09-19T17:54:46.787Z",
+ "count": 150,
+ "rows": [
+  {
+   "product_id": "1736482358295496010",
+   "title": "[NEW] Seoul Secrets 10X Whitening Soap 72-Hours Long-Lasting Fresh Fragrance for Body | Brightening Body Soap | Moisturizing Beauty Bar | Deep Clean | All Skin Types",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱54.00  - 202.00",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 20661,
+   "sold_count_inc_rate": "29.66%",
+   "sale_amount": 929745,
+   "total_sold_count": 296400,
+   "total_sale_amount": 13713758.46,
+   "aweme_count": 240,
+   "live_count": 43,
+   "author_count": 205,
+   "total_author_count": 2998,
+   "launch_time": "2026-07-13 15:00:15",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1736482358295496010?region=PH&local=en",
+   "shop_name": "SEOUL SECRETS",
+   "page": 1
+  },
+  {
+   "product_id": "1735304940106318937",
+   "title": "[ BEST SELLER ] JJ Glow Sabun Gluta Pink Barsoap Gluta Pink Soap With 10X Brightening Formula Glowing Niacinamide Kojic Acid Glutathione Alpha Arbutin Mencerahkan",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp26,705  - 92,829",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 19316,
+   "sold_count_inc_rate": "342.93%",
+   "sale_amount": 566673492,
+   "total_sold_count": 1187014,
+   "total_sale_amount": 30462810513,
+   "aweme_count": 868,
+   "live_count": 272,
+   "author_count": 751,
+   "total_author_count": 16865,
+   "launch_time": "2026-04-26 18:10:55",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1735304940106318937?region=ID&local=en",
+   "shop_name": "JJ Glow Skin",
+   "page": 1
+  },
+  {
+   "product_id": "1737157204719797891",
+   "title": "[Harga Spesial] MLAN Bulu Mata Palsu C Curl Natural Bold Serat Kapas Hitam Pekat 14 Model Lengkap Lentik Tebal Nyaman Dipakai",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp12,236  - 25,585",
+   "commission_rate": "6%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "假睫毛与胶水"
+   ],
+   "category_name": [
+    "假睫毛与胶水"
+   ],
+   "sold_count": 12442,
+   "sold_count_inc_rate": "-15.43%",
+   "sale_amount": 162641824,
+   "total_sold_count": 337183,
+   "total_sale_amount": 3939452684,
+   "aweme_count": 131,
+   "live_count": 20,
+   "author_count": 110,
+   "total_author_count": 934,
+   "launch_time": "2026-08-22 16:05:50",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1737157204719797891?region=ID&local=en",
+   "shop_name": "MLAN Lash Studio",
+   "page": 1
+  },
+  {
+   "product_id": "1735933480387970400",
+   "title": "Ness (ขนาดมินิ) ออยล์บำรุงผิวกระจ่างใส เซตมินิผิวฉ่ำ 11 กลิ่นขายดี 10ml",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿54.00  - 487.00",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "保湿油、按摩油"
+   ],
+   "category_name": [
+    "保湿油、按摩油"
+   ],
+   "sold_count": 9910,
+   "sold_count_inc_rate": "19.54%",
+   "sale_amount": 545050,
+   "total_sold_count": 306910,
+   "total_sale_amount": 15997564,
+   "aweme_count": 150,
+   "live_count": 71,
+   "author_count": 165,
+   "total_author_count": 1044,
+   "launch_time": "2026-06-05 18:46:10",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1735933480387970400?region=TH&local=en",
+   "shop_name": "Ness herbal",
+   "page": 1
+  },
+  {
+   "product_id": "1735851360402113776",
+   "title": "（This gift includes only the toolkit）Retro style nails with a cool tortoiseshell gradient effect and French tips with subtle checkered patterns. Reusable and easy to apply—perfect for autumn and everyday looks.",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱15.03  - 104.15",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "手足及指甲护理",
+    "美甲装饰和配饰"
+   ],
+   "category_name": [
+    "美甲装饰和配饰"
+   ],
+   "sold_count": 9510,
+   "sold_count_inc_rate": "903.16%",
+   "sale_amount": 142935.3,
+   "total_sold_count": 388758,
+   "total_sale_amount": 15406774.47,
+   "aweme_count": 15,
+   "live_count": 3,
+   "author_count": 17,
+   "total_author_count": 648,
+   "launch_time": "2026-06-10 02:02:23",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1735851360402113776?region=PH&local=en",
+   "shop_name": "MISS SXY",
+   "page": 1
+  },
+  {
+   "product_id": "1729437530297568140",
+   "title": "[5 เฉดใหม่! ลิปไวนิล Milkshake] MAYBELLINE SUPERSTAY VINYL INK LIPSTICK เมย์เบลลีน ซุปเปอร์สเตย์ ไวนิลอิงค์ ฟินิชฉ่ำวาว ติดทนนาน16ชม. 4.2 มล. (ลิปติดทน, ลิปกันน้ำ, ลิปสติก)",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿264.02",
+   "commission_rate": "7%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "口红与唇彩"
+   ],
+   "category_name": [
+    "口红与唇彩"
+   ],
+   "sold_count": 9465,
+   "sold_count_inc_rate": "253.83%",
+   "sale_amount": 2448595.5,
+   "total_sold_count": 1490291,
+   "total_sale_amount": 356704429.47,
+   "aweme_count": 163,
+   "live_count": 156,
+   "author_count": 205,
+   "total_author_count": 21019,
+   "launch_time": "2022-08-03 17:06:40",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729437530297568140?region=TH&local=en",
+   "shop_name": "Maybelline TH",
+   "page": 1
+  },
+  {
+   "product_id": "1735502560219661421",
+   "title": "【CRUSH BRAND DAY】Teashell Xà Phòng Trắng Da (Kèm Túi Tạo Bọt)｜Da Mịn Sáng｜Làm Sáng Da｜Dịu Nhẹ Không Kích Ứng",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "50,540 ₫  -  133,053 ₫",
+   "commission_rate": "3%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 9376,
+   "sold_count_inc_rate": "9.88%",
+   "sale_amount": 466793536,
+   "total_sold_count": 235443,
+   "total_sale_amount": 10807498470,
+   "aweme_count": 154,
+   "live_count": 17,
+   "author_count": 101,
+   "total_author_count": 2431,
+   "launch_time": "2026-05-16 21:12:36",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1735502560219661421?region=VN&local=en",
+   "shop_name": "Teashell VN",
+   "page": 1
+  },
+  {
+   "product_id": "1729382420060341472",
+   "title": "MAYBELLINE Superstay Matte Ink Liquid Long Lasting Waterproof Matte Lipstick Lipcream Make Up Transferproof Tahan 16 Jam",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp98,219",
+   "commission_rate": "9%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "口红与唇彩"
+   ],
+   "category_name": [
+    "口红与唇彩"
+   ],
+   "sold_count": 8055,
+   "sold_count_inc_rate": "36.39%",
+   "sale_amount": 817534170,
+   "total_sold_count": 4715177,
+   "total_sale_amount": 489705639613.5,
+   "aweme_count": 766,
+   "live_count": 328,
+   "author_count": 601,
+   "total_author_count": 54325,
+   "launch_time": "2022-06-10 13:59:22",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729382420060341472?region=ID&local=en",
+   "shop_name": "Maybelline Indonesia",
+   "page": 1
+  },
+  {
+   "product_id": "1729427766722726591",
+   "title": "[BUY 1 BOX GET 2 SABUN] KIME Luminizing Jeju Brightening Soap 100GR | Sabun Mandi Batang Mencerahkan Kulit Pencerah Badan Wajah Glowing Pemutih Tubuh Leher Kaki Tangan Ketiak Whitening Eksfoliasi Flek Hitam | Volcanic Ash Charcoal Niacinamide Collagen",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp22,485  - 42,978",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 7380,
+   "sold_count_inc_rate": "94.67%",
+   "sale_amount": 189791460,
+   "total_sold_count": 3230689,
+   "total_sale_amount": 79644704854,
+   "aweme_count": 635,
+   "live_count": 204,
+   "author_count": 558,
+   "total_author_count": 39495,
+   "launch_time": "2022-06-30 17:33:13",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729427766722726591?region=ID&local=en",
+   "shop_name": "Kime Skincare Shop",
+   "page": 1
+  },
+  {
+   "product_id": "1729419906221509377",
+   "title": "【BEST SELLER】 NEW SYB FORTE Red Jelly Serum 20ml with Niacinamide 10% untuk mencerahkan kulit wajah & mengurangi kusam",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp27,873  - 102,952",
+   "commission_rate": "8%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "面部精华液"
+   ],
+   "category_name": [
+    "面部精华液"
+   ],
+   "sold_count": 7037,
+   "sold_count_inc_rate": "-13.48%",
+   "sale_amount": 182863482,
+   "total_sold_count": 1167846,
+   "total_sale_amount": 24933038949.5,
+   "aweme_count": 210,
+   "live_count": 102,
+   "author_count": 228,
+   "total_author_count": 8272,
+   "launch_time": "2022-06-12 03:51:34",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729419906221509377?region=ID&local=en",
+   "shop_name": "SYB",
+   "page": 1
+  },
+  {
+   "product_id": "1729678876513437868",
+   "title": "Moicare Brightening Underarm Pencerah Ketiak With Niacinamide & Collagen Mencerahkan, Perawatan Tubuh,  Memutihkan Leher, Selangkangan",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp40,267",
+   "commission_rate": "14%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "身体霜、乳"
+   ],
+   "category_name": [
+    "身体霜、乳"
+   ],
+   "sold_count": 7012,
+   "sold_count_inc_rate": "98.92%",
+   "sale_amount": 282983284,
+   "total_sold_count": 1444940,
+   "total_sale_amount": 51553518555.5,
+   "aweme_count": 514,
+   "live_count": 116,
+   "author_count": 425,
+   "total_author_count": 17648,
+   "launch_time": "2023-12-19 08:00:36",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729678876513437868?region=ID&local=en",
+   "shop_name": "Moicare Indonesia",
+   "page": 2
+  },
+  {
+   "product_id": "1736128854034187602",
+   "title": "【GIFT】 Teashell 5% Niacinamide Brightening Serum",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱107.00  - 213.00",
+   "commission_rate": "-",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "面部精华液"
+   ],
+   "category_name": [
+    "面部精华液"
+   ],
+   "sold_count": 6958,
+   "sold_count_inc_rate": "658.78%",
+   "sale_amount": 744506,
+   "total_sold_count": 59971,
+   "total_sale_amount": 6430256,
+   "aweme_count": 0,
+   "live_count": 0,
+   "author_count": 0,
+   "total_author_count": 1,
+   "launch_time": "2026-06-21 12:05:44",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1736128854034187602?region=PH&local=en",
+   "shop_name": "Teashell PH Skincare",
+   "page": 2
+  },
+  {
+   "product_id": "1731528580940468633",
+   "title": "Nature x Science Rosemary Water and Rice Water |100% Natural Extract | Soft & Smooth Hair Non-Greasy & Fast Absorbing | 200 ml",
+   "region": "US",
+   "currency": "USD",
+   "real_price": "$14.99",
+   "commission_rate": "20%",
+   "all_category_name": [
+    "美妆个护",
+    "头部护理与造型",
+    "脱发产品"
+   ],
+   "category_name": [
+    "脱发产品"
+   ],
+   "sold_count": 6904,
+   "sold_count_inc_rate": "38.66%",
+   "sale_amount": 64897.6,
+   "total_sold_count": 478025,
+   "total_sale_amount": 6130225.91,
+   "aweme_count": 97,
+   "live_count": 83,
+   "author_count": 139,
+   "total_author_count": 4599,
+   "launch_time": "2025-10-23 13:58:30",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1731528580940468633?region=US&local=en",
+   "shop_name": "Bare Anatomy Haircare",
+   "page": 2
+  },
+  {
+   "product_id": "1729863618733181659",
+   "title": "[BEST SELLER] BEAUTY TALK AHA Collagen Body Booster - 100ML Whitening Lotion dengan AHA Collagen untuk   Mencerahkan dan Melembabkan Kulit Tubuh",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp24,074",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "身体霜、乳"
+   ],
+   "category_name": [
+    "身体霜、乳"
+   ],
+   "sold_count": 6429,
+   "sold_count_inc_rate": "1785.34%",
+   "sale_amount": 154636737,
+   "total_sold_count": 480892,
+   "total_sale_amount": 6944987224,
+   "aweme_count": 201,
+   "live_count": 31,
+   "author_count": 149,
+   "total_author_count": 5026,
+   "launch_time": "2023-12-15 18:50:33",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729863618733181659?region=ID&local=en",
+   "shop_name": "Beauty Talk Cosmetic",
+   "page": 2
+  },
+  {
+   "product_id": "1732052189676081387",
+   "title": "[medicube] Smooth & Clear Body Care Set | Hypochlorous Acid Body Peel Shot, Kojic Acid Turmeric Body Wash, Toner Pad, Toner, Mist | Exfoliating for Dead Skin Cells & Excess Sebum & Clearing for After Spots, Texture & Uneven Skin Tone | K-Beauty",
+   "region": "US",
+   "currency": "USD",
+   "real_price": "$31.00 - 85.00",
+   "commission_rate": "15%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "身体护理套装"
+   ],
+   "category_name": [
+    "身体护理套装"
+   ],
+   "sold_count": 6255,
+   "sold_count_inc_rate": "7.6%",
+   "sale_amount": 193905,
+   "total_sold_count": 281897,
+   "total_sale_amount": 14659696.73,
+   "aweme_count": 192,
+   "live_count": 141,
+   "author_count": 230,
+   "total_author_count": 10124,
+   "launch_time": "2025-11-20 01:35:41",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1732052189676081387?region=US&local=en",
+   "shop_name": "medicube US Store",
+   "page": 2
+  },
+  {
+   "product_id": "1734812377390876496",
+   "title": "ROSMAR SKIN ESSENTIALS Kagayaku Alpha Arbutin Cream 3+ Whitening Booster",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱260.35  - 484.00",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "保湿乳液、乳霜与喷雾"
+   ],
+   "category_name": [
+    "保湿乳液、乳霜与喷雾"
+   ],
+   "sold_count": 6241,
+   "sold_count_inc_rate": "1429.66%",
+   "sale_amount": 1587148.71,
+   "total_sold_count": 174830,
+   "total_sale_amount": 28380137.79,
+   "aweme_count": 86,
+   "live_count": 16,
+   "author_count": 91,
+   "total_author_count": 4200,
+   "launch_time": "2026-03-25 02:00:40",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734812377390876496?region=PH&local=en",
+   "shop_name": "Rosmarskinessentials",
+   "page": 2
+  },
+  {
+   "product_id": "1736356735016207449",
+   "title": "[ SPECIAL MEGA LIVE ] JJ Glow Sabun Gluta Pink Barsoap Gluta Pink Soap With 10X Brightening Formula Glowing Niacinamide Kojic Acid Glutathione Alpha Arbutin Mencerahkan",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp28,353  - 98,536",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 6080,
+   "sold_count_inc_rate": "1805.96%",
+   "sale_amount": 176861120,
+   "total_sold_count": 316737,
+   "total_sale_amount": 6528414906,
+   "aweme_count": 304,
+   "live_count": 116,
+   "author_count": 246,
+   "total_author_count": 4867,
+   "launch_time": "2026-07-04 18:16:49",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1736356735016207449?region=ID&local=en",
+   "shop_name": "JJ Glow Skin",
+   "page": 2
+  },
+  {
+   "product_id": "1735528081455219821",
+   "title": "Brand Sale[Hot] TeaShell สบู่ผิวกายเนื้อเบา ผสานไนอะซินาไมด์ ช่วยผิวเปล่งประกาย เนียนนุ่ม 100 กรัม",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿0.77  - 1.12",
+   "commission_rate": "8%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 5765,
+   "sold_count_inc_rate": "54.89%",
+   "sale_amount": 4439.05,
+   "total_sold_count": 232991,
+   "total_sale_amount": 264017.8,
+   "aweme_count": 165,
+   "live_count": 58,
+   "author_count": 180,
+   "total_author_count": 4305,
+   "launch_time": "2026-05-13 22:30:44",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1735528081455219821?region=TH&local=en",
+   "shop_name": "Teashell TH",
+   "page": 2
+  },
+  {
+   "product_id": "1730890423685842221",
+   "title": "[BEST SELLER] BEAUTY TALK AHA Collagen Body Booster 100 ML | Whitening Lotion dengan AHA Collagen untuk Kulit Cerah dan Lembap Mencerahkan Tubuh Mengangkat sel kulit mati dan Mempercepat Pencerahan Tangan Kusam Hingga Seluruh Tubuh",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp22,310",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "身体霜、乳"
+   ],
+   "category_name": [
+    "身体霜、乳"
+   ],
+   "sold_count": 5622,
+   "sold_count_inc_rate": "147.12%",
+   "sale_amount": 132802884,
+   "total_sold_count": 768204,
+   "total_sale_amount": 11647951527,
+   "aweme_count": 123,
+   "live_count": 36,
+   "author_count": 113,
+   "total_author_count": 5768,
+   "launch_time": "2025-03-02 06:16:07",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1730890423685842221?region=ID&local=en",
+   "shop_name": "liora beauty",
+   "page": 2
+  },
+  {
+   "product_id": "1731629638739199223",
+   "title": "ELDORE Beauty Masker Facial Sheet Mask 30g - Melembabkan & Mencerahkan Kulit dengan Antioksidan Melembutkan Mencerahkan Wajah",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp1,827  - 2,042",
+   "commission_rate": "8%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "面膜"
+   ],
+   "category_name": [
+    "面膜"
+   ],
+   "sold_count": 5535,
+   "sold_count_inc_rate": "-1.95%",
+   "sale_amount": 11208375,
+   "total_sold_count": 1672843,
+   "total_sale_amount": 2775828882,
+   "aweme_count": 10,
+   "live_count": 20,
+   "author_count": 16,
+   "total_author_count": 1427,
+   "launch_time": "2025-08-15 08:44:31",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1731629638739199223?region=ID&local=en",
+   "shop_name": "ELDORE ID",
+   "page": 2
+  },
+  {
+   "product_id": "1736755585903592824",
+   "title": "【NEW LAUNCH】SCARLETT Eau De Parfum & Extrait De Parfum 30ml Wangi Tahan Lama - Wangi Mewah - Parfum Uniseks",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp65,868",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "香水",
+    "男女通用香水"
+   ],
+   "category_name": [
+    "男女通用香水"
+   ],
+   "sold_count": 5349,
+   "sold_count_inc_rate": "9.12%",
+   "sale_amount": 350985333,
+   "total_sold_count": 339409,
+   "total_sale_amount": 268655089882,
+   "aweme_count": 573,
+   "live_count": 131,
+   "author_count": 355,
+   "total_author_count": 4279,
+   "launch_time": "2026-08-01 06:43:15",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1736755585903592824?region=ID&local=en",
+   "shop_name": "Scarlett Whitening",
+   "page": 3
+  },
+  {
+   "product_id": "1731831790309442956",
+   "title": "BONITA Tawas Calamansi Persimmon Odor Eliminator + Whitening Soap 80g Natural Deodorant Bar Face & Body Pampaputi ng Kili-kili Niacinamide Brightening  & Body Odor Solution Deodorize Antibacterial Daily Sensitive Cleanser Cleansing Skin Repair  Smoother",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱9.00",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 4901,
+   "sold_count_inc_rate": "-37.61%",
+   "sale_amount": 44109,
+   "total_sold_count": 1094550,
+   "total_sale_amount": 70052865.34,
+   "aweme_count": 130,
+   "live_count": 27,
+   "author_count": 125,
+   "total_author_count": 6832,
+   "launch_time": "2025-07-02 20:46:15",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1731831790309442956?region=PH&local=en",
+   "shop_name": "shopwithbonita",
+   "page": 3
+  },
+  {
+   "product_id": "1732770898798479335",
+   "title": "Hikari Magic Tawas Cream for moisturizing, underarm whitening, soothing, brightening, underarm deodorizing, skincare",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱8.63",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "身体霜、乳"
+   ],
+   "category_name": [
+    "身体霜、乳"
+   ],
+   "sold_count": 4656,
+   "sold_count_inc_rate": "-7.47%",
+   "sale_amount": 40181.28,
+   "total_sold_count": 908556,
+   "total_sale_amount": 67545450.38,
+   "aweme_count": 152,
+   "live_count": 19,
+   "author_count": 148,
+   "total_author_count": 6941,
+   "launch_time": "2025-10-08 14:20:50",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1732770898798479335?region=PH&local=en",
+   "shop_name": "A&J Beauty and Wellness Shop",
+   "page": 3
+  },
+  {
+   "product_id": "1729863417554503787",
+   "title": "แผ่นมาสก์หน้า รวมสูตรบำรุงผิวชุ่มชื้น ดูแลผิวให้เนียนนุ่ม",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿4.81  - 5.00",
+   "commission_rate": "25%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "面膜"
+   ],
+   "category_name": [
+    "面膜"
+   ],
+   "sold_count": 4518,
+   "sold_count_inc_rate": "-31.24%",
+   "sale_amount": 21731.58,
+   "total_sold_count": 3002382,
+   "total_sale_amount": 8909917.52,
+   "aweme_count": 3,
+   "live_count": 54,
+   "author_count": 33,
+   "total_author_count": 1271,
+   "launch_time": "2023-12-16 14:16:11",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729863417554503787?region=TH&local=en",
+   "shop_name": "Cay.Home",
+   "page": 3
+  },
+  {
+   "product_id": "1730946191011054678",
+   "title": "ChuChu Beauty Heart Blush Duo",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱434.00",
+   "commission_rate": "6%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "腮红"
+   ],
+   "category_name": [
+    "腮红"
+   ],
+   "sold_count": 4485,
+   "sold_count_inc_rate": "111.16%",
+   "sale_amount": 1650480,
+   "total_sold_count": 458879,
+   "total_sale_amount": 165382560.82,
+   "aweme_count": 104,
+   "live_count": 81,
+   "author_count": 130,
+   "total_author_count": 11832,
+   "launch_time": "2025-03-03 00:00:32",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1730946191011054678?region=PH&local=en",
+   "shop_name": "Chu Chu Beauty",
+   "page": 3
+  },
+  {
+   "product_id": "1734084304357918411",
+   "title": "MOSSÈRU Shower Gel for Brightening with Tranexamic | Sabun Mandi Mencerahkan | Sabun Mandi Cair Pencerah Tubuh | Body Wash | Melembapkan",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp105,718  - 286,368",
+   "commission_rate": "1%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 4421,
+   "sold_count_inc_rate": "50.02%",
+   "sale_amount": 521001587,
+   "total_sold_count": 265675,
+   "total_sale_amount": 22995754790,
+   "aweme_count": 19,
+   "live_count": 32,
+   "author_count": 25,
+   "total_author_count": 633,
+   "launch_time": "2026-01-21 13:40:29",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734084304357918411?region=ID&local=en",
+   "shop_name": "Mossèru",
+   "page": 3
+  },
+  {
+   "product_id": "1729584239350876522",
+   "title": "Azalea Smooth Foot Cream - Melembabkan & Menghaluskan Kulit Kaki Pecah-Pecah dengan Zaitun Oil & Honey - Mengurangi Bau Tidak Sedap",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp22,479  - 90,061",
+   "commission_rate": "4%",
+   "all_category_name": [
+    "美妆个护",
+    "手足及指甲护理",
+    "护手足霜、乳液与磨砂膏"
+   ],
+   "category_name": [
+    "护手足霜、乳液与磨砂膏"
+   ],
+   "sold_count": 4408,
+   "sold_count_inc_rate": "51.48%",
+   "sale_amount": 106285696,
+   "total_sold_count": 1295928,
+   "total_sale_amount": 27867637674,
+   "aweme_count": 169,
+   "live_count": 28,
+   "author_count": 142,
+   "total_author_count": 11890,
+   "launch_time": "2023-02-02 11:54:36",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729584239350876522?region=ID&local=en",
+   "shop_name": "Azalea Beauty",
+   "page": 3
+  },
+  {
+   "product_id": "1735363068661957933",
+   "title": "[NEW PACKAGING] Liora Perfect Glowing Powder Foundation 15g I 2in1 Foundation + Setting Powder Long Lasting & Blur Effect",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp31,374  - 91,299",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "遮瑕与粉底"
+   ],
+   "category_name": [
+    "遮瑕与粉底"
+   ],
+   "sold_count": 4356,
+   "sold_count_inc_rate": "18.63%",
+   "sale_amount": 128798208,
+   "total_sold_count": 139059,
+   "total_sale_amount": 3060575988,
+   "aweme_count": 169,
+   "live_count": 49,
+   "author_count": 123,
+   "total_author_count": 1484,
+   "launch_time": "2026-05-21 13:13:08",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1735363068661957933?region=ID&local=en",
+   "shop_name": "liora beauty",
+   "page": 3
+  },
+  {
+   "product_id": "1733604699347060663",
+   "title": "【SAFEMILD Hàng chính hãng】Dầu gội và dầu xả chống rụng tóc SAFEMILD hàng chính hãng, kích thích mọc tóc",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "87,862 ₫",
+   "commission_rate": "2%",
+   "all_category_name": [
+    "美妆个护",
+    "头部护理与造型",
+    "脱发产品"
+   ],
+   "category_name": [
+    "脱发产品"
+   ],
+   "sold_count": 4343,
+   "sold_count_inc_rate": "3.6%",
+   "sale_amount": 390474787,
+   "total_sold_count": 92106,
+   "total_sale_amount": 8461231120,
+   "aweme_count": 88,
+   "live_count": 14,
+   "author_count": 48,
+   "total_author_count": 240,
+   "launch_time": "2026-01-07 19:03:50",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1733604699347060663?region=VN&local=en",
+   "shop_name": "SAFEMILD Skincare Store VN02",
+   "page": 3
+  },
+  {
+   "product_id": "1730029835271375720",
+   "title": "（จัดส่ง24H）มาส์กคอ SADOER Neck mask",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿3.00  - 4.00",
+   "commission_rate": "25%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "面膜"
+   ],
+   "category_name": [
+    "面膜"
+   ],
+   "sold_count": 4343,
+   "sold_count_inc_rate": "44.38%",
+   "sale_amount": 13029,
+   "total_sold_count": 140706,
+   "total_sale_amount": 448288.51,
+   "aweme_count": 1,
+   "live_count": 0,
+   "author_count": 1,
+   "total_author_count": 122,
+   "launch_time": "2024-05-14 17:55:41",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1730029835271375720?region=TH&local=en",
+   "shop_name": "Mini-home",
+   "page": 3
+  },
+  {
+   "product_id": "1734876125684073985",
+   "title": "Hirescent Parfum Nagita Aroma Wanita 70ML Premium Wangi Segar Tahan Lama",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp7,689",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "香水",
+    "男女通用香水"
+   ],
+   "category_name": [
+    "男女通用香水"
+   ],
+   "sold_count": 4271,
+   "sold_count_inc_rate": "116.8%",
+   "sale_amount": 31673736,
+   "total_sold_count": 306763,
+   "total_sale_amount": 2181978925,
+   "aweme_count": 44,
+   "live_count": 26,
+   "author_count": 41,
+   "total_author_count": 776,
+   "launch_time": "2026-03-30 20:03:14",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734876125684073985?region=ID&local=en",
+   "shop_name": "Hire Cosmetic",
+   "page": 4
+  },
+  {
+   "product_id": "1737375713931986219",
+   "title": "quà tặng là thẻ bảo hành nhé",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "579,090 ₫",
+   "commission_rate": "-",
+   "all_category_name": [
+    "美妆个护",
+    "头部护理与造型",
+    "洗发护发"
+   ],
+   "category_name": [
+    "洗发护发"
+   ],
+   "sold_count": 4214,
+   "sold_count_inc_rate": "2.21%",
+   "sale_amount": 2271152156,
+   "total_sold_count": 32186,
+   "total_sale_amount": 18512184922,
+   "aweme_count": 0,
+   "live_count": 0,
+   "author_count": 0,
+   "total_author_count": 0,
+   "launch_time": "2026-09-09 00:15:28",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1737375713931986219?region=VN&local=en",
+   "shop_name": "GINBI VIỆT NAM",
+   "page": 4
+  },
+  {
+   "product_id": "1730346047548459676",
+   "title": "[BEST SELLER] The Originote Brightening Moisturizer 50 ml – Whitening Cream Tone Up Moisturizer Dark Spot Remover Cream Rejuvinating Cream Repair Hydrate Moisture Hydrating",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱147.00  - 405.00",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "保湿乳液、乳霜与喷雾"
+   ],
+   "category_name": [
+    "保湿乳液、乳霜与喷雾"
+   ],
+   "sold_count": 4136,
+   "sold_count_inc_rate": "7.34%",
+   "sale_amount": 564853.52,
+   "total_sold_count": 2744467,
+   "total_sale_amount": 364362956.41,
+   "aweme_count": 520,
+   "live_count": 128,
+   "author_count": 516,
+   "total_author_count": 52233,
+   "launch_time": "2024-05-30 14:36:16",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1730346047548459676?region=PH&local=en",
+   "shop_name": "The Originote.PH",
+   "page": 4
+  },
+  {
+   "product_id": "1736316016394274187",
+   "title": "SOMI สกิน คลีนซิ่ง โทนเนอร์",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿105.00  - 316.00",
+   "commission_rate": "12%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "爽肤水、化妆水"
+   ],
+   "category_name": [
+    "爽肤水、化妆水"
+   ],
+   "sold_count": 4000,
+   "sold_count_inc_rate": "-28.9%",
+   "sale_amount": 464000,
+   "total_sold_count": 129409,
+   "total_sale_amount": 13433535,
+   "aweme_count": 67,
+   "live_count": 62,
+   "author_count": 79,
+   "total_author_count": 1134,
+   "launch_time": "2026-07-01 22:49:08",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1736316016394274187?region=TH&local=en",
+   "shop_name": "Yatawee Shop",
+   "page": 4
+  },
+  {
+   "product_id": "1732477657493964617",
+   "title": "[Quà tặng không bán] Combo 2 Khăn Ướt Tẩy Trang COLORKEY",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "55,661 ₫",
+   "commission_rate": "1%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "卸妆"
+   ],
+   "category_name": [
+    "卸妆"
+   ],
+   "sold_count": 3997,
+   "sold_count_inc_rate": "17.91%",
+   "sale_amount": 222049338,
+   "total_sold_count": 272884,
+   "total_sale_amount": 14432698533,
+   "aweme_count": 0,
+   "live_count": 0,
+   "author_count": 0,
+   "total_author_count": 0,
+   "launch_time": "2025-10-04 09:45:32",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1732477657493964617?region=VN&local=en",
+   "shop_name": "COLORKEY COSMETICS VIỆT NAM",
+   "page": 4
+  },
+  {
+   "product_id": "1737339010128380943",
+   "title": "BUY 1 GET 6 plus 1 pasang motif premium + 5 pasang cat eye warna solid premium, 6 lembar lem dan 1 alat kikir",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp33,396",
+   "commission_rate": "7%",
+   "all_category_name": [
+    "美妆个护",
+    "手足及指甲护理",
+    "美甲装饰和配饰"
+   ],
+   "category_name": [
+    "美甲装饰和配饰"
+   ],
+   "sold_count": 3891,
+   "sold_count_inc_rate": "24.31%",
+   "sale_amount": 118877832,
+   "total_sold_count": 40488,
+   "total_sale_amount": 1207342043,
+   "aweme_count": 151,
+   "live_count": 55,
+   "author_count": 113,
+   "total_author_count": 473,
+   "launch_time": "2026-09-04 00:54:00",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1737339010128380943?region=ID&local=en",
+   "shop_name": "MYS Exquisite Woman",
+   "page": 4
+  },
+  {
+   "product_id": "1733880509179069549",
+   "title": "Brand Sale【Hot】 เซรั่มเพื่อความกระจ่างใส FDA Teashell - ไนอะซินาไมด์ 5% , ลดเลือนจุดด่างดำ, ให้ความชุ่มชื้นและฟื้นบarier ของผิว",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿0.89",
+   "commission_rate": "8%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "面部精华液"
+   ],
+   "category_name": [
+    "面部精华液"
+   ],
+   "sold_count": 3806,
+   "sold_count_inc_rate": "-20.71%",
+   "sale_amount": 3387.34,
+   "total_sold_count": 630397,
+   "total_sale_amount": 26047539.38,
+   "aweme_count": 262,
+   "live_count": 94,
+   "author_count": 271,
+   "total_author_count": 10263,
+   "launch_time": "2026-01-11 02:10:30",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1733880509179069549?region=TH&local=en",
+   "shop_name": "Teashell TH",
+   "page": 4
+  },
+  {
+   "product_id": "1731533745095673554",
+   "title": "(อ่านก่อน!! “ห้ามซื้อก้อนเดียว” )!! * “กดสั่งซื้อ2ก้อน” ขึ้นไปเท่านั้น!!* “ขนาดทดลอง 15g.” สบู่สมุนไพรรวม ice cream chocolate mint [สำหรับผิวหน้า ร่างกาย และจุดซ่อนเร้น] สบู่มิ้นสาธิดาเฮิร์บ",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿35.00  - 42.10",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 3799,
+   "sold_count_inc_rate": "-20.57%",
+   "sale_amount": 129166,
+   "total_sold_count": 700675,
+   "total_sale_amount": 22584442.84,
+   "aweme_count": 29,
+   "live_count": 22,
+   "author_count": 33,
+   "total_author_count": 1151,
+   "launch_time": "2025-06-15 15:37:10",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1731533745095673554?region=TH&local=en",
+   "shop_name": "อุ้นสาธิดาเฮิร์บ",
+   "page": 4
+  },
+  {
+   "product_id": "1729385223046727059",
+   "title": "[Exfo Pad Series] NPURE Acne Clear Pad Cica / Licorice Bright & Glow Exfoliating Pad - Kapas Eksfoliasi untuk Wajah / Kulit  Berjerawat & Normal / Treatment Wajah / Travel Pack Eksfoliasi Pad/kapas mencerahkan/ membersihkan pori-pori",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp1,069  - 84,449",
+   "commission_rate": "4%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "痘痘、粉刺护理"
+   ],
+   "category_name": [
+    "痘痘、粉刺护理"
+   ],
+   "sold_count": 3796,
+   "sold_count_inc_rate": "111.48%",
+   "sale_amount": 4057924,
+   "total_sold_count": 1015636,
+   "total_sale_amount": 13789553685,
+   "aweme_count": 126,
+   "live_count": 45,
+   "author_count": 119,
+   "total_author_count": 4943,
+   "launch_time": "2022-06-10 18:53:48",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729385223046727059?region=ID&local=en",
+   "shop_name": "npureofficial",
+   "page": 4
+  },
+  {
+   "product_id": "1733341601830176103",
+   "title": "Makarizo Hair Energy Fibertherapy Hair & Scalp Creambath 5X Conditioning Royal Jelly Extract 100 mL",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp2,800",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "头部护理与造型",
+    "头发与头皮养护"
+   ],
+   "category_name": [
+    "头发与头皮养护"
+   ],
+   "sold_count": 3689,
+   "sold_count_inc_rate": "35.92%",
+   "sale_amount": 10329200,
+   "total_sold_count": 1017297,
+   "total_sale_amount": 17518493816,
+   "aweme_count": 202,
+   "live_count": 41,
+   "author_count": 140,
+   "total_author_count": 5681,
+   "launch_time": "2025-11-25 06:19:27",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1733341601830176103?region=ID&local=en",
+   "shop_name": "Makarizo",
+   "page": 4
+  },
+  {
+   "product_id": "1735284037103683165",
+   "title": "BULU MATA PALSU PEMULATanpa Lem Reusable! Natural Banget Buat Daily Look | Anti Alergi | Mudah Lepas | HOHOISYOU",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp33,940",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "化妆工具"
+   ],
+   "category_name": [
+    "化妆工具"
+   ],
+   "sold_count": 3637,
+   "sold_count_inc_rate": "2.11%",
+   "sale_amount": 116402185,
+   "total_sold_count": 342037,
+   "total_sale_amount": 8789213893,
+   "aweme_count": 153,
+   "live_count": 70,
+   "author_count": 160,
+   "total_author_count": 2872,
+   "launch_time": "2026-04-25 10:49:45",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1735284037103683165?region=ID&local=en",
+   "shop_name": "HOHOISYOU Bulu Mata Palsu",
+   "page": 5
+  },
+  {
+   "product_id": "1729643078414797473",
+   "title": "ดินสอเขียนคิ้ว กันน้ำ ดินสอเขียนคิ้วแบบหมุน 2 in 1 มีแปรงปัดคิ้วในตัว มี 5 สีให้เลือก GMB",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿5.70  - 6.40",
+   "commission_rate": "12%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "眉笔&眉粉&眉胶"
+   ],
+   "category_name": [
+    "眉笔&眉粉&眉胶"
+   ],
+   "sold_count": 3628,
+   "sold_count_inc_rate": "-2.99%",
+   "sale_amount": 20679.6,
+   "total_sold_count": 6691143,
+   "total_sale_amount": 50897958.34,
+   "aweme_count": 17,
+   "live_count": 74,
+   "author_count": 54,
+   "total_author_count": 7508,
+   "launch_time": "2023-06-23 15:01:03",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729643078414797473?region=TH&local=en",
+   "shop_name": "Nownow shop 000",
+   "page": 5
+  },
+  {
+   "product_id": "1735368001356465881",
+   "title": "tặng 1 thư cảm ơn thôi anh ơiIIIII",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "56,796 ₫",
+   "commission_rate": "-",
+   "all_category_name": [
+    "美妆个护",
+    "香水",
+    "男士香水"
+   ],
+   "category_name": [
+    "男士香水"
+   ],
+   "sold_count": 3577,
+   "sold_count_inc_rate": "73.81%",
+   "sale_amount": 189141029,
+   "total_sold_count": 315813,
+   "total_sale_amount": 17534333473,
+   "aweme_count": 0,
+   "live_count": 0,
+   "author_count": 0,
+   "total_author_count": 0,
+   "launch_time": "2026-05-12 00:15:03",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1735368001356465881?region=VN&local=en",
+   "shop_name": "KTINO VIETNAM",
+   "page": 5
+  },
+  {
+   "product_id": "1734320654222132472",
+   "title": "[BEST SELLER] Animate Bubble Glow Pinkiss Lip 4 ml",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp28,472  - 74,688",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "口红与唇彩"
+   ],
+   "category_name": [
+    "口红与唇彩"
+   ],
+   "sold_count": 3566,
+   "sold_count_inc_rate": "18.16%",
+   "sale_amount": 112307604,
+   "total_sold_count": 372773,
+   "total_sale_amount": 9073547129,
+   "aweme_count": 244,
+   "live_count": 69,
+   "author_count": 215,
+   "total_author_count": 6053,
+   "launch_time": "2026-02-15 14:03:17",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734320654222132472?region=ID&local=en",
+   "shop_name": "Animate",
+   "page": 5
+  },
+  {
+   "product_id": "1737099206242894973",
+   "title": "(พรีออเดอร์) Feyre - เทสเตอร์ 5ml Bare Skin Foundation Serum เซรั่มรองพื้น SPF 10 PA++++ งานผิว ผิวฉ่ำโกลว ดูไบร์ทขึ้น ดูสุขภาพดี ผิวกระจก",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿82.00",
+   "commission_rate": "15%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "遮瑕与粉底"
+   ],
+   "category_name": [
+    "遮瑕与粉底"
+   ],
+   "sold_count": 3562,
+   "sold_count_inc_rate": "38.6%",
+   "sale_amount": 274274,
+   "total_sold_count": 38790,
+   "total_sale_amount": 2862027,
+   "aweme_count": 99,
+   "live_count": 72,
+   "author_count": 111,
+   "total_author_count": 599,
+   "launch_time": "2026-08-18 20:13:58",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1737099206242894973?region=TH&local=en",
+   "shop_name": "Feyre Store",
+   "page": 5
+  },
+  {
+   "product_id": "1732574204186890998",
+   "title": "Marshmallow Minis",
+   "region": "US",
+   "currency": "USD",
+   "real_price": "$46.80",
+   "commission_rate": "15%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "身体护理套装"
+   ],
+   "category_name": [
+    "身体护理套装"
+   ],
+   "sold_count": 3474,
+   "sold_count_inc_rate": "-7.14%",
+   "sale_amount": 125064,
+   "total_sold_count": 13200,
+   "total_sale_amount": 475200,
+   "aweme_count": 126,
+   "live_count": 43,
+   "author_count": 118,
+   "total_author_count": 223,
+   "launch_time": "2026-09-15 11:57:11",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1732574204186890998?region=US&local=en",
+   "shop_name": "Summer Fridays",
+   "page": 5
+  },
+  {
+   "product_id": "1733171385181833033",
+   "title": "[Quà tặng không bán] Gương Cầm Tay Màu Đen",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "58,731 ₫",
+   "commission_rate": "-",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "化妆工具"
+   ],
+   "category_name": [
+    "化妆工具"
+   ],
+   "sold_count": 3449,
+   "sold_count_inc_rate": "11.69%",
+   "sale_amount": 183559229,
+   "total_sold_count": 548803,
+   "total_sale_amount": 29047733597,
+   "aweme_count": 0,
+   "live_count": 0,
+   "author_count": 0,
+   "total_author_count": 0,
+   "launch_time": "2025-11-29 13:23:21",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1733171385181833033?region=VN&local=en",
+   "shop_name": "COLORKEY COSMETICS VIỆT NAM",
+   "page": 5
+  },
+  {
+   "product_id": "1734366911314297960",
+   "title": "[TONE UP] Honnete Pink Berry Tone Up Body Spray - Tone Up Spray Mencerahkan dan Menghidrasi Kulit Badan Wangi Halal BPOM",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp29,910",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "身体霜、乳"
+   ],
+   "category_name": [
+    "身体霜、乳"
+   ],
+   "sold_count": 3384,
+   "sold_count_inc_rate": "132.1%",
+   "sale_amount": 102870216,
+   "total_sold_count": 646981,
+   "total_sale_amount": 19562343941,
+   "aweme_count": 175,
+   "live_count": 30,
+   "author_count": 160,
+   "total_author_count": 5751,
+   "launch_time": "2026-02-10 02:19:06",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734366911314297960?region=ID&local=en",
+   "shop_name": "Honnete Skin",
+   "page": 5
+  },
+  {
+   "product_id": "1734370656454084052",
+   "title": "(1 PCS)  GENTLE EXFOLIATING DAILY BODY TONER  .  AFTERMYSKIN MOIST SKIN HYDRATING",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp33,779",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "爽肤水、化妆水"
+   ],
+   "category_name": [
+    "爽肤水、化妆水"
+   ],
+   "sold_count": 3365,
+   "sold_count_inc_rate": "19.2%",
+   "sale_amount": 123811810,
+   "total_sold_count": 256964,
+   "total_sale_amount": 8331737725,
+   "aweme_count": 177,
+   "live_count": 180,
+   "author_count": 198,
+   "total_author_count": 3342,
+   "launch_time": "2026-02-11 17:44:58",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734370656454084052?region=ID&local=en",
+   "shop_name": "Aftermyskin",
+   "page": 5
+  },
+  {
+   "product_id": "1729382371067331946",
+   "title": "Azalea Zaitun Oil with Rosehip Oil 135ml – All-In-One Oil untuk Wajah & Tubuh, Melembapkan, Menutrisi, Haluskan Bekas Luka",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp4,838",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "保湿油、按摩油"
+   ],
+   "category_name": [
+    "保湿油、按摩油"
+   ],
+   "sold_count": 3358,
+   "sold_count_inc_rate": "97.65%",
+   "sale_amount": 16776568,
+   "total_sold_count": 695230,
+   "total_sale_amount": 24793353051,
+   "aweme_count": 147,
+   "live_count": 38,
+   "author_count": 112,
+   "total_author_count": 3646,
+   "launch_time": "2022-06-12 03:51:25",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729382371067331946?region=ID&local=en",
+   "shop_name": "Azalea Beauty",
+   "page": 5
+  },
+  {
+   "product_id": "1736800803684779756",
+   "title": "INFUSED WHITENING SACHET by Drify 10ml",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp29,621",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "手足及指甲护理",
+    "护手足霜、乳液与磨砂膏"
+   ],
+   "category_name": [
+    "护手足霜、乳液与磨砂膏"
+   ],
+   "sold_count": 3341,
+   "sold_count_inc_rate": "-4.46%",
+   "sale_amount": 88172331,
+   "total_sold_count": 114309,
+   "total_sale_amount": 2402551441,
+   "aweme_count": 36,
+   "live_count": 23,
+   "author_count": 42,
+   "total_author_count": 327,
+   "launch_time": "2026-07-31 15:54:39",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1736800803684779756?region=ID&local=en",
+   "shop_name": "Drify Id",
+   "page": 6
+  },
+  {
+   "product_id": "1737278686374168442",
+   "title": "T197 เล็บปลอม Press On Nails อัลมอนด์แหลมยาว ฐานสีเนื้อใสปั้นลายนูนสีขาวดอกไม้ขอบโลหะลายลูกไม้โซ่ทอง 2026 เซ็ต10ชิ้นสำเร็จใช้ซ้ำได้ แถมชุดอุปกรณ์ทำเล็บ T197",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿34.66",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "手足及指甲护理",
+    "美甲套装"
+   ],
+   "category_name": [
+    "美甲套装"
+   ],
+   "sold_count": 3318,
+   "sold_count_inc_rate": "301.69%",
+   "sale_amount": 115001.88,
+   "total_sold_count": 33631,
+   "total_sale_amount": 1049239.97,
+   "aweme_count": 1,
+   "live_count": 0,
+   "author_count": 1,
+   "total_author_count": 8,
+   "launch_time": "2026-09-02 02:20:24",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1737278686374168442?region=TH&local=en",
+   "shop_name": "Happy Girl Nail Art",
+   "page": 6
+  },
+  {
+   "product_id": "1730801434693044540",
+   "title": "SUPERMOM l 117 Cushion puff พัฟสำหรับคุชชั่น",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿65.00",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "化妆工具"
+   ],
+   "category_name": [
+    "化妆工具"
+   ],
+   "sold_count": 3316,
+   "sold_count_inc_rate": "28.28%",
+   "sale_amount": 212224,
+   "total_sold_count": 183232,
+   "total_sale_amount": 11554874,
+   "aweme_count": 7,
+   "live_count": 34,
+   "author_count": 29,
+   "total_author_count": 652,
+   "launch_time": "2024-08-27 21:34:21",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1730801434693044540?region=TH&local=en",
+   "shop_name": "SUPERMOM COSMETICS",
+   "page": 6
+  },
+  {
+   "product_id": "1733316612331505636",
+   "title": "NEW SYB FORTE Red Jelly Serum 20ml with Niacinamide 10% untuk mencerahkan kulit wajah & mengurangi kusam",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp22,560",
+   "commission_rate": "8%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "面部精华液"
+   ],
+   "category_name": [
+    "面部精华液"
+   ],
+   "sold_count": 3313,
+   "sold_count_inc_rate": "-18.06%",
+   "sale_amount": 84471561,
+   "total_sold_count": 157246,
+   "total_sale_amount": 3005644666,
+   "aweme_count": 167,
+   "live_count": 37,
+   "author_count": 120,
+   "total_author_count": 1935,
+   "launch_time": "2025-11-25 15:27:51",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1733316612331505636?region=ID&local=en",
+   "shop_name": "SYB ID",
+   "page": 6
+  },
+  {
+   "product_id": "1730484051937297557",
+   "title": "[Favorit CIKI] METOO PASTA GIGI MW3- BPOM-pemutih gigi / Bebas Sensitif odol/ Bebas Karang Gigi / Pasta Gigi Probiotik / Karang Gigi / Gusi Sensitif / Membersihkan Noda Gigi- METOO MW-3 Advanced Whitening Tooth Paste 100 gr*1/2/3",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp28,421  - 83,468",
+   "commission_rate": "11%",
+   "all_category_name": [
+    "美妆个护",
+    "鼻子口腔护理",
+    "牙膏"
+   ],
+   "category_name": [
+    "牙膏"
+   ],
+   "sold_count": 3257,
+   "sold_count_inc_rate": "3518.89%",
+   "sale_amount": 95436614,
+   "total_sold_count": 5910920,
+   "total_sale_amount": 156643539483,
+   "aweme_count": 305,
+   "live_count": 183,
+   "author_count": 322,
+   "total_author_count": 91389,
+   "launch_time": "2024-11-23 22:08:36",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1730484051937297557?region=ID&local=en",
+   "shop_name": "Metoo Beauty",
+   "page": 6
+  },
+  {
+   "product_id": "1729397741999852940",
+   "title": "Bonita Himalayan Pink Salt Oil SPF 30 Organic Face & Body Care & massage oil  Comfort, Hydrating, Skin Toning, Cleanser, Moisture Skincare aroma Hydrate Moisturizer Moisturize  VANILLA Cosmetic Non-sticky Acne Blemishes Pampaputi itch dry skin lightweight",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱163.00  - 308.00",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "身体霜、乳"
+   ],
+   "category_name": [
+    "身体霜、乳"
+   ],
+   "sold_count": 3174,
+   "sold_count_inc_rate": "11.64%",
+   "sale_amount": 472926,
+   "total_sold_count": 3047257,
+   "total_sale_amount": 639489421.35,
+   "aweme_count": 133,
+   "live_count": 67,
+   "author_count": 155,
+   "total_author_count": 36029,
+   "launch_time": "2023-03-27 20:02:32",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729397741999852940?region=PH&local=en",
+   "shop_name": "shopwithbonita",
+   "page": 6
+  },
+  {
+   "product_id": "1730707277340509254",
+   "title": "(COD) Essence Retinol DRVE – Membantu Kulit Lebih Agar Lebih Cerah & Kencang dan Menutrisi dari Dalam Kulit yang sehat",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp33,833  - 78,407",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "面部精华液"
+   ],
+   "category_name": [
+    "面部精华液"
+   ],
+   "sold_count": 3024,
+   "sold_count_inc_rate": "-0.88%",
+   "sale_amount": 114328368,
+   "total_sold_count": 281182,
+   "total_sale_amount": 9093530032,
+   "aweme_count": 54,
+   "live_count": 23,
+   "author_count": 43,
+   "total_author_count": 1716,
+   "launch_time": "2025-02-22 15:21:55",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1730707277340509254?region=ID&local=en",
+   "shop_name": "Drve store 1",
+   "page": 6
+  },
+  {
+   "product_id": "1736313981494002697",
+   "title": "[MỚI] Kem Đánh Răng P/S Ultra White Trắng Bật 5 Tông trong 1 tuần 100g - Với bộ Đôi công nghệ độc quyền Blue HAP & Microwhitening C [v]",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "98,685 ₫  -  194,991 ₫",
+   "commission_rate": "6%",
+   "all_category_name": [
+    "美妆个护",
+    "鼻子口腔护理",
+    "牙膏"
+   ],
+   "category_name": [
+    "牙膏"
+   ],
+   "sold_count": 3019,
+   "sold_count_inc_rate": "-9.26%",
+   "sale_amount": 245022040,
+   "total_sold_count": 108019,
+   "total_sale_amount": 9154727350,
+   "aweme_count": 279,
+   "live_count": 76,
+   "author_count": 214,
+   "total_author_count": 4043,
+   "launch_time": "2026-07-06 21:50:08",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1736313981494002697?region=VN&local=en",
+   "shop_name": "Unilever - Chăm Sóc Cá Nhân",
+   "page": 6
+  },
+  {
+   "product_id": "1729505063356962201",
+   "title": "Rosemary & Rice Water Hair Spray- 200ml pack of 3 Natural Soft Hair Nourishing Hair",
+   "region": "US",
+   "currency": "USD",
+   "real_price": "$20.99",
+   "commission_rate": "20%",
+   "all_category_name": [
+    "美妆个护",
+    "头部护理与造型",
+    "脱发产品"
+   ],
+   "category_name": [
+    "脱发产品"
+   ],
+   "sold_count": 3010,
+   "sold_count_inc_rate": "166.37%",
+   "sale_amount": 63210,
+   "total_sold_count": 90160,
+   "total_sale_amount": 2572375.83,
+   "aweme_count": 127,
+   "live_count": 134,
+   "author_count": 187,
+   "total_author_count": 2421,
+   "launch_time": "2026-03-13 03:10:11",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729505063356962201?region=US&local=en",
+   "shop_name": "Bare Anatomy Haircare",
+   "page": 6
+  },
+  {
+   "product_id": "1732577904423045020",
+   "title": "【COD】【10.10】TODDA คาเวียร์ ครีมหมักผม 500g เท่านั้นเคราตินสดเกรด กรดอะมิโน ครีมยืด ไม่ต้องอบไอน้ำ ฟื้นฟูเส้นผมตรงนุ่มสลวยระดับซาลอน Caviar ทรีตเม้นท์ผม ได้ทุกสภาพผม  หยิก ป้องกันผมขาด ป้องกันผม สีผมติดทน",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿0.66",
+   "commission_rate": "13%",
+   "all_category_name": [
+    "美妆个护",
+    "头部护理与造型",
+    "头发与头皮养护"
+   ],
+   "category_name": [
+    "头发与头皮养护"
+   ],
+   "sold_count": 2994,
+   "sold_count_inc_rate": "18.25%",
+   "sale_amount": 1976.04,
+   "total_sold_count": 984814,
+   "total_sale_amount": 56875953.05,
+   "aweme_count": 87,
+   "live_count": 173,
+   "author_count": 139,
+   "total_author_count": 6306,
+   "launch_time": "2025-09-24 07:17:48",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1732577904423045020?region=TH&local=en",
+   "shop_name": "TODDA Thailand",
+   "page": 6
+  },
+  {
+   "product_id": "1735003765990655573",
+   "title": "MILAI Mi giả tự dính | Tự nhiên, dày đẹp | 7 hộp chỉ 99K – 4 hộp chỉ 65K | Mua từ 3 hộp tặng nhíp | Chọn nhiều mẫu",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "30,042 ₫  -  93,171 ₫",
+   "commission_rate": "11%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "假睫毛与胶水"
+   ],
+   "category_name": [
+    "假睫毛与胶水"
+   ],
+   "sold_count": 2962,
+   "sold_count_inc_rate": "4.66%",
+   "sale_amount": 94781038,
+   "total_sold_count": 660367,
+   "total_sale_amount": 19278964289,
+   "aweme_count": 29,
+   "live_count": 21,
+   "author_count": 34,
+   "total_author_count": 1767,
+   "launch_time": "2026-04-07 11:25:30",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1735003765990655573?region=VN&local=en",
+   "shop_name": "MIlai Nhật ký",
+   "page": 7
+  },
+  {
+   "product_id": "1729635652383050166",
+   "title": "[HÀNG TẶNG KHÔNG BÁN] Sữa dưỡng thể cho da thường đến khô 30ml",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "1,677,835 ₫",
+   "commission_rate": "-",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "身体霜、乳"
+   ],
+   "category_name": [
+    "身体霜、乳"
+   ],
+   "sold_count": 2951,
+   "sold_count_inc_rate": "354.7%",
+   "sale_amount": 4677004488,
+   "total_sold_count": 250730,
+   "total_sale_amount": 394382261196,
+   "aweme_count": 0,
+   "live_count": 0,
+   "author_count": 0,
+   "total_author_count": 1,
+   "launch_time": "2025-06-06 22:12:40",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729635652383050166?region=VN&local=en",
+   "shop_name": "CeraVe Việt Nam",
+   "page": 7
+  },
+  {
+   "product_id": "1737066171563148290",
+   "title": "(Deal Mở Bán) Nước Hoa Dubai Nhỏ Gọn – Thơm Lâu, Hương Dứa Rừng Sa Mạc Bí Ẩn Quyến Rũ, Cuốn Hút",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "21,760 ₫  -  70,778 ₫",
+   "commission_rate": "8.5%",
+   "all_category_name": [
+    "美妆个护",
+    "香水",
+    "男女通用香水"
+   ],
+   "category_name": [
+    "男女通用香水"
+   ],
+   "sold_count": 2914,
+   "sold_count_inc_rate": "32.76%",
+   "sale_amount": 61960382,
+   "total_sold_count": 37400,
+   "total_sale_amount": 784472584,
+   "aweme_count": 180,
+   "live_count": 9,
+   "author_count": 85,
+   "total_author_count": 338,
+   "launch_time": "2026-08-19 01:22:40",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1737066171563148290?region=VN&local=en",
+   "shop_name": "LOVIRA STORE",
+   "page": 7
+  },
+  {
+   "product_id": "1729413742968869814",
+   "title": "Bella Vita Luxury's Honey Oud | Eau de Parfum 100ml (3.4 fl oz) | Patchouli, Vanilla, Bergamot | Floral & Spicy | Made with Clean & Vegan Essentials Oils | Cruelty Free Fragrance Perfume",
+   "region": "US",
+   "currency": "USD",
+   "real_price": "$18.79",
+   "commission_rate": "15%",
+   "all_category_name": [
+    "美妆个护",
+    "香水",
+    "男女通用香水"
+   ],
+   "category_name": [
+    "男女通用香水"
+   ],
+   "sold_count": 2881,
+   "sold_count_inc_rate": "-15.36%",
+   "sale_amount": 54739,
+   "total_sold_count": 775695,
+   "total_sale_amount": 16104172.88,
+   "aweme_count": 206,
+   "live_count": 133,
+   "author_count": 260,
+   "total_author_count": 16953,
+   "launch_time": "2023-11-25 02:51:43",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729413742968869814?region=US&local=en",
+   "shop_name": "BellaVitashop",
+   "page": 7
+  },
+  {
+   "product_id": "1731354187921721088",
+   "title": "(PAKET HEMAT ISI 4) NIVEA MEN Deodorant Antiperspirant Roll On Cool Kick 25ml - Deodoran pria perlindungan ekstra kering dari keringat bau badan dan sensasi dingin dan wangi sporty seharian - Tidak mengandung ethyl alkohol cocok untuk semua jenis kulit",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp57,959",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "男士护理",
+    "男士洗浴与身体护理"
+   ],
+   "category_name": [
+    "男士洗浴与身体护理"
+   ],
+   "sold_count": 2881,
+   "sold_count_inc_rate": "-69.56%",
+   "sale_amount": 168849648,
+   "total_sold_count": 40043,
+   "total_sale_amount": 2293131078,
+   "aweme_count": 9,
+   "live_count": 21,
+   "author_count": 18,
+   "total_author_count": 485,
+   "launch_time": "2025-05-24 13:59:08",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1731354187921721088?region=ID&local=en",
+   "shop_name": "NIVEA Official Store",
+   "page": 7
+  },
+  {
+   "product_id": "1735123075139208867",
+   "title": "[BUY 1 GET 3 FREE GIFT] Madame Gie Always On Lip Comfort Matte - Makeup Lip Cream Matte | Smudgeproof | Transferproof | Longlasting | Double UV Filter",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp200",
+   "commission_rate": "7%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "口红与唇彩"
+   ],
+   "category_name": [
+    "口红与唇彩"
+   ],
+   "sold_count": 2876,
+   "sold_count_inc_rate": "-0.86%",
+   "sale_amount": 575200,
+   "total_sold_count": 357019,
+   "total_sale_amount": 14691700821,
+   "aweme_count": 110,
+   "live_count": 134,
+   "author_count": 144,
+   "total_author_count": 3640,
+   "launch_time": "2026-04-16 13:54:33",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1735123075139208867?region=ID&local=en",
+   "shop_name": "Madame Gie Cosmetics",
+   "page": 7
+  },
+  {
+   "product_id": "1734528729413093014",
+   "title": "[L-Gift] Quà tặng miễn phí – Nhận ngay khi mua hàng",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "289,353 ₫",
+   "commission_rate": "-",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "遮瑕与粉底"
+   ],
+   "category_name": [
+    "遮瑕与粉底"
+   ],
+   "sold_count": 2868,
+   "sold_count_inc_rate": "1450.27%",
+   "sale_amount": 922535220,
+   "total_sold_count": 54870,
+   "total_sale_amount": 16802514147,
+   "aweme_count": 0,
+   "live_count": 0,
+   "author_count": 0,
+   "total_author_count": 0,
+   "launch_time": "2026-05-27 22:08:45",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734528729413093014?region=VN&local=en",
+   "shop_name": "MISTINE BWG VN",
+   "page": 7
+  },
+  {
+   "product_id": "1734713141732803974",
+   "title": "สครับผิว วีไวท์ (V-WHITE) ขนาด 250 กรัม (ของแท้ ตะกร้าบริษัท)",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿1.01",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "身体磨砂膏、去角质"
+   ],
+   "category_name": [
+    "身体磨砂膏、去角质"
+   ],
+   "sold_count": 2853,
+   "sold_count_inc_rate": "29.86%",
+   "sale_amount": 2881.53,
+   "total_sold_count": 329028,
+   "total_sale_amount": 9500912.01,
+   "aweme_count": 110,
+   "live_count": 167,
+   "author_count": 167,
+   "total_author_count": 6039,
+   "launch_time": "2026-03-18 22:04:57",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734713141732803974?region=TH&local=en",
+   "shop_name": "CEO V WHITE",
+   "page": 7
+  },
+  {
+   "product_id": "1734378651231618866",
+   "title": "JUNNY - Skin Tint Perfecting Flawless 30gr, Natural tone-up daycream, Glow Drop, UV-filter, sunscreen moist | B3 Niacinamide + calming, centella asitica + arbutin | Mencerahkan, tidak menyumbat pori, Cocok Semua Jenis Kulit",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp26,890  - 149,157",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "脸部防晒霜与晒后修复"
+   ],
+   "category_name": [
+    "脸部防晒霜与晒后修复"
+   ],
+   "sold_count": 2847,
+   "sold_count_inc_rate": "41.15%",
+   "sale_amount": 81911037,
+   "total_sold_count": 308432,
+   "total_sale_amount": 7164408157,
+   "aweme_count": 155,
+   "live_count": 35,
+   "author_count": 134,
+   "total_author_count": 3838,
+   "launch_time": "2026-02-25 21:38:09",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734378651231618866?region=ID&local=en",
+   "shop_name": "JUNNY ID",
+   "page": 7
+  },
+  {
+   "product_id": "1729626193581935178",
+   "title": "Pretty Jin Retinol Oatmeal Bleachinig Soap (70g)",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱80.00",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 2844,
+   "sold_count_inc_rate": "150.13%",
+   "sale_amount": 227520,
+   "total_sold_count": 122722,
+   "total_sale_amount": 6297349.59,
+   "aweme_count": 9,
+   "live_count": 0,
+   "author_count": 7,
+   "total_author_count": 462,
+   "launch_time": "2023-05-30 11:43:55",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729626193581935178?region=PH&local=en",
+   "shop_name": "Pretty Jin Shop",
+   "page": 7
+  },
+  {
+   "product_id": "1734895346717001537",
+   "title": "MILAI 10 bộ mi sẵn keo | Kiểu tự nhiên & dày đẹp | Mua từ 3 hộp tặng 1 nhíp + 1 kẹp mi",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "46,393 ₫  -  87,501 ₫",
+   "commission_rate": "11%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "假睫毛与胶水"
+   ],
+   "category_name": [
+    "假睫毛与胶水"
+   ],
+   "sold_count": 2810,
+   "sold_count_inc_rate": "34.26%",
+   "sale_amount": 123361810,
+   "total_sold_count": 398887,
+   "total_sale_amount": 16597396170,
+   "aweme_count": 50,
+   "live_count": 43,
+   "author_count": 62,
+   "total_author_count": 2802,
+   "launch_time": "2026-03-31 01:10:43",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734895346717001537?region=VN&local=en",
+   "shop_name": "MILAI Vietnam",
+   "page": 8
+  },
+  {
+   "product_id": "1736867391471781297",
+   "title": "Glue Free Puppy Lashes 100 Clusters Self Adhesive Reusable Cluster False Eyelashes Makeup Daily Gentle for Asian Eye Shapes - Cosmetic",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱9.21  - 46.42",
+   "commission_rate": "1%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "假睫毛与胶水"
+   ],
+   "category_name": [
+    "假睫毛与胶水"
+   ],
+   "sold_count": 2785,
+   "sold_count_inc_rate": "-68.26%",
+   "sale_amount": 24257.35,
+   "total_sold_count": 28673,
+   "total_sale_amount": 254048.79,
+   "aweme_count": 30,
+   "live_count": 28,
+   "author_count": 40,
+   "total_author_count": 101,
+   "launch_time": "2026-08-13 15:28:09",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1736867391471781297?region=PH&local=en",
+   "shop_name": "Veloura Lashes",
+   "page": 8
+  },
+  {
+   "product_id": "1734639262526441171",
+   "title": "[GIFT] Sữa Dưỡng Thể Vaseline Gluta-Hya Nữ 70ml",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "512,187 ₫",
+   "commission_rate": "-",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "身体霜、乳"
+   ],
+   "category_name": [
+    "身体霜、乳"
+   ],
+   "sold_count": 2757,
+   "sold_count_inc_rate": "167.67%",
+   "sale_amount": 1386955719,
+   "total_sold_count": 177590,
+   "total_sale_amount": 92064484789,
+   "aweme_count": 0,
+   "live_count": 0,
+   "author_count": 0,
+   "total_author_count": 0,
+   "launch_time": "2026-04-12 01:05:48",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734639262526441171?region=VN&local=en",
+   "shop_name": "Unilever Beauty",
+   "page": 8
+  },
+  {
+   "product_id": "1729388988847459814",
+   "title": "DermoBody Kojic Acid Dipalmitate + Glutathione + Alpha Arbutin Whitening Soap",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱189.00  - 263.00",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 2750,
+   "sold_count_inc_rate": "3.38%",
+   "sale_amount": 475530,
+   "total_sold_count": 847050,
+   "total_sale_amount": 148637563.52,
+   "aweme_count": 61,
+   "live_count": 36,
+   "author_count": 71,
+   "total_author_count": 9614,
+   "launch_time": "2022-10-27 08:13:56",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729388988847459814?region=PH&local=en",
+   "shop_name": "Dermorepubliq",
+   "page": 8
+  },
+  {
+   "product_id": "1736797768099923469",
+   "title": "OUKEYA JOY KISS LIP LINER โอกิยะ จอย คิส ลิป ไลเนอร์ ลิปไลเนอร์แบบหมุน เนื้อเนียน เขียนง่าย ติดทนนาน",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿0.59",
+   "commission_rate": "15%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "口红与唇彩"
+   ],
+   "category_name": [
+    "口红与唇彩"
+   ],
+   "sold_count": 2736,
+   "sold_count_inc_rate": "10.1%",
+   "sale_amount": 1614.24,
+   "total_sold_count": 60769,
+   "total_sale_amount": 35853.71,
+   "aweme_count": 72,
+   "live_count": 76,
+   "author_count": 102,
+   "total_author_count": 630,
+   "launch_time": "2026-08-01 15:17:23",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1736797768099923469?region=TH&local=en",
+   "shop_name": "Oukeya Thailand Shop",
+   "page": 8
+  },
+  {
+   "product_id": "1733528074510763298",
+   "title": "[10K EXTRA DISCOUNT] Glad2Glow 2in1 Day And Night Body Lotion Set- Niacinamide+Retinol Paket Siang Malam Mencerahkan Kulit Menghaluskan Kulit Melembabkan Kulit Perawatan Tubuh Serum Tubuh Glowing Paket Serum Body Serum Vitamin B5 Vitamin E Kulit Cerah",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp41,731  - 240,036",
+   "commission_rate": "1%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "身体霜、乳"
+   ],
+   "category_name": [
+    "身体霜、乳"
+   ],
+   "sold_count": 2716,
+   "sold_count_inc_rate": "88.35%",
+   "sale_amount": 113333248,
+   "total_sold_count": 921515,
+   "total_sale_amount": 51101669888,
+   "aweme_count": 259,
+   "live_count": 112,
+   "author_count": 234,
+   "total_author_count": 14251,
+   "launch_time": "2025-12-11 18:37:19",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1733528074510763298?region=ID&local=en",
+   "shop_name": "glad2glow.indo",
+   "page": 8
+  },
+  {
+   "product_id": "1732040365570888316",
+   "title": "[Sungboon] EGF Tox Toner | Forehead Firming & Wrinkle Care, Iron Out Fine Lines | PDRN & Collagen & NAD+ EGF Complex | EGF Plumping for Forehead, Longevity Anti-Aging Routine | Korean Skincare, K-Beauty",
+   "region": "US",
+   "currency": "USD",
+   "real_price": "$25.28",
+   "commission_rate": "15%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "爽肤水、化妆水"
+   ],
+   "category_name": [
+    "爽肤水、化妆水"
+   ],
+   "sold_count": 2706,
+   "sold_count_inc_rate": "15.44%",
+   "sale_amount": 67217.04,
+   "total_sold_count": 89829,
+   "total_sale_amount": 2434290.78,
+   "aweme_count": 96,
+   "live_count": 76,
+   "author_count": 140,
+   "total_author_count": 2865,
+   "launch_time": "2025-12-19 23:23:31",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1732040365570888316?region=US&local=en",
+   "shop_name": "SUNGBOON EDITOR",
+   "page": 8
+  },
+  {
+   "product_id": "1731200101340581930",
+   "title": "Brightening Body Wash with Vitamin C & Glycolic Acid - 8fl oz | Helps even out skin tone",
+   "region": "US",
+   "currency": "USD",
+   "real_price": "$14.99",
+   "commission_rate": "19.5%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 2684,
+   "sold_count_inc_rate": "81.72%",
+   "sale_amount": 27376.8,
+   "total_sold_count": 94986,
+   "total_sale_amount": 1123560.16,
+   "aweme_count": 45,
+   "live_count": 25,
+   "author_count": 47,
+   "total_author_count": 2193,
+   "launch_time": "2025-09-27 02:48:51",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1731200101340581930?region=US&local=en",
+   "shop_name": "Chemist at Play",
+   "page": 8
+  },
+  {
+   "product_id": "1730531415480895463",
+   "title": "[New Packaging] Hikari UltraFresh Sunscreen 50ML for all skin type, whitening, brightening, no white cast, easy to blend, sun protection",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱161.79  - 501.11",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "脸部防晒霜与晒后修复"
+   ],
+   "category_name": [
+    "脸部防晒霜与晒后修复"
+   ],
+   "sold_count": 2647,
+   "sold_count_inc_rate": "-79.68%",
+   "sale_amount": 465872,
+   "total_sold_count": 4862123,
+   "total_sale_amount": 768172832.32,
+   "aweme_count": 470,
+   "live_count": 127,
+   "author_count": 482,
+   "total_author_count": 64873,
+   "launch_time": "2024-12-06 09:48:45",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1730531415480895463?region=PH&local=en",
+   "shop_name": "A&J Beauty and Wellness Shop",
+   "page": 8
+  },
+  {
+   "product_id": "1731625997827871273",
+   "title": "Bikini Pain-Free Hair Removal Cream for Sensitive Skin, Hypoallergenic Formula-Gentle & Fast-Acting Depilatory with Citrus Scent, Aloe & Hyaluronic Acid for Soothing Care, Suitable for Men & Women,backtoschool",
+   "region": "US",
+   "currency": "USD",
+   "real_price": "$16.99  - 23.99",
+   "commission_rate": "12%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "除毛乳、除毛蜜蜡&除毛器"
+   ],
+   "category_name": [
+    "除毛乳、除毛蜜蜡&除毛器"
+   ],
+   "sold_count": 2637,
+   "sold_count_inc_rate": "17.36%",
+   "sale_amount": 44802.63,
+   "total_sold_count": 438332,
+   "total_sale_amount": 10404618.12,
+   "aweme_count": 61,
+   "live_count": 67,
+   "author_count": 99,
+   "total_author_count": 5171,
+   "launch_time": "2025-09-22 04:02:03",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1731625997827871273?region=US&local=en",
+   "shop_name": "PHOFAY-Skin Care",
+   "page": 8
+  },
+  {
+   "product_id": "1729734701700713167",
+   "title": "ครีมโสมไฮยา [สูตรใหม่] YERPALL Intensive active ginseng night cream",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿328.00  - 5,273.00",
+   "commission_rate": "18%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "保湿乳液、乳霜与喷雾"
+   ],
+   "category_name": [
+    "保湿乳液、乳霜与喷雾"
+   ],
+   "sold_count": 2605,
+   "sold_count_inc_rate": "-18.42%",
+   "sale_amount": 849230,
+   "total_sold_count": 2093413,
+   "total_sale_amount": 594838397.29,
+   "aweme_count": 222,
+   "live_count": 645,
+   "author_count": 488,
+   "total_author_count": 24987,
+   "launch_time": "2023-09-30 22:25:28",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729734701700713167?region=TH&local=en",
+   "shop_name": "YerpallThailand",
+   "page": 9
+  },
+  {
+   "product_id": "1734500043509499256",
+   "title": "【SPECIAL】SCARLETT Eau De Parfum & Extrait De Parfum 30ml Wangi Tahan Lama - Wangi Mewah - Parfum Uniseks",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp68,530  - 68,531",
+   "commission_rate": "4%",
+   "all_category_name": [
+    "美妆个护",
+    "香水",
+    "男女通用香水"
+   ],
+   "category_name": [
+    "男女通用香水"
+   ],
+   "sold_count": 2598,
+   "sold_count_inc_rate": "45.38%",
+   "sale_amount": 188739504,
+   "total_sold_count": 464012,
+   "total_sale_amount": 26408800062,
+   "aweme_count": 307,
+   "live_count": 81,
+   "author_count": 224,
+   "total_author_count": 7378,
+   "launch_time": "2026-03-04 09:11:10",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734500043509499256?region=ID&local=en",
+   "shop_name": "Scarlett Whitening",
+   "page": 9
+  },
+  {
+   "product_id": "1729615507258049939",
+   "title": "OMG OH MY GLAM Mattelast Lip Cream 2.9 g - Lip Cream Matte Dengan Warna Intense, Tahan Lama & Ringan",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp30,876  - 180,967",
+   "commission_rate": "7%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "口红与唇彩"
+   ],
+   "category_name": [
+    "口红与唇彩"
+   ],
+   "sold_count": 2593,
+   "sold_count_inc_rate": "10.06%",
+   "sale_amount": 84855925,
+   "total_sold_count": 1494725,
+   "total_sale_amount": 48706828325,
+   "aweme_count": 335,
+   "live_count": 228,
+   "author_count": 362,
+   "total_author_count": 39408,
+   "launch_time": "2024-05-03 19:47:47",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729615507258049939?region=ID&local=en",
+   "shop_name": "OMG Store",
+   "page": 9
+  },
+  {
+   "product_id": "1732526393964921982",
+   "title": "【HOT】JMCY อายไลเนอร์ อัลตร้าไฟน์ กันน้ำและกันเหงื่อ ป้องกันรอยเปื้อน ทำให้ดวงตาดูสดใสขึ้น สร้างลุคแต่งตาที่ดูมีมิติมากขึ้น มีอ.ย.  Slim Long-Lasting Gel Eyeliner",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿0.39",
+   "commission_rate": "8%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "眼线笔与唇线笔"
+   ],
+   "category_name": [
+    "眼线笔与唇线笔"
+   ],
+   "sold_count": 2589,
+   "sold_count_inc_rate": "-16.19%",
+   "sale_amount": 1009.71,
+   "total_sold_count": 1207876,
+   "total_sale_amount": 41650970.96,
+   "aweme_count": 92,
+   "live_count": 103,
+   "author_count": 133,
+   "total_author_count": 8663,
+   "launch_time": "2025-09-17 10:01:34",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1732526393964921982?region=TH&local=en",
+   "shop_name": "JMCY Beauty.TH",
+   "page": 9
+  },
+  {
+   "product_id": "1736018469258822978",
+   "title": "ยาสีฟัน Bubble Fresh กลิ่นเสาวรส มินต์ 100 กรัม ปกป้องเหงือก ลมหายใจสะอาด",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿121.64  - 199.76",
+   "commission_rate": "8%",
+   "all_category_name": [
+    "美妆个护",
+    "鼻子口腔护理",
+    "牙膏"
+   ],
+   "category_name": [
+    "牙膏"
+   ],
+   "sold_count": 2571,
+   "sold_count_inc_rate": "-20.67%",
+   "sale_amount": 301089.81,
+   "total_sold_count": 132971,
+   "total_sale_amount": 14753238.45,
+   "aweme_count": 82,
+   "live_count": 32,
+   "author_count": 94,
+   "total_author_count": 1326,
+   "launch_time": "2026-06-12 16:07:01",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1736018469258822978?region=TH&local=en",
+   "shop_name": "BUBBLE FRESH TH",
+   "page": 9
+  },
+  {
+   "product_id": "1731532531219465457",
+   "title": "[99K/7 hộp] [65K/4 hộp]FANEYES mi giả Mi giả sẵn keo Mi giả đơn cụm cong xinh,chống nước chống mồ hôi， kiểu phân đoạn không cần tẩy, có 36 kiểu lựa chọn, cong trẻ em, lông mi tự nhiên, vật thần chụp ảnh, làm to mắt tự nhiên, giúp lông mi dày dài hơn",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "20,222 ₫  -  29,800 ₫",
+   "commission_rate": "15%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "假睫毛与胶水"
+   ],
+   "category_name": [
+    "假睫毛与胶水"
+   ],
+   "sold_count": 2557,
+   "sold_count_inc_rate": "30.99%",
+   "sale_amount": 55517584,
+   "total_sold_count": 1647894,
+   "total_sale_amount": 36224501469,
+   "aweme_count": 24,
+   "live_count": 80,
+   "author_count": 56,
+   "total_author_count": 3565,
+   "launch_time": "2025-06-02 14:18:39",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1731532531219465457?region=VN&local=en",
+   "shop_name": "FANEYES SHOP1",
+   "page": 9
+  },
+  {
+   "product_id": "1735333875754173507",
+   "title": "PEMUTIH BADAN AMPUH DOSIS TINGGI, Niacinamide 10%, Glutathione, BODY LOTION WHITENING [ HB FRMASI ]",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp60,800",
+   "commission_rate": "26%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "身体护理套装"
+   ],
+   "category_name": [
+    "身体护理套装"
+   ],
+   "sold_count": 2544,
+   "sold_count_inc_rate": "-17.75%",
+   "sale_amount": 158063808,
+   "total_sold_count": 60437,
+   "total_sale_amount": 3108542020,
+   "aweme_count": 53,
+   "live_count": 148,
+   "author_count": 98,
+   "total_author_count": 640,
+   "launch_time": "2026-05-05 08:57:09",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1735333875754173507?region=ID&local=en",
+   "shop_name": "Ollava Skin 2",
+   "page": 9
+  },
+  {
+   "product_id": "1730264304861218238",
+   "title": "Jaring Busa Sabun Mandi | Kantong Jaring Sabun Batang Mandi | Pouch Sabun | Jaring Busa Sabun Mandi",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp2,270",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "洗澡工具"
+   ],
+   "category_name": [
+    "洗澡工具"
+   ],
+   "sold_count": 2544,
+   "sold_count_inc_rate": "153.64%",
+   "sale_amount": 5558640,
+   "total_sold_count": 228008,
+   "total_sale_amount": 426254982,
+   "aweme_count": 5,
+   "live_count": 3,
+   "author_count": 4,
+   "total_author_count": 322,
+   "launch_time": "2024-10-17 21:04:30",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1730264304861218238?region=ID&local=en",
+   "shop_name": "KebutuhanRumah.",
+   "page": 9
+  },
+  {
+   "product_id": "1730838328297686212",
+   "title": "PYARY TURMERIC HANDMADE SOAP 75 GRAMS | OFFICIAL IMPORTER",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱1.75",
+   "commission_rate": "8%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 2535,
+   "sold_count_inc_rate": "23.78%",
+   "sale_amount": 4436.25,
+   "total_sold_count": 309826,
+   "total_sale_amount": 13409747.21,
+   "aweme_count": 21,
+   "live_count": 30,
+   "author_count": 38,
+   "total_author_count": 1069,
+   "launch_time": "2025-06-30 22:15:10",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1730838328297686212?region=PH&local=en",
+   "shop_name": "Pyary Philippines Main",
+   "page": 9
+  },
+  {
+   "product_id": "1729425592012474771",
+   "title": "OMG Oh My Glam Coverlast Liquid Foundation - Flawless Coverage & Tahan 12 Jam",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp24,826",
+   "commission_rate": "3%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "遮瑕与粉底"
+   ],
+   "category_name": [
+    "遮瑕与粉底"
+   ],
+   "sold_count": 2521,
+   "sold_count_inc_rate": "217.51%",
+   "sale_amount": 72405641,
+   "total_sold_count": 616274,
+   "total_sale_amount": 14737776874,
+   "aweme_count": 99,
+   "live_count": 127,
+   "author_count": 152,
+   "total_author_count": 9266,
+   "launch_time": "2022-06-11 02:06:39",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729425592012474771?region=ID&local=en",
+   "shop_name": "OMG Store",
+   "page": 9
+  },
+  {
+   "product_id": "1729606041083151463",
+   "title": "New SYB Forte Red Jelly Serum 20ml with Niacinamide 10% - Serum Pencerah Wajah & Mengurangi Kusam.",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp5,463  - 95,391",
+   "commission_rate": "8%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "面部精华液"
+   ],
+   "category_name": [
+    "面部精华液"
+   ],
+   "sold_count": 2520,
+   "sold_count_inc_rate": "-8.13%",
+   "sale_amount": 13582800,
+   "total_sold_count": 290593,
+   "total_sale_amount": 5199064383,
+   "aweme_count": 19,
+   "live_count": 25,
+   "author_count": 26,
+   "total_author_count": 2348,
+   "launch_time": "2024-05-14 11:06:59",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729606041083151463?region=ID&local=en",
+   "shop_name": "SYBSHOPP",
+   "page": 10
+  },
+  {
+   "product_id": "1729938411245897881",
+   "title": "[PRICE DROP] [HAJIE ALEJANDRO APPROVED] Sea Makeup Lock It Matte Acne Setting Spray 100ml - Helps makeup stay matte smudge-proof and oil-free. Doubles as primer and fixer Suitable for acne-prone skin. Transfer-resistant finish",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱218.00  - 503.00",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "定妆喷雾"
+   ],
+   "category_name": [
+    "定妆喷雾"
+   ],
+   "sold_count": 2512,
+   "sold_count_inc_rate": "1450.62%",
+   "sale_amount": 580272,
+   "total_sold_count": 204497,
+   "total_sale_amount": 49583041.93,
+   "aweme_count": 107,
+   "live_count": 77,
+   "author_count": 123,
+   "total_author_count": 5881,
+   "launch_time": "2024-01-22 00:02:40",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729938411245897881?region=PH&local=en",
+   "shop_name": "Sea Makeup Philippines",
+   "page": 10
+  },
+  {
+   "product_id": "1736478855386268966",
+   "title": "Beli 1 Dapat 3 Parfum Bluehill xScandalous EDP 35ml Parfum But Ter Fly Era Aroma Mewah Elegant Fresh Bebas Pilih Aroma",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp5,000",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "香水",
+    "男女通用香水"
+   ],
+   "category_name": [
+    "男女通用香水"
+   ],
+   "sold_count": 2500,
+   "sold_count_inc_rate": "10.67%",
+   "sale_amount": 12500000,
+   "total_sold_count": 85140,
+   "total_sale_amount": 653128259,
+   "aweme_count": 56,
+   "live_count": 37,
+   "author_count": 62,
+   "total_author_count": 824,
+   "launch_time": "2026-07-14 22:34:04",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1736478855386268966?region=ID&local=en",
+   "shop_name": "EXOTIC PARFUM",
+   "page": 10
+  },
+  {
+   "product_id": "1737198687610439048",
+   "title": "Túi thơm hoa sen thương hiệu VEKO ----- Tặng kèm theo đơn hàng, quà tặng miễn phí, không bán riêng lẻ, mỗi đơn đều được tặng",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "181,803 ₫",
+   "commission_rate": "-",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "美妆套装"
+   ],
+   "category_name": [
+    "美妆套装"
+   ],
+   "sold_count": 2495,
+   "sold_count_inc_rate": "149.75%",
+   "sale_amount": 441026180,
+   "total_sold_count": 32822,
+   "total_sale_amount": 6578030700,
+   "aweme_count": 0,
+   "live_count": 0,
+   "author_count": 0,
+   "total_author_count": 0,
+   "launch_time": "2026-08-28 04:51:26",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1737198687610439048?region=VN&local=en",
+   "shop_name": "Cửa hàng hàng đầu của VK",
+   "page": 10
+  },
+  {
+   "product_id": "1729421705238776344",
+   "title": "Olaif Daily Triple Blade Women's Shaver - 3pcs",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp25,424  - 48,794",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "男士护理",
+    "男士手动剃须工具"
+   ],
+   "category_name": [
+    "男士手动剃须工具"
+   ],
+   "sold_count": 2468,
+   "sold_count_inc_rate": "523.23%",
+   "sale_amount": 60261156,
+   "total_sold_count": 537870,
+   "total_sale_amount": 11123209529.5,
+   "aweme_count": 55,
+   "live_count": 7,
+   "author_count": 40,
+   "total_author_count": 2474,
+   "launch_time": "2022-06-30 06:51:57",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729421705238776344?region=ID&local=en",
+   "shop_name": "Olaif",
+   "page": 10
+  },
+  {
+   "product_id": "1731287345329572278",
+   "title": "[Hàng tặng không bán] Sữa rửa mặt giúp làm sạch sâu dành cho da dầu Cerave Foaming Facial Cleanse 30ML",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "1,739,504 ₫",
+   "commission_rate": "-",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "洗面乳"
+   ],
+   "category_name": [
+    "洗面乳"
+   ],
+   "sold_count": 2435,
+   "sold_count_inc_rate": "450.9%",
+   "sale_amount": 4315168205,
+   "total_sold_count": 266872,
+   "total_sale_amount": 420726525000,
+   "aweme_count": 0,
+   "live_count": 0,
+   "author_count": 0,
+   "total_author_count": 1,
+   "launch_time": "2024-11-15 19:03:28",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1731287345329572278?region=VN&local=en",
+   "shop_name": "CeraVe Việt Nam",
+   "page": 10
+  },
+  {
+   "product_id": "1732964878878475554",
+   "title": "[BPOM] Glad2Glow Flawless Blurring Skin Tint Foundation Ringan Mengandung Squalane Melembabkan Skin Barrier Coverage Medium Buildable Menyamarkan Pori Pori Hasil Akhir Natural Soft Matte Oil Control Tahan Lama Seharian",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp43,168  - 100,171",
+   "commission_rate": "3%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "遮瑕与粉底"
+   ],
+   "category_name": [
+    "遮瑕与粉底"
+   ],
+   "sold_count": 2434,
+   "sold_count_inc_rate": "1831.75%",
+   "sale_amount": 105915510,
+   "total_sold_count": 305545,
+   "total_sale_amount": 17473117823,
+   "aweme_count": 64,
+   "live_count": 17,
+   "author_count": 65,
+   "total_author_count": 5895,
+   "launch_time": "2025-10-25 06:04:58",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1732964878878475554?region=ID&local=en",
+   "shop_name": "glad2glow.indo",
+   "page": 10
+  },
+  {
+   "product_id": "1730173758070490903",
+   "title": "Leeva Sabun Exotic Acne 250ml - Sabun Mandi Perawatan Kulit Sensitif, Mengatasi Jerawat Punggung & Panu, Melembabkan Kulit Kering, Solusi Membersihkan Kulit Tubuh Sehat dan Bersih dari Kotoran",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp62,076  - 105,250",
+   "commission_rate": "8%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 2426,
+   "sold_count_inc_rate": "32.93%",
+   "sale_amount": 167942276,
+   "total_sold_count": 716107,
+   "total_sale_amount": 40560894479,
+   "aweme_count": 137,
+   "live_count": 30,
+   "author_count": 87,
+   "total_author_count": 4889,
+   "launch_time": "2024-09-25 08:57:59",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1730173758070490903?region=ID&local=en",
+   "shop_name": "Leeva.id",
+   "page": 10
+  },
+  {
+   "product_id": "1735321159879853932",
+   "title": "ขวดปั๊มทำความสะอาดจุดซ่อนเร้นสำหรับผู้หญิง New Loresh ขนาด 200 มล.ความจุใหญ่ ขวดเจลอาบน้ำสำหรับการดูแลส่วนตัว แบบเติมได้ พกพาสะดวก สูตรอ่อนโยนเพื่อรักษาความสะอาด ตัวช่วยที่ดีเยี่ยมสำหรับการดูแลความสะ",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿103.25  - 288.00",
+   "commission_rate": "13%",
+   "all_category_name": [
+    "美妆个护",
+    "女性私密处护理",
+    "私密处清洁用品"
+   ],
+   "category_name": [
+    "私密处清洁用品"
+   ],
+   "sold_count": 2420,
+   "sold_count_inc_rate": "-59.67%",
+   "sale_amount": 251147.6,
+   "total_sold_count": 135107,
+   "total_sale_amount": 13196694.59,
+   "aweme_count": 113,
+   "live_count": 37,
+   "author_count": 120,
+   "total_author_count": 1385,
+   "launch_time": "2026-05-09 01:55:54",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1735321159879853932?region=TH&local=en",
+   "shop_name": "BY.Loresh",
+   "page": 10
+  },
+  {
+   "product_id": "1729583055325071338",
+   "title": "Giv W Sabun Mandi Cair Mulberry & Collagen Pouch 800ml",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp4,125",
+   "commission_rate": "1.5%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 2413,
+   "sold_count_inc_rate": "312.48%",
+   "sale_amount": 9953625,
+   "total_sold_count": 782140,
+   "total_sale_amount": 17939291590,
+   "aweme_count": 27,
+   "live_count": 87,
+   "author_count": 63,
+   "total_author_count": 4254,
+   "launch_time": "2024-05-09 09:27:12",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729583055325071338?region=ID&local=en",
+   "shop_name": "Watsons Indonesia",
+   "page": 10
+  },
+  {
+   "product_id": "1731944111513241553",
+   "title": "Tisha Beauty Bloom Balm Magic Colour & UV Filter - Stain +10hour 4,5gr",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp30,675  - 140,064",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "唇部护理"
+   ],
+   "category_name": [
+    "唇部护理"
+   ],
+   "sold_count": 2408,
+   "sold_count_inc_rate": "19.56%",
+   "sale_amount": 71503152,
+   "total_sold_count": 211182,
+   "total_sale_amount": 5308077055,
+   "aweme_count": 102,
+   "live_count": 24,
+   "author_count": 77,
+   "total_author_count": 4895,
+   "launch_time": "2025-08-08 03:49:15",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1731944111513241553?region=ID&local=en",
+   "shop_name": "TishaCosmetics",
+   "page": 11
+  },
+  {
+   "product_id": "1733451515021723133",
+   "title": "Sandrinna Berry Sparkling / Rose Melody / Caramel Vanilla / Cherry Fairy / Blooming Love / Tropical Romance / Breeze Ocean Parfum mist - Keharuman Romantis & Manis Tahan Lama Halal BPOM",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp42,518",
+   "commission_rate": "3%",
+   "all_category_name": [
+    "美妆个护",
+    "香水",
+    "香水套装"
+   ],
+   "category_name": [
+    "香水套装"
+   ],
+   "sold_count": 2399,
+   "sold_count_inc_rate": "-1.84%",
+   "sale_amount": 104063822,
+   "total_sold_count": 428566,
+   "total_sale_amount": 13795248923,
+   "aweme_count": 112,
+   "live_count": 4,
+   "author_count": 73,
+   "total_author_count": 1827,
+   "launch_time": "2025-12-06 11:17:21",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1733451515021723133?region=ID&local=en",
+   "shop_name": "Sandrinna Perfume",
+   "page": 11
+  },
+  {
+   "product_id": "1729718097057910811",
+   "title": "[Dr.Melaxin Official] Calcium Dark Spot Eye Cream | Dark Circle, Anti-aging, Sagging, Elasticity | Korean Cosmetics",
+   "region": "US",
+   "currency": "USD",
+   "real_price": "$20.00  - 35.90",
+   "commission_rate": "15%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "保湿乳液、乳霜与喷雾"
+   ],
+   "category_name": [
+    "保湿乳液、乳霜与喷雾"
+   ],
+   "sold_count": 2396,
+   "sold_count_inc_rate": "10.01%",
+   "sale_amount": 47920,
+   "total_sold_count": 432329,
+   "total_sale_amount": 9516154,
+   "aweme_count": 88,
+   "live_count": 77,
+   "author_count": 140,
+   "total_author_count": 4781,
+   "launch_time": "2025-01-02 20:39:37",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729718097057910811?region=US&local=en",
+   "shop_name": "Dr.Melaxin",
+   "page": 11
+  },
+  {
+   "product_id": "1732835801965561699",
+   "title": "PALA ไพรเมอร์ครีม (แบบซอง) ICE SENSATION PRIMER CREAM เบลอรูขุมขน บำรุงผิว เกลี่ยง่าย 2g. แบรนด์ไทย มีอ.ย.",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿18.00",
+   "commission_rate": "-",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "妆前乳与眼影打底膏"
+   ],
+   "category_name": [
+    "妆前乳与眼影打底膏"
+   ],
+   "sold_count": 2387,
+   "sold_count_inc_rate": "-15.89%",
+   "sale_amount": 40579,
+   "total_sold_count": 292188,
+   "total_sale_amount": 4689603,
+   "aweme_count": 0,
+   "live_count": 3,
+   "author_count": 1,
+   "total_author_count": 2,
+   "launch_time": "2025-10-14 10:24:53",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1732835801965561699?region=TH&local=en",
+   "shop_name": "pala makeup",
+   "page": 11
+  },
+  {
+   "product_id": "1737232071154435339",
+   "title": "Combo 3 tặng 1 Cao Xoa Bóp LI SHI ZHEN CAO – Hỗ Trợ Thư Giãn Cổ Vai Gáy, Thắt Lưng, Đầu Gối Và Các Khớp & Dùng Ngoài Da",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "418,435 ₫",
+   "commission_rate": "-",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "保湿油、按摩油"
+   ],
+   "category_name": [
+    "保湿油、按摩油"
+   ],
+   "sold_count": 2377,
+   "sold_count_inc_rate": "200.51%",
+   "sale_amount": 994619995,
+   "total_sold_count": 20535,
+   "total_sale_amount": 8143636548,
+   "aweme_count": 0,
+   "live_count": 1,
+   "author_count": 1,
+   "total_author_count": 1,
+   "launch_time": "2026-08-28 00:05:55",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1737232071154435339?region=VN&local=en",
+   "shop_name": "Cô Nông Dân 1981",
+   "page": 11
+  },
+  {
+   "product_id": "1735023876315513947",
+   "title": "[ SONIK SCENTS SKIN NICE ] BODY TONER MERAH 200 ML Glycerin, Niacinamide, Glycolic Acid, allantoin",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp16,157  - 37,118",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "爽肤水、化妆水"
+   ],
+   "category_name": [
+    "爽肤水、化妆水"
+   ],
+   "sold_count": 2376,
+   "sold_count_inc_rate": "92.54%",
+   "sale_amount": 39546144,
+   "total_sold_count": 493297,
+   "total_sale_amount": 7663156815,
+   "aweme_count": 173,
+   "live_count": 64,
+   "author_count": 172,
+   "total_author_count": 6953,
+   "launch_time": "2026-04-08 11:11:12",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1735023876315513947?region=ID&local=en",
+   "shop_name": "Asfindo Scents",
+   "page": 11
+  },
+  {
+   "product_id": "1731916815699052495",
+   "title": "Reparador de Pontas Gloss com Silicones Ultra Luminosos Protege Contra Raios Solares e Anti-Frizz para Todos os Tipos de Cabelos Selando As Cutículas Brilho Alto Agressores Externos Textura Leve",
+   "region": "BR",
+   "currency": "BRL",
+   "real_price": "R$ 10,99",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "头部护理与造型",
+    "头发与头皮养护"
+   ],
+   "category_name": [
+    "头发与头皮养护"
+   ],
+   "sold_count": 2375,
+   "sold_count_inc_rate": "-27.01%",
+   "sale_amount": 26101.25,
+   "total_sold_count": 285216,
+   "total_sale_amount": 3063768.04,
+   "aweme_count": 453,
+   "live_count": 677,
+   "author_count": 690,
+   "total_author_count": 11773,
+   "launch_time": "2025-12-18 22:07:17",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1731916815699052495?region=BR&local=en",
+   "shop_name": "Semélle",
+   "page": 11
+  },
+  {
+   "product_id": "1734353975719855230",
+   "title": "【DEAL】JMCY สเปรย์ล็อคเมคอัพติดทน 24ชม. ทนเหงื่อ ปราศจากแอลกอฮอล์ ละออง 0.25มม. เพิ่มความชุ่มชื้น ผิวเรียบเนียน",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿0.69",
+   "commission_rate": "8%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "定妆喷雾"
+   ],
+   "category_name": [
+    "定妆喷雾"
+   ],
+   "sold_count": 2375,
+   "sold_count_inc_rate": "-24.58%",
+   "sale_amount": 1638.75,
+   "total_sold_count": 91349,
+   "total_sale_amount": 563510.64,
+   "aweme_count": 76,
+   "live_count": 14,
+   "author_count": 75,
+   "total_author_count": 1357,
+   "launch_time": "2026-02-09 04:11:24",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734353975719855230?region=TH&local=en",
+   "shop_name": "JMCY Beauty.TH",
+   "page": 11
+  },
+  {
+   "product_id": "1732073687126673289",
+   "title": "[NEW SHADE] DAZZLE ME Ink-Vinyl Lip Lacquer Lip Cream Lipstik Glossy Tahan Lama 16 Jam Lip Vinyl Transferproof Waterproof Anti Luntur Lipstick Lip Gloss Bibir Plump Non-Sticky Make Up Lip",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp42,837  - 79,926",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "口红与唇彩"
+   ],
+   "category_name": [
+    "口红与唇彩"
+   ],
+   "sold_count": 2373,
+   "sold_count_inc_rate": "160.77%",
+   "sale_amount": 101127768,
+   "total_sold_count": 578696,
+   "total_sale_amount": 21145736979,
+   "aweme_count": 184,
+   "live_count": 85,
+   "author_count": 191,
+   "total_author_count": 11855,
+   "launch_time": "2025-08-04 12:55:04",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1732073687126673289?region=ID&local=en",
+   "shop_name": "DAZZLE ME Indonesia",
+   "page": 11
+  },
+  {
+   "product_id": "1734370073563137102",
+   "title": "ครีมกันแดดซ้อฝันตะกร้าของแท้  PinkAura",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿0.99",
+   "commission_rate": "6%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "脸部防晒霜与晒后修复"
+   ],
+   "category_name": [
+    "脸部防晒霜与晒后修复"
+   ],
+   "sold_count": 2371,
+   "sold_count_inc_rate": "-22.82%",
+   "sale_amount": 2347.29,
+   "total_sold_count": 499926,
+   "total_sale_amount": 42832644.38,
+   "aweme_count": 39,
+   "live_count": 39,
+   "author_count": 54,
+   "total_author_count": 3802,
+   "launch_time": "2026-02-10 13:07:29",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734370073563137102?region=TH&local=en",
+   "shop_name": "ซ้อฝันช่องจริง ตะกร้าบริษัท",
+   "page": 11
+  },
+  {
+   "product_id": "1737417127356105806",
+   "title": "กันแดดแป้งทิ้นท์ซ้อฝัน หน้าเนียน เนื้อบางเบา กันน้ำ ใช้ได้กับทุกสภาพผิว",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿59.00",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "脸部防晒霜与晒后修复"
+   ],
+   "category_name": [
+    "脸部防晒霜与晒后修复"
+   ],
+   "sold_count": 2368,
+   "sold_count_inc_rate": "-42.37%",
+   "sale_amount": 163392,
+   "total_sold_count": 30367,
+   "total_sale_amount": 1905045,
+   "aweme_count": 69,
+   "live_count": 34,
+   "author_count": 72,
+   "total_author_count": 188,
+   "launch_time": "2026-09-09 13:57:16",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1737417127356105806?region=TH&local=en",
+   "shop_name": "ซ้อฝันช่องจริง ตะกร้าบริษัท",
+   "page": 12
+  },
+  {
+   "product_id": "1729472647677055844",
+   "title": "Lion Pair Acne Cream Acne Treatment Pimples Removal Cream Pair Acne Creamy Foam Facial Wash Gentle Antibacterial Blemishes Skin Repair",
+   "region": "US",
+   "currency": "USD",
+   "real_price": "$6.97 - 16.48",
+   "commission_rate": "15%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "痘痘、粉刺护理"
+   ],
+   "category_name": [
+    "痘痘、粉刺护理"
+   ],
+   "sold_count": 2359,
+   "sold_count_inc_rate": "6.31%",
+   "sale_amount": 18423.79,
+   "total_sold_count": 352445,
+   "total_sale_amount": 2983655.25,
+   "aweme_count": 26,
+   "live_count": 10,
+   "author_count": 29,
+   "total_author_count": 3865,
+   "launch_time": "2024-05-04 01:07:10",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729472647677055844?region=US&local=en",
+   "shop_name": "Osaka Ebisu",
+   "page": 12
+  },
+  {
+   "product_id": "1729635645715417526",
+   "title": "[HÀNG TẶNG KHÔNG BÁN] Sữa rửa mặt giúp làm sạch sâu dành cho da thường và da khô 30ML",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "1,643,970 ₫",
+   "commission_rate": "-",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "洗面乳"
+   ],
+   "category_name": [
+    "洗面乳"
+   ],
+   "sold_count": 2359,
+   "sold_count_inc_rate": "340.93%",
+   "sale_amount": 4172700637,
+   "total_sold_count": 323501,
+   "total_sale_amount": 509523028344,
+   "aweme_count": 0,
+   "live_count": 0,
+   "author_count": 0,
+   "total_author_count": 0,
+   "launch_time": "2025-08-19 19:12:19",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729635645715417526?region=VN&local=en",
+   "shop_name": "CeraVe Việt Nam",
+   "page": 12
+  },
+  {
+   "product_id": "1734049496168695252",
+   "title": "1  PARFUM KERAJAAN AFTERMYSKIN",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp110,000",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "身体磨砂膏、去角质"
+   ],
+   "category_name": [
+    "身体磨砂膏、去角质"
+   ],
+   "sold_count": 2358,
+   "sold_count_inc_rate": "1713.85%",
+   "sale_amount": 259380000,
+   "total_sold_count": 52200,
+   "total_sale_amount": 5820388934,
+   "aweme_count": 3,
+   "live_count": 20,
+   "author_count": 16,
+   "total_author_count": 612,
+   "launch_time": "2026-01-17 14:15:21",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734049496168695252?region=ID&local=en",
+   "shop_name": "Aftermyskin",
+   "page": 12
+  },
+  {
+   "product_id": "1729384832164529804",
+   "title": "Viva FIn Touch (BLUSH ON) Finishing Touch - Tersedia 3 Varian Warna",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp10,603",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "腮红"
+   ],
+   "category_name": [
+    "腮红"
+   ],
+   "sold_count": 2352,
+   "sold_count_inc_rate": "507.75%",
+   "sale_amount": 25142880,
+   "total_sold_count": 501573,
+   "total_sale_amount": 4313304129.5,
+   "aweme_count": 70,
+   "live_count": 40,
+   "author_count": 79,
+   "total_author_count": 5067,
+   "launch_time": "2022-06-30 09:52:54",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729384832164529804?region=ID&local=en",
+   "shop_name": "Viva Cosmetics Surabaya",
+   "page": 12
+  },
+  {
+   "product_id": "1733715098127468497",
+   "title": "[กด3ชิ้นเพื่อรับของแถม] Dr.PONG U9.9 RENEWAL CREAM 50g  ครีมสำหรับผู้ที่มีปัญหาผิวลอก แตก แห้งกร้าน พร้อมคืนผิวใหม่",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿129.49",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "保湿乳液、乳霜与喷雾"
+   ],
+   "category_name": [
+    "保湿乳液、乳霜与喷雾"
+   ],
+   "sold_count": 2340,
+   "sold_count_inc_rate": "56.94%",
+   "sale_amount": 275956.2,
+   "total_sold_count": 542200,
+   "total_sale_amount": 65753186.61,
+   "aweme_count": 109,
+   "live_count": 159,
+   "author_count": 154,
+   "total_author_count": 3302,
+   "launch_time": "2025-12-25 10:07:29",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1733715098127468497?region=TH&local=en",
+   "shop_name": "drpongshop",
+   "page": 12
+  },
+  {
+   "product_id": "1734020712207452128",
+   "title": "ASEPSKIN Milky Gluta White Niacinamide 20x Whitening Soap Dark Spot, Ance and Oily Skin Cleanser",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱70.00  - 415.00",
+   "commission_rate": "15%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 2334,
+   "sold_count_inc_rate": "8.11%",
+   "sale_amount": 168048,
+   "total_sold_count": 224967,
+   "total_sale_amount": 15360051,
+   "aweme_count": 29,
+   "live_count": 2,
+   "author_count": 26,
+   "total_author_count": 1051,
+   "launch_time": "2026-01-20 09:29:37",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734020712207452128?region=PH&local=en",
+   "shop_name": "ASEP SKIN",
+   "page": 12
+  },
+  {
+   "product_id": "1730892278872310787",
+   "title": "HANASUI Next Level Butter Balm Tint - Color Butter Balm Tinted Lip Balm Melembabkan & Mencerahkan Bibir Lightweight & Cover Bibir Gelap Beauty Hyper Gloss Lip Balm",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp38,791  - 164,242",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "口红与唇彩"
+   ],
+   "category_name": [
+    "口红与唇彩"
+   ],
+   "sold_count": 2313,
+   "sold_count_inc_rate": "57725%",
+   "sale_amount": 96313320,
+   "total_sold_count": 1677326,
+   "total_sale_amount": 84435787764,
+   "aweme_count": 355,
+   "live_count": 231,
+   "author_count": 407,
+   "total_author_count": 33838,
+   "launch_time": "2025-02-24 01:07:54",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1730892278872310787?region=ID&local=en",
+   "shop_name": "Hanasui",
+   "page": 12
+  },
+  {
+   "product_id": "1735694259361908299",
+   "title": "NEW! Emina Gelato Cleanser Series 100 ml- Facial Wash Gentle Brightening, Face Wash Mencerahkan Glowing, Sabun Cuci Muka Mencerahkan Lembab Tanpa Ketarik, Facial Wash Soothing, Sabun Cuci Muka Jerawat, Oil Control Acne Prone,Cocok untuk Semua Jenis Kulit",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp31,832  - 219,527",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "洗面乳"
+   ],
+   "category_name": [
+    "洗面乳"
+   ],
+   "sold_count": 2276,
+   "sold_count_inc_rate": "-9.39%",
+   "sale_amount": 76209584,
+   "total_sold_count": 158545,
+   "total_sale_amount": 3784308232,
+   "aweme_count": 307,
+   "live_count": 96,
+   "author_count": 187,
+   "total_author_count": 4395,
+   "launch_time": "2026-05-25 08:40:06",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1735694259361908299?region=ID&local=en",
+   "shop_name": "eminacosmetics",
+   "page": 12
+  },
+  {
+   "product_id": "1735974422522463653",
+   "title": "【Wajib Pilih 3 Kotak 59rb】Fun Mee - Bulumata Palsu Murah Tanpa Lem Langsung Tempel | untuk penampilan Natural | Bulu Mata Eyelash Extension | Praktis Digunakan Ringan & Nyaman | 9-14mm 30-50 Klaster | Pink Comic Daisy Fairy Mermaid Virgo Butterfly",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp38,999",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "假睫毛与胶水"
+   ],
+   "category_name": [
+    "假睫毛与胶水"
+   ],
+   "sold_count": 2266,
+   "sold_count_inc_rate": "-18.46%",
+   "sale_amount": 93202846,
+   "total_sold_count": 71506,
+   "total_sale_amount": 2597496307,
+   "aweme_count": 64,
+   "live_count": 14,
+   "author_count": 63,
+   "total_author_count": 1769,
+   "launch_time": "2026-06-09 21:52:46",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1735974422522463653?region=ID&local=en",
+   "shop_name": "FunMee Beauty",
+   "page": 12
+  },
+  {
+   "product_id": "1732805663640815024",
+   "title": "[KOL] Khuyến Mãi Đặc Biệt – Mua 2 Tuýp Kem Đánh Răng làm trắng hương hoa nhài JASMEEN!Sản phẩm làm trắng răng an toàn,đem lại hơi thở thơm mát ,giảm tình trạng hôi miệng,ngăn ngừa vết ố vàng, dành cho mọi đối tượng ( 100g*2)",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "84,129 ₫  -  386,992 ₫",
+   "commission_rate": "8%",
+   "all_category_name": [
+    "美妆个护",
+    "鼻子口腔护理",
+    "牙膏"
+   ],
+   "category_name": [
+    "牙膏"
+   ],
+   "sold_count": 2263,
+   "sold_count_inc_rate": "25.93%",
+   "sale_amount": 200302656,
+   "total_sold_count": 894096,
+   "total_sale_amount": 75274245270,
+   "aweme_count": 104,
+   "live_count": 152,
+   "author_count": 148,
+   "total_author_count": 6429,
+   "launch_time": "2025-10-11 00:02:13",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1732805663640815024?region=VN&local=en",
+   "shop_name": "Jasmeen White & Fresh",
+   "page": 13
+  },
+  {
+   "product_id": "1737422918439830543",
+   "title": "BUY 1 GET 11 plus 1 pasang motif premium + 10 pasang cat eye warna solid premium,11 lembar lem dan 2 alat kikir",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp37,951",
+   "commission_rate": "-",
+   "all_category_name": [
+    "美妆个护",
+    "手足及指甲护理",
+    "美甲装饰和配饰"
+   ],
+   "category_name": [
+    "美甲装饰和配饰"
+   ],
+   "sold_count": 2260,
+   "sold_count_inc_rate": "-6.88%",
+   "sale_amount": 85769260,
+   "total_sold_count": 16139,
+   "total_sale_amount": 596419810,
+   "aweme_count": 10,
+   "live_count": 20,
+   "author_count": 10,
+   "total_author_count": 16,
+   "launch_time": "2026-09-10 01:18:25",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1737422918439830543?region=ID&local=en",
+   "shop_name": "MYS Exquisite Woman",
+   "page": 13
+  },
+  {
+   "product_id": "1736016152683841281",
+   "title": "NEW SYB【WHITENING DAY CREAM】NIACINAMIDE 10% + TRANEXAMID ACID 0,5% Tone-Up Cream For Natural Glow 10GR",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp30,063  - 76,693",
+   "commission_rate": "8%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "面部护理套装"
+   ],
+   "category_name": [
+    "面部护理套装"
+   ],
+   "sold_count": 2259,
+   "sold_count_inc_rate": "99.03%",
+   "sale_amount": 67912317,
+   "total_sold_count": 21592,
+   "total_sale_amount": 669589252,
+   "aweme_count": 53,
+   "live_count": 36,
+   "author_count": 59,
+   "total_author_count": 334,
+   "launch_time": "2026-06-20 02:41:48",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1736016152683841281?region=ID&local=en",
+   "shop_name": "SYB",
+   "page": 13
+  },
+  {
+   "product_id": "1731451183138309878",
+   "title": "Hair Serum Rambut Rontok & Kering – Melembutkan & Menumbuhkan | 20ml Serum Rambut Viral",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp16,793",
+   "commission_rate": "30%",
+   "all_category_name": [
+    "美妆个护",
+    "头部护理与造型",
+    "头发与头皮养护"
+   ],
+   "category_name": [
+    "头发与头皮养护"
+   ],
+   "sold_count": 2252,
+   "sold_count_inc_rate": "34.05%",
+   "sale_amount": 37054408,
+   "total_sold_count": 251978,
+   "total_sale_amount": 4091743523,
+   "aweme_count": 42,
+   "live_count": 20,
+   "author_count": 39,
+   "total_author_count": 1354,
+   "launch_time": "2025-05-27 14:09:30",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1731451183138309878?region=ID&local=en",
+   "shop_name": "BioEssence.id",
+   "page": 13
+  },
+  {
+   "product_id": "1734324112765716380",
+   "title": "【CRUSH BRAND DAY】JMCY - DAV Chứng Nhận - Xịt Khoá Nền Lâu Trôi 100ml – Sương Mù Siêu Mịn, Giữ Lớp Trang Điểm 24 Giờ, Chống Mồ Hôi & Kiềm Dầu, SPF25 PA++",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "62,527 ₫  -  157,906 ₫",
+   "commission_rate": "8%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "定妆喷雾"
+   ],
+   "category_name": [
+    "定妆喷雾"
+   ],
+   "sold_count": 2234,
+   "sold_count_inc_rate": "23.56%",
+   "sale_amount": 138280132,
+   "total_sold_count": 147641,
+   "total_sale_amount": 11931829823,
+   "aweme_count": 141,
+   "live_count": 63,
+   "author_count": 142,
+   "total_author_count": 5371,
+   "launch_time": "2026-02-06 03:20:31",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734324112765716380?region=VN&local=en",
+   "shop_name": "JMCY Cosmetics VN",
+   "page": 13
+  },
+  {
+   "product_id": "1731948926667163001",
+   "title": "「BPOM」PERFACE TONE UP CREAM [LAZY CREAM BRIGHTENING & WHITENING MOISTURIZING] [Radiance & Care For Skin] Moisturizer Pelembab Wajah Perawatan Mencerahkan",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp42,195  - 97,714",
+   "commission_rate": "7%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "保湿乳液、乳霜与喷雾"
+   ],
+   "category_name": [
+    "保湿乳液、乳霜与喷雾"
+   ],
+   "sold_count": 2231,
+   "sold_count_inc_rate": "56.12%",
+   "sale_amount": 97561630,
+   "total_sold_count": 607160,
+   "total_sale_amount": 22183368108,
+   "aweme_count": 190,
+   "live_count": 35,
+   "author_count": 140,
+   "total_author_count": 5870,
+   "launch_time": "2025-08-13 02:19:45",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1731948926667163001?region=ID&local=en",
+   "shop_name": "Perface Indonesia",
+   "page": 13
+  },
+  {
+   "product_id": "1732263142232921043",
+   "title": "Voyage Nova | Rosey Fruity Floral | Extrait De Parfum 50ml/100ml | Long Lasting Luxury Fragrance | Daily women's perfume Alluring Summervibes sohochic",
+   "region": "US",
+   "currency": "USD",
+   "real_price": "$30.99  - 46.79",
+   "commission_rate": "15%",
+   "all_category_name": [
+    "美妆个护",
+    "香水",
+    "女士香水"
+   ],
+   "category_name": [
+    "女士香水"
+   ],
+   "sold_count": 2224,
+   "sold_count_inc_rate": "-7.83%",
+   "sale_amount": 57824,
+   "total_sold_count": 250078,
+   "total_sale_amount": 6782306.59,
+   "aweme_count": 195,
+   "live_count": 215,
+   "author_count": 310,
+   "total_author_count": 5145,
+   "launch_time": "2026-02-10 01:20:04",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1732263142232921043?region=US&local=en",
+   "shop_name": "QAWAFI",
+   "page": 13
+  },
+  {
+   "product_id": "1733106257641309500",
+   "title": "【BPOM COD】No.1 Cyeecare Ginger Hair Care Serum 20g - Memperkuat Akar Rambut & Menambah Volume Alami - Aroma Segar - Untuk Rambut Lebih Tebal & Lembut",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp48,739  - 77,141",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "头部护理与造型",
+    "脱发产品"
+   ],
+   "category_name": [
+    "脱发产品"
+   ],
+   "sold_count": 2182,
+   "sold_count_inc_rate": "-3.32%",
+   "sale_amount": 105353506,
+   "total_sold_count": 293104,
+   "total_sale_amount": 10928297563,
+   "aweme_count": 150,
+   "live_count": 37,
+   "author_count": 142,
+   "total_author_count": 4774,
+   "launch_time": "2025-11-14 03:25:44",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1733106257641309500?region=ID&local=en",
+   "shop_name": "CyeecareOfficial",
+   "page": 13
+  },
+  {
+   "product_id": "1734547706174014855",
+   "title": "KoKei 7-in-1 Cologne Perfumed Bar | Long-Lasting Marine Cologne | Oil Control, Mite Defense, Gentle Cleanse Soap",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱100.36  - 404.81",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 2164,
+   "sold_count_inc_rate": "40.52%",
+   "sale_amount": 209172.24,
+   "total_sold_count": 42376,
+   "total_sale_amount": 3668462.5,
+   "aweme_count": 35,
+   "live_count": 1,
+   "author_count": 34,
+   "total_author_count": 1269,
+   "launch_time": "2026-03-08 03:31:43",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734547706174014855?region=PH&local=en",
+   "shop_name": "KoKei PH",
+   "page": 13
+  },
+  {
+   "product_id": "1735545818410943597",
+   "title": "【Link1 Hadiah Percuma】Teashell Serum Pemutih 5% Niacinamide & Alpha Arbutin 30ml Hilangkan Bintik Gelap, Cerahkan Kulit Kusam, Melembapkan Sepanjang Hari",
+   "region": "MY",
+   "currency": "MYR",
+   "real_price": "RM43.90",
+   "commission_rate": "6%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "面部精华液"
+   ],
+   "category_name": [
+    "面部精华液"
+   ],
+   "sold_count": 2158,
+   "sold_count_inc_rate": "71.68%",
+   "sale_amount": 99483.8,
+   "total_sold_count": 82057,
+   "total_sale_amount": 2801693.31,
+   "aweme_count": 1,
+   "live_count": 0,
+   "author_count": 1,
+   "total_author_count": 135,
+   "launch_time": "2026-05-14 00:01:46",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1735545818410943597?region=MY&local=en",
+   "shop_name": "Teashell Malaysia",
+   "page": 13
+  },
+  {
+   "product_id": "1732766220378998285",
+   "title": "OUKEYA BLINK BLINK BLUSH โอกิยะ บลิงค์ บลิงค์ บลัช บลัชออน 2 ช่อง พร้อมชิมเมอร์เพิ่มความเป็นประกายให้กับใบหน้า 2 เฉดสีในตลับเดียว",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿65.00  - 152.00",
+   "commission_rate": "15%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "腮红"
+   ],
+   "category_name": [
+    "腮红"
+   ],
+   "sold_count": 2138,
+   "sold_count_inc_rate": "-57.76%",
+   "sale_amount": 132556,
+   "total_sold_count": 1315528,
+   "total_sale_amount": 106135085.8,
+   "aweme_count": 272,
+   "live_count": 374,
+   "author_count": 427,
+   "total_author_count": 17167,
+   "launch_time": "2025-10-08 13:17:08",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1732766220378998285?region=TH&local=en",
+   "shop_name": "Oukeya Thailand Shop",
+   "page": 14
+  },
+  {
+   "product_id": "1733908821652309255",
+   "title": "[ ชุดเครื่องมือฟรี ] คลิปเล็บตาแมวสีพื้นสดใสทรงกลม, คลิปเล็บตาแมวรูดำ, คลิปเล็บเน้นความอ่อนโยนและสง่างาม, คลิปเล็บตาแมวสีไล่ระดับสว่าง, ชุดเครื่องมือฟรี",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿19.10  - 23.00",
+   "commission_rate": "12%",
+   "all_category_name": [
+    "美妆个护",
+    "手足及指甲护理",
+    "指甲油"
+   ],
+   "category_name": [
+    "指甲油"
+   ],
+   "sold_count": 2131,
+   "sold_count_inc_rate": "895.79%",
+   "sale_amount": 38997.3,
+   "total_sold_count": 43098,
+   "total_sale_amount": 1352871.7,
+   "aweme_count": 3,
+   "live_count": 6,
+   "author_count": 6,
+   "total_author_count": 139,
+   "launch_time": "2026-02-24 00:14:55",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1733908821652309255?region=TH&local=en",
+   "shop_name": "Hottie nails art",
+   "page": 14
+  },
+  {
+   "product_id": "1734501211299087390",
+   "title": "1 แถม 1  [ห่อ] Sofy โซฟี ผ้าอนามัยกลางคืน ผ้าอนามัยโซฟี ห่อละ 4 ชิ้น ยาว 29 ซม. ป้องกันการซึมเปื้อน กระชับสรีระ นุ่มสบาย",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿46.00",
+   "commission_rate": "6%",
+   "all_category_name": [
+    "美妆个护",
+    "女性私密处护理",
+    "卫生巾"
+   ],
+   "category_name": [
+    "卫生巾"
+   ],
+   "sold_count": 2130,
+   "sold_count_inc_rate": "-49.62%",
+   "sale_amount": 97980,
+   "total_sold_count": 24599,
+   "total_sale_amount": 723030.09,
+   "aweme_count": 9,
+   "live_count": 21,
+   "author_count": 22,
+   "total_author_count": 291,
+   "launch_time": "2026-03-03 19:42:46",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734501211299087390?region=TH&local=en",
+   "shop_name": "Meegoodstore",
+   "page": 14
+  },
+  {
+   "product_id": "1737375467045422828",
+   "title": "Infused Whitening Sachet 10ml || special price",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp29,621",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "化妆工具"
+   ],
+   "category_name": [
+    "化妆工具"
+   ],
+   "sold_count": 2129,
+   "sold_count_inc_rate": "29.11%",
+   "sale_amount": 61451456,
+   "total_sold_count": 7558,
+   "total_sale_amount": 187499924,
+   "aweme_count": 16,
+   "live_count": 22,
+   "author_count": 24,
+   "total_author_count": 50,
+   "launch_time": "2026-09-07 00:09:37",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1737375467045422828?region=ID&local=en",
+   "shop_name": "Drify Id",
+   "page": 14
+  },
+  {
+   "product_id": "1733644817540678968",
+   "title": "เซรั่มพริตตี้เกิร์ล 1 ถุง",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿58.00",
+   "commission_rate": "2%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "身体霜、乳"
+   ],
+   "category_name": [
+    "身体霜、乳"
+   ],
+   "sold_count": 2124,
+   "sold_count_inc_rate": "-9.04%",
+   "sale_amount": 112572,
+   "total_sold_count": 380490,
+   "total_sale_amount": 21600618.5,
+   "aweme_count": 18,
+   "live_count": 36,
+   "author_count": 39,
+   "total_author_count": 1369,
+   "launch_time": "2025-12-19 17:37:20",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1733644817540678968?region=TH&local=en",
+   "shop_name": "Pretty Girl Thailand",
+   "page": 14
+  },
+  {
+   "product_id": "1733632857358238729",
+   "title": "Sữa rửa mặt Hyaluronic Acid 60g 30g với thành phần Amino Acid làm sạch mồ hôi và dầu thừa, da vẫn ẩm mịn sau khi rửa, kiểm soát dầu nhẹ nhàng, phù hợp nhiều loại da, thích hợp cho cả nam & nữ dưỡng ẩm Hyaluronic Acid Tea Tree BHA",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "9,950 ₫  -  206,822 ₫",
+   "commission_rate": "14%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "洗面乳"
+   ],
+   "category_name": [
+    "洗面乳"
+   ],
+   "sold_count": 2119,
+   "sold_count_inc_rate": "6.8%",
+   "sale_amount": 21518445,
+   "total_sold_count": 544108,
+   "total_sale_amount": 18244530694,
+   "aweme_count": 128,
+   "live_count": 100,
+   "author_count": 133,
+   "total_author_count": 3797,
+   "launch_time": "2025-12-25 06:19:38",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1733632857358238729?region=VN&local=en",
+   "shop_name": "Y&W STORE.VN",
+   "page": 14
+  },
+  {
+   "product_id": "1729864735159781470",
+   "title": "IBS Indah Beauty Sabun Brightening untuk Pria (1pcs Hitam) Mencerahkan Wajah Mengurangi Jerawat dan Kerutan Perawatan Wajah Membersihkan  Berminyak Kusam",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp21,642",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "沐浴露与香皂"
+   ],
+   "category_name": [
+    "沐浴露与香皂"
+   ],
+   "sold_count": 2107,
+   "sold_count_inc_rate": "159.16%",
+   "sale_amount": 48286119,
+   "total_sold_count": 1345365,
+   "total_sale_amount": 27502876315.5,
+   "aweme_count": 141,
+   "live_count": 9,
+   "author_count": 84,
+   "total_author_count": 7169,
+   "launch_time": "2023-12-26 15:58:20",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729864735159781470?region=ID&local=en",
+   "shop_name": "SKINCARE IBS",
+   "page": 14
+  },
+  {
+   "product_id": "1734593080952784836",
+   "title": "[KKM] FEREENA WHITE SAKURA SOAP 10g Advance Formula",
+   "region": "MY",
+   "currency": "MYR",
+   "real_price": "RM1.70",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "洗面乳"
+   ],
+   "category_name": [
+    "洗面乳"
+   ],
+   "sold_count": 2107,
+   "sold_count_inc_rate": "-53.71%",
+   "sale_amount": 3792.6,
+   "total_sold_count": 315509,
+   "total_sale_amount": 574736.63,
+   "aweme_count": 8,
+   "live_count": 3,
+   "author_count": 8,
+   "total_author_count": 679,
+   "launch_time": "2026-03-11 10:30:18",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1734593080952784836?region=MY&local=en",
+   "shop_name": "Fereena Beauty Official",
+   "page": 14
+  },
+  {
+   "product_id": "1733587704713479830",
+   "title": "[L-GIFT]MISTINE Son Kem Bóng Pha  1.3g【Shade sent at random】",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "191,881 ₫  -  294,790 ₫",
+   "commission_rate": "-",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "口红与唇彩"
+   ],
+   "category_name": [
+    "口红与唇彩"
+   ],
+   "sold_count": 2102,
+   "sold_count_inc_rate": "272.04%",
+   "sale_amount": 448835856,
+   "total_sold_count": 201697,
+   "total_sale_amount": 37848046918,
+   "aweme_count": 0,
+   "live_count": 0,
+   "author_count": 0,
+   "total_author_count": 0,
+   "launch_time": "2025-12-19 18:38:33",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1733587704713479830?region=VN&local=en",
+   "shop_name": "MISTINE BWG VN",
+   "page": 14
+  },
+  {
+   "product_id": "1737029486986495527",
+   "title": "[ 1 pcs ] Lipstik Putar Murah & Tahan Lama - Pilihan Warna Cocok untuk Kebutuhan Anda Lipstick Liquid Waterproof Kosmetik Bibir Lipcream Lasting lip cream lipgloss",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp15,361",
+   "commission_rate": "8%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "口红与唇彩"
+   ],
+   "category_name": [
+    "口红与唇彩"
+   ],
+   "sold_count": 2100,
+   "sold_count_inc_rate": "-40.09%",
+   "sale_amount": 30145500,
+   "total_sold_count": 26400,
+   "total_sale_amount": 412604706,
+   "aweme_count": 18,
+   "live_count": 0,
+   "author_count": 12,
+   "total_author_count": 117,
+   "launch_time": "2026-08-15 00:04:00",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1737029486986495527?region=ID&local=en",
+   "shop_name": "GoldenArtha",
+   "page": 14
+  },
+  {
+   "product_id": "1735841981209806102",
+   "title": "PAKET 3 BALL MAMYPOKO TIDAK KEMBUNG PANTS S32 / M30 / L28 / XL23 / XXL20 / M54 / L48 / XL40 / XXL34",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp130,652  - 223,934",
+   "commission_rate": "-",
+   "all_category_name": [
+    "美妆个护",
+    "特殊个护",
+    "成人纸尿裤"
+   ],
+   "category_name": [
+    "成人纸尿裤"
+   ],
+   "sold_count": 2097,
+   "sold_count_inc_rate": "-11.11%",
+   "sale_amount": 303465258,
+   "total_sold_count": 119347,
+   "total_sale_amount": 12694776496,
+   "aweme_count": 49,
+   "live_count": 129,
+   "author_count": 95,
+   "total_author_count": 801,
+   "launch_time": "2026-06-04 19:42:03",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1735841981209806102?region=ID&local=en",
+   "shop_name": "SUN SUN MART",
+   "page": 15
+  },
+  {
+   "product_id": "1731333919275783013",
+   "title": "OANVA 2 in 1 facial & eyebrow hair trimmer for Women, Rechargeable Face Razor, Lip & Peach Fuzz Remover, Precision Eyebrow Shaper, Portable Painless Hair Removal Tool.",
+   "region": "US",
+   "currency": "USD",
+   "real_price": "$12.00",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "美容、个护电器",
+    "理发器"
+   ],
+   "category_name": [
+    "理发器"
+   ],
+   "sold_count": 2084,
+   "sold_count_inc_rate": "4.2%",
+   "sale_amount": 26675.2,
+   "total_sold_count": 323180,
+   "total_sale_amount": 4062350.07,
+   "aweme_count": 50,
+   "live_count": 39,
+   "author_count": 81,
+   "total_author_count": 6916,
+   "launch_time": "2025-07-10 19:04:52",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1731333919275783013?region=US&local=en",
+   "shop_name": "OANVA US",
+   "page": 15
+  },
+  {
+   "product_id": "1733897005309593308",
+   "title": "【สินค้าใหม่】MILAIขนตาปลอมกาวในตัว บาง เบา ทรงสวยจึ้ง มีครบทุกลุค เหมาะกับทุกสไตล์",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿0.57",
+   "commission_rate": "15%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "假睫毛与胶水"
+   ],
+   "category_name": [
+    "假睫毛与胶水"
+   ],
+   "sold_count": 2061,
+   "sold_count_inc_rate": "-23.72%",
+   "sale_amount": 1174.77,
+   "total_sold_count": 607652,
+   "total_sale_amount": 17992906,
+   "aweme_count": 65,
+   "live_count": 63,
+   "author_count": 92,
+   "total_author_count": 5742,
+   "launch_time": "2026-01-09 01:29:11",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1733897005309593308?region=TH&local=en",
+   "shop_name": "MilaiLashTH",
+   "page": 15
+  },
+  {
+   "product_id": "1730620339309808598",
+   "title": "Mask มาส์กหน้า แผ่นมาส์กหน้า มาส์กมาส์กบำรุงล้ำลึกให้ความชุ่มชื้น มะเขือเทศ vc แตงกวา เอสเซ้น 24k มาส์กให้ความชุ่มชื้นหลากหลายสไตล์ Skincare ใบหน้า",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿4.40  - 37.33",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "面膜"
+   ],
+   "category_name": [
+    "面膜"
+   ],
+   "sold_count": 2054,
+   "sold_count_inc_rate": "-40.7%",
+   "sale_amount": 9037.6,
+   "total_sold_count": 2643373,
+   "total_sale_amount": 11282911.4,
+   "aweme_count": 4,
+   "live_count": 24,
+   "author_count": 15,
+   "total_author_count": 2411,
+   "launch_time": "2024-07-30 06:24:41",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1730620339309808598?region=TH&local=en",
+   "shop_name": "JULUJAT SHOP",
+   "page": 15
+  },
+  {
+   "product_id": "1729383314081219708",
+   "title": "Implora Hair Color Shampoo | Shampoo Pewarna Rambut",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp12,873",
+   "commission_rate": "5%",
+   "all_category_name": [
+    "美妆个护",
+    "头部护理与造型",
+    "染发用品"
+   ],
+   "category_name": [
+    "染发用品"
+   ],
+   "sold_count": 2047,
+   "sold_count_inc_rate": "144.27%",
+   "sale_amount": 27796213,
+   "total_sold_count": 152098,
+   "total_sale_amount": 1437211744,
+   "aweme_count": 19,
+   "live_count": 9,
+   "author_count": 18,
+   "total_author_count": 155,
+   "launch_time": "2022-09-14 12:07:54",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729383314081219708?region=ID&local=en",
+   "shop_name": "Implora Cosmetics",
+   "page": 15
+  },
+  {
+   "product_id": "1731374434363409984",
+   "title": "3Pcs/Set Makeup Sponge Air Cushion Puff Super Soft Facial Flawless Foundation Powder Puff",
+   "region": "PH",
+   "currency": "PHP",
+   "real_price": "₱27.17  - 87.14",
+   "commission_rate": "10%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "粉扑"
+   ],
+   "category_name": [
+    "粉扑"
+   ],
+   "sold_count": 2041,
+   "sold_count_inc_rate": "-6.16%",
+   "sale_amount": 55311.1,
+   "total_sold_count": 202771,
+   "total_sale_amount": 6198823.56,
+   "aweme_count": 7,
+   "live_count": 7,
+   "author_count": 9,
+   "total_author_count": 1104,
+   "launch_time": "2025-05-23 13:10:03",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1731374434363409984?region=PH&local=en",
+   "shop_name": "EASY LIVE 001",
+   "page": 15
+  },
+  {
+   "product_id": "1732537757312517246",
+   "title": "【HOT】JMCY เจลเขียนคิ้วเนื้อแมตต์กำมะหยี่ ติดทนนาน 12 ชม. ลิฟติ้งขนคิ้ว คิ้วฟูเป็นธรรมชาติ บำรุงขนคิ้ว กันน้ำ กันเหงื่อ สวยคมชัด หลายเฉดสี",
+   "region": "TH",
+   "currency": "THB",
+   "real_price": "฿81.00  - 146.04",
+   "commission_rate": "12%",
+   "all_category_name": [
+    "美妆个护",
+    "美妆",
+    "眉笔&眉粉&眉胶"
+   ],
+   "category_name": [
+    "眉笔&眉粉&眉胶"
+   ],
+   "sold_count": 2018,
+   "sold_count_inc_rate": "-30.75%",
+   "sale_amount": 138414.62,
+   "total_sold_count": 708421,
+   "total_sale_amount": 55511519.14,
+   "aweme_count": 104,
+   "live_count": 71,
+   "author_count": 151,
+   "total_author_count": 8018,
+   "launch_time": "2025-09-17 10:01:34",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1732537757312517246?region=TH&local=en",
+   "shop_name": "JMCY Beauty.TH",
+   "page": 15
+  },
+  {
+   "product_id": "1729484971361928411",
+   "title": "BIOAQUA Centella Collagen Hydrating Moisturizing Refreshing Moisturizing Facial Mask (1pcs) Face Skincare",
+   "region": "MY",
+   "currency": "MYR",
+   "real_price": "RM0.58",
+   "commission_rate": "15%",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "面膜"
+   ],
+   "category_name": [
+    "面膜"
+   ],
+   "sold_count": 2012,
+   "sold_count_inc_rate": "14.84%",
+   "sale_amount": 1146.84,
+   "total_sold_count": 851639,
+   "total_sale_amount": 387154.28,
+   "aweme_count": 8,
+   "live_count": 0,
+   "author_count": 7,
+   "total_author_count": 801,
+   "launch_time": "2023-11-16 01:10:21",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729484971361928411?region=MY&local=en",
+   "shop_name": "ROREC Malaysia",
+   "page": 15
+  },
+  {
+   "product_id": "1729824018458511123",
+   "title": "Veet Pure Formula Aloe Vera & Rose Extracts Hair Removal Cream - Krim Penghilang Bulu Ketiak, Kaki dan Tangan Lembabkan Kulit Anti Iritasi Krim Perontok Bulu Efektif Hilangkan Bulu",
+   "region": "ID",
+   "currency": "IDR",
+   "real_price": "Rp32,801  - 70,712",
+   "commission_rate": "4%",
+   "all_category_name": [
+    "美妆个护",
+    "洗浴与身体护理",
+    "除毛乳、除毛蜜蜡&除毛器"
+   ],
+   "category_name": [
+    "除毛乳、除毛蜜蜡&除毛器"
+   ],
+   "sold_count": 2009,
+   "sold_count_inc_rate": "21.24%",
+   "sale_amount": 65541616,
+   "total_sold_count": 472418,
+   "total_sale_amount": 14250218591,
+   "aweme_count": 103,
+   "live_count": 18,
+   "author_count": 92,
+   "total_author_count": 4406,
+   "launch_time": "2024-09-17 05:54:46",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1729824018458511123?region=ID&local=en",
+   "shop_name": "Veet Indonesia Store",
+   "page": 15
+  },
+  {
+   "product_id": "1733508661684831318",
+   "title": "[QUÀ TẶNG] [NGẪU NHIÊN] 1 Bông Mút Rửa Mặt COLORKEY LUMINOUS",
+   "region": "VN",
+   "currency": "VND",
+   "real_price": "54,288 ₫",
+   "commission_rate": "-",
+   "all_category_name": [
+    "美妆个护",
+    "美容护肤",
+    "面部护理工具"
+   ],
+   "category_name": [
+    "面部护理工具"
+   ],
+   "sold_count": 1992,
+   "sold_count_inc_rate": "-8.46%",
+   "sale_amount": 103687584,
+   "total_sold_count": 246812,
+   "total_sale_amount": 12881585060,
+   "aweme_count": 0,
+   "live_count": 0,
+   "author_count": 0,
+   "total_author_count": 1,
+   "launch_time": "2025-12-14 01:16:49",
+   "off_shelves": 0,
+   "detail_url": "https://shop.tiktok.com/view/product/1733508661684831318?region=VN&local=en",
+   "shop_name": "COLORKEY LUMINOUS VIỆT NAM",
+   "page": 15
+  }
+ ]
+}

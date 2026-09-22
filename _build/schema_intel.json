@@ -1,0 +1,24 @@
+{
+  "title": "情报库",
+  "properties": [
+    { "name": "标题", "config": { "text": "" } },
+    { "name": "情报类型", "config": { "select": { "options": [
+      { "text": "行业趋势" }, { "text": "竞品动态" }, { "text": "法规政策" },
+      { "text": "成分技术" }, { "text": "营销玩法" }, { "text": "消费者洞察" }
+    ] } } },
+    { "name": "来源平台", "config": { "select": { "options": [
+      { "text": "小红书" }, { "text": "抖音" }, { "text": "公众号" }, { "text": "微博" },
+      { "text": "外网RSS" }, { "text": "KEV美妆圈" }, { "text": "巨量研报" }, { "text": "其他" }
+    ] } } },
+    { "name": "区域", "config": { "select": { "options": [
+      { "text": "中国" }, { "text": "韩国" }, { "text": "欧美" }, { "text": "日本" }, { "text": "其他" }
+    ] } } },
+    { "name": "状态", "config": { "select": { "options": [
+      { "text": "待筛" }, { "text": "已选" }, { "text": "已归档" }
+    ] } } },
+    { "name": "热度", "config": { "number": { "decimalPlaces": 0, "useSeparate": true } } },
+    { "name": "原文链接", "config": { "url": { "text": "原文", "link": "" } } },
+    { "name": "拆解笔记", "config": { "text": "" } },
+    { "name": "采集日期", "config": { "date": "2026-09-19T00:00:00Z" } }
+  ]
+}

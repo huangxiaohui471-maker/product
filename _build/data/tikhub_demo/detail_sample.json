@@ -1,0 +1,29 @@
+{
+  "schema_version": "creative_evidence/v1",
+  "creative_id": "douyin:7685980516650142995",
+  "platform": "douyin",
+  "canonical_url": "https://www.douyin.com/video/7685980516650142995",
+  "title": "脱发掉发严重一定要注意了，这次一定不要错过，教你一个在家就可以轻松密发的方法",
+  "author": {
+    "platform_id": "MS4wLjABAAAA7MRRsLrHVRY58wR-su_Dhh5UISaXU93pyq39JgtnhCHMSnYRw0PMCucj5qozITT6",
+    "display_name": "婷婷优选"
+  },
+  "published_at": 1789531796,
+  "metrics": {
+    "plays": null,
+    "likes": 1067,
+    "comments": 57,
+    "shares": 243,
+    "collects": 630
+  },
+  "metric_warnings": [
+    "play_count_zero_conflicts_with_positive_engagement_treated_as_unknown"
+  ],
+  "provenance": {
+    "adapter": "tikhub",
+    "adapter_version": "openapi-v5.3.2",
+    "detail_route": "share_url",
+    "failed_routes": []
+  },
+  "media_urls": []
+}

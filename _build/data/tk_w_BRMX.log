@@ -1,0 +1,14 @@
+目标 8 条｜已成功 0 条｜本轮待拉 8 条｜间隔 1.2s
+[  1/  8] ✓ MX      sold=165       score=4    rev=1       desc=3834  legal=0  DermaBelleza MX
+[  2/  8] ✓ MX      sold=171       score=4.8  rev=13      desc=1414  legal=0  HYCOSME
+[  3/  8] ✗ BR  Reparador de Pontas Gloss co   no_product_info_component
+[  4/  8] ✗ BR  Escova 5 em 1 Secador, Pente   no_product_info_component
+[  5/  8] ✗ BR  Kit 100 Unhas Postiça Almond   no_product_info_component
+[  6/  8] ✗ BR  LES LINGES  — 6 Perfumes de    no_product_info_component
+[  7/  8] ✗ BR  Kit Gel para Alongamento + T   no_product_info_component
+[  8/  8] ✗ BR  ShakeGloss Dids                no_product_info_component
+
+本轮 成功 2 / 失败 6 ｜ 耗时 356 秒
+累计成功 2 / 8 条（25%）
+有评分 2｜有评价数 2｜有描述(>50字) 2｜有店铺名 2｜有法规属性 0
+失败原因 TOP: [('no_product_info_component', 6)]

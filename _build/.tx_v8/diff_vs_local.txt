@@ -1,0 +1,93 @@
+--- 
++++ 
+@@ -3,9 +3,8 @@
+ <head>
+-
+ <meta charset="utf-8">
+-<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport">
+-<meta content="light" name="color-scheme">
+-<title data-pnid-children="289kX4NYNeGek247OBmOYL">全球选品平台</title>
++<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
++<meta name="color-scheme" content="light">
++<title>全球选品平台</title>
+ <!-- 本工作台通过 WorkBuddy「资料库」skill 搭建、存储和部署 -->
+-<style data-pnid-children="sqiMHC9QoIdhFgxHq97Ube">
++<style>
+ :root{
+@@ -424,13 +423,13 @@
+     </div>
+-    <nav class="nav" data-bind id="nav"></nav>
++    <nav class="nav" id="nav" data-bind></nav>
+     <div class="side-foot">
+-      <div class="sync"><span class="sync-dot" data-sp-bindable="database" data-sp-database-id="Hu5q2PAyW17BmdP5JPQ9os" id="syncDot"></span><span id="syncText"><span data-bind-review="1" hidden></span></span></div>
++      <div class="sync"><span class="sync-dot" id="syncDot" data-sp-bindable="database" data-sp-database-id="Hu5q2PAyW17BmdP5JPQ9os"></span><span id="syncText">初始化…</span><span data-bind-review="1" hidden></span></div>
+       <div class="side-actions">
+-        <button id="btnImport" type="button">导入数据</button>
+-        <button id="btnExport" type="button">导出</button>
++        <button type="button" id="btnImport">导入数据</button>
++        <button type="button" id="btnExport">导出</button>
+       </div>
+-      <button class="side-map" data-go="srcmap" type="button" style="width:100%; margin-top:7px; min-height:38px; border:1px solid var(--line); border-radius:9px; background:var(--surface); color:var(--blue); font-size:12.5px; font-weight:500">
++      <button type="button" class="side-map" data-go="srcmap" style="width:100%;margin-top:7px;min-height:38px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--blue);font-size:12.5px;font-weight:500">
+         数据源地图 · 各国数据从哪来
+       </button>
+-      <button id="btnOnline" type="button" style="display:none; width:100%; margin-top:7px; min-height:38px; border:0; border-radius:9px; background:var(--blue); color:#fff; font-size:12.5px; font-weight:600">
++      <button type="button" id="btnOnline" style="display:none;width:100%;margin-top:7px;min-height:38px;border:0;border-radius:9px;background:var(--blue);color:#fff;font-size:12.5px;font-weight:600">
+         打开线上版 · 云端同步
+@@ -449,5 +448,5 @@
+             <svg class="ic-s" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+-            <input autocomplete="off" id="kw" placeholder="搜索商品 / 品牌 / 成分 / 概念" type="search">
++            <input id="kw" type="search" placeholder="搜索商品 / 品牌 / 成分 / 概念" autocomplete="off">
+           </label>
+-          <button class="icon-btn" id="btnMore" title="更多操作" type="button">
++          <button type="button" class="icon-btn" id="btnMore" title="更多操作">
+             <svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="12" cy="19" r="1.4"/></svg>
+@@ -456,5 +455,5 @@
+       </div>
+-      <div class="chips" data-bind id="chips"></div>
++      <div class="chips" id="chips" data-bind></div>
+     </header>
+-    <section class="view" data-bind id="view"></section>
++    <section class="view" id="view" data-bind></section>
+   </main>
+@@ -467,3 +466,3 @@
+ 
+-<script data-pnid-children="YBhTZqjLyJkVk5eYudUZyD">
++<script>
+ /* =============================================================
+@@ -615,3 +614,3 @@
+   { n: '所属市场', t: 'select', g: '平台数据', src: 'auto', opts: ['中国', '韩国', '日本', '欧美', '东南亚'] },
+-  { n: '国家/地区', t: 'select', g: '平台数据', src: 'auto', hint: '平台原始 region，比「所属市场」大区细一级', opts: ['中国', '美国', '印度尼西亚', '泰国', '越南', '菲律宾', '马来西亚', '新加坡', '日本', '英国', '德国', '法国', '意大利', '西班牙', '巴西', '墨西哥', '奥地利', '比利时', '荷兰', '波兰', '葡萄牙'] },
++  { n: '国家/地区', t: 'select', g: '平台数据', src: 'auto', hint: '平台原始 region，比「所属市场」大区细一级', opts: ['中国', '美国', '印度尼西亚', '泰国', '越南', '菲律宾', '马来西亚', '新加坡', '日本', '英国', '德国', '法国', '意大利', '西班牙', '巴西', '墨西哥', '奥地利', '比利时', '荷兰', '波兰', '葡萄牙', '韩国'] },
+   { n: '榜单排名', t: 'text', g: '平台数据', src: 'auto' },
+@@ -688,5 +687,2 @@
+ var ONLINE = !!db;
+-var LS_KEY = 'wb_global_select_v2';
+-var LS_DRAFT = 'wb_global_select_draft';
+-
+ /* 线上版入口：本机打开的文件天然拿不到资料库通道，用它一键切到线上那一份 */
+@@ -694,2 +690,4 @@
+ var IS_LOCAL = /^(file:|https?:\/\/(127\.0\.0\.1|localhost|\[::1\]))/i.test(location.href);
++var LS_KEY = 'wb_global_select_v2';
++var LS_DRAFT = 'wb_global_select_draft';
+ 
+@@ -1505,3 +1503,3 @@
+       country: x.country, market: x.market, n: x.n,
+-      sales: x.sn ? x.sales : null,          /* 一个有销售额的都没有就显示 —，别拿 0 冒充 */
++      sales: x.sn ? x.sales : null,   /* 一条有销售额的都没有就显示 —，别拿 0 冒充 */
+       avgGrowth: ag, avgKol: ak === null ? null : Math.round(ak), topC2: tk.join(' / ') || '—'
+@@ -1901,3 +1899,3 @@
+     h += '<div class="cmp-r"><span><i class="dot" style="background:' + mktColor(cm.market) + '"></i>' + esc(cm.country) + '</span>'
+-      + '<span>' + cm.n + '</span><span>' + fmtBig(cm.sales) + (cm.sales === null ? '' : '') + '</span>'
++      + '<span>' + cm.n + '</span><span>' + fmtBig(cm.sales) + '</span>'
+       + '<span class="' + pctCls(cm.avgGrowth) + '">' + fmtPct(cm.avgGrowth === null ? null : Math.round(cm.avgGrowth * 10) / 10) + '</span>'
+@@ -2861,2 +2859,4 @@
+   openModal('数据管理', body, foot);
++  var bO2 = $('#btnOnline2');
++  if (bO2) bO2.addEventListener('click', function () { window.open(ONLINE_URL, '_blank'); });
+   $('#btnJson').addEventListener('click', function () {
+@@ -2878,4 +2878,2 @@
+   $('#btnClearDemo').addEventListener('click', clearDemo);
+-  var bO2 = $('#btnOnline2');
+-  if (bO2) bO2.addEventListener('click', function () { window.open(ONLINE_URL, '_blank'); });
+ }

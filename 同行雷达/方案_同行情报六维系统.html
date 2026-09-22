@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>同行情报六维系统 · 方案</title>
+<style>
+:root{
+  --bg:#f6f7f9; --card:#ffffff; --line:#e3e6ea; --tx:#1c1f24; --tx2:#5d6675;
+  --accent:#2f6fed; --accent-soft:#eaf1fe;
+  --ok:#1f9d63; --ok-soft:#e7f6ee;
+  --warn:#b8730b; --warn-soft:#fdf3e3;
+  --stop:#c0392b; --stop-soft:#fdecea;
+  --lan1:#2f6fed; --lan2:#7a4ecd;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+  font:15.5px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1020px;margin:0 auto;padding:44px 26px 90px}
+h1{font-size:30px;line-height:1.3;margin:0 0 10px;letter-spacing:-.4px}
+h2{font-size:20px;margin:52px 0 14px;padding-top:22px;border-top:1px solid var(--line);letter-spacing:-.2px}
+h2:first-of-type{border-top:0;padding-top:0}
+h3{font-size:16px;margin:26px 0 8px}
+h4{font-size:15px;margin:22px 0 6px;color:var(--tx2)}
+p{margin:10px 0}
+.lede{font-size:16.5px;color:var(--tx2);margin:0 0 6px}
+.meta{color:var(--tx2);font-size:13.5px;margin-bottom:30px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:16px 0}
+.card.tight{padding:16px 18px}
+.grid{display:grid;gap:14px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:760px){.g3,.g2,.g4{grid-template-columns:1fr}}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+.kpi .v{font-size:22px;font-weight:650;letter-spacing:-.5px}
+.kpi .l{color:var(--tx2);font-size:13px;margin-top:2px}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px;
+  background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:#f0f2f5;font-size:13.5px;font-weight:620;color:#38414f;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.num{white-space:nowrap;font-variant-numeric:tabular-nums}
+.tg{display:inline-block;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:600;
+  background:#eef1f5;color:#4a5464;margin-right:5px;white-space:nowrap}
+.tg.a{background:var(--accent-soft);color:var(--accent)}
+.tg.b{background:#f1eafe;color:var(--lan2)}
+.tg.ok{background:var(--ok-soft);color:var(--ok)}
+.tg.warn{background:var(--warn-soft);color:var(--warn)}
+.tg.stop{background:var(--stop-soft);color:var(--stop)}
+.mut{color:var(--tx2);font-size:13px}
+ul,ol{margin:10px 0;padding-left:22px}
+li{margin:5px 0}
+code{background:#eef1f5;padding:1.5px 6px;border-radius:5px;font-size:13.5px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.flow .step{background:var(--card);border:1px solid var(--line);border-radius:9px;
+  padding:8px 12px;font-size:13.5px;font-weight:560}
+.flow .arw{color:var(--tx2);font-size:13px}
+.diag{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;margin:18px 0;overflow-x:auto}
+.diag svg{display:block;min-width:840px;width:100%;height:auto}
+.note{border-left:3px solid var(--accent);background:var(--accent-soft);
+  border-radius:0 9px 9px 0;padding:12px 16px;margin:16px 0;font-size:14.5px}
+.note.warn{border-left-color:var(--warn);background:var(--warn-soft)}
+.note.stop{border-left-color:var(--stop);background:var(--stop-soft)}
+.note b{font-weight:650}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);
+  color:var(--tx2);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>同行情报六维系统 · 方案</h1>
+<p class="lede">每天自动跑一遍，把「同行的账号与素材、小红书种草、TikTok 海外内容、竞品卖点、人群痛点、销量」六路信息汇成一份可判读的榜单。<b>机器负责取数与出报告，你只做判断。</b></p>
+<div class="meta">品赫功效护肤研究院 · 兰本 / 兰至 ｜ 建版 2026-09-20 ｜ 对应交付物：<code>同行雷达/对标榜单_&lt;日期&gt;.html</code> + 12 份 CSV</div>
+
+<div class="grid g4">
+  <div class="kpi"><div class="v">6</div><div class="l">路取数维度</div></div>
+  <div class="kpi"><div class="v">2</div><div class="l">条取数通道</div></div>
+  <div class="kpi"><div class="v">~15<span style="font-size:14px">分钟</span></div><div class="l">全链路自动运行</div></div>
+  <div class="kpi"><div class="v">&lt; $0.6</div><div class="l">每天 API 成本</div></div>
+</div>
+
+<h2>一、为什么这样设计</h2>
+
+<div class="grid g3">
+  <div class="card tight">
+    <h4 style="margin-top:0">① 网页连不上平台</h4>
+    <p class="mut" style="margin:0">罗盘、蝉妈妈、FastMoss 都有跨域限制 + 登录态 + 反爬，网页本身<b>不可能</b>直接调它们的接口。唯一可行的形态是：在已登录的浏览器侧取数 → 落成结构化数据 → 看板读取。</p>
+  </div>
+  <div class="card tight">
+    <h4 style="margin-top:0">② 每路数据只回答一个问题</h4>
+    <p class="mut" style="margin:0">「谁在起量」和「该抄谁」是两件事；「高赞」和「能卖」更是两件事。所以每维只绑定一个决策问题，且明确标注它是平台预估还是平台实测。</p>
+  </div>
+  <div class="card tight">
+    <h4 style="margin-top:0">③ 人要的是结论不是数据</h4>
+    <p class="mut" style="margin:0">没有判读的看板等于没有。<b>报告必须能直接回答</b>：今天先拆哪条、先拍什么、哪个卖点值得试。做不到就说明报告没做完。</p>
+  </div>
+</div>
+
+<h2>二、系统架构</h2>
+
+<p>两通道、六采集器、一个报告引擎。上游是取数，下游是判读，中间不做人工搬运。</p>
+
+<div class="diag">
+<svg viewBox="0 0 900 470" role="img" aria-label="六维同行情报系统架构图">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9aa3b2"/>
+    </marker>
+  </defs>
+
+  <!-- 通道 1 -->
+  <rect x="16" y="30" width="404" height="212" rx="12" fill="#f2f6ff" stroke="#2f6fed" stroke-width="1.4"/>
+  <text x="34" y="56" font-size="15" font-weight="700" fill="#2f6fed">通道 A · TikHub 免登录接口</text>
+  <text x="34" y="76" font-size="12.5" fill="#5d6675">约 $0.002/次 · 需 token · 串行 + 间隔，防隐性限流</text>
+
+  <rect x="34" y="92" width="180" height="58" rx="9" fill="#ffffff" stroke="#c7d6f5"/>
+  <text x="48" y="115" font-size="13.5" font-weight="600" fill="#1c1f24">抖音 · 账号与视频</text>
+  <text x="48" y="134" font-size="12" fill="#5d6675">挂了车的带货内容</text>
+
+  <rect x="222" y="92" width="180" height="58" rx="9" fill="#ffffff" stroke="#c7d6f5"/>
+  <text x="236" y="115" font-size="13.5" font-weight="600" fill="#1c1f24">小红书 · 笔记与账号</text>
+  <text x="236" y="134" font-size="12" fill="#5d6675">不挂车也能起量</text>
+
+  <rect x="34" y="160" width="180" height="58" rx="9" fill="#ffffff" stroke="#c7d6f5"/>
+  <text x="48" y="183" font-size="13.5" font-weight="600" fill="#1c1f24">TikTok · 海外内容</text>
+  <text x="48" y="202" font-size="12" fill="#5d6675">欧美 / 东南亚，内容侧</text>
+
+  <rect x="222" y="160" width="180" height="58" rx="9" fill="#ffffff" stroke="#c7d6f5"/>
+  <text x="236" y="183" font-size="13.5" font-weight="600" fill="#1c1f24">TikTok Shop · 商品</text>
+  <text x="236" y="202" font-size="12" fill="#5d6675">卖点原文 / 成分 / 销量</text>
+
+  <!-- 通道 2 -->
+  <rect x="480" y="30" width="404" height="212" rx="12" fill="#f7f3ff" stroke="#7a4ecd" stroke-width="1.4"/>
+  <text x="498" y="56" font-size="15" font-weight="700" fill="#7a4ecd">通道 B · 浏览器（已登录态）</text>
+  <text x="498" y="76" font-size="12.5" fill="#5d6675">需 webbridge 在线 · 同源直连 + 读渲染表</text>
+
+  <rect x="498" y="92" width="180" height="58" rx="9" fill="#ffffff" stroke="#d9cbf5"/>
+  <text x="512" y="115" font-size="13.5" font-weight="600" fill="#1c1f24">蝉妈妈 · 人群痛点</text>
+  <text x="512" y="134" font-size="12" fill="#5d6675">用户原话 + 关联曝光销量</text>
+
+  <rect x="686" y="92" width="180" height="58" rx="9" fill="#ffffff" stroke="#d9cbf5"/>
+  <text x="700" y="115" font-size="13.5" font-weight="600" fill="#1c1f24">蝉妈妈 · 销量榜</text>
+  <text x="700" y="134" font-size="12" fill="#5d6675">抖音美妆在榜商品</text>
+
+  <rect x="498" y="160" width="368" height="58" rx="9" fill="#ffffff" stroke="#d9cbf5" stroke-dasharray="5 4"/>
+  <text x="512" y="183" font-size="13.5" font-weight="600" fill="#1c1f24">待接入：韩国 Olive Young / Hwahae · 小红书商品搜索 · FastMoss</text>
+  <text x="512" y="202" font-size="12" fill="#5d6675">已有可行通道，按需扩，不改架构</text>
+
+  <!-- 汇聚 -->
+  <line x1="218" y1="242" x2="218" y2="286" stroke="#9aa3b2" stroke-width="1.4" marker-end="url(#ar)"/>
+  <line x1="682" y1="242" x2="682" y2="286" stroke="#9aa3b2" stroke-width="1.4" marker-end="url(#ar)"/>
+
+  <rect x="120" y="292" width="660" height="62" rx="11" fill="#ffffff" stroke="#c9ced8"/>
+  <text x="450" y="316" font-size="14.5" font-weight="700" fill="#1c1f24" text-anchor="middle">归一化 JSON（每维一个文件，带采集时间与失败清单）</text>
+  <text x="450" y="337" font-size="12.5" fill="#5d6675" text-anchor="middle">不确定的口径一律留空并标注，不拿 0 冒充；缺数据要写明「这次没取到」</text>
+
+  <line x1="450" y1="354" x2="450" y2="386" stroke="#9aa3b2" stroke-width="1.4" marker-end="url(#ar)"/>
+
+  <rect x="200" y="392" width="500" height="60" rx="11" fill="#eaf1fe" stroke="#2f6fed" stroke-width="1.4"/>
+  <text x="450" y="416" font-size="14.5" font-weight="700" fill="#2f6fed" text-anchor="middle">报告引擎 → 7 板块看板 + 12 份 CSV</text>
+  <text x="450" y="436" font-size="12.5" fill="#5d6675" text-anchor="middle">每行带「为什么值得看」；结论置顶；增量比对（只讲新出现的）</text>
+</svg>
+</div>
+
+<h2>三、六路取数：每维回答一个问题，交出一个动作</h2>
+
+<table>
+<thead><tr><th>维度</th><th>回答什么</th><th>通道</th><th>交出什么动作</th></tr></thead>
+<tbody>
+<tr>
+  <td><span class="tg a">抖音</span>账号与视频</td>
+  <td>谁在起量？该抄哪条？</td>
+  <td class="mut">TikHub 抖音</td>
+  <td>3–5 条可拆解素材（作者、数据、可借的机制）+ 拆解优先级</td>
+</tr>
+<tr>
+  <td><span class="tg a">小红书</span>种草笔记</td>
+  <td>内容型账号在讲什么干货？</td>
+  <td class="mut">TikHub 小红书</td>
+  <td><b>收藏 &gt; 点赞</b>的笔记标题原文 → 改造成自家科普内容的切入点</td>
+</tr>
+<tr>
+  <td><span class="tg a">TikTok</span> 海外内容</td>
+  <td>欧美 / 东南亚谁在拍、怎么拍？</td>
+  <td class="mut">TikHub TikTok</td>
+  <td>低粉高赞账号 + 前 3 条的<b>选题结构</b>（看结构不看话术，话术要重写成当地语言）</td>
+</tr>
+<tr>
+  <td><span class="tg a">商品</span>卖点与成分</td>
+  <td>同行在卖什么、卖点怎么讲？</td>
+  <td class="mut">TikHub TikTok Shop</td>
+  <td><b>共识卖点</b>（要跟）与<b>空白卖点</b>（差异化切入口）分开说</td>
+</tr>
+<tr>
+  <td><span class="tg b">人群</span>痛点</td>
+  <td>用户自己说出来的问题是什么？</td>
+  <td class="mut">浏览器 / 蝉妈妈</td>
+  <td>可直接用的<b>标题句与前 3 秒开场句</b>（用户原话，不改写成行业术语）</td>
+</tr>
+<tr>
+  <td><span class="tg b">销量</span>榜</td>
+  <td>这个赛道一天能卖多少？结构是啥？</td>
+  <td class="mut">浏览器 / 蝉妈妈</td>
+  <td>赛道容量与结构（昨日 / 直播 / 视频），判断「值不值得进」</td>
+</tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>人群痛点这一维是最值钱的。</b>它不是我们猜的词，是平台上海量真实出现、带曝光与成交的表述。实测美妆护肤第一是「卡粉」（关联 86 条视频、470w+ 曝光、1.8 万销量），后面是脱妆、皮肤干燥、毛孔粗大、暗沉、黑眼圈 —— 这些直接就是选题标题和前 3 秒开场句。
+</div>
+
+<h3>各维实测规模（2026-09-20 首次全线跑通）</h3>
+<table>
+<thead><tr><th>维度</th><th>输入</th><th>产出</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>抖音账号与视频</td><td class="num">52 个中文词</td><td class="num">23,233 条视频 → 663 个过门槛账号</td><td><span class="tg ok">真实</span></td></tr>
+<tr><td>小红书种草</td><td class="num">6 个中文词</td><td class="num">106 条笔记 → 102 个账号</td><td><span class="tg ok">真实</span></td></tr>
+<tr><td>TikTok 海外内容</td><td class="num">6 个英文词 × region=US</td><td class="num">120 条视频 → 111 个账号（US 占 59）</td><td><span class="tg ok">真实</span></td></tr>
+<tr><td>商品卖点与成分</td><td class="num">35 词 × 4 区域</td><td class="num">2,710 个在售商品</td><td><span class="tg ok">真实</span></td></tr>
+<tr><td>人群痛点</td><td class="mut">蝉妈妈内容策略接口</td><td class="num">2,509 个痛点词</td><td><span class="tg ok">真实</span></td></tr>
+<tr><td>销量榜</td><td class="mut">蝉妈妈商品榜 · 美妆护肤</td><td class="num">50 条在榜商品</td><td><span class="tg ok">真实</span></td></tr>
+</tbody>
+</table>
+<p class="mut">新增两条通道（小红书、TikTok 内容侧）都做过交叉验证：拿一个绝不可能存在的词去搜，返回 0 条或完全不同的内容才算真搜索。小红书「早C晚A」vs「混凝土配合比」交集 ≤1/20；TikTok「niacinamide serum」vs「ztqqxx987concrete」交集 0/20。</p>
+
+<h2>四、每天怎么跑</h2>
+
+<div class="flow">
+  <span class="step">① 抖音账号视频</span><span class="arw">→</span>
+  <span class="step">② 深度甄别</span><span class="arw">→</span>
+  <span class="step">③ 小红书种草</span><span class="arw">→</span>
+  <span class="step">④ TikTok 海外内容</span><span class="arw">→</span>
+  <span class="step">⑤ 商品卖点成分</span><span class="arw">→</span>
+  <span class="step">⑥ 人群痛点 + 销量</span><span class="arw">→</span>
+  <span class="step">⑦ 评论热词</span><span class="arw">→</span>
+  <span class="step" style="border-color:#2f6fed;color:#2f6fed">出报告</span>
+</div>
+
+<table>
+<thead><tr><th>环节</th><th>内容</th><th>耗时</th><th>失败时</th></tr></thead>
+<tbody>
+<tr><td>① 抖音</td><td>52 词视频池 → 账号聚合 → 门槛过滤</td><td class="num">约 5 分钟</td><td>token 失效 → 提示换 token，不重试</td></tr>
+<tr><td>② 深挖</td><td>Top 12 账号拉全量作品，算<b>美妆占比</b>与爆款率</td><td class="num">约 1 分钟</td><td>单账号失败跳过</td></tr>
+<tr><td>③ 小红书</td><td>12 词笔记搜索（串行 6 秒间隔）</td><td class="num">约 1.5 分钟</td><td>单词失败跳过，注明哪个词没取到</td></tr>
+<tr><td>④ TikTok</td><td>24 个英文词内容搜索（串行 7 秒间隔）</td><td class="num">约 3 分钟</td><td>同上；US 占比 &lt;30% 要如实说明</td></tr>
+<tr><td>⑤ 商品</td><td>35 词 × 4 区域搜索 → 30 个详情 → 卖点抽取</td><td class="num">约 3 分钟</td><td>详情跨区取不到 → 换所属区域</td></tr>
+<tr><td>⑥ 人群销量</td><td>痛点词 + 商品榜（浏览器通道）</td><td class="num">约 2 分钟</td><td>webbridge 不在线 → 两节标注缺失，其余照常</td></tr>
+<tr><td>⑦ 评论热词</td><td>Top 12 账号的热评词（过停用词表）</td><td class="num">约 1 分钟</td><td>跳过</td></tr>
+<tr><td>出报告</td><td>7 板块看板 + 12 份 CSV</td><td class="num">秒级</td><td>—</td></tr>
+</tbody>
+</table>
+
+<p class="mut">已配置为<b>每日 09:00 自动执行</b>，产出直接落在项目 <code>同行雷达/</code> 目录，文件名带当天日期。你早上打开就能看，不需要记命令。</p>
+
+<h2>五、判读纪律（报告之外最重要的部分）</h2>
+
+<h3>三层看：从榜单到动作</h3>
+<ol>
+  <li><b>谁在起量。</b>只看排序和量级，形成「这个赛道最近热什么」的直觉。看完就往下走，<b>不要停在这里做结论</b>。</li>
+  <li><b>这个号值不值得学。</b>榜首经常不是本行业账号 —— 萌娃号、情绪号、AI 动画号靠一条产品植入就能冲进来（实测 Top10 里 6 个美妆占比不到 30%）。所以必须看深挖后的「美妆占比」与爆款率，再决定是「系统学这个号」还是「只学那一条的结构」。</li>
+  <li><b>这个机制能不能借到本业务。</b>判断标准就一句话：<b>这条能不能拍</b>。要说清可借的是哪一层（开场方式 / 信息结构 / 证明手法 / 画面节奏 / 表达口径），以及哪些不能照搬（人物、产品事实、效果承诺、场景）。只说「值得参考」等于没给结论。</li>
+</ol>
+
+<h3>每天必须做的增量比对</h3>
+<p>雷达是每天跑的，<b>把昨天给过的账号和素材再推荐一遍等于没做事</b>。出报告前与上一期比：新出现的优先讲；明显变化的讲清方向和原因；已推荐过的一句话带过；无法确认是「新」还是「上次漏了」时，如实说「这期首次出现」，不硬说是新增趋势。</p>
+
+<h3>口径红线</h3>
+<ul>
+  <li><b>高赞 ≠ 起量 ≠ 转化好。</b>公开热度、供应商估算、真实广告后台三者分开，不混着说。</li>
+  <li><b>商品销量与人群痛点是平台预估数据</b>，用于量级与趋势判断，不作财务口径。</li>
+  <li><b>多币种不折算。</b>海外销售额一律显示「—」，不拿 0 冒充；原币种数值写进笔记。</li>
+  <li><b>不确定的字段留空并标注</b>，宁可少一个数，不要多一个假数。</li>
+</ul>
+
+<h2>六、边界与已知缺口</h2>
+
+<table>
+<thead><tr><th>缺口</th><th>影响</th><th>应对</th></tr></thead>
+<tbody>
+<tr><td>抖音通道只覆盖<b>挂了商品</b>的视频</td><td>纯知识科普号（不挂车）收录很少</td><td>由小红书维补位（不挂车也能起量）；需要时走浏览器搜抖音搜索页</td></tr>
+<tr><td>TikTok 内容侧 <code>region</code> 是排序倾向不是过滤器</td><td>要美国也会混进菲/加/英内容</td><td>报告里给出真实地区分布，按 region 列自行筛</td></tr>
+<tr><td>TikTok Shop 评价<b>文本</b>拿不到（服务端 400）</td><td>只有评分与评价条数，没有差评内容</td><td>评价内容改走浏览器通道另取（待接入）</td></tr>
+<tr><td>韩国市场（Olive Young / Hwahae）没有销量口径</td><td>韩国只给成分、评分、评价数、榜位</td><td>如实标注「无销量数据」，不把缺数据说成没热度</td></tr>
+<tr><td>商品搜索 ID / GB 恒为 0 条</td><td>印尼、英国商品侧取不到</td><td>印尼走浏览器侧；已写进脚本常量，不会白跑</td></tr>
+<tr><td>小红书笔记搜索不带作者粉丝数</td><td>账号榜无法按粉丝分层</td><td>改按<b>代表作热度</b>排序，并在报告里说明口径</td></tr>
+</tbody>
+</table>
+
+<div class="note stop">
+<b>一件必须讲清的事：</b>网页<strong>本身</strong>不可能自己去连罗盘、蝉妈妈、FastMoss —— 跨域限制、登录态、反爬三重拦截。所以「在线搜线上数据」的正确形态是<b>取数入库</b>：由已登录的浏览器把数据取下来，落成结构化文件，再看板读取。这不是绕路，是唯一通路。
+</div>
+
+<h2>七、怎么扩（架构已留好位置）</h2>
+
+<table>
+<thead><tr><th>要补什么</th><th>通道</th><th>代价</th></tr></thead>
+<tbody>
+<tr><td>韩国成分 / 榜位（Olive Young、Hwahae）</td><td>浏览器</td><td>新增 1 个适配器，不动架构</td></tr>
+<tr><td>小红书商品侧（含价格、店铺）</td><td>TikHub（已验证可用）</td><td>1 个命令即可接</td></tr>
+<tr><td>TikTok 差评原文</td><td>浏览器</td><td>新增 1 个采集器；TikTok Shop 接口侧服务端不可用</td></tr>
+<tr><td>FastMoss 东南亚 / 欧美榜单</td><td>浏览器（已登录）</td><td>与蝉妈妈同构，复用现有解析框架</td></tr>
+<tr><td>更多国家的内容侧</td><td>TikHub TikTok</td><td>换 <code>--region</code> 或换词表，零开发</td></tr>
+</tbody>
+</table>
+
+<h2>八、等你拍板的四件事</h2>
+<p class="mut">遇到相关任务我会问你，不替你定。定了就写进系统，以后自动执行。</p>
+<ol>
+  <li><b>海外价格折算</b>：用哪个汇率、是否含税？现在一律不折算。</li>
+  <li><b>环比周期</b>：取 30 天还是 90 天？是否剔除大促假峰值？</li>
+  <li><b>「与我方 SKU 重合」的基准</b>：按兰本、兰至还是合并产品线算？</li>
+  <li><b>退货率类字段的替代方案</b>：三平台榜单都不给退货率，用什么替代判断「卖得虚不虚」？</li>
+</ol>
+
+<h2>九、你现在会拿到什么</h2>
+<div class="grid g2">
+  <div class="card tight">
+    <h4 style="margin-top:0">一份看板（单文件 HTML）</h4>
+    <p class="mut" style="margin:0">7 个板块、零外链、手机上也能看：对标素材 → 对标账号 → 小红书种草 → TikTok 海外内容 → 卖点分布 → 人群痛点 → 热销商品榜。</p>
+  </div>
+  <div class="card tight">
+    <h4 style="margin-top:0">12 份 CSV</h4>
+    <p class="mut" style="margin:0">能直接进表格做二次分析：素材榜、账号榜、账号深挖、小红书种草榜 / 账号榜、TikTok 素材榜 / 账号榜、卖点分布、成分分布、人群痛点榜、抖音热销商品榜、TikTok 商品榜。</p>
+  </div>
+</div>
+
+<footer>
+本方案由 <code>run-work-flywheel</code> 技能承载；取数适配器位于 <code>scripts/adapters/</code>，命令级说明见项目内 <code>同行雷达/README.md</code>，判读纪律见技能内 <code>plugins/content/daily-radar.md</code>。<br>
+所有通道均经交叉验证，不可信的端点写在脚本常量里、永不被调用。<br>
+建版 2026-09-20 · 六维首次全线跑通。
+</footer>
+
+</div>
+</body>
+</html>

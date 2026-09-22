@@ -1,0 +1,95 @@
+{
+ "probe_date": "2026-09-20",
+ "endpoint_base": "https://api.tikhub.io",
+ "key": {
+  "name": "workbuddy",
+  "scopes": 70,
+  "has_shop_scope": true
+ },
+ "detail_v3_path": "data.product_data.page_config.components_map[component_type=product_info].component_data",
+ "fields": {
+  "name": "product_info.product_model.name",
+  "description": "product_info.product_model.description",
+  "sold_count": "product_info.product_model.sold_count",
+  "score": "product_info.review_model.product_overall_score",
+  "review_count": "product_info.review_model.product_review_count",
+  "shop_name": "product_info.seller_model.shop_name",
+  "category": "product_info / category_info.recommended_categories",
+  "shop_sold": "shop_info.sold_count",
+  "shop_reviews": "shop_info.review_count",
+  "shop_followers": "shop_info.followers_count"
+ },
+ "search_fields": {
+  "product_id": "products[].product_id",
+  "title": "products[].title",
+  "price": "products[].product_price_info.sale_price_decimal + currency_name",
+  "score": "products[].rate_info.score",
+  "review_count": "products[].rate_info.review_count",
+  "sold": "products[].sold_info.sold_count",
+  "shop": "products[].seller_info.shop_name",
+  "url": "products[].seo_url.canonical_url"
+ },
+ "region_support": {
+  "detail_v3_ok": [
+   "US",
+   "ID",
+   "VN",
+   "MY",
+   "TH",
+   "PH",
+   "JP"
+  ],
+  "detail_v3_fail": [
+   "BR",
+   "MX",
+   "GB"
+  ],
+  "search_ok": [
+   "US",
+   "TH",
+   "MY",
+   "PH",
+   "VN",
+   "SG"
+  ],
+  "search_empty": [
+   "GB",
+   "ID",
+   "JP",
+   "KR",
+   "DE",
+   "FR"
+  ]
+ },
+ "blocked": {
+  "fetch_product_reviews_v2": "HTTP 400 服务端持续失败（文档称 2-3 小时恢复），商品评论/差评关键词暂时拿不到",
+  "fetch_products_by_category_id": "HTTP 400，同类目批量拉取受阻（可用搜索接口替代）",
+  "korea": "1048 个端点中无任何韩国电商接口（Olive Young/Coupang/Naver/Hwahae 全无）",
+  "douyin_product": "抖音无商品详情端点，110 条中国记录无法用 TikHub 补详情"
+ },
+ "verified_samples": [
+  {
+   "pid": "1732052189676081387",
+   "region": "US",
+   "name": "[medicube] Smooth & Clear Body Care Set",
+   "sold": 293776,
+   "score": 4.6,
+   "reviews": 15735,
+   "shop": "medicube US Store",
+   "cat": "601450/849160/601490"
+  },
+  {
+   "pid": "1735304940106318937",
+   "region": "ID",
+   "name": "JJ Glow Sabun Gluta Pink",
+   "sold": 1298355,
+   "score": 4.8,
+   "reviews": 126061
+  },
+  {
+   "pid": "1732040887684207228",
+   "region": "US",
+   "name": "[Sungboon] EGF Night Moisturizer"
+  }
+ ]
+}

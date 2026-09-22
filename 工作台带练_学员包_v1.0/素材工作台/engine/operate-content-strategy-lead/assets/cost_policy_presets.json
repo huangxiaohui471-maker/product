@@ -1,0 +1,33 @@
+{
+  "schema_version": "cost_policy_presets/v1",
+  "presets": {
+    "observe": {
+      "daily_budget_usd": 0.2,
+      "max_search_per_day": 20,
+      "max_detail_per_day": 30,
+      "max_downloads_per_run": 5,
+      "max_comments_per_day": 0,
+      "target_output": "3-5条新候选，1-2条深度拆解",
+      "fit": "个人IP、小团队、低频观察"
+    },
+    "operate": {
+      "daily_budget_usd": 1.5,
+      "max_search_per_day": 50,
+      "max_detail_per_day": 100,
+      "max_downloads_per_run": 20,
+      "max_comments_per_day": 10,
+      "target_output": "10-20条有效候选，3-5条深度拆解",
+      "fit": "常规电商、招生、本地生活内容团队"
+    },
+    "research": {
+      "daily_budget_usd": 5.0,
+      "max_search_per_day": 150,
+      "max_detail_per_day": 300,
+      "max_downloads_per_run": 60,
+      "max_comments_per_day": 30,
+      "target_output": "30-60条候选，10-20条深度拆解与专题比较",
+      "fit": "多品牌、代理商、集中研究日"
+    }
+  },
+  "note": "USD is the API ledger currency, not a promised daily spend. YouNavi and model costs remain separate until measured."
+}

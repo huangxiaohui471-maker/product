@@ -1,0 +1,30 @@
+# === 敏感凭据：绝不上传 ===
+_build/secrets/
+**/secrets/
+*.key
+*.pem
+*.token
+
+# === WorkBuddy 本地记忆与项目元数据（含会话上下文，非交付物） ===
+.workbuddy/
+
+# === 中间产物 / 缓存 / 日志 ===
+_build/data/ai_cache*.json
+_build/data/ai_test.json
+_build/data/*_backup.html
+_build/data/tikhub_openapi.json
+_build/logs/
+_build/runs/
+_build/shots_v10/
+_build/shots_v11/
+_build/.page_tmp/
+_build/.tx_v8/
+_build/eyeoil/corpus/
+_build/*.png
+_build/*.txt
+_build/data/*.png
+_build/data/*.txt
+
+# === macOS ===
+.DS_Store
+*.swp

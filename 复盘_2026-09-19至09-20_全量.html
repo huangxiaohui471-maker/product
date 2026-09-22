@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>全量复盘 · 2026-09-19 ~ 09-20</title>
+<style>
+:root{
+  --ink:#16181d; --ink2:#3d424b; --sub:#6b7280; --faint:#9aa1ac;
+  --bg:#f5f6f8; --card:#ffffff; --line:#e7e9ee; --line2:#eff1f5;
+  --rose:#a8404f; --rose-bg:#fdf2f4; --rose-line:#f2dde1;
+  --green:#2f7a54; --green-bg:#eff8f3;
+  --amber:#9a6a12; --amber-bg:#fdf6e8;
+  --blue:#2b5f8f; --blue-bg:#eff5fb;
+  --violet:#5c4b8a; --violet-bg:#f3f1fa;
+  --sh1:0 1px 2px rgba(20,24,35,.05);
+  --sh2:0 4px 16px rgba(20,24,35,.06);
+  --r:12px; --r-lg:18px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font:15px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-variant-numeric:tabular-nums;
+  padding-bottom:calc(48px + env(safe-area-inset-bottom));
+}
+a{color:var(--blue);text-decoration:none}
+a:active{opacity:.6}
+.wrap{max-width:1000px;margin:0 auto;padding:0 18px}
+
+/* ---------- hero ---------- */
+.hero{
+  background:linear-gradient(150deg,#1b1c22 0%,#2a2230 55%,#3a2630 100%);
+  color:#f4f2f0;padding:38px 0 34px;margin-bottom:26px;
+}
+.hero .wrap{padding:0 22px}
+.hero .eyebrow{
+  font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:#c9a7ad;margin:0 0 12px;
+}
+.hero h1{margin:0 0 10px;font-size:27px;line-height:1.35;font-weight:650;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;background:linear-gradient(92deg,#f0b8bf,#f6d9a8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{margin:0;color:#b9b4b9;font-size:13.5px;line-height:1.7;max-width:74ch}
+.hero .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+.hero .stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:12px 13px}
+.hero .stat b{display:block;font-size:21px;font-weight:650;color:#fff;letter-spacing:-.02em;line-height:1.2}
+.hero .stat span{display:block;font-size:11.5px;color:#a9a3aa;margin-top:5px}
+
+/* ---------- section ---------- */
+section{margin:0 0 30px}
+h2{
+  font-size:18.5px;font-weight:640;margin:0 0 4px;letter-spacing:-.01em;
+  display:flex;align-items:baseline;gap:10px;
+}
+h2 .no{
+  font-size:12px;font-weight:600;color:var(--rose);background:var(--rose-bg);
+  border:1px solid var(--rose-line);border-radius:6px;padding:2px 7px;flex:none;
+  transform:translateY(-1px);
+}
+h2+h3,h2+.lead{margin-top:8px}
+.lead{color:var(--sub);font-size:13.5px;margin:0 0 14px;max-width:82ch}
+h3{font-size:15px;font-weight:640;margin:20px 0 8px}
+h4{font-size:13.5px;font-weight:620;margin:16px 0 6px;color:var(--ink2)}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh1);padding:18px 20px;margin:0 0 14px}
+.card>*:first-child{margin-top:0}
+.card>*:last-child{margin-bottom:0}
+.card h3{margin-top:0}
+
+/* ---------- table ---------- */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -2px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:560px}
+th{
+  text-align:left;font-weight:600;color:var(--sub);font-size:11.5px;
+  letter-spacing:.04em;padding:8px 10px;border-bottom:1px solid var(--line);
+  white-space:nowrap;background:#fafbfc;
+}
+td{padding:9px 10px;border-bottom:1px solid var(--line2);vertical-align:top;color:var(--ink2);line-height:1.6}
+tr:last-child td{border-bottom:0}
+td.k{color:var(--ink);font-weight:560}
+td.num{text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
+code{
+  font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  background:#f4f5f8;border:1px solid var(--line2);border-radius:5px;
+  padding:1px 5px;color:#3a4048;word-break:break-all;
+}
+
+/* ---------- tags ---------- */
+.tag{
+  display:inline-block;font-size:11px;font-weight:560;line-height:1.6;
+  padding:1px 7px;border-radius:5px;white-space:nowrap;
+  border:1px solid transparent;
+}
+.t-ok{color:var(--green);background:var(--green-bg);border-color:#d8ebdf}
+.t-warn{color:var(--amber);background:var(--amber-bg);border-color:#f2e4c8}
+.t-bad{color:var(--rose);background:var(--rose-bg);border-color:var(--rose-line)}
+.t-info{color:var(--blue);background:var(--blue-bg);border-color:#dbe7f3}
+.t-gray{color:var(--sub);background:#f4f5f8;border-color:var(--line)}
+.t-violet{color:var(--violet);background:var(--violet-bg);border-color:#e4e0f2}
+
+/* ---------- timeline ---------- */
+.tl{position:relative;margin:0;padding:0 0 0 22px;list-style:none}
+.tl:before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--line)}
+.tl li{position:relative;padding:0 0 16px}
+.tl li:last-child{padding-bottom:0}
+.tl li:before{
+  content:"";position:absolute;left:-21px;top:7px;width:9px;height:9px;
+  border-radius:50%;background:#fff;border:2px solid var(--faint);
+}
+.tl li.ph:before{border-color:var(--rose)}
+.tl li.now:before{border-color:var(--amber);background:var(--amber)}
+.tl .when{font-size:11.5px;color:var(--faint);letter-spacing:.02em;margin-bottom:2px}
+.tl .what{font-size:13.5px;color:var(--ink);font-weight:560;margin-bottom:2px}
+.tl .why{font-size:12.5px;color:var(--sub);line-height:1.65}
+
+/* ---------- lists ---------- */
+ul.tight,ol.tight{margin:6px 0;padding-left:20px}
+ul.tight li,ol.tight li{margin:3px 0;font-size:13.5px;color:var(--ink2);line-height:1.7}
+ul.plain{list-style:none;padding-left:0;margin:6px 0}
+ul.plain li{font-size:13.5px;color:var(--ink2);line-height:1.7;padding-left:20px;position:relative;margin:4px 0}
+ul.plain li:before{content:"";position:absolute;left:6px;top:.68em;width:4px;height:4px;border-radius:50%;background:var(--faint)}
+
+/* ---------- callout ---------- */
+.note{border-left:3px solid var(--line);background:#fafbfc;border-radius:0 10px 10px 0;padding:11px 14px;margin:12px 0;font-size:13px;color:var(--ink2);line-height:1.72}
+.note.rose{border-color:var(--rose);background:var(--rose-bg)}
+.note.green{border-color:var(--green);background:var(--green-bg)}
+.note.amber{border-color:var(--amber);background:var(--amber-bg)}
+.note b{color:var(--ink)}
+
+/* ---------- grid ---------- */
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.mini{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:13px 14px;box-shadow:var(--sh1)}
+.mini b{display:block;font-size:19px;font-weight:640;letter-spacing:-.02em;line-height:1.25}
+.mini span{display:block;font-size:11.5px;color:var(--sub);margin-top:4px;line-height:1.5}
+.mini small{display:block;font-size:11px;color:var(--faint);margin-top:6px;line-height:1.5}
+
+/* ---------- pitfall rows ---------- */
+.pl{border:1px solid var(--line);border-radius:var(--r);background:var(--card);padding:12px 14px;margin:0 0 9px}
+.pl .h{font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:5px;display:flex;gap:8px;align-items:flex-start}
+.pl .h .idx{
+  flex:none;font-size:11px;font-weight:600;color:var(--faint);
+  border:1px solid var(--line);border-radius:5px;padding:0 5px;line-height:1.6;
+}
+.pl p{margin:3px 0 0;font-size:12.5px;color:var(--sub);line-height:1.68}
+.pl p b{color:var(--ink2);font-weight:600}
+.pl .fix{color:var(--green)}
+.pl .root{color:var(--rose)}
+
+/* ---------- verdict rows ---------- */
+.vr{display:grid;grid-template-columns:74px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--line2)}
+.vr:last-child{border-bottom:0}
+.vr .p{font-size:12px;font-weight:640;color:var(--ink);padding-top:1px}
+.vr .p .dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:5px;transform:translateY(-1px)}
+.p0 .dot{background:var(--rose)} .p1 .dot{background:var(--amber)} .p2 .dot{background:var(--blue)}
+.vr .c{font-size:13.5px;color:var(--ink2);line-height:1.7}
+.vr .c b{color:var(--ink)}
+.vr .c .meta{display:block;font-size:12px;color:var(--faint);margin-top:3px;line-height:1.6}
+
+/* ---------- arch svg wrapper ---------- */
+.figure{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px;box-shadow:var(--sh1);margin:0 0 14px}
+.figure svg{display:block;width:100%;height:auto}
+.cap{font-size:11.5px;color:var(--faint);margin-top:10px;text-align:center;line-height:1.6}
+
+footer{border-top:1px solid var(--line);margin-top:34px;padding-top:16px;font-size:12px;color:var(--faint);line-height:1.8}
+
+@media (max-width:720px){
+  .hero h1{font-size:22px}
+  .hero .stats{grid-template-columns:repeat(2,1fr)}
+  .g3,.g4{grid-template-columns:repeat(2,1fr)}
+  .g2{grid-template-columns:1fr}
+  .wrap{padding:0 14px}
+  body{font-size:14.5px}
+  h2{font-size:17px}
+  .vr{grid-template-columns:1fr;gap:4px}
+  table{min-width:520px}
+}
+@media (min-width:721px){
+  .hover-lift{transition:box-shadow .22s ease,transform .22s ease}
+  .hover-lift:hover{box-shadow:var(--sh2);transform:translateY(-1px)}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">全量复盘 · 2026-09-19 21:00 → 09-20 16:00</p>
+    <h1>两天里真正建成的东西，和<em>下一轮该改的地方</em></h1>
+    <p>覆盖范围：本机项目目录（558 个文件 / 42MB）、两个线上工作台与 6 张云表、5 个 IMA 知识库、本会话全部过程记录、以及跨项目沉淀的记忆与技能。本文不是成果罗列，重点在「哪些做法能复用、哪些坑还会再踩、哪些事卡着没定」。</p>
+    <div class="stats">
+      <div class="stat"><b>2 天</b><span>从情报台到六维同行雷达</span></div>
+      <div class="stat"><b>6 张</b><span>云表（2 个在线工作台）</span></div>
+      <div class="stat"><b>400 条</b><span>选品库记录（360 真实 + 40 示例）</span></div>
+      <div class="stat"><b>7 项</b><span>待你拍板的口径未决项</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ================= 一 ================= -->
+<section>
+  <h2><span class="no">一</span>一页看懂</h2>
+  <p class="lead">两天的主线只有一条：把「信息流」变成「决策流」——从看资讯，到看商品档案，再到看同行怎么打。三条支线分别是数据通路打通、技能资产沉淀、工具链补齐。</p>
+
+  <div class="grid g4" style="margin-bottom:14px">
+    <div class="mini hover-lift"><b>159 KB</b><span>全球选品平台单文件</span><small>42 字段 / 137 函数 / 0 外链 / 0 emoji</small></div>
+    <div class="mini hover-lift"><b>2,710</b><span>TikTok 在售商品池</span><small>US 556 / TH 725 / MY 739 / VN 690</small></div>
+    <div class="mini hover-lift"><b>23,233</b><span>抖音带货视频池</span><small>52 词 → 750 个过门槛账号</small></div>
+    <div class="mini hover-lift"><b>2,509</b><span>人群痛点词</span><small>带曝光量与关联销量</small></div>
+    <div class="mini hover-lift"><b>241 / 249</b><span>TikHub 商品详情取回率</span><small>97%，8 条确属平台不可达</small></div>
+    <div class="mini hover-lift"><b>150 / 360</b><span>成分命中率</span><small>42%（标题 → 标题+描述全文）</small></div>
+    <div class="mini hover-lift"><b>12 份</b><span>雷达 CSV</span><small>+ 7 板块看板 + 1 份方案页</small></div>
+    <div class="mini hover-lift"><b>118 个</b><span>构建脚本</span><small>_build 内 64 py + 54 js</small></div>
+  </div>
+
+  <div class="note rose">
+    <b>最该记住的一句话：</b>这两天所有「打通」，靠的都不是多试几次，而是<b>先验前提</b>——验端点是不是真数据、验字段在哪一层、验返回体里哪个键才是真的。所有「卡住」，几乎都卡在没验前提就开始写代码或重试。
+  </div>
+</section>
+
+<!-- ================= 二 ================= -->
+<section>
+  <h2><span class="no">二</span>时间线全景</h2>
+  <p class="lead">按真实发生顺序，标出三个转折点：你提出质疑的那次、TikHub 接入、以及六维扩维。</p>
+
+  <div class="card">
+    <ol class="tl">
+      <li class="ph"><div class="when">09-19 21:30–22:00</div><div class="what">美妆情报台上线（4 模块 + 4 云表）</div><div class="why">参照学员包底版，改成你的真实栏目：情报库 / 选题与内容 / 数据复盘 / 信息源。同日跑了 P1 字段口径表（43 字段），随即按你要求直接出「全球新品选品台」（3 视图 / 32 字段）。</div></li>
+      <li class="ph"><div class="when">09-19 23:00–24:00</div><div class="what">形态跃迁：录入型工具 → 数据平台型</div><div class="why">你要求「不参照之前模板，按国内数据平台/美业研究院的形式」。四区（看板/榜单/品类成分库/机会洞察）正好占满单页上限，沿用同一 URL 原地替换，写入 40 条示例。</div></li>
+      <li class="ph"><div class="when">09-20 00:20</div><div class="what">转折点 ①：你拿截图质疑「数据通路走不通」</div><div class="why">这一问带来了整个项目最值钱的一次改造：数据源地图、数据通路体检、覆盖度热力格、引擎体检、两步式导入、空态四分解。也把「韩国没有销量数据」这条硬边界摆到明面。</div></li>
+      <li><div class="when">09-20 00:52</div><div class="what">收到「工作台带练·学员包 v1.0」</div><div class="why">角色切换为「工作台搭建教练」，三轮带练。GBK 文件名需 cp437→gbk 解码后解压。<b>目前停在第一轮门口：我的资料为空，未开工。</b></div></li>
+      <li><div class="when">09-20 01:10–01:25</div><div class="what">思维档案：Skill + 两层钩子</div><div class="why">先做成 skill，再确认「skill 不可能自己触发」，改为挂 SessionStart + Stop 两个宿主钩子。<b>Stop 层已确证生效</b>（日志有放行记录）。</div></li>
+      <li class="ph"><div class="when">09-20 01:30–02:20</div><div class="what">转折点 ②：React fiber 取数，三平台真实数据入库</div><div class="why">发现表格后端把整条记录塞进 fiber 的 <code>memoizedProps</code>，向上遍历 <code>__reactFiber.return</code> 拿全字段（含达人数、上下界精确数值）。云表 226 条 → 页面 v4。</div></li>
+      <li><div class="when">09-20 深夜</div><div class="what">你拍板两条口径，洞察规则改版</div><div class="why">窗口期去掉达人数与销售额门槛（只看环比 ≥60%）→ 命中从 0 条变 56 条；退货率不抓，改差评关键词驱动。</div></li>
+      <li><div class="when">09-20 02:30–03:00</div><div class="what">FastMoss 登录态重拉 250 条 → 云表 400 条 / 页面 v6</div><div class="why">登录态下 <code>?page&amp;l1_cid</code> 真生效，一级类目 100% 是美妆个护，不再需要本地过滤。</div></li>
+      <li><div class="when">09-20 10:00–10:45</div><div class="what">Kimi AI 增强 360 条 + 抖音后台评价打通 + 页面 v7</div><div class="why">批量改 prompt 后 352 条速读 + 241 条译名 24 分钟跑完（原来 6 分钟才 30 条）。罗盘「用户原声」同源直连无需签名——<b>但只覆盖本店，与选品库 0 交集</b>。新建第二张云表（自有店铺口碑库 21 字段）与第 5 个视图。</div></li>
+      <li><div class="when">09-20 11:00–11:55</div><div class="what">本机工具链补齐（零 GitHub 依赖）</div><div class="why">ffmpeg 走 osxexperts 静态包；tesseract 改用 macOS 原生 Vision 自建（<b>无需语言包</b>）；pdftotext 走 pypdf。垫片统一落 <code>~/.local/bin</code>。这轮之前有一次「连续失败约 40 次」的弯路。</div></li>
+      <li class="ph"><div class="when">09-20 12:00–12:35</div><div class="what">转折点 ③：TikHub 接入 + 同行雷达第一版</div><div class="why">先验鉴权 scope（68 项）再花额度。端到端验收走通「搜抖音 → 取详情 → 提媒体直链 → 下载 → 抽帧 OCR → 转写」，并顺手修掉 <code>video_extract</code> 一个误导性报错。随后搭「discover → deep → report」三层漏斗做抖音账号视频。</div></li>
+      <li><div class="when">09-20 13:00–13:40</div><div class="what">TikHub 商品侧调研（结论：能搞定 TikTok Shop，搞不定韩国与抖音商品）</div><div class="why">详情给销量/评分/评价数/店铺/<b>描述全文</b>/官方三级 cid。</div></li>
+      <li><div class="when">09-20 14:00–14:30</div><div class="what">雷达扩到四维：+ 商品卖点 + 人群痛点 + 销量 + 评论热词</div><div class="why">TikHub 管商品与卖点，浏览器（蝉妈妈）管人群与销量。报告从 3 板块扩到 9 板块。</div></li>
+      <li><div class="when">09-20 14:40</div><div class="what">按你的业务重写 skill：业务档案 + 判读手册</div><div class="why">补上「接手先读我是谁」，并把判读纪律从两处收敛到一处，防止漂移。</div></li>
+      <li><div class="when">09-20 14:53–15:07</div><div class="what">雷达扩到六维：+ 小红书种草 + TikTok 海外内容</div><div class="why">两条都是真数据（双测交集 1/20 与 0/20）。这两维补上了此前完全缺失的「内容侧」——以前只有卖什么，没有谁在拍、怎么拍。</div></li>
+      <li><div class="when">09-20 15:00–15:45</div><div class="what">TikHub 241 条详情补齐 + 成分库升级 + 页面 v9</div><div class="why">修正「隐性频率限制」误判（实为漏读一层 <code>data</code>），改后 1.5 秒间隔 100% 成功；成分命中率 32% → 42%。</div></li>
+      <li class="now"><div class="when">09-20 15:50–16:00</div><div class="what">法规属性入云表（39 → 42 字段）+ Hero 情报卡 + 页面 v10 / 口径表 v1.7</div><div class="why">同时修掉一个口径事故：印尼一条唇妆环比 +57725% 把整格均值拉到 +8273%，改为列表用中位数、KPI 用截尾均值。</div></li>
+    </ol>
+  </div>
+
+  <div class="note amber">
+    <b>节奏观察：</b>09-20 一天里发生了约 12 个可交付节点，其中 <b>4 次推翻了上一次的技术结论</b>（限频误判、评分模型、排序口径、均值口径）。这不是返工多，而是「先跑真实数据再定性」的必然代价——但其中至少两次本可以在写代码前用 10 分钟小样本验证避免。
+  </div>
+</section>
+
+<!-- ================= 三 ================= -->
+<section>
+  <h2><span class="no">三</span>交付物全量清单</h2>
+  <p class="lead">按「在线产物 / 本地文件 / 数据资产 / 方法与工具资产」四类。表格里的路径均可直接打开。</p>
+
+  <h3>3.1 在线产物</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>产物</th><th>形态</th><th>云端标识</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td class="k">美妆情报台</td><td>单文件 HTML + 4 云表</td><td>page <code>1UxG6gd1n5I7NTYBv2daGs</code></td><td><span class="tag t-ok">已上线</span> 9/19 后未再改动</td></tr>
+        <tr><td class="k">全球选品平台</td><td>整页数据平台，5 视图</td><td>page <code>lMO9EIAM8o5cIwqudwUDr1</code></td><td><span class="tag t-ok">线上 v10</span> 未发布态（无公开链接）</td></tr>
+        <tr><td class="k">全球新品库</td><td>云表</td><td><code>Hu5q2PAyW17BmdP5JPQ9os</code></td><td><span class="tag t-ok">42 字段</span> 400 条</td></tr>
+        <tr><td class="k">自有店铺口碑库</td><td>云表（第 2 张）</td><td><code>ZOiFonS5w7psZlgM5kJjiD</code></td><td><span class="tag t-ok">21 字段</span> 37 条</td></tr>
+        <tr><td class="k">情报台 4 张表</td><td>云表</td><td>情报库 <code>SByOmCvTOwY3Ae700nplNF</code> 等 4 个</td><td><span class="tag t-gray">已占满单页上限</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">
+    <b>注意两处易踩：</b>① 「一页两张云表」除绑定标注外，<b>必须</b>再跑一次 <code>page_database_relation --action link</code>，否则平台只认第一张表；② 开页面事务用<b>外层</b> node id，用内层会报 node not found。
+  </div>
+
+  <h3>3.2 本地文件</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>文件 / 目录</th><th>内容</th><th>规模</th></tr></thead>
+      <tbody>
+        <tr><td class="k">全球选品平台.html</td><td>主产品，42 字段 / 137 函数</td><td>159 KB</td></tr>
+        <tr><td class="k">美妆情报台.html</td><td>4 模块工作台</td><td>66 KB</td></tr>
+        <tr><td class="k">同行雷达/</td><td>方案页 + 7 板块看板 + README</td><td>1.6 MB</td></tr>
+        <tr><td class="k">同行雷达/csv/</td><td>12 份榜单单表</td><td>2.6 MB</td></tr>
+        <tr><td class="k">字段口径表 v1.1 → v1.7</td><td>10 sheet / 42 字段 / 0 公式</td><td>7 个版本，42 KB（最新）</td></tr>
+        <tr><td class="k">_build/</td><td>构建与验收脚本、中间数据、运行产物</td><td>39 MB（187 项）</td></tr>
+        <tr><td class="k">工作台带练_学员包_v1.0/</td><td>教练底版 + 配套 Skill + 空的我的资料/工作台</td><td>1.1 MB，<b>未开工</b></td></tr>
+        <tr><td class="k">.workbuddy/memory/</td><td>MEMORY.md + RUNBOOK.md + 2 份日志</td><td>约 11.2 万字</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>3.3 数据资产</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>数据</th><th>规模</th><th>口径备注</th></tr></thead>
+      <tbody>
+        <tr><td class="k">选品库总记录</td><td class="num">400</td><td>360 真实 + 40 示例（示例统一「【示例】」开头 / 数据标记=示例）</td></tr>
+        <tr><td class="k">真实记录来源分布</td><td class="num">360</td><td>FastMoss 250 / 抖音罗盘 60 / 蝉妈妈 50</td></tr>
+        <tr><td class="k">国家分布</td><td class="num">13 个地区</td><td>中国 120、印尼 73、泰国 63、越南 42、菲律宾 27、马来 20、美国 14、韩国 7、日本 7、巴西 6、墨 2、新 1、英 1</td></tr>
+        <tr><td class="k">TikHub 补充</td><td class="num">241 条</td><td>评分/评价数/店铺/描述全文/官方三级 cid/法规属性/SKU 数</td></tr>
+        <tr><td class="k">自有店铺口碑</td><td class="num">37 条</td><td>罗盘「用户原声」，只覆盖本店</td></tr>
+        <tr><td class="k">品类体系</td><td class="num">46 + 71</td><td>46 个功能子类（页面二级）+ 71 个三级类目，360/360 全覆盖</td></tr>
+        <tr><td class="k">成分库</td><td class="num">70 种</td><td>150/360 命中 = 42%；有描述的 158 条样本中 55%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>3.4 方法与工具资产（可复用）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>资产</th><th>位置</th><th>解决什么</th></tr></thead>
+      <tbody>
+        <tr><td class="k">5 个取数适配器</td><td>skill <code>run-work-flywheel/scripts/adapters/</code></td><td>抖音账号视频 / 小红书种草 / TikTok 内容 / 商品卖点 / 人群销量</td></tr>
+        <tr><td class="k">4 份关键词表</td><td><code>_build/config/</code></td><td>抖音中文五类｜小红书中文六类｜TikTok 内容英文四轨｜TikTok 商品英文四轨</td></tr>
+        <tr><td class="k">业务档案</td><td>skill <code>references/my-business.md</code></td><td>接手任务先读：身份、两条主线、市场与平台、通道状态、边界、已拍板/待拍板</td></tr>
+        <tr><td class="k">每日雷达判读手册</td><td>skill <code>plugins/content/daily-radar.md</code></td><td>三层看（谁在起量 → 值不值得学 → 能不能借到本业务）+ 每维变成什么动作 + 常见误判</td></tr>
+        <tr><td class="k">思维档案 + 两层钩子</td><td>skill <code>workbuddy-thinking-archive</code> + <code>~/.workbuddy/hooks/</code></td><td>实质任务收尾自动归档，11 条条目 / 6 分类</td></tr>
+        <tr><td class="k">工具链垫片</td><td><code>~/.local/bin</code>（真身 <code>binaries/tools/</code>）</td><td>ffmpeg / ffprobe / tesseract（原生 Vision）/ pdftotext，零下载可重建</td></tr>
+        <tr><td class="k">取数技能</td><td>skill <code>loggedin-cn-ecommerce-scrape</code> v1.2.0</td><td>通道选择表 + TikHub 单品接口实战段</td></tr>
+        <tr><td class="k">自动化</td><td><code>35ded585-…</code> 等 4 条 ACTIVE</td><td>雷达每日 09:00 七步｜蝉妈妈月报｜新品每日采集｜LOOKING 周报</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note rose">
+    <b>资源分布提示：</b>4 条自动化里只有「同行流量雷达」是本轮新建的，另外 3 条属于你更早的 LOOKING / 美妆情报项目；另有 1 条云端任务处于暂停态。开新自动化前建议先看一眼已有清单，避免同一件事被两条任务各跑一遍。
+  </div>
+</section>
+
+<!-- ================= 四 ================= -->
+<section>
+  <h2><span class="no">四</span>知识库盘点（5 个 IMA 知识库）</h2>
+  <p class="lead">你挂载的知识库实际可访问到 5 个，共 9 个条目。数量不多，但性质分得很清楚：3 个是业务原料，2 个是行业研究。它们目前<b>只在对话里被读过一次</b>，还没有接进任何自动化。</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>知识库</th><th>条目</th><th>内容</th><th>可以用在哪</th></tr></thead>
+      <tbody>
+        <tr><td class="k">产品策划案</td><td class="num">4</td><td>兰本冻纹修色眼油培训、兰至以油养肤爆品提案、兰本面部精华油策划、兰本身体精油冷霜策划</td><td><span class="tag t-info">P0</span> 「与我方 SKU 重合」的判定基准就在这里——<b>待拍板项 ③ 的答案源头</b></td></tr>
+        <tr><td class="k">数据分析</td><td class="num">1</td><td>天猫散粉数据分析表 20250303</td><td>粉类竞品的价格带与销量结构参考</td></tr>
+        <tr><td class="k">化妆品法规知识库</td><td class="num">1（文件夹）</td><td>「法规」目录</td><td>对应期次 P3「法规备案 + 打样」，与云表的备案路径 / 法规合规声明字段可打通</td></tr>
+        <tr><td class="k">美妆行业趋势报告</td><td class="num">2</td><td>2026 中国香水香氛行业白皮书（天猫）、2025 小红书彩妆行业趋势灵感图鉴</td><td>香氛是本库最薄的品类（仅 1 条），白皮书可直接补趋势判断</td></tr>
+        <tr><td class="k">惠子的知识库</td><td class="num">1</td><td>ima 知识库使用指南.docx</td><td>使用说明，非业务内容</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note amber">
+    <b>这里有一个明显的落差：</b>你 9/19 提到过「抖音知识库（巨量引擎研报合集：美妆个护 22 篇、营销与达人 31 篇、电商与消费 65 篇）」与「品牌手册资源库」「美妆护肤产品开发知识库」，但这轮接口只列出 5 个。<b>那几个知识库当前不在可添加列表里</b>——要么是权限范围不同，要么是挂载状态变了。下一轮如果要拿研报做选题判断，先确认这几库怎么重新接上。
+  </div>
+  <div class="note green">
+    <b>最划算的一步：</b>把「产品策划案」4 份文档里的 SKU（面部精华油 / 身体精油冷霜 / 冻纹修色眼油 / 以油养肤系列）整理成一份书面清单，云表的「与我方 SKU 重合度」就能自动判定，<b>「空白赛道」这条规则会从永远 0 命中变成真的能跑</b>。
+  </div>
+</section>
+
+<!-- ================= 五 ================= -->
+<section>
+  <h2><span class="no">五</span>真正可复用的做法</h2>
+  <p class="lead">下面 14 条是这两天花掉的代价换来的，不是通用建议。每条都配有当时的实证。</p>
+
+  <div class="card">
+    <h4>取数与验证</h4>
+    <ol class="tight">
+      <li><b>端点真伪双测法。</b>「无意义词返回 0 条」<u>且</u>「不同关键词返回不同结果」两条都过才算真。只测一条会被 mock 骗——官方 mock 字段结构完整、毫无破绽。实证：<code>/douyin/search/*</code> 搜「健身」返回猫咪账号，整套接口作废。</li>
+      <li><b>不可信端点写进脚本常量。</b>做成 <code>NOT_USABLE</code> 注释块，让脚本永远不可能调用它。比写在文档里「记得别用」可靠得多。</li>
+      <li><b>先验鉴权范围，再花额度。</b>拿到 key 先打一次零成本端点看 scope 与余额，确认目标路径在授权内，再开始批量。</li>
+      <li><b>字段找不到时，先怀疑路径，别怀疑限流。</b>那条「隐性频率限制」结论整整误导了一轮，真相只是少读了外层一层 <code>data</code>。改成 1.5 秒间隔后 100% 成功——所谓限流根本不存在。</li>
+      <li><b>用最小复现拆开误导性报错。</b><code>extract_audio</code> 报「音轨提取失败」，实际 <code>ffprobe</code> 显示 aac 音轨健在，真因是编码写死 pcm 却按 <code>.m4a</code> 后缀输出。做法：pcm 写 .m4a 失败 / pcm 写 .wav 成功，一次对照就定性。</li>
+      <li><b>渲染后的页面也是数据源。</b>请求体加密（蝉妈妈）或接口缺签名（FastMoss 需 cnonce）时，别硬刚接口——读 <code>/promotionRank/</code> 渲染后的表格更快。</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h4>判读与口径</h4>
+    <ol class="tight" start="7">
+      <li><b>榜单要分两层看。</b>第一层是内容池聚合出的「谁在起量」，第二层是深挖后的「这到底是什么号」。实测榜首常是萌娃号/情绪号/AI 动画号，美妆占比仅 4%~15%——只有 <code>beauty_share</code> 才能回答「该不该抄」。</li>
+      <li><b>排序口径必须匹配数据形状。</b>一次搜索只回一页 → 同账号出现 1–2 次没有区分度 → 账号榜必须按「代表作分数」排。按条数排的初版把 23 万赞的爆款号压到了普通号后面。</li>
+      <li><b>平台自己的产出是最便宜的校验集。</b>译名不硬编：拿榜单里 66 条平台原生中文类目路径反向校验 AI 译名，66/66 才入库；再用官方三级 cid 反查中文类目，230 条一致 223 = 97%。</li>
+      <li><b>不做推测，空值要分类。</b>成分只抽显性成分词，命中为空必须区分「没人用它」和「标题没写」；海外记录销售额一律显示「—」，不拿 0 冒充；平台没写的备案号留空，不填「无」。</li>
+      <li><b>降级要诚实且点名。</b>引擎体检逐条标「可算 / 缺字段」并点名哪个市场一条都参与不了。这比让规则静默返回 0 条、让人以为「没机会」要好得多。</li>
+      <li><b>极端值不进展示层。</b>低基数新品（印尼唇妆 +57725%）会把整格均值拉到 +8273%。列表与 Hero 用中位数、KPI 用截尾均值，<b>只改显示不改规则判定</b>——规则要不要跟着改是你的决定，不替你做。</li>
+      <li><b>诊断面板不要删。</b>看板「数据通路体检 + 覆盖度热力格」、洞察「引擎体检」、空态「三分解诊断」——空格的格子本身就是结论。</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h4>工程与协作</h4>
+    <ol class="tight" start="14">
+      <li><b>同源单一 + 单向重绘。</b>页面 = 通用引擎 + 配置；唯一刷新入口 <code>refreshAll()</code>，渲染函数之间严禁互调（防递归）。离线种子必须「云表 → 种子」单向注入，反向手工维护必然漂移。口径文档的字段清单从 HTML 的 FIELDS 数组正则抽取，文档与产品同源。</li>
+    </ol>
+  </div>
+  <div class="note rose">
+    <b>外加一条工具级纪律（已写进记忆）：</b>同一条消息里对<b>同一个文件</b>并行发多个编辑会互相覆盖——后一个基于旧内容写回，前一个静默丢失。本轮因此丢过两处改动，靠关键词在位性校验才发现，肉眼看 diff 很难注意到「少了一行」。<b>同文件串行、跨文件才并行。</b>
+  </div>
+</section>
+
+<!-- ================= 六 ================= -->
+<section>
+  <h2><span class="no">六</span>踩坑全量台账</h2>
+  <p class="lead">按性质分四类共 40 条。每条给出<b>现象 → 根因 → 修法</b>。红色是根因，绿色是修法。这份台账的用法：下一轮动同类事情前，先扫一遍对应分类。</p>
+
+  <h3>A · 通道与端点（14 条）</h3>
+
+  <div class="pl"><div class="h"><span class="idx">A1</span>抖音搜索接口返回固定演示数据</div><p>现象：<code>/douyin/search/*</code> 搜护肤、宠物、健身返回<b>同一批猫咪账号</b>。<span class="root">根因：官方 mock，字段结构完整无破绽。</span> <span class="fix">修法：双测判假 → 写进 <code>NOT_USABLE</code>，永不调用。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">A2</span>TikTok 商品搜索报 422</div><p><span class="root">根因：参数名是 <code>search_word</code>，不是 <code>keyword</code>。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">A3</span>中文关键词在非中文区无效</div><p>现象：搜「护肤精华」返回 Pomade / cream。<span class="fix">修法：商品与内容两侧都<b>必须英文词</b>，各建一份英文词表。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">A4</span>TikTok 搜索 ID 与 GB 恒 0 条</div><p><span class="root">根因：服务端覆盖缺口，不是词的问题 </span>（serum / moisturizer 结果一样）。可用区实为 US/TH/VN/MY/PH/SG/JP。</p></div>
+
+  <div class="pl"><div class="h"><span class="idx">A5</span>TikTok 传了 region 仍混入其他国家</div><p>现象：指定 US 也混进 PH/CA/GB（实测 US 占 59/120）。<span class="root">根因：<code>region</code> 是排序倾向不是过滤器。</span> <span class="fix">修法：报告里如实给出真实地区分布，不假装全是美国。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">A6</span>商品详情报「商品不存在」</div><p><span class="root">根因：<code>fetch_product_detail_v3</code> 必须传该商品所属 region。</span> 且详情区与搜索区是两个集合（US/ID/VN/MY/TH/PH/JP）。</p></div>
+
+  <div class="pl"><div class="h"><span class="idx">A7</span>详情取到的都是空组件</div><p>现象：19 个组件 18 个空壳，误判成限流并把间隔调到 45 秒。<span class="root">根因：主数据在两层 <code>data</code> 之下（<code>data.product_data.page_config.components_map</code>），代码只读了 <code>root['product_data']</code>。</span> <span class="fix">修法：修正后 1.5 秒 100% 成功 → 旧「限频」结论作废。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">A8</span>店铺与类目读成 None</div><p><span class="root">根因：<code>shop_info</code> / <code>category_info</code> 是 <code>product_info</code> 的<b>兄弟节点</b>，不是子节点。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">A9</span>详情取不到价格</div><p><span class="root">根因：价格在 <code>promotion_model.promotion_product_price.skus_price</code>，<code>skus</code> 数组里没有价格字段。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">A10</span>TikTok 内容搜索返回空列表</div><p><span class="root">根因：列表在 <code>data.search_item_list</code>，不是 <code>data.aweme_list</code>（后者恒为空数组）。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">A11</span>小红书互动量全读成 0</div><p>现象：两条都踩——item 顶层 <code>id</code> 恒为 None（真 id 在 <code>note.id</code>）；<code>note.liked</code> 是「我是否收藏过」的<b>布尔值</b>，点赞数叫 <code>liked_count</code>。</p></div>
+
+  <div class="pl"><div class="h"><span class="idx">A12</span>蝉妈妈榜单接口抓不到</div><p><span class="root">根因：<code>POST /v6/product/search</code> 请求体加密。</span> <span class="fix">修法：改读 <code>/promotionRank/</code> 渲染后的表格（50 行/页）。</span> 附带两条：品类筛选 <b>URL 参数无效，必须模拟点击品类文本</b>；品类树字段名是 <code>label</code> 不是 <code>name</code>。</p></div>
+
+  <div class="pl"><div class="h"><span class="idx">A13</span>webbridge 返回 502</div><p><span class="root">根因：动作名写错返回的是 502，不是 404。</span> <span class="fix">修法：用 <code>list_tabs</code> 探活。</span> 另：<code>evaluate</code> 打的是「最后聚焦的标签」，多平台任务每次都要先 <code>find_tab</code>，否则静默打到上一个平台。</p></div>
+
+  <div class="pl"><div class="h"><span class="idx">A14</span>FastMoss 榜单接口即使带 cookie 也被拒</div><p><span class="root">根因：返回 <code>MSG_SAFE_0001</code>，缺 cnonce 签名。</span> 游客态还有两个附加限制：只给前 2 页、<code>l1_cid</code> 被忽略 → <b>必须本地按一级类目过滤</b>，否则食品饮料/汽车/女装会污染选品库。</p></div>
+
+  <h3>B · 数据口径与判读（8 条）</h3>
+
+  <div class="pl"><div class="h"><span class="idx">B1</span>均值被低基数新品拉爆</div><p>现象：印尼一条唇妆环比 +57725%，把「市场机会」整格均值拉到 +8273%，Hero 首版就显示了这串鬼数字。<span class="fix">修法：列表/Hero 用中位数，KPI 用截尾均值（去两端各 10%），只改显示不改规则。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">B2</span>67 赞的小号排到第一</div><p><span class="root">根因：官方 <code>isLowFansButHot</code> 标记不等于真跑出来了</span>（71 赞也标）；且池内出现次数权重过高，会让刷量号（13 条均赞 369）挤掉真爆款。<span class="fix">修法：加质量门槛 + 粉丝量级分档 + 同档比较。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">B3</span>榜单第一名不是美妆号</div><p>现象：榜首「一只猪」1.6 万粉拿 15 万赞，实为亲子号。<span class="fix">修法：<code>deep()</code> 算 <code>beauty_share</code> 做定性，落成 <code>verdict</code> 字段。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">B4</span>关键词误命中，捞出无关内容</div><p>现象：搜「抗老」捞出「电动踏板硬抗老外暴力测试」；搜「胶原蛋白」捞出「砂锅猪蹄」。<span class="root">根因：<code>item_query</code> 本质是挂了商品的带货视频库，剧情号会因挂车被带入。</span> <span class="fix">修法：<code>MAKEUP_LEXICON</code> 强美妆词表过滤，滤掉 1932/23233 条。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">B5</span>评论热词榜全是虚词</div><p>现象：前列是「是我 / 一点 / 真的」。<span class="fix">修法：<code>COMMENT_STOP_WORDS</code> 停用词表。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">B6</span>成分/概念榜所有条一样长</div><p><span class="root">根因：按「出现频次」排，而标签稀疏。</span> <span class="fix">修法：改按「承载商品销售额合计」排。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">B7</span>洞察规则在真实数据上一条都不命中</div><p><span class="root">根因：窗口期阈值 ≤15 是示例量纲</span>（真实上升品关联达人数中位 110）；退货率三个平台榜单都不给。 <span class="fix">修法：窗口期去掉达人/销售额门槛只看环比（命中 0 → 56 条）；改良机会与风险提醒改差评关键词驱动。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">B8</span>示例数据在骗人</div><p>现象：韩国 7 条被错标成 FastMoss（FastMoss 不覆盖韩国），且带着销量/销售额/环比。<span class="fix">修法：改标 Hwahae/Olive Young 并清空不可得字段，榜单排名从「TikTok 韩国个护第 7」改为「화해 身体护理榜第 7」。</span></p></div>
+
+  <h3>C · 云表与页面（12 条）</h3>
+
+  <div class="pl"><div class="h"><span class="idx">C1</span>写入报「校验后为空，无有效字段」</div><p><span class="root">根因：值必须包装</span>——<code>{number:199}</code> / <code>{select:"护肤"}</code> / <code>{text:"…"}</code> / <code>{date:"…"}</code>，写扁平值被拒。</p></div>
+
+  <div class="pl"><div class="h"><span class="idx">C2</span>建 select 字段成功，之后所有写入全失败</div><p>现象：报 <code>duplicate select option text: text=""</code>。<span class="root">根因：选项键是 <code>text</code> 不是 <code>name</code></span>，用 <code>name</code> 会静默建出 N 个空选项，建字段当时<b>不报错</b>。<span class="fix">修法：改回时用 <code>update_database_field --field-id</code> 并保留原 option id，否则存量单元格被清空。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">C3</span>字段加了但写不进</div><p><span class="root">根因：<code>property.config</code> 顶层必须带类型键</span>（<code>{"select":{"options":[…]}}</code>），写 <code>{"options":[…]}</code> 被拒。</p></div>
+
+  <div class="pl"><div class="h"><span class="idx">C4</span>批量改记录后人工字段丢失</div><p><span class="root">根因：删了重写会换 record_id。</span> <span class="fix">修法：一律按 record_id 原位 update，单次 ≤100。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">C5</span>查询静默返回 0 条</div><p><span class="root">根因：<code>db.query</code> 失败时 stdout 是 <code>{"error":…}</code> 且不抛异常。</span> <span class="fix">修法：必须判 <code>results is not None</code> 并重试；单次一页、<code>pageSize</code> ≤200、<code>startCursor</code> 续页。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">C6</span>第二张云表读不出来</div><p><span class="root">根因：光有 <code>data-sp-database-id</code> 绑定标注不够，还必须 <code>page_database_relation.py --action link</code> 显式关联。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">C7</span>lint 报 DSDK002 / 008 / 012</div><p>002 需硬编码 <code>var DATABASE_ID</code>（只写 <code>DB.product.databaseId</code> 不行）；008 有 addRecord 就必须有 localStorage 三件套；012 渲染云表数据的元素要成对绑定。另：lint 只吃<b>一份</b> schema，多表页要把 properties 合并。</p></div>
+
+  <div class="pl"><div class="h"><span class="idx">C8</span>批量脚本跑一半全变 NETWORK_ERROR</div><p><span class="root">根因：<code>op_...</code> token 有效期 30 分钟，过期后表现得像网络故障。</span> <span class="fix">修法：批量要在一次进程里跑完。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">C9</span>上传页面卡在超时</div><p>现象：<code>curl --noproxy '*'</code> 报 <code>(56) Recv failure: Operation timed out</code>。<span class="fix">修法：上传类请求<b>去掉</b> <code>--noproxy</code> 走代理，0.3 秒 200。</span> 注意与「本机回环要加 --noproxy」策略相反——别一概而论。</p></div>
+
+  <div class="pl"><div class="h"><span class="idx">C10</span>开事务报 node not found</div><p><span class="root">根因：用了内层 node id。</span> <span class="fix">修法：用外层 <code>lMO9EIAM8o5cIwqudwUDr1</code>。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">C11</span>拿本地文件覆盖线上页面</div><p><span class="root">根因：线上 index.html 带平台注入的 <code>data-page-node-id</code> / <code>&lt;!--pnid:--&gt;</code> / inject.js，且平台会重排属性顺序。</span> <span class="fix">修法：只比语义不比字节，用 sem_diff / sem_verify 剥掉注入属性后比对。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">C12</span>本地打开显示「离线模式」，以为坏了</div><p><span class="root">根因：<code>ONLINE = !!(window.__SMART_PAGE__ &amp;&amp; window.__SMART_PAGE__.database)</code>，<code>file://</code> 与 <code>127.0.0.1</code> 天然为 false → 退 localStorage。</span> 不是故障、不是断网、不是没接入。已加 envLabel / IS_LOCAL 明确区分，并在本地版给「打开线上版」按钮。</p></div>
+
+  <h3>D · 工具环境与流程（6 条）</h3>
+
+  <div class="pl"><div class="h"><span class="idx">D1</span>下载 tesseract 连续失败约 40 次</div><p><span class="root">根因：官方 releases 的 assets 数量 = 0，从不发 macOS 预编译包</span>——那个文件在任何下载器上都是 404，换浏览器换工具都一样。<span class="fix">修法：下大文件前先打 <code>api.github.com/…/releases/tags/&lt;tag&gt;</code> 看 assets 是否存在；连续失败两次就停下来验前提，不要换姿势重试。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">D2</span>grep 静默返回 0 命中</div><p><span class="root">根因：macOS BSD grep 不支持 BRE 的 <code>\|</code> 交替</span>（不只是 <code>-P</code> 不可用），<code>grep -rn "a\|b"</code> 会返回 0 命中 + exit 1，看起来像「扫干净了」。<span class="fix">修法：多分支一律 <code>grep -E</code> 或直接用 Grep 工具。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">D3</span>Node 脚本打印 NaN 且不报错</div><p><span class="root">根因：混用了 Python 风格 <code>%</code> 格式化</span>——<code>'%d' % n</code> 在 JS 里是取模。<span class="fix">修法：统一模板字符串。</span> 这个坑把「哪个视图出错」的输出整条吞掉了两次。</p></div>
+
+  <div class="pl"><div class="h"><span class="idx">D4</span>抽帧报 <code>Error muxing a packet</code></div><p>现象：看着像源文件损坏。<span class="root">根因：ffmpeg 不自动创建输出目录。</span> <span class="fix">修法：先 <code>mkdir -p</code>。</span></p></div>
+
+  <div class="pl"><div class="h"><span class="idx">D5</span>编译 Swift 报 <code>unable to load standard library</code></div><p><span class="fix">修法：编译必须显式给 <code>-sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk</code>。</span> 另外：误删过 <code>~/.workbuddy/binaries/tools/src/</code>（含 Swift 源码），已重建并重新编译——<b>这个目录要当作源码看待，不是残渣</b>。</p></div>
+
+  <div class="pl"><div class="h"><span class="idx">D6</span>同文件并行编辑丢改动</div><p><span class="root">根因：同一条消息里对同一文件发多个编辑，后一个基于旧内容写回。</span> <span class="fix">修法：同文件串行、跨文件才并行；改完用关键词在位性校验，别只看 diff。</span> 本轮丢了 SKILL.md 一行表格 + tools.md 一句措辞。另有两条相关：<code>/tmp</code> 会被清理，交付物必须落工作区；GBK 文件名的 zip 要 <code>cp437 → gbk</code> 解码后再解压。</p></div>
+</section>
+
+<!-- ================= 七 ================= -->
+<section>
+  <h2><span class="no">七</span>未决事项与风险</h2>
+  <p class="lead">这一节是下一轮效率的关键。7 项口径未决 + 6 条结构性风险。口径项我给了倾向性建议，但不替你定。</p>
+
+  <h3>7.1 待你拍板的口径（7 项）</h3>
+  <div class="card">
+    <div class="tw">
+      <table>
+        <thead><tr><th>#</th><th>未决项</th><th>现状（系统当前怎么处理）</th><th>我的倾向</th></tr></thead>
+        <tbody>
+          <tr><td>①</td><td class="k">海外价格折算</td><td>一律不折算，原币种数值写进「选品笔记」</td><td>继续不折算。<b>多币种折算会引入汇率时点争议</b>，且你主要用来判断价格带量级，不需要统一货币</td></tr>
+          <tr><td>②</td><td class="k">环比周期</td><td>取 7 天（雷达）/ 30 天（选品库表格口径未定）</td><td>统一 30 天；大促假峰值的识别成本高，先不做剔除，改为在页面上标注大促窗口</td></tr>
+          <tr><td>③</td><td class="k">「与我方 SKU 重合」基准</td><td>字段存在但基本空着 →「空白赛道」规则永远 0 命中</td><td><b>按合并产品线算</b>（兰本 + 兰至），因为你要的是「新品开发方向」，不是单品牌替代。<b>答案源头在知识库「产品策划案」的 4 份文档里</b>，我可以先整理出清单给你确认</td></tr>
+          <tr><td>④</td><td class="k">退货率替代方案</td><td>已改为差评关键词驱动，但<b>评价文本渠道全部未登录</b>，实际还是算不出</td><td>先打通一个渠道（建议抖音或小红书，你已有账号），一条走通再扩</td></tr>
+          <tr><td>⑤</td><td class="k">窗口期阈值</td><td>已按你指示改为只看环比 ≥60%，达人数降级为展示用「达人渗透度」</td><td>已解决。<span class="tag t-ok">可结案</span></td></tr>
+          <tr><td>⑥</td><td class="k">40 条示例数据</td><td>仍与真实数据同库，靠「只看真实 / 只看示例」两个互斥 chip 隔离</td><td>建议清掉。理由：示例混在库里，任何「全量统计」都要靠人记得加筛选，是长期错误源。<b>清了之后演示效果靠本地种子兜底，不影响页面好看</b></td></tr>
+          <tr><td>⑦</td><td class="k">17 条示例的国家/地区留空</td><td>欧美/东南亚是大区，无法 1:1 对上国家，故意留空不臆造</td><td>跟随第 ⑥ 项一起处理：清掉示例即自然消失</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3>7.2 结构性风险</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>风险</th><th>说明</th><th>影响</th><th>缓解</th></tr></thead>
+      <tbody>
+        <tr><td class="k">单点依赖 TikHub</td><td>内容侧与商品侧共 5 个端点全靠它；余额约 $4.4，约 $0.002/次</td><td>token 失效或余额耗尽 → 四维中的四维同时停摆</td><td><span class="tag t-bad">高</span> 自动化里已写「报 authorization 就提示更新 token、不反复重试」；建议设余额提醒</td></tr>
+        <tr><td class="k">浏览器通道依赖登录态</td><td>SageSurf CDP 端口不固定（实测换过 4 次）；webbridge 扩展会断（报 <code>no extension connected</code>）</td><td>人群痛点与销量两维直接缺失</td><td><span class="tag t-warn">中</span> 端口已做自动发现；这一步失败不阻断其余步骤，报告里明确标缺失</td></tr>
+        <tr><td class="k">评价文本渠道全未登录</td><td>小红书/抖音/淘宝/天猫在测试时全部弹扫码</td><td>「改良机会」「风险提醒」两条规则实际跑不出真值</td><td><span class="tag t-bad">高</span> 需要你本人登录一次；机制与字段都已就位</td></tr>
+        <tr><td class="k">韩国无销量数据</td><td>TikTok Shop 韩国站未开通；只剩 Olive Young / Hwahae 的成分、评分、榜位</td><td>韩国四条机会规则算不出，只能当成分口碑情报看</td><td><span class="tag t-gray">已知边界</span> 页面已如实标注，不拿 0 冒充</td></tr>
+        <tr><td class="k">雷达报告可能拿到半成品</td><td>七步里任一步失败只报不阻断</td><td>看板看起来完整，实际缺一维</td><td><span class="tag t-warn">中</span> 建议报告页顶部加「本期维数 6/6 或 5/6」的显式标记</td></tr>
+        <tr><td class="k">离线种子与字段定义不同步</td><td>FIELDS 42 个字段，本地种子只有 39 个（缺 好评关键词 / 评价来源 / 数据标记）</td><td>本地打开时这三列看不到，与线上不一致</td><td><span class="tag t-info">低</span> 建议把「种子字段完整性」加进验收脚本自动断言</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note amber">
+    <b>资产维护风险：</b>两个 page、6 张云表的 ID 目前靠人工记在记忆文件里，散落在多处。<code>_build/</code> 已 39MB 且无序增长（data 18MB + runs 4.3MB + 187 个文件平铺）。这两件事现在不出问题，但半年后会成为负担。
+  </div>
+</section>
+
+<!-- ================= 八 ================= -->
+<section>
+  <h2><span class="no">八</span>下一轮行动清单</h2>
+  <p class="lead">按「收益 ÷ 成本」排序。P0 三项都是机制已就位、只差一步的事。</p>
+
+  <div class="card">
+    <div class="vr p0"><div class="p"><span class="dot"></span>P0-1</div><div class="c"><b>登录一个平台，打通评价关键词</b>——把「改良机会」「风险提醒」两条规则激活<br><span class="meta">为什么：这两条规则现在在真实数据上跑不出真值，而它们的判断依据（差评关键词、好评关键词）字段、规则、脚本都已就位。只要你在浏览器登录抖音或小红书，照 <code>wb_douyin_usersound.py</code> 抄一条取数脚本即可。<b>验收：</b>云表出现非空的「差评关键词」，洞察页这两条规则命中数 &gt; 0。</span></div></div>
+    <div class="vr p0"><div class="p"><span class="dot"></span>P0-2</div><div class="c"><b>清理 40 条示例数据</b>——让真实数据独占看板<br><span class="meta">为什么：示例与真实同库，任何全量统计都要靠人记得加筛选，长期是错误源。页面有「清空示例数据」按钮（带二次确认）。<b>验收：</b>云表 360 条，全部为真实来源。</span></div></div>
+    <div class="vr p0"><div class="p"><span class="dot"></span>P0-3</div><div class="c"><b>一次性收敛 7 项口径</b>——我出建议方案，你只回确认或否决<br><span class="meta">为什么：口径不定，每次涉及相关任务都要重新问一遍，且系统里的默认值可能与你心里的不一致。文档已列在第 7.1 节。<b>验收：</b>7 项全部有结论，写进口径表与页面 hint。</span></div></div>
+    <div class="vr p1"><div class="p"><span class="dot"></span>P1-1</div><div class="c"><b>从「产品策划案」知识库整理我方 SKU 清单</b>——让「空白赛道」规则能真的跑<br><span class="meta">为什么：这是第 ③ 项口径的答案源头，且只有 4 份文档。整理成清单后，「与我方 SKU 重合度」可以批量判定。<b>验收：</b>360 条记录里该字段有值的比例 &gt; 80%，「空白赛道」命中数 &gt; 0。</span></div></div>
+    <div class="vr p1"><div class="p"><span class="dot"></span>P1-2</div><div class="c"><b>给雷达加「与昨天的增量比对」</b>——现在每天重跑，但没有跨天比较<br><span class="meta">为什么：判读手册写的「每天必做的增量比对」目前靠人脑记。已有 <code>_build/runs/</code> 的历史 JSON，加一个 diff 步骤即可。<b>验收：</b>报告里出现「新进榜 / 掉榜 / 新痛点词」三个区块。</span></div></div>
+    <div class="vr p1"><div class="p"><span class="dot"></span>P1-3</div><div class="c"><b>把雷达结论真的走一次内容生产</b>——痛点词 → 选题 → 前 3 秒开场句<br><span class="meta">为什么：skill 里已经写了这个衔接（人群痛点词就是选题库和开场句），但还没有实际跑过一轮。这一环没验证，前面的取数就还是「看数据」。<b>验收：</b>产出一份可拍的选题单 + 开场句，用用户原话不改写。</span></div></div>
+    <div class="vr p1"><div class="p"><span class="dot"></span>P1-4</div><div class="c"><b>整理 <code>_build/</code> 与资产 ID 台账</b><br><span class="meta">为什么：39MB / 187 项平铺；page 与云表 ID 散落多处。建议 data/runs 按日期归档、脚本按用途分子目录，并把所有 ID 收敛到一份台账文件。<b>验收：</b>一份 <code>资产台账.md</code>，含全部 page / 云表 / 自动化 ID 与用途。</span></div></div>
+    <div class="vr p2"><div class="p"><span class="dot"></span>P2-1</div><div class="c"><b>学员包三轮带练开工</b>——停在第一轮门口很久了<br><span class="meta">状态：教练角色已就位，我的资料为空，已向你提过业务问题但未继续。要推进只需告诉我「继续带练」，或先把资料放进 <code>我的资料/</code>。<b>注意：</b>该流程要求交付前必须在真实浏览器里操作过并留截图，不是读代码就算验收。</span></div></div>
+    <div class="vr p2"><div class="p"><span class="dot"></span>P2-2</div><div class="c"><b>FastMoss 接口签名（cnonce）逆向</b><br><span class="meta">为什么：现在读渲染表格，单条约 5s，250 条约 22 分钟。若能直连接口会快一个量级。<b>但风险高</b>（对抗平台侧风控、可能触发封号），建议只在现状确实撑不住时再考虑。</span></div></div>
+    <div class="vr p2"><div class="p"><span class="dot"></span>P2-3</div><div class="c"><b>让六个适配器成为独立技能而非项目脚本</b><br><span class="meta">现状：适配器在通用 skill 内，但词表与产物路径写死在项目目录。若想在其他项目复用，需要把「配置」与「代码」彻底分离。</span></div></div>
+  </div>
+</section>
+
+<!-- ================= 九 ================= -->
+<section>
+  <h2><span class="no">九</span>自省：这次我做得不好的地方</h2>
+  <p class="lead">复盘如果不包括对自己的复盘，就只是成果汇报。下面 6 条是我这两天确实犯了的问题，后附下一轮要改的动作。</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>问题</th><th>具体表现</th><th>代价</th><th>下一轮改法</th></tr></thead>
+      <tbody>
+        <tr><td class="k">连续失败时不验前提</td><td>下载 tesseract 重复同一类动作约 40 次，实际那个文件在 GitHub 上根本不存在</td><td>浪费大量时间，需要你出声纠正</td><td>连续失败两次即停下来验前提（URL / 资产 / 接口是否真实存在），并在回复里说明「我在验证什么」</td></tr>
+        <tr><td class="k">新脚本直接全量跑</td><td>评分模型首版把 67 赞小号排第一；小红书账号榜首版把 23 万赞爆款号埋掉</td><td>两次推翻重写</td><td>新评分/排序脚本先跑 20 条小样本，人工核对 Top5 是否合理，再全量</td></tr>
+        <tr><td class="k">轻信上层包装过的报错</td><td>把「每条都取不到字段」判成平台限频，据此把间隔调到 45 秒仍失败；实际只是少读一层 <code>data</code></td><td>一轮时间的错误结论，还写进了文档与记忆</td><td>报错文案说的原因未必是真原因：先打印原始响应 + 最小复现，再下结论</td></tr>
+        <tr><td class="k">文档版本反复重生成</td><td>字段口径表 v1.1 → v1.7 共 7 版，每版都重跑一次生成脚本</td><td>约 7 轮生成与校验成本</td><td>字段与规则定稿后再出文档；中间态只在对话里汇报，不落版本文件</td></tr>
+        <tr><td class="k">同类坑重复踩</td><td>「值必须包装」「select 键是 text」两次踩到（第二次是回了头的）</td><td>两次批量写入失败</td><td>把踩坑固化成可执行断言，而不是写在记忆里提醒自己——记忆不会在你写代码时拦住你</td></tr>
+        <tr><td class="k">并行编辑覆盖改动</td><td>同一条消息对同一文件发多个编辑，静默丢失两处改动</td><td>需要靠校验脚本才找回</td><td>规则已定：同文件串行、跨文件并行；改完必须做关键词在位性校验</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note green">
+    <b>做对的三件事，下一轮保持：</b>① 动手前先把 TikHub 的端点清单拉下来逐个验真——这一步救了大命，省掉了后面所有基于假数据的返工；② 把「不可信端点」写进脚本常量而不是文档；③ 每次交付都留诊断面板与「已知边界」说明，让你看得见系统的诚实度，而不是给一个看起来很美的黑盒。
+  </div>
+</section>
+
+<!-- ================= 十 ================= -->
+<section>
+  <h2><span class="no">十</span>附：文件索引</h2>
+  <div class="card">
+    <h4>项目目录 <code>/Users/huizidemac/WorkBuddy/2026-09-19-21-23-47/</code></h4>
+    <ul class="plain">
+      <li><code>全球选品平台.html</code> — 主产品（159 KB / 42 字段 / 137 函数）</li>
+      <li><code>美妆情报台.html</code> — 4 模块工作台</li>
+      <li><code>全球选品平台_字段口径表_v1.7.xlsx</code> — 最新口径文档（10 sheet）</li>
+      <li><code>同行雷达/方案_同行情报六维系统.html</code> — 六维系统正式方案</li>
+      <li><code>同行雷达/对标榜单_2026-09-20.html</code> — 7 板块看板</li>
+      <li><code>同行雷达/csv/</code> — 12 份榜单单表</li>
+      <li><code>同行雷达/README.md</code> — 命令级使用说明</li>
+      <li><code>_build/</code> — 构建与验收脚本（64 py + 54 js）、data、runs</li>
+      <li><code>.workbuddy/memory/</code> — MEMORY.md（铁律）+ RUNBOOK.md（细则）+ 2 份日志</li>
+      <li><code>工作台带练_学员包_v1.0/</code> — 待开工</li>
+    </ul>
+    <h4>技能资产</h4>
+    <ul class="plain">
+      <li><code>~/.workbuddy/skills/run-work-flywheel/</code> — 主技能（含 5 个取数适配器 + 业务档案 + 判读手册）</li>
+      <li><code>~/.workbuddy/skills/workbuddy-thinking-archive/</code> — 思维档案 + 钩子安装器</li>
+      <li><code>~/.workbuddy/skills/macos-native-ocr-pdf/</code> — 工具链垫片重建配方</li>
+      <li><code>~/.workbuddy/skills/loggedin-cn-ecommerce-scrape/</code> — 登录态取数（v1.2.0）</li>
+      <li><code>~/.workbuddy/hooks/</code> — 两层钩子脚本 + 行为日志</li>
+      <li><code>~/Desktop/WorkBuddy思维档案.md</code> — 11 条条目 / 6 分类</li>
+    </ul>
+    <h4>凭据位置（只记位置，不记内容）</h4>
+    <ul class="plain">
+      <li><code>~/.config/content-creative-intelligence/tikhub.json</code> — TikHub</li>
+      <li><code>~/.config/ima/</code> — IMA 知识库</li>
+      <li><code>~/.config/zsxq-cli/</code> — 知识星球</li>
+      <li><code>_build/secrets/kimi.json</code> — Kimi（AI 增强管线）</li>
+    </ul>
+  </div>
+
+  <footer>
+    全量复盘 · 建版 2026-09-20 · 覆盖 09-19 21:00 至 09-20 16:00 的全部工作<br>
+    单文件 / 零外链 / 无 emoji · 桌面与手机均可读<br>
+    数据取自：项目目录 558 个文件、6 张云表、5 个 IMA 知识库、本会话完整过程记录、跨项目记忆与技能包
+  </footer>
+</section>
+
+</div>
+</body>
+</html>

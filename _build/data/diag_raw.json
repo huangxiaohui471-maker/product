@@ -1,0 +1,4 @@
+{
+ "_error": "HTTP 400 {\"detail\":{\"code\":400,\"request_id\":\"c8a291cf-116d-47f0-af28-d7fdc8336bb7\",\"message\":\"Request failed. Please retry. Check the docs below to verify your parameters, test with the default demo parameters, and send the response JSON to support. You won't be charged for this request.\",\"message_zh\":\"请求失败，",
+ "_url": "https://api.tikhub.io/api/v1/tiktok/shop/web/fetch_product_detail_v3?product_id=1736482358295496010&region=PH"
+}
