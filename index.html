@@ -806,6 +806,24 @@ body.flt-lock{overflow:hidden}
 @media(max-width:620px){.st-collect-buttons{display:grid;grid-template-columns:1fr}.st-collect-buttons button{width:100%}}
 @media(max-width:1050px){.st-analysis-grid{grid-template-columns:1fr 1fr}.st-opportunity-summary{grid-template-columns:1fr}}
 @media(max-width:620px){.st-simple-search{padding:16px}.st-simple-head{display:block}.st-simple-form,.st-simple-optional,.st-analysis-grid,.st-empty-output{grid-template-columns:1fr}.st-simple-optional button{width:100%}}
+/* product-research-tool-remote：原生接入工作台的产品调研模块 */
+.pr-shell{display:grid;gap:12px}.pr-toolbar{display:flex;align-items:center;gap:14px;padding:15px 17px;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--sh)}
+.pr-toolbar-main{min-width:0;flex:1}.pr-toolbar-main b{display:block;font-size:14px}.pr-toolbar-main span{display:block;margin-top:4px;color:var(--hint);font-size:10.5px;line-height:1.55}
+.pr-routes{display:flex;gap:6px;flex-wrap:wrap}.pr-routes button{min-height:34px;padding:0 12px;border:1px solid var(--line);border-radius:9px;background:var(--surface-2);color:var(--sub);font-size:10.5px;white-space:nowrap}
+.pr-routes button:hover,.pr-routes button.on{border-color:#9FC7F5;background:var(--blue-soft);color:var(--blue-deep)}
+.pr-notice{padding:11px 14px;border:1px solid #CDE3FA;border-radius:11px;background:#F3F8FF;color:#45698E;font-size:10px;line-height:1.65}.pr-notice b{color:#174A7A}
+.pr-filter{display:grid;grid-template-columns:minmax(220px,1fr) 190px auto auto;gap:8px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:13px;background:var(--surface)}
+.pr-filter input,.pr-filter select{height:38px;padding:0 11px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);font:inherit;font-size:10.5px;outline:none}.pr-filter input:focus,.pr-filter select:focus{border-color:#7CB2ED;box-shadow:0 0 0 3px rgba(0,113,227,.08)}
+.pr-filter label{display:flex;align-items:center;gap:6px;min-height:38px;padding:0 10px;border:1px solid var(--line);border-radius:9px;background:var(--surface-2);font-size:10px;color:var(--sub);white-space:nowrap}.pr-filter-count{justify-self:end;color:var(--hint);font-size:10px;white-space:nowrap}
+.pr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:12px}.pr-card{overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;background:#fff;text-align:left;box-shadow:0 6px 20px rgba(33,57,90,.04);transition:.16s}.pr-card:hover{transform:translateY(-2px);border-color:#9FC7F5;box-shadow:0 12px 28px rgba(33,57,90,.1)}
+.pr-card-img{position:relative;aspect-ratio:1.12/1;overflow:hidden;background:#EEF1F5}.pr-card-img img{width:100%;height:100%;object-fit:cover}.pr-rank{position:absolute;left:9px;top:9px;padding:3px 8px;border-radius:999px;background:rgba(12,23,50,.78);color:#fff;font-size:9px}.pr-deep{position:absolute;right:9px;top:9px;padding:3px 8px;border-radius:999px;background:#168C65;color:#fff;font-size:9px}
+.pr-card-body{display:grid;gap:7px;padding:12px;flex:1}.pr-card-title{font-size:11.5px;line-height:1.45;font-weight:650;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:33px}.pr-card-sub{font-size:9px;color:var(--hint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.pr-card-price{display:flex;align-items:baseline;justify-content:space-between;gap:8px}.pr-card-price strong{font-size:18px;color:#D73B55}.pr-card-price span{font-size:9px;color:var(--hint)}.pr-card-kpis{display:grid;grid-template-columns:1fr 1fr;gap:5px}.pr-card-kpis span{padding:6px 7px;border-radius:7px;background:var(--surface-2);font-size:9px;color:var(--hint)}.pr-card-kpis b{display:block;margin-top:2px;color:var(--ink);font-size:10px}.pr-card-line{font-size:9px;color:var(--sub);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.pr-tags{display:flex;gap:5px;flex-wrap:wrap}.pr-tags i{padding:3px 6px;border-radius:999px;background:var(--blue-soft);color:var(--blue);font-size:8.5px;font-style:normal}
+.pr-empty{padding:44px 20px;border:1px dashed #C7D0DA;border-radius:13px;background:#FAFBFC;text-align:center;color:var(--hint);font-size:11px}
+.pr-crumb{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.pr-crumb button{min-height:32px;padding:0 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--sub);font-size:10px}.pr-crumb span{margin-left:auto;color:var(--hint);font-size:9.5px}.pr-hero{display:grid;grid-template-columns:270px 1fr;gap:20px;padding:18px;border:1px solid var(--line);border-radius:15px;background:#fff}.pr-hero-img{overflow:hidden;aspect-ratio:1/1;border-radius:12px;background:#EEF1F5}.pr-hero-img img{width:100%;height:100%;object-fit:cover}.pr-hero-main h2{font-size:20px;line-height:1.45;margin:8px 0}.pr-hero-main>p{font-size:10.5px;color:var(--sub);line-height:1.7}.pr-price{font-size:28px;color:#D73B55;margin:12px 0 6px}.pr-kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin-top:14px}.pr-kpi{padding:9px;border-radius:9px;background:var(--surface-2)}.pr-kpi span,.pr-kpi b{display:block}.pr-kpi span{font-size:8.5px;color:var(--hint)}.pr-kpi b{font-size:12px;margin-top:4px}.pr-highlight{margin-top:13px;padding:11px 12px;border-left:3px solid var(--blue);border-radius:5px 9px 9px 5px;background:#F3F8FF;color:#315D8E;font-size:10px;line-height:1.7}
+.pr-sections{display:grid;gap:9px}.pr-section{border:1px solid var(--line);border-radius:12px;background:#fff}.pr-section summary{display:flex;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;list-style:none}.pr-section summary::-webkit-details-marker{display:none}.pr-section summary b{font-size:11.5px}.pr-section summary span{margin-left:auto;color:var(--hint);font-size:9px}.pr-section[open] summary{border-bottom:1px solid var(--line-2)}.pr-section-body{padding:14px 15px}.pr-chipset{display:flex;gap:6px;flex-wrap:wrap}.pr-chipset span{padding:5px 8px;border-radius:999px;background:var(--surface-2);color:var(--sub);font-size:9.5px}.pr-two{display:grid;grid-template-columns:1fr 1fr;gap:11px}.pr-panel{padding:13px;border:1px solid var(--line-2);border-radius:10px;background:#FAFBFC}.pr-panel h4{font-size:10.5px;margin-bottom:9px}.pr-panel p,.pr-panel li{font-size:9.5px;color:var(--sub);line-height:1.65}.pr-panel ul{margin:0;padding-left:17px}.pr-dl{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.pr-dl div{padding:9px;border-radius:8px;background:var(--surface-2)}.pr-dl span,.pr-dl b{display:block}.pr-dl span{font-size:8.5px;color:var(--hint)}.pr-dl b{font-size:10px;margin-top:3px}.pr-review{padding:9px 11px;border-radius:8px;background:var(--surface-2);font-size:9.5px;color:var(--sub);line-height:1.65;margin-top:6px}.pr-video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.pr-video{overflow:hidden;border:1px solid var(--line-2);border-radius:10px;background:#fff}.pr-video img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#EEF1F5}.pr-video div{padding:9px}.pr-video b{font-size:9.5px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.pr-video p{font-size:8.5px;color:var(--hint);margin-top:5px}
+.pr-table-wrap{overflow:auto;border:1px solid var(--line);border-radius:13px;background:#fff}.pr-table{width:max-content;min-width:100%;border-collapse:collapse}.pr-table th,.pr-table td{max-width:230px;padding:9px 10px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);font-size:9.5px;text-align:left;vertical-align:top}.pr-table th{position:sticky;top:0;z-index:2;background:#F7F9FC;color:var(--hint);font-weight:600;white-space:nowrap}.pr-table td:first-child,.pr-table th:first-child{position:sticky;left:0;z-index:1;background:#fff}.pr-table th:first-child{z-index:3;background:#F7F9FC}.pr-table .pr-product-cell{min-width:210px;font-weight:600}.pr-table small{display:block;color:var(--hint);margin-top:3px}.pr-method-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}.pr-method{padding:17px;border:1px solid var(--line);border-radius:13px;background:#fff}.pr-method h3{font-size:12px;margin-bottom:9px}.pr-method p,.pr-method li{font-size:10px;color:var(--sub);line-height:1.75}.pr-method ul{margin:0;padding-left:17px}.pr-note{padding:0 3px;color:var(--hint);font-size:9.5px;line-height:1.65}.pr-note b{color:var(--sub)}
+@media(max-width:1050px){.pr-filter{grid-template-columns:1fr 170px auto}.pr-filter-count{grid-column:1/-1;justify-self:start}.pr-hero{grid-template-columns:220px 1fr}.pr-kpis{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.pr-toolbar{align-items:flex-start;flex-direction:column}.pr-routes{width:100%}.pr-routes button{flex:1}.pr-filter,.pr-hero,.pr-two,.pr-method-grid{grid-template-columns:1fr}.pr-hero-img{max-width:300px}.pr-kpis{grid-template-columns:repeat(2,1fr)}.pr-video-grid{grid-template-columns:1fr}.pr-dl{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -862,6 +880,7 @@ body.flt-lock{overflow:hidden}
 <div class="modal" id="modal"></div>
 <div class="toast" id="toast"></div>
 
+<script src="vendor/product_research_tool_remote/product-research-data.js"></script>
 <script>
 /* =============================================================
    全球选品平台 · 单文件数据平台
@@ -882,7 +901,7 @@ var VIEWS = [
     icon: '<path d="M3 20h18"/><path d="M6 20v-7M11 20V6M16 20v-4M21 20v-9"/>' },
   { key: 'rank', name: '商品榜', desc: '类目排行：分来源分榜，可切市场与品类',
     icon: '<path d="M8 21h8M12 17v4"/><path d="M7 3h10v6a5 5 0 0 1-10 0z"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"/>' },
-  { key: 'pa', name: '产品分析', desc: '品类细分、商品档案与九要素覆盖',
+  { key: 'pa', name: '产品分析', desc: '商品调研、单品拆解、全品对标与数据口径',
     icon: '<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>' },
   { key: 'ing', name: '成分库', desc: '成分热度榜、成分×品类矩阵与关联商品',
     icon: '<path d="M12 3l7 4v5c0 4.4-3 8-7 9-4-1-7-4.6-7-9V7z"/><path d="M9.5 12l2 2 3.5-4"/>' },
@@ -2377,7 +2396,7 @@ RENDER.nav = function () {
 RENDER.titles = function () {
   var v = viewDef(state.view);
   var searchInput=$('#kw');if(searchInput)searchInput.placeholder=state.view==='strategy'?'快速检索已有数据（不会自动立项）':'搜索商品 / 品牌 / 成分 / 概念';
-  if (searchInput && searchInput.closest('.search')) searchInput.closest('.search').style.display = (state.view === 'board' || state.view === 'opportunity') ? 'none' : '';
+  if (searchInput && searchInput.closest('.search')) searchInput.closest('.search').style.display = (state.view === 'board' || state.view === 'opportunity' || state.view === 'pa') ? 'none' : '';
   if (state.view === 'opportunity') {
     $('#viewTitle').textContent = v.name;
     $('#viewDesc').textContent = v.desc + '　·　两条独立数据链';
@@ -2393,6 +2412,16 @@ RENDER.titles = function () {
     $('#viewTitle').textContent = v.name;
     $('#viewDesc').textContent = v.desc + '　·　自有店铺在售 ' + nr + ' 个商品'
       + (state.ready ? '' : ' · 加载中…');
+    return;
+  }
+  if (state.view === 'rank') {
+    $('#viewTitle').textContent = v.name;
+    $('#viewDesc').textContent = '国内商品榜单 · 海外跨境商品榜单 · 按类目查看榜单 Top20';
+    return;
+  }
+  if (state.view === 'pa') {
+    $('#viewTitle').textContent = v.name;
+    $('#viewDesc').textContent = v.desc + '　·　GitHub 产品调研数据已原生接入（30 个商品）';
     return;
   }
   /* v11·复审：board/rank 用默认真实数据口径；lib/insight/review 保持 V10 */
@@ -2418,6 +2447,12 @@ RENDER.filter = function () {
     fltLayerRender();
     return;
   }
+  if (state.view === 'pa') {
+    state.fltOpen = '0';
+    $('#chips').innerHTML = '<span class="hint" style="margin:2px 0">产品分析已内置商品检索、排序与类目筛选；工作台全局筛选不会改写这份调研快照。</span>';
+    fltLayerRender();
+    return;
+  }
   if (state.view === 'board') {
     $('#chips').innerHTML = boardFilterHtml();
     fltLayerRender();
@@ -2425,6 +2460,12 @@ RENDER.filter = function () {
   }
   if (state.view === 'design') {
     $('#chips').innerHTML = '<span class="hint" style="margin:2px 0">产品设计分析读的是第二张表「自有店铺口碑库」，与上面的商品筛选无关；切回其它视图即恢复筛选。</span>';
+    fltLayerRender();
+    return;
+  }
+  if (state.view === 'rank') {
+    state.fltOpen = '0';
+    $('#chips').innerHTML = rankMarketNavHtml() + rankCategoryFilterHtml();
     fltLayerRender();
     return;
   }
@@ -3868,21 +3909,74 @@ function rankNoText(r) {
    不同来源一律分榜（Tabs / 分来源），不生成跨来源混合总榜；
    每榜标注覆盖度 N/50、真实周期、缺失字段与原因；点商品即打开商品档案。 ---------- */
 RENDER.rank = function () {
-  var list = boardRankDataOf();
   var v = $('#view');
   var h = '';
-  h += rankSrcTabs();
-  h += rankSortTabs();
-  if (!list.length) { v.innerHTML = h + diagHtml(list); return; }
-  var groups = rankGroups(list);
-  if (!groups.length) { v.innerHTML = h + emptyHtml('当前筛选下没有可排的榜单', '放宽国家 / 来源 / 类目再看'); return; }
-  h += '<div class="hint" style="margin-bottom:12px">'
-    + '<b>为什么必须分来源：</b>不同平台的统计周期与币种都不同（抖音罗盘、蝉妈妈、'
-    + 'FastMoss 未标注周期、Hwahae / Olive Young 只公开名次），把它们揉成一个总榜等于把不可比的数字相加。'
-    + '本期<b>没有任何来源提供「近 30 天」口径</b>，所以销量与金额按各来源的真实周期分列，不做跨来源合并。</div>';
-  for (var i = 0; i < groups.length; i++) h += rankBoardHtml(groups[i], groups.length > 1);
+  var domestic = rankDomesticRows(), overseas = rankOverseasRows();
+  h += '<div class="hint" style="margin-bottom:12px">按市场和类目查看；每个分类只展示原始榜单 Top20，销量缺失也保留。</div>';
+  h += rankMarketPanelHtml('国内商品榜单', domestic);
+  h += rankMarketPanelHtml('海外跨境商品榜单', overseas);
   v.innerHTML = h;
 };
+function rankBaseRows() {
+  return state.list.filter(function (r) {
+    if (isDemo(r)) return false;
+    if (state.c2 !== '全部' && txtOf(r, '二级类目') !== state.c2) return false;
+    if (state.market !== '全部' && txtOf(r, '所属市场') !== state.market) return false;
+    return true;
+  });
+}
+function rankDomesticRows() {
+  if (state.market !== '全部' && state.market !== '中国') return [];
+  return rankBaseRows().filter(function (r) {
+    return txtOf(r, '数据来源') === '抖音罗盘' && (txtOf(r, '所属市场') === '中国' || txtOf(r, '国家/地区') === '中国');
+  });
+}
+function rankOverseasRows() {
+  if (state.market === '中国') return [];
+  return rankBaseRows().filter(function (r) {
+    var source = txtOf(r, '数据来源');
+    var market = txtOf(r, '所属市场'), country = txtOf(r, '国家/地区');
+    return source !== '抖音罗盘' && source !== '蝉妈妈' && market !== '中国' && country !== '中国';
+  });
+}
+function rankMarketPanelHtml(title, rows) {
+  if (!rows.length) return '<section class="rank-market-block"><div class="sec-hd"><h2>' + esc(title) + '</h2><span>暂无符合条件的商品</span></div></section>';
+  var groups = rankGroups(rows), h = '<section class="rank-market-block"><div class="sec-hd"><h2>' + esc(title) + '</h2><span>' + rows.length + ' 个商品</span></div>';
+  for (var i = 0; i < groups.length; i++) h += rankBoardHtml(groups[i], groups.length > 1);
+  return h + '</section>';
+}
+function rankMarketNavHtml() {
+  var markets = ['全部', '中国', '韩国', '日本', '欧美', '东南亚'];
+  var names = { '全部': '全部市场', '中国': '中国', '韩国': '韩国', '日本': '日本', '欧美': '欧美', '东南亚': '东南亚' };
+  var h = '<div class="rank-market-nav">';
+  for (var i = 0; i < markets.length; i++) {
+    h += '<button type="button" class="rank-tab' + (state.market === markets[i] ? ' on' : '') + '" data-f="market" data-v="' + markets[i] + '">' + names[markets[i]] + '</button>';
+  }
+  return h + '</div>';
+}
+function rankCategoryFilterHtml() {
+  var rows = state.list.filter(function (r) {
+    var source = txtOf(r, '数据来源'), market = txtOf(r, '所属市场'), country = txtOf(r, '国家/地区');
+    if (isDemo(r) || source === '蝉妈妈') return false;
+    if (state.market === '中国') return source === '抖音罗盘' && (market === '中国' || country === '中国');
+    if (state.market !== '全部') return source !== '抖音罗盘' && market !== '中国' && country !== '中国';
+    return (source === '抖音罗盘' && (market === '中国' || country === '中国')) || (source !== '抖音罗盘' && market !== '中国' && country !== '中国');
+  });
+  var counts = {}, order = [], i, k;
+  for (i = 0; i < rows.length; i++) {
+    k = txtOf(rows[i], '二级类目') || txtOf(rows[i], '三级类目') || '未分类';
+    if (!counts[k]) { counts[k] = 0; order.push(k); }
+    counts[k]++;
+  }
+  order.sort(function (a, b) { return a.localeCompare(b, 'zh-CN'); });
+  var h = '<div class="flt-bar rank-category-filter"><label class="flt"><span>类目</span>'
+    + '<select class="flt-sel" data-f-sel="c2"><option value="全部"' + (state.c2 === '全部' ? ' selected' : '') + '>全部类目</option>';
+  for (i = 0; i < order.length; i++) {
+    h += '<option value="' + esc(order[i]) + '"' + (state.c2 === order[i] ? ' selected' : '') + '>'
+      + esc(order[i]) + '（' + counts[order[i]] + '）</option>';
+  }
+  return h + '</select></label></div>';
+}
 function rankGroups(list) {
   var map = {}, order = [], i;
   for (i = 0; i < list.length; i++) {
@@ -3917,13 +4011,26 @@ function rankSortTabs() {
 /* 一榜：覆盖度条 + 缺失说明 + 表格（列随来源可得性增减） */
 function rankBoardHtml(g, multi) {
   var src = g.src, cols = rankColsOf(src);
-  var rows = rankRows(g.rows, state.rankBy);
-  if (src === '抖音罗盘') rows = top20PerCategory(rows);
-  var show = rows.slice(0, 50);
-  var limitLabel = src === '抖音罗盘' ? '每类目前20' : 'Top50 目标';
-  var hint = (rankDef(state.rankBy).hint || '') + ' · 收录 ' + rows.length + ' 条，展示前 ' + Math.min(rows.length, 50) + ' 条（' + limitLabel + '）';
-  var h = '<div class="sec rank-sec">' + secHd('『' + src + '』榜', hint + (multi ? '' : ' · 已按来源筛选'), '共 ' + rows.length + ' 条');
-  h += covBarHtml(src, g.rows, show.length);
+  if (!g.categoryName) {
+    var groups = {}, order = [], i, key;
+    var sourceRows = g.rows;
+    for (i = 0; i < sourceRows.length; i++) {
+      key = txtOf(sourceRows[i], '二级类目') || txtOf(sourceRows[i], '三级类目') || txtOf(sourceRows[i], '品类') || '未分类';
+      if (!groups[key]) { groups[key] = []; order.push(key); }
+      groups[key].push(sourceRows[i]);
+    }
+    var groupedHtml = '';
+    for (i = 0; i < order.length; i++) {
+      groupedHtml += rankBoardHtml({ src: src, rows: groups[order[i]], categoryName: order[i] }, multi);
+    }
+    return groupedHtml;
+  }
+  var rows = categoryTop20(g.rows);
+  var show = rows;
+  var limitLabel = '榜单Top20';
+  var hint = '按来源原始名次 · ' + limitLabel;
+  var h = '<div class="sec rank-sec">' + secHd('『' + g.categoryName + '』榜', hint, '共 ' + rows.length + ' 条');
+  if (src !== '抖音罗盘') h += covBarHtml(src, rows, show.length);
   h += '<div class="card" style="padding:12px 4px 4px"><div class="rkt-wrap"><table class="rkt"><thead><tr>';
   for (var c = 0; c < cols.length; c++) h += '<th>' + esc(rankHead(cols[c], src)) + '</th>';
   h += '</tr></thead><tbody>';
@@ -3934,28 +4041,16 @@ function rankBoardHtml(g, multi) {
     h += '</tr>';
   }
   h += '</tbody></table></div></div>';
-  h += '<div class="miss-note">缺失字段与原因：' + esc(srcNote(src)) + '。缺失一律显示「—」，不当 0，也不做推测填充。';
-  h += ' 名次列显示来源原始名次（「第N名」，或抓取序「第P页第Q位」——分页位次不等于全局名次）。';
-  if (exCount(g.rows)) h += ' 本榜有 <b>' + exCount(g.rows) + '</b> 条低基数样本（反推基期 < ' + GROW_BASE_MIN + ' 件），已打标；仅在「按增速排序」时置底，不参与增速类资格判定。';
   h += '</div></div>';
   return h;
 }
-function top20PerCategory(rows) {
-  var groups = {}, order = [], out = [], i, key;
-  for (i = 0; i < rows.length; i++) {
-    key = txtOf(rows[i], '二级类目') || txtOf(rows[i], '三级类目') || '未分类';
-    if (!groups[key]) { groups[key] = []; order.push(key); }
-    groups[key].push(rows[i]);
-  }
-  for (i = 0; i < order.length; i++) {
-    groups[order[i]].sort(function (a, b) {
-      var av = metricAvailable(a, '销量') && metricAvailable(a, '销售额') ? 0 : 1;
-      var bv = metricAvailable(b, '销量') && metricAvailable(b, '销售额') ? 0 : 1;
-      return av - bv || (rankNoOf(a) === null ? 9999 : rankNoOf(a)) - (rankNoOf(b) === null ? 9999 : rankNoOf(b));
-    });
-    out = out.concat(groups[order[i]].slice(0, 20));
-  }
-  return out;
+function categoryTop20(rows) {
+  return rows.slice().sort(function (a, b) {
+    var av = rankNoOf(a), bv = rankNoOf(b);
+    if (av === null) av = 999999;
+    if (bv === null) bv = 999999;
+    return av - bv;
+  }).slice(0, 20);
 }
 function exCount(rows) {
   var n = 0;
@@ -3963,7 +4058,7 @@ function exCount(rows) {
   return n;
 }
 function rankHead(col, src) {
-  if (col.k === 'no') return state.rankBy === 'rank' ? '名次（原榜）' : '排序位';
+  if (col.k === 'no') return '销量排名';
   if (col.k === 'sold') return '销量';
   if (col.k === 'gmv') return '销售额';
   return col.n;
@@ -3990,20 +4085,14 @@ function covBarHtml(src, rows, shown) {
 }
 function rankCell(col, r, src, no) {
   if (col.k === 'no') {
-    if (state.rankBy === 'rank') {
-      var n0 = rankNoOf(r), pg0 = rankPageOf(r);
-      var t0 = (n0 !== null) ? String(n0) : (pg0 ? pg0.page + '页' + pg0.pos + '位' : '—');
-      return '<td class="rkno' + (n0 !== null && n0 <= 3 ? ' top' : '') + '" data-l="名次" title="'
-        + esc(rankTextOf(r)) + '">' + t0 + '</td>';
-    }
-    return '<td class="rkno" data-l="排序位">' + no + '</td>';
+    return '<td class="rkno' + (no <= 3 ? ' top' : '') + '" data-l="榜单排名">' + no + '</td>';
   }
   if (col.k === 'prod') {
     var bd = growExcluded(r) === '低基数' ? '<span class="bdg">低基数</span>' : '';
     var meta = [];
-    var o = rankNoText(r); if (o) meta.push(o);
-    var cat2 = txtOf(r, '二级类目'); if (cat2) meta.push(cat2);
-    var c3 = txtOf(r, '三级类目'); if (c3 && c3 !== cat2) meta.push(c3);
+    var o = src === '抖音罗盘' ? '' : rankNoText(r); if (o) meta.push(o);
+    var cat2 = src === '抖音罗盘' ? '' : txtOf(r, '二级类目'); if (cat2) meta.push(cat2);
+    var c3 = src === '抖音罗盘' ? '' : txtOf(r, '三级类目'); if (c3 && c3 !== cat2) meta.push(c3);
     if (isNewProd(r)) meta.push('新品');
     return '<td class="pc" data-l="商品"><button type="button" class="lnk pname" data-open="' + esc(ridOf(r)) + '">'
       + esc(txtOf(r, '商品名称') || '未命名') + '</button>' + bd
@@ -4034,9 +4123,9 @@ function rankCell(col, r, src, no) {
   return '<td></td>';
 };
 
-RENDER.pa = function () {
-  var list = dataOf();
+RENDER.paLegacy = function () {
   var v = $('#view');
+  var list = dataOf();
   if (!list.length) {
     v.innerHTML = diagHtml(list);
     return;
@@ -4138,6 +4227,174 @@ RENDER.pa = function () {
   }
   h += '</div></div>';
   v.innerHTML = h;
+};
+
+/* ---------- 产品调研：原生接入「产品分析」 ---------- */
+var PR_STATE = { route: 'wall', q: '', cate: '', sort: 'rank', deep: false, safe: false, product: 1 };
+var PR_ASSET_BASE = 'vendor/product_research_tool_remote/产品调研模块/';
+
+function prDB() {
+  return window.PRODUCT_RESEARCH_DATA || { meta: {}, products: [] };
+}
+function prMoney(v) {
+  return v === null || v === undefined || v === '' ? '—' : '¥' + Number(v).toFixed(Number(v) % 1 ? 1 : 0);
+}
+function prAsset(path) {
+  if (!path) return '';
+  return /^(https?:|data:)/.test(path) ? path : PR_ASSET_BASE + path;
+}
+function prText(v, fallback) {
+  if (Array.isArray(v)) return v.length ? v.join('／') : (fallback || '—');
+  if (v === null || v === undefined || v === '') return fallback || '—';
+  return String(v);
+}
+function prMid(v) {
+  var s = String(v || '').toLowerCase().replace(/,/g, '').trim();
+  if (!s) return 0;
+  var m = s.match(/([\d.]+)\s*w\s*\+/); if (m) return Number(m[1]) * 10000;
+  m = s.match(/([\d.]+)\s*w\s*[-~]至\s*([\d.]+)\s*w/); if (m) return (Number(m[1]) + Number(m[2])) * 5000;
+  m = s.match(/([\d.]+)\s*[-~至]\s*([\d.]+)/); if (m) return (Number(m[1]) + Number(m[2])) / 2;
+  m = s.match(/[\d.]+/); return m ? Number(m[0]) : 0;
+}
+function prChips(items, limit) {
+  items = Array.isArray(items) ? items : [];
+  return '<div class="pr-chipset">' + items.slice(0, limit || 12).map(function (x) {
+    return '<span>' + esc(typeof x === 'object' ? (x.k || x.n || '') : x) + (typeof x === 'object' && x.c ? ' · ' + esc(x.c) : '') + '</span>';
+  }).join('') + (items.length ? '' : '<span>暂无结构化数据</span>') + '</div>';
+}
+function prToolbar(route) {
+  var db = prDB(), m = db.meta || {};
+  return '<div class="pr-toolbar"><div class="pr-toolbar-main"><b>产品调研中心</b>'
+    + '<span>飞瓜商品销售榜（月榜）＋商品画像／评价＋带货视频文案；当前快照 ' + esc(m.n || db.products.length) + ' 个商品、' + esc(m.nViral || 0) + ' 条视频拆解。</span></div>'
+    + '<div class="pr-routes"><button type="button" class="' + (route === 'wall' ? 'on' : '') + '" data-pr-view="wall">商品卡墙</button>'
+    + '<button type="button" class="' + (route === 'compare' ? 'on' : '') + '" data-pr-view="compare">全品对标</button>'
+    + '<button type="button" class="' + (route === 'method' ? 'on' : '') + '" data-pr-view="method">口径与方法</button></div></div>';
+}
+function prBindRoutes(root) {
+  var buttons = $$('[data-pr-view]', root);
+  for (var i = 0; i < buttons.length; i++) buttons[i].addEventListener('click', function () {
+    PR_STATE.route = this.getAttribute('data-pr-view') || 'wall';
+    RENDER.pa();
+    window.scrollTo(0, 0);
+  });
+}
+function prSortedFiltered() {
+  var rows = (prDB().products || []).slice(), q = String(PR_STATE.q || '').toLowerCase();
+  rows = rows.filter(function (p) {
+    var hay = [p.title, p.brand, p.shop, p.cate, p.sellingPoint, p.audienceLine].join(' ').toLowerCase();
+    return (!q || hay.indexOf(q) >= 0) && (!PR_STATE.cate || p.cate === PR_STATE.cate)
+      && (!PR_STATE.deep || (p.viral || []).length > 0) && (!PR_STATE.safe || (p.badRate !== null && p.badRate !== undefined && p.badRate <= 8));
+  });
+  rows.sort(function (a, b) {
+    if (PR_STATE.sort === 'rank') return Number(a.rank || 999) - Number(b.rank || 999);
+    if (PR_STATE.sort === 'bad') return Number(a.badRate == null ? 999 : a.badRate) - Number(b.badRate == null ? 999 : b.badRate);
+    if (PR_STATE.sort === 'price') return Number(b.price || 0) - Number(a.price || 0);
+    if (PR_STATE.sort === 'video') return Number(b.videosTotal || 0) - Number(a.videosTotal || 0);
+    if (PR_STATE.sort === 'sales') return prMid(b.sales) - prMid(a.sales);
+    return 0;
+  });
+  return rows;
+}
+function prCard(p) {
+  var core = p.core || {}, tags = (core['主打成分'] || []).slice(0, 3);
+  return '<button type="button" class="pr-card" data-pr-product="' + esc(p.i) + '"><span class="pr-card-img">'
+    + (p.cover ? '<img src="' + esc(prAsset(p.cover)) + '" alt="" loading="lazy">' : '')
+    + '<i class="pr-rank">TOP ' + esc(p.rank || p.i) + '</i>' + ((p.viral || []).length ? '<i class="pr-deep">已拆 ' + p.viral.length + ' 条</i>' : '') + '</span>'
+    + '<span class="pr-card-body"><span class="pr-card-title">' + esc(p.title) + '</span><span class="pr-card-sub">' + esc(p.brand || '未知品牌') + ' · ' + esc(p.shop || '未知店铺') + '</span>'
+    + '<span class="pr-card-price"><strong>' + prMoney(p.price) + '</strong><span>' + esc(p.cate || '—') + '</span></span>'
+    + '<span class="pr-card-kpis"><span>销售额<b>' + esc(prText(p.sales)) + '</b></span><span>销量<b>' + esc(prText(p.volume)) + '</b></span><span>差评率<b>' + (p.badRate == null ? '—' : esc(p.badRate) + '%') + '</b></span><span>带货视频<b>' + esc(p.videosTotal || 0) + ' 条</b></span></span>'
+    + '<span class="pr-card-line"><b>卖点：</b>' + esc(prText(p.sellingPoint)) + '</span><span class="pr-card-line"><b>人群：</b>' + esc(prText(p.audienceLine)) + '</span>'
+    + '<span class="pr-tags">' + tags.map(function (t) { return '<i>' + esc(t) + '</i>'; }).join('') + '</span></span></button>';
+}
+function prRenderWall() {
+  var db = prDB(), rows = prSortedFiltered(), cates = {};
+  (db.products || []).forEach(function (p) { if (p.cate) cates[p.cate] = 1; });
+  var h = prToolbar('wall')
+    + '<div class="pr-notice"><b>一张卡只代表一个具体商品链接。</b> 排名、销售额、销量、评价、画像和视频拆解不跨商品混合；缺失字段继续显示为缺失。</div>'
+    + '<div class="pr-filter"><input id="prSearch" type="search" placeholder="搜商品名 / 品牌 / 店铺 / 卖点" value="' + esc(PR_STATE.q) + '">'
+    + '<select id="prCate"><option value="">全部类目</option>' + Object.keys(cates).map(function (c) { return '<option value="' + esc(c) + '"' + (PR_STATE.cate === c ? ' selected' : '') + '>' + esc(c) + '</option>'; }).join('') + '</select>'
+    + '<select id="prSort"><option value="rank">榜单排名</option><option value="sales">销售额</option><option value="video">带货视频数</option><option value="price">价格从高到低</option><option value="bad">差评率从低到高</option></select>'
+    + '<label><input id="prDeep" type="checkbox"' + (PR_STATE.deep ? ' checked' : '') + '>仅已拆解</label><label><input id="prSafe" type="checkbox"' + (PR_STATE.safe ? ' checked' : '') + '>差评率 ≤ 8%</label>'
+    + '<span class="pr-filter-count">命中 ' + rows.length + ' / ' + (db.products || []).length + ' 个商品</span></div>'
+    + (rows.length ? '<div class="pr-grid">' + rows.map(prCard).join('') + '</div>' : '<div class="pr-empty">没有符合当前条件的商品</div>')
+    + '<div class="pr-note"><b>数据来源：</b>' + esc((db.meta || {}).src || '—') + '；口径期间 ' + esc((db.meta || {}).range || '—') + '；更新时间 ' + esc((db.meta || {}).now || '—') + '。</div>';
+  var v = $('#view'); v.innerHTML = '<div class="pr-shell">' + h + '</div>'; prBindRoutes(v);
+  $('#prSort').value = PR_STATE.sort;
+  $('#prSearch').addEventListener('input', function () { PR_STATE.q = this.value; prRenderWall(); var x = $('#prSearch'); x.focus(); x.setSelectionRange(x.value.length, x.value.length); });
+  $('#prCate').addEventListener('change', function () { PR_STATE.cate = this.value; prRenderWall(); });
+  $('#prSort').addEventListener('change', function () { PR_STATE.sort = this.value; prRenderWall(); });
+  $('#prDeep').addEventListener('change', function () { PR_STATE.deep = this.checked; prRenderWall(); });
+  $('#prSafe').addEventListener('change', function () { PR_STATE.safe = this.checked; prRenderWall(); });
+  var cards = $$('[data-pr-product]', v);
+  for (var i = 0; i < cards.length; i++) cards[i].addEventListener('click', function () { PR_STATE.product = Number(this.getAttribute('data-pr-product')); PR_STATE.route = 'detail'; RENDER.pa(); window.scrollTo(0, 0); });
+}
+function prKV(obj) {
+  obj = obj || {};
+  return '<div class="pr-dl">' + Object.keys(obj).map(function (k) { return '<div><span>' + esc(k) + '</span><b>' + esc(prText(obj[k])) + '</b></div>'; }).join('') + '</div>';
+}
+function prSection(title, hint, body, open) {
+  return '<details class="pr-section"' + (open ? ' open' : '') + '><summary><b>' + esc(title) + '</b><span>' + esc(hint || '点击展开') + '</span></summary><div class="pr-section-body">' + body + '</div></details>';
+}
+function prRenderDetail() {
+  var db = prDB(), list = db.products || [], p = null;
+  for (var i = 0; i < list.length; i++) if (Number(list[i].i) === Number(PR_STATE.product)) p = list[i];
+  if (!p) { PR_STATE.route = 'wall'; prRenderWall(); return; }
+  var core = p.core || {}, videos = (p.viral || []).slice(0, 6), revs = (p.goodCmt || []).slice(0, 5);
+  var prev = p.i > 1 ? p.i - 1 : 0, next = p.i < list.length ? p.i + 1 : 0;
+  var hero = '<div class="pr-crumb"><button type="button" data-pr-back="1">← 返回商品卡墙</button>' + (prev ? '<button type="button" data-pr-jump="' + prev + '">上一个</button>' : '') + (next ? '<button type="button" data-pr-jump="' + next + '">下一个</button>' : '') + '<span>第 ' + p.i + ' / ' + list.length + ' 个商品链接</span></div>'
+    + '<div class="pr-hero"><div class="pr-hero-img">' + (p.cover ? '<img src="' + esc(prAsset(p.cover)) + '" alt="">' : '') + '</div><div class="pr-hero-main">'
+    + '<div class="pr-tags"><i>' + esc(p.brand || '未知品牌') + '</i><i>' + esc(p.cate || '—') + '</i><i>TOP ' + esc(p.rank || p.i) + '</i>' + (p.badRate == null ? '' : '<i>差评率 ' + esc(p.badRate) + '%</i>') + '</div>'
+    + '<h2>' + esc(p.title) + '</h2><p>' + esc(p.shop || '—') + ' · 店铺评分 ' + esc(p.shopScore || '—') + ' · 上架 ' + esc(p.onSale || '—') + '</p><div class="pr-price">' + prMoney(p.price) + '</div>'
+    + '<div class="pr-highlight"><b>一句话卖点：</b>' + esc(prText(p.sellingPoint)) + '<br><b>主要消费人群：</b>' + esc(prText(p.audienceLine)) + '</div>'
+    + '<div class="pr-kpis">' + [['销售额',p.sales],['销量',p.volume],['订单量',p.orders],['浏览量',p.views],['转化率',p.conv],['带货视频',p.videosTotal + ' 条']].map(function (k) { return '<div class="pr-kpi"><span>' + k[0] + '</span><b>' + esc(prText(k[1])) + '</b></div>'; }).join('') + '</div></div></div>';
+  var reviewBody = '<div class="pr-two"><div class="pr-panel"><h4>好评关键词</h4>' + prChips(p.goodWords, 15) + '</div><div class="pr-panel"><h4>差评关键词</h4>' + prChips(p.badWords, 15) + '</div></div>'
+    + '<div class="pr-dl" style="margin-top:10px"><div><span>评价样本</span><b>' + esc(p.nReviews || '—') + '</b></div><div><span>好评率</span><b>' + esc(p.goodRate == null ? '—' : p.goodRate + '%') + '</b></div><div><span>差评率</span><b>' + esc(p.badRate == null ? '—' : p.badRate + '%') + '</b></div></div>'
+    + revs.map(function (x) { return '<div class="pr-review">“' + esc(x) + '”</div>'; }).join('');
+  var videoBody = videos.length ? '<div class="pr-video-grid">' + videos.map(function (x) { return '<div class="pr-video">' + (x.cover ? '<img src="' + esc(prAsset(x.cover)) + '" alt="" loading="lazy">' : '') + '<div><b>' + esc(prText(x.desc)) + '</b><p>' + esc(prText(x.blogger)) + ' · ' + esc(prText(x.gmv)) + ' · ' + esc(prText(x.dur)) + '</p><p>' + esc(prText((x.analysis || {})['亮点'])) + '</p></div></div>'; }).join('') + '</div>' : '<div class="pr-empty">该商品暂无可拆解的带货视频</div>';
+  var sections = ''
+    + prSection('01 产品核心要素', '形态、包装、功效、成分、肤感', '<div class="pr-two"><div class="pr-panel"><h4>核心定义</h4>' + prKV({'内料形态':core['内料形态'],'包装形式':core['包装形式'],'工厂/品牌':p.factory,'赠品':p.gift}) + '</div><div class="pr-panel"><h4>功效与成分</h4>' + prChips((core['功效'] || []).concat(core['主打成分'] || []), 24) + '</div></div>', true)
+    + prSection('02 货架与价格策略', '价格、佣金、规格、定位', prKV(p.shelf), false)
+    + prSection('03 卖点与概念拆解', '功能、成分、技术、背书', prKV(p.sell), false)
+    + prSection('04 人群与场景', prText(p.audienceLine), '<div class="pr-two"><div class="pr-panel"><h4>目标受众</h4>' + prChips(core['目标受众词'], 16) + '</div><div class="pr-panel"><h4>使用场景</h4>' + prChips(core['使用场景'], 16) + '</div></div>', false)
+    + prSection('05 用户口碑与痛点', '好评 ' + prText(p.goodRate) + '% · 差评 ' + prText(p.badRate) + '%', reviewBody, false)
+    + prSection('06 外观、包装与规格', '用户评价词频抽取', '<div class="pr-two"><div class="pr-panel"><h4>外观／包装词</h4>' + prChips(core['外观/包装词'], 20) + '</div><div class="pr-panel"><h4>规格信号</h4>' + prChips(core['规格'], 20) + '</div></div>', false)
+    + prSection('07 带货视频拆解', (p.viral || []).length + ' 条已拆解，展示前 6 条', videoBody, false)
+    + prSection('08 带货达人与渠道', (p.bloggers || []).length + ' 个达人', '<div class="pr-two"><div class="pr-panel"><h4>渠道结构</h4>' + prKV((p.channel || []).reduce(function (o, x) { o[x.name] = x.gmv + ' / ' + x.pct; return o; }, {})) + '</div><div class="pr-panel"><h4>达人列表</h4><ul>' + (p.bloggers || []).slice(0, 10).map(function (b) { return '<li>' + esc(b.n) + ' · ' + esc(b.fans) + ' 粉 · ' + esc(b.gmv) + '</li>'; }).join('') + '</ul></div></div>', false)
+    + prSection('09 评价词云与内容词云', '词频与内容信号', '<div class="pr-two"><div class="pr-panel"><h4>评价高频词</h4>' + prChips(p.words, 24) + '</div><div class="pr-panel"><h4>视频内容词</h4>' + prChips(p.wordcloud, 24) + '</div></div>', false)
+    + prSection('10 数据来源与更新', '单商品链接可追溯', prKV({'商品 GID':p.gid,'榜单口径':p.rankPeriod + ' 第 ' + p.rankNo + ' 名','数据更新':p.upd,'评价期间':(db.meta || {}).range,'数据源':(db.meta || {}).src}), false)
+    + prSection('11 数据缺口与限制', '不将区间值包装成精确值', '<div class="pr-panel"><ul><li>销售额和销量为飞瓜档位，不是商家结算精确值。</li><li>价格由佣金金额÷佣金率推算，无佣金标注时保持缺失。</li><li>成分、包装、肤感多来自评价词频，需再用备案成分表和实拍图核验。</li><li>该快照是眼部护理样本，不代表全品类市场。</li></ul></div>', false);
+  var v = $('#view'); v.innerHTML = '<div class="pr-shell">' + prToolbar('detail') + hero + '<div class="pr-sections">' + sections + '</div></div>'; prBindRoutes(v);
+  var back = v.querySelector('[data-pr-back]'); if (back) back.addEventListener('click', function () { PR_STATE.route = 'wall'; RENDER.pa(); });
+  var jumps = $$('[data-pr-jump]', v); for (i = 0; i < jumps.length; i++) jumps[i].addEventListener('click', function () { PR_STATE.product = Number(this.getAttribute('data-pr-jump')); prRenderDetail(); window.scrollTo(0, 0); });
+}
+function prRenderCompare() {
+  var rows = prSortedFiltered(), cols = [
+    ['排名',function(p){return 'TOP ' + p.rank;}],['商品',function(p){return p.title;}],['品牌',function(p){return p.brand;}],['类目',function(p){return p.cate;}],['推算价',function(p){return prMoney(p.price);} ],['销售额',function(p){return p.sales;}],['销量',function(p){return p.volume;}],['订单',function(p){return p.orders;}],['浏览',function(p){return p.views;}],['转化率',function(p){return p.conv;}],['视频/直播/达人',function(p){return p.nV + ' / ' + p.nL + ' / ' + p.nT;}],['差评率',function(p){return p.badRate == null ? '—' : p.badRate + '%';}],['主要人群',function(p){return p.audienceLine;}],['一句话卖点',function(p){return p.sellingPoint;}],['内料形态',function(p){return (p.core||{})['内料形态'];}],['主打成分',function(p){return ((p.core||{})['主打成分']||[]).slice(0,6).join('／');}],['质地/肤感',function(p){return ((p.core||{})['质地/肤感']||[]).slice(0,6).join('／');}],['包装形式',function(p){return (p.core||{})['包装形式'];}]
+  ];
+  var h = prToolbar('compare') + '<div class="pr-notice"><b>30 × 18 全品对标。</b> 每行仍是一个具体商品链接；销售档位、价格推算和评价词频的局限不会在对标时被隐藏。</div>'
+    + '<div class="pr-table-wrap"><table class="pr-table"><thead><tr>' + cols.map(function (c) { return '<th>' + c[0] + '</th>'; }).join('') + '</tr></thead><tbody>'
+    + rows.map(function (p) { return '<tr>' + cols.map(function (c, i) { return '<td' + (i === 1 ? ' class="pr-product-cell"' : '') + '>' + esc(prText(c[1](p))) + (i === 1 ? '<small>' + esc(p.shop || '') + '</small>' : '') + '</td>'; }).join('') + '</tr>'; }).join('') + '</tbody></table></div>';
+  var v = $('#view'); v.innerHTML = '<div class="pr-shell">' + h + '</div>'; prBindRoutes(v);
+}
+function prRenderMethod() {
+  var db = prDB(), m = db.meta || {};
+  var h = prToolbar('method') + '<div class="pr-method-grid">'
+    + '<div class="pr-method"><h3>1. 数据范围</h3><p>' + esc(m.src || '—') + '</p><ul><li>口径期间：' + esc(m.range || '—') + '</li><li>更新时间：' + esc(m.now || '—') + '</li><li>搜索词：' + esc(m.kw || '—') + '</li><li>有效商品：' + esc(m.n || 0) + ' 个</li></ul></div>'
+    + '<div class="pr-method"><h3>2. 采集流程</h3><ul><li>月榜候选列表筛选眼部护理链接。</li><li>同品链接归一去重，保留 TOP30。</li><li>逐链接补充概览、属性、受众、评价、视频和达人。</li><li>卡面图优先使用已本地化的商品或带货视频封面。</li></ul></div>'
+    + '<div class="pr-method"><h3>3. 计算口径</h3><ul><li>销售额/销量是平台档位，排序时才使用档位中值。</li><li>推算价＝佣金金额 ÷ 佣金率。</li><li>差评率＝差评数 ÷ 有效评价总数。</li><li>成分、气味、质地、包装等为评价词云抽取，不等于官方备案。</li></ul></div>'
+    + '<div class="pr-method"><h3>4. 决策边界</h3><ul><li>该模块回答“商品怎么卖、用户怎么评、内容怎么打”。</li><li>不能单独证明市场规模或产品可立项。</li><li>供应链成本、MOQ、交期需从供应商询价另行取证。</li><li>备案成分、实拍包装和实际 SKU 需二次核验。</li></ul></div></div>'
+    + '<div class="pr-note"><b>接入说明：</b>这些结构化数据已直接加载到工作台「产品分析」DOM；不再运行远程项目的独立页面。</div>';
+  var v = $('#view'); v.innerHTML = '<div class="pr-shell">' + h + '</div>'; prBindRoutes(v);
+}
+RENDER.pa = function () {
+  if (!prDB().products || !prDB().products.length) {
+    $('#view').innerHTML = '<div class="pr-empty">产品调研数据未加载，请确认 product-research-data.js 可访问。</div>';
+    return;
+  }
+  if (PR_STATE.route === 'detail') prRenderDetail();
+  else if (PR_STATE.route === 'compare') prRenderCompare();
+  else if (PR_STATE.route === 'method') prRenderMethod();
+  else prRenderWall();
 };
 
 /* ---------- v13：成分库（独立视图） ----------
