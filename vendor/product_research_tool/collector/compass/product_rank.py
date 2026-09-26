@@ -1,7 +1,7 @@
-"""罗盘·商品榜采集器：翻页拉满 TOP200，含商品图与真实链接。
+"""罗盘·商品榜采集器：采集每个目标类目榜单前 20，含商品图与真实链接。
 
 实测结论（2026-09-26）：
-- page_size 服务端固定 10，total=200，需翻 20 页
+- page_size 服务端固定 10；本板块只保留每类目前 20，需翻 2 页
 - date_type 只支持预设 2/21/23，不支持自然日自定义
 - product_info.image_url = 商品缩略图，product_detail_h5_url = 真实链接
 """
@@ -26,10 +26,12 @@ def _rank_url(category_id, begin, end, page_no, date_type, brand_type=-1):
 
 def _parse_row(x):
     pi = x.get("product_info", {})
-    amt = x.get("new_pay_amt") or {}
-    rng = amt.get("value_range") or []
-    lower = rng[0].get("value") if len(rng) > 0 else None
-    upper = rng[1].get("value") if len(rng) > 1 else None
+    def _bounds(field):
+        rng = (x.get(field) or {}).get("value_range") or []
+        return (rng[0].get("value") if len(rng) > 0 else None,
+                rng[1].get("value") if len(rng) > 1 else None)
+    sales_lower, sales_upper = _bounds("pay_combo_cnt")
+    amount_lower, amount_upper = _bounds("new_pay_amt")
     # 品牌：shop_list 第一个的 author_nick_name 近似（罗盘商品榜无独立 brand 字段）
     shops = pi.get("shop_list") or []
     brand = shops[0].get("author_info", {}).get("author_nick_name") if shops else None
@@ -48,8 +50,11 @@ def _parse_row(x):
         "third_category_id": pi.get("third_category_id"),
         "leaf_category_id": pi.get("leaf_category_id"),
         "brand_type": pi.get("brand_type"),  # 知名/非知名（策略台玩家结构用）
-        "pay_lower": lower,
-        "pay_upper": upper,
+        "sales_lower": sales_lower,
+        "sales_upper": sales_upper,
+        "sales_amount_lower": amount_lower,
+        "sales_amount_upper": amount_upper,
+        "source_fields": {"sales": "pay_combo_cnt", "sales_amount": "new_pay_amt"},
     }
 
 

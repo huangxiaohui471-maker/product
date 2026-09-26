@@ -132,6 +132,55 @@ svg{display:block}
 .up{color:var(--up)}
 .down{color:var(--down)}
 .muted{color:var(--hint)}
+.board-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 0 13px}
+.board-controls label{display:flex;align-items:center;gap:8px;color:var(--hint);font-size:12px}
+.board-controls select{height:34px;min-width:125px;padding:0 28px 0 10px;border:1px solid var(--line);border-radius:9px;background:#fff;font-size:12.5px;color:var(--text)}
+.board-date{margin-left:auto;color:var(--hint);font-size:12px}
+.board-hero{display:grid;grid-template-columns:minmax(260px,1fr) minmax(400px,1.2fr);gap:24px;align-items:center;padding:24px;border-radius:18px;color:#fff;background:linear-gradient(115deg,#111a39,#20265b 64%,#30305f);margin:0 0 20px}
+.board-eyebrow{font-size:11px;letter-spacing:.08em;color:#aebce4}
+.board-hero-main h2{font-size:22px;line-height:1.45;margin:10px 0 7px;font-weight:600}
+.board-hero-main p{font-size:12px;color:#b4bdd6}
+.board-hero-actions{display:flex;gap:8px;margin-top:16px}
+.board-hero-actions button{height:34px;padding:0 12px;border:1px solid rgba(255,255,255,.25);border-radius:8px;color:#fff;background:rgba(255,255,255,.08);font-size:12px}
+.board-hero-actions button:first-child{background:#fff;color:#182044;border-color:#fff;font-weight:600}
+.board-stats{display:grid;grid-template-columns:repeat(4,minmax(90px,1fr));gap:8px}
+.board-stat{padding:12px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(255,255,255,.07);min-width:0}
+.board-stat span,.board-stat small{display:block;color:#aeb8d2;font-size:10.5px}
+.board-stat b{display:block;margin:6px 0;font-size:22px;line-height:1.1;white-space:nowrap}
+.board-section{margin-bottom:16px;padding:18px 20px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh)}
+.board-section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.board-section-head h2{font-size:15px;font-weight:600}
+.board-section-head p{margin-top:3px;color:var(--hint);font-size:11.5px}
+.board-section-head>span{color:var(--hint);font-size:11px}
+.board-section-head button{padding:7px 10px;border:1px solid var(--line);border-radius:8px;color:var(--blue);background:#fff;font-size:11.5px;white-space:nowrap}
+.board-growth-list,.board-ingredient-list{display:grid;gap:2px}
+.board-growth-row{display:grid;grid-template-columns:minmax(175px,1.1fr) minmax(110px,1fr) 90px 155px;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line-2)}
+.board-growth-row:last-child,.board-ingredient-row:last-child{border-bottom:0}
+.board-growth-name b,.board-growth-name small{display:block}
+.board-growth-name b{font-size:12.5px;font-weight:500}
+.board-growth-name small,.board-growth-meta{font-size:10.5px;color:var(--hint)}
+.board-bar{height:8px;border-radius:8px;background:#f0f1f5;overflow:hidden}
+.board-bar i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,#f58c8c,#dc3c43)}
+.board-growth-value{text-align:right;font-size:13px;white-space:nowrap}
+.board-ingredient-row{display:grid;grid-template-columns:minmax(100px,150px) minmax(100px,170px) minmax(110px,1fr) 82px minmax(130px,auto);align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--line-2)}
+.board-ingredient-row>b:first-child{font-size:12px;font-weight:500}
+.board-ingredient-row>span,.board-ingredient-row>small{font-size:10.5px;color:var(--hint)}
+.board-empty{padding:20px 12px;border-radius:10px;background:var(--surface-2);color:var(--hint);font-size:12px}
+.board-footnote{padding:0 2px;color:var(--hint);font-size:10.5px}
+.opportunity-tabs{display:flex;gap:8px;margin:2px 0 16px;padding:4px;background:#eef1f8;border-radius:12px;width:max-content;max-width:100%}
+.opportunity-tabs button{border:0;border-radius:9px;padding:10px 15px;background:transparent;color:var(--sub);font-size:13px;font-weight:600;cursor:pointer}
+.opportunity-tabs button.on{background:#fff;color:var(--blue);box-shadow:0 2px 8px rgba(25,45,90,.1)}
+.opportunity-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+.opportunity-top h2{font-size:17px;margin-bottom:4px}.opportunity-top p,.opportunity-explain{font-size:12px;color:var(--hint)}
+.opportunity-top button,.opportunity-empty button{height:36px;padding:0 13px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--blue);font-size:12px;cursor:pointer;white-space:nowrap}
+.opportunity-cards{display:grid;gap:10px}
+.opportunity-card{display:grid;grid-template-columns:38px minmax(180px,1fr) minmax(130px,.7fr) 125px;gap:13px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.opportunity-rank{width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:#eef5ff;color:var(--blue);font-weight:700}
+.opportunity-product b,.opportunity-product small{display:block}.opportunity-product b{font-size:13px;font-weight:600;line-height:1.4}.opportunity-product small,.opportunity-meta{color:var(--hint);font-size:11px;margin-top:4px}
+.opportunity-growth{text-align:right;font-size:18px;font-weight:700;color:#d84a45}.opportunity-growth small{display:block;color:var(--hint);font-size:10px;font-weight:400}
+.opportunity-empty{padding:26px 18px;border:1px dashed #cbd5e7;border-radius:12px;background:#f8faff;text-align:center;color:var(--sub)}
+.opportunity-empty b{display:block;margin-bottom:7px;font-size:14px}.opportunity-empty p{font-size:12px;color:var(--hint);line-height:1.7;margin-bottom:12px}
+.opportunity-note{margin-top:12px;padding:12px 14px;border-radius:10px;background:#f7f8fb;color:var(--hint);font-size:11px;line-height:1.7}
 .tag{
   display:inline-flex;align-items:center;height:21px;padding:0 8px;border-radius:6px;
   font-size:11.5px;background:var(--surface-2);border:1px solid var(--line);color:var(--sub);white-space:nowrap;
@@ -737,6 +786,9 @@ body.flt-lock{overflow:hidden}
 .status-pill.ok{background:#E8F6EE;color:#167848}
 @media(max-width:1050px){.run-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rule-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.run-grid,.rule-grid,.growth-3{grid-template-columns:1fr}.growth-col{border-right:0;border-bottom:1px solid var(--line-2)}.growth-col:last-child{border-bottom:0}.std-table{min-width:760px}.std-wrap{overflow-x:auto}}
+@media(max-width:900px){.board-hero{grid-template-columns:1fr}.board-stats{grid-template-columns:repeat(4,minmax(0,1fr))}.board-ingredient-row{grid-template-columns:1fr 1fr 82px}.board-ingredient-row .board-bar{grid-column:1/3}.board-ingredient-row>small{grid-column:1/3}}
+@media(max-width:620px){.board-controls{align-items:stretch}.board-controls label{flex:1 1 42%;display:block}.board-controls select{display:block;width:100%;margin-top:4px}.board-date{flex:1 1 100%;margin:0}.board-hero{padding:17px}.board-hero-main h2{font-size:18px}.board-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.board-section{padding:14px}.board-growth-row{grid-template-columns:1fr 76px;gap:6px}.board-growth-name{grid-column:1}.board-growth-value{grid-column:2;grid-row:1}.board-growth-row .board-bar{grid-column:1/3}.board-growth-meta{grid-column:1/3}.board-ingredient-row{grid-template-columns:1fr 80px;gap:6px}.board-ingredient-row>span{grid-column:1/3}.board-ingredient-row .board-bar{grid-column:1}.board-ingredient-row>small{grid-column:1/3}}
+@media(max-width:620px){.opportunity-tabs{width:100%}.opportunity-tabs button{flex:1;padding:9px 7px;font-size:12px}.opportunity-top{align-items:flex-start}.opportunity-card{grid-template-columns:32px 1fr 88px;gap:8px;padding:11px}.opportunity-card .opportunity-meta{grid-column:2/4}.opportunity-growth{font-size:15px}}
 /* v13：设计/策略框架卡与采集通道 */
 .dz-ch{display:flex;align-items:center;gap:8px;margin-bottom:8px}
 .dz-ch b{flex:1;font-size:14px}
@@ -824,7 +876,9 @@ var DB = { product: { databaseId: DATABASE_ID }, review: { databaseId: 'ZOiFonS5
 
 /* ---------- 2. 视图定义（四个区） ---------- */
 var VIEWS = [
-  { key: 'board', name: '全球数据看板', desc: '全球市场总结：覆盖、热度与来源分榜',
+  { key: 'opportunity', name: '今日产品机会', desc: '分别识别 FastMoss 海外机会与抖音罗盘国内机会',
+    icon: '<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 14l1 2.5 2.5 1-2.5 1L19 21l-1-2.5-2.5-1 2.5-1z"/>' },
+  { key: 'board', name: '全球数据看板', desc: '按市场与品类查看增长线索',
     icon: '<path d="M3 20h18"/><path d="M6 20v-7M11 20V6M16 20v-4M21 20v-9"/>' },
   { key: 'rank', name: '商品榜', desc: '类目排行：分来源分榜，可切市场与品类',
     icon: '<path d="M8 21h8M12 17v4"/><path d="M7 3h10v6a5 5 0 0 1-10 0z"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"/>' },
@@ -1069,7 +1123,7 @@ var state = {
   view: 'board', list: [], review: [], schema: null, ready: false,
   market: '全部', cat: '全部', c2: '全部', c3: '全部', country: '全部', kw: '', src: '全部',
   period: '全部', rankBy: 'rank', fltOpen: '0',
-  busy: false, demoOnly: false, realOnly: false, libTab: 'cat', expL1: {}, expL2: {}
+  busy: false, demoOnly: false, realOnly: false, libTab: 'cat', boardTab: 'overview', opportunityTab: 'crossborder', expL1: {}, expL2: {}
 };
 
 /* ---------- 顶部多标签：侧边栏=入口，顶部标签=已打开的模块，各保留独立筛选+滚动 ----------
@@ -1220,6 +1274,19 @@ function numField(r, name) {
   var v = r[name];
   if (v != null && typeof v === 'object' && v.number != null) return numOf(v.number);
   return numOf(v);
+}
+function metricAvailable(r, name) {
+  if (numField(r, name) !== null) return true;
+  if (name === '销量') return r['销量区间'] != null;
+  if (name === '销售额') return r['销售额区间'] != null;
+  return false;
+}
+function metricRangeText(r, name) {
+  var v = numField(r, name);
+  if (v !== null) return fmtNum(v);
+  if (name === '销量' && r['销量区间']) return String(r['销量区间']);
+  if (name === '销售额' && r['销售额区间']) return String(r['销售额区间']);
+  return '—';
 }
 function ridOf(r) { return r._id || r.record_id || r.id || ''; }
 function msgOf(err) { return (err && (err.message || err.msg)) ? String(err.message || err.msg) : '未知错误'; }
@@ -1932,7 +1999,7 @@ function periodOf(r) {
   return PERIOD_BY_SRC[txtOf(r, '数据来源')] || '来源未标注周期';
 }
 function periodShort(src) {
-  if (src === '抖音罗盘') return '7 天榜单快照';
+  if (src === '抖音罗盘') return '来源原始周期';
   if (src === '蝉妈妈') return '近 7 天 vs 前 7 天';
   if (src === '飞瓜') return '待接口验证';
   if (src === 'FastMoss') return '来源未标注周期';
@@ -2294,7 +2361,7 @@ function boardInsightsOf(list) {
 }
 
 RENDER.nav = function () {
-  var SHORT = { board: '看板', rank: '榜单', pa: '分析', ing: '成分', design: '设计', strategy: '策略' };
+  var SHORT = { opportunity: '今日机会', board: '看板', rank: '榜单', pa: '分析', ing: '成分', design: '设计', strategy: '策略' };
   var h = '', t = '';
   for (var i = 0; i < VIEWS.length; i++) {
     var v = VIEWS[i], on = state.view === v.key;
@@ -2310,6 +2377,12 @@ RENDER.nav = function () {
 RENDER.titles = function () {
   var v = viewDef(state.view);
   var searchInput=$('#kw');if(searchInput)searchInput.placeholder=state.view==='strategy'?'快速检索已有数据（不会自动立项）':'搜索商品 / 品牌 / 成分 / 概念';
+  if (searchInput && searchInput.closest('.search')) searchInput.closest('.search').style.display = (state.view === 'board' || state.view === 'opportunity') ? 'none' : '';
+  if (state.view === 'opportunity') {
+    $('#viewTitle').textContent = v.name;
+    $('#viewDesc').textContent = v.desc + '　·　两条独立数据链';
+    return;
+  }
   if (state.view === 'strategy') {
     $('#viewTitle').textContent = v.name;
     $('#viewDesc').textContent = v.desc + '　·　' + (STRATEGY.searchTerm?'市场机会分析“'+(STRATEGY.searchCategory||STRATEGY.searchTerm)+'”':'类目 × 国家 × 平台 → 机会分析 → 人工决策');
@@ -2335,8 +2408,18 @@ RENDER.titles = function () {
 };
 
 RENDER.filter = function () {
+  if (state.view === 'opportunity') {
+    $('#chips').innerHTML = '';
+    fltLayerRender();
+    return;
+  }
   if (state.view === 'strategy') {
     $('#chips').innerHTML = '<span class="hint" style="margin:2px 0">'+(STRATEGY.searchTerm?'正在分析“<b>'+esc(STRATEGY.searchCategory||STRATEGY.searchTerm)+'</b>”：系统整理已有证据和数据缺口，最终仍由人工决定是否入链。':'进入“市场机会检索”，选择类目、国家和平台即可自动生成机会分析。')+'</span>';
+    fltLayerRender();
+    return;
+  }
+  if (state.view === 'board') {
+    $('#chips').innerHTML = boardFilterHtml();
     fltLayerRender();
     return;
   }
@@ -3157,33 +3240,266 @@ function openStandards() {
   $('#modal').classList.add('wide');
 }
 
-/* ---------- v11 · 全球看板：回答「去哪里看」 ----------
-   顺序：Hero → 真实数据覆盖（含新鲜度与缺失）→ 国家/地区 × 二级类目热力图（主区，可下钻）
-        → 辅区（各国家样本结构 + 来源周期台账 + 数据质量）→ 覆盖度盲区 → 通路体检
-        → 数据源地图 → 增长动能 × 竞争密度 → 大区样本结构 → 国家/地区市场
-        → 二级类目稳健增长榜 → 概念 / 成分覆盖
-   一切金额只按「单一来源 + 单一周期 + 原币」呈现，跨来源绝不合并。 ---------- */
+/* ---------- 全球数据看板：只回答「哪里在增长」 ---------- */
+function boardFilterHtml() {
+  var rows = state.list.filter(function (r) { return !isDemo(r); });
+  function values(field, current) {
+    var seen = {}, out = [], i;
+    for (i = 0; i < rows.length; i++) {
+      var value = field === 'period' ? periodOf(rows[i]) : txtOf(rows[i], field);
+      if (value && !seen[value]) { seen[value] = 1; out.push(value); }
+    }
+    out.sort(function (a, b) { return a.localeCompare(b, 'zh-CN'); });
+    if (field === '所属市场') {
+      var order = ['中国', '韩国', '日本', '欧美', '东南亚'];
+      out.sort(function (a, b) { var ai = order.indexOf(a), bi = order.indexOf(b); return (ai < 0 ? 99 : ai) - (bi < 0 ? 99 : bi); });
+    }
+    var html = '<option value="全部"' + (current === '全部' ? ' selected' : '') + '>全部</option>';
+    for (i = 0; i < out.length; i++) html += '<option value="' + esc(out[i]) + '"' + (current === out[i] ? ' selected' : '') + '>' + esc(out[i]) + '</option>';
+    return html;
+  }
+  return '<div class="board-controls">'
+    + '<label><span>市场</span><select data-f-sel="market">' + values('所属市场', state.market) + '</select></label>'
+    + '<label><span>品类</span><select data-f-sel="c2">' + values('二级类目', state.c2) + '</select></label>'
+    + '<label><span>统计周期</span><select data-f-sel="period">' + values('period', state.period) + '</select></label>'
+    + '<span class="board-date">数据截至 ' + esc(freshnessOf(rows)) + '</span></div>';
+}
+function boardComparableGroups(list, withIngredient) {
+  var groups = {}, i, j;
+  for (i = 0; i < list.length; i++) {
+    var row = list[i], dim = compareCellOf(row, txtOf(row, '二级类目') || '未分类');
+    var labels = withIngredient ? splitTags(txtOf(row, '核心功效成分')) : [''];
+    for (j = 0; j < labels.length; j++) {
+      var key = dim.key + (withIngredient ? '\u0001' + labels[j] : '');
+      if (!groups[key]) groups[key] = { country: dim.country, source: dim.src, currency: dim.currency, period: dim.period,
+        category: dim.c2, ingredient: labels[j], rows: [] };
+      groups[key].rows.push(row);
+    }
+  }
+  var out = [], key;
+  for (key in groups) if (Object.prototype.hasOwnProperty.call(groups, key)) {
+    var g = groups[key], stats = growthStats(g.rows);
+    out.push({ country: g.country, source: g.source, currency: g.currency, period: g.period, category: g.category,
+      ingredient: g.ingredient, rows: g.rows, stats: stats });
+  }
+  return out;
+}
+function boardHeroHtml(list) {
+  var groups = boardComparableGroups(list, false), ranked = groups.filter(function (g) { return g.stats.n > 0; });
+  ranked.sort(function (a, b) { return (b.stats.med === null ? -Infinity : b.stats.med) - (a.stats.med === null ? -Infinity : a.stats.med) || b.stats.n - a.stats.n; });
+  var best = ranked[0] || null, g = best ? best.stats : { med: null, pos: null, n: 0, posN: 0 };
+  var latest = freshnessOf(list);
+  var heading = best
+    ? '增长线索：' + esc(best.country) + ' · ' + esc(best.category) + ' ' + (g.med === null ? '—' : fmtPct(g.med))
+    : '当前筛选下还没有可比较的增速数据';
+  var sourcePeriod = best ? esc(best.source + ' · ' + best.period + ' · ' + best.rows.length + ' 条样本')
+    + (g.n < 20 ? '；样本少于 20 条，先作观察线索' : '') : '先补充带统计周期和商品增速的数据';
+  function stat(label, value, foot) { return '<div class="board-stat"><span>' + label + '</span><b>' + value + '</b><small>' + foot + '</small></div>'; }
+  return '<section class="board-hero"><div class="board-hero-main"><span class="board-eyebrow">全球增长快照 · ' + esc(latest) + '</span>'
+    + '<h2>' + heading + '</h2><p>' + sourcePeriod + '</p>'
+    + '<div class="board-hero-actions"><button type="button" data-view="rank">查看商品榜</button><button type="button" data-view="strategy">查看策略台</button></div></div>'
+    + '<div class="board-stats">' + stat('增长中位数', g.med === null ? '—' : fmtPct(g.med), '同来源、同周期')
+    + stat('正增长占比', g.pos === null ? '—' : g.pos + '%', g.posN + ' / ' + g.n + ' 个有效样本')
+    + stat('有效样本', g.n, '已排除可识别低基数')
+    + stat('覆盖国家', new Set(list.map(function (r) { return txtOf(r, '国家/地区'); }).filter(Boolean)).size, '当前筛选范围')
+    + '</div></section>';
+}
+function boardCountryListHtml(list) {
+  var rows = boardComparableGroups(list, false).filter(function (g) { return g.stats.n > 0; });
+  rows.sort(function (a, b) { return (b.stats.med === null ? -Infinity : b.stats.med) - (a.stats.med === null ? -Infinity : a.stats.med) || b.stats.n - a.stats.n; });
+  rows = rows.slice(0, 12);
+  var max = rows.length ? Math.max.apply(null, rows.map(function (x) { return Math.max(0, x.stats.med || 0); })) : 0;
+  var h = '<section class="board-section"><div class="board-section-head"><div><h2>国家 × 品类增长</h2><p>分来源、分周期列出；每行独立计算，不跨口径合并</p></div><span>最多 ' + rows.length + ' 条线索</span></div>';
+  if (!rows.length) return h + '<div class="board-empty">当前筛选范围没有带增速的商品记录。抖音罗盘榜单只提供名次和金额区间，未提供商品级环比。</div></section>';
+  h += '<div class="board-growth-list">';
+  for (var i = 0; i < rows.length; i++) {
+    var x = rows[i], pct = x.stats.med === null ? null : x.stats.med, width = max ? Math.max(3, Math.min(100, Math.max(0, pct) / max * 100)) : 0;
+    h += '<div class="board-growth-row"><div class="board-growth-name"><b>' + esc(x.country) + ' · ' + esc(x.category) + '</b><small>' + esc(x.source + ' · ' + x.period) + '</small></div>'
+      + '<div class="board-bar"><i style="width:' + width.toFixed(1) + '%"></i></div><b class="board-growth-value ' + pctCls(pct) + '">' + (pct === null ? '—' : fmtPct(pct)) + '</b>'
+      + '<span class="board-growth-meta">' + x.stats.n + ' 样本 · 正增长 ' + (x.stats.pos === null ? '—' : x.stats.pos + '%') + (x.stats.n < 20 ? ' · 样本偏少' : '') + '</span></div>';
+  }
+  return h + '</div></section>';
+}
+function boardIngredientHtml(list) {
+  var rows = boardComparableGroups(list, true).filter(function (g) { return g.ingredient && g.stats.n > 0; });
+  rows.sort(function (a, b) { return (b.stats.med === null ? -Infinity : b.stats.med) - (a.stats.med === null ? -Infinity : a.stats.med) || b.stats.n - a.stats.n; });
+  rows = rows.slice(0, 10);
+  var max = rows.length ? Math.max.apply(null, rows.map(function (x) { return Math.max(0, x.stats.med || 0); })) : 0;
+  var h = '<section class="board-section"><div class="board-section-head"><div><h2>成分增长线索 TOP10</h2><p>按商品已记录的显性成分标签统计，不代表平台成分销售榜</p></div><button type="button" data-view="ing">打开成分库 →</button></div>';
+  if (!rows.length) return h + '<div class="board-empty">当前筛选下没有同时具备成分标签和有效增速的商品。成分热度榜需接入平台成分趋势数据后才能生成。</div></section>';
+  h += '<div class="board-ingredient-list">';
+  for (var i = 0; i < rows.length; i++) {
+    var x = rows[i], pct = x.stats.med, width = max ? Math.max(3, Math.min(100, Math.max(0, pct) / max * 100)) : 0;
+    h += '<div class="board-ingredient-row"><b>' + esc(x.ingredient) + '</b><span>' + esc(x.country + ' · ' + x.source) + '</span>'
+      + '<div class="board-bar"><i style="width:' + width.toFixed(1) + '%"></i></div><b class="board-growth-value ' + pctCls(pct) + '">' + fmtPct(pct) + '</b>'
+      + '<small>' + x.stats.n + ' 个商品 · ' + esc(x.period) + '</small></div>';
+  }
+  return h + '</div></section>';
+}
+/* 今日产品机会：仅在本机/当前浏览器记录首次观测时间，不把历史快照伪装成今天新增。 */
+var OPPORTUNITY_OBS_KEY = 'wb_product_opportunity_observations_v1';
+function opportunityToday() {
+  var d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+function opportunityRead() {
+  try { return JSON.parse(localStorage.getItem(OPPORTUNITY_OBS_KEY) || 'null'); } catch (e) { return null; }
+}
+function opportunityKey(r) {
+  var id = txtOf(r, '商品ID'), name = txtOf(r, '商品名称');
+  return [txtOf(r, '数据来源'), txtOf(r, '国家/地区'), id || (txtOf(r, '品牌') + '|' + name)].join('|');
+}
+function opportunityObserve() {
+  var data = opportunityRead(), rows = state.list.filter(function (r) { return !isDemo(r) && txtOf(r, '商品名称'); });
+  var today = opportunityToday(), i, key;
+  if (!data || !data.items) {
+    data = { startedAt: today, items: {} };
+    for (i = 0; i < rows.length; i++) {
+      key = opportunityKey(rows[i]);
+      data.items[key] = { firstSeen: today, baseline: true, row: rows[i] };
+    }
+    data.baselineCount = rows.length;
+    try { localStorage.setItem(OPPORTUNITY_OBS_KEY, JSON.stringify(data)); } catch (e) { }
+    return { data: data, initialized: true };
+  }
+  var changed = false;
+  for (i = 0; i < rows.length; i++) {
+    key = opportunityKey(rows[i]);
+    if (!data.items[key]) { data.items[key] = { firstSeen: today, baseline: false, row: rows[i] }; changed = true; }
+    else if (!data.items[key].baseline) { data.items[key].row = rows[i]; }
+  }
+  if (changed) { try { localStorage.setItem(OPPORTUNITY_OBS_KEY, JSON.stringify(data)); } catch (e2) { } }
+  return { data: data, initialized: false };
+}
+function opportunityNormalize(s) { return String(s || '').toLowerCase().replace(/\[[^\]]*\]/g, ' ').replace(/[^\p{L}\p{N}]+/gu, ''); }
+function opportunityIsDomesticDouyin(r) {
+  var country = txtOf(r, '国家/地区'), source = txtOf(r, '数据来源');
+  return country === '中国' && source === '抖音罗盘';
+}
+function opportunityOnDouyinBoard(r, rows) {
+  var name = opportunityNormalize(txtOf(r, '商品名称'));
+  if (!name) return false;
+  for (var i = 0; i < rows.length; i++) {
+    if (!opportunityIsDomesticDouyin(rows[i])) continue;
+    if (opportunityNormalize(txtOf(rows[i], '商品名称')) === name) return true;
+  }
+  return false;
+}
+function opportunityGrowth(r) {
+  var n = numField(r, '环比增速');
+  if (n === null || !isFinite(n)) return null;
+  return n;
+}
+function opportunityDomesticAmount(r) {
+  var low = numField(r, '成交金额下界元'), high = numField(r, '成交金额上界元');
+  return low !== null ? low : (high !== null ? high : numField(r, '销售额'));
+}
+function opportunitySourceRank(r) {
+  var n = numField(r, '榜单名次');
+  if (n !== null) return n;
+  var m = /第\s*(\d+)\s*名/.exec(txtOf(r, '榜单排名'));
+  return m ? Number(m[1]) : 999999;
+}
+function opportunityIsExcludedNewProduct(r) {
+  return /\bgift\b|free gift|gift includes only|do not order|not sold separately|quà tặng|hàng tặng|tặng kèm|赠品|非卖品|special mega live|combo\s*\d+\s*tặng/i.test(txtOf(r, '商品名称'));
+}
+function opportunityRows(data, kind) {
+  var candidates = [], missingGrowth = 0, missingAmount = 0, missingNewFlag = 0, key;
+  for (key in data.items) if (Object.prototype.hasOwnProperty.call(data.items, key)) {
+    var rec = data.items[key], r = rec.row || {};
+    if (rec.baseline || rec.firstSeen !== opportunityToday()) continue;
+    if (kind === 'crossborder') {
+      if (txtOf(r, '数据来源') !== 'FastMoss' || txtOf(r, '国家/地区') === '中国') continue;
+      if (opportunityIsExcludedNewProduct(r)) continue;
+      var growth = opportunityGrowth(r);
+      if (growth === null) { missingGrowth++; continue; }
+      candidates.push({ row: r, growth: growth, firstSeen: rec.firstSeen, metric: 'growth' });
+    } else {
+      if (!opportunityIsDomesticDouyin(r)) continue;
+      if (String(r['是否新上榜']).toLowerCase() !== 'true') { missingNewFlag++; continue; }
+      if (opportunityIsExcludedNewProduct(r)) continue;
+      var amount = opportunityDomesticAmount(r);
+      if (amount === null) { missingAmount++; continue; }
+      candidates.push({ row: r, amount: amount, rank: opportunitySourceRank(r), firstSeen: rec.firstSeen, metric: 'amount' });
+    }
+  }
+  if (kind === 'crossborder') candidates.sort(function (a, b) { return b.growth - a.growth; });
+  else candidates.sort(function (a, b) { return b.amount - a.amount || a.rank - b.rank; });
+  return { rows: candidates.slice(0, 3), eligible: candidates.length, missingGrowth: missingGrowth, missingAmount: missingAmount, missingNewFlag: missingNewFlag };
+}
+function opportunityHistoryAudit(kind) {
+  var dates = {}, rows = 0, i, r, d;
+  for (i = 0; i < state.list.length; i++) {
+    r = state.list[i];
+    if (isDemo(r)) continue;
+    if (kind === 'crossborder') {
+      if (txtOf(r, '数据来源') !== 'FastMoss' || txtOf(r, '国家/地区') === '中国') continue;
+    } else if (!opportunityIsDomesticDouyin(r)) continue;
+    rows++;
+    d = txtOf(r, '快照日期');
+    if (d) dates[d] = 1;
+  }
+  var dateList = Object.keys(dates).sort();
+  if (kind === 'crossborder') return {
+    rows: rows, snapshots: dateList.length,
+    text: 'FastMoss 现有 ' + rows + ' 条海外真实记录，但没有带快照日期的历史版本，无法证明某商品此前从未出现。上市日期只能说明来源记录的上架时间，不能替代首次观测历史。'
+  };
+  return {
+    rows: rows, snapshots: dateList.length,
+    text: '抖音罗盘现有 ' + rows + ' 条国内真实记录，只有 ' + dateList.length + ' 个明确快照日' + (dateList.length ? '（' + dateList.join('、') + '）' : '') + '。更早数据与当前数据的类目覆盖不同，不能用“旧表没有”证明商品是新品。'
+  };
+}
+function opportunityCardHtml(item, index, domestic) {
+  var r = item.row, market = txtOf(r, '国家/地区') || txtOf(r, '所属市场') || '未标国家';
+  var category = txtOf(r, '二级类目') || txtOf(r, '品类') || '未分类';
+  var sourceLine = domestic
+    ? '抖音罗盘 · ' + (item.historical ? '快照 ' + esc(item.snapshotDate) : '首次发现 ' + esc(item.firstSeen)) + ' · 新上榜候选'
+    : esc(txtOf(r, '品牌') || '品牌未标') + (item.historical ? ' · 上市日期 ' + esc(item.listingDate) + ' · 历史回放候选' : ' · 首次发现 ' + esc(item.firstSeen));
+  var metric = domestic
+    ? esc(txtOf(r, '成交金额区间') || fmtMoney(item.amount)) + '<small>成交金额区间 · 榜单第 ' + (item.rank === 999999 ? '—' : item.rank) + ' 名</small>'
+    : fmtPct(item.growth) + '<small>FastMoss 记录的环比增速</small>';
+  return '<article class="opportunity-card"><span class="opportunity-rank">' + (index + 1) + '</span>'
+    + '<div class="opportunity-product"><b>' + esc(txtOf(r, '商品名称') || '未命名商品') + '</b><small>' + sourceLine + '</small></div>'
+    + '<div class="opportunity-meta">' + esc(market + ' · ' + txtOf(r, '数据来源') + ' · ' + category + ' · ' + periodOf(r)) + (numField(r, '销量') !== null ? ' · 销量 ' + fmtNum(numField(r, '销量')) + ' 件' : '') + '</div>'
+    + '<div class="opportunity-growth">' + metric + '</div></article>';
+}
+function opportunityPanelHtml() {
+  var result = opportunityObserve(), data = result.data, selected = state.opportunityTab || 'crossborder';
+  var domestic = selected === 'domestic', res = opportunityRows(data, domestic ? 'domestic' : 'crossborder');
+  var audit = opportunityHistoryAudit(domestic ? 'domestic' : 'crossborder');
+  var title = domestic ? '国内产品机会' : '跨境产品机会';
+  var desc = domestic
+    ? '只识别今天首次出现在同口径抖音罗盘快照中的国内新品。'
+    : '只识别今天首次出现在同口径 FastMoss 快照中的跨境新品。';
+  var h = '<div class="opportunity-tabs" role="tablist"><button type="button" data-opportunity-tab="crossborder" class="' + (domestic ? '' : 'on') + '">跨境产品机会</button><button type="button" data-opportunity-tab="domestic" class="' + (domestic ? 'on' : '') + '">国内产品机会</button></div>'
+    + '<div class="opportunity-top"><div><h2>' + title + '</h2><p>' + desc + '</p></div><button type="button" data-opportunity-refresh>同步数据并识别</button></div>';
+  if (res.rows.length) {
+    h += '<div class="opportunity-cards">';
+    for (var i = 0; i < res.rows.length; i++) h += opportunityCardHtml(res.rows[i], i, domestic);
+    h += '</div>';
+  } else {
+    h += '<div class="opportunity-empty"><b>本次没有可确认的“今日首次出现”新品</b><p>' + audit.text + '</p>'
+      + '<p>当前数据已登记为观察基线。下一次在相同国家、平台、类目和榜单范围完成采集后，系统才会用商品 ID 做新旧差集；只对今天新增的商品再进行机会排序。</p></div>';
+  }
+  h += '<div class="opportunity-note"><b>严格新品口径：</b>'
+    + (domestic
+      ? '国内只比较抖音罗盘中国商品 ID；要求上一期同范围快照未出现、本期首次出现，并由来源“新上榜”字段复核。确认新品后，按成交金额下界和榜单名次排序。'
+      : '跨境只比较 FastMoss 海外商品 ID；要求历史同范围快照均未出现、本期首次出现。确认新品后，再按同国家、同类目、同周期的增速排序，并排除赠品、活动品和异常低基数。')
+    + '销量 Top 榜和“上市日期较近”都不能单独证明新品。</div>';
+  return h;
+}
 RENDER.board = function () {
   var list = boardRankDataOf();
   var v = $('#view');
   if (!list.length) { v.innerHTML = diagHtml(list); return; }
-  var h = '';
-  h += heroHtml(list);
-  h += runCenterHtml(list);
-  h += boardTopHtml(list);
-  h += heatSecHtml(list);
-  h += threeGrowthBoardsHtml(list);
-  h += auxSecHtml(list);
-  h += '<div class="sec">' + secHd('市场 × 品类 覆盖度', '0 格就是盲区，本身就是结论', '') + covHtml(list) + '</div>';
-  h += '<div class="sec">' + secHd('数据通路体检', '每个市场有没有源能供数，决定上面的结论算不算数', '')
-    + flowHtml() + '</div>';
-  h += srcMapSecHtml(list);
-  h += scatterSecHtml(list);
-  h += marketSecHtml(list);
-  h += countrySecHtml(list);
-  h += c2SecHtml(list);
-  h += tagSecHtml(list);
+  var h = boardHeroHtml(list);
+  h += boardCountryListHtml(list);
+  h += boardIngredientHtml(list);
+  h += '<p class="board-footnote">增长中位数与正增长占比只在同一国家、来源、币种和周期内计算；商品样本不代表全市场份额。成分榜依赖已标注的商品成分字段。</p>';
   v.innerHTML = h;
+};
+RENDER.opportunity = function () {
+  $('#view').innerHTML = opportunityPanelHtml();
 };
 
 function boardTopHtml(list) {
@@ -3500,6 +3816,7 @@ function rankColsOf(src) {
   for (i = 0; i < RANK_COLS.length; i++) {
     c = RANK_COLS[i];
     if (rankOnly && (c.k === 'sold' || c.k === 'gmv' || c.k === 'grow' || c.k === 'asof')) continue;
+    if (src === '抖音罗盘' && (c.k === 'grow' || c.k === 'asof')) continue;
     if (c.k === 'no' && !srcHas(src, 'no')) continue;
     /* v11：销量 / 金额 / 增速 / 数据截至 四列都按「来源可得性」决定出不出现。
        来源整列给不出的（如抖音罗盘无增速、FastMoss 与蝉妈妈无截至日），
@@ -3560,7 +3877,7 @@ RENDER.rank = function () {
   var groups = rankGroups(list);
   if (!groups.length) { v.innerHTML = h + emptyHtml('当前筛选下没有可排的榜单', '放宽国家 / 来源 / 类目再看'); return; }
   h += '<div class="hint" style="margin-bottom:12px">'
-    + '<b>为什么必须分来源：</b>不同平台的统计周期与币种都不同（抖音罗盘是 7 天榜单快照、蝉妈妈是近 7 天日销口径、'
+    + '<b>为什么必须分来源：</b>不同平台的统计周期与币种都不同（抖音罗盘、蝉妈妈、'
     + 'FastMoss 未标注周期、Hwahae / Olive Young 只公开名次），把它们揉成一个总榜等于把不可比的数字相加。'
     + '本期<b>没有任何来源提供「近 30 天」口径</b>，所以销量与金额按各来源的真实周期分列，不做跨来源合并。</div>';
   for (var i = 0; i < groups.length; i++) h += rankBoardHtml(groups[i], groups.length > 1);
@@ -3601,8 +3918,10 @@ function rankSortTabs() {
 function rankBoardHtml(g, multi) {
   var src = g.src, cols = rankColsOf(src);
   var rows = rankRows(g.rows, state.rankBy);
+  if (src === '抖音罗盘') rows = top20PerCategory(rows);
   var show = rows.slice(0, 50);
-  var hint = (rankDef(state.rankBy).hint || '') + ' · 收录 ' + rows.length + ' 条，展示前 ' + Math.min(rows.length, 50) + ' 条（Top50 目标）';
+  var limitLabel = src === '抖音罗盘' ? '每类目前20' : 'Top50 目标';
+  var hint = (rankDef(state.rankBy).hint || '') + ' · 收录 ' + rows.length + ' 条，展示前 ' + Math.min(rows.length, 50) + ' 条（' + limitLabel + '）';
   var h = '<div class="sec rank-sec">' + secHd('『' + src + '』榜', hint + (multi ? '' : ' · 已按来源筛选'), '共 ' + rows.length + ' 条');
   h += covBarHtml(src, g.rows, show.length);
   h += '<div class="card" style="padding:12px 4px 4px"><div class="rkt-wrap"><table class="rkt"><thead><tr>';
@@ -3621,6 +3940,23 @@ function rankBoardHtml(g, multi) {
   h += '</div></div>';
   return h;
 }
+function top20PerCategory(rows) {
+  var groups = {}, order = [], out = [], i, key;
+  for (i = 0; i < rows.length; i++) {
+    key = txtOf(rows[i], '二级类目') || txtOf(rows[i], '三级类目') || '未分类';
+    if (!groups[key]) { groups[key] = []; order.push(key); }
+    groups[key].push(rows[i]);
+  }
+  for (i = 0; i < order.length; i++) {
+    groups[order[i]].sort(function (a, b) {
+      var av = metricAvailable(a, '销量') && metricAvailable(a, '销售额') ? 0 : 1;
+      var bv = metricAvailable(b, '销量') && metricAvailable(b, '销售额') ? 0 : 1;
+      return av - bv || (rankNoOf(a) === null ? 9999 : rankNoOf(a)) - (rankNoOf(b) === null ? 9999 : rankNoOf(b));
+    });
+    out = out.concat(groups[order[i]].slice(0, 20));
+  }
+  return out;
+}
 function exCount(rows) {
   var n = 0;
   for (var i = 0; i < rows.length; i++) if (growExcluded(rows[i]) === '低基数') n++;
@@ -3628,28 +3964,28 @@ function exCount(rows) {
 }
 function rankHead(col, src) {
   if (col.k === 'no') return state.rankBy === 'rank' ? '名次（原榜）' : '排序位';
-  if (col.k === 'sold') return '销量 · ' + periodShort(src);
-  if (col.k === 'gmv') return '销售额（原币）· ' + periodShort(src);
+  if (col.k === 'sold') return '销量';
+  if (col.k === 'gmv') return '销售额';
   return col.n;
 }
 /* 覆盖度条：N/50 + 有值字段数 + 数据截至 */
 function covBarHtml(src, rows, shown) {
   var sold = 0, gmv = 0, grow = 0, asof = '', i;
   for (i = 0; i < rows.length; i++) {
-    if (numField(rows[i], '销量') !== null) sold++;
-    if (numField(rows[i], '销售额') !== null) gmv++;
+    if (metricAvailable(rows[i], '销量')) sold++;
+    if (metricAvailable(rows[i], '销售额')) gmv++;
     if (numField(rows[i], '环比增速') !== null) grow++;
     var a = asOfOf(rows[i]); if (a && a > asof) asof = a;
   }
   var h = '<div class="cov-bar">'
-    + '<span class="pill">收录 <b>' + rows.length + '</b> 条 · Top50 目标</span>'
+    + '<span class="pill">收录 <b>' + rows.length + '</b> 条 · ' + (src === '抖音罗盘' ? '每类目前20' : 'Top50 目标') + '</span>'
     + '<span class="pill">展示 <b>' + shown + '</b> 条</span>';
   if (srcHas(src, 'sold')) h += '<span class="pill">有销量 <b>' + sold + '/' + rows.length + '</b></span>';
   if (srcHas(src, 'gmv')) h += '<span class="pill">有金额 <b>' + gmv + '/' + rows.length + '</b></span>';
   if (srcHas(src, 'grow')) h += '<span class="pill">有增速 <b>' + grow + '/' + rows.length + '</b></span>';
-  h += '<span class="pill">周期 <b>' + esc(periodShort(src)) + '</b></span>'
-    + '<span class="pill">数据截至 <b>' + (asof || '—（来源未标注）') + '</b></span>'
-    + '</div>';
+  h += '<span class="pill">周期 <b>' + esc(periodShort(src)) + '</b></span>';
+  if (src !== '抖音罗盘') h += '<span class="pill">数据截至 <b>' + (asof || '—（来源未标注）') + '</b></span>';
+  h += '</div>';
   return h;
 }
 function rankCell(col, r, src, no) {
@@ -3680,12 +4016,10 @@ function rankCell(col, r, src, no) {
     return '<td data-l="品类">' + esc(a ? (a + (b2 ? ' / ' + b2 : '')) : '—') + '</td>';
   }
   if (col.k === 'sold') {
-    var s = numField(r, '销量');
-    return '<td class="num" data-l="销量">' + (s === null ? '—' : fmtNum(s)) + '</td>';
+    return '<td class="num" data-l="销量">' + metricRangeText(r, '销量') + '</td>';
   }
   if (col.k === 'gmv') {
-    var v = numField(r, '销售额');
-    return '<td class="num" data-l="销售额">' + (v === null ? '—' : fmtNum(v)) + '</td>';
+    return '<td class="num" data-l="销售额">' + metricRangeText(r, '销售额') + '</td>';
   }
   if (col.k === 'grow') {
     var g = numField(r, '环比增速');
@@ -4581,7 +4915,8 @@ function renderView() {
   var vw = $('#view');
   if (state._lastView !== v) { vw.classList.add('anim'); state._lastView = v; }
   else { vw.classList.remove('anim'); }
-  if (v === 'board') RENDER.board();
+  if (v === 'opportunity') RENDER.opportunity();
+  else if (v === 'board') RENDER.board();
   else if (v === 'rank') RENDER.rank();
   else if (v === 'pa') RENDER.pa();
   else if (v === 'ing') RENDER.ing();
@@ -5057,8 +5392,14 @@ function clearDemo() {
 /* ---------- 12. 事件绑定（统一入口调度，不在渲染函数里触发渲染） ---------- */
 function bindEvents() {
   document.addEventListener('click', function (e) {
-    var el = e.target && e.target.closest ? e.target.closest('[data-view],[data-f],[data-rank],[data-open],[data-close],[data-go],[data-drill],[data-tab],[data-close-tab]') : null;
+    var el = e.target && e.target.closest ? e.target.closest('[data-view],[data-f],[data-rank],[data-open],[data-close],[data-go],[data-drill],[data-tab],[data-close-tab],[data-board-tab],[data-opportunity-tab],[data-opportunity-refresh]') : null;
     if (!el) return;
+    if (el.hasAttribute('data-opportunity-tab')) { state.opportunityTab = el.getAttribute('data-opportunity-tab'); refreshAll(); return; }
+    if (el.hasAttribute('data-opportunity-refresh')) {
+      el.disabled = true; el.textContent = '同步中…';
+      loadAll().then(function () { refreshAll(); toast('数据同步完成，已更新首次发现记录'); }).catch(function () { refreshAll(); toast('同步失败，请检查数据源连接'); });
+      return;
+    }
     if (el.hasAttribute('data-close')) { closeAll(); return; }
     if (el.hasAttribute('data-go')) {
       var g = el.getAttribute('data-go');

@@ -58,7 +58,10 @@ def normalize_product(row, category, date, window):
     name = str(row.get("name") or "").strip()
     if not product_id or not name:
         raise ValueError("商品榜行缺少商品 ID 或名称")
-    lower, upper = row.get("pay_lower"), row.get("pay_upper")
+    sales_lower, sales_upper = row.get("sales_lower"), row.get("sales_upper")
+    # 兼容历史快照；新采集结果只使用 sales_amount_*。
+    lower = row.get("sales_amount_lower", row.get("pay_lower"))
+    upper = row.get("sales_amount_upper", row.get("pay_upper"))
     if lower is not None and (not isinstance(lower, (int, float)) or lower < 0):
         raise ValueError(f"商品 {product_id} 的金额下界无效")
     if upper is not None and (not isinstance(upper, (int, float)) or upper < 0):
@@ -75,8 +78,9 @@ def normalize_product(row, category, date, window):
     amount = money_range(lower, upper)
     note = (
         f"抖音罗盘商品榜原始快照；统计周期 {period}；"
-        f"用户支付金额为平台区间 {amount or '未披露'}，不是精确销售额。"
-        "当前接口未返回成交件数或商品级环比；店铺名不等于品牌，不能据此自动立项。"
+        f"用户支付金额为平台区间 {amount or '未披露'}，不是精确销售额；"
+        f"销量来自 pay_combo_cnt 区间 {sales_lower or '未披露'}~{sales_upper or '未披露'}。"
+        "店铺名不等于品牌，不能据此自动立项。"
     )
     return {
         "record_id": f"prt_compass_{product_id}",
@@ -98,7 +102,14 @@ def normalize_product(row, category, date, window):
         "价格": None,
         "价格带": row.get("price_bin"),
         "销售额": None,
+        "销售额区间": amount,
         "销量": None,
+        "销量区间": (f"{sales_lower:,}-{sales_upper:,}" if sales_lower is not None and sales_upper is not None else None),
+        "销量下界": sales_lower,
+        "销量上界": sales_upper,
+        "销售额下界分": lower,
+        "销售额上界分": upper,
+        "商品榜真实字段": {"销量": "pay_combo_cnt", "销售额": "new_pay_amt"},
         "环比增速": None,
         "成交金额区间": amount,
         "成交金额下界元": lower / 100 if lower is not None else None,
