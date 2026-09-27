@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>今日产品机会</title>
+  <style>
+    :root{--ink:#172033;--sub:#647087;--muted:#96a0b2;--line:#e4e9f0;--blue:#2268e8;--blue-soft:#eef5ff;--green:#158765;--green-soft:#eaf8f2;--orange:#b86b16;--orange-soft:#fff5e8;--red:#c44d55;--red-soft:#fff0f1;--navy:#172347;--canvas:#f5f7fb;--radius:14px}
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:var(--ink);background:var(--canvas)}button{font:inherit;cursor:pointer}.page{max-width:1480px;margin:auto;padding:28px 30px 70px}.top{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin-bottom:20px}.eyebrow{color:var(--blue);font-size:12px;font-weight:700;letter-spacing:.08em}.top h1{font-size:29px;letter-spacing:-.03em;margin:8px 0 8px}.top p{margin:0;color:var(--sub);font-size:13px;line-height:1.7}.actions{display:flex;gap:8px}.btn{height:38px;border:1px solid var(--line);border-radius:9px;background:#fff;padding:0 13px;color:var(--ink);font-weight:600}.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}.status{border:1px solid #cfe0fb;background:#f5f9ff;color:#2f5f9b;border-radius:10px;padding:12px 15px;margin-bottom:14px;font-size:12px;line-height:1.6}.status b{color:#1459b8;margin-right:8px}.stats{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:14px}.stat{padding:16px 18px;border-right:1px solid var(--line)}.stat:last-child{border:0}.stat small{display:block;color:var(--muted);font-size:11px;margin-bottom:8px}.stat strong{font-size:23px;letter-spacing:-.03em}.stat em{font-style:normal;color:var(--sub);font-size:11px;margin-left:5px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:24px 0 12px}.section-head h2{margin:0;font-size:18px}.section-head p{margin:0;color:var(--sub);font-size:12px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;min-width:0}.card-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}.rank{width:31px;height:31px;border-radius:9px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:800;flex:0 0 auto}.title-wrap{display:flex;gap:11px;min-width:0}.title-wrap h3{font-size:16px;margin:2px 0 5px;line-height:1.45}.title-wrap p{margin:0;color:var(--sub);font-size:12px;line-height:1.6}.signal{font-size:11px;color:var(--green);background:var(--green-soft);padding:5px 8px;border-radius:7px;white-space:nowrap}.evidence{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:16px 0 12px}.evidence div{background:#f7f9fc;border-radius:9px;padding:10px}.evidence small{display:block;color:var(--muted);font-size:10px;margin-bottom:5px}.evidence b{font-size:16px}.evidence span{display:block;color:var(--sub);font-size:10px;margin-top:3px}.bar-label{display:flex;justify-content:space-between;color:var(--sub);font-size:11px;margin:10px 0 6px}.bar{height:7px;background:#edf0f5;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,#347bf0,#56b8dc);border-radius:99px}.action{margin-top:14px;padding:11px 12px;background:#f8fbff;border-left:3px solid #7caaf5;border-radius:0 9px 9px 0;font-size:12px;line-height:1.7}.action b{display:block;margin-bottom:3px;color:#245da9}.products{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}.product{font-size:11px;color:#56647b;background:#f2f4f8;border-radius:6px;padding:5px 7px}.quotes{display:grid;gap:7px;margin-top:12px}.quote{margin:0;border-left:2px solid #cbdafa;color:#536078;background:#fbfcfe;padding:8px 10px;border-radius:0 7px 7px 0;font-size:11px;line-height:1.7;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.quote small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.foot-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:14px;margin-top:14px}.panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px}.panel h2{font-size:15px;margin:0 0 12px}.method{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.method div{border:1px solid var(--line);border-radius:9px;padding:12px}.method small{display:block;color:var(--muted);font-size:10px;margin-bottom:6px}.method b{font-size:12px}.panel p{font-size:12px;line-height:1.8;color:var(--sub);margin:7px 0}.llm{background:var(--navy);color:#fff}.llm h2{color:#fff}.llm p{color:#cbd5ee}.llm .tag{display:inline-block;color:#c9d7f8;background:#29375e;border-radius:6px;padding:6px 8px;font-size:11px;margin-top:5px}.empty,.loading{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:50px;text-align:center;color:var(--sub)}.error{color:var(--red);background:var(--red-soft);border-color:#f1cdd0}.hidden{display:none!important}@media(max-width:900px){.page{padding:20px 14px 55px}.top{display:block}.actions{margin-top:14px}.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.cards,.foot-grid{grid-template-columns:1fr}}@media(max-width:560px){.top h1{font-size:24px}.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:0}.evidence,.method{grid-template-columns:1fr 1fr}.evidence div:last-child{grid-column:1/-1}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="top">
+      <div>
+        <div class="eyebrow">TODAY'S PRODUCT OPPORTUNITY</div>
+        <h1>今日产品机会</h1>
+        <p>基于眼部护理真实用户评论，先把高频需求与未满足点整理成可验证的产品机会。</p>
+      </div>
+      <div class="actions"><button class="btn" id="refresh">重新读取</button><button class="btn primary" id="export">导出初筛结果</button></div>
+    </header>
+    <div class="status"><b>真实数据初筛</b><span>当前只读取清洗后的真实评论；规则初筛已运行，尚未调用 LLM API。每条机会都保留来源条数与代表性原文。</span></div>
+    <div id="loading" class="loading">正在读取清洗后的评论数据…</div>
+    <div id="error" class="empty error hidden"></div>
+    <div id="app" class="hidden">
+      <section class="stats" id="stats"></section>
+      <div class="section-head"><div><h2>高频机会方向</h2><p>按跨来源证据量与未满足信号排序，不代表销量预测。</p></div><p id="updated"></p></div>
+      <section class="cards" id="cards"></section>
+      <section class="foot-grid">
+        <div class="panel"><h2>本次初筛口径</h2><div class="method"><div><small>数据范围</small><b>眼部护理</b></div><div><small>数据来源</small><b>小红书 + 淘宝/天猫</b></div><div><small>分析方式</small><b>关键词规则初筛</b></div></div><p>小红书文本用于识别消费者表达，淘宝/天猫评价用于补充商品反馈；负面评价与需求表达单独加权。产品建议是对真实文本的归纳，后续可将同一批证据传给 LLM 做语义聚类与方案生成。</p></div>
+        <div class="panel llm"><h2>后续分析接口</h2><p>当前阶段先确保数据能真实跑通。下一步可接入 LLM，对机会方向做聚类、冲突识别、用户原话摘要与产品假设生成。</p><span class="tag">LLM API：预留，未调用</span></div>
+      </section>
+    </div>
+  </main>
+  <script>
+    const DATA_ROOT='../data/eye-care-opportunities/';
+    const files={xhs:'xhs_comments_clean.json',tb:'tb_rates_all.json',negative:'tb_rates_negative.json',demands:'tb_rates_demands.json'};
+    const themes=[
+      {title:'干燥细纹与紧致改善',desc:'用户期待眼周保湿、淡纹与更明确的紧致感。',words:['干燥','细纹','干纹','抚纹','紧致','抗皱','皱纹','滋润','保湿'],action:'优先验证“高保湿但不厚重”的眼周护理方案，并把淡纹周期与可感知效果写进验证指标。'},
+      {title:'敏感低刺激，不熏眼',desc:'眼周护理的安全感是高频购买门槛，刺激反馈需要单独看。',words:['敏感','刺激','辣眼','熏眼','刺痛','过敏','红肿','不舒服','温和'],action:'优先做低刺激配方与眼周安全测试，明确香精、酒精和使用边界，避免只用“温和”做宣传。'},
+      {title:'清爽吸收，不黏不厚重',desc:'用户既要滋润，也在意肤感、吸收速度和白天使用负担。',words:['油腻','黏腻','粘腻','厚重','吸收','清爽','肤感','清透','负担'],action:'将延展性、吸收时间和后续肤感做成可量化测试，优先验证白天可用的清爽质地。'},
+      {title:'黑眼圈、眼袋与暗沉',desc:'围绕眼周暗沉、黑眼圈和眼袋的改善诉求，适合拆成不同人群验证。',words:['黑眼圈','眼袋','泪沟','暗沉','浮肿','肿眼','熬夜','眼周暗'],action:'不要把所有眼周问题合并成一个功效，先按黑眼圈、浮肿、疲态分别验证人群与证据。'},
+      {title:'妆前兼容，不搓泥不卡粉',desc:'眼霜与底妆、眼妆之间的兼容性是白天场景的关键体验。',words:['搓泥','卡粉','上妆','妆前','打底','眼妆','脱妆','起屑'],action:'把妆前等待时间、叠加产品和搓泥情况纳入实测，形成“护理后可直接上妆”的场景方案。'},
+      {title:'性价比与使用周期',desc:'价格、容量和用量预期会影响用户是否愿意持续使用。',words:['性价比','便宜','贵','价格','容量','耐用','用量','回购'],action:'用单次使用成本和预期使用周期重做规格组合，验证价格敏感人群的接受区间。'}
+    ];
+    const $=s=>document.querySelector(s); const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const textOf=r=>String(r?.text||r?.content||r?.full||'').replace(/\s+/g,' ').trim();
+    const sourceOf=r=>r?.text?'小红书':'淘宝/天猫';
+    const match=(text,words)=>words.filter(w=>text.toLowerCase().includes(w.toLowerCase()));
+    const countText=(rows,words)=>rows.filter(r=>match(textOf(r),words).length).length;
+    const quotes=(rows,words,n=2)=>rows.filter(r=>match(textOf(r),words).length).sort((a,b)=>(Number(b.likes)||0)-(Number(a.likes)||0)).slice(0,n);
+    function productTags(rows,words){const map={};rows.filter(r=>match(textOf(r),words).length).forEach(r=>{const n=r.item_name||r.note_title;if(n)map[n]=(map[n]||0)+1});return Object.entries(map).sort((a,b)=>b[1]-a[1]).slice(0,3)}
+    function build(xhs,tb,negative,demands){
+      const all=[...xhs.map(r=>({...r,__source:'小红书'})),...tb.map(r=>({...r,__source:'淘宝/天猫'}))];
+      return themes.map(theme=>{const x=countText(xhs,theme.words),t=countText(tb,theme.words),n=countText(negative,theme.words),d=countText(demands,theme.words), total=x+t; const score=total+n*2+d*2; return {...theme,x,t,n,d,total,score,quotes:quotes(all,theme.words),products:productTags(tb,theme.words)}}).filter(r=>r.total||r.n||r.d).sort((a,b)=>b.score-a.score).slice(0,6);
+    }
+    function stat(k,v,unit){return `<div class="stat"><small>${k}</small><strong>${v.toLocaleString()}</strong><em>${unit}</em></div>`}
+    function render(data,meta){
+      const opportunities=build(data.xhs,data.tb,data.negative,data.demands), allRows=data.xhs.length+data.tb.length;
+      $('#stats').innerHTML=stat('可用评论',allRows,'条')+stat('小红书文本',data.xhs.length,'条')+stat('淘宝/天猫评价',data.tb.length,'条')+stat('未满足/负面信号',data.negative.length+data.demands.length,'条');
+      $('#updated').textContent=`读取完成 · ${new Date().toLocaleString('zh-CN',{hour12:false})}`;
+      const max=Math.max(...opportunities.map(x=>x.score),1);
+      $('#cards').innerHTML=opportunities.map((o,i)=>`<article class="card"><div class="card-head"><div class="title-wrap"><span class="rank">${i+1}</span><div><h3>${esc(o.title)}</h3><p>${esc(o.desc)}</p></div></div><span class="signal">${o.n+o.d?'有未满足信号':'持续出现'}</span></div><div class="evidence"><div><small>小红书</small><b>${o.x}</b><span>相关文本</span></div><div><small>淘宝/天猫</small><b>${o.t}</b><span>相关评价</span></div><div><small>负面 + 需求</small><b>${o.n+o.d}</b><span>重点信号</span></div></div><div class="bar-label"><span>跨来源证据强度</span><b>${o.score}</b></div><div class="bar"><i style="width:${Math.max(8,Math.round(o.score/max*100))}%"></i></div><div class="action"><b>建议动作</b>${esc(o.action)}</div>${o.products.length?`<div class="products">${o.products.map(([n,c])=>`<span class="product">${esc(n)} · ${c}条</span>`).join('')}</div>`:''}<div class="quotes">${o.quotes.map(q=>`<blockquote class="quote">“${esc(textOf(q))}”<small>${esc(q.__source||sourceOf(q))}${q.item_name?' · '+esc(q.item_name):''}</small></blockquote>`).join('')}</div></article>`).join('');
+      $('#loading').classList.add('hidden');$('#error').classList.add('hidden');$('#app').classList.remove('hidden');
+      window.__opportunityExport={generatedAt:new Date().toISOString(),scope:'眼部护理',counts:{xhs:data.xhs.length,tb:data.tb.length,negative:data.negative.length,demands:data.demands.length},opportunities};
+    }
+    async function load(){
+      $('#loading').classList.remove('hidden');$('#error').classList.add('hidden');$('#app').classList.add('hidden');
+      try{const values=await Promise.all(Object.values(files).map(name=>fetch(DATA_ROOT+name).then(r=>{if(!r.ok)throw new Error(name+' '+r.status);return r.json()})));render({xhs:values[0],tb:values[1],negative:values[2],demands:values[3]});}
+      catch(err){$('#loading').classList.add('hidden');$('#error').classList.remove('hidden');$('#error').textContent='数据读取失败：请通过本地 HTTP 服务打开工作台（不要直接双击 file:// 页面）。'+err.message;}
+    }
+    $('#refresh').onclick=load;$('#export').onclick=()=>{if(!window.__opportunityExport)return;const blob=new Blob([JSON.stringify(window.__opportunityExport,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='今日产品机会-眼部护理初筛.json';a.click();URL.revokeObjectURL(url)};load();
+  </script>
+</body>
+</html>
