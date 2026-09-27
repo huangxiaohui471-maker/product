@@ -198,6 +198,7 @@ svg{display:block}
 .opportunity-empty{padding:26px 18px;border:1px dashed #cbd5e7;border-radius:12px;background:#f8faff;text-align:center;color:var(--sub)}
 .opportunity-empty b{display:block;margin-bottom:7px;font-size:14px}.opportunity-empty p{font-size:12px;color:var(--hint);line-height:1.7;margin-bottom:12px}
 .opportunity-note{margin-top:12px;padding:12px 14px;border-radius:10px;background:#f7f8fb;color:var(--hint);font-size:11px;line-height:1.7}
+.opportunity-radar-frame{display:block;width:100%;height:calc(100vh - 160px);min-height:760px;border:0;border-radius:12px;background:#fbfbf8}
 .cross-market-head{padding:18px 20px;border:1px solid #CFE1F7;border-radius:14px;background:linear-gradient(135deg,#F7FBFF,#EEF6FF);margin-bottom:12px}
 .cross-market-head h2{font-size:18px;margin:7px 0 5px}.cross-market-head p{font-size:11px;color:var(--sub);line-height:1.65}
 .cross-market-status{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.cross-market-status span{padding:6px 9px;border-radius:999px;background:#fff;border:1px solid #D9E7F7;color:#51647E;font-size:10px}.cross-market-status .ok{color:#167848;background:#E8F6EE;border-color:#C9EBD8}.cross-market-status .warn{color:#8A5B18;background:#FFF7E7;border-color:#F5DFB0}
@@ -3712,7 +3713,10 @@ RENDER.board = function () {
   initGrowthHeroCarousel();
 };
 RENDER.opportunity = function () {
-  $('#view').innerHTML = opportunityPanelHtml();
+  var view = $('#view');
+  view.innerHTML = '<iframe class="opportunity-radar-frame" title="实验工厂机会雷达" loading="eager"></iframe>';
+  var frame = view.querySelector('.opportunity-radar-frame');
+  if (frame) frame.src = '../Chancev1-run/Chancev1/实验工厂机会雷达/原型/实验工厂机会雷达-prototype.html#radar';
 };
 
 function boardTopHtml(list) {
