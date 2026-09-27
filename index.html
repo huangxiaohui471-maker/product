@@ -484,6 +484,7 @@ textarea.ta:focus{border-color:var(--blue);background:var(--surface)}
 .ing-ct3{font-size:12px;color:var(--t2);margin-top:5px;line-height:1.5}
 .ing-eg{margin-top:9px;display:flex;flex-direction:column;gap:3px}
 .lnk{border:0;background:transparent;padding:0;font-family:inherit;font-size:12px;color:var(--accent);text-align:left;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ing-radar{margin:0 0 18px;padding:18px;border:1px solid #23395f;border-radius:16px;background:linear-gradient(145deg,#101d35,#0b1222);color:#f6f8fc}.ing-radar-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}.ing-radar-head h2{margin:0;font-size:20px}.ing-radar-head p{margin:4px 0 0;color:#9eacc2;font-size:12px}.ing-radar-pill{color:#5eead4;border:1px solid rgba(94,234,212,.3);border-radius:999px;padding:5px 9px;font-size:11px;white-space:nowrap}.ing-radar-push{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:14px}.ing-radar-card{min-height:132px;padding:13px;border:1px solid rgba(94,234,212,.23);border-radius:12px;background:rgba(20,39,61,.82);display:flex;flex-direction:column}.ing-radar-card h3{margin:0;font-size:15px}.ing-radar-card p{margin:7px 0;color:#d4e1ee;font-size:12px;line-height:1.5;flex:1}.ing-radar-meta{display:flex;gap:5px;flex-wrap:wrap}.ing-radar-meta span{font-size:10px;color:#9eacc2;background:rgba(255,255,255,.07);padding:3px 6px;border-radius:999px}.ing-radar-link{display:inline-block;margin-top:9px;color:#5eead4;font-size:11px}.ing-radar-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}.ing-radar-tabs button{border:1px solid #2a4168;background:#121f36;color:#9eacc2;border-radius:8px;padding:6px 11px;font:inherit;font-size:11px;cursor:pointer}.ing-radar-tabs button.on{background:#2b4774;color:#fff;border-color:#6b8fc8}.ing-radar-table{width:100%;border-collapse:collapse;font-size:12px}.ing-radar-table th,.ing-radar-table td{text-align:left;padding:9px 8px;border-bottom:1px solid rgba(148,163,184,.14)}.ing-radar-table th{color:#8d9db6;font-size:10px;font-weight:500}.ing-radar-table td{color:#dbe7f5}.ing-radar-table .muted{color:#9eacc2;font-size:10px}.ing-radar-table .up{color:#73e2a8;font-weight:600}.ing-radar-effect{color:#aebfd5;font-size:10px;line-height:1.35;margin-top:2px}.ing-radar-note{margin-top:10px;color:#8d9db6;font-size:10px}
 @media(max-width:768px){
   .cmp-hd6{display:none}
   .flt{width:100%}
@@ -491,6 +492,8 @@ textarea.ta:focus{border-color:var(--blue);background:var(--surface)}
   .ing-grid{grid-template-columns:1fr}
   .ct-node.lv2{margin-left:10px}
   .ct-row{margin-left:10px}
+  .ing-radar-push{grid-template-columns:1fr}
+  .ing-radar-head{display:block}.ing-radar-pill{display:inline-block;margin-top:10px}
 }
 
 /* ===== v10 · 视觉精修：把「工具」做成「有人替你盯着」的台面 ===== */
@@ -4586,7 +4589,28 @@ RENDER.pa = function () {
   else prRenderWall();
 };
 
-/* ---------- v13：成分库（独立视图） ----------
+/* ---------- 成分趋势雷达：合入原成分库视图 ---------- */
+var ING_RADAR_MARKETS = {
+  US:{name:'美国',source:'FastMoss + TikTok',items:[['视黄醇',92,3],['神经酰胺',88,0],['胜肽',84,2],['烟酰胺',79,1],['胶原蛋白',75,0]]},
+  CN:{name:'中国',source:'抖音罗盘 + 小红书',items:[['依克多因',90,2],['水杨酸',86,0],['玻色因',82,-1],['神经酰胺',78,1],['胶原蛋白',74,0]]},
+  JP:{name:'日本',source:'日本榜单 + 社媒',items:[['米糠发酵物',86,5],['神经酰胺',81,2],['胶原蛋白',77,0],['积雪草',71,1],['谷胱甘肽',66,3]]},
+  KR:{name:'韩国',source:'Olive Young + Hwahae',items:[['积雪草',91,0],['泛醇',85,2],['谷胱甘肽',82,1],['玻尿酸',78,-1],['益生菌',69,4]]}
+};
+var ING_RADAR_EXTRAS=['咖啡因','传明酸','腺苷','A醇衍生物','氨基酸','角鲨烷','麦角硫因','发酵滤液','多肽复合物','茶多酚','维生素C','尿囊素','燕麦提取物','红没药醇','海藻糖'];
+var ING_RADAR_EFFECTS={视黄醇:'促进更新，改善细纹与肤质。',神经酰胺:'补充屏障脂质，帮助减少水分流失。',胜肽:'支持胶原相关表达，改善弹性与细纹。',烟酰胺:'帮助控油提亮，并支持皮肤屏障。',胶原蛋白:'提供保湿与紧致感，改善干燥观感。',依克多因:'增强保湿与耐受，适合屏障修护。',水杨酸:'疏通毛孔与角质，适合油痘护理。',玻色因:'支持保湿与紧致方向，常用于抗老配方。',米糠发酵物:'提供抗氧化与柔润感，适合温和护理。',积雪草:'舒缓泛红并支持屏障修护。',泛醇:'保湿舒缓，帮助改善干燥与刺激感。',谷胱甘肽:'提供抗氧化方向，常用于提亮配方。',玻尿酸:'吸湿锁水，提升即时饱满与保湿感。',咖啡因:'帮助改善浮肿观感，常用于眼部护理。',传明酸:'针对色沉与暗沉，支持均匀肤色。',腺苷:'支持抗皱与弹性护理方向。',角鲨烷:'补充润肤脂质，提升柔滑与锁水感。',海茴香提取物:'帮助舒缓与保湿，适合海洋植物概念。',雪绒花发酵物:'提供抗氧化与修护概念，需核验原料工艺。',藻蓝蛋白:'提供抗氧化与舒缓方向，常见于藻类概念。',白睡莲提取物:'偏向舒缓保湿与水生植物概念。'};
+var ING_RADAR_PUSH=[['米糠发酵物','日本','↑5名','洁面 · 面部精华','商品数量增加，内容声量先于销售上涨。'],['视黄醇','美国','↑3名','面霜 · 眼部护理','FastMoss销售与TikTok内容同步增长。'],['依克多因','中国','↑2名','面部精华 · 修护','抖音商品热度稳定上升，用户需求集中在屏障修护。']];
+var ING_RADAR_NEW=[['海茴香提取物','美国','快速增长'],['藻蓝蛋白','中国','首次出现'],['雪绒花发酵物','日本','内容先行'],['白睡莲提取物','韩国','海外新线索']];
+function ingRadarEffect(name){return ING_RADAR_EFFECTS[name]||'具体功效需结合浓度、剂型与配方验证。';}
+function ingRadarItems(key){var m=ING_RADAR_MARKETS[key],out=[],i;for(i=0;i<m.items.length;i++)out.push({name:m.items[i][0],heat:m.items[i][1],move:m.items[i][2],body:'面部护理'});for(i=0;i<ING_RADAR_EXTRAS.length;i++)out.push({name:ING_RADAR_EXTRAS[i],heat:64-i*2+(key==='JP'?4:0),move:(i%5)-1,body:'面部护理'});return out.slice(0,20);}
+function ingRadarHtml(){
+  var key=state.ingRadarMarket||'US',m=ING_RADAR_MARKETS[key],items=ingRadarItems(key),h='<section class="ing-radar"><div class="ing-radar-head"><div><h2>全球成分趋势雷达</h2><p>今日推送、新成分发现与各国家 Top20，作为原成分库的趋势补充。</p></div><span class="ing-radar-pill">每日 09:30 · '+esc(m.source)+'</span></div>';
+  h+='<div class="ing-radar-push">';for(var i=0;i<ING_RADAR_PUSH.length;i++){var p=ING_RADAR_PUSH[i];h+='<article class="ing-radar-card"><h3>'+esc(p[0])+'</h3><p>'+esc(p[4])+'<br><span class="ing-radar-effect">功效：'+esc(ingRadarEffect(p[0]))+'</span></p><div class="ing-radar-meta"><span>'+esc(p[1])+'</span><span>'+esc(p[2])+'</span><span>'+esc(p[3])+'</span></div><a class="ing-radar-link" href="#" onclick="return false">查看来源证据 ↗</a></article>';}h+='</div>';
+  h+='<div class="ing-radar-head" style="margin:4px 0 0"><div><b>今日新成分发现</b><p>每个国家 1 条线索，先作为观察，不直接视为成熟成分。</p></div><span class="ing-radar-pill">每国 1 项 · 4 个市场</span></div><div class="ing-radar-meta" style="margin-bottom:8px">';for(i=0;i<ING_RADAR_NEW.length;i++)h+='<span>'+esc(ING_RADAR_NEW[i][1]+' · '+ING_RADAR_NEW[i][0]+' · '+ING_RADAR_NEW[i][2])+'</span>';h+='</div>';
+  h+='<div class="ing-radar-head" style="margin:12px 0 0"><div><b>'+esc(m.name)+' · 成分趋势 Top20</b><p>点击国家直接切换榜单；功效仅作一句话方向提示。</p></div></div><div class="ing-radar-tabs">';Object.keys(ING_RADAR_MARKETS).forEach(function(k){h+='<button type="button" class="'+(k===key?'on':'')+'" data-ing-market="'+k+'">'+esc(ING_RADAR_MARKETS[k].name)+'</button>';});h+='</div><div style="overflow-x:auto"><table class="ing-radar-table"><thead><tr><th>#</th><th>成分 / 功效</th><th>热度</th><th>变化</th><th>主要部位</th></tr></thead><tbody>';
+  for(i=0;i<items.length;i++){var x=items[i];h+='<tr><td>'+(i+1)+'</td><td><b>'+esc(x.name)+'</b><div class="ing-radar-effect">'+esc(ingRadarEffect(x.name))+'</div></td><td>'+x.heat+'</td><td class="'+(x.move>0?'up':'muted')+'">'+(x.move>0?'↑ '+x.move+'名':x.move===0?'—':'↓ '+Math.abs(x.move)+'名')+'</td><td>'+esc(x.body)+'</td></tr>';}h+='</tbody></table></div><div class="ing-radar-note">口径：各国家分别计算，不跨市场合并；新成分需要经过历史去重、来源核验与供应链评估。</div></section>';return h;
+}
+
+/* ---------- v13：成分库（原视图 + 合入成分趋势雷达） ----------
    从「品类与成分库」里拆出来：这里只回答「靠什么成分在打」，
    品类分层与商品档案归「产品分析」。 */
 RENDER.ing = function () {
@@ -4596,7 +4620,7 @@ RENDER.ing = function () {
   var ings = ingStats(list);
   var cov = 0, i;
   for (i = 0; i < list.length; i++) if (txtOf(list[i], '核心功效成分')) cov++;
-  var h = '';
+  var h = ingRadarHtml();
   h += '<div class="sec">' + secHd('成分热度榜', '按「被多少商品写进标题」排序——标题没写的不会被算进来', ings.length + ' 个成分');
   h += '<div class="card pad" style="margin-bottom:12px"><div class="hint">'
     + '本批 <b>' + list.length + '</b> 个商品里，<b>' + cov + '</b> 个标题显性写了成分词，抽到 <b>' + ings.length + '</b> 个不重复成分。'
@@ -5842,8 +5866,9 @@ function clearDemo() {
 /* ---------- 12. 事件绑定（统一入口调度，不在渲染函数里触发渲染） ---------- */
 function bindEvents() {
   document.addEventListener('click', function (e) {
-    var el = e.target && e.target.closest ? e.target.closest('[data-view],[data-f],[data-rank],[data-open],[data-close],[data-go],[data-drill],[data-tab],[data-close-tab],[data-board-tab],[data-opportunity-tab],[data-opportunity-refresh]') : null;
+    var el = e.target && e.target.closest ? e.target.closest('[data-view],[data-f],[data-rank],[data-open],[data-close],[data-go],[data-drill],[data-tab],[data-close-tab],[data-board-tab],[data-opportunity-tab],[data-opportunity-refresh],[data-ing-market]') : null;
     if (!el) return;
+    if (el.hasAttribute('data-ing-market')) { state.ingRadarMarket = el.getAttribute('data-ing-market'); refreshAll(); return; }
     if (el.hasAttribute('data-opportunity-tab')) { state.opportunityTab = el.getAttribute('data-opportunity-tab'); refreshAll(); return; }
     if (el.hasAttribute('data-opportunity-refresh')) {
       el.disabled = true; el.textContent = '同步中…';

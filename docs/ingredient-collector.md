@@ -11,10 +11,10 @@ open http://127.0.0.1:4177/
 
 ## 每日采集
 
-`scripts/collector.py` 会读取 `sources.json` 中的授权平台页面，生成：
+`scripts/ingredient_collector.py` 会读取 `config/ingredient_sources.json` 中的授权平台页面，生成：
 
 - `data/latest.json`：最新各国家成分线索
 - `data/history.json`：按日期保存的历史信号
 - `../logs/collector.log`：采集日志
 
-页面会优先读取 `data/latest.json`；若当天没有可验证成分，则保留 Demo 数据并显示不可判定状态。平台需要登录或改用授权 API 时，应只修改 `sources.json`，不要把账号密码写入代码。
+页面会优先读取 `data/ingredient/latest.json`；若当天没有可验证成分，则保留 Demo 数据并显示不可判定状态。平台需要登录或改用授权 API 时，应只修改 `config/ingredient_sources.json`，不要把账号密码写入代码。
