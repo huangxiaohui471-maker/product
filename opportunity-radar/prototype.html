@@ -1,75 +1,929 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>今日产品机会</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>实验工厂 · 今日产品机会</title>
   <style>
-    :root{--ink:#172033;--sub:#647087;--muted:#96a0b2;--line:#e4e9f0;--blue:#2268e8;--blue-soft:#eef5ff;--green:#158765;--green-soft:#eaf8f2;--orange:#b86b16;--orange-soft:#fff5e8;--red:#c44d55;--red-soft:#fff0f1;--navy:#172347;--canvas:#f5f7fb;--radius:14px}
-    *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:var(--ink);background:var(--canvas)}button{font:inherit;cursor:pointer}.page{max-width:1480px;margin:auto;padding:28px 30px 70px}.top{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin-bottom:20px}.eyebrow{color:var(--blue);font-size:12px;font-weight:700;letter-spacing:.08em}.top h1{font-size:29px;letter-spacing:-.03em;margin:8px 0 8px}.top p{margin:0;color:var(--sub);font-size:13px;line-height:1.7}.actions{display:flex;gap:8px}.btn{height:38px;border:1px solid var(--line);border-radius:9px;background:#fff;padding:0 13px;color:var(--ink);font-weight:600}.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}.status{border:1px solid #cfe0fb;background:#f5f9ff;color:#2f5f9b;border-radius:10px;padding:12px 15px;margin-bottom:14px;font-size:12px;line-height:1.6}.status b{color:#1459b8;margin-right:8px}.stats{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:14px}.stat{padding:16px 18px;border-right:1px solid var(--line)}.stat:last-child{border:0}.stat small{display:block;color:var(--muted);font-size:11px;margin-bottom:8px}.stat strong{font-size:23px;letter-spacing:-.03em}.stat em{font-style:normal;color:var(--sub);font-size:11px;margin-left:5px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:24px 0 12px}.section-head h2{margin:0;font-size:18px}.section-head p{margin:0;color:var(--sub);font-size:12px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;min-width:0}.card-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}.rank{width:31px;height:31px;border-radius:9px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:800;flex:0 0 auto}.title-wrap{display:flex;gap:11px;min-width:0}.title-wrap h3{font-size:16px;margin:2px 0 5px;line-height:1.45}.title-wrap p{margin:0;color:var(--sub);font-size:12px;line-height:1.6}.signal{font-size:11px;color:var(--green);background:var(--green-soft);padding:5px 8px;border-radius:7px;white-space:nowrap}.evidence{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:16px 0 12px}.evidence div{background:#f7f9fc;border-radius:9px;padding:10px}.evidence small{display:block;color:var(--muted);font-size:10px;margin-bottom:5px}.evidence b{font-size:16px}.evidence span{display:block;color:var(--sub);font-size:10px;margin-top:3px}.bar-label{display:flex;justify-content:space-between;color:var(--sub);font-size:11px;margin:10px 0 6px}.bar{height:7px;background:#edf0f5;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,#347bf0,#56b8dc);border-radius:99px}.action{margin-top:14px;padding:11px 12px;background:#f8fbff;border-left:3px solid #7caaf5;border-radius:0 9px 9px 0;font-size:12px;line-height:1.7}.action b{display:block;margin-bottom:3px;color:#245da9}.products{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}.product{font-size:11px;color:#56647b;background:#f2f4f8;border-radius:6px;padding:5px 7px}.quotes{display:grid;gap:7px;margin-top:12px}.quote{margin:0;border-left:2px solid #cbdafa;color:#536078;background:#fbfcfe;padding:8px 10px;border-radius:0 7px 7px 0;font-size:11px;line-height:1.7;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.quote small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.foot-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:14px;margin-top:14px}.panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px}.panel h2{font-size:15px;margin:0 0 12px}.method{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.method div{border:1px solid var(--line);border-radius:9px;padding:12px}.method small{display:block;color:var(--muted);font-size:10px;margin-bottom:6px}.method b{font-size:12px}.panel p{font-size:12px;line-height:1.8;color:var(--sub);margin:7px 0}.llm{background:var(--navy);color:#fff}.llm h2{color:#fff}.llm p{color:#cbd5ee}.llm .tag{display:inline-block;color:#c9d7f8;background:#29375e;border-radius:6px;padding:6px 8px;font-size:11px;margin-top:5px}.empty,.loading{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:50px;text-align:center;color:var(--sub)}.error{color:var(--red);background:var(--red-soft);border-color:#f1cdd0}.hidden{display:none!important}@media(max-width:900px){.page{padding:20px 14px 55px}.top{display:block}.actions{margin-top:14px}.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.cards,.foot-grid{grid-template-columns:1fr}}@media(max-width:560px){.top h1{font-size:24px}.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:0}.evidence,.method{grid-template-columns:1fr 1fr}.evidence div:last-child{grid-column:1/-1}}
+    :root {
+      --ink: #171717;
+      --muted: #696a70;
+      --line: #deded8;
+      --paper: #fbfbf8;
+      --white: #fff;
+      --yellow: #ffe896;
+      --yellow-soft: #fff6ca;
+      --coral: #ffb4a5;
+      --coral-soft: #ffe4dd;
+      --teal: #9bded1;
+      --teal-soft: #dff5f0;
+      --lavender: #c9c2ff;
+      --lavender-soft: #eceaff;
+      --green: #307f63;
+      --danger: #a5453b;
+      --shadow: 0 14px 38px rgba(34, 34, 28, .08);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #efefe9;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    button, select { font: inherit; }
+    button { color: inherit; }
+    .device { min-height: 100vh; background: var(--paper); }
+    .app { min-height: 100vh; display: grid; grid-template-columns: 214px minmax(0, 1fr); }
+
+    .sidebar {
+      position: sticky; top: 0; height: 100vh; padding: 24px 18px;
+      border-right: 1px solid var(--line); background: rgba(251, 251, 248, .96);
+      display: flex; flex-direction: column; gap: 28px; z-index: 10;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; padding: 4px 8px; }
+    .brand-mark {
+      width: 42px; height: 42px; border-radius: 15px; display: grid; place-items: center;
+      background: var(--ink); color: #fff; font-weight: 900; letter-spacing: -.04em;
+      transform: rotate(-3deg);
+    }
+    .brand strong { display: block; font-size: 17px; }
+    .brand small { display: block; color: var(--muted); margin-top: 2px; }
+    .nav { display: grid; gap: 8px; }
+    .nav-btn {
+      width: 100%; border: 0; background: transparent; border-radius: 14px; padding: 12px 13px;
+      display: flex; align-items: center; gap: 10px; text-align: left; cursor: pointer; font-weight: 700;
+    }
+    .nav-btn:hover { background: #f0f0ea; }
+    .nav-btn.active { background: var(--ink); color: #fff; }
+    .nav-icon { width: 24px; text-align: center; }
+    .side-note {
+      margin-top: auto; padding: 14px; border-radius: 18px; background: var(--yellow-soft);
+      border: 1px solid #eadb96; font-size: 12px; line-height: 1.6; color: #5e5532;
+    }
+
+    main { min-width: 0; padding: 22px 28px 60px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+    .crumb { color: var(--muted); font-size: 13px; }
+    .filters { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; }
+    .pill, .ghost-btn, .primary-btn, .soft-btn {
+      border: 1px solid var(--line); border-radius: 999px; padding: 9px 14px; background: #fff; cursor: pointer;
+      transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+    }
+    .pill:hover, .ghost-btn:hover, .primary-btn:hover, .soft-btn:hover { transform: translateY(-1px); }
+    .pill { font-size: 12px; color: #555; }
+    .pill.demo { background: var(--coral-soft); border-color: #efb7aa; color: #793e33; font-weight: 800; }
+    .primary-btn { background: var(--ink); border-color: var(--ink); color: #fff; font-weight: 800; }
+    .ghost-btn { background: #fff; font-weight: 700; }
+    .soft-btn { background: var(--yellow-soft); border-color: #e7d78f; font-weight: 800; }
+    .btn-sm { padding: 7px 11px; font-size: 12px; }
+
+    .view { display: none; animation: enter .24s ease; }
+    .view.active { display: block; }
+    @keyframes enter { from { opacity: .3; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    .eyebrow { font-size: 12px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+    h1 { font-size: clamp(30px, 4vw, 54px); line-height: 1.04; letter-spacing: -.05em; margin: 8px 0 12px; max-width: 920px; }
+    h2 { font-size: 24px; letter-spacing: -.035em; margin: 0; }
+    h3 { font-size: 16px; margin: 0; }
+    p { line-height: 1.65; }
+    .subhead { color: var(--muted); margin: 0; max-width: 780px; }
+    .hero-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
+
+    .metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 24px 0; }
+    .metric { min-height: 112px; padding: 18px; border: 1px solid var(--line); border-radius: 20px; background: #fff; text-align: left; color: inherit; }
+    button.metric { cursor: pointer; transition: transform .16s ease, box-shadow .16s ease; }
+    button.metric:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .metric:nth-child(1) { background: var(--yellow-soft); }
+    .metric:nth-child(2) { background: var(--teal-soft); }
+    .metric:nth-child(3) { background: var(--lavender-soft); }
+    .metric b { display: block; font-size: 30px; letter-spacing: -.05em; margin: 10px 0 2px; }
+    .metric span, .metric small { color: var(--muted); font-size: 12px; }
+
+    .radar-grid { display: grid; grid-template-columns: minmax(480px, 1.25fr) minmax(360px, .75fr); gap: 16px; align-items: stretch; }
+    .panel { border: 1px solid var(--line); background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .panel-head { padding: 20px 22px 0; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+    .panel-head p { margin: 5px 0 0; font-size: 12px; color: var(--muted); }
+    .source-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .source-chip { border: 1px solid var(--line); background: #fff; padding: 6px 9px; border-radius: 999px; font-size: 11px; cursor: pointer; }
+    .source-chip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+    .canvas { position: relative; height: 510px; margin: 18px 20px 20px; border-radius: 22px; overflow: hidden; background-color: #fafaf7; background-image: radial-gradient(#d9d9d2 1px, transparent 1px); background-size: 20px 20px; border: 1px solid #e6e6df; }
+    .axis-x, .axis-y { position: absolute; font-size: 10px; color: #85857e; letter-spacing: .05em; }
+    .axis-x { bottom: 10px; left: 50%; transform: translateX(-50%); }
+    .axis-y { top: 50%; left: -28px; transform: rotate(-90deg); }
+    .quadrant { position: absolute; font-size: 11px; color: #99998f; font-weight: 700; }
+    .q1 { right: 16px; top: 14px; }
+    .q2 { left: 16px; top: 14px; }
+    .q3 { left: 16px; bottom: 28px; }
+    .q4 { right: 16px; bottom: 28px; }
+    .cross-v, .cross-h { position: absolute; background: #deded7; opacity: .9; }
+    .cross-v { width: 1px; height: 100%; left: 50%; top: 0; }
+    .cross-h { height: 1px; width: 100%; top: 50%; left: 0; }
+    .bubble {
+      position: absolute; border: 2px solid rgba(23,23,23,.75); border-radius: 50%; cursor: pointer;
+      display: grid; place-items: center; text-align: center; font-weight: 900; line-height: 1.25; padding: 12px;
+      box-shadow: 0 7px 0 rgba(23,23,23,.12); transition: transform .18s ease, filter .18s ease;
+    }
+    .bubble:hover, .bubble.active { transform: scale(1.06); filter: saturate(1.08); z-index: 4; }
+    .bubble.active { box-shadow: 0 0 0 5px #fff, 0 0 0 8px var(--ink); }
+    .b1 { width: 138px; height: 138px; background: var(--yellow); left: 67%; top: 12%; }
+    .b2 { width: 112px; height: 112px; background: var(--teal); left: 47%; top: 32%; }
+    .b3 { width: 104px; height: 104px; background: var(--lavender); left: 72%; top: 57%; }
+    .b4 { width: 82px; height: 82px; background: var(--coral); left: 25%; top: 19%; font-size: 12px; }
+    .b5 { width: 72px; height: 72px; background: #d8e7b0; left: 20%; top: 66%; font-size: 11px; opacity: .88; }
+    .b6 { width: 62px; height: 62px; background: #f2c7e5; left: 46%; top: 71%; font-size: 10px; opacity: .8; }
+
+    .detail { padding: 20px 22px 22px; display: flex; flex-direction: column; min-height: 590px; }
+    .detail-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 6px 9px; font-size: 11px; font-weight: 900; background: var(--yellow-soft); }
+    .confidence { font-size: 12px; color: var(--green); font-weight: 900; white-space: nowrap; }
+    .detail h2 { margin-top: 13px; }
+    .summary { color: #4f5053; margin: 9px 0 14px; }
+    .evidence-counts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0 14px; }
+    .evidence-count { border-radius: 15px; padding: 12px; border: 1px solid var(--line); font-size: 12px; }
+    .evidence-count strong { display: block; margin-bottom: 5px; font-size: 13px; }
+    .evidence-count.tmall { background: var(--coral-soft); }
+    .evidence-count.xhs { background: var(--teal-soft); }
+    .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .ai-item { border: 1px solid var(--line); border-radius: 15px; padding: 11px; min-height: 94px; }
+    .ai-item small { color: var(--muted); font-weight: 800; }
+    .ai-item p { font-size: 12px; line-height: 1.5; margin: 7px 0 0; }
+    .unknown { margin-top: 10px; border-left: 4px solid var(--coral); background: #fff6f3; border-radius: 11px; padding: 10px 12px; font-size: 12px; line-height: 1.55; }
+    .detail-actions { margin-top: auto; padding-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .candidate-section { margin-top: 18px; }
+    .section-line { display: flex; justify-content: space-between; align-items: center; margin: 0 2px 12px; }
+    .section-line p { margin: 0; color: var(--muted); font-size: 12px; }
+    .candidate-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .candidate-card { border: 1px solid var(--line); border-radius: 20px; padding: 17px; background: #fff; cursor: pointer; text-align: left; min-height: 205px; transition: transform .16s ease, box-shadow .16s ease; }
+    .candidate-card:hover, .candidate-card.active { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .candidate-card.active { outline: 2px solid var(--ink); }
+    .candidate-card:nth-child(1) { background: var(--yellow-soft); }
+    .candidate-card:nth-child(2) { background: var(--teal-soft); }
+    .candidate-card:nth-child(3) { background: var(--lavender-soft); }
+    .rank { display: flex; justify-content: space-between; color: var(--muted); font-size: 11px; font-weight: 800; }
+    .candidate-card h3 { margin-top: 20px; font-size: 18px; }
+    .candidate-card p { color: #555; font-size: 12px; margin: 8px 0 14px; }
+    .mini-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .mini-tags span { font-size: 10px; border-radius: 999px; background: rgba(255,255,255,.7); padding: 5px 7px; border: 1px solid rgba(23,23,23,.12); }
+
+    .flow-steps { display: flex; align-items: center; gap: 8px; margin: 18px 0 24px; flex-wrap: wrap; }
+    .flow-step { padding: 8px 12px; border-radius: 999px; background: #ecece6; color: #777; font-size: 12px; font-weight: 800; }
+    .flow-step.on { background: var(--ink); color: #fff; }
+    .arrow { color: #aaa; }
+    .trial-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr); gap: 16px; }
+    .trial-main, .trial-side, .lab-panel { padding: 22px; }
+    .candidate-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+    .candidate-title p { color: var(--muted); margin: 6px 0 0; }
+    .evidence-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+    .evidence-box { border-radius: 18px; padding: 17px; border: 1px solid var(--line); }
+    .evidence-box.support { background: var(--teal-soft); }
+    .evidence-box.counter { background: var(--coral-soft); }
+    .evidence-box h3 { margin-bottom: 12px; }
+    .quote { background: rgba(255,255,255,.7); border-radius: 12px; padding: 10px 11px; font-size: 12px; line-height: 1.55; margin-top: 8px; }
+    .quote small { display: block; color: var(--muted); margin-top: 4px; }
+    .inference { margin-top: 14px; padding: 16px; border-radius: 18px; background: var(--lavender-soft); }
+    .inference p { margin: 7px 0 0; font-size: 13px; }
+    .gate-list { display: grid; gap: 9px; margin: 16px 0; }
+    .gate { display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 10px; padding: 13px; border: 1px solid var(--line); border-radius: 15px; }
+    .gate-icon { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: var(--teal-soft); }
+    .gate small { color: var(--muted); }
+    .gate-status { font-size: 11px; font-weight: 900; color: var(--green); }
+    .verdict { margin-top: 16px; border-radius: 20px; padding: 18px; background: var(--yellow); }
+    .verdict strong { font-size: 20px; display: block; }
+    .verdict p { margin: 7px 0 0; font-size: 12px; }
+    .action-stack { display: grid; gap: 8px; margin-top: 14px; }
+
+    .lab-grid { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 16px; }
+    .hypothesis { margin: 16px 0; background: var(--yellow-soft); padding: 18px; border-radius: 18px; border: 1px solid #eadb96; }
+    .hypothesis small { color: var(--muted); font-weight: 800; }
+    .hypothesis p { font-size: 18px; font-weight: 800; margin: 8px 0 0; line-height: 1.5; }
+    .concepts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .concept { border: 1px solid var(--line); border-radius: 19px; padding: 14px; background: #fff; cursor: pointer; }
+    .concept.selected { outline: 2px solid var(--ink); background: var(--teal-soft); }
+    .concept-visual { height: 160px; border-radius: 15px; background: #f2f2ed; display: grid; place-items: center; margin-bottom: 12px; overflow: hidden; }
+    .concept-image { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .concept-image[hidden] { display: none; }
+    .pack { position: relative; background: var(--ink); }
+    .pack.roll { width: 34px; height: 76px; border-radius: 17px 17px 11px 11px; }
+    .pack.pen { width: 24px; height: 88px; border-radius: 12px; background: #735cdd; }
+    .pack.jar { width: 64px; height: 44px; border-radius: 9px 9px 16px 16px; background: #e48670; }
+    .concept p { color: var(--muted); font-size: 11px; margin: 6px 0 0; }
+    .image-gen-panel { margin-top: 16px; padding: 14px; border: 1px dashed #c8c8bd; border-radius: 16px; background: #fbfbf7; }
+    .image-gen-panel .section-line { margin-bottom: 10px; }
+    .image-gen-panel small { display: block; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+    .image-gen-status { color: var(--muted); font-size: 12px; }
+    .test-plan { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 16px; }
+    .test-items { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .test-item { background: #f5f5f1; padding: 12px; border-radius: 14px; }
+    .test-item b { display: block; margin-top: 5px; }
+    .test-item small { color: var(--muted); }
+    .lab-side-card { border-radius: 20px; padding: 18px; border: 1px solid var(--line); background: #fff; margin-bottom: 12px; }
+    .lab-side-card p { color: var(--muted); font-size: 12px; }
+    .progress-track { height: 10px; border-radius: 99px; overflow: hidden; background: #e9e9e2; margin: 14px 0 7px; }
+    .progress-bar { height: 100%; width: 0; background: var(--ink); transition: width 1s ease; }
+    .result { display: none; margin-top: 12px; padding: 13px; background: var(--teal-soft); border-radius: 15px; font-size: 12px; line-height: 1.55; }
+    .result.show { display: block; }
+    .decision-list { display: grid; gap: 7px; }
+    .decision { padding: 11px 12px; border: 1px solid var(--line); border-radius: 13px; font-size: 12px; font-weight: 800; }
+    .decision.recommended { background: var(--yellow); border-color: #d7c36f; }
+
+    .toast { position: fixed; right: 24px; bottom: 24px; background: var(--ink); color: white; padding: 13px 17px; border-radius: 14px; box-shadow: var(--shadow); opacity: 0; transform: translateY(12px); pointer-events: none; transition: .22s ease; z-index: 50; }
+    .toast.show { opacity: 1; transform: none; }
+    .queue-overlay { position: fixed; inset: 0; z-index: 40; background: rgba(23,23,23,.28); display: none; justify-content: flex-end; backdrop-filter: blur(3px); }
+    .queue-overlay.show { display: flex; }
+    .queue-drawer { width: min(570px, 94vw); height: 100%; background: var(--paper); box-shadow: -20px 0 60px rgba(0,0,0,.16); padding: 24px; overflow: auto; animation: drawerIn .22s ease; }
+    @keyframes drawerIn { from { transform: translateX(30px); opacity: .4; } to { transform: none; opacity: 1; } }
+    .queue-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    .icon-btn { width: 38px; height: 38px; border: 1px solid var(--line); background: #fff; border-radius: 50%; cursor: pointer; font-size: 20px; }
+    .queue-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 20px 0 16px; padding: 5px; border-radius: 999px; background: #ecece6; }
+    .queue-tab { border: 0; background: transparent; border-radius: 999px; padding: 10px; cursor: pointer; font-weight: 800; color: var(--muted); }
+    .queue-tab.active { background: #fff; color: var(--ink); box-shadow: 0 3px 10px rgba(0,0,0,.06); }
+    .queue-panel { display: none; }
+    .queue-panel.active { display: block; }
+    .queue-intro { padding: 13px 14px; border-radius: 16px; background: var(--yellow-soft); color: #5b5333; font-size: 12px; line-height: 1.6; margin-bottom: 12px; }
+    .queue-card { border: 1px solid var(--line); border-radius: 19px; background: #fff; margin-bottom: 10px; overflow: hidden; }
+    .queue-card-main { padding: 16px; cursor: pointer; }
+    .queue-card-main:hover { background: #fafaf6; }
+    .queue-card-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+    .queue-card h3 { font-size: 16px; margin-top: 8px; }
+    .queue-card p { color: var(--muted); font-size: 12px; margin: 7px 0 0; }
+    .queue-score { white-space: nowrap; font-size: 11px; font-weight: 900; color: var(--green); }
+    .queue-detail { display: none; padding: 0 16px 16px; }
+    .queue-card.expanded .queue-detail { display: block; }
+    .trigger-box { background: #f2f2ed; border-radius: 14px; padding: 12px; font-size: 12px; line-height: 1.55; }
+    .trigger-row { display: flex; justify-content: space-between; gap: 10px; margin-top: 6px; }
+    .trigger-row:first-child { margin-top: 0; }
+    .trigger-state { font-weight: 900; }
+    .trigger-state.met { color: var(--green); }
+    .trigger-state.wait { color: #9a6b19; }
+    .queue-actions { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 11px; }
+    .queue-empty-note { color: var(--muted); font-size: 12px; text-align: center; padding: 24px; }
+    .scan-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #45a47f; margin-right: 5px; box-shadow: 0 0 0 4px rgba(69,164,127,.13); }
+
+    @media (max-width: 1100px) {
+      .app { grid-template-columns: 80px minmax(0, 1fr); }
+      .sidebar { padding: 20px 12px; }
+      .brand-copy, .nav-label, .side-note { display: none; }
+      .brand { justify-content: center; padding: 0; }
+      .nav-btn { justify-content: center; padding: 13px; }
+      .radar-grid, .trial-layout, .lab-grid { grid-template-columns: 1fr; }
+      .detail { min-height: auto; }
+    }
+    @media (max-width: 760px) {
+      .app { display: block; }
+      .sidebar { position: sticky; height: auto; padding: 10px 14px; border-right: 0; border-bottom: 1px solid var(--line); flex-direction: row; align-items: center; gap: 10px; }
+      .brand { margin-right: auto; }
+      .brand-mark { width: 36px; height: 36px; }
+      .nav { display: flex; }
+      .nav-btn { width: auto; padding: 9px; }
+      main { padding: 18px 14px 40px; }
+      .topbar { align-items: flex-start; }
+      .filters .pill:not(.demo) { display: none; }
+      .hero-row { align-items: flex-start; flex-direction: column; }
+      .metrics { grid-template-columns: 1fr 1fr; }
+      .radar-grid { display: block; }
+      .panel { margin-bottom: 12px; }
+      .canvas { height: 420px; margin: 14px; }
+      .b1 { left: 57%; }
+      .b2 { left: 38%; }
+      .candidate-list, .concepts, .test-items, .evidence-columns { grid-template-columns: 1fr; }
+      .ai-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 34px; }
+    }
   </style>
 </head>
 <body>
-  <main class="page">
-    <header class="top">
-      <div>
-        <div class="eyebrow">TODAY'S PRODUCT OPPORTUNITY</div>
-        <h1>今日产品机会</h1>
-        <p>基于眼部护理真实用户评论，先把高频需求与未满足点整理成可验证的产品机会。</p>
-      </div>
-      <div class="actions"><button class="btn" id="refresh">重新读取</button><button class="btn primary" id="export">导出初筛结果</button></div>
-    </header>
-    <div class="status"><b>真实数据初筛</b><span>当前只读取清洗后的真实评论；规则初筛已运行，尚未调用 LLM API。每条机会都保留来源条数与代表性原文。</span></div>
-    <div id="loading" class="loading">正在读取清洗后的评论数据…</div>
-    <div id="error" class="empty error hidden"></div>
-    <div id="app" class="hidden">
-      <section class="stats" id="stats"></section>
-      <div class="section-head"><div><h2>高频机会方向</h2><p>按跨来源证据量与未满足信号排序，不代表销量预测。</p></div><p id="updated"></p></div>
-      <section class="cards" id="cards"></section>
-      <section class="foot-grid">
-        <div class="panel"><h2>本次初筛口径</h2><div class="method"><div><small>数据范围</small><b>眼部护理</b></div><div><small>数据来源</small><b>小红书 + 淘宝/天猫</b></div><div><small>分析方式</small><b>关键词规则初筛</b></div></div><p>小红书文本用于识别消费者表达，淘宝/天猫评价用于补充商品反馈；负面评价与需求表达单独加权。产品建议是对真实文本的归纳，后续可将同一批证据传给 LLM 做语义聚类与方案生成。</p></div>
-        <div class="panel llm"><h2>后续分析接口</h2><p>当前阶段先确保数据能真实跑通。下一步可接入 LLM，对机会方向做聚类、冲突识别、用户原话摘要与产品假设生成。</p><span class="tag">LLM API：预留，未调用</span></div>
-      </section>
+  <div class="device">
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">EF</div>
+          <div class="brand-copy"><strong>实验工厂</strong><small>Opportunity Factory</small></div>
+        </div>
+        <nav class="nav" aria-label="主导航">
+          <button class="nav-btn active" data-view="radar"><span class="nav-icon">◉</span><span class="nav-label">机会雷达</span></button>
+          <button class="nav-btn" data-view="trial"><span class="nav-icon">◇</span><span class="nav-label">机会审判</span></button>
+          <button class="nav-btn" data-view="lab"><span class="nav-icon">⚗</span><span class="nav-label">小实验室</span></button>
+        </nav>
+        <div class="side-note">先发现，再审判，最后用最小实验验证。旧看板可作为证据资源，但不再限制机会从哪里出现。</div>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <div class="crumb"><span class="scan-dot"></span><span id="scanStatus">正在读取清洗评论数据…</span></div>
+          <div class="filters">
+            <span class="pill demo">真实评论数据 · 已接入</span>
+            <span class="pill">范围：眼部护理</span>
+            <span class="pill">规则初筛 · 保留原文证据</span>
+          </div>
+        </header>
+
+        <section class="view active" id="radarView">
+          <div class="hero-row">
+            <div>
+              <div class="eyebrow">Opportunity Radar</div>
+              <h1>今天有 3 个候选值得看</h1>
+              <p class="subhead">评论数据进入后，候选机会仍按“发现候选 → 机会审判 → 最小实验”三层递进；当前结论为规则初筛，未调用 LLM。</p>
+            </div>
+            <button class="primary-btn" id="rescanBtn">重新扫描评论</button>
+          </div>
+
+          <div class="metrics">
+            <div class="metric"><span>今日候选</span><b>3</b><small>不是 KPI 上限，是注意力上限</small></div>
+            <button class="metric" data-open-queue="watch"><span>持续观察 · 点击查看</span><b id="watchCount">12</b><small>AI 寻找关键新证据，出现后自动升级</small></button>
+            <button class="metric" data-open-queue="waiting"><span>等待审判 · 点击处理</span><b id="waitingCount">2</b><small>已形成可审判问题，等待资源决策</small></button>
+            <div class="metric"><span>真实信号池</span><b id="signalPoolCount">—</b><small>来自小红书与淘宝/天猫清洗评论</small></div>
+          </div>
+
+          <div class="radar-grid">
+            <section class="panel">
+              <div class="panel-head">
+                <div><h2>需求机会空间</h2><p>圆越大代表独立用户重复越多；位置仅用于演示注意力排序，不是硬分数门槛。</p></div>
+                <div class="source-chips">
+                  <button class="source-chip active" data-source="all">全部</button>
+                  <button class="source-chip" data-source="cross">跨源</button>
+                  <button class="source-chip" data-source="tmall">天猫</button>
+                  <button class="source-chip" data-source="xhs">小红书</button>
+                </div>
+              </div>
+              <div class="canvas">
+                <div class="cross-v"></div><div class="cross-h"></div>
+                <span class="quadrant q1">优先审判</span><span class="quadrant q2">需求强但已有解</span>
+                <span class="quadrant q3">暂存观察</span><span class="quadrant q4">小众未满足</span>
+                <span class="axis-x">未满足程度 →</span><span class="axis-y">需求强度 →</span>
+                <button class="bubble b1 active" data-id="portable" data-source="cross">便携补涂<br>眼部护理</button>
+                <button class="bubble b2" data-id="lens" data-source="cross">隐形眼镜<br>低刺激护理</button>
+                <button class="bubble b3" data-id="night" data-source="tmall">夜间修护<br>无香敏感肌</button>
+                <button class="bubble b4" data-source="xhs">妆后<br>不卡粉</button>
+                <button class="bubble b5" data-source="tmall">儿童可用</button>
+                <button class="bubble b6" data-source="xhs">冰感按摩</button>
+              </div>
+            </section>
+
+            <aside class="panel detail" id="candidateDetail">
+              <div class="detail-top"><span class="badge" id="candidateState">候选机会 · 系统已整理</span><span class="confidence" id="confidence">等待真实数据</span></div>
+              <h2 id="detailTitle">便携补涂型眼部护理</h2>
+              <p class="summary" id="detailSummary">用户不是嫌产品无效，而是现有眼霜在通勤、办公室和妆后场景中难以补涂。</p>
+              <div class="evidence-counts">
+                <div class="evidence-count tmall"><strong>淘宝/天猫 · 评论证据</strong><span id="tmallCount">等待数据</span></div>
+                <div class="evidence-count xhs"><strong>小红书 · 场景补证</strong><span id="xhsCount">等待数据</span></div>
+              </div>
+              <div class="ai-grid">
+                <div class="ai-item"><small>01 重复需求</small><p id="repeatEvidence">跨商品反复出现“妆后怎么补”“办公室怎么用”，并非单一爆帖。</p></div>
+                <div class="ai-item"><small>02 行为证据</small><p id="behaviorEvidence">用户在找滚珠、分装和眼膜等替代方案，已有主动解决行为。</p></div>
+                <div class="ai-item"><small>03 现有方案</small><p id="solutionEvidence">现有眼霜重功效轻便携；滚珠产品少，但有效性与卫生感评价分化。</p></div>
+                <div class="ai-item"><small>04 变化趋势</small><p id="trendEvidence">近 8 周便携、补涂相关表达连续抬升，增长来自多个商品页。</p></div>
+              </div>
+              <div class="unknown"><strong>最大未知：</strong><span id="unknownText">用户是否愿意为便携形态牺牲部分容量，并支付 15%—20% 的价格溢价？</span></div>
+              <div class="detail-actions">
+                <button class="primary-btn" id="enterTrialBtn">进入机会审判</button>
+                <button class="ghost-btn" id="watchBtn">继续观察</button>
+                <button class="ghost-btn" id="ignoreBtn">忽略</button>
+              </div>
+            </aside>
+          </div>
+
+          <section class="candidate-section">
+            <div class="section-line"><h2>AI 今日推荐</h2><p>点击卡片查看系统为什么推荐</p></div>
+            <div class="candidate-list">
+              <button class="candidate-card active" data-id="portable">
+                <div class="rank"><span>01 · 建议优先审判</span><span>跨源共振</span></div><h3>便携补涂型眼部护理</h3><p>“有效但不方便”正在从抱怨变成寻找替代品的行动。</p><div class="mini-tags"><span>重复需求</span><span>替代行为</span><span>持续上升</span></div>
+              </button>
+              <button class="candidate-card" data-id="lens">
+                <div class="rank"><span>02 · 建议补证</span><span>跨源共振</span></div><h3>隐形眼镜人群低刺激护理</h3><p>戴镜用户希望眼周护理不熏眼、不移位、不影响镜片。</p><div class="mini-tags"><span>明确人群</span><span>现有解法弱</span><span>需补证</span></div>
+              </button>
+              <button class="candidate-card" data-id="night">
+                <div class="rank"><span>03 · 高价值例外</span><span>天猫主信号</span></div><h3>夜间修护无香眼霜</h3><p>敏感肌对香味与刺激的规避明显，但市场已有较多替代。</p><div class="mini-tags"><span>强痛点</span><span>竞争偏高</span><span>观察</span></div>
+              </button>
+            </div>
+          </section>
+        </section>
+
+        <section class="view" id="trialView">
+          <div class="eyebrow">Opportunity Trial</div>
+          <h1>不是证明它对，而是弄清它错在哪里</h1>
+          <p class="subhead">机会审判把证据、推断与未知分开。调查结果允许推翻候选，而不是强行给它凑齐支持材料。</p>
+          <div class="flow-steps"><span class="flow-step">发现候选</span><span class="arrow">→</span><span class="flow-step on">机会审判</span><span class="arrow">→</span><span class="flow-step">小实验室</span></div>
+
+          <div class="trial-layout">
+            <section class="panel trial-main">
+              <div class="candidate-title"><div><span class="badge" id="trialState">正在审判</span><h2 id="trialTitle" style="margin-top:10px">便携补涂型眼部护理</h2><p id="trialCore">核心命题：现有产品有效，但使用方式阻碍了用户在白天持续护理。</p></div><span class="confidence">开放式证据审查</span></div>
+              <div class="evidence-columns">
+                <div class="evidence-box support"><h3>支持证据</h3><div id="trialSupport"></div></div>
+                <div class="evidence-box counter"><h3>反证与风险</h3><div id="trialCounter"></div></div>
+              </div>
+              <div class="inference"><h3>当前推断，不作为事实</h3><p id="trialInference">等待真实评论数据加载后生成规则推断。</p></div>
+            </section>
+
+            <aside class="panel trial-side">
+              <h2>四个审判问题</h2><p style="color:var(--muted);font-size:12px">不按分数决定生死，而是判断下一步行动能否有效降低不确定性。</p>
+              <div class="gate-list" id="trialGates"></div>
+              <div class="verdict"><small>AI 建议</small><strong id="trialVerdict">值得进入小实验</strong><p id="trialVerdictText">先验证便携形态是否真正改善使用，以及用户是否愿意为此付费。</p></div>
+              <div class="action-stack"><button class="primary-btn" id="enterLabBtn">生成最低成本实验</button><button class="ghost-btn" data-go="radar">返回机会雷达</button><button class="ghost-btn" id="pauseBtn">暂存观察</button></div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view" id="labView">
+          <div class="eyebrow">Minimum Experiment Lab</div>
+          <h1>先验证关键假设，再决定要不要做产品</h1>
+          <p class="subhead">这里不做完整产品方案，只设计最便宜、最快、能改变决策的实验。</p>
+          <div class="flow-steps"><span class="flow-step">发现候选</span><span class="arrow">→</span><span class="flow-step">机会审判</span><span class="arrow">→</span><span class="flow-step on">小实验室</span></div>
+
+          <div class="lab-grid">
+            <section class="panel lab-panel">
+              <div class="candidate-title"><div><span class="badge">实验对象</span><h2 id="labTitle" style="margin-top:10px">便携补涂型眼部护理</h2></div><span class="pill" id="labId">实验编号 EF-001</span></div>
+              <div class="hypothesis"><small>本轮只验证一个关键假设</small><p id="labHypothesis">如果眼部护理变得便携、卫生且不影响底妆，目标用户会提高白天使用频率，并愿意接受小容量溢价。</p></div>
+              <h3 style="margin-bottom:10px">选择要测试的概念表达</h3>
+              <div class="concepts">
+                <div class="concept selected" tabindex="0" data-concept-id="A"><div class="concept-visual"><img class="concept-image" id="conceptImageA" alt="A 方案产品概念图" hidden><div class="pack roll" aria-hidden="true"></div></div><strong>A · 滚珠补涂</strong><p>强调按摩、快速和办公室场景</p></div>
+                <div class="concept" tabindex="0" data-concept-id="B"><div class="concept-visual"><img class="concept-image" id="conceptImageB" alt="B 方案产品概念图" hidden><div class="pack pen" aria-hidden="true"></div></div><strong>B · 精准护理笔</strong><p>强调卫生、控量和妆后精准</p></div>
+                <div class="concept" tabindex="0" data-concept-id="C"><div class="concept-visual"><img class="concept-image" id="conceptImageC" alt="C 方案产品概念图" hidden><div class="pack jar" aria-hidden="true"></div></div><strong>C · 便携小罐</strong><p>接近熟悉形态，降低认知成本</p></div>
+              </div>
+              <div class="image-gen-panel"><div class="section-line"><h3>AI 产品概念图</h3><p class="image-gen-status" id="imageGenStatus">等待手动生成 · 不会自动调用 API</p></div><button class="primary-btn" id="generateImagesBtn" type="button">调用生图 API，生成 3 个方案</button><small>点击后才会请求本地代理；API 密钥只在本地服务端读取，不会写入网页。</small></div>
+              <div class="test-plan"><div class="section-line"><h3>最小实验建议</h3><p>由真实评论规则初筛生成</p></div><div class="test-items"><div class="test-item"><small>测试对象</small><b id="labAudience">等待数据</b></div><div class="test-item"><small>关键动作</small><b id="labAction">等待数据</b></div><div class="test-item"><small>成功信号</small><b id="labSuccess">等待数据</b></div></div></div>
+            </section>
+
+            <aside>
+              <div class="lab-side-card"><h2>实验运行台</h2><p>Demo 会模拟一轮概念偏好测试，帮助确认最终决策界面是否清楚。</p><button class="primary-btn" style="width:100%" id="runExperimentBtn">运行演示实验</button><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><small id="progressText">等待开始</small><div class="result" id="experimentResult"><strong id="labResultTitle">模拟结果：建议继续</strong><br><span id="labResultText">A 方案偏好最高，但用户对“卫生”和“是否搓泥”仍有疑虑。下一轮应先做使用方式原型，不进入完整配方开发。</span></div></div>
+              <div class="lab-side-card"><h3>实验后的四种结论</h3><p>系统必须给出行动，不只产出报告。</p><div class="decision-list"><div class="decision recommended">继续：进入使用原型测试</div><div class="decision">调整：缩窄到妆后急救场景</div><div class="decision">观察：等待更多自然信号</div><div class="decision">淘汰：用户不愿改变行为</div></div></div>
+              <button class="ghost-btn" style="width:100%" data-go="trial">返回机会审判</button>
+            </aside>
+          </div>
+        </section>
+      </main>
     </div>
-  </main>
+  </div>
+  <div class="queue-overlay" id="queueOverlay" aria-hidden="true">
+    <aside class="queue-drawer" role="dialog" aria-modal="true" aria-labelledby="queueTitle">
+      <div class="queue-head">
+        <div><div class="eyebrow">Opportunity Queue</div><h2 id="queueTitle" style="margin-top:7px">候选机会工作队列</h2><p style="margin:6px 0 0;color:var(--muted);font-size:12px">每个状态都有进入条件、退出条件和下一步行动。</p></div>
+        <button class="icon-btn" id="closeQueueBtn" aria-label="关闭">×</button>
+      </div>
+      <div class="queue-tabs">
+        <button class="queue-tab active" data-queue-tab="watch">持续观察 12</button>
+        <button class="queue-tab" data-queue-tab="waiting">等待审判 2</button>
+      </div>
+
+      <div class="queue-panel active" id="watchQueue">
+        <div class="queue-intro"><strong>作用：</strong>保存“已有线索、但下一步尚不明确”的候选。AI不是等待固定数量达标，而是寻找能改变判断的新证据：强行为、跨场景复现、异常变化或高价值例外。</div>
+        <div id="watchQueueList">
+        <article class="queue-card">
+          <div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">观察中 · 等待行为证据</span><h3>妆后不卡粉眼周护理</h3></div><span class="queue-score">缺口：购买行动</span></div><p>小红书场景表达集中，但还无法判断用户是否会主动寻找解决方案。</p></div>
+          <div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>已经看见</span><span class="trigger-state met">多用户重复相同场景</span></div><div class="trigger-row"><span>替代解释</span><span class="trigger-state wait">可能是底妆本身问题</span></div><div class="trigger-row"><span>下一条关键证据</span><span class="trigger-state wait">寻找替代品或放弃行为</span></div></div><div class="queue-actions"><button class="soft-btn btn-sm" data-early-trial="妆后不卡粉眼周护理">提前送审</button><button class="ghost-btn btn-sm" data-keep-watch>继续自动观察</button></div></div>
+        </article>
+        <article class="queue-card">
+          <div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">观察中 · 高价值例外</span><h3>儿童可用的家庭眼部护理</h3></div><span class="queue-score">缺口：边界与风险</span></div><p>频次不高，但涉及家庭共享与安全，不能因为样本少就直接丢弃。</p></div>
+          <div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>已经看见</span><span class="trigger-state met">少量但明确的家庭共用诉求</span></div><div class="trigger-row"><span>为何保留</span><span class="trigger-state">潜在损失和合规风险高</span></div><div class="trigger-row"><span>下一条关键证据</span><span class="trigger-state wait">真实使用者与安全要求</span></div></div><div class="queue-actions"><button class="soft-btn btn-sm" data-early-trial="儿童可用的家庭眼部护理">提前送审</button><button class="ghost-btn btn-sm" data-keep-watch>继续自动观察</button></div></div>
+        </article>
+        <article class="queue-card">
+          <div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">观察中 · 异常变化</span><h3>冰感按摩型眼部护理</h3></div><span class="queue-score">缺口：真实问题</span></div><p>内容互动突然上升，但可能主要来自新奇包装而非真实问题。</p></div>
+          <div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>已经看见</span><span class="trigger-state met">新表达连续出现并扩散</span></div><div class="trigger-row"><span>替代解释</span><span class="trigger-state wait">审美与内容传播效应</span></div><div class="trigger-row"><span>下一条关键证据</span><span class="trigger-state wait">具体痛点与主动购买行为</span></div></div><div class="queue-actions"><button class="soft-btn btn-sm" data-early-trial="冰感按摩型眼部护理">提前送审</button><button class="ghost-btn btn-sm" data-keep-watch>继续自动观察</button></div></div>
+        </article>
+        <div class="queue-empty-note">其余 9 个候选已折叠：只有信号发生变化时才会重新浮到前面。</div>
+        </div>
+      </div>
+
+      <div class="queue-panel" id="waitingQueue">
+        <div class="queue-intro"><strong>作用：</strong>存放“已经值得花时间判断”的候选。它不能长期停留；你需要进入审判、退回观察或淘汰，系统会记录理由。</div>
+        <div id="waitingQueueList">
+        <article class="queue-card" data-waiting-card="portable">
+          <div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">等待 1 天 · 建议先审</span><h3>便携补涂型眼部护理</h3></div><span class="queue-score">入选：重复 + 行为</span></div><p>跨来源重复，已有寻找替代方案的行为，最大未知是支付意愿。</p></div>
+          <div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>进入原因</span><span class="trigger-state met">跨源共振 + 行为证据</span></div><div class="trigger-row"><span>必须判断</span><span>是否投入一次最小实验</span></div></div><div class="queue-actions"><button class="primary-btn btn-sm" data-start-trial="portable">立即审判</button><button class="ghost-btn btn-sm" data-return-watch>退回观察</button><button class="ghost-btn btn-sm" data-reject>淘汰</button></div></div>
+        </article>
+        <article class="queue-card" data-waiting-card="lens">
+          <div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">等待 2 天 · 建议审判</span><h3>隐形眼镜人群低刺激护理</h3></div><span class="queue-score">入选：强放弃行为</span></div><p>明确人群与使用放弃行为已经出现，需要判断问题是否可由产品解决。</p></div>
+          <div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>进入原因</span><span class="trigger-state met">明确人群 + 放弃行为</span></div><div class="trigger-row"><span>必须判断</span><span>刺激来源与企业能力匹配</span></div></div><div class="queue-actions"><button class="primary-btn btn-sm" data-start-trial="lens">立即审判</button><button class="ghost-btn btn-sm" data-return-watch>退回观察</button><button class="ghost-btn btn-sm" data-reject>淘汰</button></div></div>
+        </article>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <div class="toast" id="toast">已更新</div>
+
   <script>
-    const DATA_ROOT='../data/eye-care-opportunities/';
-    const files={xhs:'xhs_comments_clean.json',tb:'tb_rates_all.json',negative:'tb_rates_negative.json',demands:'tb_rates_demands.json'};
-    const themes=[
-      {title:'干燥细纹与紧致改善',desc:'用户期待眼周保湿、淡纹与更明确的紧致感。',words:['干燥','细纹','干纹','抚纹','紧致','抗皱','皱纹','滋润','保湿'],action:'优先验证“高保湿但不厚重”的眼周护理方案，并把淡纹周期与可感知效果写进验证指标。'},
-      {title:'敏感低刺激，不熏眼',desc:'眼周护理的安全感是高频购买门槛，刺激反馈需要单独看。',words:['敏感','刺激','辣眼','熏眼','刺痛','过敏','红肿','不舒服','温和'],action:'优先做低刺激配方与眼周安全测试，明确香精、酒精和使用边界，避免只用“温和”做宣传。'},
-      {title:'清爽吸收，不黏不厚重',desc:'用户既要滋润，也在意肤感、吸收速度和白天使用负担。',words:['油腻','黏腻','粘腻','厚重','吸收','清爽','肤感','清透','负担'],action:'将延展性、吸收时间和后续肤感做成可量化测试，优先验证白天可用的清爽质地。'},
-      {title:'黑眼圈、眼袋与暗沉',desc:'围绕眼周暗沉、黑眼圈和眼袋的改善诉求，适合拆成不同人群验证。',words:['黑眼圈','眼袋','泪沟','暗沉','浮肿','肿眼','熬夜','眼周暗'],action:'不要把所有眼周问题合并成一个功效，先按黑眼圈、浮肿、疲态分别验证人群与证据。'},
-      {title:'妆前兼容，不搓泥不卡粉',desc:'眼霜与底妆、眼妆之间的兼容性是白天场景的关键体验。',words:['搓泥','卡粉','上妆','妆前','打底','眼妆','脱妆','起屑'],action:'把妆前等待时间、叠加产品和搓泥情况纳入实测，形成“护理后可直接上妆”的场景方案。'},
-      {title:'性价比与使用周期',desc:'价格、容量和用量预期会影响用户是否愿意持续使用。',words:['性价比','便宜','贵','价格','容量','耐用','用量','回购'],action:'用单次使用成本和预期使用周期重做规格组合，验证价格敏感人群的接受区间。'}
+    const candidates = {
+      portable: {
+        title: '便携补涂型眼部护理', confidence: '入选路径：重复需求 + 强行为',
+        summary: '用户不是嫌产品无效，而是现有眼霜在通勤、办公室和妆后场景中难以补涂。',
+        tmall: '32 个独立提问 / 8 款商品', xhs: '18 个独立用户 / 11 篇内容', route: '重复需求 + 强行为',
+        repeat: '跨商品反复出现“妆后怎么补”“办公室怎么用”，并非单一爆帖。',
+        behavior: '用户在找滚珠、分装和眼膜等替代方案，已有主动解决行为。',
+        solution: '现有眼霜重功效轻便携；滚珠产品少，但有效性与卫生感评价分化。',
+        trend: '近 8 周便携、补涂相关表达连续抬升，增长来自多个商品页。',
+        unknown: '用户是否愿意为便携形态牺牲部分容量，并支付 15%—20% 的价格溢价？',
+        trial: {
+          core: '现有产品有效，但使用方式阻碍了用户在白天持续护理。',
+          support: ['“带一罐去公司太麻烦，有没有像润唇膏一样能随手涂的？”｜天猫问大家 · 独立提问', '“眼下下午很干，但带妆后不敢再用眼霜。”｜小红书 · 通勤场景', '8 款不同商品下出现相似提问，且有用户主动分装。｜AI 聚类结果'],
+          counter: ['部分用户认为白天补涂会破坏底妆，产品形态未必能解决。', '已有滚珠类产品，但销量未形成明显头部，可能是需求强度不足。', '小红书内容可能受便携包装审美驱动，不等同于真实购买。'],
+          inference: '机会更可能来自“带妆补涂 + 办公室应急”这一窄场景，而不是重新开发一款传统眼霜。优先验证使用形态和支付意愿，不急于验证复杂功效配方。',
+          gates: [['我们真正观察到了什么','跨商品表达 + 主动分装行为','有直接证据'],['还有什么其他解释','可能是底妆问题或包装审美','保留反证'],['如果是真的，值得我们做吗','场景明确，能力匹配待确认','值得验证'],['最便宜的下一步是什么','先测形态选择与支付意愿','可低成本验证']],
+          verdict: '值得进入小实验', verdictText: '先验证便携形态是否真正改善使用，以及用户是否愿意为此付费。'
+        },
+        lab: { id:'EF-001', hypothesis:'如果眼部护理变得便携、卫生且不影响底妆，目标用户会提高白天使用频率，并愿意接受小容量溢价。', audience:'50 名戴妆通勤用户', action:'三概念选择 + 价格询问', success:'选择与付费意愿同时出现', result:'A 方案偏好最高，但用户对“卫生”和“是否搓泥”仍有疑虑。下一轮应先做使用方式原型，不进入完整配方开发。' }
+      },
+      lens: {
+        title: '隐形眼镜人群低刺激眼部护理', confidence: '入选路径：强行为 + 明确人群',
+        summary: '戴镜人群反复提到熏眼、流泪、镜片移位，希望眼周产品与戴镜场景兼容。',
+        tmall: '24 个独立提问 / 6 款商品', xhs: '13 个独立用户 / 9 篇内容', route: '强行为 + 明确人群',
+        repeat: '相似困扰分布在眼霜、眼精华和隐形眼镜护理讨论中。',
+        behavior: '用户主动改到夜间使用、减少用量，或放弃眼周产品。',
+        solution: '市场强调温和，但很少明确验证“戴镜兼容”，沟通缺口明显。',
+        trend: '信号稳定但增幅有限，可能是长期小众刚需。',
+        unknown: '问题来自配方刺激、使用方法，还是隐形眼镜本身？',
+        trial: {
+          core: '戴镜场景下的刺激与移位问题，是否能被更温和、可控量的产品解决？',
+          support: ['“戴隐形时一涂就熏眼，只能晚上用。”｜天猫问大家 · 使用放弃', '多个戴镜用户主动减少用量或改用面霜替代。｜用户行为聚类', '同一困扰同时出现在眼霜与隐形眼镜护理讨论中。｜跨类目关联'],
+          counter: ['刺激可能来自镜片护理液、眼部状态或错误使用方法。', '小众刚需的总体规模尚未被充分证明。', '“低刺激”宣称需要安全测试，不能仅凭评论下结论。'],
+          inference: '先验证戴镜人群的真实边界与使用时段，再决定是否值得做专用形态；研发与合规约束需要提前加入。',
+          gates: [['我们真正观察到了什么','明确人群 + 改变/放弃行为','有直接证据'],['还有什么其他解释','可能来自镜片或护理液，而非眼部产品','需要排除'],['如果是真的，值得我们做吗','人群清晰，但规模与能力待确认','小范围验证'],['最便宜的下一步是什么','做戴镜场景访谈与安全边界问卷','可低成本验证']],
+          verdict: '先补证再实验', verdictText: '先确认刺激来源和安全边界，避免把其他变量误判成产品机会。'
+        },
+        lab: { id:'EF-002', hypothesis:'如果产品能明确适配戴镜场景并降低刺激，目标用户会愿意在白天恢复使用。', audience:'30 名日常佩戴隐形眼镜用户', action:'场景访谈 + 低刺激概念测试', success:'明确问题归因且出现主动试用意愿', result:'需要先区分镜片、护理液和配方刺激；若归因不清，不进入配方开发。' }
+      },
+      night: {
+        title: '夜间修护无香眼霜', confidence: '入选路径：高价值例外',
+        summary: '敏感肌用户明确规避香味与刺激，并期待夜间修护，但现有替代产品较多。',
+        tmall: '41 个独立提问 / 13 款商品', xhs: '待触发补证', route: '高价值例外',
+        repeat: '无香、敏感肌可用的询问量较高，跨多个价格带出现。',
+        behavior: '用户会查成分、退货或转向面霜替代，规避行为强。',
+        solution: '已有不少无香与敏感肌产品，机会可能不在“无香”本身。',
+        trend: '总体稳定，暂未发现明显加速变化。',
+        unknown: '除了无香之外，是否存在仍未满足、足以形成差异化的夜间场景？',
+        trial: {
+          core: '敏感肌夜间修护是否存在“无香”之外仍未被满足的具体场景？',
+          support: ['无香、敏感肌可用的询问量跨多个价格带出现。｜天猫问大家', '用户会查成分、退货或转向面霜替代，规避行为明显。｜行为证据', '低频但涉及敏感与安全，符合高价值例外路径。｜AI 规则'],
+          counter: ['已有大量无香与敏感肌产品，需求可能已被满足。', '当前小红书补证尚未触发，跨源共振不足。', '夜间修护的差异化功效还没有可验证证据。'],
+          inference: '这是被保留而非被证明的例外机会。应先补充真实用户与场景证据，再决定是否进入研发实验。',
+          gates: [['我们真正观察到了什么','敏感与安全诉求跨价格带出现','有直接证据'],['还有什么其他解释','已有产品覆盖，可能只是选择困难','保留反证'],['如果是真的，值得我们做吗','潜在损失高，但差异化未成立','待补证'],['最便宜的下一步是什么','按敏感场景补充跨源用户证据','先补关键证据']],
+          verdict: '补证后再决定', verdictText: '先验证“无香之外”的真实缺口，不因高频词本身直接立项。'
+        },
+        lab: { id:'EF-003', hypothesis:'如果能找到无香之外的明确夜间场景缺口，用户才会对新方案产生主动尝试意愿。', audience:'40 名敏感肌夜间护理用户', action:'场景卡片排序 + 替代方案访谈', success:'出现未被现有产品覆盖的共同场景', result:'当前更适合做补证实验；若无法找到共同缺口，应退回观察而不是继续堆概念。' }
+      },
+      makeup: {
+        title: '妆后不卡粉眼周护理', confidence: '观察路径：重复需求，等待行为', summary: '小红书场景表达集中，但还无法判断用户是否会主动寻找解决方案。', tmall:'待补证', xhs:'多用户重复场景', route:'重复需求', repeat:'多用户反复描述妆后卡粉与眼周干燥。', behavior:'尚未看见稳定的购买或替代行为。', solution:'可能是底妆本身问题，也可能需要新的补涂形态。', trend:'场景表达在上升，但尚未跨源共振。', unknown:'用户是否会主动寻找或付费解决？', trial:{core:'妆后卡粉是否构成独立且可解决的产品问题？',support:['多用户在小红书重复描述妆后卡粉。｜场景信号'],counter:['可能是底妆本身问题。｜替代解释'],inference:'先补购买行动证据，不直接进入产品开发。',gates:[['我们真正观察到了什么','多用户重复相同场景','有线索'],['还有什么其他解释','可能是底妆本身问题','需排除'],['如果是真的，值得我们做吗','场景明确但价值未证实','待判断'],['最便宜的下一步是什么','寻找替代品、购买或放弃行为','补行为证据']],verdict:'补充关键证据',verdictText:'先找到会改变判断的购买或替代行为。'},lab:{id:'EF-004',hypothesis:'如果妆后卡粉是独立问题，用户会主动寻找专门解决方案。',audience:'30 名带妆用户',action:'替代行为访谈 + 概念卡片',success:'出现明确主动解决行为',result:'只有出现购买、替代或放弃行为，才进入下一轮实验。'}
+      },
+      child: {
+        title: '儿童可用的家庭眼部护理', confidence: '观察路径：高价值例外', summary: '频次不高，但涉及家庭共享与安全，不能因为样本少就直接丢弃。', tmall:'少量明确提问', xhs:'待补证', route:'高价值例外', repeat:'少量但明确的家庭共用诉求。', behavior:'尚未形成稳定购买证据。', solution:'安全边界、年龄范围和合规要求未知。', trend:'低频稳定。', unknown:'真实使用者与安全要求是什么？', trial:{core:'家庭共用与儿童使用是否构成需要独立解决的安全问题？',support:['少量家庭共用诉求。｜用户提问'],counter:['样本少且安全边界未知。｜风险'],inference:'这是高潜风险例外，不能按频次直接淘汰。',gates:[['我们真正观察到了什么','少量但明确的家庭共用诉求','有线索'],['还有什么其他解释','可能只是偶发咨询','待排除'],['如果是真的，值得我们做吗','潜在损失与合规风险高','值得谨慎验证'],['最便宜的下一步是什么','确认真实使用者与安全要求','补关键证据']],verdict:'先做安全补证',verdictText:'先确认边界和风险，再决定是否进入实验。'},lab:{id:'EF-005',hypothesis:'如果家庭共用是稳定需求，用户会明确提出年龄、安全和使用边界。',audience:'家庭护理决策者访谈',action:'安全边界问卷 + 场景访谈',success:'形成可验证的年龄与安全需求',result:'安全与合规证据不足时，自动退回观察。'}
+      },
+      ice: {
+        title: '冰感按摩型眼部护理', confidence: '观察路径：异常变化', summary: '内容互动突然上升，但可能主要来自新奇包装而非真实问题。', tmall:'待补证', xhs:'互动突然上升', route:'异常变化', repeat:'新表达连续出现并扩散。', behavior:'尚未确认具体痛点与主动购买。', solution:'可能是审美与内容传播效应。', trend:'短期互动异常上升。', unknown:'是否存在具体痛点与主动购买行为？', trial:{core:'冰感按摩的增长是否来自真实问题，而不是新奇内容？',support:['新表达连续出现并扩散。｜异常变化'],counter:['互动可能由新奇包装和内容传播驱动。｜替代解释'],inference:'必须把异常变化与真实问题、购买行为分开验证。',gates:[['我们真正观察到了什么','新表达连续出现并扩散','有异常'],['还有什么其他解释','审美与内容传播效应','保留反证'],['如果是真的，值得我们做吗','问题尚未明确','不直接立项'],['最便宜的下一步是什么','寻找具体痛点与主动购买行为','补行为证据']],verdict:'先补真实问题',verdictText:'异常变化只能触发调查，不能单独成为推荐理由。'},lab:{id:'EF-006',hypothesis:'如果冰感按摩对应真实痛点，用户会描述具体场景并愿意主动尝试。',audience:'内容互动用户与购买者',action:'评论回访 + 购买行为核验',success:'具体痛点与购买行为同时出现',result:'若只存在互动没有行为，退回观察并保留异常记录。'}
+      }
+    };
+
+    // 只替换原 Demo 的证据层，不改变“机会雷达 → 机会审判 → 小实验室”的交互结构。
+    const DATA_ROOT = '../../data/eye-care-opportunities/';
+    const DATA_FILES = { xhs: 'xhs_comments_clean.json', tb: 'tb_rates_all.json', negative: 'tb_rates_negative.json', demands: 'tb_rates_demands.json' };
+    const SLOT_IDS = ['portable', 'lens', 'night', 'makeup', 'child', 'ice'];
+    const OPPORTUNITY_RULES = [
+      { title: '干燥细纹与紧致改善', words: ['干燥','细纹','干纹','抚纹','紧致','抗皱','皱纹','滋润','保湿'], summary: '用户反复表达眼周保湿、淡纹与紧致期待，适合先验证功效感知与使用周期。', action: '先验证高保湿但不厚重的使用体验，再把淡纹周期与可感知效果写进实验指标。' },
+      { title: '黑眼圈、眼袋与暗沉', words: ['黑眼圈','眼袋','泪沟','暗沉','浮肿','肿眼','熬夜','眼周暗'], summary: '暗沉、黑眼圈和眼袋是不同问题，真实文本支持按人群和场景拆分验证。', action: '不要把所有眼周问题合并成一个功效，先分别验证黑眼圈、浮肿与疲态人群。' },
+      { title: '清爽吸收，不黏不厚重', words: ['油腻','黏腻','粘腻','厚重','吸收','清爽','肤感','清透','负担'], summary: '用户既要滋润，也在意吸收速度和白天使用负担，肤感是可直接验证的产品变量。', action: '把延展性、吸收时间和后续肤感做成量化测试，优先验证白天可用的清爽质地。' },
+      { title: '妆前兼容，不搓泥不卡粉', words: ['搓泥','卡粉','上妆','妆前','打底','眼妆','脱妆','起屑'], summary: '眼周护理与底妆、眼妆的兼容性是明确的白天场景，需要补充购买与替代行为证据。', action: '把妆前等待时间、叠加产品和搓泥情况纳入实测，验证护理后能否直接上妆。' },
+      { title: '敏感低刺激，不熏眼', words: ['敏感','刺激','辣眼','熏眼','刺痛','过敏','红肿','不舒服','温和'], summary: '刺激和安全感会直接影响眼周产品是否继续使用，适合进入安全边界与归因审查。', action: '优先做低刺激配方与眼周安全测试，不能只凭“温和”宣称下结论。' },
+      { title: '性价比与使用周期', words: ['性价比','便宜','贵','价格','容量','耐用','用量','回购'], summary: '价格、容量和用量预期会影响持续使用，适合拆成单次使用成本来验证。', action: '用单次使用成本和预期使用周期重做规格组合，验证价格敏感人群的接受区间。' }
     ];
-    const $=s=>document.querySelector(s); const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-    const textOf=r=>String(r?.text||r?.content||r?.full||'').replace(/\s+/g,' ').trim();
-    const sourceOf=r=>r?.text?'小红书':'淘宝/天猫';
-    const match=(text,words)=>words.filter(w=>text.toLowerCase().includes(w.toLowerCase()));
-    const countText=(rows,words)=>rows.filter(r=>match(textOf(r),words).length).length;
-    const quotes=(rows,words,n=2)=>rows.filter(r=>match(textOf(r),words).length).sort((a,b)=>(Number(b.likes)||0)-(Number(a.likes)||0)).slice(0,n);
-    function productTags(rows,words){const map={};rows.filter(r=>match(textOf(r),words).length).forEach(r=>{const n=r.item_name||r.note_title;if(n)map[n]=(map[n]||0)+1});return Object.entries(map).sort((a,b)=>b[1]-a[1]).slice(0,3)}
-    function build(xhs,tb,negative,demands){
-      const all=[...xhs.map(r=>({...r,__source:'小红书'})),...tb.map(r=>({...r,__source:'淘宝/天猫'}))];
-      return themes.map(theme=>{const x=countText(xhs,theme.words),t=countText(tb,theme.words),n=countText(negative,theme.words),d=countText(demands,theme.words), total=x+t; const score=total+n*2+d*2; return {...theme,x,t,n,d,total,score,quotes:quotes(all,theme.words),products:productTags(tb,theme.words)}}).filter(r=>r.total||r.n||r.d).sort((a,b)=>b.score-a.score).slice(0,6);
+    const rowText = row => String(row && (row.text || row.content || row.full) || '').replace(/\s+/g, ' ').trim();
+    const hitWords = (text, words) => words.filter(word => text.toLowerCase().includes(word.toLowerCase()));
+    const matchingRows = (rows, words) => rows.filter(row => hitWords(rowText(row), words).length);
+    const uniqueCount = (rows, key) => new Set(rows.map(row => row[key]).filter(Boolean)).size;
+    const productCounts = rows => Object.entries(rows.reduce((out, row) => { if (row.item_name) out[row.item_name] = (out[row.item_name] || 0) + 1; return out; }, {})).sort((a,b) => b[1] - a[1]).slice(0, 3);
+    const sampleRows = (rows, words) => matchingRows(rows, words).slice(0, 3);
+    const quoteOf = row => `“${rowText(row)}”｜${row.__source}${row.item_name ? ' · ' + row.item_name : ''}`;
+
+    function buildEvidence(rule, data) {
+      const xhs = matchingRows(data.xhs, rule.words);
+      const tb = matchingRows(data.tb, rule.words);
+      const negative = matchingRows(data.negative, rule.words);
+      const demands = matchingRows(data.demands, rule.words);
+      const total = xhs.length + tb.length;
+      const score = total + (negative.length + demands.length) * 2;
+      return { rule, xhs, tb, negative, demands, total, score, products: productCounts(tb), samples: sampleRows([...data.xhs.map(r => ({...r, __source: '小红书'})), ...data.tb.map(r => ({...r, __source: '淘宝/天猫'}))], rule.words) };
     }
-    function stat(k,v,unit){return `<div class="stat"><small>${k}</small><strong>${v.toLocaleString()}</strong><em>${unit}</em></div>`}
-    function render(data,meta){
-      const opportunities=build(data.xhs,data.tb,data.negative,data.demands), allRows=data.xhs.length+data.tb.length;
-      $('#stats').innerHTML=stat('可用评论',allRows,'条')+stat('小红书文本',data.xhs.length,'条')+stat('淘宝/天猫评价',data.tb.length,'条')+stat('未满足/负面信号',data.negative.length+data.demands.length,'条');
-      $('#updated').textContent=`读取完成 · ${new Date().toLocaleString('zh-CN',{hour12:false})}`;
-      const max=Math.max(...opportunities.map(x=>x.score),1);
-      $('#cards').innerHTML=opportunities.map((o,i)=>`<article class="card"><div class="card-head"><div class="title-wrap"><span class="rank">${i+1}</span><div><h3>${esc(o.title)}</h3><p>${esc(o.desc)}</p></div></div><span class="signal">${o.n+o.d?'有未满足信号':'持续出现'}</span></div><div class="evidence"><div><small>小红书</small><b>${o.x}</b><span>相关文本</span></div><div><small>淘宝/天猫</small><b>${o.t}</b><span>相关评价</span></div><div><small>负面 + 需求</small><b>${o.n+o.d}</b><span>重点信号</span></div></div><div class="bar-label"><span>跨来源证据强度</span><b>${o.score}</b></div><div class="bar"><i style="width:${Math.max(8,Math.round(o.score/max*100))}%"></i></div><div class="action"><b>建议动作</b>${esc(o.action)}</div>${o.products.length?`<div class="products">${o.products.map(([n,c])=>`<span class="product">${esc(n)} · ${c}条</span>`).join('')}</div>`:''}<div class="quotes">${o.quotes.map(q=>`<blockquote class="quote">“${esc(textOf(q))}”<small>${esc(q.__source||sourceOf(q))}${q.item_name?' · '+esc(q.item_name):''}</small></blockquote>`).join('')}</div></article>`).join('');
-      $('#loading').classList.add('hidden');$('#error').classList.add('hidden');$('#app').classList.remove('hidden');
-      window.__opportunityExport={generatedAt:new Date().toISOString(),scope:'眼部护理',counts:{xhs:data.xhs.length,tb:data.tb.length,negative:data.negative.length,demands:data.demands.length},opportunities};
+
+    function candidateFromEvidence(evidence) {
+      const { rule, xhs, tb, negative, demands, total, score, products, samples } = evidence;
+      const sourceType = xhs.length && tb.length ? '跨源共振' : (xhs.length ? '小红书主信号' : '淘宝/天猫主信号');
+      const signalText = `小红书 ${xhs.length} 条 / 淘宝天猫 ${tb.length} 条 / 负面与需求 ${negative.length + demands.length} 条`;
+      const sampleText = samples.length ? quoteOf(samples[0]) : '当前没有命中原文，需继续补采。';
+      const counterText = negative.length + demands.length ? `清洗数据中有 ${negative.length + demands.length} 条负面或未满足表达，代表性原文：${quoteOf((negative[0] || demands[0]))}` : '当前快照未单独命中负面或未满足样本，需要补充反证。';
+      const verdict = score >= 80 ? '值得进入小实验' : (score >= 30 ? '先补证再实验' : '先补关键证据');
+      const verdictText = score >= 80 ? '证据已经跨来源出现，先用最低成本实验验证使用方式、场景和支付意愿。' : '先补充能改变判断的场景、购买或放弃行为，再决定是否投入研发。';
+      return {
+        title: rule.title, confidence: `入选路径：${sourceType} + ${total} 条相关文本`, summary: rule.summary,
+        tmall: `${tb.length} 条相关评价 / ${products.length ? products.length + ' 个代表商品' : '商品待标注'}`, xhs: `${xhs.length} 条相关内容 / ${uniqueCount(xhs, 'author') || xhs.length} 位用户`, route: sourceType,
+        repeat: `${signalText}。命中词：${hitWords([...xhs, ...tb].map(rowText).join(' '), rule.words).slice(0, 5).join('、') || '待补充'}。`,
+        behavior: negative.length || demands.length ? `负面与需求表达共 ${negative.length + demands.length} 条，说明用户存在明确顾虑或未满足点。` : '当前只确认需求表达，主动购买、替代或放弃行为仍需补证。',
+        solution: products.length ? `相关评价集中在：${products.map(item => item[0]).join('、')}；现有方案与用户反馈需要在审判阶段拆开看。` : '当前没有足够商品名信息，暂不推断市场已有解法。',
+        trend: '当前接入的是一次清洗快照，未连接连续日数据；趋势判断需后续每日采集后计算。',
+        unknown: `用户是否愿意为“${rule.title}”改变使用方式并付费？当前还缺少可验证的行为证据。`,
+        trial: {
+          core: `真实评论中的“${rule.title}”是否构成一个可由产品解决、且用户愿意付费的具体问题？`,
+          support: [sampleText + '｜真实评论原文', `${signalText}，不是单一内容命中。｜规则汇总`, rule.action + '｜下一步验证'],
+          counter: [counterText, '关键词命中可能混合不同人群和使用场景，不能直接等同于产品需求。', '当前没有连续日快照，暂不把一次性样本解释成增长趋势。'],
+          inference: `${rule.action} 目前只形成机会假设，不把规则命中当成事实。`,
+          gates: [['我们真正观察到了什么', `${signalText}`, '有数据证据'], ['还有什么其他解释', '不同人群、场景或其他产品因素可能混在一起', '保留反证'], ['如果是真的，值得我们做吗', '问题明确度与付费意愿仍待确认', score >= 80 ? '值得验证' : '待补证'], ['最便宜的下一步是什么', '做场景访谈、概念选择与支付意愿测试', '可低成本验证']],
+          verdict, verdictText
+        },
+        lab: { id: 'EF-000', hypothesis: `如果“${rule.title}”对应真实且可解决的使用问题，目标用户会在概念测试中明确选择，并愿意接受下一步验证。`, audience: '相关评论表达者与目标场景用户', action: '三概念选择 + 使用场景访谈 + 价格询问', success: '选择、明确场景与付费意愿同时出现', result: '先验证关键使用方式和支付意愿；若只有表达没有行为，退回机会观察。' }
+      };
     }
-    async function load(){
-      $('#loading').classList.remove('hidden');$('#error').classList.add('hidden');$('#app').classList.add('hidden');
-      try{const values=await Promise.all(Object.values(files).map(name=>fetch(DATA_ROOT+name).then(r=>{if(!r.ok)throw new Error(name+' '+r.status);return r.json()})));render({xhs:values[0],tb:values[1],negative:values[2],demands:values[3]});}
-      catch(err){$('#loading').classList.add('hidden');$('#error').classList.remove('hidden');$('#error').textContent='数据读取失败：请通过本地 HTTP 服务打开工作台（不要直接双击 file:// 页面）。'+err.message;}
+
+    function applyRealData(data) {
+      const ranked = OPPORTUNITY_RULES.map(rule => buildEvidence(rule, data)).sort((a, b) => b.score - a.score);
+      SLOT_IDS.forEach((slot, index) => { if (ranked[index]) { candidates[slot] = candidateFromEvidence(ranked[index]); candidates[slot].lab.id = 'EF-' + String(index + 1).padStart(3, '0'); } });
+      $('#signalPoolCount').textContent = (data.xhs.length + data.tb.length).toLocaleString();
+      $('#scanStatus').textContent = `真实数据就绪 · 小红书 ${data.xhs.length} 条 + 淘宝/天猫 ${data.tb.length} 条`;
+      const topicIds = SLOT_IDS;
+      topicIds.forEach((id, index) => {
+        const candidate = candidates[id];
+        const card = document.querySelector(`.candidate-card[data-id="${id}"]`);
+        if (card && candidate) { card.querySelector('h3').textContent = candidate.title; card.querySelector('p').textContent = candidate.summary; card.querySelector('.mini-tags').innerHTML = `<span>${candidate.route}</span><span>真实评论 ${candidate.tmall.split(' ')[0]}</span><span>待审判</span>`; }
+        const bubble = document.querySelector(`.bubble[data-id="${id}"]`);
+        if (bubble && candidate) { bubble.innerHTML = esc(candidate.title).replace('，', '<br>'); bubble.dataset.source = candidate.xhs.startsWith('0 ') ? 'tmall' : (candidate.tmall.startsWith('0 ') ? 'xhs' : 'cross'); }
+      });
+      renderQueue(); renderCandidate('portable');
     }
-    $('#refresh').onclick=load;$('#export').onclick=()=>{if(!window.__opportunityExport)return;const blob=new Blob([JSON.stringify(window.__opportunityExport,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='今日产品机会-眼部护理初筛.json';a.click();URL.revokeObjectURL(url)};load();
+
+    async function loadRealOpportunityData(showToast = false) {
+      const button = $('#rescanBtn');
+      if (button) { button.disabled = true; button.textContent = '正在扫描评论…'; }
+      $('#scanStatus').textContent = '正在读取清洗评论数据…';
+      try {
+        const values = await Promise.all(Object.values(DATA_FILES).map(file => fetch(DATA_ROOT + file).then(response => { if (!response.ok) throw new Error(file + ' ' + response.status); return response.json(); })));
+        applyRealData({ xhs: values[0], tb: values[1], negative: values[2], demands: values[3] });
+        if (showToast) toast('已重新读取评论数据并刷新候选机会');
+      } catch (error) {
+        $('#scanStatus').textContent = '数据读取失败 · 请通过本地 HTTP 服务打开';
+        toast('评论数据读取失败，请检查本地服务');
+      } finally {
+        if (button) { button.disabled = false; button.textContent = '重新扫描评论'; }
+      }
+    }
+
+    const defaultConcepts = [
+      { id: 'A', name: '滚珠补涂', detail: '强调按摩、快速和办公室场景' },
+      { id: 'B', name: '精准护理笔', detail: '强调卫生、控量和妆后精准' },
+      { id: 'C', name: '便携小罐', detail: '接近熟悉形态，降低认知成本' }
+    ];
+    const conceptSets = {
+      portable: defaultConcepts,
+      lens: [
+        { id: 'A', name: '冷感滚珠', detail: '冷感触点、快速消肿、适合早晨出门前' },
+        { id: 'B', name: '定量护理笔', detail: '笔尖定量、卫生便携、适合妆后补涂' },
+        { id: 'C', name: '软头精华棒', detail: '柔软按摩头、低摩擦、强调舒适触感' }
+      ],
+      night: [
+        { id: 'A', name: '无香修护棒', detail: '无香、低刺激、夜间精准眼周护理' },
+        { id: 'B', name: '滴管精华油', detail: '轻质快吸收、睡前按摩、强调滋润包裹感' },
+        { id: 'C', name: '冷敷修护眼膜', detail: '舒缓冷敷、一次一片、形成夜间护理仪式' }
+      ],
+      makeup: [
+        { id: 'A', name: '妆后滚珠', detail: '不破坏底妆、快速补涂、适合办公间隙' },
+        { id: 'B', name: '隐形护理笔', detail: '精准点涂、控量卫生、适合随身携带' },
+        { id: 'C', name: '轻薄凝露盒', detail: '轻薄不搓泥、熟悉形态、降低尝试门槛' }
+      ],
+      child: [
+        { id: 'A', name: '家庭安全棒', detail: '圆润防误触、清晰用量、强调家庭共用边界' },
+        { id: 'B', name: '定量护理笔', detail: '锁量设计、卫生独立、适合照护者操作' },
+        { id: 'C', name: '分龄小罐', detail: '分龄标签、低刺激视觉、突出安全感' }
+      ],
+      ice: [
+        { id: 'A', name: '冰感滚珠', detail: '金属冰感触点、即时舒缓、突出新奇体验' },
+        { id: 'B', name: '冷敷护理笔', detail: '精准冷敷、干净便携、适合局部使用' },
+        { id: 'C', name: '冰感眼膜盒', detail: '独立包装、冷敷仪式、适合内容展示' }
+      ]
+    };
+    const queueState = { today: ['portable', 'lens', 'night'], watch: ['makeup', 'child', 'ice'], waiting: ['portable', 'lens'], rejected: [] };
+    let selectedId = 'portable';
+    const $ = (s, root = document) => root.querySelector(s);
+    const $$ = (s, root = document) => Array.from(root.querySelectorAll(s));
+    const esc = (value) => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    const toast = (message) => {
+      const el = $('#toast'); el.textContent = message; el.classList.add('show');
+      clearTimeout(window.toastTimer); window.toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
+    };
+    const IMAGE_API_BASE = location.protocol === 'file:' ? 'http://127.0.0.1:4176' : '';
+
+    function resetConceptImages() {
+      ['A', 'B', 'C'].forEach(id => {
+        const image = $('#conceptImage' + id);
+        if (image) { image.hidden = true; image.removeAttribute('src'); }
+        const card = $(`.concept[data-concept-id="${id}"]`);
+        const fallback = card && card.querySelector('.pack');
+        if (fallback) fallback.hidden = false;
+      });
+    }
+
+    function applyGeneratedImages(images) {
+      (images || []).forEach(item => {
+        const id = String(item.id || '').toUpperCase();
+        if (!['A', 'B', 'C'].includes(id) || !item.b64_json) return;
+        const image = $('#conceptImage' + id);
+        const card = $(`.concept[data-concept-id="${id}"]`);
+        if (!image || !card) return;
+        image.src = `data:${item.mime_type || 'image/png'};base64,${item.b64_json}`;
+        image.hidden = false;
+        const fallback = card.querySelector('.pack');
+        if (fallback) fallback.hidden = true;
+      });
+    }
+
+    async function generateConceptImages() {
+      const button = $('#generateImagesBtn');
+      const status = $('#imageGenStatus');
+      const candidate = candidates[selectedId];
+      const concepts = conceptSets[selectedId] || defaultConcepts;
+      if (!candidate || !button || !status) return;
+      button.disabled = true;
+      status.textContent = '正在请求本地生图代理 · 不会自动重复调用';
+      try {
+        const response = await fetch(`${IMAGE_API_BASE}/api/generate-concepts`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ candidate: candidate.title, hypothesis: candidate.lab.hypothesis, concepts })
+        });
+        const payload = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(payload.error || `请求失败（${response.status}）`);
+        applyGeneratedImages(payload.images);
+        status.textContent = `已生成 3 个方案 · ${payload.model || '生图模型'}`;
+        toast('3 个产品概念图已回填到 A / B / C 方案');
+      } catch (error) {
+        status.textContent = error instanceof Error ? error.message : '生图请求失败';
+        toast('生图未执行成功，请检查本地服务与环境变量');
+      } finally {
+        button.disabled = false;
+      }
+    }
+
+    function statusOf(id) {
+      if (queueState.rejected.includes(id)) return '已淘汰';
+      if (queueState.waiting.includes(id)) return '等待审判';
+      if (queueState.watch.includes(id)) return '持续观察';
+      if (queueState.today.includes(id)) return '今日候选';
+      return '候选机会';
+    }
+
+    function updateMetrics() {
+      const today = $('.metrics .metric b');
+      if (today) today.textContent = queueState.today.filter(id => !queueState.rejected.includes(id)).length;
+      $('#watchCount').textContent = queueState.watch.length;
+      $('#waitingCount').textContent = queueState.waiting.length;
+      $$('.queue-tab').forEach(tab => { tab.textContent = (tab.dataset.queueTab === 'watch' ? '持续观察 ' + queueState.watch.length : '等待审判 ' + queueState.waiting.length); });
+    }
+
+    function queueWatchCard(id) {
+      const c = candidates[id];
+      return `<article class="queue-card" data-queue-id="${esc(id)}"><div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">观察中 · ${esc(c.route)}</span><h3>${esc(c.title)}</h3></div><span class="queue-score">缺口：${esc(c.unknown.replace(/[？?].*/, ''))}</span></div><p>${esc(c.summary)}</p></div><div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>已经看见</span><span class="trigger-state met">${esc(c.repeat)}</span></div><div class="trigger-row"><span>替代解释</span><span class="trigger-state wait">${esc(c.solution)}</span></div><div class="trigger-row"><span>下一条关键证据</span><span class="trigger-state wait">${esc(c.unknown)}</span></div></div><div class="queue-actions"><button class="soft-btn btn-sm" data-early-trial="${esc(id)}">提前送审</button><button class="ghost-btn btn-sm" data-keep-watch="${esc(id)}">继续自动观察</button></div></div></article>`;
+    }
+
+    function queueWaitingCard(id) {
+      const c = candidates[id];
+      return `<article class="queue-card" data-waiting-card="${esc(id)}"><div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">等待审判 · ${esc(c.route)}</span><h3>${esc(c.title)}</h3></div><span class="queue-score">${esc(c.confidence.replace('入选路径：',''))}</span></div><p>${esc(c.summary)} 最大未知：${esc(c.unknown)}</p></div><div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>进入原因</span><span class="trigger-state met">${esc(c.route)}</span></div><div class="trigger-row"><span>必须判断</span><span>${esc(c.trial.gates[3][1])}</span></div></div><div class="queue-actions"><button class="primary-btn btn-sm" data-start-trial="${esc(id)}">立即审判</button><button class="ghost-btn btn-sm" data-return-watch="${esc(id)}">退回观察</button><button class="ghost-btn btn-sm" data-reject="${esc(id)}">淘汰</button></div></div></article>`;
+    }
+
+    function bindQueueActions() {
+      $$('.queue-card-main').forEach(el => el.addEventListener('click', () => el.closest('.queue-card').classList.toggle('expanded')));
+      $$('[data-start-trial]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); startTrial(btn.dataset.startTrial); }));
+      $$('[data-return-watch]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); moveToWatch(btn.dataset.returnWatch); toast('已退回持续观察，AI 将继续寻找能改变判断的新证据'); }));
+      $$('[data-reject]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); rejectCandidate(btn.dataset.reject, '人工判断暂不值得投入'); }));
+      $$('[data-early-trial]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); moveToWaiting(btn.dataset.earlyTrial); startTrial(btn.dataset.earlyTrial); toast('已提前送审：审判页会同时展示反证与最大未知'); }));
+      $$('[data-keep-watch]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); toast('保持自动观察；只有关键证据变化时才提醒你'); }));
+    }
+
+    function renderQueue() {
+      $('#watchQueueList').innerHTML = queueState.watch.length ? queueState.watch.map(queueWatchCard).join('') : '<div class="queue-empty-note">暂无持续观察候选；新的信号会按四条召回路径重新进入。</div>';
+      $('#waitingQueueList').innerHTML = queueState.waiting.length ? queueState.waiting.map(queueWaitingCard).join('') : '<div class="queue-empty-note">暂无等待审判候选；达到触发条件后会重新进入队列。</div>';
+      updateMetrics(); bindQueueActions();
+    }
+
+    function openQueue(name) {
+      renderQueue(); $('#queueOverlay').classList.add('show'); $('#queueOverlay').setAttribute('aria-hidden', 'false');
+      $$('.queue-tab').forEach(el => el.classList.toggle('active', el.dataset.queueTab === name));
+      $$('.queue-panel').forEach(el => el.classList.toggle('active', el.id === name + 'Queue'));
+    }
+
+    function closeQueue() {
+      $('#queueOverlay').classList.remove('show'); $('#queueOverlay').setAttribute('aria-hidden', 'true');
+    }
+
+    function renderCandidate(id) {
+      if (!candidates[id]) return;
+      selectedId = id; const c = candidates[id];
+      $('#candidateState').textContent = statusOf(id) + ' · 系统已整理';
+      $('#detailTitle').textContent = c.title; $('#confidence').textContent = c.confidence;
+      $('#detailSummary').textContent = c.summary; $('#tmallCount').textContent = c.tmall; $('#xhsCount').textContent = c.xhs;
+      $('#repeatEvidence').textContent = c.repeat; $('#behaviorEvidence').textContent = c.behavior;
+      $('#solutionEvidence').textContent = c.solution; $('#trendEvidence').textContent = c.trend; $('#unknownText').textContent = c.unknown;
+      $$('.candidate-card, .bubble').forEach(el => el.classList.toggle('active', el.dataset.id === id));
+    }
+
+    function renderTrial(id) {
+      const c = candidates[id]; if (!c) return; const t = c.trial;
+      $('#trialState').textContent = '正在审判 · ' + statusOf(id);
+      $('#trialTitle').textContent = c.title; $('#trialCore').textContent = '核心命题：' + t.core;
+      $('#trialSupport').innerHTML = t.support.map(item => { const parts = item.split('｜'); return `<div class="quote">${esc(parts[0])}<small>${esc(parts[1] || '来源待补')}</small></div>`; }).join('');
+      $('#trialCounter').innerHTML = t.counter.map(item => `<div class="quote">${esc(item)}</div>`).join('');
+      $('#trialInference').textContent = t.inference;
+      $('#trialGates').innerHTML = t.gates.map((g, i) => `<div class="gate"><span class="gate-icon">${i + 1}</span><div><strong>${esc(g[0])}</strong><br><small>${esc(g[1])}</small></div><span class="gate-status">${esc(g[2])}</span></div>`).join('');
+      $('#trialVerdict').textContent = t.verdict; $('#trialVerdictText').textContent = t.verdictText;
+    }
+
+    function renderLab(id) {
+      const c = candidates[id]; if (!c) return; const l = c.lab;
+      $('#labTitle').textContent = c.title; $('#labId').textContent = '实验编号 ' + l.id; $('#labHypothesis').textContent = l.hypothesis;
+      $('#labAudience').textContent = l.audience; $('#labAction').textContent = l.action; $('#labSuccess').textContent = l.success;
+      $('#labResultTitle').textContent = '模拟结果：' + (c.trial.verdict.includes('实验') ? '建议继续' : '建议补证');
+      $('#labResultText').textContent = l.result; $('#progressBar').style.width = '0%'; $('#progressText').textContent = '等待开始'; $('#experimentResult').classList.remove('show');
+      const concepts = conceptSets[id] || defaultConcepts;
+      $$('.concept').forEach((card, index) => {
+        const concept = concepts[index] || defaultConcepts[index];
+        card.dataset.conceptId = concept.id;
+        card.classList.toggle('selected', index === 0);
+        const title = card.querySelector('strong');
+        const detail = card.querySelector('p');
+        if (title) title.textContent = `${concept.id} · ${concept.name}`;
+        if (detail) detail.textContent = concept.detail;
+      });
+      resetConceptImages();
+      $('#imageGenStatus').textContent = '等待手动生成 · 不会自动调用 API';
+      $('#generateImagesBtn').disabled = false;
+    }
+
+    function moveToWatch(id) {
+      if (!candidates[id]) return; queueState.today = queueState.today.filter(x => x !== id); queueState.waiting = queueState.waiting.filter(x => x !== id); queueState.rejected = queueState.rejected.filter(x => x !== id);
+      if (!queueState.watch.includes(id)) queueState.watch.push(id); renderQueue(); renderCandidate(id);
+    }
+
+    function moveToWaiting(id) {
+      if (!candidates[id]) return; queueState.today = queueState.today.filter(x => x !== id); queueState.watch = queueState.watch.filter(x => x !== id); queueState.rejected = queueState.rejected.filter(x => x !== id);
+      if (!queueState.waiting.includes(id)) queueState.waiting.push(id); renderQueue(); renderCandidate(id);
+    }
+
+    function rejectCandidate(id, reason) {
+      if (!candidates[id]) return; queueState.today = queueState.today.filter(x => x !== id); queueState.watch = queueState.watch.filter(x => x !== id); queueState.waiting = queueState.waiting.filter(x => x !== id);
+      if (!queueState.rejected.includes(id)) queueState.rejected.push(id); renderQueue(); renderCandidate(id); toast('已淘汰并记录理由：' + reason);
+    }
+
+    function startTrial(id) { if (!candidates[id]) return; selectedId = id; renderCandidate(id); closeQueue(); go('trial'); }
+
+    function go(view) {
+      const valid = ['radar','trial','lab']; const target = valid.includes(view) ? view : 'radar';
+      if (target === 'trial') renderTrial(selectedId);
+      if (target === 'lab') renderLab(selectedId);
+      $$('.view').forEach(el => el.classList.toggle('active', el.id === target + 'View'));
+      $$('.nav-btn').forEach(el => el.classList.toggle('active', el.dataset.view === target));
+      history.replaceState(null, '', '#' + target); window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    $$('.nav-btn').forEach(btn => btn.addEventListener('click', () => go(btn.dataset.view)));
+    $$('[data-go]').forEach(btn => btn.addEventListener('click', () => go(btn.dataset.go)));
+    $$('.candidate-card, .bubble[data-id]').forEach(el => el.addEventListener('click', () => renderCandidate(el.dataset.id)));
+    $('#enterTrialBtn').addEventListener('click', () => startTrial(selectedId));
+    $('#enterLabBtn').addEventListener('click', () => go('lab'));
+    $('#watchBtn').addEventListener('click', () => { moveToWatch(selectedId); toast('已加入持续观察：等待下一条能改变判断的证据'); });
+    $('#ignoreBtn').addEventListener('click', () => rejectCandidate(selectedId, '当前证据不足或与目标不匹配'));
+    $('#pauseBtn').addEventListener('click', () => { moveToWatch(selectedId); toast('已退回持续观察：不强行凑齐支持材料'); });
+    $$('[data-open-queue]').forEach(btn => btn.addEventListener('click', () => openQueue(btn.dataset.openQueue)));
+    $$('.queue-tab').forEach(btn => btn.addEventListener('click', () => openQueue(btn.dataset.queueTab)));
+    $('#closeQueueBtn').addEventListener('click', closeQueue);
+    $('#queueOverlay').addEventListener('click', e => { if (e.target === $('#queueOverlay')) closeQueue(); });
+
+    $$('.source-chip').forEach(btn => btn.addEventListener('click', () => {
+      $$('.source-chip').forEach(b => b.classList.toggle('active', b === btn));
+      const source = btn.dataset.source;
+      $$('.bubble').forEach(b => {
+        const visible = source === 'all' || b.dataset.source === source;
+        b.style.opacity = visible ? '1' : '.16'; b.style.pointerEvents = visible ? 'auto' : 'none';
+      });
+    }));
+
+    $('#rescanBtn').addEventListener('click', () => loadRealOpportunityData(true));
+
+    $$('.concept').forEach(el => el.addEventListener('click', () => {
+      $$('.concept').forEach(c => c.classList.toggle('selected', c === el));
+      toast('已切换测试概念');
+    }));
+    $('#generateImagesBtn').addEventListener('click', generateConceptImages);
+
+    $('#runExperimentBtn').addEventListener('click', () => {
+      const btn = $('#runExperimentBtn'); btn.disabled = true; btn.textContent = '实验运行中…';
+      $('#progressBar').style.width = '68%'; $('#progressText').textContent = '已收到 34 / 50 份有效反馈';
+      setTimeout(() => {
+        $('#progressBar').style.width = '100%'; $('#progressText').textContent = '模拟实验完成 · 50 / 50';
+        $('#experimentResult').classList.add('show'); btn.textContent = '重新运行演示'; btn.disabled = false;
+      }, 1200);
+    });
+
+    window.addEventListener('hashchange', () => go(location.hash.slice(1)));
+    renderQueue();
+    renderCandidate('portable');
+    go(location.hash.slice(1) || 'radar');
+    loadRealOpportunityData();
   </script>
+  <script src="../../scripts/prototype-export-client.js?v=20260927"></script>
 </body>
 </html>
