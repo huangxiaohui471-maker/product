@@ -109,7 +109,8 @@
     .source-chip { border: 1px solid var(--line); background: #fff; padding: 6px 9px; border-radius: 999px; font-size: 11px; cursor: pointer; }
     .source-chip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
 
-    .canvas { position: relative; height: 510px; margin: 18px 20px 20px; border-radius: 22px; overflow: hidden; background-color: #fafaf7; background-image: radial-gradient(#d9d9d2 1px, transparent 1px); background-size: 20px 20px; border: 1px solid #e6e6df; }
+    .discovery-panel { display: flex; flex-direction: column; }
+    .canvas { position: relative; flex: 1; min-height: 420px; height: auto; margin: 18px 20px 20px; border-radius: 22px; overflow: hidden; background-color: #fafaf7; background-image: radial-gradient(#d9d9d2 1px, transparent 1px); background-size: 20px 20px; border: 1px solid #e6e6df; }
     .axis-x, .axis-y { position: absolute; font-size: 10px; color: #85857e; letter-spacing: .05em; }
     .axis-x { bottom: 10px; left: 50%; transform: translateX(-50%); }
     .axis-y { top: 50%; left: -28px; transform: rotate(-90deg); }
@@ -135,7 +136,7 @@
     .b5 { width: 72px; height: 72px; background: #d8e7b0; left: 20%; top: 66%; font-size: 11px; opacity: .88; }
     .b6 { width: 62px; height: 62px; background: #f2c7e5; left: 46%; top: 71%; font-size: 10px; opacity: .8; }
 
-    .detail { padding: 20px 22px 22px; display: flex; flex-direction: column; min-height: 590px; }
+    .detail { padding: 20px 22px 22px; display: flex; flex-direction: column; min-height: 0; }
     .detail-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
     .badge { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 6px 9px; font-size: 11px; font-weight: 900; background: var(--yellow-soft); }
     .confidence { font-size: 12px; color: var(--green); font-weight: 900; white-space: nowrap; }
@@ -146,6 +147,16 @@
     .evidence-count strong { display: block; margin-bottom: 5px; font-size: 13px; }
     .evidence-count.tmall { background: var(--coral-soft); }
     .evidence-count.xhs { background: var(--teal-soft); }
+    .inline-judgement { margin: 4px 0 14px; padding: 14px; border-radius: 16px; background: var(--lavender-soft); }
+    .inline-judgement-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+    .inline-judgement-head small { color: var(--muted); font-size: 11px; }
+    .inline-judgement > p { margin: 7px 0 10px; color: #4f5053; font-size: 12px; line-height: 1.55; }
+    .inline-concepts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; }
+    .inline-concept { min-width: 0; padding: 9px; border-radius: 12px; background: rgba(255,255,255,.72); border: 1px solid rgba(23,23,23,.1); }
+    .inline-concept.primary { border-color: #ddc95b; background: rgba(255,255,255,.94); }
+    .inline-concept small { display: block; color: var(--green); font-size: 10px; font-weight: 900; }
+    .inline-concept strong { display: block; margin-top: 4px; font-size: 12px; line-height: 1.35; }
+    .inline-concept span { display: block; margin-top: 4px; color: var(--muted); font-size: 10px; line-height: 1.4; }
     .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     .ai-item { border: 1px solid var(--line); border-radius: 15px; padding: 11px; min-height: 94px; }
     .ai-item small { color: var(--muted); font-weight: 800; }
@@ -211,6 +222,8 @@
     .verdict strong { font-size: 20px; display: block; }
     .verdict p { margin: 7px 0 0; font-size: 12px; }
     .action-stack { display: grid; gap: 8px; margin-top: 14px; }
+    .strategy-note { margin-top: 16px; padding: 12px; border-radius: 13px; background: #f2f2ed; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .nav-btn[data-view="lab"] { display: none; }
 
     .lab-grid { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 16px; }
     .hypothesis { margin: 16px 0; background: var(--yellow-soft); padding: 18px; border-radius: 18px; border: 1px solid #eadb96; }
@@ -302,10 +315,10 @@
       .metrics { grid-template-columns: 1fr 1fr; }
       .radar-grid { display: block; }
       .panel { margin-bottom: 12px; }
-      .canvas { height: 420px; margin: 14px; }
+      .canvas { min-height: 420px; height: 420px; margin: 14px; }
       .b1 { left: 57%; }
       .b2 { left: 38%; }
-      .candidate-list, .concepts, .concept-options, .test-items, .evidence-columns { grid-template-columns: 1fr; }
+      .candidate-list, .concepts, .concept-options, .test-items, .evidence-columns, .inline-concepts { grid-template-columns: 1fr; }
       .concept-plan-head { display: block; }
       .ai-grid { grid-template-columns: 1fr; }
       h1 { font-size: 34px; }
@@ -356,9 +369,9 @@
           </div>
 
           <div class="radar-grid">
-            <section class="panel">
+            <section class="panel discovery-panel">
               <div class="panel-head">
-                <div><h2>需求机会空间</h2><p>圆越大代表独立用户重复越多；位置仅用于演示注意力排序，不是硬分数门槛。</p></div>
+                <div><h2>发现机会</h2><p>点击左侧机会，右侧同步查看机会判断与产品方向。</p></div>
                 <div class="source-chips">
                   <button class="source-chip active" data-source="all">全部</button>
                   <button class="source-chip" data-source="cross">跨源</button>
@@ -384,6 +397,11 @@
               <div class="detail-top"><span class="badge" id="candidateState">候选机会 · 系统已整理</span><span class="confidence" id="confidence">等待真实数据</span></div>
               <h2 id="detailTitle">便携补涂型眼部护理</h2>
               <p class="summary" id="detailSummary">用户不是嫌产品无效，而是现有眼霜在通勤、办公室和妆后场景中难以补涂。</p>
+              <div class="inline-judgement">
+                <div class="inline-judgement-head"><strong>机会判断</strong><small id="inlineRoute">等待真实数据</small></div>
+                <p id="inlineInference">点击左侧机会，查看当前判断与产品方向。</p>
+                <div class="inline-concepts" id="radarConceptPlan"><article class="inline-concept primary"><small>等待数据</small><strong>等待概念方向</strong><span>真实数据加载后生成</span></article></div>
+              </div>
               <div class="evidence-counts">
                 <div class="evidence-count tmall"><strong>淘宝/天猫 · 评论证据</strong><span id="tmallCount">等待数据</span></div>
                 <div class="evidence-count xhs"><strong>小红书 · 场景补证</strong><span id="xhsCount">等待数据</span></div>
@@ -422,7 +440,7 @@
           <div class="eyebrow">Opportunity Review</div>
           <h1>先判断机会，再决定是否投入</h1>
           <p class="subhead">先看机会结论和产品方向；支持证据、反证与审核标准需要时再展开。</p>
-          <div class="flow-steps"><span class="flow-step">发现机会</span><span class="arrow">→</span><span class="flow-step on">机会判断</span><span class="arrow">→</span><span class="flow-step">小实验室</span></div>
+          <div class="flow-steps"><span class="flow-step">发现机会</span><span class="arrow">→</span><span class="flow-step on">机会判断</span></div>
 
           <div class="trial-layout">
             <section class="panel trial-main">
@@ -439,7 +457,8 @@
               <h2>当前建议</h2><p style="color:var(--muted);font-size:12px">用最小成本验证产品方向，再决定是否进入开发。</p>
               <div class="verdict"><small>系统建议</small><strong id="trialVerdict">值得进入小实验</strong><p id="trialVerdictText">先验证便携形态是否真正改善使用，以及用户是否愿意为此付费。</p></div>
               <details class="research-details"><summary>查看判断标准</summary><div class="gate-list" id="trialGates"></div></details>
-              <div class="action-stack"><button class="primary-btn" id="enterLabBtn">开始最小验证</button><button class="ghost-btn" data-go="radar">返回机会雷达</button><button class="ghost-btn" id="pauseBtn">暂存观察</button></div>
+              <div class="strategy-note">产品验证与开发动作将在策略台继续，本页面只负责发现机会与机会判断。</div>
+              <div class="action-stack"><button class="ghost-btn" data-go="radar">返回发现机会</button><button class="ghost-btn" id="pauseBtn">暂存观察</button></div>
             </aside>
           </div>
         </section>
@@ -869,6 +888,17 @@
       $('#queueOverlay').classList.remove('show'); $('#queueOverlay').setAttribute('aria-hidden', 'true');
     }
 
+    function renderRadarConceptPlan(c) {
+      const concepts = c.concepts || [];
+      $('#inlineRoute').textContent = c.route || '等待真实数据';
+      $('#inlineInference').textContent = concepts.length
+        ? `优先验证“${concepts[0].name}”，同时保留一条创意延展和一条前沿探索路线。`
+        : '真实数据加载后生成产品方向。';
+      $('#radarConceptPlan').innerHTML = concepts.length
+        ? concepts.map((concept, index) => `<article class="inline-concept ${index === 0 ? 'primary' : ''}"><small>${esc(concept.status || (index === 0 ? '优先验证' : index === 1 ? '创意延展' : '前沿探索'))}</small><strong>${esc(concept.name)}</strong><span>${esc(concept.scene)} · ${esc(concept.form)}</span></article>`).join('')
+        : '<article class="inline-concept primary"><small>等待数据</small><strong>等待概念方向</strong><span>真实数据加载后生成</span></article>';
+    }
+
     function renderCandidate(id) {
       if (!candidates[id]) return;
       selectedId = id; const c = candidates[id];
@@ -877,6 +907,7 @@
       $('#detailSummary').textContent = c.summary; $('#tmallCount').textContent = c.tmall; $('#xhsCount').textContent = c.xhs;
       $('#repeatEvidence').textContent = c.repeat; $('#behaviorEvidence').textContent = c.behavior;
       $('#solutionEvidence').textContent = c.solution; $('#trendEvidence').textContent = c.trend; $('#unknownText').textContent = c.unknown;
+      renderRadarConceptPlan(c);
       $$('.candidate-card, .bubble').forEach(el => el.classList.toggle('active', el.dataset.id === id));
     }
 
@@ -933,9 +964,8 @@
     function startTrial(id) { if (!candidates[id]) return; selectedId = id; renderCandidate(id); closeQueue(); go('trial'); }
 
     function go(view) {
-      const valid = ['radar','trial','lab']; const target = valid.includes(view) ? view : 'radar';
+      const valid = ['radar','trial']; const target = valid.includes(view) ? view : 'radar';
       if (target === 'trial') renderTrial(selectedId);
-      if (target === 'lab') renderLab(selectedId);
       $$('.view').forEach(el => el.classList.toggle('active', el.id === target + 'View'));
       $$('.nav-btn').forEach(el => el.classList.toggle('active', el.dataset.view === target));
       history.replaceState(null, '', '#' + target); window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -945,7 +975,8 @@
     $$('[data-go]').forEach(btn => btn.addEventListener('click', () => go(btn.dataset.go)));
     $$('.candidate-card, .bubble[data-id]').forEach(el => el.addEventListener('click', () => renderCandidate(el.dataset.id)));
     $('#enterTrialBtn').addEventListener('click', () => startTrial(selectedId));
-    $('#enterLabBtn').addEventListener('click', () => go('lab'));
+    const enterLabButton = $('#enterLabBtn');
+    if (enterLabButton) enterLabButton.addEventListener('click', () => go('lab'));
     $('#watchBtn').addEventListener('click', () => { moveToWatch(selectedId); toast('已加入持续观察：等待下一条能改变判断的证据'); });
     $('#ignoreBtn').addEventListener('click', () => rejectCandidate(selectedId, '当前证据不足或与目标不匹配'));
     $('#pauseBtn').addEventListener('click', () => { moveToWatch(selectedId); toast('已退回持续观察：不强行凑齐支持材料'); });
