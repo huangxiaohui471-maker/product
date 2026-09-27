@@ -333,7 +333,7 @@
 
           <div class="metrics">
             <div class="metric"><span>今日候选</span><b>3</b><small>不是 KPI 上限，是注意力上限</small></div>
-            <button class="metric" data-open-queue="watch"><span>持续观察 · 点击查看</span><b id="watchCount">12</b><small>AI 寻找关键新证据，出现后自动升级</small></button>
+            <button class="metric" data-open-queue="watch"><span>持续观察 · 点击查看</span><b id="watchCount">12</b><small>系统寻找关键新证据，出现后自动升级</small></button>
             <button class="metric" data-open-queue="waiting"><span>等待审判 · 点击处理</span><b id="waitingCount">2</b><small>已形成可审判问题，等待资源决策</small></button>
             <div class="metric"><span>真实信号池</span><b id="signalPoolCount">—</b><small>来自小红书与淘宝/天猫清洗评论</small></div>
           </div>
@@ -345,7 +345,7 @@
                 <div class="source-chips">
                   <button class="source-chip active" data-source="all">全部</button>
                   <button class="source-chip" data-source="cross">跨源</button>
-                  <button class="source-chip" data-source="tmall">天猫</button>
+                  <button class="source-chip" data-source="tmall">淘宝/天猫</button>
                   <button class="source-chip" data-source="xhs">小红书</button>
                 </div>
               </div>
@@ -387,7 +387,7 @@
           </div>
 
           <section class="candidate-section">
-            <div class="section-line"><h2>AI 今日推荐</h2><p>点击卡片查看系统为什么推荐</p></div>
+            <div class="section-line"><h2>系统今日推荐</h2><p>点击卡片查看系统为什么推荐</p></div>
             <div class="candidate-list">
               <button class="candidate-card active" data-id="portable">
                 <div class="rank"><span>01 · 建议优先审判</span><span>跨源共振</span></div><h3>便携补涂型眼部护理</h3><p>“有效但不方便”正在从抱怨变成寻找替代品的行动。</p><div class="mini-tags"><span>重复需求</span><span>替代行为</span><span>持续上升</span></div>
@@ -421,7 +421,7 @@
             <aside class="panel trial-side">
               <h2>四个审判问题</h2><p style="color:var(--muted);font-size:12px">不按分数决定生死，而是判断下一步行动能否有效降低不确定性。</p>
               <div class="gate-list" id="trialGates"></div>
-              <div class="verdict"><small>AI 建议</small><strong id="trialVerdict">值得进入小实验</strong><p id="trialVerdictText">先验证便携形态是否真正改善使用，以及用户是否愿意为此付费。</p></div>
+              <div class="verdict"><small>系统建议</small><strong id="trialVerdict">值得进入小实验</strong><p id="trialVerdictText">先验证便携形态是否真正改善使用，以及用户是否愿意为此付费。</p></div>
               <div class="action-stack"><button class="primary-btn" id="enterLabBtn">生成最低成本实验</button><button class="ghost-btn" data-go="radar">返回机会雷达</button><button class="ghost-btn" id="pauseBtn">暂存观察</button></div>
             </aside>
           </div>
@@ -469,7 +469,7 @@
       </div>
 
       <div class="queue-panel active" id="watchQueue">
-        <div class="queue-intro"><strong>作用：</strong>保存“已有线索、但下一步尚不明确”的候选。AI不是等待固定数量达标，而是寻找能改变判断的新证据：强行为、跨场景复现、异常变化或高价值例外。</div>
+        <div class="queue-intro"><strong>作用：</strong>保存“已有线索、但下一步尚不明确”的候选。系统不是等待固定数量达标，而是寻找能改变判断的新证据：强行为、跨场景复现、异常变化或高价值例外。</div>
         <div id="watchQueueList">
         <article class="queue-card">
           <div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">观察中 · 等待行为证据</span><h3>妆后不卡粉眼周护理</h3></div><span class="queue-score">缺口：购买行动</span></div><p>小红书场景表达集中，但还无法判断用户是否会主动寻找解决方案。</p></div>
@@ -517,7 +517,7 @@
         unknown: '用户是否愿意为便携形态牺牲部分容量，并支付 15%—20% 的价格溢价？',
         trial: {
           core: '现有产品有效，但使用方式阻碍了用户在白天持续护理。',
-          support: ['“带一罐去公司太麻烦，有没有像润唇膏一样能随手涂的？”｜天猫问大家 · 独立提问', '“眼下下午很干，但带妆后不敢再用眼霜。”｜小红书 · 通勤场景', '8 款不同商品下出现相似提问，且有用户主动分装。｜AI 聚类结果'],
+          support: ['“带一罐去公司太麻烦，有没有像润唇膏一样能随手涂的？”｜淘宝/天猫评论 · 独立表达', '“眼下下午很干，但带妆后不敢再用眼霜。”｜小红书 · 通勤场景', '8 款不同商品下出现相似表达，且有用户主动分装。｜规则汇总'],
           counter: ['部分用户认为白天补涂会破坏底妆，产品形态未必能解决。', '已有滚珠类产品，但销量未形成明显头部，可能是需求强度不足。', '小红书内容可能受便携包装审美驱动，不等同于真实购买。'],
           inference: '机会更可能来自“带妆补涂 + 办公室应急”这一窄场景，而不是重新开发一款传统眼霜。优先验证使用形态和支付意愿，不急于验证复杂功效配方。',
           gates: [['我们真正观察到了什么','跨商品表达 + 主动分装行为','有直接证据'],['还有什么其他解释','可能是底妆问题或包装审美','保留反证'],['如果是真的，值得我们做吗','场景明确，能力匹配待确认','值得验证'],['最便宜的下一步是什么','先测形态选择与支付意愿','可低成本验证']],
@@ -555,7 +555,7 @@
         unknown: '除了无香之外，是否存在仍未满足、足以形成差异化的夜间场景？',
         trial: {
           core: '敏感肌夜间修护是否存在“无香”之外仍未被满足的具体场景？',
-          support: ['无香、敏感肌可用的询问量跨多个价格带出现。｜天猫问大家', '用户会查成分、退货或转向面霜替代，规避行为明显。｜行为证据', '低频但涉及敏感与安全，符合高价值例外路径。｜AI 规则'],
+          support: ['无香、敏感肌可用的表达跨多个价格带出现。｜淘宝/天猫评论', '用户会查成分、退货或转向面霜替代，规避行为明显。｜行为证据', '低频但涉及敏感与安全，符合高价值例外路径。｜规则汇总'],
           counter: ['已有大量无香与敏感肌产品，需求可能已被满足。', '当前小红书补证尚未触发，跨源共振不足。', '夜间修护的差异化功效还没有可验证证据。'],
           inference: '这是被保留而非被证明的例外机会。应先补充真实用户与场景证据，再决定是否进入研发实验。',
           gates: [['我们真正观察到了什么','敏感与安全诉求跨价格带出现','有直接证据'],['还有什么其他解释','已有产品覆盖，可能只是选择困难','保留反证'],['如果是真的，值得我们做吗','潜在损失高，但差异化未成立','待补证'],['最便宜的下一步是什么','按敏感场景补充跨源用户证据','先补关键证据']],
@@ -592,7 +592,7 @@
     const uniqueCount = (rows, key) => new Set(rows.map(row => row[key]).filter(Boolean)).size;
     const productCounts = rows => Object.entries(rows.reduce((out, row) => { if (row.item_name) out[row.item_name] = (out[row.item_name] || 0) + 1; return out; }, {})).sort((a,b) => b[1] - a[1]).slice(0, 3);
     const sampleRows = (rows, words) => matchingRows(rows, words).slice(0, 3);
-    const quoteOf = row => `“${rowText(row)}”｜${row.__source}${row.item_name ? ' · ' + row.item_name : ''}`;
+    const quoteOf = row => `“${rowText(row)}”｜${row.__source || (row.item_name ? '淘宝/天猫负面/需求' : '清洗评论')}${row.item_name ? ' · ' + row.item_name : ''}`;
 
     function buildEvidence(rule, data) {
       const xhs = matchingRows(data.xhs, rule.words);
@@ -788,7 +788,7 @@
     function bindQueueActions() {
       $$('.queue-card-main').forEach(el => el.addEventListener('click', () => el.closest('.queue-card').classList.toggle('expanded')));
       $$('[data-start-trial]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); startTrial(btn.dataset.startTrial); }));
-      $$('[data-return-watch]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); moveToWatch(btn.dataset.returnWatch); toast('已退回持续观察，AI 将继续寻找能改变判断的新证据'); }));
+      $$('[data-return-watch]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); moveToWatch(btn.dataset.returnWatch); toast('已退回持续观察，系统将继续寻找能改变判断的新证据'); }));
       $$('[data-reject]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); rejectCandidate(btn.dataset.reject, '人工判断暂不值得投入'); }));
       $$('[data-early-trial]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); moveToWaiting(btn.dataset.earlyTrial); startTrial(btn.dataset.earlyTrial); toast('已提前送审：审判页会同时展示反证与最大未知'); }));
       $$('[data-keep-watch]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); toast('保持自动观察；只有关键证据变化时才提醒你'); }));
