@@ -196,6 +196,7 @@
     .concept-option h4 { margin: 6px 0; font-size: 13px; }
     .concept-option p { margin: 4px 0 0; color: #57585a; font-size: 11px; line-height: 1.5; }
     .concept-option .concept-test { color: var(--green); }
+    .concept-option .concept-risk { color: #8b6530; }
     .gate-list { display: grid; gap: 9px; margin: 16px 0; }
     .gate { display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 10px; padding: 13px; border: 1px solid var(--line); border-radius: 15px; }
     .gate-icon { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: var(--teal-soft); }
@@ -299,7 +300,8 @@
       .canvas { height: 420px; margin: 14px; }
       .b1 { left: 57%; }
       .b2 { left: 38%; }
-      .candidate-list, .concepts, .test-items, .evidence-columns { grid-template-columns: 1fr; }
+      .candidate-list, .concepts, .concept-options, .test-items, .evidence-columns { grid-template-columns: 1fr; }
+      .concept-plan-head { display: block; }
       .ai-grid { grid-template-columns: 1fr; }
       h1 { font-size: 34px; }
     }
@@ -599,34 +601,34 @@
     ];
     const CONCEPT_BLUEPRINTS = {
       '干燥细纹与紧致改善': [
-        { name: '轻薄高保湿眼周凝露', scene: '早晚常规护理', form: '水凝露质地，快速铺开', promise: '保湿与淡纹体验不厚重', test: '7 天肤感与持续使用测试' },
-        { name: '局部点涂精华笔', scene: '细纹重点区域护理', form: '定量笔头，控制单次用量', promise: '把用量和涂抹位置变得更可控', test: '点涂准确度与使用频次测试' },
-        { name: '夜间密集修护眼膜', scene: '睡前集中护理', form: '一次一片的眼周护理膜', promise: '降低坚持护理的步骤成本', test: '连续使用意愿与次日肤感测试' }
+        { name: '轻羽眼霜', track: '证据贴合方案', scene: '早晚常规护理', form: '轻乳霜质地，延展后快速成膜', promise: '保湿与淡纹体验不厚重', rationale: '直接回应“想滋润、又怕厚重”的核心张力。', risk: '淡纹效果需要更长周期，不能用一次体验替代功效证明。', test: '7 天肤感与持续使用测试' },
+        { name: '妆前隐形眼周底霜', track: '创意延展方案', scene: '早晨护理后接着上妆', form: '薄涂成膜，降低后续搓泥和卡粉', promise: '把保湿需求转成白天可持续的妆前动作', rationale: '把“保湿但不负担”延展到高频妆前场景。', risk: '需要确认用户是否愿意把眼霜当作妆前步骤。', test: '妆前等待时间、搓泥率与概念选择测试' },
+        { name: '微囊弹润眼膜笔', track: '前沿探索方案', scene: '细纹重点区域的短时护理', form: '定量笔头搭配局部贴敷膜', promise: '把淡纹期待转成更集中、更可控的护理动作', rationale: '用“定量+局部”减少大面积涂抹的浪费和负担。', risk: '形态和成本更复杂，需先验证用户是否理解并愿意尝试。', test: '形态理解度、点涂准确度与支付意愿测试' }
       ],
       '黑眼圈、眼袋与暗沉': [
-        { name: '早晨眼周舒缓精华棒', scene: '熬夜后出门前', form: '便携棒状，带轻触按摩头', promise: '把疲态护理转成短时、可重复动作', test: '晨间场景选择与即时体验测试' },
-        { name: '分区提亮眼周精华', scene: '黑眼圈重点区域', form: '轻薄精华，支持局部点涂', promise: '不把黑眼圈、眼袋和泪沟混成一个功效', test: '分区需求匹配与效果期待测试' },
-        { name: '短周期眼周护理膜', scene: '重要场合前集中护理', form: '短时贴敷，独立包装', promise: '满足用户对快速改善状态的期待', test: '场景触发率与复购意愿测试' }
+        { name: '早晨眼周舒缓精华棒', track: '证据贴合方案', scene: '熬夜后出门前', form: '便携棒状，带轻触按摩头', promise: '把疲态护理转成短时、可重复动作', rationale: '直接承接熬夜、浮肿和早晨状态差的场景表达。', risk: '即时清醒感不等于黑眼圈或眼袋的长期改善。', test: '晨间场景选择与即时体验测试' },
+        { name: '分区提亮眼周精华', track: '创意延展方案', scene: '黑眼圈重点区域护理', form: '轻薄精华，支持局部点涂', promise: '不把黑眼圈、眼袋和泪沟混成一个功效', rationale: '把混在一起的眼周问题拆成更清楚的使用对象。', risk: '用户未必能准确判断自己属于哪种问题。', test: '分区需求匹配、效果期待与使用理解测试' },
+        { name: '光感温变眼周贴', track: '前沿探索方案', scene: '重要场合前的短时护理', form: '独立包装，贴敷时产生轻微温感和光泽感', promise: '提供可感知的即时状态改善仪式', rationale: '把“想快速看起来精神”转成即时体验产品。', risk: '即时光泽可能被误认为真实功效，需控制宣称边界。', test: '即时体验、概念可信度与复购意愿测试' }
       ],
       '清爽吸收，不黏不厚重': [
-        { name: '水感轻薄眼霜', scene: '白天日常护理', form: '低油感乳霜，快速吸收', promise: '保湿和清爽之间取得平衡', test: '吸收时间与叠妆兼容性测试' },
-        { name: '妆前可叠加凝露笔', scene: '上妆前与办公间隙', form: '控量笔头，薄涂不拉扯', promise: '减少厚重感和后续负担', test: '妆前等待时间与搓泥测试' },
-        { name: '清爽眼周精华液', scene: '油皮或怕黏用户', form: '轻质精华，单独或叠加使用', promise: '让用户可以持续使用而不是少涂', test: '肤感偏好与连续使用测试' }
+        { name: '轻羽眼霜', track: '证据贴合方案', scene: '白天日常护理', form: '低油感轻乳霜，快速吸收', promise: '保湿和清爽之间取得平衡', rationale: '把“不黏、不厚重”直接落成可测试的肤感方案。', risk: '清爽与保湿存在配方取舍，需实测而不是只靠命名。', test: '吸收时间、残留感与叠妆兼容性测试' },
+        { name: '雾感眼周乳', track: '创意延展方案', scene: '办公间隙和白天补涂', form: '轻乳液泵出后快速铺开，减少按摩步骤', promise: '让补涂变成不打断工作的短动作', rationale: '把“清爽”进一步转成便于高频补涂的体验。', risk: '泵头、用量和眼周安全需要单独验证。', test: '补涂动作完成率、肤感偏好与安全感测试' },
+        { name: '瞬吸眼周乳雾', track: '前沿探索方案', scene: '带妆或高频外出护理', form: '细雾化乳液，触肤后快速转为轻膜', promise: '减少手部接触和等待吸收的时间', rationale: '探索“无负担护理”是否可以通过全新施用方式实现。', risk: '用户对眼周喷雾的接受度、喷射安全和成本都未知。', test: '形态接受度、喷射安全感与支付意愿测试' }
       ],
       '妆前兼容，不搓泥不卡粉': [
-        { name: '妆前可叠加眼周凝露笔', scene: '上妆前 5—10 分钟', form: '薄涂、控量、便携笔型', promise: '护理后可以继续完成底妆', test: '与底妆叠加的搓泥和卡粉测试' },
-        { name: '不搓泥轻薄眼霜', scene: '日常妆前护理', form: '快吸收乳霜，减少成膜负担', promise: '兼顾保湿与后续上妆', test: '不同底妆组合的兼容性测试' },
-        { name: '随身补涂眼周棒', scene: '带妆办公与外出补涂', form: '不破坏妆面的固体棒', promise: '让白天补涂成为可执行动作', test: '带妆补涂前后妆面变化测试' }
+        { name: '妆前隐形眼周底霜', track: '证据贴合方案', scene: '上妆前 5—10 分钟', form: '薄涂成膜，减少后续搓泥和卡粉', promise: '护理后可以继续完成底妆', rationale: '直接解决护理与底妆之间的冲突。', risk: '必须用真实底妆组合测试，不能只凭配方描述判断。', test: '不同底妆组合的搓泥、卡粉和等待时间测试' },
+        { name: '随身补涂眼周棒', track: '创意延展方案', scene: '带妆办公与外出补涂', form: '不破坏妆面的固体棒', promise: '让白天补涂成为可执行动作', rationale: '把“妆前兼容”延展为“带妆也能补涂”。', risk: '补涂过程可能移动底妆，需要观察用户真实动作。', test: '带妆补涂前后妆面变化与重复使用测试' },
+        { name: '双仓护理底妆眼周笔', track: '前沿探索方案', scene: '护理和底妆衔接的同一步骤', form: '一端护理、一端眼周打底，分区控量', promise: '减少产品切换和步骤记忆', rationale: '尝试把“护理+妆前”整合成一个明确动作。', risk: '结构复杂且容易把两个功效混在一起，需先验证理解度。', test: '概念理解、操作顺序与妆面结果测试' }
       ],
       '敏感低刺激，不熏眼': [
-        { name: '无香低刺激眼周乳', scene: '敏感肌晚间护理', form: '无香、低刺激乳状质地', promise: '先建立安全感，再谈功效', test: '刺激感与安全边界访谈' },
-        { name: '定量低接触护理笔', scene: '不想用手反复揉眼', form: '定量出口，减少手指接触', promise: '控制用量与接触方式', test: '使用方式偏好与刺激归因测试' },
-        { name: '夜间无香修护眼膜', scene: '敏感状态下的夜间护理', form: '一次一片，短时贴敷', promise: '降低选择成本和香味顾虑', test: '成分顾虑与夜间使用意愿测试' }
+        { name: '无香低刺激眼周乳', track: '证据贴合方案', scene: '敏感肌晚间护理', form: '无香、低刺激乳状质地', promise: '先建立安全感，再谈功效', rationale: '直接回应刺激、熏眼和香味顾虑。', risk: '“温和”必须由安全测试和用户反馈共同确认。', test: '刺激感、安全边界与停用原因访谈' },
+        { name: '定量低接触护理笔', track: '创意延展方案', scene: '不想用手反复揉眼', form: '定量出口，减少手指接触', promise: '控制用量与接触方式', rationale: '把低刺激需求延展到低接触的使用机制。', risk: '笔头清洁、残留和眼周接触安全需要验证。', test: '使用方式偏好、卫生感与刺激归因测试' },
+        { name: '仿生屏障眼周贴', track: '前沿探索方案', scene: '敏感状态下的夜间护理', form: '短时贴敷，强调隔离外界摩擦', promise: '用“减少接触”替代反复涂抹', rationale: '探索敏感用户是否更需要保护动作，而不只是增加成分。', risk: '贴敷闷感、撕拉感和材料安全性未知。', test: '贴敷舒适度、卸除体验与连续使用意愿测试' }
       ],
       '性价比与使用周期': [
-        { name: '15 天眼周体验装', scene: '首次尝试与换新', form: '小容量单品，明确使用周期', promise: '降低首次购买和试错成本', test: '体验装转正装与支付意愿测试' },
-        { name: '定量单次护理胶囊', scene: '旅行和出差使用', form: '单次剂量，减少过量与浪费', promise: '把用量、周期和成本说清楚', test: '单次成本接受度与复购测试' },
-        { name: '高频护理组合装', scene: '长期稳定护理', form: '主品加替换装或周期装', promise: '用组合规格改善持续使用成本', test: '规格选择与长期回购意愿测试' }
+        { name: '15 天眼周体验装', track: '证据贴合方案', scene: '首次尝试与换新', form: '小容量单品，明确使用周期', promise: '降低首次购买和试错成本', rationale: '直接回应价格、容量和“能用多久”的顾虑。', risk: '体验装可能只带来低价尝试，不代表会转正装。', test: '体验装转正装、周期认知与支付意愿测试' },
+        { name: '定量单次护理胶囊', track: '创意延展方案', scene: '旅行和出差使用', form: '单次剂量，减少过量与浪费', promise: '把用量、周期和成本说清楚', rationale: '把性价比转成可感知的单次成本。', risk: '包装成本和环保顾虑可能抵消便利性。', test: '单次成本接受度、便携性与复购测试' },
+        { name: '可替换芯轻羽眼霜', track: '前沿探索方案', scene: '长期稳定护理', form: '主容器复用，内芯按周期替换', promise: '同时降低长期使用成本和换新负担', rationale: '探索“长期护理”是否可以通过规格创新提升回购。', risk: '替换机制增加教育成本，且需要供应链支持。', test: '规格理解、长期价格接受度与替换意愿测试' }
       ]
     };
     const rowText = row => String(row && (row.text || row.content || row.full) || '').replace(/\s+/g, ' ').trim();
@@ -657,7 +659,7 @@
       const verdictText = score >= 80 ? '证据已经跨来源出现，先用最低成本实验验证使用方式、场景和支付意愿。' : '先补充能改变判断的场景、购买或放弃行为，再决定是否投入研发。';
       const concepts = (CONCEPT_BLUEPRINTS[rule.title] || []).map((concept, index) => ({
         ...concept,
-        status: index === 0 ? '主方案' : '备选方案',
+        status: index === 0 ? '优先验证' : (index === 1 ? '创意延展' : '前沿探索'),
         evidence: index === 0 ? `由 ${xhs.length} 条小红书与 ${tb.length} 条淘宝/天猫相关证据进入初筛。` : '需在机会审判和小实验中验证，不代表用户已明确选择。'
       }));
       const primary = concepts[0] || { name: '待形成概念', scene: '待补证', form: '待补证', promise: '待验证', test: '补充场景与支付意愿测试' };
@@ -696,6 +698,9 @@
         if (bubble && candidate) { bubble.innerHTML = esc(candidate.title).replace('，', '<br>'); bubble.dataset.source = candidate.xhs.startsWith('0 ') ? 'tmall' : (candidate.tmall.startsWith('0 ') ? 'xhs' : 'cross'); }
       });
       renderQueue(); renderCandidate('portable');
+      const activeView = document.querySelector('.view.active')?.id;
+      if (activeView === 'trialView') renderTrial(selectedId);
+      if (activeView === 'labView') renderLab(selectedId);
     }
 
     async function loadRealOpportunityData(showToast = false) {
@@ -879,7 +884,7 @@
       $('#trialCounter').innerHTML = t.counter.map(item => `<div class="quote">${esc(item)}</div>`).join('');
       $('#trialInference').textContent = t.inference;
       const concepts = c.concepts || [];
-      $('#trialConceptPlan').innerHTML = `<div class="concept-plan-head"><strong>可落地概念方案</strong><small>系统推导 · 不是数据事实 · 需实验验证</small></div><div class="concept-options">${concepts.map((concept, index) => `<article class="concept-option ${index === 0 ? 'primary' : ''}"><small>${esc(concept.status || (index === 0 ? '主方案' : '备选方案'))}</small><h4>${esc(concept.name)}</h4><p><b>场景：</b>${esc(concept.scene)}</p><p><b>形态：</b>${esc(concept.form)}</p><p><b>体验：</b>${esc(concept.promise)}</p><p class="concept-test"><b>验证：</b>${esc(concept.test)}</p></article>`).join('')}</div>`;
+      $('#trialConceptPlan').innerHTML = `<div class="concept-plan-head"><strong>可落地概念方案</strong><small>证据贴合 → 创意延展 → 前沿探索 · 均需实验验证</small></div><div class="concept-options">${concepts.map((concept, index) => `<article class="concept-option ${index === 0 ? 'primary' : ''}"><small>${esc(concept.status || (index === 0 ? '优先验证' : '备选方案'))}</small><h4>${esc(concept.name)}</h4><p><b>场景：</b>${esc(concept.scene)}</p><p><b>形态：</b>${esc(concept.form)}</p><p><b>体验：</b>${esc(concept.promise)}</p><p><b>转化思路：</b>${esc(concept.rationale || '由当前需求信号推导，待验证。')}</p><p class="concept-risk"><b>主要风险：</b>${esc(concept.risk || '需求与方案的匹配度待验证。')}</p><p class="concept-test"><b>验证：</b>${esc(concept.test)}</p></article>`).join('')}</div>`;
       $('#trialGates').innerHTML = t.gates.map((g, i) => `<div class="gate"><span class="gate-icon">${i + 1}</span><div><strong>${esc(g[0])}</strong><br><small>${esc(g[1])}</small></div><span class="gate-status">${esc(g[2])}</span></div>`).join('');
       $('#trialVerdict').textContent = t.verdict; $('#trialVerdictText').textContent = t.verdictText;
     }
