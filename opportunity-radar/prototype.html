@@ -113,7 +113,7 @@
     .canvas { position: relative; flex: 1; min-height: 420px; height: auto; margin: 18px 20px 20px; border-radius: 22px; overflow: hidden; background-color: #fafaf7; background-image: radial-gradient(#d9d9d2 1px, transparent 1px); background-size: 20px 20px; border: 1px solid #e6e6df; }
     .axis-x, .axis-y { position: absolute; font-size: 10px; color: #85857e; letter-spacing: .05em; }
     .axis-x { bottom: 10px; left: 50%; transform: translateX(-50%); }
-    .axis-y { top: 50%; left: -28px; transform: rotate(-90deg); }
+    .axis-y { top: 54%; left: 4px; transform: rotate(-90deg); transform-origin: left center; }
     .quadrant { position: absolute; font-size: 11px; color: #99998f; font-weight: 700; }
     .q1 { right: 16px; top: 14px; }
     .q2 { left: 16px; top: 14px; }
@@ -129,6 +129,7 @@
     }
     .bubble:hover, .bubble.active { transform: scale(1.06); filter: saturate(1.08); z-index: 4; }
     .bubble.active { box-shadow: 0 0 0 5px #fff, 0 0 0 8px var(--ink); }
+    .bubble-count { display: block; margin-top: 5px; font-size: 10px; font-weight: 800; opacity: .65; }
     .b1 { width: 138px; height: 138px; background: var(--yellow); left: 67%; top: 12%; }
     .b2 { width: 112px; height: 112px; background: var(--teal); left: 47%; top: 32%; }
     .b3 { width: 104px; height: 104px; background: var(--lavender); left: 72%; top: 57%; }
@@ -142,6 +143,17 @@
     .confidence { font-size: 12px; color: var(--green); font-weight: 900; white-space: nowrap; }
     .detail h2 { margin-top: 13px; }
     .summary { color: #4f5053; margin: 9px 0 14px; }
+    .signal-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; margin: 3px 0 10px; }
+    .signal-kpi { padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: #fbfbf7; }
+    .signal-kpi small { display: block; color: var(--muted); font-size: 10px; line-height: 1.3; }
+    .signal-kpi b { display: block; margin-top: 4px; font-size: 18px; font-variant-numeric: tabular-nums; }
+    .source-stack { display: flex; height: 10px; overflow: hidden; border-radius: 999px; background: #ecece6; }
+    .source-stack > span { min-width: 0; transition: width .28s ease; }
+    .source-stack .xhs { background: var(--teal); }
+    .source-stack .tmall { background: var(--coral); }
+    .source-legend { display: flex; justify-content: space-between; gap: 10px; margin-top: 6px; color: var(--muted); font-size: 10px; }
+    .source-legend span::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 5px; border-radius: 50%; background: var(--teal); }
+    .source-legend span:last-child::before { background: var(--coral); }
     .evidence-counts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0 14px; }
     .evidence-count { border-radius: 15px; padding: 12px; border: 1px solid var(--line); font-size: 12px; }
     .evidence-count strong { display: block; margin-bottom: 5px; font-size: 13px; }
@@ -179,12 +191,15 @@
     .candidate-card p { color: #555; font-size: 12px; margin: 8px 0 14px; }
     .mini-tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .mini-tags span { font-size: 10px; border-radius: 999px; background: rgba(255,255,255,.7); padding: 5px 7px; border: 1px solid rgba(23,23,23,.12); }
+    .candidate-mini-data { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(23,23,23,.1); }
+    .candidate-mini-data span { color: var(--muted); font-size: 9px; line-height: 1.35; }
+    .candidate-mini-data b { display: block; color: var(--ink); font-size: 14px; font-variant-numeric: tabular-nums; }
 
     .flow-steps { display: flex; align-items: center; gap: 8px; margin: 18px 0 24px; flex-wrap: wrap; }
     .flow-step { padding: 8px 12px; border-radius: 999px; background: #ecece6; color: #777; font-size: 12px; font-weight: 800; }
     .flow-step.on { background: var(--ink); color: #fff; }
     .arrow { color: #aaa; }
-    .trial-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr); gap: 16px; }
+    .trial-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr); gap: 16px; }
     .trial-main, .trial-side, .lab-panel { padding: 22px; }
     .candidate-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
     .candidate-title p { color: var(--muted); margin: 6px 0 0; }
@@ -200,6 +215,23 @@
     .research-details[open] summary::before { content: '－'; }
     .quote { background: rgba(255,255,255,.7); border-radius: 12px; padding: 10px 11px; font-size: 12px; line-height: 1.55; margin-top: 8px; }
     .quote small { display: block; color: var(--muted); margin-top: 4px; }
+    .judgement-dashboard { margin-bottom: 16px; padding: 20px 22px; }
+    .judgement-grid { display: grid; grid-template-columns: minmax(240px, .8fr) minmax(420px, 1.2fr); gap: 20px; align-items: center; }
+    .judgement-verdict small { color: var(--muted); font-size: 11px; font-weight: 800; }
+    .judgement-verdict strong { display: block; margin-top: 7px; font-size: clamp(24px, 3vw, 38px); letter-spacing: -.045em; }
+    .judgement-verdict p { margin: 8px 0 0; color: #55565b; font-size: 12px; }
+    .judgement-data { min-width: 0; }
+    .judgement-data .signal-kpis { margin-top: 0; }
+    .viz-card { margin-top: 14px; padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: #fbfbf7; }
+    .viz-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 13px; }
+    .viz-head small { color: var(--muted); font-size: 10px; }
+    .bar-list { display: grid; gap: 10px; margin-top: 14px; }
+    .bar-row { display: grid; grid-template-columns: 90px minmax(80px, 1fr) 42px; gap: 9px; align-items: center; font-size: 11px; }
+    .bar-track { height: 8px; overflow: hidden; border-radius: 999px; background: #ecece6; }
+    .bar-fill { height: 100%; min-width: 0; border-radius: inherit; background: var(--teal); transition: width .28s ease; }
+    .bar-row:nth-child(2) .bar-fill { background: var(--coral); }
+    .bar-row:nth-child(3) .bar-fill { background: var(--ink); }
+    .bar-row b { text-align: right; font-variant-numeric: tabular-nums; }
     .inference { margin-top: 14px; padding: 16px; border-radius: 18px; background: var(--lavender-soft); }
     .inference p { margin: 7px 0 0; font-size: 13px; }
     .concept-plan { margin-top: 14px; padding: 16px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
@@ -211,6 +243,9 @@
     .concept-option small { color: var(--muted); font-size: 10px; font-weight: 800; }
     .concept-option h4 { margin: 6px 0; font-size: 13px; }
     .concept-option p { margin: 4px 0 0; color: #57585a; font-size: 11px; line-height: 1.5; }
+    .concept-promise { display: block; margin-top: 8px; font-size: 12px; line-height: 1.45; }
+    .concept-details { margin-top: 9px; border-top: 1px solid var(--line); }
+    .concept-details summary { padding-top: 8px; cursor: pointer; color: var(--muted); font-size: 10px; font-weight: 800; }
     .concept-option .concept-test { color: var(--green); }
     .concept-option .concept-risk { color: #8b6530; }
     .gate-list { display: grid; gap: 9px; margin: 16px 0; }
@@ -299,6 +334,7 @@
       .brand { justify-content: center; padding: 0; }
       .nav-btn { justify-content: center; padding: 13px; }
       .radar-grid, .trial-layout, .lab-grid { grid-template-columns: 1fr; }
+      .judgement-grid { grid-template-columns: 1fr; }
       .detail { min-height: auto; }
     }
     @media (max-width: 760px) {
@@ -319,6 +355,7 @@
       .b1 { left: 57%; }
       .b2 { left: 38%; }
       .candidate-list, .concepts, .concept-options, .test-items, .evidence-columns, .inline-concepts { grid-template-columns: 1fr; }
+      .signal-kpis { grid-template-columns: 1fr 1fr; }
       .concept-plan-head { display: block; }
       .ai-grid { grid-template-columns: 1fr; }
       h1 { font-size: 34px; }
@@ -371,7 +408,7 @@
           <div class="radar-grid">
             <section class="panel discovery-panel">
               <div class="panel-head">
-                <div><h2>发现机会</h2><p>点击左侧机会，右侧同步查看机会判断与产品方向。</p></div>
+                <div><h2>发现机会</h2><p>纵轴代表相关评论量，横轴代表需求/负面表达占比，圆越大表示相关评论越多。</p></div>
                 <div class="source-chips">
                   <button class="source-chip active" data-source="all">全部</button>
                   <button class="source-chip" data-source="cross">跨源</button>
@@ -387,9 +424,9 @@
                 <button class="bubble b1 active" data-id="portable" data-source="cross">便携补涂<br>眼部护理</button>
                 <button class="bubble b2" data-id="lens" data-source="cross">隐形眼镜<br>低刺激护理</button>
                 <button class="bubble b3" data-id="night" data-source="tmall">夜间修护<br>无香敏感肌</button>
-                <button class="bubble b4" data-source="xhs">妆后<br>不卡粉</button>
-                <button class="bubble b5" data-source="tmall">儿童可用</button>
-                <button class="bubble b6" data-source="xhs">冰感按摩</button>
+                <button class="bubble b4" data-id="makeup" data-source="xhs">妆后<br>不卡粉</button>
+                <button class="bubble b5" data-id="child" data-source="tmall">儿童可用</button>
+                <button class="bubble b6" data-id="ice" data-source="xhs">冰感按摩</button>
               </div>
             </section>
 
@@ -397,16 +434,23 @@
               <div class="detail-top"><span class="badge" id="candidateState">候选机会 · 系统已整理</span><span class="confidence" id="confidence">等待真实数据</span></div>
               <h2 id="detailTitle">便携补涂型眼部护理</h2>
               <p class="summary" id="detailSummary">用户不是嫌产品无效，而是现有眼霜在通勤、办公室和妆后场景中难以补涂。</p>
+              <div class="signal-kpis">
+                <div class="signal-kpi"><small>相关评论</small><b id="radarTotal">—</b></div>
+                <div class="signal-kpi"><small>小红书</small><b id="radarXhs">—</b></div>
+                <div class="signal-kpi"><small>淘宝/天猫</small><b id="radarTb">—</b></div>
+                <div class="signal-kpi"><small>需求/负面</small><b id="radarPain">—</b></div>
+              </div>
+              <div class="source-stack" aria-label="评论来源构成"><span class="xhs" id="radarXhsBar" style="width:0%"></span><span class="tmall" id="radarTbBar" style="width:0%"></span></div>
+              <div class="source-legend"><span id="radarXhsLegend">小红书 —</span><span id="radarTbLegend">淘宝/天猫 —</span></div>
               <div class="inline-judgement">
                 <div class="inline-judgement-head"><strong>机会判断</strong><small id="inlineRoute">等待真实数据</small></div>
                 <p id="inlineInference">点击左侧机会，查看当前判断与产品方向。</p>
                 <div class="inline-concepts" id="radarConceptPlan"><article class="inline-concept primary"><small>等待数据</small><strong>等待概念方向</strong><span>真实数据加载后生成</span></article></div>
               </div>
-              <div class="evidence-counts">
+              <details class="research-details"><summary>查看证据与判断依据</summary><div class="evidence-counts">
                 <div class="evidence-count tmall"><strong>淘宝/天猫 · 评论证据</strong><span id="tmallCount">等待数据</span></div>
                 <div class="evidence-count xhs"><strong>小红书 · 场景补证</strong><span id="xhsCount">等待数据</span></div>
-              </div>
-              <details class="research-details"><summary>查看证据与判断依据</summary><div class="ai-grid">
+              </div><div class="ai-grid">
                 <div class="ai-item"><small>01 重复需求</small><p id="repeatEvidence">跨商品反复出现“妆后怎么补”“办公室怎么用”，并非单一爆帖。</p></div>
                 <div class="ai-item"><small>02 行为证据</small><p id="behaviorEvidence">用户在找滚珠、分装和眼膜等替代方案，已有主动解决行为。</p></div>
                 <div class="ai-item"><small>03 现有方案</small><p id="solutionEvidence">现有眼霜重功效轻便携；滚珠产品少，但有效性与卫生感评价分化。</p></div>
@@ -424,13 +468,13 @@
             <div class="section-line"><h2>今日优先机会</h2><p>先看方向，需要时再展开判断依据</p></div>
             <div class="candidate-list">
               <button class="candidate-card active" data-id="portable">
-                <div class="rank"><span>01 · 建议优先验证</span><span>跨源共振</span></div><h3>便携补涂型眼部护理</h3><p>“有效但不方便”正在从抱怨变成寻找替代品的行动。</p><div class="mini-tags"><span>重复需求</span><span>替代行为</span><span>持续上升</span></div>
+                <div class="rank"><span>01 · 建议优先验证</span><span>跨源共振</span></div><h3>便携补涂型眼部护理</h3><p>“有效但不方便”正在从抱怨变成寻找替代品的行动。</p><div class="mini-tags"><span>重复需求</span><span>替代行为</span><span>持续上升</span></div><div class="candidate-mini-data"><span><b>—</b>相关评论</span><span><b>—</b>需求/负面</span><span><b>—</b>代表商品</span></div>
               </button>
               <button class="candidate-card" data-id="lens">
-                <div class="rank"><span>02 · 建议补证</span><span>跨源共振</span></div><h3>隐形眼镜人群低刺激护理</h3><p>戴镜用户希望眼周护理不熏眼、不移位、不影响镜片。</p><div class="mini-tags"><span>明确人群</span><span>现有解法弱</span><span>需补证</span></div>
+                <div class="rank"><span>02 · 建议补证</span><span>跨源共振</span></div><h3>隐形眼镜人群低刺激护理</h3><p>戴镜用户希望眼周护理不熏眼、不移位、不影响镜片。</p><div class="mini-tags"><span>明确人群</span><span>现有解法弱</span><span>需补证</span></div><div class="candidate-mini-data"><span><b>—</b>相关评论</span><span><b>—</b>需求/负面</span><span><b>—</b>代表商品</span></div>
               </button>
               <button class="candidate-card" data-id="night">
-                <div class="rank"><span>03 · 高价值例外</span><span>天猫主信号</span></div><h3>夜间修护无香眼霜</h3><p>敏感肌对香味与刺激的规避明显，但市场已有较多替代。</p><div class="mini-tags"><span>强痛点</span><span>竞争偏高</span><span>观察</span></div>
+                <div class="rank"><span>03 · 高价值例外</span><span>天猫主信号</span></div><h3>夜间修护无香眼霜</h3><p>敏感肌对香味与刺激的规避明显，但市场已有较多替代。</p><div class="mini-tags"><span>强痛点</span><span>竞争偏高</span><span>观察</span></div><div class="candidate-mini-data"><span><b>—</b>相关评论</span><span><b>—</b>需求/负面</span><span><b>—</b>代表商品</span></div>
               </button>
             </div>
           </section>
@@ -442,9 +486,30 @@
           <p class="subhead">先看机会结论和产品方向；支持证据、反证与审核标准需要时再展开。</p>
           <div class="flow-steps"><span class="flow-step">发现机会</span><span class="arrow">→</span><span class="flow-step on">机会判断</span></div>
 
+          <section class="panel judgement-dashboard">
+            <div class="judgement-grid">
+              <div class="judgement-verdict"><small>当前判断</small><strong id="trialVerdict">值得进入小实验</strong><p id="trialVerdictText">先验证便携形态是否真正改善使用，以及用户是否愿意为此付费。</p></div>
+              <div class="judgement-data">
+                <div class="signal-kpis">
+                  <div class="signal-kpi"><small>相关评论</small><b id="trialTotal">—</b></div>
+                  <div class="signal-kpi"><small>小红书</small><b id="trialXhs">—</b></div>
+                  <div class="signal-kpi"><small>淘宝/天猫</small><b id="trialTb">—</b></div>
+                  <div class="signal-kpi"><small>需求/负面</small><b id="trialPain">—</b></div>
+                </div>
+                <div class="source-stack" aria-label="评论来源构成"><span class="xhs" id="trialXhsBar" style="width:0%"></span><span class="tmall" id="trialTbBar" style="width:0%"></span></div>
+                <div class="source-legend"><span id="trialXhsLegend">小红书 —</span><span id="trialTbLegend">淘宝/天猫 —</span></div>
+              </div>
+            </div>
+          </section>
+
           <div class="trial-layout">
             <section class="panel trial-main">
               <div class="candidate-title"><div><span class="badge" id="trialState">正在判断</span><h2 id="trialTitle" style="margin-top:10px">便携补涂型眼部护理</h2><p id="trialCore">核心命题：现有产品有效，但使用方式阻碍了用户在白天持续护理。</p></div><span class="confidence">机会判断</span></div>
+              <div class="viz-card"><div class="viz-head"><h3>证据结构</h3><small>均为本次清洗数据中的真实命中条数</small></div><div class="bar-list">
+                <div class="bar-row"><span>小红书</span><div class="bar-track"><div class="bar-fill" id="trialXhsFill" style="width:0%"></div></div><b id="trialXhsBarValue">—</b></div>
+                <div class="bar-row"><span>淘宝/天猫</span><div class="bar-track"><div class="bar-fill" id="trialTbFill" style="width:0%"></div></div><b id="trialTbBarValue">—</b></div>
+                <div class="bar-row"><span>需求/负面</span><div class="bar-track"><div class="bar-fill" id="trialPainFill" style="width:0%"></div></div><b id="trialPainBarValue">—</b></div>
+              </div></div>
               <details class="research-details"><summary>查看支持证据与反证</summary><div class="evidence-columns">
                 <div class="evidence-box support"><h3>支持证据</h3><div id="trialSupport"></div></div>
                 <div class="evidence-box counter"><h3>反证与风险</h3><div id="trialCounter"></div></div>
@@ -454,8 +519,8 @@
             </section>
 
             <aside class="panel trial-side">
-              <h2>当前建议</h2><p style="color:var(--muted);font-size:12px">用最小成本验证产品方向，再决定是否进入开发。</p>
-              <div class="verdict"><small>系统建议</small><strong id="trialVerdict">值得进入小实验</strong><p id="trialVerdictText">先验证便携形态是否真正改善使用，以及用户是否愿意为此付费。</p></div>
+              <h2>下一步</h2><p style="color:var(--muted);font-size:12px">先选择一条产品方向，再决定是否交给策略台继续验证。</p>
+              <div class="verdict"><small>优先方向</small><strong id="trialPrimaryConcept">等待真实数据</strong><p id="trialPrimaryTest">数据加载后显示最小验证动作。</p></div>
               <details class="research-details"><summary>查看判断标准</summary><div class="gate-list" id="trialGates"></div></details>
               <div class="strategy-note">产品验证与开发动作将在策略台继续，本页面只负责发现机会与机会判断。</div>
               <div class="action-stack"><button class="ghost-btn" data-go="radar">返回发现机会</button><button class="ghost-btn" id="pauseBtn">暂存观察</button></div>
@@ -688,6 +753,7 @@
       const primary = concepts[0] || { name: '待形成概念', scene: '待补证', form: '待补证', promise: '待验证', test: '补充场景与支付意愿测试' };
       return {
         title: rule.title, confidence: `入选路径：${sourceType} + ${total} 条相关文本`, summary: rule.summary,
+        analytics: { total, xhs: xhs.length, tb: tb.length, pain: negative.length + demands.length, products: products.length },
         tmall: `${tb.length} 条相关评价 / ${products.length ? products.length + ' 个代表商品' : '商品待标注'}`, xhs: `${xhs.length} 条相关内容 / ${uniqueCount(xhs, 'author') || xhs.length} 位用户`, route: sourceType,
         repeat: `${signalText}。命中词：${hitWords([...xhs, ...tb].map(rowText).join(' '), rule.words).slice(0, 5).join('、') || '待补充'}。`,
         behavior: negative.length || demands.length ? `负面与需求表达共 ${negative.length + demands.length} 条，说明用户存在明确顾虑或未满足点。` : '当前只确认需求表达，主动购买、替代或放弃行为仍需补证。',
@@ -707,19 +773,63 @@
       };
     }
 
+    function layoutOpportunityBubbles() {
+      const canvas = document.querySelector('.canvas');
+      if (!canvas || canvas.clientWidth < 200) return;
+      const width = canvas.clientWidth; const height = canvas.clientHeight;
+      const active = SLOT_IDS.map(id => ({ id, analytics: candidates[id]?.analytics })).filter(item => item.analytics && Number.isFinite(item.analytics.total));
+      const maxTotal = Math.max(1, ...active.map(item => item.analytics.total));
+      const placed = [];
+      active.forEach((item, index) => {
+        const bubble = document.querySelector(`.bubble[data-id="${item.id}"]`); if (!bubble) return;
+        const a = item.analytics; const intensity = a.total / maxTotal;
+        const painRatio = Math.min(1, (a.pain || 0) / Math.max(1, a.total));
+        const size = 66 + Math.round(intensity * 68);
+        const baseX = 28 + painRatio * Math.max(40, width - size - 72);
+        const baseY = 28 + (1 - intensity) * Math.max(40, height - size - 72);
+        let x = baseX; let y = baseY; let attempt = 0;
+        const overlaps = () => placed.some(p => x < p.x + p.size + 8 && x + size + 8 > p.x && y < p.y + p.size + 8 && y + size + 8 > p.y);
+        while (overlaps() && attempt < 40) {
+          attempt += 1;
+          const radius = 14 + attempt * 5;
+          const angle = attempt * 2.35 + index * .7;
+          x = baseX + Math.cos(angle) * radius;
+          y = baseY + Math.sin(angle) * radius;
+          x = Math.max(18, Math.min(width - size - 18, x));
+          y = Math.max(18, Math.min(height - size - 32, y));
+        }
+        placed.push({ x, y, size });
+        bubble.style.width = size + 'px'; bubble.style.height = size + 'px';
+        bubble.style.left = Math.round(x) + 'px'; bubble.style.top = Math.round(y) + 'px';
+      });
+    }
+
     function applyRealData(data) {
       const ranked = OPPORTUNITY_RULES.map(rule => buildEvidence(rule, data)).sort((a, b) => b.score - a.score);
       SLOT_IDS.forEach((slot, index) => { if (ranked[index]) { candidates[slot] = candidateFromEvidence(ranked[index]); candidates[slot].lab.id = 'EF-' + String(index + 1).padStart(3, '0'); } });
       $('#signalPoolCount').textContent = (data.xhs.length + data.tb.length).toLocaleString();
       $('#scanStatus').textContent = `真实数据就绪 · 小红书 ${data.xhs.length} 条 + 淘宝/天猫 ${data.tb.length} 条`;
       const topicIds = SLOT_IDS;
-      topicIds.forEach((id, index) => {
+      topicIds.forEach(id => {
         const candidate = candidates[id];
+        const analytics = candidate?.analytics || {};
         const card = document.querySelector(`.candidate-card[data-id="${id}"]`);
-        if (card && candidate) { card.querySelector('h3').textContent = candidate.title; card.querySelector('p').textContent = candidate.summary; card.querySelector('.mini-tags').innerHTML = `<span>${candidate.route}</span><span>真实评论 ${candidate.tmall.split(' ')[0]}</span><span>待验证</span>`; }
+        if (card && candidate) {
+          card.querySelector('h3').textContent = candidate.title;
+          card.querySelector('p').textContent = candidate.summary;
+          card.querySelector('.mini-tags').innerHTML = `<span>${candidate.route}</span><span>真实评论 ${analytics.total ?? '—'} 条</span><span>待验证</span>`;
+          const miniValues = card.querySelectorAll('.candidate-mini-data b');
+          if (miniValues[0]) miniValues[0].textContent = analytics.total ?? '—';
+          if (miniValues[1]) miniValues[1].textContent = analytics.pain ?? '—';
+          if (miniValues[2]) miniValues[2].textContent = analytics.products ?? '—';
+        }
         const bubble = document.querySelector(`.bubble[data-id="${id}"]`);
-        if (bubble && candidate) { bubble.innerHTML = esc(candidate.title).replace('，', '<br>'); bubble.dataset.source = candidate.xhs.startsWith('0 ') ? 'tmall' : (candidate.tmall.startsWith('0 ') ? 'xhs' : 'cross'); }
+        if (bubble && candidate) {
+          bubble.innerHTML = `${esc(candidate.title).replace('，', '<br>')}<span class="bubble-count">${analytics.total ?? '—'} 条相关评论</span>`;
+          bubble.dataset.source = (analytics.xhs || 0) === 0 ? 'tmall' : ((analytics.tb || 0) === 0 ? 'xhs' : 'cross');
+        }
       });
+      layoutOpportunityBubbles();
       renderQueue(); renderCandidate('portable');
       const activeView = document.querySelector('.view.active')?.id;
       if (activeView === 'trialView') renderTrial(selectedId);
@@ -899,6 +1009,35 @@
         : '<article class="inline-concept primary"><small>等待数据</small><strong>等待概念方向</strong><span>真实数据加载后生成</span></article>';
     }
 
+    function renderAnalytics(c) {
+      const a = c.analytics;
+      const ready = a && Number.isFinite(a.total);
+      const value = key => ready && Number.isFinite(a[key]) ? a[key] : '—';
+      ['radar', 'trial'].forEach(prefix => {
+        const totalEl = $('#' + prefix + 'Total'); const xhsEl = $('#' + prefix + 'Xhs');
+        const tbEl = $('#' + prefix + 'Tb'); const painEl = $('#' + prefix + 'Pain');
+        if (totalEl) totalEl.textContent = value('total');
+        if (xhsEl) xhsEl.textContent = value('xhs');
+        if (tbEl) tbEl.textContent = value('tb');
+        if (painEl) painEl.textContent = value('pain');
+        const sourceTotal = ready ? Math.max(1, a.xhs + a.tb) : 1;
+        const xhsPct = ready ? Math.round(a.xhs / sourceTotal * 100) : 0;
+        const tbPct = ready ? 100 - xhsPct : 0;
+        const xhsBar = $('#' + prefix + 'XhsBar'); const tbBar = $('#' + prefix + 'TbBar');
+        const xhsLegend = $('#' + prefix + 'XhsLegend'); const tbLegend = $('#' + prefix + 'TbLegend');
+        if (xhsBar) xhsBar.style.width = xhsPct + '%';
+        if (tbBar) tbBar.style.width = tbPct + '%';
+        if (xhsLegend) xhsLegend.textContent = ready ? `小红书 ${a.xhs} 条 · ${xhsPct}%` : '小红书 —';
+        if (tbLegend) tbLegend.textContent = ready ? `淘宝/天猫 ${a.tb} 条 · ${tbPct}%` : '淘宝/天猫 —';
+      });
+      const maxValue = ready ? Math.max(1, a.xhs, a.tb, a.pain) : 1;
+      [['trialXhsFill', 'xhs', 'trialXhsBarValue'], ['trialTbFill', 'tb', 'trialTbBarValue'], ['trialPainFill', 'pain', 'trialPainBarValue']].forEach(([barId, key, valueId]) => {
+        const bar = $('#' + barId); const label = $('#' + valueId);
+        if (bar) bar.style.width = ready ? Math.round(a[key] / maxValue * 100) + '%' : '0%';
+        if (label) label.textContent = value(key);
+      });
+    }
+
     function renderCandidate(id) {
       if (!candidates[id]) return;
       selectedId = id; const c = candidates[id];
@@ -908,6 +1047,7 @@
       $('#repeatEvidence').textContent = c.repeat; $('#behaviorEvidence').textContent = c.behavior;
       $('#solutionEvidence').textContent = c.solution; $('#trendEvidence').textContent = c.trend; $('#unknownText').textContent = c.unknown;
       renderRadarConceptPlan(c);
+      renderAnalytics(c);
       $$('.candidate-card, .bubble').forEach(el => el.classList.toggle('active', el.dataset.id === id));
     }
 
@@ -919,9 +1059,12 @@
       $('#trialCounter').innerHTML = t.counter.map(item => `<div class="quote">${esc(item)}</div>`).join('');
       $('#trialInference').textContent = t.inference;
       const concepts = c.concepts || [];
-      $('#trialConceptPlan').innerHTML = `<div class="concept-plan-head"><strong>可落地概念方案</strong><small>证据贴合 → 创意延展 → 前沿探索 · 均需实验验证</small></div><div class="concept-options">${concepts.map((concept, index) => `<article class="concept-option ${index === 0 ? 'primary' : ''}"><small>${esc(concept.status || (index === 0 ? '优先验证' : '备选方案'))}</small><h4>${esc(concept.name)}</h4><p><b>场景：</b>${esc(concept.scene)}</p><p><b>形态：</b>${esc(concept.form)}</p><p><b>体验：</b>${esc(concept.promise)}</p><p><b>转化思路：</b>${esc(concept.rationale || '由当前需求信号推导，待验证。')}</p><p class="concept-risk"><b>主要风险：</b>${esc(concept.risk || '需求与方案的匹配度待验证。')}</p><p class="concept-test"><b>验证：</b>${esc(concept.test)}</p></article>`).join('')}</div>`;
+      $('#trialConceptPlan').innerHTML = `<div class="concept-plan-head"><strong>产品概念方向</strong><small>优先方向 → 创意延展 → 前沿探索</small></div><div class="concept-options">${concepts.map((concept, index) => `<article class="concept-option ${index === 0 ? 'primary' : ''}"><small>${esc(concept.status || (index === 0 ? '优先验证' : '备选方案'))}</small><h4>${esc(concept.name)}</h4><p>${esc(concept.scene)} · ${esc(concept.form)}</p><strong class="concept-promise">${esc(concept.promise)}</strong><details class="concept-details"><summary>查看推导、风险与验证方式</summary><p><b>推导：</b>${esc(concept.rationale || '由当前需求信号推导，待验证。')}</p><p class="concept-risk"><b>风险：</b>${esc(concept.risk || '需求与方案的匹配度待验证。')}</p><p class="concept-test"><b>验证：</b>${esc(concept.test)}</p></details></article>`).join('')}</div>`;
       $('#trialGates').innerHTML = t.gates.map((g, i) => `<div class="gate"><span class="gate-icon">${i + 1}</span><div><strong>${esc(g[0])}</strong><br><small>${esc(g[1])}</small></div><span class="gate-status">${esc(g[2])}</span></div>`).join('');
       $('#trialVerdict').textContent = t.verdict; $('#trialVerdictText').textContent = t.verdictText;
+      $('#trialPrimaryConcept').textContent = concepts[0]?.name || '等待真实数据';
+      $('#trialPrimaryTest').textContent = concepts[0]?.test || '数据加载后显示最小验证动作。';
+      renderAnalytics(c);
     }
 
     function renderLab(id) {
@@ -1012,6 +1155,7 @@
     });
 
     window.addEventListener('hashchange', () => go(location.hash.slice(1)));
+    window.addEventListener('resize', layoutOpportunityBubbles);
     renderQueue();
     renderCandidate('portable');
     go(location.hash.slice(1) || 'radar');
