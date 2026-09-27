@@ -485,6 +485,7 @@ textarea.ta:focus{border-color:var(--blue);background:var(--surface)}
 .ing-eg{margin-top:9px;display:flex;flex-direction:column;gap:3px}
 .lnk{border:0;background:transparent;padding:0;font-family:inherit;font-size:12px;color:var(--accent);text-align:left;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ing-radar{margin:0 0 18px;padding:18px;border:1px solid #23395f;border-radius:16px;background:linear-gradient(145deg,#101d35,#0b1222);color:#f6f8fc}.ing-radar-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}.ing-radar-head h2{margin:0;font-size:20px}.ing-radar-head p{margin:4px 0 0;color:#9eacc2;font-size:12px}.ing-radar-pill{color:#5eead4;border:1px solid rgba(94,234,212,.3);border-radius:999px;padding:5px 9px;font-size:11px;white-space:nowrap}.ing-radar-push{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:14px}.ing-radar-card{min-height:132px;padding:13px;border:1px solid rgba(94,234,212,.23);border-radius:12px;background:rgba(20,39,61,.82);display:flex;flex-direction:column}.ing-radar-card h3{margin:0;font-size:15px}.ing-radar-card p{margin:7px 0;color:#d4e1ee;font-size:12px;line-height:1.5;flex:1}.ing-radar-meta{display:flex;gap:5px;flex-wrap:wrap}.ing-radar-meta span{font-size:10px;color:#9eacc2;background:rgba(255,255,255,.07);padding:3px 6px;border-radius:999px}.ing-radar-link{display:inline-block;margin-top:9px;color:#5eead4;font-size:11px}.ing-radar-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}.ing-radar-tabs button{border:1px solid #2a4168;background:#121f36;color:#9eacc2;border-radius:8px;padding:6px 11px;font:inherit;font-size:11px;cursor:pointer}.ing-radar-tabs button.on{background:#2b4774;color:#fff;border-color:#6b8fc8}.ing-radar-table{width:100%;border-collapse:collapse;font-size:12px}.ing-radar-table th,.ing-radar-table td{text-align:left;padding:9px 8px;border-bottom:1px solid rgba(148,163,184,.14)}.ing-radar-table th{color:#8d9db6;font-size:10px;font-weight:500}.ing-radar-table td{color:#dbe7f5}.ing-radar-table .muted{color:#9eacc2;font-size:10px}.ing-radar-table .up{color:#73e2a8;font-weight:600}.ing-radar-effect{color:#aebfd5;font-size:10px;line-height:1.35;margin-top:2px}.ing-radar-note{margin-top:10px;color:#8d9db6;font-size:10px}
+.ingredient-radar-frame{display:block;width:100%;height:2050px;border:0;border-radius:14px;background:#080d1c}
 @media(max-width:768px){
   .cmp-hd6{display:none}
   .flt{width:100%}
@@ -939,7 +940,7 @@ var VIEWS = [
     icon: '<path d="M8 21h8M12 17v4"/><path d="M7 3h10v6a5 5 0 0 1-10 0z"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"/>' },
   { key: 'pa', name: '产品分析', desc: '商品调研、单品拆解、全品对标与数据口径',
     icon: '<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>' },
-  { key: 'ing', name: '成分库', desc: '成分热度榜、成分×品类矩阵与关联商品',
+  { key: 'ing', name: '成分库', desc: '今日推送、新成分发现与全球国家 Top20 趋势雷达',
     icon: '<path d="M12 3l7 4v5c0 4.4-3 8-7 9-4-1-7-4.6-7-9V7z"/><path d="M9.5 12l2 2 3.5-4"/>' },
   { key: 'design', name: '产品设计分析', desc: '小红书/详情页采集与自有店铺口碑改良',
     icon: '<path d="M12 19l7-7-4-4-7 7-1 5z"/><path d="M15 8l1.5-1.5a2.1 2.1 0 0 1 3 3L18 11"/>' },
@@ -2463,6 +2464,11 @@ RENDER.titles = function () {
       : '按市场与品类查看商品档案　·　默认按销量从高到低';
     return;
   }
+  if (state.view === 'ing') {
+    $('#viewTitle').textContent = '全球成分趋势雷达';
+    $('#viewDesc').textContent = '今日推送、新成分发现与全球国家 Top20　·　每日 09:30 更新';
+    return;
+  }
   /* v11·复审：board/rank 用默认真实数据口径；lib/insight/review 保持 V10 */
   var n = isBrView() ? boardRankDataOf().length : dataOf().length;
   $('#viewTitle').textContent = v.name;
@@ -2491,6 +2497,12 @@ RENDER.filter = function () {
     $('#chips').innerHTML = state.paMode === 'research'
       ? '<span class="hint" style="margin:2px 0">深度商品调研保留完整商品画像、评价、视频与达人分析；返回“全球商品档案”可按市场、品类和销量浏览。</span>'
       : paArchiveFilterHtml();
+    fltLayerRender();
+    return;
+  }
+  if (state.view === 'ing') {
+    $('#chips').innerHTML = '';
+    state.fltOpen = '0';
     fltLayerRender();
     return;
   }
@@ -4613,7 +4625,7 @@ function ingRadarHtml(){
 /* ---------- v13：成分库（原视图 + 合入成分趋势雷达） ----------
    从「品类与成分库」里拆出来：这里只回答「靠什么成分在打」，
    品类分层与商品档案归「产品分析」。 */
-RENDER.ing = function () {
+RENDER.ingLegacy = function () {
   var list = dataOf();
   var v = $('#view');
   if (!list.length) { v.innerHTML = diagHtml(list); return; }
@@ -4700,6 +4712,12 @@ RENDER.ing = function () {
   }
   h += '</tbody></table></div></div>';
   v.innerHTML = h;
+};
+
+/* 成分库只承载 1:1 成分榜单页面；原旧版成分卡片不再作为入口渲染。 */
+RENDER.ing = function () {
+  var v = $('#view');
+  v.innerHTML = '<iframe class="ingredient-radar-frame" src="ingredient-radar.html?v=1" title="全球成分趋势雷达"></iframe>';
 };
 
 /* ---------- v13：产品设计分析 = 采集通道（小红书/详情页）+ 自有店铺口碑 ---------- */
