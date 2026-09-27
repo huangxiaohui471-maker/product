@@ -1,0 +1,1587 @@
+{
+ "generated_at": "2026-09-27T12:36:04",
+ "scope": {
+  "categories": [
+   "眼部护理",
+   "面部洗护"
+  ],
+  "markets": [
+   "中国",
+   "美国"
+  ]
+ },
+ "sources": {
+  "CN": {
+   "source": "抖音罗盘 · 商品榜（总榜 · rank_data_type=1）",
+   "file": "compass_rank_20260927.json",
+   "data_date": "2026/09/26",
+   "windows": [
+    "实时",
+    "近1天",
+    "近7天"
+   ],
+   "signal_pool": {
+    "total": 233,
+    "by_l2": {
+     "面部洗护": 122,
+     "眼部护理": 111
+    }
+   },
+   "target_pool": {
+    "total": 482,
+    "by_l2": {
+     "面部洗护": 252,
+     "眼部护理": 230
+    }
+   }
+  },
+  "US": {
+   "source": "FastMoss 销量榜（美妆个护 · US · 30 页）",
+   "file": "fastmoss_us_beauty.json",
+   "harvested_at": "2026-09-27T04:35:07.387Z",
+   "signal_pool": {
+    "total": 97,
+    "by_l2": {
+     "眼部护理": 13,
+     "面部洗护": 84
+    }
+   },
+   "target_pool": {
+    "total": 97,
+    "by_l2": {
+     "眼部护理": 13,
+     "面部洗护": 84
+    }
+   }
+  }
+ },
+ "tabs": [
+  {
+   "key": "domestic",
+   "label": "国内机会",
+   "subtitle": "国外爆品 · 国内空缺",
+   "signal_market": "美国",
+   "target_market": "中国",
+   "signal_source": "FastMoss 美妆个护销量榜",
+   "target_source": "抖音罗盘商品榜",
+   "cards": [
+    {
+     "product_id": "1732520820893519881",
+     "name": "Lacto-PDRN* 4% + B9 Eye Cream",
+     "clean_name": "Lacto-PDRN* 4% + B9 Eye Cream",
+     "shop": "The Ordinary Store",
+     "source": "FastMoss",
+     "board": "FastMoss 销量榜（美妆个护·US）",
+     "period": "采集于 2026-09-27",
+     "window": "当前榜",
+     "image": "https://s.500fd.com/tt_product/3e4d0d4d2bfd4624b62981443a4363aa~tplv-fhlh96nyum-resize-jpeg:800:800.jpeg",
+     "url": "https://www.fastmoss.com/zh/e-commerce/detail/1732520820893519881",
+     "category_l2": "眼部护理",
+     "leaf": "眼部护理(合并)",
+     "sub_category": "眼部护理",
+     "price_bin": "$12.35",
+     "rank": 5,
+     "rank_change": null,
+     "is_new": null,
+     "sales": 3480,
+     "growth": 412.52,
+     "amount": null,
+     "clicks": null,
+     "cvr": null,
+     "commission": "10%",
+     "total_sales": 39900,
+     "concepts": [
+      "膏霜",
+      "PDRN/鲑鱼",
+      "乳酸菌发酵",
+      "维生素B9/叶酸"
+     ],
+     "gap_concepts": [
+      "PDRN/鲑鱼（同二级类目·供给密度差：信号 3 条 23.1% → 目标 6 条 2.6%）"
+     ],
+     "gap_concepts_plain": [
+      "PDRN/鲑鱼"
+     ],
+     "gap_primary": "PDRN/鲑鱼",
+     "claim_notes": [],
+     "compliance_notes": [
+      "PDRN（鲑鱼精巢 DNA 钠）在国内已有在售记录，需核对原料备案与宣称是否可支撑再生类功效"
+     ],
+     "opportunity_type": "GAP",
+     "opportunity_type_name": "跨市场缺口",
+     "grade": "成立",
+     "hit_count": 5,
+     "usable_count": 5,
+     "available_signals": 5,
+     "signals": [
+      {
+       "key": "S1",
+       "name": "跨市场缺口",
+       "hit": true,
+       "detail": "卖点「PDRN/鲑鱼」（同二级类目口径）：信号市场 3/13 条（23.1%，3 家店铺）→ 目标市场 6/230 条（2.6%）；供给密度差",
+       "gap_concepts": [
+        "PDRN/鲑鱼（同二级类目·供给密度差：信号 3 条 23.1% → 目标 6 条 2.6%）"
+       ],
+       "gap_detail": [
+        {
+         "concept": "PDRN/鲑鱼",
+         "sig_n": 3,
+         "sig_shops": 3,
+         "sig_density": 0.23076923076923078,
+         "tgt_n": 6,
+         "tgt_density": 0.02608695652173913,
+         "kind": "供给密度差",
+         "scope": "同二级类目",
+         "delta": 0.20468227424749166,
+         "sig_total": 13,
+         "tgt_total": 230
+        }
+       ],
+       "evidence": [
+        {
+         "id": "1732520820893519881",
+         "name": "Lacto-PDRN* 4% + B9 Eye Cream",
+         "src": "FastMoss",
+         "rank": 5
+        },
+        {
+         "id": "1729499342963185418",
+         "name": "Collagen Peptide Eye Patch Duo For Wrinkle, Dark Circles & Dark Spots | Collagen",
+         "src": "FastMoss",
+         "rank": 395
+        },
+        {
+         "id": "1732504514422411770",
+         "name": "3D2Y Award Winning Eye Patches for Puffy Leopard Print Eye Patches, | Hydrogel E",
+         "src": "FastMoss",
+         "rank": 408
+        }
+       ]
+      },
+      {
+       "key": "S2",
+       "name": "高增长",
+       "hit": true,
+       "detail": "环比 +412.52% / 同类目中位 -2.82%",
+       "evidence": [
+        {
+         "id": "1732520820893519881",
+         "name": "Lacto-PDRN* 4% + B9 Eye Cream",
+         "src": "FastMoss",
+         "rank": 5,
+         "val": "环比 +412.52%"
+        },
+        {
+         "id": "1732040890723766908",
+         "name": "EGF Eye Cream l Longevity, Anti-Aging Routine l EGF, Copper Peptide, Acetyl Hexa",
+         "src": "FastMoss",
+         "rank": 272,
+         "val": "环比 +174.53%"
+        },
+        {
+         "id": "1730145325626134555",
+         "name": "Calcium Intense Volume Eye Cream | Anti-aging, Elasticity, Volume | Korean Cosme",
+         "src": "FastMoss",
+         "rank": 343,
+         "val": "环比 +50.00%"
+        },
+        {
+         "id": "1729385857316131384",
+         "name": "Essential Lash Serum, Babe Lash Eyelash Serum, Longer Looking Eyelashes, Advance",
+         "src": "FastMoss",
+         "rank": 232,
+         "val": "环比 +27.03%"
+        },
+        {
+         "id": "1730447489003196587",
+         "name": "The Peptide Collagen Hydrogel Eye Patch 60 Patches Reduce Puffiness Hydrate Unde",
+         "src": "FastMoss",
+         "rank": 153,
+         "val": "环比 +15.93%"
+        }
+       ]
+      },
+      {
+       "key": "S3",
+       "name": "新品",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回上市日期（罗盘 / FastMoss 榜单均无）",
+       "evidence": []
+      },
+      {
+       "key": "S4",
+       "name": "榜单地位",
+       "hit": true,
+       "detail": "榜内第 5 名",
+       "evidence": [
+        {
+         "id": "1732520820893519881",
+         "name": "Lacto-PDRN* 4% + B9 Eye Cream",
+         "src": "FastMoss",
+         "rank": 5,
+         "val": "榜内第 5 名"
+        }
+       ]
+      },
+      {
+       "key": "S5",
+       "name": "形态/包材",
+       "hit": true,
+       "detail": "形态「膏霜」在信号市场同类目占 23.1%（3/13）",
+       "evidence": [
+        {
+         "id": "1732520820893519881",
+         "name": "Lacto-PDRN* 4% + B9 Eye Cream",
+         "src": "FastMoss",
+         "rank": 5
+        },
+        {
+         "id": "1732040890723766908",
+         "name": "EGF Eye Cream l Longevity, Anti-Aging Routine l EGF, Copper Peptide, Acetyl Hexa",
+         "src": "FastMoss",
+         "rank": 272
+        },
+        {
+         "id": "1730145325626134555",
+         "name": "Calcium Intense Volume Eye Cream | Anti-aging, Elasticity, Volume | Korean Cosme",
+         "src": "FastMoss",
+         "rank": 343
+        }
+       ]
+      },
+      {
+       "key": "S6",
+       "name": "需求验证",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回评价数 / 评分",
+       "evidence": []
+      },
+      {
+       "key": "S7",
+       "name": "达人放大",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回关联达人数",
+       "evidence": []
+      },
+      {
+       "key": "S8",
+       "name": "成交效率",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回点击成交转化率",
+       "evidence": []
+      },
+      {
+       "key": "S9",
+       "name": "类目内规模",
+       "hit": true,
+       "detail": "销量 3,480 / 同类目中位 291",
+       "evidence": [
+        {
+         "id": "1732520820893519881",
+         "name": "Lacto-PDRN* 4% + B9 Eye Cream",
+         "src": "FastMoss",
+         "rank": 5,
+         "val": "销量 3,480"
+        }
+       ]
+      }
+     ],
+     "blockers": [],
+     "hypothesis": "美国眼部护理(合并)已成交（销量 3,480 件、环比 +412.5%、榜内第 5 名），而国内「眼部护理」类目的「PDRN/鲑鱼」供给密度只有 2.6%，约为信号市场 23.1% 的 1/9（同二级类目口径）",
+     "counter": [
+      "同商品命中的卖点「膏霜」其实国内已有 119 条记录 —— 缺口只是该商品的某一个卖点，不是整个品类",
+      "目标市场「眼部护理」本轮比对到 230 条真实记录，最接近的是「效妆PDRN小金瓶眼油眼部精华油紧致抗皱保湿官方正品」（抖音罗盘 第 1 名）——说明该细分在目标市场并非没有供给，只是卖点不同",
+      "目标市场样本只有 230 条（眼部护理），缺失可能是采集覆盖不足，而非市场真空",
+      "信号市场仅覆盖 FastMoss 销量榜 TOP300（美妆个护·美国），不是美国全市场",
+      "PDRN（鲑鱼精巢 DNA 钠）在国内已有在售记录，需核对原料备案与宣称是否可支撑再生类功效"
+     ],
+     "next": [
+      "到蝉妈妈 / 淘宝搜索「眼部护理(合并) + PDRN/鲑鱼」，确认国内是否真的无同类供给",
+      "查该商品在美国的上架时间、评价数与带货达人数（FastMoss 商品详情页）",
+      "核对国内落地门槛：眼部护理(合并) 的备案路径与功效宣称支撑"
+     ]
+    },
+    {
+     "product_id": "1730447489003196587",
+     "name": "[COSRX Official] The Peptide Collagen Hydrogel Eye Patch 60 Patches Reduce Puffiness Hydrate Under-Eye Bags in 10 Minutes",
+     "clean_name": "The Peptide Collagen Hydrogel Eye Patch 60 Patches Reduce Puffiness Hydrate Under-Eye Bags in 10 Minutes",
+     "shop": "COSRX US",
+     "source": "FastMoss",
+     "board": "FastMoss 销量榜（美妆个护·US）",
+     "period": "采集于 2026-09-27",
+     "window": "当前榜",
+     "image": "https://s.500fd.com/tt_product/3f9e88fae3264cae8478e6fa04bfd511~tplv-fhlh96nyum-resize-jpeg:800:800.jpeg",
+     "url": "https://www.fastmoss.com/zh/e-commerce/detail/1730447489003196587",
+     "category_l2": "眼部护理",
+     "leaf": "眼部护理(合并)",
+     "sub_category": "眼部护理",
+     "price_bin": "$21.50",
+     "rank": 153,
+     "rank_change": null,
+     "is_new": null,
+     "sales": 444,
+     "growth": 15.93,
+     "amount": null,
+     "clicks": null,
+     "cvr": null,
+     "commission": "17%",
+     "total_sales": 412900,
+     "concepts": [
+      "眼膜贴",
+      "凝胶膜",
+      "啫喱",
+      "胜肽",
+      "胶原",
+      "保湿补水",
+      "黑眼圈/眼袋"
+     ],
+     "gap_concepts": [
+      "凝胶膜（同二级类目·绝对空缺：信号 3 条 23.1% → 目标 0 条 0.0%）"
+     ],
+     "gap_concepts_plain": [
+      "凝胶膜"
+     ],
+     "gap_primary": "凝胶膜",
+     "claim_notes": [],
+     "compliance_notes": [],
+     "opportunity_type": "GAP",
+     "opportunity_type_name": "跨市场缺口",
+     "grade": "成立",
+     "hit_count": 4,
+     "usable_count": 5,
+     "available_signals": 5,
+     "signals": [
+      {
+       "key": "S1",
+       "name": "跨市场缺口",
+       "hit": true,
+       "detail": "卖点「凝胶膜」（同二级类目口径）：信号市场 3/13 条（23.1%，2 家店铺）→ 目标市场 0/230 条（0.0%）；绝对空缺",
+       "gap_concepts": [
+        "凝胶膜（同二级类目·绝对空缺：信号 3 条 23.1% → 目标 0 条 0.0%）"
+       ],
+       "gap_detail": [
+        {
+         "concept": "凝胶膜",
+         "sig_n": 3,
+         "sig_shops": 2,
+         "sig_density": 0.23076923076923078,
+         "tgt_n": 0,
+         "tgt_density": 0.0,
+         "kind": "绝对空缺",
+         "scope": "同二级类目",
+         "delta": 0.23076923076923078,
+         "sig_total": 13,
+         "tgt_total": 230
+        }
+       ],
+       "evidence": [
+        {
+         "id": "1730447489003196587",
+         "name": "The Peptide Collagen Hydrogel Eye Patch 60 Patches Reduce Puffiness Hydrate Unde",
+         "src": "FastMoss",
+         "rank": 153
+        },
+        {
+         "id": "1731369897578565803",
+         "name": "Pretty in Pink Lift & Bright Skincare Kit - Collagen Hydrogel Eye Patches (60 Un",
+         "src": "FastMoss",
+         "rank": 289
+        },
+        {
+         "id": "1732504514422411770",
+         "name": "3D2Y Award Winning Eye Patches for Puffy Leopard Print Eye Patches, | Hydrogel E",
+         "src": "FastMoss",
+         "rank": 408
+        }
+       ]
+      },
+      {
+       "key": "S2",
+       "name": "高增长",
+       "hit": true,
+       "detail": "环比 +15.93% / 同类目中位 -2.82%",
+       "evidence": [
+        {
+         "id": "1732520820893519881",
+         "name": "Lacto-PDRN* 4% + B9 Eye Cream",
+         "src": "FastMoss",
+         "rank": 5,
+         "val": "环比 +412.52%"
+        },
+        {
+         "id": "1732040890723766908",
+         "name": "EGF Eye Cream l Longevity, Anti-Aging Routine l EGF, Copper Peptide, Acetyl Hexa",
+         "src": "FastMoss",
+         "rank": 272,
+         "val": "环比 +174.53%"
+        },
+        {
+         "id": "1730145325626134555",
+         "name": "Calcium Intense Volume Eye Cream | Anti-aging, Elasticity, Volume | Korean Cosme",
+         "src": "FastMoss",
+         "rank": 343,
+         "val": "环比 +50.00%"
+        },
+        {
+         "id": "1729385857316131384",
+         "name": "Essential Lash Serum, Babe Lash Eyelash Serum, Longer Looking Eyelashes, Advance",
+         "src": "FastMoss",
+         "rank": 232,
+         "val": "环比 +27.03%"
+        },
+        {
+         "id": "1730447489003196587",
+         "name": "The Peptide Collagen Hydrogel Eye Patch 60 Patches Reduce Puffiness Hydrate Unde",
+         "src": "FastMoss",
+         "rank": 153,
+         "val": "环比 +15.93%"
+        }
+       ]
+      },
+      {
+       "key": "S3",
+       "name": "新品",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回上市日期（罗盘 / FastMoss 榜单均无）",
+       "evidence": []
+      },
+      {
+       "key": "S4",
+       "name": "榜单地位",
+       "hit": false,
+       "detail": "榜内第 153 名",
+       "evidence": [
+        {
+         "id": "1730447489003196587",
+         "name": "The Peptide Collagen Hydrogel Eye Patch 60 Patches Reduce Puffiness Hydrate Unde",
+         "src": "FastMoss",
+         "rank": 153,
+         "val": "榜内第 153 名"
+        }
+       ]
+      },
+      {
+       "key": "S5",
+       "name": "形态/包材",
+       "hit": true,
+       "detail": "形态「凝胶膜」在信号市场同类目占 23.1%（3/13）",
+       "evidence": [
+        {
+         "id": "1730447489003196587",
+         "name": "The Peptide Collagen Hydrogel Eye Patch 60 Patches Reduce Puffiness Hydrate Unde",
+         "src": "FastMoss",
+         "rank": 153
+        },
+        {
+         "id": "1731369897578565803",
+         "name": "Pretty in Pink Lift & Bright Skincare Kit - Collagen Hydrogel Eye Patches (60 Un",
+         "src": "FastMoss",
+         "rank": 289
+        },
+        {
+         "id": "1732504514422411770",
+         "name": "3D2Y Award Winning Eye Patches for Puffy Leopard Print Eye Patches, | Hydrogel E",
+         "src": "FastMoss",
+         "rank": 408
+        }
+       ]
+      },
+      {
+       "key": "S6",
+       "name": "需求验证",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回评价数 / 评分",
+       "evidence": []
+      },
+      {
+       "key": "S7",
+       "name": "达人放大",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回关联达人数",
+       "evidence": []
+      },
+      {
+       "key": "S8",
+       "name": "成交效率",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回点击成交转化率",
+       "evidence": []
+      },
+      {
+       "key": "S9",
+       "name": "类目内规模",
+       "hit": true,
+       "detail": "销量 444 / 同类目中位 291",
+       "evidence": [
+        {
+         "id": "1730447489003196587",
+         "name": "The Peptide Collagen Hydrogel Eye Patch 60 Patches Reduce Puffiness Hydrate Unde",
+         "src": "FastMoss",
+         "rank": 153,
+         "val": "销量 444"
+        }
+       ]
+      }
+     ],
+     "blockers": [],
+     "hypothesis": "美国眼部护理(合并)已成交（销量 444 件、环比 +15.9%、榜内第 153 名），而国内「眼部护理」类目完全没有「凝胶膜」形态的供给记录（信号市场 3 条、2 家店铺）",
+     "counter": [
+      "同商品命中的卖点「胜肽」其实国内已有 30 条记录 —— 缺口只是该商品的某一个卖点，不是整个品类",
+      "目标市场「眼部护理」本轮比对到 230 条真实记录，最接近的是「效妆PDRN小金瓶眼油眼部精华油紧致抗皱保湿官方正品」（抖音罗盘 第 1 名）——说明该细分在目标市场并非没有供给，只是卖点不同",
+      "目标市场样本只有 230 条（眼部护理），缺失可能是采集覆盖不足，而非市场真空",
+      "信号市场仅覆盖 FastMoss 销量榜 TOP300（美妆个护·美国），不是美国全市场"
+     ],
+     "next": [
+      "到蝉妈妈 / 淘宝搜索「眼部护理(合并) + 凝胶膜」，确认国内是否真的无同类供给",
+      "查该商品在美国的上架时间、评价数与带货达人数（FastMoss 商品详情页）",
+      "核对国内落地门槛：眼部护理(合并) 的备案路径与功效宣称支撑"
+     ]
+    },
+    {
+     "product_id": "1729558556070089471",
+     "name": "Organic Grass-Fed Beef Tallow Balm with Raw Honey - Handmade All-Natural Moisturizer for Soft, Smooth, Radiant Skin",
+     "clean_name": "Organic Grass-Fed Beef Tallow Balm with Raw Honey - Handmade All-Natural Moisturizer for Soft, Smooth, Radiant Skin",
+     "shop": "Terra Lotus",
+     "source": "FastMoss",
+     "board": "FastMoss 销量榜（美妆个护·US）",
+     "period": "采集于 2026-09-27",
+     "window": "当前榜",
+     "image": "https://s.500fd.com/tt_product/71aa8e98491544b8996172a052cb4357~tplv-omjb5zjo8w-resize-jpeg:800:800.jpeg",
+     "url": "https://www.fastmoss.com/zh/e-commerce/detail/1729558556070089471",
+     "category_l2": "面部洗护",
+     "leaf": "面霜",
+     "sub_category": "保湿乳液、乳霜与喷雾",
+     "price_bin": "$20.00",
+     "rank": 267,
+     "rank_change": null,
+     "is_new": null,
+     "sales": 296,
+     "growth": 65.36,
+     "amount": null,
+     "clicks": null,
+     "cvr": null,
+     "commission": "30%",
+     "total_sales": 653300,
+     "concepts": [
+      "膏霜",
+      "牛脂/牛油",
+      "麦卢卡蜂蜜",
+      "保湿补水"
+     ],
+     "gap_concepts": [
+      "牛脂/牛油（同二级类目·绝对空缺：信号 3 条 3.6% → 目标 0 条 0.0%）"
+     ],
+     "gap_concepts_plain": [
+      "牛脂/牛油"
+     ],
+     "gap_primary": "牛脂/牛油",
+     "claim_notes": [],
+     "compliance_notes": [
+      "牛脂（beef tallow）在国内需按《已使用化妆品原料目录》核对来源与动物源检疫证明，属需额外合规成本的原料"
+     ],
+     "opportunity_type": "GAP",
+     "opportunity_type_name": "跨市场缺口",
+     "grade": "待验证",
+     "hit_count": 3,
+     "usable_count": 5,
+     "available_signals": 5,
+     "signals": [
+      {
+       "key": "S1",
+       "name": "跨市场缺口",
+       "hit": true,
+       "detail": "卖点「牛脂/牛油」（同二级类目口径）：信号市场 3/84 条（3.6%，3 家店铺）→ 目标市场 0/252 条（0.0%）；绝对空缺",
+       "gap_concepts": [
+        "牛脂/牛油（同二级类目·绝对空缺：信号 3 条 3.6% → 目标 0 条 0.0%）"
+       ],
+       "gap_detail": [
+        {
+         "concept": "牛脂/牛油",
+         "sig_n": 3,
+         "sig_shops": 3,
+         "sig_density": 0.03571428571428571,
+         "tgt_n": 0,
+         "tgt_density": 0.0,
+         "kind": "绝对空缺",
+         "scope": "同二级类目",
+         "delta": 0.03571428571428571,
+         "sig_total": 84,
+         "tgt_total": 252
+        }
+       ],
+       "evidence": [
+        {
+         "id": "1729558556070089471",
+         "name": "Organic Grass-Fed Beef Tallow Balm with Raw Honey - Handmade All-Natural Moistur",
+         "src": "FastMoss",
+         "rank": 267
+        },
+        {
+         "id": "1729722480591933882",
+         "name": "EVIL GOODS! Whipped Beef Tallow & Manuka Honey Balm 4oz — Grass-Fed Tallow, Manu",
+         "src": "FastMoss",
+         "rank": 275
+        },
+        {
+         "id": "1732516327568544086",
+         "name": "Santa Cruz Paleo GHK-Cu Whipped Tallow Balm + Copper Peptide, Vanilla, 2 Oz",
+         "src": "FastMoss",
+         "rank": 309
+        }
+       ]
+      },
+      {
+       "key": "S2",
+       "name": "高增长",
+       "hit": true,
+       "detail": "环比 +65.36% / 同类目中位 +18.11%",
+       "evidence": [
+        {
+         "id": "1732692076718100656",
+         "name": "Gigi Beauty Pulls 09/24 Day",
+         "src": "FastMoss",
+         "rank": 217,
+         "val": "环比 +505.26%"
+        },
+        {
+         "id": "1731880471514354416",
+         "name": "DARK SPOT BUNDLE Skin Repair",
+         "src": "FastMoss",
+         "rank": 32,
+         "val": "环比 +416.11%"
+        },
+        {
+         "id": "1731583840101438362",
+         "name": "345 Relief Cream - Daily Face Moisturizer, Blemish Relief Care, Soothing Recover",
+         "src": "FastMoss",
+         "rank": 61,
+         "val": "环比 +352.02%"
+        },
+        {
+         "id": "1732422500087993276",
+         "name": "tarte summer skin essentials - CC color-correcting tinted serum + creaseless set",
+         "src": "FastMoss",
+         "rank": 428,
+         "val": "环比 +341.30%"
+        },
+        {
+         "id": "1730890891608691121",
+         "name": "Daily Tinted Fluid Sunscreen 50mL | OTC Certified, SPF, Broad Spectrum Protectio",
+         "src": "FastMoss",
+         "rank": 169,
+         "val": "环比 +265.18%"
+        }
+       ]
+      },
+      {
+       "key": "S3",
+       "name": "新品",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回上市日期（罗盘 / FastMoss 榜单均无）",
+       "evidence": []
+      },
+      {
+       "key": "S4",
+       "name": "榜单地位",
+       "hit": false,
+       "detail": "榜内第 267 名",
+       "evidence": [
+        {
+         "id": "1729558556070089471",
+         "name": "Organic Grass-Fed Beef Tallow Balm with Raw Honey - Handmade All-Natural Moistur",
+         "src": "FastMoss",
+         "rank": 267,
+         "val": "榜内第 267 名"
+        }
+       ]
+      },
+      {
+       "key": "S5",
+       "name": "形态/包材",
+       "hit": true,
+       "detail": "形态「膏霜」在信号市场同类目占 22.6%（19/84）",
+       "evidence": [
+        {
+         "id": "1729472647677055844",
+         "name": "Lion Pair Acne Cream Acne Treatment Pimples Removal Cream Pair Acne Creamy Foam ",
+         "src": "FastMoss",
+         "rank": 13
+        },
+        {
+         "id": "1729718141631565851",
+         "name": "Calcium Multi Balm Eye Care Routine Korean Skin Care Anti-aging Cosmetics Collag",
+         "src": "FastMoss",
+         "rank": 14
+        },
+        {
+         "id": "1729718097057910811",
+         "name": "Calcium Dark Spot Eye Cream | Dark Circle, Anti-aging, Sagging, Elasticity | Kor",
+         "src": "FastMoss",
+         "rank": 20
+        },
+        {
+         "id": "1729508370969629931",
+         "name": "PDRN Pink Collagen Volume Multi Balm | All In One Volufiline, PDRN, NAD Stick fo",
+         "src": "FastMoss",
+         "rank": 22
+        },
+        {
+         "id": "1731997246433955867",
+         "name": "Gifted Collagen Boost Set Pore Spot Skin Care Calcium Collagen Volume Firming Ba",
+         "src": "FastMoss",
+         "rank": 33
+        }
+       ]
+      },
+      {
+       "key": "S6",
+       "name": "需求验证",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回评价数 / 评分",
+       "evidence": []
+      },
+      {
+       "key": "S7",
+       "name": "达人放大",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回关联达人数",
+       "evidence": []
+      },
+      {
+       "key": "S8",
+       "name": "成交效率",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回点击成交转化率",
+       "evidence": []
+      },
+      {
+       "key": "S9",
+       "name": "类目内规模",
+       "hit": false,
+       "detail": "销量 296 / 同类目中位 323",
+       "evidence": [
+        {
+         "id": "1729558556070089471",
+         "name": "Organic Grass-Fed Beef Tallow Balm with Raw Honey - Handmade All-Natural Moistur",
+         "src": "FastMoss",
+         "rank": 267,
+         "val": "销量 296"
+        }
+       ]
+      }
+     ],
+     "blockers": [],
+     "hypothesis": "美国面霜已成交（销量 296 件、环比 +65.4%、榜内第 267 名），而国内「面部洗护」类目完全没有「牛脂/牛油」形态的供给记录（信号市场 3 条、3 家店铺）",
+     "counter": [
+      "同商品命中的卖点「保湿补水」其实国内已有 83 条记录 —— 缺口只是该商品的某一个卖点，不是整个品类",
+      "目标市场「面部洗护」本轮比对到 252 条真实记录，最接近的是「怡丽丝尔 全新二代优悦活颜多重紧塑焕颜霜50g」（抖音罗盘 第 12 名）——说明该细分在目标市场并非没有供给，只是卖点不同",
+      "目标市场样本只有 252 条（面部洗护），缺失可能是采集覆盖不足，而非市场真空",
+      "信号市场仅覆盖 FastMoss 销量榜 TOP300（美妆个护·美国），不是美国全市场",
+      "牛脂（beef tallow）在国内需按《已使用化妆品原料目录》核对来源与动物源检疫证明，属需额外合规成本的原料"
+     ],
+     "next": [
+      "到蝉妈妈 / 淘宝搜索「面霜 + 牛脂/牛油」，确认国内是否真的无同类供给",
+      "查该商品在美国的上架时间、评价数与带货达人数（FastMoss 商品详情页）",
+      "核对国内落地门槛：面霜 的备案路径与功效宣称支撑"
+     ]
+    }
+   ],
+   "graded": 92,
+   "exclusions": {
+    "赠品/非卖品": 2,
+    "未命中锁定类目": 0,
+    "缺口因监管不可复刻：EGF/生长因子": 3
+   }
+  },
+  {
+   "key": "crossborder",
+   "label": "国外机会",
+   "subtitle": "国内火爆 · 国外没有",
+   "signal_market": "中国",
+   "target_market": "美国",
+   "signal_source": "抖音罗盘商品榜",
+   "target_source": "FastMoss 美妆个护销量榜",
+   "cards": [
+    {
+     "product_id": "3731819205234917744",
+     "name": "【明星同款】黛兰卡377美白抗皱祛斑面膜熬夜去黄细腻淡斑补水保湿1",
+     "clean_name": "黛兰卡377美白抗皱祛斑面膜熬夜去黄细腻淡斑补水保湿1",
+     "shop": "黛兰卡官方旗舰店",
+     "source": "抖音罗盘",
+     "board": "抖音罗盘·商品榜 实时榜",
+     "period": "2026/09/26 ~ 2026/09/26",
+     "window": "实时",
+     "image": "https://p3-aio.ecombdimg.com/obj/ecom-shop-material/jpeg_m_4801d7ca6c52114ca88970dd63981b4d_sx_562853_www800-800",
+     "url": "https://haohuo.jinritemai.com/ecommerce/trade/detail/index.html?id=3731819205234917744&origin_type=pc_compass_manage",
+     "category_l2": "面部洗护",
+     "leaf": "面膜",
+     "sub_category": "面部洗护",
+     "price_bin": "¥0.1-¥119.9",
+     "rank": 2,
+     "rank_change": 1,
+     "is_new": false,
+     "sales": 62500.0,
+     "growth": null,
+     "amount": 375000000.0,
+     "clicks": 375000.0,
+     "cvr": 0.175,
+     "commission": null,
+     "total_sales": null,
+     "concepts": [
+      "面膜(通用)",
+      "377",
+      "抗皱淡纹",
+      "美白提亮",
+      "淡斑祛印",
+      "保湿补水"
+     ],
+     "gap_concepts": [
+      "377（同二级类目·绝对空缺：信号 4 条 3.3% → 目标 0 条 0.0%）"
+     ],
+     "gap_concepts_plain": [
+      "377"
+     ],
+     "gap_primary": "377",
+     "claim_notes": [],
+     "compliance_notes": [],
+     "opportunity_type": "GAP",
+     "opportunity_type_name": "跨市场缺口",
+     "grade": "成立",
+     "hit_count": 5,
+     "usable_count": 5,
+     "available_signals": 5,
+     "signals": [
+      {
+       "key": "S1",
+       "name": "跨市场缺口",
+       "hit": true,
+       "detail": "卖点「377」（同二级类目口径）：信号市场 4/122 条（3.3%，4 家店铺）→ 目标市场 0/84 条（0.0%）；绝对空缺",
+       "gap_concepts": [
+        "377（同二级类目·绝对空缺：信号 4 条 3.3% → 目标 0 条 0.0%）"
+       ],
+       "gap_detail": [
+        {
+         "concept": "377",
+         "sig_n": 4,
+         "sig_shops": 4,
+         "sig_density": 0.03278688524590164,
+         "tgt_n": 0,
+         "tgt_density": 0.0,
+         "kind": "绝对空缺",
+         "scope": "同二级类目",
+         "delta": 0.03278688524590164,
+         "sig_total": 122,
+         "tgt_total": 84
+        }
+       ],
+       "evidence": [
+        {
+         "id": "3731819205234917744",
+         "name": "黛兰卡377美白抗皱祛斑面膜熬夜去黄细腻淡斑补水保湿1",
+         "src": "抖音罗盘",
+         "rank": 2
+        },
+        {
+         "id": "3843718663828013281",
+         "name": "美诗377白金版美白祛斑精华油祛黄提亮",
+         "src": "抖音罗盘",
+         "rank": 12
+        },
+        {
+         "id": "3842822802486984799",
+         "name": "韩束377白蛮腰美白抗皱淡斑水乳精华霜护肤套装补水",
+         "src": "抖音罗盘",
+         "rank": 37
+        },
+        {
+         "id": "3789967562834575649",
+         "name": "韩束男士377小白泥洗面奶焕白净透美白控油保湿护肤",
+         "src": "抖音罗盘",
+         "rank": 71
+        }
+       ]
+      },
+      {
+       "key": "S2",
+       "name": "高增长",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回环比增速（抖音罗盘商品榜无此字段）",
+       "evidence": []
+      },
+      {
+       "key": "S3",
+       "name": "新品",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回上市日期（罗盘 / FastMoss 榜单均无）",
+       "evidence": []
+      },
+      {
+       "key": "S4",
+       "name": "榜单地位",
+       "hit": true,
+       "detail": "榜内第 2 名，较上期上升 1 位",
+       "evidence": [
+        {
+         "id": "3731819205234917744",
+         "name": "黛兰卡377美白抗皱祛斑面膜熬夜去黄细腻淡斑补水保湿1",
+         "src": "抖音罗盘",
+         "rank": 2,
+         "val": "榜内第 2 名，较上期上升 1 位"
+        }
+       ]
+      },
+      {
+       "key": "S5",
+       "name": "形态/包材",
+       "hit": true,
+       "detail": "形态「面膜(通用)」在信号市场同类目占 22.1%（27/122）",
+       "evidence": [
+        {
+         "id": "3731819205234917744",
+         "name": "黛兰卡377美白抗皱祛斑面膜熬夜去黄细腻淡斑补水保湿1",
+         "src": "抖音罗盘",
+         "rank": 2
+        },
+        {
+         "id": "3842641889933263081",
+         "name": "膜法世家黑金二裂酵母面膜紧致抗皱补水修护淡纹焕亮-db主",
+         "src": "抖音罗盘",
+         "rank": 3
+        },
+        {
+         "id": "3840778477620035660",
+         "name": "可丽金大膜王重组胶原蛋白抗皱紧致涂抹睡眠面膜3.0版20杯/盒*2ZS",
+         "src": "抖音罗盘",
+         "rank": 5
+        },
+        {
+         "id": "3756877191128941314",
+         "name": "eiio水光弹润面膜补水保湿修护透亮紧致敏肌适用",
+         "src": "抖音罗盘",
+         "rank": 7
+        },
+        {
+         "id": "3819634411360616493",
+         "name": "大膜王紧致抗皱淡皱纹抗初老多效改善问题涂抹面膜",
+         "src": "抖音罗盘",
+         "rank": 10
+        }
+       ]
+      },
+      {
+       "key": "S6",
+       "name": "需求验证",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回评价数 / 评分",
+       "evidence": []
+      },
+      {
+       "key": "S7",
+       "name": "达人放大",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回关联达人数",
+       "evidence": []
+      },
+      {
+       "key": "S8",
+       "name": "成交效率",
+       "hit": true,
+       "detail": "点击成交转化率 17.5% / 同类目中位 12.5%",
+       "evidence": [
+        {
+         "id": "3842068969104212941",
+         "name": "法儿曼赋活修护日夜补湿乳霜 50ml（24小时）",
+         "src": "抖音罗盘",
+         "rank": 91,
+         "val": "转化 37.5%"
+        },
+        {
+         "id": "3757290916805738924",
+         "name": "自然堂洗面奶水润焕亮洁面洗卸合一不紧绷清洁控油",
+         "src": "抖音罗盘",
+         "rank": 34,
+         "val": "转化 32.5%"
+        },
+        {
+         "id": "3839069432638996638",
+         "name": "韩贝丹 淡纹抗皱紧致胶囊精华油",
+         "src": "抖音罗盘",
+         "rank": 86,
+         "val": "转化 32.5%"
+        },
+        {
+         "id": "3663794842322007391",
+         "name": "焕颜有方祛痘凝胶青少年精华控油闭口粉刺舒缓男女",
+         "src": "抖音罗盘",
+         "rank": 38,
+         "val": "转化 27.5%"
+        },
+        {
+         "id": "3841516417442775369",
+         "name": "海茴香墨角藻精萃酵母膏b",
+         "src": "抖音罗盘",
+         "rank": 69,
+         "val": "转化 27.5%"
+        }
+       ]
+      },
+      {
+       "key": "S9",
+       "name": "类目内规模",
+       "hit": true,
+       "detail": "销量 6.25万 / 同类目中位 3,750",
+       "evidence": [
+        {
+         "id": "3731819205234917744",
+         "name": "黛兰卡377美白抗皱祛斑面膜熬夜去黄细腻淡斑补水保湿1",
+         "src": "抖音罗盘",
+         "rank": 2,
+         "val": "销量 6.25万"
+        }
+       ]
+      }
+     ],
+     "blockers": [],
+     "hypothesis": "中国面膜已成交（销量 6.25万 件、榜内第 2 名），而国外「面部洗护」类目完全没有「377」形态的供给记录（信号市场 4 条、4 家店铺）",
+     "counter": [
+      "同商品命中的卖点「抗皱淡纹」其实国外已有 16 条记录 —— 缺口只是该商品的某一个卖点，不是整个品类",
+      "目标市场「面部洗护」本轮比对到 84 条真实记录，最接近的是「Zero Pore Blackhead Mud Mask | 3 min mud」（FastMoss 第 199 名）——说明该细分在目标市场并非没有供给，只是卖点不同",
+      "该商品在既有底座中已有快照（2026/09/24），不是本轮新出现",
+      "目标市场样本只有 84 条（面部洗护），缺失可能是采集覆盖不足，而非市场真空",
+      "信号市场仅覆盖 抖音罗盘商品榜 TOP200（面部洗护 / 眼部护理），不含天猫、京东与线下"
+     ],
+     "next": [
+      "到 FastMoss / TikTok Shop 搜「377」英文词，确认美区是否真的无同类",
+      "核对美国该类目的成分合规差异（视黄醇/酸类浓度上限）",
+      "确认国内供应链能否复刻该形态（包膜/包材工艺）"
+     ]
+    },
+    {
+     "product_id": "3810728158953604184",
+     "name": "【林心如代言】效妆PDRN小金瓶眼油眼部精华油紧致抗皱保湿官方正品",
+     "clean_name": "效妆PDRN小金瓶眼油眼部精华油紧致抗皱保湿官方正品",
+     "shop": "效妆官方旗舰店",
+     "source": "抖音罗盘",
+     "board": "抖音罗盘·商品榜 实时榜",
+     "period": "2026/09/26 ~ 2026/09/26",
+     "window": "实时",
+     "image": "https://p3-aio.ecombdimg.com/obj/ecom-shop-material/png_m_d45eafa3ab3b97d76cf2dba10ff83e68_sx_953323_www800-800",
+     "url": "https://haohuo.jinritemai.com/ecommerce/trade/detail/index.html?id=3810728158953604184&origin_type=pc_compass_manage",
+     "category_l2": "眼部护理",
+     "leaf": "眼部精华",
+     "sub_category": "眼部护理",
+     "price_bin": "¥10.5-¥59.9",
+     "rank": 1,
+     "rank_change": 0,
+     "is_new": false,
+     "sales": 17500.0,
+     "growth": null,
+     "amount": 175000000.0,
+     "clicks": 175000.0,
+     "cvr": 0.175,
+     "commission": null,
+     "total_sales": null,
+     "concepts": [
+      "油类",
+      "精华液",
+      "PDRN/鲑鱼",
+      "抗皱淡纹",
+      "紧致提拉",
+      "保湿补水"
+     ],
+     "gap_concepts": [
+      "油类（同二级类目·绝对空缺：信号 18 条 16.2% → 目标 0 条 0.0%）"
+     ],
+     "gap_concepts_plain": [
+      "油类"
+     ],
+     "gap_primary": "油类",
+     "claim_notes": [],
+     "compliance_notes": [
+      "PDRN（鲑鱼精巢 DNA 钠）在国内已有在售记录，需核对原料备案与宣称是否可支撑再生类功效"
+     ],
+     "opportunity_type": "GAP",
+     "opportunity_type_name": "跨市场缺口",
+     "grade": "成立",
+     "hit_count": 5,
+     "usable_count": 5,
+     "available_signals": 5,
+     "signals": [
+      {
+       "key": "S1",
+       "name": "跨市场缺口",
+       "hit": true,
+       "detail": "卖点「油类」（同二级类目口径）：信号市场 18/111 条（16.2%，12 家店铺）→ 目标市场 0/13 条（0.0%）；绝对空缺",
+       "gap_concepts": [
+        "油类（同二级类目·绝对空缺：信号 18 条 16.2% → 目标 0 条 0.0%）"
+       ],
+       "gap_detail": [
+        {
+         "concept": "油类",
+         "sig_n": 18,
+         "sig_shops": 12,
+         "sig_density": 0.16216216216216217,
+         "tgt_n": 0,
+         "tgt_density": 0.0,
+         "kind": "绝对空缺",
+         "scope": "同二级类目",
+         "delta": 0.16216216216216217,
+         "sig_total": 111,
+         "tgt_total": 13
+        }
+       ],
+       "evidence": [
+        {
+         "id": "3810728158953604184",
+         "name": "效妆PDRN小金瓶眼油眼部精华油紧致抗皱保湿官方正品",
+         "src": "抖音罗盘",
+         "rank": 1
+        },
+        {
+         "id": "3655993122149773000",
+         "name": "MIUNICO安沐珂菁致时光眼部精华油",
+         "src": "抖音罗盘",
+         "rank": 7
+        },
+        {
+         "id": "3814634777387073680",
+         "name": "志刚哥玫瑰颂玫瑰眼部精华油眼纹淡纹抗皱细纹紧致",
+         "src": "抖音罗盘",
+         "rank": 9
+        },
+        {
+         "id": "3830232062984585462",
+         "name": "雏菊的天空新一代补脂精华油修护抗皱中秋礼盒 SC",
+         "src": "抖音罗盘",
+         "rank": 12
+        },
+        {
+         "id": "3838010111167692832",
+         "name": "凌博士建模眼油霜全分子量玻尿酸眼精华紧致抗皱YS ZY",
+         "src": "抖音罗盘",
+         "rank": 20
+        }
+       ]
+      },
+      {
+       "key": "S2",
+       "name": "高增长",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回环比增速（抖音罗盘商品榜无此字段）",
+       "evidence": []
+      },
+      {
+       "key": "S3",
+       "name": "新品",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回上市日期（罗盘 / FastMoss 榜单均无）",
+       "evidence": []
+      },
+      {
+       "key": "S4",
+       "name": "榜单地位",
+       "hit": true,
+       "detail": "榜内第 1 名",
+       "evidence": [
+        {
+         "id": "3810728158953604184",
+         "name": "效妆PDRN小金瓶眼油眼部精华油紧致抗皱保湿官方正品",
+         "src": "抖音罗盘",
+         "rank": 1,
+         "val": "榜内第 1 名"
+        }
+       ]
+      },
+      {
+       "key": "S5",
+       "name": "形态/包材",
+       "hit": true,
+       "detail": "形态「油类」在信号市场同类目占 16.2%（18/111）",
+       "evidence": [
+        {
+         "id": "3810728158953604184",
+         "name": "效妆PDRN小金瓶眼油眼部精华油紧致抗皱保湿官方正品",
+         "src": "抖音罗盘",
+         "rank": 1
+        },
+        {
+         "id": "3655993122149773000",
+         "name": "MIUNICO安沐珂菁致时光眼部精华油",
+         "src": "抖音罗盘",
+         "rank": 7
+        },
+        {
+         "id": "3814634777387073680",
+         "name": "志刚哥玫瑰颂玫瑰眼部精华油眼纹淡纹抗皱细纹紧致",
+         "src": "抖音罗盘",
+         "rank": 9
+        },
+        {
+         "id": "3830232062984585462",
+         "name": "雏菊的天空新一代补脂精华油修护抗皱中秋礼盒 SC",
+         "src": "抖音罗盘",
+         "rank": 12
+        },
+        {
+         "id": "3838010111167692832",
+         "name": "凌博士建模眼油霜全分子量玻尿酸眼精华紧致抗皱YS ZY",
+         "src": "抖音罗盘",
+         "rank": 20
+        }
+       ]
+      },
+      {
+       "key": "S6",
+       "name": "需求验证",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回评价数 / 评分",
+       "evidence": []
+      },
+      {
+       "key": "S7",
+       "name": "达人放大",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回关联达人数",
+       "evidence": []
+      },
+      {
+       "key": "S8",
+       "name": "成交效率",
+       "hit": true,
+       "detail": "点击成交转化率 17.5% / 同类目中位 12.5%",
+       "evidence": [
+        {
+         "id": "3843920961351058053",
+         "name": "USEG类蛇毒肽羊胎素补水淡纹眼膜",
+         "src": "抖音罗盘",
+         "rank": 43,
+         "val": "转化 42.5%"
+        },
+        {
+         "id": "3837770419822264976",
+         "name": "限量【眼抗老项目】瑞蓝唯瑅/狙击：收眼袋，紧眼皮，复位眼肌",
+         "src": "抖音罗盘",
+         "rank": 55,
+         "val": "转化 42.5%"
+        },
+        {
+         "id": "3839475002164510947",
+         "name": "RBRY 布瑞美檀香精粹眼油眼部精华护理油 20ml 日常眼周护理",
+         "src": "抖音罗盘",
+         "rank": 67,
+         "val": "转化 42.5%"
+        },
+        {
+         "id": "3844127596254200515",
+         "name": "木古奇楠沉香抗皱眼部精华油",
+         "src": "抖音罗盘",
+         "rank": 84,
+         "val": "转化 42.5%"
+        },
+        {
+         "id": "3837755456323977519",
+         "name": "活肽融合液【眼融合项目】紧眼廓+21.08%缓眼周+35.81%淡眼纹-21.08",
+         "src": "抖音罗盘",
+         "rank": 94,
+         "val": "转化 42.5%"
+        }
+       ]
+      },
+      {
+       "key": "S9",
+       "name": "类目内规模",
+       "hit": true,
+       "detail": "销量 1.75万 / 同类目中位 625",
+       "evidence": [
+        {
+         "id": "3810728158953604184",
+         "name": "效妆PDRN小金瓶眼油眼部精华油紧致抗皱保湿官方正品",
+         "src": "抖音罗盘",
+         "rank": 1,
+         "val": "销量 1.75万"
+        }
+       ]
+      }
+     ],
+     "blockers": [],
+     "hypothesis": "中国眼部精华已成交（销量 1.75万 件、榜内第 1 名），而国外「眼部护理」类目完全没有「油类」形态的供给记录（信号市场 18 条、12 家店铺）",
+     "counter": [
+      "同商品命中的卖点「抗皱淡纹」其实国外已有 6 条记录 —— 缺口只是该商品的某一个卖点，不是整个品类",
+      "目标市场「眼部护理」本轮比对到 13 条真实记录，最接近的是「Lacto-PDRN* 4% + B9 Eye Cream」（FastMoss 第 5 名）——说明该细分在目标市场并非没有供给，只是卖点不同",
+      "该商品在既有底座中已有快照（2026/09/24），不是本轮新出现",
+      "目标市场样本只有 13 条（眼部护理），缺失可能是采集覆盖不足，而非市场真空",
+      "信号市场仅覆盖 抖音罗盘商品榜 TOP200（面部洗护 / 眼部护理），不含天猫、京东与线下",
+      "PDRN（鲑鱼精巢 DNA 钠）在国内已有在售记录，需核对原料备案与宣称是否可支撑再生类功效"
+     ],
+     "next": [
+      "到 FastMoss / TikTok Shop 搜「油类」英文词，确认美区是否真的无同类",
+      "核对美国该类目的成分合规差异（视黄醇/酸类浓度上限）",
+      "确认国内供应链能否复刻该形态（包膜/包材工艺）"
+     ]
+    },
+    {
+     "product_id": "3844144825783944432",
+     "name": "本草太太抗皱紧致淡纹眼部泥膜眼部精油护肤套装50",
+     "clean_name": "本草太太抗皱紧致淡纹眼部泥膜眼部精油护肤套装50",
+     "shop": "美沐本草抗皱护肤护理店",
+     "source": "抖音罗盘",
+     "board": "抖音罗盘·商品榜 近1天榜",
+     "period": "2026/09/26 ~ 2026/09/26",
+     "window": "近1天",
+     "image": "https://p3-aio.ecombdimg.com/obj/ecom-shop-material/png_m_a9c60159bab38657daabefd273ece4ce_sx_1157105_www811-811",
+     "url": "https://haohuo.jinritemai.com/ecommerce/trade/detail/index.html?id=3844144825783944432&origin_type=pc_compass_manage",
+     "category_l2": "眼部护理",
+     "leaf": "眼膜",
+     "sub_category": "眼部护理",
+     "price_bin": "¥169",
+     "rank": 5,
+     "rank_change": 90,
+     "is_new": true,
+     "sales": 17500.0,
+     "growth": null,
+     "amount": 62500000.0,
+     "clicks": 62500.0,
+     "cvr": 0.275,
+     "commission": null,
+     "total_sales": null,
+     "concepts": [
+      "泥膜",
+      "套装",
+      "抗皱淡纹",
+      "紧致提拉"
+     ],
+     "gap_concepts": [
+      "泥膜（同二级类目·绝对空缺：信号 3 条 2.7% → 目标 0 条 0.0%）"
+     ],
+     "gap_concepts_plain": [
+      "泥膜"
+     ],
+     "gap_primary": "泥膜",
+     "claim_notes": [],
+     "compliance_notes": [],
+     "opportunity_type": "GAP",
+     "opportunity_type_name": "跨市场缺口",
+     "grade": "成立",
+     "hit_count": 5,
+     "usable_count": 5,
+     "available_signals": 5,
+     "signals": [
+      {
+       "key": "S1",
+       "name": "跨市场缺口",
+       "hit": true,
+       "detail": "卖点「泥膜」（同二级类目口径）：信号市场 3/111 条（2.7%，3 家店铺）→ 目标市场 0/13 条（0.0%）；绝对空缺",
+       "gap_concepts": [
+        "泥膜（同二级类目·绝对空缺：信号 3 条 2.7% → 目标 0 条 0.0%）"
+       ],
+       "gap_detail": [
+        {
+         "concept": "泥膜",
+         "sig_n": 3,
+         "sig_shops": 3,
+         "sig_density": 0.02702702702702703,
+         "tgt_n": 0,
+         "tgt_density": 0.0,
+         "kind": "绝对空缺",
+         "scope": "同二级类目",
+         "delta": 0.02702702702702703,
+         "sig_total": 111,
+         "tgt_total": 13
+        }
+       ],
+       "evidence": [
+        {
+         "id": "3844144825783944432",
+         "name": "本草太太抗皱紧致淡纹眼部泥膜眼部精油护肤套装50",
+         "src": "抖音罗盘",
+         "rank": 5
+        },
+        {
+         "id": "3843776665205473665",
+         "name": "本草太太抗皱紧致眼部泥膜眼部精油护肤套装新2-D",
+         "src": "抖音罗盘",
+         "rank": 33
+        },
+        {
+         "id": "3843934666314875211",
+         "name": "本草太太抗皱紧致眼部泥膜眼部精油护肤套装-D",
+         "src": "抖音罗盘",
+         "rank": 35
+        }
+       ]
+      },
+      {
+       "key": "S2",
+       "name": "高增长",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回环比增速（抖音罗盘商品榜无此字段）",
+       "evidence": []
+      },
+      {
+       "key": "S3",
+       "name": "新品",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回上市日期（罗盘 / FastMoss 榜单均无）",
+       "evidence": []
+      },
+      {
+       "key": "S4",
+       "name": "榜单地位",
+       "hit": true,
+       "detail": "榜内第 5 名，较上期上升 90 位，本期新上榜",
+       "evidence": [
+        {
+         "id": "3844144825783944432",
+         "name": "本草太太抗皱紧致淡纹眼部泥膜眼部精油护肤套装50",
+         "src": "抖音罗盘",
+         "rank": 5,
+         "val": "榜内第 5 名，较上期上升 90 位，本期新上榜"
+        }
+       ]
+      },
+      {
+       "key": "S5",
+       "name": "形态/包材",
+       "hit": true,
+       "detail": "形态「泥膜」在信号市场同类目占 2.7%（3/111）",
+       "evidence": [
+        {
+         "id": "3844144825783944432",
+         "name": "本草太太抗皱紧致淡纹眼部泥膜眼部精油护肤套装50",
+         "src": "抖音罗盘",
+         "rank": 5
+        },
+        {
+         "id": "3843776665205473665",
+         "name": "本草太太抗皱紧致眼部泥膜眼部精油护肤套装新2-D",
+         "src": "抖音罗盘",
+         "rank": 33
+        },
+        {
+         "id": "3843934666314875211",
+         "name": "本草太太抗皱紧致眼部泥膜眼部精油护肤套装-D",
+         "src": "抖音罗盘",
+         "rank": 35
+        }
+       ]
+      },
+      {
+       "key": "S6",
+       "name": "需求验证",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回评价数 / 评分",
+       "evidence": []
+      },
+      {
+       "key": "S7",
+       "name": "达人放大",
+       "hit": false,
+       "unavailable": true,
+       "detail": "本市场不返回关联达人数",
+       "evidence": []
+      },
+      {
+       "key": "S8",
+       "name": "成交效率",
+       "hit": true,
+       "detail": "点击成交转化率 27.5% / 同类目中位 12.5%",
+       "evidence": [
+        {
+         "id": "3843920961351058053",
+         "name": "USEG类蛇毒肽羊胎素补水淡纹眼膜",
+         "src": "抖音罗盘",
+         "rank": 43,
+         "val": "转化 42.5%"
+        },
+        {
+         "id": "3837770419822264976",
+         "name": "限量【眼抗老项目】瑞蓝唯瑅/狙击：收眼袋，紧眼皮，复位眼肌",
+         "src": "抖音罗盘",
+         "rank": 55,
+         "val": "转化 42.5%"
+        },
+        {
+         "id": "3839475002164510947",
+         "name": "RBRY 布瑞美檀香精粹眼油眼部精华护理油 20ml 日常眼周护理",
+         "src": "抖音罗盘",
+         "rank": 67,
+         "val": "转化 42.5%"
+        },
+        {
+         "id": "3844127596254200515",
+         "name": "木古奇楠沉香抗皱眼部精华油",
+         "src": "抖音罗盘",
+         "rank": 84,
+         "val": "转化 42.5%"
+        },
+        {
+         "id": "3837755456323977519",
+         "name": "活肽融合液【眼融合项目】紧眼廓+21.08%缓眼周+35.81%淡眼纹-21.08",
+         "src": "抖音罗盘",
+         "rank": 94,
+         "val": "转化 42.5%"
+        }
+       ]
+      },
+      {
+       "key": "S9",
+       "name": "类目内规模",
+       "hit": true,
+       "detail": "销量 1.75万 / 同类目中位 625",
+       "evidence": [
+        {
+         "id": "3844144825783944432",
+         "name": "本草太太抗皱紧致淡纹眼部泥膜眼部精油护肤套装50",
+         "src": "抖音罗盘",
+         "rank": 5,
+         "val": "销量 1.75万"
+        }
+       ]
+      }
+     ],
+     "blockers": [],
+     "hypothesis": "中国眼膜已成交（销量 1.75万 件、榜内第 5 名），而国外「眼部护理」类目完全没有「泥膜」形态的供给记录（信号市场 3 条、3 家店铺）",
+     "counter": [
+      "同商品命中的卖点「抗皱淡纹」其实国外已有 6 条记录 —— 缺口只是该商品的某一个卖点，不是整个品类",
+      "目标市场「眼部护理」本轮比对到 13 条真实记录，最接近的是「Lacto-PDRN* 4% + B9 Eye Cream」（FastMoss 第 5 名）——说明该细分在目标市场并非没有供给，只是卖点不同",
+      "目标市场样本只有 13 条（眼部护理），缺失可能是采集覆盖不足，而非市场真空",
+      "信号市场仅覆盖 抖音罗盘商品榜 TOP200（面部洗护 / 眼部护理），不含天猫、京东与线下"
+     ],
+     "next": [
+      "到 FastMoss / TikTok Shop 搜「泥膜」英文词，确认美区是否真的无同类",
+      "核对美国该类目的成分合规差异（视黄醇/酸类浓度上限）",
+      "确认国内供应链能否复刻该形态（包膜/包材工艺）"
+     ]
+    }
+   ],
+   "graded": 233,
+   "exclusions": {
+    "赠品/非卖品": 0,
+    "未命中锁定类目": 0
+   }
+  }
+ ]
+}
