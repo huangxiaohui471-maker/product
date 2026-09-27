@@ -182,6 +182,11 @@
     .evidence-box.support { background: var(--teal-soft); }
     .evidence-box.counter { background: var(--coral-soft); }
     .evidence-box h3 { margin-bottom: 12px; }
+    .research-details { margin-top: 14px; border-top: 1px solid var(--line); }
+    .research-details summary { cursor: pointer; list-style: none; padding: 12px 0 4px; color: var(--muted); font-size: 12px; font-weight: 900; }
+    .research-details summary::-webkit-details-marker { display: none; }
+    .research-details summary::before { content: '＋'; display: inline-block; margin-right: 6px; color: var(--green); font-size: 14px; }
+    .research-details[open] summary::before { content: '－'; }
     .quote { background: rgba(255,255,255,.7); border-radius: 12px; padding: 10px 11px; font-size: 12px; line-height: 1.55; margin-top: 8px; }
     .quote small { display: block; color: var(--muted); margin-top: 4px; }
     .inference { margin-top: 14px; padding: 16px; border-radius: 18px; background: var(--lavender-soft); }
@@ -317,10 +322,10 @@
         </div>
         <nav class="nav" aria-label="主导航">
           <button class="nav-btn active" data-view="radar"><span class="nav-icon">◉</span><span class="nav-label">机会雷达</span></button>
-          <button class="nav-btn" data-view="trial"><span class="nav-icon">◇</span><span class="nav-label">机会审判</span></button>
+          <button class="nav-btn" data-view="trial"><span class="nav-icon">◇</span><span class="nav-label">机会判断</span></button>
           <button class="nav-btn" data-view="lab"><span class="nav-icon">⚗</span><span class="nav-label">小实验室</span></button>
         </nav>
-        <div class="side-note">先发现，再审判，最后用最小实验验证。旧看板可作为证据资源，但不再限制机会从哪里出现。</div>
+        <div class="side-note">先发现，再判断，最后用最小验证决定是否投入。旧看板可作为证据资源，但不再限制机会从哪里出现。</div>
       </aside>
 
       <main>
@@ -329,7 +334,7 @@
           <div class="filters">
             <span class="pill demo">真实评论数据 · 已接入</span>
             <span class="pill">范围：眼部护理</span>
-            <span class="pill">规则初筛 · 保留原文证据</span>
+            <span class="pill">真实评论证据 · 可展开查看</span>
           </div>
         </header>
 
@@ -338,7 +343,7 @@
             <div>
               <div class="eyebrow">Opportunity Radar</div>
               <h1>今天有 3 个候选值得看</h1>
-              <p class="subhead">评论数据进入后，候选机会仍按“发现候选 → 机会审判 → 最小实验”三层递进；当前结论为规则初筛，未调用 LLM。</p>
+              <p class="subhead">从真实评论中发现需求机会，先看产品方向，再决定是否进入最小验证。</p>
             </div>
             <button class="primary-btn" id="rescanBtn">重新扫描评论</button>
           </div>
@@ -346,7 +351,7 @@
           <div class="metrics">
             <div class="metric"><span>今日候选</span><b>3</b><small>不是 KPI 上限，是注意力上限</small></div>
             <button class="metric" data-open-queue="watch"><span>持续观察 · 点击查看</span><b id="watchCount">12</b><small>系统寻找关键新证据，出现后自动升级</small></button>
-            <button class="metric" data-open-queue="waiting"><span>等待审判 · 点击处理</span><b id="waitingCount">2</b><small>已形成可审判问题，等待资源决策</small></button>
+            <button class="metric" data-open-queue="waiting"><span>等待判断 · 点击处理</span><b id="waitingCount">2</b><small>已形成待判断机会，等待资源决策</small></button>
             <div class="metric"><span>真实信号池</span><b id="signalPoolCount">—</b><small>来自小红书与淘宝/天猫清洗评论</small></div>
           </div>
 
@@ -363,7 +368,7 @@
               </div>
               <div class="canvas">
                 <div class="cross-v"></div><div class="cross-h"></div>
-                <span class="quadrant q1">优先审判</span><span class="quadrant q2">需求强但已有解</span>
+                <span class="quadrant q1">优先验证</span><span class="quadrant q2">需求强但已有解</span>
                 <span class="quadrant q3">暂存观察</span><span class="quadrant q4">小众未满足</span>
                 <span class="axis-x">未满足程度 →</span><span class="axis-y">需求强度 →</span>
                 <button class="bubble b1 active" data-id="portable" data-source="cross">便携补涂<br>眼部护理</button>
@@ -383,15 +388,14 @@
                 <div class="evidence-count tmall"><strong>淘宝/天猫 · 评论证据</strong><span id="tmallCount">等待数据</span></div>
                 <div class="evidence-count xhs"><strong>小红书 · 场景补证</strong><span id="xhsCount">等待数据</span></div>
               </div>
-              <div class="ai-grid">
+              <details class="research-details"><summary>查看证据与判断依据</summary><div class="ai-grid">
                 <div class="ai-item"><small>01 重复需求</small><p id="repeatEvidence">跨商品反复出现“妆后怎么补”“办公室怎么用”，并非单一爆帖。</p></div>
                 <div class="ai-item"><small>02 行为证据</small><p id="behaviorEvidence">用户在找滚珠、分装和眼膜等替代方案，已有主动解决行为。</p></div>
                 <div class="ai-item"><small>03 现有方案</small><p id="solutionEvidence">现有眼霜重功效轻便携；滚珠产品少，但有效性与卫生感评价分化。</p></div>
                 <div class="ai-item"><small>04 变化趋势</small><p id="trendEvidence">近 8 周便携、补涂相关表达连续抬升，增长来自多个商品页。</p></div>
-              </div>
-              <div class="unknown"><strong>最大未知：</strong><span id="unknownText">用户是否愿意为便携形态牺牲部分容量，并支付 15%—20% 的价格溢价？</span></div>
+              </div><div class="unknown"><strong>最大未知：</strong><span id="unknownText">用户是否愿意为便携形态牺牲部分容量，并支付 15%—20% 的价格溢价？</span></div></details>
               <div class="detail-actions">
-                <button class="primary-btn" id="enterTrialBtn">进入机会审判</button>
+                <button class="primary-btn" id="enterTrialBtn">查看机会判断</button>
                 <button class="ghost-btn" id="watchBtn">继续观察</button>
                 <button class="ghost-btn" id="ignoreBtn">忽略</button>
               </div>
@@ -399,10 +403,10 @@
           </div>
 
           <section class="candidate-section">
-            <div class="section-line"><h2>系统今日推荐</h2><p>点击卡片查看系统为什么推荐</p></div>
+            <div class="section-line"><h2>今日优先机会</h2><p>先看方向，需要时再展开判断依据</p></div>
             <div class="candidate-list">
               <button class="candidate-card active" data-id="portable">
-                <div class="rank"><span>01 · 建议优先审判</span><span>跨源共振</span></div><h3>便携补涂型眼部护理</h3><p>“有效但不方便”正在从抱怨变成寻找替代品的行动。</p><div class="mini-tags"><span>重复需求</span><span>替代行为</span><span>持续上升</span></div>
+                <div class="rank"><span>01 · 建议优先验证</span><span>跨源共振</span></div><h3>便携补涂型眼部护理</h3><p>“有效但不方便”正在从抱怨变成寻找替代品的行动。</p><div class="mini-tags"><span>重复需求</span><span>替代行为</span><span>持续上升</span></div>
               </button>
               <button class="candidate-card" data-id="lens">
                 <div class="rank"><span>02 · 建议补证</span><span>跨源共振</span></div><h3>隐形眼镜人群低刺激护理</h3><p>戴镜用户希望眼周护理不熏眼、不移位、不影响镜片。</p><div class="mini-tags"><span>明确人群</span><span>现有解法弱</span><span>需补证</span></div>
@@ -415,36 +419,36 @@
         </section>
 
         <section class="view" id="trialView">
-          <div class="eyebrow">Opportunity Trial</div>
-          <h1>不是证明它对，而是弄清它错在哪里</h1>
-          <p class="subhead">机会审判把证据、推断与未知分开。调查结果允许推翻候选，而不是强行给它凑齐支持材料。</p>
-          <div class="flow-steps"><span class="flow-step">发现候选</span><span class="arrow">→</span><span class="flow-step on">机会审判</span><span class="arrow">→</span><span class="flow-step">小实验室</span></div>
+          <div class="eyebrow">Opportunity Review</div>
+          <h1>先判断机会，再决定是否投入</h1>
+          <p class="subhead">先看机会结论和产品方向；支持证据、反证与审核标准需要时再展开。</p>
+          <div class="flow-steps"><span class="flow-step">发现机会</span><span class="arrow">→</span><span class="flow-step on">机会判断</span><span class="arrow">→</span><span class="flow-step">小实验室</span></div>
 
           <div class="trial-layout">
             <section class="panel trial-main">
-              <div class="candidate-title"><div><span class="badge" id="trialState">正在审判</span><h2 id="trialTitle" style="margin-top:10px">便携补涂型眼部护理</h2><p id="trialCore">核心命题：现有产品有效，但使用方式阻碍了用户在白天持续护理。</p></div><span class="confidence">开放式证据审查</span></div>
-              <div class="evidence-columns">
+              <div class="candidate-title"><div><span class="badge" id="trialState">正在判断</span><h2 id="trialTitle" style="margin-top:10px">便携补涂型眼部护理</h2><p id="trialCore">核心命题：现有产品有效，但使用方式阻碍了用户在白天持续护理。</p></div><span class="confidence">机会判断</span></div>
+              <details class="research-details"><summary>查看支持证据与反证</summary><div class="evidence-columns">
                 <div class="evidence-box support"><h3>支持证据</h3><div id="trialSupport"></div></div>
                 <div class="evidence-box counter"><h3>反证与风险</h3><div id="trialCounter"></div></div>
-              </div>
-              <div class="inference"><h3>当前推断，不作为事实</h3><p id="trialInference">等待真实评论数据加载后生成规则推断。</p></div>
+              </div></details>
+              <div class="inference"><h3>机会判断与产品方向</h3><p id="trialInference">等待真实评论数据加载后生成判断。</p></div>
               <div class="concept-plan" id="trialConceptPlan"><div class="concept-plan-head"><strong>可落地概念方案</strong><small>等待真实数据生成 · 方案仍需实验验证</small></div></div>
             </section>
 
             <aside class="panel trial-side">
-              <h2>四个审判问题</h2><p style="color:var(--muted);font-size:12px">不按分数决定生死，而是判断下一步行动能否有效降低不确定性。</p>
-              <div class="gate-list" id="trialGates"></div>
+              <h2>当前建议</h2><p style="color:var(--muted);font-size:12px">用最小成本验证产品方向，再决定是否进入开发。</p>
               <div class="verdict"><small>系统建议</small><strong id="trialVerdict">值得进入小实验</strong><p id="trialVerdictText">先验证便携形态是否真正改善使用，以及用户是否愿意为此付费。</p></div>
-              <div class="action-stack"><button class="primary-btn" id="enterLabBtn">生成最低成本实验</button><button class="ghost-btn" data-go="radar">返回机会雷达</button><button class="ghost-btn" id="pauseBtn">暂存观察</button></div>
+              <details class="research-details"><summary>查看判断标准</summary><div class="gate-list" id="trialGates"></div></details>
+              <div class="action-stack"><button class="primary-btn" id="enterLabBtn">开始最小验证</button><button class="ghost-btn" data-go="radar">返回机会雷达</button><button class="ghost-btn" id="pauseBtn">暂存观察</button></div>
             </aside>
           </div>
         </section>
 
         <section class="view" id="labView">
-          <div class="eyebrow">Minimum Experiment Lab</div>
-          <h1>先验证关键假设，再决定要不要做产品</h1>
-          <p class="subhead">这里不做完整产品方案，只设计最便宜、最快、能改变决策的实验。</p>
-          <div class="flow-steps"><span class="flow-step">发现候选</span><span class="arrow">→</span><span class="flow-step">机会审判</span><span class="arrow">→</span><span class="flow-step on">小实验室</span></div>
+          <div class="eyebrow">Minimum Validation Lab</div>
+          <h1>先验证一个产品方向，再决定是否开发</h1>
+          <p class="subhead">只设计最便宜、最快、能改变决定的验证动作，不提前进入完整研发。</p>
+          <div class="flow-steps"><span class="flow-step">发现机会</span><span class="arrow">→</span><span class="flow-step">机会判断</span><span class="arrow">→</span><span class="flow-step on">小实验室</span></div>
 
           <div class="lab-grid">
             <section class="panel lab-panel">
@@ -456,14 +460,14 @@
                 <div class="concept" tabindex="0" data-concept-id="B"><div class="concept-visual"><img class="concept-image" id="conceptImageB" alt="B 方案产品概念图" hidden><div class="pack pen" aria-hidden="true"></div></div><strong>B · 精准护理笔</strong><p>强调卫生、控量和妆后精准</p></div>
                 <div class="concept" tabindex="0" data-concept-id="C"><div class="concept-visual"><img class="concept-image" id="conceptImageC" alt="C 方案产品概念图" hidden><div class="pack jar" aria-hidden="true"></div></div><strong>C · 便携小罐</strong><p>接近熟悉形态，降低认知成本</p></div>
               </div>
-              <div class="image-gen-panel"><div class="section-line"><h3>AI 产品概念图</h3><p class="image-gen-status" id="imageGenStatus">等待手动生成 · 不会自动调用 API</p></div><button class="primary-btn" id="generateImagesBtn" type="button">调用生图 API，生成 3 个方案</button><small>点击后才会请求本地代理；API 密钥只在本地服务端读取，不会写入网页。</small></div>
-              <div class="test-plan"><div class="section-line"><h3>最小实验建议</h3><p>由真实评论规则初筛生成</p></div><div class="test-items"><div class="test-item"><small>测试对象</small><b id="labAudience">等待数据</b></div><div class="test-item"><small>关键动作</small><b id="labAction">等待数据</b></div><div class="test-item"><small>成功信号</small><b id="labSuccess">等待数据</b></div></div></div>
+              <div class="image-gen-panel"><div class="section-line"><h3>概念可视化</h3><p class="image-gen-status" id="imageGenStatus">可选，不参与机会判断</p></div><button class="primary-btn" id="generateImagesBtn" type="button">生成 3 个概念草图</button><small>只用于辅助讨论，不影响机会结论和实验结果。</small></div>
+              <div class="test-plan"><div class="section-line"><h3>最小实验建议</h3><p>基于当前机会证据生成</p></div><div class="test-items"><div class="test-item"><small>测试对象</small><b id="labAudience">等待数据</b></div><div class="test-item"><small>关键动作</small><b id="labAction">等待数据</b></div><div class="test-item"><small>成功信号</small><b id="labSuccess">等待数据</b></div></div></div>
             </section>
 
             <aside>
               <div class="lab-side-card"><h2>实验运行台</h2><p>Demo 会模拟一轮概念偏好测试，帮助确认最终决策界面是否清楚。</p><button class="primary-btn" style="width:100%" id="runExperimentBtn">运行演示实验</button><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><small id="progressText">等待开始</small><div class="result" id="experimentResult"><strong id="labResultTitle">模拟结果：建议继续</strong><br><span id="labResultText">A 方案偏好最高，但用户对“卫生”和“是否搓泥”仍有疑虑。下一轮应先做使用方式原型，不进入完整配方开发。</span></div></div>
               <div class="lab-side-card"><h3>实验后的四种结论</h3><p>系统必须给出行动，不只产出报告。</p><div class="decision-list"><div class="decision recommended">继续：进入使用原型测试</div><div class="decision">调整：缩窄到妆后急救场景</div><div class="decision">观察：等待更多自然信号</div><div class="decision">淘汰：用户不愿改变行为</div></div></div>
-              <button class="ghost-btn" style="width:100%" data-go="trial">返回机会审判</button>
+              <button class="ghost-btn" style="width:100%" data-go="trial">返回机会判断</button>
             </aside>
           </div>
         </section>
@@ -478,7 +482,7 @@
       </div>
       <div class="queue-tabs">
         <button class="queue-tab active" data-queue-tab="watch">持续观察 12</button>
-        <button class="queue-tab" data-queue-tab="waiting">等待审判 2</button>
+        <button class="queue-tab" data-queue-tab="waiting">等待判断 2</button>
       </div>
 
       <div class="queue-panel active" id="watchQueue">
@@ -501,15 +505,15 @@
       </div>
 
       <div class="queue-panel" id="waitingQueue">
-        <div class="queue-intro"><strong>作用：</strong>存放“已经值得花时间判断”的候选。它不能长期停留；你需要进入审判、退回观察或淘汰，系统会记录理由。</div>
+        <div class="queue-intro"><strong>作用：</strong>存放“已经值得花时间判断”的候选。它不能长期停留；你需要开始判断、退回观察或淘汰，系统会记录理由。</div>
         <div id="waitingQueueList">
         <article class="queue-card" data-waiting-card="portable">
           <div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">等待 1 天 · 建议先审</span><h3>便携补涂型眼部护理</h3></div><span class="queue-score">入选：重复 + 行为</span></div><p>跨来源重复，已有寻找替代方案的行为，最大未知是支付意愿。</p></div>
-          <div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>进入原因</span><span class="trigger-state met">跨源共振 + 行为证据</span></div><div class="trigger-row"><span>必须判断</span><span>是否投入一次最小实验</span></div></div><div class="queue-actions"><button class="primary-btn btn-sm" data-start-trial="portable">立即审判</button><button class="ghost-btn btn-sm" data-return-watch>退回观察</button><button class="ghost-btn btn-sm" data-reject>淘汰</button></div></div>
+          <div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>进入原因</span><span class="trigger-state met">跨源共振 + 行为证据</span></div><div class="trigger-row"><span>必须判断</span><span>是否投入一次最小实验</span></div></div><div class="queue-actions"><button class="primary-btn btn-sm" data-start-trial="portable">开始判断</button><button class="ghost-btn btn-sm" data-return-watch>退回观察</button><button class="ghost-btn btn-sm" data-reject>淘汰</button></div></div>
         </article>
         <article class="queue-card" data-waiting-card="lens">
-          <div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">等待 2 天 · 建议审判</span><h3>隐形眼镜人群低刺激护理</h3></div><span class="queue-score">入选：强放弃行为</span></div><p>明确人群与使用放弃行为已经出现，需要判断问题是否可由产品解决。</p></div>
-          <div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>进入原因</span><span class="trigger-state met">明确人群 + 放弃行为</span></div><div class="trigger-row"><span>必须判断</span><span>刺激来源与企业能力匹配</span></div></div><div class="queue-actions"><button class="primary-btn btn-sm" data-start-trial="lens">立即审判</button><button class="ghost-btn btn-sm" data-return-watch>退回观察</button><button class="ghost-btn btn-sm" data-reject>淘汰</button></div></div>
+          <div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">等待 2 天 · 建议判断</span><h3>隐形眼镜人群低刺激护理</h3></div><span class="queue-score">入选：强放弃行为</span></div><p>明确人群与使用放弃行为已经出现，需要判断问题是否可由产品解决。</p></div>
+          <div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>进入原因</span><span class="trigger-state met">明确人群 + 放弃行为</span></div><div class="trigger-row"><span>必须判断</span><span>刺激来源与企业能力匹配</span></div></div><div class="queue-actions"><button class="primary-btn btn-sm" data-start-trial="lens">开始判断</button><button class="ghost-btn btn-sm" data-return-watch>退回观察</button><button class="ghost-btn btn-sm" data-reject>淘汰</button></div></div>
         </article>
         </div>
       </div>
@@ -660,7 +664,7 @@
       const concepts = (CONCEPT_BLUEPRINTS[rule.title] || []).map((concept, index) => ({
         ...concept,
         status: index === 0 ? '优先验证' : (index === 1 ? '创意延展' : '前沿探索'),
-        evidence: index === 0 ? `由 ${xhs.length} 条小红书与 ${tb.length} 条淘宝/天猫相关证据进入初筛。` : '需在机会审判和小实验中验证，不代表用户已明确选择。'
+        evidence: index === 0 ? `由 ${xhs.length} 条小红书与 ${tb.length} 条淘宝/天猫相关证据进入初筛。` : '需在机会判断和小实验中验证，不代表用户已明确选择。'
       }));
       const primary = concepts[0] || { name: '待形成概念', scene: '待补证', form: '待补证', promise: '待验证', test: '补充场景与支付意愿测试' };
       return {
@@ -668,7 +672,7 @@
         tmall: `${tb.length} 条相关评价 / ${products.length ? products.length + ' 个代表商品' : '商品待标注'}`, xhs: `${xhs.length} 条相关内容 / ${uniqueCount(xhs, 'author') || xhs.length} 位用户`, route: sourceType,
         repeat: `${signalText}。命中词：${hitWords([...xhs, ...tb].map(rowText).join(' '), rule.words).slice(0, 5).join('、') || '待补充'}。`,
         behavior: negative.length || demands.length ? `负面与需求表达共 ${negative.length + demands.length} 条，说明用户存在明确顾虑或未满足点。` : '当前只确认需求表达，主动购买、替代或放弃行为仍需补证。',
-        solution: products.length ? `相关评价集中在：${products.map(item => item[0]).join('、')}；现有方案与用户反馈需要在审判阶段拆开看。` : '当前没有足够商品名信息，暂不推断市场已有解法。',
+        solution: products.length ? `相关评价集中在：${products.map(item => item[0]).join('、')}；现有方案与用户反馈需要在判断阶段拆开看。` : '当前没有足够商品名信息，暂不推断市场已有解法。',
         trend: '当前接入的是一次清洗快照，未连接连续日数据；趋势判断需后续每日采集后计算。',
         unknown: `用户是否愿意为“${rule.title}”改变使用方式并付费？当前还缺少可验证的行为证据。此外，“${primary.name}”的形态是否被接受仍未验证。`,
         concepts,
@@ -693,7 +697,7 @@
       topicIds.forEach((id, index) => {
         const candidate = candidates[id];
         const card = document.querySelector(`.candidate-card[data-id="${id}"]`);
-        if (card && candidate) { card.querySelector('h3').textContent = candidate.title; card.querySelector('p').textContent = candidate.summary; card.querySelector('.mini-tags').innerHTML = `<span>${candidate.route}</span><span>真实评论 ${candidate.tmall.split(' ')[0]}</span><span>待审判</span>`; }
+        if (card && candidate) { card.querySelector('h3').textContent = candidate.title; card.querySelector('p').textContent = candidate.summary; card.querySelector('.mini-tags').innerHTML = `<span>${candidate.route}</span><span>真实评论 ${candidate.tmall.split(' ')[0]}</span><span>待验证</span>`; }
         const bubble = document.querySelector(`.bubble[data-id="${id}"]`);
         if (bubble && candidate) { bubble.innerHTML = esc(candidate.title).replace('，', '<br>'); bubble.dataset.source = candidate.xhs.startsWith('0 ') ? 'tmall' : (candidate.tmall.startsWith('0 ') ? 'xhs' : 'cross'); }
       });
@@ -816,7 +820,7 @@
 
     function statusOf(id) {
       if (queueState.rejected.includes(id)) return '已淘汰';
-      if (queueState.waiting.includes(id)) return '等待审判';
+      if (queueState.waiting.includes(id)) return '等待判断';
       if (queueState.watch.includes(id)) return '持续观察';
       if (queueState.today.includes(id)) return '今日候选';
       return '候选机会';
@@ -827,7 +831,7 @@
       if (today) today.textContent = queueState.today.filter(id => !queueState.rejected.includes(id)).length;
       $('#watchCount').textContent = queueState.watch.length;
       $('#waitingCount').textContent = queueState.waiting.length;
-      $$('.queue-tab').forEach(tab => { tab.textContent = (tab.dataset.queueTab === 'watch' ? '持续观察 ' + queueState.watch.length : '等待审判 ' + queueState.waiting.length); });
+      $$('.queue-tab').forEach(tab => { tab.textContent = (tab.dataset.queueTab === 'watch' ? '持续观察 ' + queueState.watch.length : '等待判断 ' + queueState.waiting.length); });
     }
 
     function queueWatchCard(id) {
@@ -837,7 +841,7 @@
 
     function queueWaitingCard(id) {
       const c = candidates[id];
-      return `<article class="queue-card" data-waiting-card="${esc(id)}"><div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">等待审判 · ${esc(c.route)}</span><h3>${esc(c.title)}</h3></div><span class="queue-score">${esc(c.confidence.replace('入选路径：',''))}</span></div><p>${esc(c.summary)} 最大未知：${esc(c.unknown)}</p></div><div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>进入原因</span><span class="trigger-state met">${esc(c.route)}</span></div><div class="trigger-row"><span>必须判断</span><span>${esc(c.trial.gates[3][1])}</span></div></div><div class="queue-actions"><button class="primary-btn btn-sm" data-start-trial="${esc(id)}">立即审判</button><button class="ghost-btn btn-sm" data-return-watch="${esc(id)}">退回观察</button><button class="ghost-btn btn-sm" data-reject="${esc(id)}">淘汰</button></div></div></article>`;
+      return `<article class="queue-card" data-waiting-card="${esc(id)}"><div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">等待判断 · ${esc(c.route)}</span><h3>${esc(c.title)}</h3></div><span class="queue-score">${esc(c.confidence.replace('入选路径：',''))}</span></div><p>${esc(c.summary)} 最大未知：${esc(c.unknown)}</p></div><div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>进入原因</span><span class="trigger-state met">${esc(c.route)}</span></div><div class="trigger-row"><span>必须判断</span><span>${esc(c.trial.gates[3][1])}</span></div></div><div class="queue-actions"><button class="primary-btn btn-sm" data-start-trial="${esc(id)}">开始判断</button><button class="ghost-btn btn-sm" data-return-watch="${esc(id)}">退回观察</button><button class="ghost-btn btn-sm" data-reject="${esc(id)}">淘汰</button></div></div></article>`;
     }
 
     function bindQueueActions() {
@@ -845,13 +849,13 @@
       $$('[data-start-trial]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); startTrial(btn.dataset.startTrial); }));
       $$('[data-return-watch]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); moveToWatch(btn.dataset.returnWatch); toast('已退回持续观察，系统将继续寻找能改变判断的新证据'); }));
       $$('[data-reject]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); rejectCandidate(btn.dataset.reject, '人工判断暂不值得投入'); }));
-      $$('[data-early-trial]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); moveToWaiting(btn.dataset.earlyTrial); startTrial(btn.dataset.earlyTrial); toast('已提前送审：审判页会同时展示反证与最大未知'); }));
+      $$('[data-early-trial]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); moveToWaiting(btn.dataset.earlyTrial); startTrial(btn.dataset.earlyTrial); toast('已提前进入判断：详情页会同时展示证据与最大未知'); }));
       $$('[data-keep-watch]').forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); toast('保持自动观察；只有关键证据变化时才提醒你'); }));
     }
 
     function renderQueue() {
       $('#watchQueueList').innerHTML = queueState.watch.length ? queueState.watch.map(queueWatchCard).join('') : '<div class="queue-empty-note">暂无持续观察候选；新的信号会按四条召回路径重新进入。</div>';
-      $('#waitingQueueList').innerHTML = queueState.waiting.length ? queueState.waiting.map(queueWaitingCard).join('') : '<div class="queue-empty-note">暂无等待审判候选；达到触发条件后会重新进入队列。</div>';
+      $('#waitingQueueList').innerHTML = queueState.waiting.length ? queueState.waiting.map(queueWaitingCard).join('') : '<div class="queue-empty-note">暂无等待判断候选；达到触发条件后会重新进入队列。</div>';
       updateMetrics(); bindQueueActions();
     }
 
@@ -878,7 +882,7 @@
 
     function renderTrial(id) {
       const c = candidates[id]; if (!c) return; const t = c.trial;
-      $('#trialState').textContent = '正在审判 · ' + statusOf(id);
+      $('#trialState').textContent = '正在判断 · ' + statusOf(id);
       $('#trialTitle').textContent = c.title; $('#trialCore').textContent = '核心命题：' + t.core;
       $('#trialSupport').innerHTML = t.support.map(item => { const parts = item.split('｜'); return `<div class="quote">${esc(parts[0])}<small>${esc(parts[1] || '来源待补')}</small></div>`; }).join('');
       $('#trialCounter').innerHTML = t.counter.map(item => `<div class="quote">${esc(item)}</div>`).join('');
@@ -907,7 +911,7 @@
         if (detail) detail.textContent = concept.detail;
       });
       resetConceptImages();
-      $('#imageGenStatus').textContent = '等待手动生成 · 不会自动调用 API';
+      $('#imageGenStatus').textContent = '可选，不参与机会判断';
       $('#generateImagesBtn').disabled = false;
     }
 
