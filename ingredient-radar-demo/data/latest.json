@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-09-27T13:47:06+08:00",
+  "scheduled_time": "09:30",
+  "status": "ok",
+  "new_ingredients": [
+    {
+      "market": "中国",
+      "name": null,
+      "signal": "暂无可验证线索",
+      "evidence": "页面未返回可解析的成分文本",
+      "confidence": "不可判定"
+    },
+    {
+      "market": "日本",
+      "name": null,
+      "signal": "暂无可验证线索",
+      "evidence": "页面未返回可解析的成分文本",
+      "confidence": "不可判定"
+    },
+    {
+      "market": "美国",
+      "name": null,
+      "signal": "暂无可验证线索",
+      "evidence": "页面未返回可解析的成分文本",
+      "confidence": "不可判定"
+    },
+    {
+      "market": "韩国",
+      "name": null,
+      "signal": "暂无可验证线索",
+      "evidence": "页面未返回可解析的成分文本",
+      "confidence": "不可判定"
+    }
+  ],
+  "errors": [],
+  "note": "抓取结果仅为线索；页面需登录或改为授权 API 时，错误会保留在 errors 中。"
+}

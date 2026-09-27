@@ -1,0 +1,32 @@
+[
+  {
+    "name": "FastMoss 商品/趋势页",
+    "market": "美国",
+    "url": "https://www.fastmoss.com/zh",
+    "ingredients": ["海茴香提取物", "雪绒花发酵物"]
+  },
+  {
+    "name": "TikTok 趋势页",
+    "market": "美国",
+    "url": "https://www.tiktok.com/",
+    "ingredients": ["藻蓝蛋白"]
+  },
+  {
+    "name": "抖音电商/罗盘",
+    "market": "中国",
+    "url": "https://compass.jinritemai.com/",
+    "ingredients": []
+  },
+  {
+    "name": "日本趋势页",
+    "market": "日本",
+    "url": "https://www.google.com/search?q=%E6%97%A5%E6%9C%AC+%E7%BE%8E%E5%AE%B9+%E6%88%90%E5%88%86+%E8%B6%8B%E5%8B%A2",
+    "ingredients": ["米糠发酵物"]
+  },
+  {
+    "name": "韩国趋势页",
+    "market": "韩国",
+    "url": "https://www.google.com/search?q=%ED%95%9C%EA%B5%AD+%ED%99%94%EC%9E%A5%ED%92%88+%EC%84%B1%EB%B6%84+%ED%8A%B8%EB%A0%8C%EB%93%9C",
+    "ingredients": ["白睡莲提取物"]
+  }
+]
