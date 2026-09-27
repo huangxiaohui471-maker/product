@@ -186,6 +186,16 @@
     .quote small { display: block; color: var(--muted); margin-top: 4px; }
     .inference { margin-top: 14px; padding: 16px; border-radius: 18px; background: var(--lavender-soft); }
     .inference p { margin: 7px 0 0; font-size: 13px; }
+    .concept-plan { margin-top: 14px; padding: 16px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+    .concept-plan-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+    .concept-plan-head small { color: var(--muted); font-size: 11px; }
+    .concept-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+    .concept-option { border: 1px solid var(--line); border-radius: 13px; padding: 11px; background: #fbfbf7; }
+    .concept-option.primary { background: var(--yellow-soft); border-color: #e7d98c; }
+    .concept-option small { color: var(--muted); font-size: 10px; font-weight: 800; }
+    .concept-option h4 { margin: 6px 0; font-size: 13px; }
+    .concept-option p { margin: 4px 0 0; color: #57585a; font-size: 11px; line-height: 1.5; }
+    .concept-option .concept-test { color: var(--green); }
     .gate-list { display: grid; gap: 9px; margin: 16px 0; }
     .gate { display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 10px; padding: 13px; border: 1px solid var(--line); border-radius: 15px; }
     .gate-icon { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: var(--teal-soft); }
@@ -416,6 +426,7 @@
                 <div class="evidence-box counter"><h3>反证与风险</h3><div id="trialCounter"></div></div>
               </div>
               <div class="inference"><h3>当前推断，不作为事实</h3><p id="trialInference">等待真实评论数据加载后生成规则推断。</p></div>
+              <div class="concept-plan" id="trialConceptPlan"><div class="concept-plan-head"><strong>可落地概念方案</strong><small>等待真实数据生成 · 方案仍需实验验证</small></div></div>
             </section>
 
             <aside class="panel trial-side">
@@ -586,6 +597,38 @@
       { title: '敏感低刺激，不熏眼', words: ['敏感','刺激','辣眼','熏眼','刺痛','过敏','红肿','不舒服','温和'], summary: '刺激和安全感会直接影响眼周产品是否继续使用，适合进入安全边界与归因审查。', action: '优先做低刺激配方与眼周安全测试，不能只凭“温和”宣称下结论。' },
       { title: '性价比与使用周期', words: ['性价比','便宜','贵','价格','容量','耐用','用量','回购'], summary: '价格、容量和用量预期会影响持续使用，适合拆成单次使用成本来验证。', action: '用单次使用成本和预期使用周期重做规格组合，验证价格敏感人群的接受区间。' }
     ];
+    const CONCEPT_BLUEPRINTS = {
+      '干燥细纹与紧致改善': [
+        { name: '轻薄高保湿眼周凝露', scene: '早晚常规护理', form: '水凝露质地，快速铺开', promise: '保湿与淡纹体验不厚重', test: '7 天肤感与持续使用测试' },
+        { name: '局部点涂精华笔', scene: '细纹重点区域护理', form: '定量笔头，控制单次用量', promise: '把用量和涂抹位置变得更可控', test: '点涂准确度与使用频次测试' },
+        { name: '夜间密集修护眼膜', scene: '睡前集中护理', form: '一次一片的眼周护理膜', promise: '降低坚持护理的步骤成本', test: '连续使用意愿与次日肤感测试' }
+      ],
+      '黑眼圈、眼袋与暗沉': [
+        { name: '早晨眼周舒缓精华棒', scene: '熬夜后出门前', form: '便携棒状，带轻触按摩头', promise: '把疲态护理转成短时、可重复动作', test: '晨间场景选择与即时体验测试' },
+        { name: '分区提亮眼周精华', scene: '黑眼圈重点区域', form: '轻薄精华，支持局部点涂', promise: '不把黑眼圈、眼袋和泪沟混成一个功效', test: '分区需求匹配与效果期待测试' },
+        { name: '短周期眼周护理膜', scene: '重要场合前集中护理', form: '短时贴敷，独立包装', promise: '满足用户对快速改善状态的期待', test: '场景触发率与复购意愿测试' }
+      ],
+      '清爽吸收，不黏不厚重': [
+        { name: '水感轻薄眼霜', scene: '白天日常护理', form: '低油感乳霜，快速吸收', promise: '保湿和清爽之间取得平衡', test: '吸收时间与叠妆兼容性测试' },
+        { name: '妆前可叠加凝露笔', scene: '上妆前与办公间隙', form: '控量笔头，薄涂不拉扯', promise: '减少厚重感和后续负担', test: '妆前等待时间与搓泥测试' },
+        { name: '清爽眼周精华液', scene: '油皮或怕黏用户', form: '轻质精华，单独或叠加使用', promise: '让用户可以持续使用而不是少涂', test: '肤感偏好与连续使用测试' }
+      ],
+      '妆前兼容，不搓泥不卡粉': [
+        { name: '妆前可叠加眼周凝露笔', scene: '上妆前 5—10 分钟', form: '薄涂、控量、便携笔型', promise: '护理后可以继续完成底妆', test: '与底妆叠加的搓泥和卡粉测试' },
+        { name: '不搓泥轻薄眼霜', scene: '日常妆前护理', form: '快吸收乳霜，减少成膜负担', promise: '兼顾保湿与后续上妆', test: '不同底妆组合的兼容性测试' },
+        { name: '随身补涂眼周棒', scene: '带妆办公与外出补涂', form: '不破坏妆面的固体棒', promise: '让白天补涂成为可执行动作', test: '带妆补涂前后妆面变化测试' }
+      ],
+      '敏感低刺激，不熏眼': [
+        { name: '无香低刺激眼周乳', scene: '敏感肌晚间护理', form: '无香、低刺激乳状质地', promise: '先建立安全感，再谈功效', test: '刺激感与安全边界访谈' },
+        { name: '定量低接触护理笔', scene: '不想用手反复揉眼', form: '定量出口，减少手指接触', promise: '控制用量与接触方式', test: '使用方式偏好与刺激归因测试' },
+        { name: '夜间无香修护眼膜', scene: '敏感状态下的夜间护理', form: '一次一片，短时贴敷', promise: '降低选择成本和香味顾虑', test: '成分顾虑与夜间使用意愿测试' }
+      ],
+      '性价比与使用周期': [
+        { name: '15 天眼周体验装', scene: '首次尝试与换新', form: '小容量单品，明确使用周期', promise: '降低首次购买和试错成本', test: '体验装转正装与支付意愿测试' },
+        { name: '定量单次护理胶囊', scene: '旅行和出差使用', form: '单次剂量，减少过量与浪费', promise: '把用量、周期和成本说清楚', test: '单次成本接受度与复购测试' },
+        { name: '高频护理组合装', scene: '长期稳定护理', form: '主品加替换装或周期装', promise: '用组合规格改善持续使用成本', test: '规格选择与长期回购意愿测试' }
+      ]
+    };
     const rowText = row => String(row && (row.text || row.content || row.full) || '').replace(/\s+/g, ' ').trim();
     const hitWords = (text, words) => words.filter(word => text.toLowerCase().includes(word.toLowerCase()));
     const matchingRows = (rows, words) => rows.filter(row => hitWords(rowText(row), words).length);
@@ -612,6 +655,12 @@
       const counterText = negative.length + demands.length ? `清洗数据中有 ${negative.length + demands.length} 条负面或未满足表达，代表性原文：${quoteOf((negative[0] || demands[0]))}` : '当前快照未单独命中负面或未满足样本，需要补充反证。';
       const verdict = score >= 80 ? '值得进入小实验' : (score >= 30 ? '先补证再实验' : '先补关键证据');
       const verdictText = score >= 80 ? '证据已经跨来源出现，先用最低成本实验验证使用方式、场景和支付意愿。' : '先补充能改变判断的场景、购买或放弃行为，再决定是否投入研发。';
+      const concepts = (CONCEPT_BLUEPRINTS[rule.title] || []).map((concept, index) => ({
+        ...concept,
+        status: index === 0 ? '主方案' : '备选方案',
+        evidence: index === 0 ? `由 ${xhs.length} 条小红书与 ${tb.length} 条淘宝/天猫相关证据进入初筛。` : '需在机会审判和小实验中验证，不代表用户已明确选择。'
+      }));
+      const primary = concepts[0] || { name: '待形成概念', scene: '待补证', form: '待补证', promise: '待验证', test: '补充场景与支付意愿测试' };
       return {
         title: rule.title, confidence: `入选路径：${sourceType} + ${total} 条相关文本`, summary: rule.summary,
         tmall: `${tb.length} 条相关评价 / ${products.length ? products.length + ' 个代表商品' : '商品待标注'}`, xhs: `${xhs.length} 条相关内容 / ${uniqueCount(xhs, 'author') || xhs.length} 位用户`, route: sourceType,
@@ -619,16 +668,17 @@
         behavior: negative.length || demands.length ? `负面与需求表达共 ${negative.length + demands.length} 条，说明用户存在明确顾虑或未满足点。` : '当前只确认需求表达，主动购买、替代或放弃行为仍需补证。',
         solution: products.length ? `相关评价集中在：${products.map(item => item[0]).join('、')}；现有方案与用户反馈需要在审判阶段拆开看。` : '当前没有足够商品名信息，暂不推断市场已有解法。',
         trend: '当前接入的是一次清洗快照，未连接连续日数据；趋势判断需后续每日采集后计算。',
-        unknown: `用户是否愿意为“${rule.title}”改变使用方式并付费？当前还缺少可验证的行为证据。`,
+        unknown: `用户是否愿意为“${rule.title}”改变使用方式并付费？当前还缺少可验证的行为证据。此外，“${primary.name}”的形态是否被接受仍未验证。`,
+        concepts,
         trial: {
           core: `真实评论中的“${rule.title}”是否构成一个可由产品解决、且用户愿意付费的具体问题？`,
           support: [sampleText + '｜真实评论原文', `${signalText}，不是单一内容命中。｜规则汇总`, rule.action + '｜下一步验证'],
           counter: [counterText, '关键词命中可能混合不同人群和使用场景，不能直接等同于产品需求。', '当前没有连续日快照，暂不把一次性样本解释成增长趋势。'],
-          inference: `${rule.action} 目前只形成机会假设，不把规则命中当成事实。`,
+          inference: `${rule.action} 主方案先采用“${primary.name}”，备选方案为“${concepts[1]?.name || '待补证'}”和“${concepts[2]?.name || '待补证'}”。这些是产品假设，不是评论直接证明的事实。`,
           gates: [['我们真正观察到了什么', `${signalText}`, '有数据证据'], ['还有什么其他解释', '不同人群、场景或其他产品因素可能混在一起', '保留反证'], ['如果是真的，值得我们做吗', '问题明确度与付费意愿仍待确认', score >= 80 ? '值得验证' : '待补证'], ['最便宜的下一步是什么', '做场景访谈、概念选择与支付意愿测试', '可低成本验证']],
           verdict, verdictText
         },
-        lab: { id: 'EF-000', hypothesis: `如果“${rule.title}”对应真实且可解决的使用问题，目标用户会在概念测试中明确选择，并愿意接受下一步验证。`, audience: '相关评论表达者与目标场景用户', action: '三概念选择 + 使用场景访谈 + 价格询问', success: '选择、明确场景与付费意愿同时出现', result: '先验证关键使用方式和支付意愿；若只有表达没有行为，退回机会观察。' }
+        lab: { id: 'EF-000', hypothesis: `如果采用“${primary.name}”，${primary.scene}的目标用户会愿意尝试，并认为${primary.promise}。`, audience: '相关评论表达者与目标场景用户', action: `${primary.test} + 三概念选择 + 价格询问`, success: '明确选择、场景认同与付费意愿同时出现', result: '先比较三个概念的选择率和支付意愿；若只有需求表达没有行为，退回机会观察。' }
       };
     }
 
@@ -828,6 +878,8 @@
       $('#trialSupport').innerHTML = t.support.map(item => { const parts = item.split('｜'); return `<div class="quote">${esc(parts[0])}<small>${esc(parts[1] || '来源待补')}</small></div>`; }).join('');
       $('#trialCounter').innerHTML = t.counter.map(item => `<div class="quote">${esc(item)}</div>`).join('');
       $('#trialInference').textContent = t.inference;
+      const concepts = c.concepts || [];
+      $('#trialConceptPlan').innerHTML = `<div class="concept-plan-head"><strong>可落地概念方案</strong><small>系统推导 · 不是数据事实 · 需实验验证</small></div><div class="concept-options">${concepts.map((concept, index) => `<article class="concept-option ${index === 0 ? 'primary' : ''}"><small>${esc(concept.status || (index === 0 ? '主方案' : '备选方案'))}</small><h4>${esc(concept.name)}</h4><p><b>场景：</b>${esc(concept.scene)}</p><p><b>形态：</b>${esc(concept.form)}</p><p><b>体验：</b>${esc(concept.promise)}</p><p class="concept-test"><b>验证：</b>${esc(concept.test)}</p></article>`).join('')}</div>`;
       $('#trialGates').innerHTML = t.gates.map((g, i) => `<div class="gate"><span class="gate-icon">${i + 1}</span><div><strong>${esc(g[0])}</strong><br><small>${esc(g[1])}</small></div><span class="gate-status">${esc(g[2])}</span></div>`).join('');
       $('#trialVerdict').textContent = t.verdict; $('#trialVerdictText').textContent = t.verdictText;
     }
@@ -838,7 +890,8 @@
       $('#labAudience').textContent = l.audience; $('#labAction').textContent = l.action; $('#labSuccess').textContent = l.success;
       $('#labResultTitle').textContent = '模拟结果：' + (c.trial.verdict.includes('实验') ? '建议继续' : '建议补证');
       $('#labResultText').textContent = l.result; $('#progressBar').style.width = '0%'; $('#progressText').textContent = '等待开始'; $('#experimentResult').classList.remove('show');
-      const concepts = conceptSets[id] || defaultConcepts;
+      const concepts = c.concepts ? c.concepts.map((concept, index) => ({ id: ['A', 'B', 'C'][index], name: concept.name, detail: `${concept.scene} · ${concept.form}` })) : (conceptSets[id] || defaultConcepts);
+      conceptSets[id] = concepts;
       $$('.concept').forEach((card, index) => {
         const concept = concepts[index] || defaultConcepts[index];
         card.dataset.conceptId = concept.id;
