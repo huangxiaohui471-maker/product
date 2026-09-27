@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>全球选品平台 · 产品机会雷达</title>
+  <style>
+    :root {
+      --ink: #171717;
+      --muted: #696a70;
+      --line: #deded8;
+      --paper: #fbfbf8;
+      --white: #fff;
+      --yellow: #ffe896;
+      --yellow-soft: #fff6ca;
+      --coral: #ffb4a5;
+      --coral-soft: #ffe4dd;
+      --teal: #9bded1;
+      --teal-soft: #dff5f0;
+      --lavender: #c9c2ff;
+      --lavender-soft: #eceaff;
+      --green: #307f63;
+      --danger: #a5453b;
+      --shadow: 0 14px 38px rgba(34, 34, 28, .08);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #efefe9;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    button, select { font: inherit; }
+    button { color: inherit; }
+    .device { min-height: 100vh; background: var(--paper); }
+    .app { min-height: 100vh; display: grid; grid-template-columns: 214px minmax(0, 1fr); }
+
+    .sidebar {
+      position: sticky; top: 0; height: 100vh; padding: 24px 18px;
+      border-right: 1px solid var(--line); background: rgba(251, 251, 248, .96);
+      display: flex; flex-direction: column; gap: 28px; z-index: 10;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; padding: 4px 8px; }
+    .brand-mark {
+      width: 42px; height: 42px; border-radius: 15px; display: grid; place-items: center;
+      background: var(--ink); color: #fff; font-weight: 900; letter-spacing: -.04em;
+      transform: rotate(-3deg);
+    }
+    .brand strong { display: block; font-size: 17px; }
+    .brand small { display: block; color: var(--muted); margin-top: 2px; }
+    .nav { display: grid; gap: 8px; }
+    .nav-btn {
+      width: 100%; border: 0; background: transparent; border-radius: 14px; padding: 12px 13px;
+      display: flex; align-items: center; gap: 10px; text-align: left; cursor: pointer; font-weight: 700;
+    }
+    .nav-btn:hover { background: #f0f0ea; }
+    .nav-btn.active { background: var(--ink); color: #fff; }
+    .nav-icon { width: 24px; text-align: center; }
+    .side-note {
+      margin-top: auto; padding: 14px; border-radius: 18px; background: var(--yellow-soft);
+      border: 1px solid #eadb96; font-size: 12px; line-height: 1.6; color: #5e5532;
+    }
+
+    main { min-width: 0; padding: 22px 28px 60px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+    .crumb { color: var(--muted); font-size: 13px; }
+    .filters { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; }
+    .pill, .ghost-btn, .primary-btn, .soft-btn {
+      border: 1px solid var(--line); border-radius: 999px; padding: 9px 14px; background: #fff; cursor: pointer;
+      transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+    }
+    .pill:hover, .ghost-btn:hover, .primary-btn:hover, .soft-btn:hover { transform: translateY(-1px); }
+    .pill { font-size: 12px; color: #555; }
+    .pill.demo { background: var(--coral-soft); border-color: #efb7aa; color: #793e33; font-weight: 800; }
+    .primary-btn { background: var(--ink); border-color: var(--ink); color: #fff; font-weight: 800; }
+    .ghost-btn { background: #fff; font-weight: 700; }
+    .soft-btn { background: var(--yellow-soft); border-color: #e7d78f; font-weight: 800; }
+    .btn-sm { padding: 7px 11px; font-size: 12px; }
+
+    .view { display: none; animation: enter .24s ease; }
+    .view.active { display: block; }
+    @keyframes enter { from { opacity: .3; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    .eyebrow { font-size: 12px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+    h1 { font-size: clamp(30px, 4vw, 54px); line-height: 1.04; letter-spacing: -.05em; margin: 8px 0 12px; max-width: 920px; }
+    h2 { font-size: 24px; letter-spacing: -.035em; margin: 0; }
+    h3 { font-size: 16px; margin: 0; }
+    p { line-height: 1.65; }
+    .subhead { color: var(--muted); margin: 0; max-width: 780px; }
+    .hero-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
+    .metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 14px 0 20px; }
+    .metric { min-height: 112px; padding: 18px; border: 1px solid var(--line); border-radius: 20px; background: #fff; text-align: left; color: inherit; }
+    button.metric { cursor: pointer; transition: transform .16s ease, box-shadow .16s ease; }
+    button.metric:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .metric:nth-child(1) { background: var(--yellow-soft); }
+    .metric:nth-child(2) { background: var(--teal-soft); }
+    .metric:nth-child(3) { background: var(--lavender-soft); }
+    .metric b { display: block; font-size: 30px; letter-spacing: -.05em; margin: 10px 0 2px; }
+    .metric span, .metric small { color: var(--muted); font-size: 12px; }
+
+    .radar-grid { display: grid; grid-template-columns: minmax(480px, 1.25fr) minmax(360px, .75fr); gap: 16px; align-items: stretch; }
+    .panel { border: 1px solid var(--line); background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .panel-head { padding: 20px 22px 0; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+    .panel-head p { margin: 5px 0 0; font-size: 12px; color: var(--muted); }
+    .source-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .source-chip { border: 1px solid var(--line); background: #fff; padding: 6px 9px; border-radius: 999px; font-size: 11px; cursor: pointer; }
+    .source-chip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+    .canvas { position: relative; height: 510px; margin: 18px 20px 20px; border-radius: 22px; overflow: hidden; background-color: #fafaf7; background-image: radial-gradient(#d9d9d2 1px, transparent 1px); background-size: 20px 20px; border: 1px solid #e6e6df; }
+    .axis-x, .axis-y { position: absolute; font-size: 10px; color: #85857e; letter-spacing: .05em; }
+    .axis-x { bottom: 10px; left: 50%; transform: translateX(-50%); }
+    .axis-y { top: 50%; left: -28px; transform: rotate(-90deg); }
+    .quadrant { position: absolute; font-size: 11px; color: #99998f; font-weight: 700; }
+    .q1 { right: 16px; top: 14px; }
+    .q2 { left: 16px; top: 14px; }
+    .q3 { left: 16px; bottom: 28px; }
+    .q4 { right: 16px; bottom: 28px; }
+    .cross-v, .cross-h { position: absolute; background: #deded7; opacity: .9; }
+    .cross-v { width: 1px; height: 100%; left: 50%; top: 0; }
+    .cross-h { height: 1px; width: 100%; top: 50%; left: 0; }
+    .bubble {
+      position: absolute; border: 2px solid rgba(23,23,23,.75); border-radius: 50%; cursor: pointer;
+      display: grid; place-items: center; text-align: center; font-weight: 900; line-height: 1.25; padding: 12px;
+      box-shadow: 0 7px 0 rgba(23,23,23,.12); transition: transform .18s ease, filter .18s ease;
+    }
+    .bubble:hover, .bubble.active { transform: scale(1.06); filter: saturate(1.08); z-index: 4; }
+    .bubble.active { box-shadow: 0 0 0 5px #fff, 0 0 0 8px var(--ink); }
+    .b1 { width: 138px; height: 138px; background: var(--yellow); left: 67%; top: 12%; }
+    .b2 { width: 112px; height: 112px; background: var(--teal); left: 47%; top: 32%; }
+    .b3 { width: 104px; height: 104px; background: var(--lavender); left: 72%; top: 57%; }
+    .b4 { width: 82px; height: 82px; background: var(--coral); left: 25%; top: 19%; font-size: 12px; }
+    .b5 { width: 72px; height: 72px; background: #d8e7b0; left: 20%; top: 66%; font-size: 11px; opacity: .88; }
+    .b6 { width: 62px; height: 62px; background: #f2c7e5; left: 46%; top: 71%; font-size: 10px; opacity: .8; }
+
+    .evidence-overlay { position: fixed; inset: 0; z-index: 50; display: none; justify-content: flex-end; background: rgba(20,20,20,.34); }
+    .evidence-overlay.show { display: flex; }
+    .evidence-drawer { width: min(820px, 96vw); height: 100%; overflow: auto; padding: 26px; background: var(--paper); box-shadow: -20px 0 60px rgba(0,0,0,.16); animation: drawerIn .22s ease; }
+    .evidence-drawer-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+    .evidence-drawer-head p { margin: 6px 0 0; color: var(--muted); font-size: 12px; }
+    .evidence-close { border: 1px solid var(--line); border-radius: 50%; width: 38px; height: 38px; background: #fff; font-size: 20px; cursor: pointer; }
+    .evidence-kpis { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin: 20px 0; }
+    .evidence-kpi { border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 14px; }
+    .evidence-kpi span { color: var(--muted); font-size: 11px; }
+    .evidence-kpi strong { display: block; margin-top: 6px; font-size: 23px; }
+    .evidence-chart-grid { display: grid; grid-template-columns: minmax(190px,.65fr) minmax(0,1.35fr); gap: 14px; }
+    .evidence-chart, .evidence-sources, .evidence-records { border: 1px solid var(--line); border-radius: 18px; background: #fff; padding: 17px; }
+    .evidence-chart h3, .evidence-sources h3, .evidence-records h3 { margin-bottom: 12px; }
+    .evidence-donut-wrap { display: grid; place-items: center; padding: 12px 0; }
+    .evidence-donut { width: 150px; height: 150px; border-radius: 50%; display: grid; place-items: center; background: #ecebe6; position: relative; }
+    .evidence-donut::before { content: ''; width: 92px; height: 92px; border-radius: 50%; background: #fff; position: absolute; }
+    .evidence-donut-label { z-index: 1; text-align: center; font-size: 11px; color: var(--muted); }
+    .evidence-donut-label strong { display: block; color: var(--ink); font-size: 20px; }
+    .evidence-source-row { margin: 13px 0; }
+    .evidence-source-meta { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; }
+    .evidence-source-meta small { color: var(--muted); }
+    .evidence-bar { height: 8px; border-radius: 9px; background: #eeeee9; overflow: hidden; margin-top: 7px; }
+    .evidence-bar i { display: block; height: 100%; border-radius: inherit; background: var(--teal); }
+    .evidence-source-row:nth-of-type(3n) .evidence-bar i { background: var(--coral); }
+    .evidence-source-row:nth-of-type(4n) .evidence-bar i { background: #9686db; }
+    .evidence-records { margin-top: 14px; }
+    .evidence-record { border-top: 1px solid var(--line); padding: 12px 0; font-size: 12px; line-height: 1.55; }
+    .evidence-record small { display: block; margin-top: 5px; color: var(--muted); }
+    .evidence-empty { border: 1px dashed #c9c8c0; border-radius: 14px; padding: 18px; color: var(--muted); background: #fafaf7; font-size: 12px; line-height: 1.7; }
+    .evidence-method { margin-top: 14px; border-radius: 13px; background: var(--yellow-soft); padding: 12px 14px; color: #61552f; font-size: 11px; line-height: 1.6; }
+    @media (max-width: 660px) { .evidence-drawer { padding: 18px; } .evidence-kpis { grid-template-columns: 1fr; } .evidence-chart-grid { grid-template-columns: 1fr; } }
+
+    .detail { padding: 20px 22px 22px; display: flex; flex-direction: column; min-height: 590px; }
+    .detail-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 6px 9px; font-size: 11px; font-weight: 900; background: var(--yellow-soft); }
+    .confidence { font-size: 12px; color: var(--green); font-weight: 900; white-space: nowrap; }
+    .detail h2 { margin-top: 13px; }
+    .summary { color: #4f5053; margin: 9px 0 14px; }
+    .evidence-counts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0 14px; }
+    .evidence-count { border-radius: 15px; padding: 12px; border: 1px solid var(--line); font-size: 12px; }
+    .evidence-count strong { display: block; margin-bottom: 5px; font-size: 13px; }
+    .evidence-count.tmall { background: var(--coral-soft); }
+    .evidence-count.xhs { background: var(--teal-soft); }
+    .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .ai-item { border: 1px solid var(--line); border-radius: 15px; padding: 11px; min-height: 94px; }
+    .ai-item small { color: var(--muted); font-weight: 800; }
+    .ai-item p { font-size: 12px; line-height: 1.5; margin: 7px 0 0; }
+    .unknown { margin-top: 10px; border-left: 4px solid var(--coral); background: #fff6f3; border-radius: 11px; padding: 10px 12px; font-size: 12px; line-height: 1.55; }
+    .detail-actions { margin-top: auto; padding-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .candidate-section { margin-top: 18px; }
+    .section-line { display: flex; justify-content: space-between; align-items: center; margin: 0 2px 12px; }
+    .section-line p { margin: 0; color: var(--muted); font-size: 12px; }
+    .candidate-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .candidate-card { border: 1px solid var(--line); border-radius: 20px; padding: 17px; background: #fff; cursor: pointer; text-align: left; min-height: 205px; transition: transform .16s ease, box-shadow .16s ease; }
+    .candidate-card:hover, .candidate-card.active { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .candidate-card.active { outline: 2px solid var(--ink); }
+    .candidate-card:nth-child(1) { background: var(--yellow-soft); }
+    .candidate-card:nth-child(2) { background: var(--teal-soft); }
+    .candidate-card:nth-child(3) { background: var(--lavender-soft); }
+    .rank { display: flex; justify-content: space-between; color: var(--muted); font-size: 11px; font-weight: 800; }
+    .candidate-card h3 { margin-top: 20px; font-size: 18px; }
+    .candidate-card p { color: #555; font-size: 12px; margin: 8px 0 14px; }
+    .mini-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .mini-tags span { font-size: 10px; border-radius: 999px; background: rgba(255,255,255,.7); padding: 5px 7px; border: 1px solid rgba(23,23,23,.12); }
+
+    .flow-steps { display: flex; align-items: center; gap: 8px; margin: 18px 0 24px; flex-wrap: wrap; }
+    .flow-step { padding: 8px 12px; border-radius: 999px; background: #ecece6; color: #777; font-size: 12px; font-weight: 800; }
+    .flow-step.on { background: var(--ink); color: #fff; }
+    .arrow { color: #aaa; }
+    .trial-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr); gap: 16px; }
+    .trial-main, .trial-side, .lab-panel { padding: 22px; }
+    .candidate-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+    .candidate-title p { color: var(--muted); margin: 6px 0 0; }
+    .evidence-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+    .evidence-box { border-radius: 18px; padding: 17px; border: 1px solid var(--line); }
+    .evidence-box.support { background: var(--teal-soft); }
+    .evidence-box.counter { background: var(--coral-soft); }
+    .evidence-box h3 { margin-bottom: 12px; }
+    .quote { background: rgba(255,255,255,.7); border-radius: 12px; padding: 10px 11px; font-size: 12px; line-height: 1.55; margin-top: 8px; }
+    .quote small { display: block; color: var(--muted); margin-top: 4px; }
+    .inference { margin-top: 14px; padding: 16px; border-radius: 18px; background: var(--lavender-soft); }
+    .inference p { margin: 7px 0 0; font-size: 13px; }
+    .gate-list { display: grid; gap: 9px; margin: 16px 0; }
+    .gate { display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 10px; padding: 13px; border: 1px solid var(--line); border-radius: 15px; }
+    .gate-icon { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: var(--teal-soft); }
+    .gate small { color: var(--muted); }
+    .gate-status { font-size: 11px; font-weight: 900; color: var(--green); }
+    .verdict { margin-top: 16px; border-radius: 20px; padding: 18px; background: var(--yellow); }
+    .verdict strong { font-size: 20px; display: block; }
+    .verdict p { margin: 7px 0 0; font-size: 12px; }
+    .action-stack { display: grid; gap: 8px; margin-top: 14px; }
+
+    .lab-grid { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 16px; }
+    .hypothesis { margin: 16px 0; background: var(--yellow-soft); padding: 18px; border-radius: 18px; border: 1px solid #eadb96; }
+    .hypothesis small { color: var(--muted); font-weight: 800; }
+    .hypothesis p { font-size: 18px; font-weight: 800; margin: 8px 0 0; line-height: 1.5; }
+    .concepts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .concept { border: 1px solid var(--line); border-radius: 19px; padding: 14px; background: #fff; cursor: pointer; }
+    .concept.selected { outline: 2px solid var(--ink); background: var(--teal-soft); }
+    .concept-visual { height: 110px; border-radius: 15px; background: #f2f2ed; display: grid; place-items: center; margin-bottom: 12px; }
+    .pack { position: relative; background: var(--ink); }
+    .pack.roll { width: 34px; height: 76px; border-radius: 17px 17px 11px 11px; }
+    .pack.pen { width: 24px; height: 88px; border-radius: 12px; background: #735cdd; }
+    .pack.jar { width: 64px; height: 44px; border-radius: 9px 9px 16px 16px; background: #e48670; }
+    .concept p { color: var(--muted); font-size: 11px; margin: 6px 0 0; }
+    .test-plan { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 16px; }
+    .test-items { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .test-item { background: #f5f5f1; padding: 12px; border-radius: 14px; }
+    .test-item b { display: block; margin-top: 5px; }
+    .test-item small { color: var(--muted); }
+    .lab-side-card { border-radius: 20px; padding: 18px; border: 1px solid var(--line); background: #fff; margin-bottom: 12px; }
+    .lab-side-card p { color: var(--muted); font-size: 12px; }
+    .progress-track { height: 10px; border-radius: 99px; overflow: hidden; background: #e9e9e2; margin: 14px 0 7px; }
+    .progress-bar { height: 100%; width: 0; background: var(--ink); transition: width 1s ease; }
+    .result { display: none; margin-top: 12px; padding: 13px; background: var(--teal-soft); border-radius: 15px; font-size: 12px; line-height: 1.55; }
+    .result.show { display: block; }
+    .decision-list { display: grid; gap: 7px; }
+    .decision { padding: 11px 12px; border: 1px solid var(--line); border-radius: 13px; font-size: 12px; font-weight: 800; }
+    .decision.recommended { background: var(--yellow); border-color: #d7c36f; }
+
+    .toast { position: fixed; right: 24px; bottom: 24px; background: var(--ink); color: white; padding: 13px 17px; border-radius: 14px; box-shadow: var(--shadow); opacity: 0; transform: translateY(12px); pointer-events: none; transition: .22s ease; z-index: 50; }
+    .toast.show { opacity: 1; transform: none; }
+    .queue-overlay { position: fixed; inset: 0; z-index: 40; background: rgba(23,23,23,.28); display: none; justify-content: flex-end; backdrop-filter: blur(3px); }
+    .queue-overlay.show { display: flex; }
+    .queue-drawer { width: min(570px, 94vw); height: 100%; background: var(--paper); box-shadow: -20px 0 60px rgba(0,0,0,.16); padding: 24px; overflow: auto; animation: drawerIn .22s ease; }
+    @keyframes drawerIn { from { transform: translateX(30px); opacity: .4; } to { transform: none; opacity: 1; } }
+    .queue-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    .icon-btn { width: 38px; height: 38px; border: 1px solid var(--line); background: #fff; border-radius: 50%; cursor: pointer; font-size: 20px; }
+    .queue-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 20px 0 16px; padding: 5px; border-radius: 999px; background: #ecece6; }
+    .queue-tab { border: 0; background: transparent; border-radius: 999px; padding: 10px; cursor: pointer; font-weight: 800; color: var(--muted); }
+    .queue-tab.active { background: #fff; color: var(--ink); box-shadow: 0 3px 10px rgba(0,0,0,.06); }
+    .queue-panel { display: none; }
+    .queue-panel.active { display: block; }
+    .queue-intro { padding: 13px 14px; border-radius: 16px; background: var(--yellow-soft); color: #5b5333; font-size: 12px; line-height: 1.6; margin-bottom: 12px; }
+    .queue-card { border: 1px solid var(--line); border-radius: 19px; background: #fff; margin-bottom: 10px; overflow: hidden; }
+    .queue-card-main { padding: 16px; cursor: pointer; }
+    .queue-card-main:hover { background: #fafaf6; }
+    .queue-card-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+    .queue-card h3 { font-size: 16px; margin-top: 8px; }
+    .queue-card p { color: var(--muted); font-size: 12px; margin: 7px 0 0; }
+    .queue-score { white-space: nowrap; font-size: 11px; font-weight: 900; color: var(--green); }
+    .queue-detail { display: none; padding: 0 16px 16px; }
+    .queue-card.expanded .queue-detail { display: block; }
+    .trigger-box { background: #f2f2ed; border-radius: 14px; padding: 12px; font-size: 12px; line-height: 1.55; }
+    .trigger-row { display: flex; justify-content: space-between; gap: 10px; margin-top: 6px; }
+    .trigger-row:first-child { margin-top: 0; }
+    .trigger-state { font-weight: 900; }
+    .trigger-state.met { color: var(--green); }
+    .trigger-state.wait { color: #9a6b19; }
+    .queue-actions { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 11px; }
+    .queue-empty-note { color: var(--muted); font-size: 12px; text-align: center; padding: 24px; }
+    .scan-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #45a47f; margin-right: 5px; box-shadow: 0 0 0 4px rgba(69,164,127,.13); }
+    @media (max-width: 1100px) {
+      .app { grid-template-columns: 80px minmax(0, 1fr); }
+      .sidebar { padding: 20px 12px; }
+      .brand-copy, .nav-label, .side-note { display: none; }
+      .brand { justify-content: center; padding: 0; }
+      .nav-btn { justify-content: center; padding: 13px; }
+      .radar-grid, .trial-layout, .lab-grid { grid-template-columns: 1fr; }
+      .detail { min-height: auto; }
+    }
+    @media (max-width: 760px) {
+      .app { display: block; }
+      .sidebar { position: sticky; height: auto; padding: 10px 14px; border-right: 0; border-bottom: 1px solid var(--line); flex-direction: row; align-items: center; gap: 10px; }
+      .brand { margin-right: auto; }
+      .brand-mark { width: 36px; height: 36px; }
+      .nav { display: flex; }
+      .nav-btn { width: auto; padding: 9px; }
+      main { padding: 18px 14px 40px; }
+      .topbar { align-items: flex-start; }
+      .filters .pill:not(.demo) { display: none; }
+      .hero-row { align-items: flex-start; flex-direction: column; }
+      .metrics { grid-template-columns: 1fr 1fr; }
+      .radar-grid { display: block; }
+      .panel { margin-bottom: 12px; }
+      .canvas { height: 420px; margin: 14px; }
+      .b1 { left: 57%; }
+      .b2 { left: 38%; }
+      .candidate-list, .concepts, .test-items, .evidence-columns { grid-template-columns: 1fr; }
+      .route-lead { grid-column: 1 / -1; }
+      .ai-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="device">
+    <div class="app">
+      <aside class="sidebar">
+        <nav class="nav" aria-label="主导航">
+          <button class="nav-btn active" data-view="radar"><span class="nav-icon">◉</span><span class="nav-label">机会雷达</span></button>
+          <button class="nav-btn" data-view="trial"><span class="nav-icon">◇</span><span class="nav-label">机会审判</span></button>
+          <button class="nav-btn" data-view="lab"><span class="nav-icon">⚗</span><span class="nav-label">小实验室</span></button>
+        </nav>
+        <div class="side-note">评论主题 → 机会审判 → 小实验室。机会判断仍需购买行为与市场供给证据。</div>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <div class="crumb"><span class="scan-dot"></span><span>眼部护理 · 本地真实评论样本</span></div>
+          <div class="filters">
+            <span class="pill demo">本地评论样本载入中</span>
+          </div>
+        </header>
+
+        <section class="view active" id="radarView"><div class="evidence-empty">正在读取本地真实评论样本…</div></section>
+        <section class="view" id="trialView"><div class="evidence-empty">机会审判内容载入中…</div></section>
+        <section class="view" id="labView"><div class="evidence-empty">小实验室规划载入中…</div></section>
+      </main>
+    </div>
+  </div>
+  <script>(function () {
+  var data=window.__EYE_CARE_EVIDENCE||{}, supply=window.__EYE_CARE_MARKET_SUPPLY||{};
+  var poolPath='eye_harvest/pool.json', raw=(data.comments||[]).filter(function(c){return c.source_file===poolPath&&c.comment_id&&c.text&&c.text.trim();});
+  var unique={};raw.forEach(function(c){if(!unique[c.comment_id])unique[c.comment_id]=c;});
+  var comments=Object.keys(unique).map(function(k){return unique[k];}), posts=data.posts||[], denominator=comments.length, batchCount=denominator, postById={};
+  posts.forEach(function(p){if(p.note_id)postById[p.note_id]=p;});
+  var shortTextCount=comments.filter(function(c){return c.text.replace(/\s+/g,'').length<=2;}).length, symbolOnlyCount=comments.filter(function(c){return !/[^\s\p{P}\p{S}]/u.test(c.text);}).length, textCounts={};
+  comments.forEach(function(c){var key=c.text.toLowerCase().replace(/\s+/g,'');textCounts[key]=(textCounts[key]||0)+1;});
+  var duplicateTextRows=Object.keys(textCounts).reduce(function(n,k){return n+Math.max(0,textCounts[k]-1);},0);
+  var meta=(data.summary&&data.summary.source_files)||[], noteMeta=meta[0]||{},extraMeta=meta[1]||{};
+  var extraCount=(data.comments||[]).filter(function(c){return c.source_file==='tikhub/comments_sample.json';}).length;
+  var extraTotal=Number(extraMeta.thread_reported_comment_count||0);
+  var themeDefs=[
+    {id:'effect',title:'功效与眼周困扰',terms:'细纹 / 黑眼圈 / 眼袋 / 泪沟',re:/细纹|眼纹|干纹|鱼尾纹|黑眼圈|眼袋|泪沟|淡纹|抗老|抗衰|松弛|暗沉/},
+    {id:'safety',title:'刺激与安全顾虑',terms:'敏感 / 刺痛 / 泛红 / 脂肪粒',re:/敏感|刺痛|泛红|刺激|过敏|脂肪粒|熏眼|红肿/},
+    {id:'experience',title:'使用体验与妆容适配',terms:'搓泥 / 卡粉 / 油腻 / 使用场景',re:/搓泥|卡粉|上妆|妆前|妆后|油腻|厚重|清爽|糊眼|吸收|质地|白天|通勤/},
+    {id:'choice',title:'选购与人群适配',terms:'推荐 / 年龄 / 肤质 / 价格',re:/用什么|哪个|推荐|几岁|岁用|学生党|油皮|干皮|肤质|价格|贵|便宜|平价|入手|购买|合适|适合|怎么选/}
+  ];
+  var themes=themeDefs.map(function(t){var rows=comments.filter(function(c){return t.re.test(c.text);});var ns={};rows.forEach(function(c){if(c.note_id)ns[c.note_id]=1;});return {id:t.id,title:t.title,terms:t.terms,re:t.re,records:rows,count:rows.length,notes:Object.keys(ns).length,share:denominator?rows.length/denominator:0};}).filter(function(t){return t.count>0;});
+  var selected=themes[0]||null, page=1, colors=['#f0d974','#91d8c8','#d2c8f4','#f4b7a6'];
+  var $=function(s,r){return (r||document).querySelector(s);};
+  var esc=function(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});};
+  var date=function(v){if(!v)return '日期缺失';var d=new Date(v);return isNaN(d.getTime())?esc(v):d.toLocaleDateString('zh-CN',{year:'numeric',month:'2-digit',day:'2-digit'});};
+  var radar=$('#radarView'),trial=$('#trialView'),lab=$('#labView');
+  var crumb=$('.crumb');if(crumb)crumb.innerHTML='<span class="scan-dot"></span><span>眼部护理 · 本地真实评论样本</span>';
+  var filterBar=$('.filters');if(filterBar)filterBar.innerHTML='<span class="pill demo">评论主题只作需求线索 · 非机会结论</span>';
+  var sideNote=$('.side-note');if(sideNote)sideNote.textContent='评论主题 → 机会审判 → 小实验室。机会判断仍需购买行为与市场供给证据。';
+  radar.innerHTML='<div class="hero-row"><div><div class="eyebrow">OBSERVED COMMENT THEMES</div><h1 id="radarHeading"></h1><p class="subhead" id="radarIntro"></p></div></div><div class="metrics" id="sampleMetrics"></div><div class="radar-grid"><section class="panel"><div class="panel-head"><div><h2>需求机会空间 · 评论主题观察</h2><p>圆面积 = 命中评论数；横轴 = 覆盖笔记数；纵轴 = 同批次评论占比。仅呈现采集讨论，不代表市场缺口或机会评分。</p></div><span class="source-chip active">小红书 · 评论样本</span></div><div class="canvas" id="topicCanvas"><div class="cross-v"></div><div class="cross-h"></div><span class="axis-x">覆盖笔记数 →</span><span class="axis-y">批次占比 →</span></div></section><aside class="panel detail"><div class="detail-top"><span class="badge">评论主题 · 规则词命中</span><span class="confidence">观察线索</span></div><h2 id="detailTitle"></h2><p class="summary" id="detailSummary"></p><div class="evidence-counts"><div class="evidence-count xhs"><strong>小红书 · 已保存评论</strong><span id="commentCount"></span></div><div class="evidence-count"><strong>覆盖来源笔记</strong><span id="noteCoverage"></span></div></div><div class="ai-grid"><div class="ai-item"><small>主题命中规则</small><p id="themeLabels"></p></div><div class="ai-item"><small>同批有效评论占比</small><p id="themeShare"></p></div><div class="ai-item"><small>采样说明</small><p id="samplingInfo"></p></div><div class="ai-item"><small>结论边界</small><p>只说明已采集内容中出现了这些讨论，不证明购买意愿、市场空白或新品可行性。</p></div></div><div class="unknown"><strong>待补数据：</strong><span>购买、搜索、退货、商品问答及国内外供给证据尚未与本评论批次形成可比较验证。</span></div><div class="detail-actions"><button class="primary-btn" id="openThemeEvidence">查看图表与原始评论</button><button class="ghost-btn" id="enterTrialBtn">进入机会审判</button></div></aside></div><section class="candidate-section"><div class="section-line"><h2>采集到的评论主题</h2><p>同一条评论可能命中多个主题，主题占比不能相加</p></div><div class="candidate-list" id="topicCards"></div></section><section class="panel sample-limit"><h3>采集口径与限制</h3><div id="sampleLimitText"></div><div class="supply-context" id="supplyContext"></div></section>';
+  trial.innerHTML='<div class="eyebrow">Opportunity Review</div><h1>先看证据，再判断是否值得验证</h1><p class="subhead">评论主题是需求线索。审判阶段保留样本原文，同时把购买行为、竞争供给与反证缺口明确列出。</p><div class="flow-steps"><span class="flow-step">评论主题线索</span><span class="arrow">→</span><span class="flow-step on">机会审判</span><span class="arrow">→</span><span class="flow-step">小实验室</span></div><div class="trial-layout"><section class="panel trial-main"><div class="candidate-title"><div><span class="badge">当前审查主题</span><h2 id="trialTitle" style="margin-top:10px"></h2><p id="trialSubtitle"></p></div><span class="confidence">证据可追溯</span></div><div class="evidence-columns"><div class="evidence-box support"><h3>评论原文样本</h3><div id="trialEvidence"></div></div><div class="evidence-box counter"><h3>尚未验证的部分</h3><div id="trialGaps"></div></div></div><div class="inference"><h3>当前只能得出的判断</h3><p>这些真实评论可以帮助描述用户在讨论什么；本批次本身无法判断问题规模、购买转化、供给缺口、利润空间或开发优先级。需要其他独立数据交叉验证。</p></div></section><aside class="panel trial-side"><h2>审判问题</h2><p style="color:var(--muted);font-size:12px">不把提及频次直接当作机会结论。</p><div class="gate-list"><div class="gate"><span class="gate-icon">1</span><div><strong>样本中实际出现了什么</strong><br><small id="trialSignal"></small></div><span class="gate-status">有原文</span></div><div class="gate"><span class="gate-icon">2</span><div><strong>是否对应真实行为</strong><br><small>待接入搜索、收藏、咨询、成交、退货等行为数据</small></div><span class="gate-status" style="color:#8a6817">待补证</span></div><div class="gate"><span class="gate-icon">3</span><div><strong>市场上是否已有解决方案</strong><br><small>供给榜单只覆盖采集范围，不能据此认定市场空白</small></div><span class="gate-status" style="color:#8a6817">待核查</span></div><div class="gate"><span class="gate-icon">4</span><div><strong>下一步最小验证是什么</strong><br><small>先补足需求与供给证据，再设计针对性测试</small></div><span class="gate-status">可规划</span></div></div><div class="verdict"><small>当前状态</small><strong>线索待验证</strong><p>不自动推荐开发，也不自动判定进入产品立项。</p></div><div class="action-stack"><button class="primary-btn" id="enterLabBtn">进入小实验室规划</button><button class="ghost-btn" data-go="radar">返回评论主题</button></div></aside></div>';
+  lab.innerHTML='<div class="eyebrow">Minimum Experiment Lab</div><h1>规划下一步证据验证</h1><p class="subhead">保留实验室流程。当前接入的是历史评论样本，尚无真实用户实验反馈，因此这里只生成待办验证方案，不模拟实验结果。</p><div class="flow-steps"><span class="flow-step">评论主题线索</span><span class="arrow">→</span><span class="flow-step">机会审判</span><span class="arrow">→</span><span class="flow-step on">小实验室</span></div><div class="lab-grid"><section class="panel lab-panel"><div class="candidate-title"><div><span class="badge">当前验证对象</span><h2 id="labTitle" style="margin-top:10px"></h2></div></div><div class="hypothesis"><small>待验证假设，不是已证实结论</small><p id="labHypothesis"></p></div><h3 style="margin-bottom:10px">建议补齐的证据</h3><div class="test-items" id="labTasks"></div><div class="test-plan"><div class="section-line"><h3>实验状态</h3><p>尚未启动真实用户实验</p></div><div class="evidence-empty">目前没有概念偏好、支付意愿或实验反馈数据。补齐真实行为数据后，再设计样本量和成功阈值。</div></div></section><aside><div class="lab-side-card"><h2>数据边界</h2><p id="labBoundary"></p><button class="ghost-btn" style="width:100%" data-go="trial">返回机会审判</button></div></aside></div>';
+  var css=document.createElement('style');css.textContent='.sample-limit{margin-top:16px;padding:18px 20px}.sample-limit h3{margin-bottom:8px}.sample-limit p,.sample-limit li{color:var(--muted);font-size:12px;line-height:1.7}.sample-limit ul{margin:6px 0 0;padding-left:18px}.supply-context{margin-top:12px;border-top:1px solid var(--line);padding-top:12px}.supply-context strong{display:block;margin-bottom:5px}.topic-bubble{transform:translate(-50%,-50%);min-width:80px;min-height:80px;max-width:160px;max-height:160px;font-size:11px}.topic-bubble:hover,.topic-bubble.active{transform:translate(-50%,-50%) scale(1.06)}.topic-bubble em{display:block;font-style:normal;font-size:19px}.theme-card{border:1px solid var(--line);border-radius:20px;padding:17px;background:#fff;cursor:pointer;text-align:left;min-height:155px}.theme-card.active{outline:2px solid var(--ink);box-shadow:var(--shadow)}.theme-card h3{margin:12px 0 6px}.theme-card p,.theme-card small{color:var(--muted);font-size:11px;line-height:1.55}.evidence-bar-list{display:grid;gap:10px}.evidence-bar-item{font-size:11px}.evidence-bar-item header{display:flex;justify-content:space-between;gap:10px}.evidence-bar-item header span{color:var(--muted)}.evidence-bar-item .evidence-bar{margin-top:5px}.evidence-record-meta{color:var(--muted);font-size:10px}.evidence-pagination{margin:12px 0}.evidence-limit{margin-top:12px}.supply-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}.supply-stat{padding:11px;background:#f4f4ef;border-radius:12px;font-size:11px}.supply-stat b{display:block;font-size:16px;margin:4px 0}.trial-evidence-record{background:rgba(255,255,255,.75);border-radius:12px;padding:10px;margin-top:8px;font-size:12px;line-height:1.55}.trial-evidence-record small{display:block;color:var(--muted);margin-top:5px}.lab-task{background:#f5f5f1;padding:12px;border-radius:14px;font-size:11px;line-height:1.6}.lab-task b{display:block;margin-bottom:5px}@media(max-width:760px){.supply-grid{grid-template-columns:1fr}.topic-bubble{min-width:72px;min-height:72px}}';document.head.appendChild(css);
+  document.querySelectorAll('.queue-overlay,.toast,.evidence-overlay').forEach(function(e){e.remove();});
+  document.body.insertAdjacentHTML('beforeend','<div class="evidence-overlay" id="evidenceOverlay" aria-hidden="true"><section class="evidence-drawer" role="dialog" aria-modal="true" aria-labelledby="evidenceTitle"><div class="evidence-drawer-head"><div><span class="badge">小红书 · 评论证据</span><h2 id="evidenceTitle" style="margin-top:10px">评论主题明细</h2><p id="evidenceSubtitle"></p></div><button class="evidence-close" id="closeEvidenceBtn" aria-label="关闭">×</button></div><div id="evidenceContent"></div></section></div>');
+  function renderMetrics(){var m=[['已保存评论与回复',batchCount.toLocaleString(),'仅计 eye_harvest 同一保存批次'],['眼护笔记',posts.length,Number(noteMeta.eye_care_notes_with_captured_comments||0)+' 篇有已保存评论页'],['规则主题观察',themes.length,'主题词可重叠，不可相加'],['其他单帖补充',extraCount,extraCount+' / '+extraTotal+'，不并入评论比例']];$('#sampleMetrics').innerHTML=m.map(function(x){return '<div class="metric"><span>'+esc(x[0])+'</span><b>'+esc(x[1])+'</b><small>'+esc(x[2])+'</small></div>';}).join('');$('#radarHeading').textContent='眼部护理 · '+themes.length+' 组评论主题观察';$('#radarIntro').textContent='基于 '+batchCount.toLocaleString()+' 条本地小红书评论与回复，覆盖 '+posts.length+' 篇正文命中眼部护理语义的笔记。主题按透明关键词规则统计，只描述已采集文本。';}
+  function render(){var canvas=$('#topicCanvas');canvas.querySelectorAll('.topic-bubble').forEach(function(e){e.remove();});var max=Math.max.apply(null,themes.map(function(t){return t.count;}).concat([1])),maxNotes=Math.max.apply(null,themes.map(function(t){return t.notes;}).concat([1])),maxShare=Math.max.apply(null,themes.map(function(t){return t.share;}).concat([0.001]));themes.forEach(function(t,i){var z=Math.round(160*Math.sqrt(t.count/max)),left=12+t.notes/maxNotes*72,top=86-t.share/maxShare*72+(i%2?3:-3),b=document.createElement('button');b.className='bubble topic-bubble'+(selected&&selected.id===t.id?' active':'');b.style.cssText='width:'+z+'px;height:'+z+'px;left:'+left+'%;top:'+top+'%;background:'+colors[i%colors.length];b.innerHTML='<span>'+esc(t.title)+'<em>'+t.count+'</em></span>';b.addEventListener('click',function(){choose(t.id);open(t.id);});canvas.appendChild(b);});$('#topicCards').innerHTML=themes.map(function(t){return '<button class="theme-card'+(selected&&selected.id===t.id?' active':'')+'" data-theme="'+t.id+'"><small>主题词命中 · '+(t.share*100).toFixed(1)+'% 样本评论</small><h3>'+esc(t.title)+'</h3><p>'+esc(t.terms)+'</p><small>'+t.count+' 条评论 · 覆盖 '+t.notes+' 篇笔记</small></button>';}).join('');$('#topicCards').querySelectorAll('[data-theme]').forEach(function(e){e.addEventListener('click',function(){choose(e.dataset.theme);});});detail();}
+  function detail(){if(!selected)return;$('#detailTitle').textContent=selected.title;$('#detailSummary').textContent='规则命中 '+selected.count+' 条已保存评论/回复，来自 '+selected.notes+' 篇笔记。分类只按评论原文主题词命中。';$('#commentCount').textContent=selected.count+' 条命中 / '+batchCount+' 条已保存非空评论';$('#noteCoverage').textContent=selected.notes+' / '+posts.length+' 篇眼护笔记';$('#themeLabels').textContent=selected.terms+'；单条评论可能命中多个主题。';$('#themeShare').textContent=selected.count+' ÷ '+batchCount+' = '+(selected.share*100).toFixed(1)+'%（已保存评论与回复）';$('#samplingInfo').textContent='评论页有未读完标记；这是保存页样本，不是笔记下全部评论。'+shortTextCount+' 条文本≤2字、'+symbolOnlyCount+' 条纯符号/表情，重复原文 '+duplicateTextRows+' 条（不同评论ID）；短句不一定能表达完整需求。另 '+extraCount+' 条接口样本单独展示，不混入分母。';}
+  function choose(id){selected=themes.find(function(t){return t.id===id;})||selected;detail();document.querySelectorAll('.topic-bubble').forEach(function(b){b.classList.toggle('active',b.textContent.indexOf(selected.title)>=0);});document.querySelectorAll('.theme-card').forEach(function(b){b.classList.toggle('active',b.dataset.theme===selected.id);});}
+  function bars(){var max=Math.max.apply(null,themes.map(function(t){return t.count;}).concat([1]));return themes.map(function(t,i){return '<div class="evidence-bar-item"><header><b>'+esc(t.title)+'</b><span>'+t.count+' 条 · '+(t.share*100).toFixed(1)+'%</span></header><div class="evidence-bar"><i style="width:'+Math.max(1,t.count/max*100)+'%;background:'+colors[i%colors.length]+'"></i></div></div>';}).join('');}
+  function records(){var out=$('#evidenceRecordList');if(!out||!selected)return;var rows=selected.records.slice(0,page*30);out.innerHTML=rows.map(function(c){return '<div class="evidence-record">“'+esc(c.text)+'”<small class="evidence-record-meta">'+esc(['小红书',date(c.published_at),c.depth?'回复评论':'顶层评论','笔记 '+c.note_id,'原帖 '+(c.context_note_title||(postById[c.note_id]&&postById[c.note_id].title)||'标题缺失'),'笔记ID '+c.note_id,'评论ID '+c.comment_id,'来源 '+c.source_file,'匿名用户 '+(c.author_anon_id||'未提供')].join(' · '))+'</small></div>';}).join('');$('#moreEvidenceBtn').style.display=rows.length<selected.records.length?'':'none';}
+  function open(id){choose(id);if(!selected)return;page=1;var pct=(selected.share*100).toFixed(1);$('#evidenceTitle').textContent=selected.title+' · 评论证据';$('#evidenceSubtitle').textContent='规则命中评论 ÷ eye_harvest 同批已保存非空评论；不是平台评论总量。';$('#evidenceContent').innerHTML='<div class="evidence-kpis"><div class="evidence-kpi"><span>命中评论与回复</span><strong>'+selected.count.toLocaleString()+'</strong></div><div class="evidence-kpi"><span>同批已保存非空评论</span><strong>'+batchCount.toLocaleString()+'</strong></div><div class="evidence-kpi"><span>本批样本占比</span><strong>'+pct+'%</strong></div></div><div class="evidence-kpi"><span>覆盖眼护笔记</span><strong>'+selected.notes+' / '+posts.length+'</strong></div><div class="evidence-chart-grid" style="margin-top:12px"><div class="evidence-chart"><h3>命中 / 其他已采评论</h3><div class="evidence-donut-wrap"><div class="evidence-donut" style="background:conic-gradient(#49aa98 0 '+pct+'%,#ecebe6 '+pct+'% 100%)"><div class="evidence-donut-label"><strong>'+pct+'%</strong>本批命中</div></div></div><small>只反映当前保存样本中的规则命中占比</small></div><div class="evidence-sources"><h3>各主题命中量</h3><div class="evidence-bar-list">'+bars()+'</div><small>不同主题可重叠，合计可能超过分母</small></div></div><div class="evidence-records"><h3>命中该主题的原始评论 · '+selected.records.length+' 条</h3><div id="evidenceRecordList"></div><button class="ghost-btn evidence-pagination" id="moreEvidenceBtn" type="button">显示更多评论</button><div class="evidence-method evidence-limit"><b>样本边界</b><br>仅小红书一处来源；笔记按标题与正文筛选，评论列表有 hasMore 未读完标记。比例只用同批次已保存评论/回复。另 '+extraCount+' 条单帖样本 / 接口报告 '+extraTotal+' 条不并入分母；讨论频次不证明购买意愿或市场空白。</div></div>';records();$('#moreEvidenceBtn').addEventListener('click',function(){page++;records();});$('#evidenceOverlay').classList.add('show');$('#evidenceOverlay').setAttribute('aria-hidden','false');}
+  function trialRender(){if(!selected)return;$('#trialTitle').textContent=selected.title;$('#trialSubtitle').textContent=selected.count+' 条评论 / '+batchCount+' 条已保存评论（'+(selected.share*100).toFixed(1)+'%），覆盖 '+selected.notes+' 篇笔记。';$('#trialSignal').textContent=selected.count+' 条评论提及，覆盖 '+selected.notes+' 篇笔记；命中词：'+selected.terms;$('#trialEvidence').innerHTML=selected.records.slice().sort(function(a,b){return String(b.published_at||'').localeCompare(String(a.published_at||''));}).slice(0,5).map(function(c){return '<div class="trial-evidence-record">“'+esc(c.text)+'”<small>小红书 · '+date(c.published_at)+' · 笔记 '+esc(c.note_id)+' · '+(c.depth?'回复':'顶层评论')+'</small></div>';}).join('');$('#trialGaps').innerHTML='<div class="trial-evidence-record">当前评论来自已保存的部分页面；评论列表仍提示有更多内容。</div><div class="trial-evidence-record">购买行为、需求搜索量、商品问答、退货原因尚未接入。</div><div class="trial-evidence-record">中国抖音与美国 FastMoss 是独立供给快照，不能与评论数相加，也不能单独证明市场空白。</div>';}
+  function labRender(){if(!selected)return;$('#labTitle').textContent=selected.title;$('#labHypothesis').textContent='如果“'+selected.title+'”对应稳定的未满足需求，补充跨来源、可观察行为和现有供给后，主题应在不同用户和商品中重复出现，并能指向具体使用问题。当前只是待验证假设。';$('#labTasks').innerHTML='<div class="lab-task"><b>01 · 补全需求样本</b>继续采集并分页读取相关笔记评论，区分提问、体验、投诉与回复，检查跨笔记重复。</div><div class="lab-task"><b>02 · 核验真实行为</b>接入站内搜索、收藏、咨询、下单、复购和退货等数据，独立验证是否有行动。</div><div class="lab-task"><b>03 · 对照市场供给</b>分别检查国内抖音罗盘与美国 FastMoss 商品、销量和窗口覆盖；榜单之外仍属于未知。</div>';$('#labBoundary').textContent='当前只接入小红书眼部护理评论样本。没有真实实验反馈和购买数据，因此不展示模拟偏好、虚构样本量或自动产品建议。';}
+  function limits(){var d=supply.domestic_douyin_compass||{},f=supply.overseas_us_fastmoss||{},strict=f.source_category_eye_care||{},extended=f.additional_title_matches||{},ss=supply.meta&&supply.meta.sources||[],domDate=(ss[0]&&ss[0].data_date)||'日期缺失',usDate=(ss[1]&&ss[1].harvested_at)||'日期缺失';$('#supplyContext').innerHTML='<strong>独立供给侧上下文 · 不参与评论占比</strong><p>榜单窗口受采集类目与覆盖范围限制，未出现不等于市场无供给。</p><div class="supply-grid"><div class="supply-stat">中国 · 抖音罗盘 · '+esc(domDate)+'<b>'+Number(d.raw_rows_total_across_windows||0).toLocaleString()+' 条窗口快照</b>'+Number(d.unique_product_ids_across_windows||0).toLocaleString()+' 个跨窗口去重商品</div><div class="supply-stat">美国 · FastMoss · '+esc(usDate.slice(0,10))+'<b>'+Number(strict.unique_product_ids||strict.row_count||0).toLocaleString()+' 个严格类目商品</b>'+Number(extended.unique_product_ids||extended.row_count||0).toLocaleString()+' 个商品名扩展匹配</div></div>';$('#sampleLimitText').innerHTML='<ul><li>仅小红书单一平台；搜索词召回后再按真实笔记标题和正文语义筛选，搜索召回仍可能偏向高互动内容。</li><li>'+posts.length+' 篇笔记通过眼护语义筛选，'+Number(noteMeta.eye_care_notes_with_captured_comments||0)+' 篇有已保存评论页；各页存在 hasMore 标记，未读完全部评论。</li><li>占比分母是 '+batchCount+' 条带评论ID与非空原文的去重顶层评论及回复，不能代表平台全量。抽查 '+shortTextCount+' 条文本不超过2字、'+symbolOnlyCount+' 条纯符号/表情；另有 '+duplicateTextRows+' 条与其他记录原文重复但评论ID不同，可能是不同用户/笔记中的重复表达。另有 '+extraCount+' 条 / 接口报告 '+extraTotal+' 条的单帖样本，因原帖信息缺失而单列。</li><li>评论文本反映讨论，不是购买、供给或利润证据；主题规则词仅用于计数，不构成已验证市场机会。</li></ul>';}
+  function go(view){var target=['radar','trial','lab'].indexOf(view)>=0?view:'radar';document.querySelectorAll('.view').forEach(function(e){e.classList.toggle('active',e.id===target+'View');});document.querySelectorAll('.nav-btn').forEach(function(e){e.classList.toggle('active',e.dataset.view===target);});if(target==='trial')trialRender();if(target==='lab')labRender();history.replaceState(null,'','#'+target);window.scrollTo({top:0,behavior:'smooth'});}
+  document.querySelectorAll('.nav-btn').forEach(function(b){b.addEventListener('click',function(){go(b.dataset.view);});});
+  document.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){go(b.dataset.go);});});
+  $('#openThemeEvidence').addEventListener('click',function(){if(selected)open(selected.id);});
+  $('#enterTrialBtn').addEventListener('click',function(){go('trial');});
+  $('#enterLabBtn').addEventListener('click',function(){go('lab');});
+  $('#closeEvidenceBtn').addEventListener('click',function(){$('#evidenceOverlay').classList.remove('show');$('#evidenceOverlay').setAttribute('aria-hidden','true');});
+  $('#evidenceOverlay').addEventListener('click',function(e){if(e.target===$('#evidenceOverlay'))$('#closeEvidenceBtn').click();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')$('#closeEvidenceBtn').click();});
+  window.addEventListener('hashchange',function(){go(location.hash.slice(1));});
+  renderMetrics();limits();render();go(location.hash.slice(1)||'radar');
+})();
+</script>
+  <script src="../../scripts/prototype-export-client.js?v=20260927"></script>
+</body>
+</html>

@@ -884,6 +884,8 @@ body.flt-lock{overflow:hidden}
 .growth-category-row .growth-category-name small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .growth-product-table .product-cell{display:flex;align-items:center;gap:10px;min-width:280px}.growth-product-table .product-thumb{width:42px;height:42px;flex:none;border-radius:9px;object-fit:cover;background:#edf3f6;border:1px solid #e0e9ee}.growth-product-table .product-thumb.is-empty{display:grid;place-items:center;color:#8ba0ae;font-size:10px}.growth-product-table .product-copy{min-width:0}.growth-product-table .product-copy .product-name{display:block;max-width:440px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.growth-product-table .region{color:#536b80;font-size:11px}.growth-product-table .gmv{color:#147c70;font-weight:700;white-space:nowrap}.growth-product-table .period{display:block;margin-top:3px;color:#768397;font-size:10px}
 @media(max-width:720px){.growth-category-list{grid-template-columns:1fr}}
+.opportunity-radar-frame{display:block;width:100%;height:calc(100vh - 160px);min-height:760px;border:0;border-radius:12px;background:#faf9f6}
+@media(max-width:720px){.opportunity-radar-frame{height:calc(100vh - 150px);min-height:700px}}
 </style>
 </head>
 <body>
@@ -942,6 +944,7 @@ body.flt-lock{overflow:hidden}
 
 <script src="vendor/product_research_tool/product-archive-images.js"></script>
 <script src="vendor/product_research_tool_remote/product-research-data.js"></script>
+<script src="./opportunity-radar/embed.js?v=20260927-eye-care-data"></script>
 <script>
 /* =============================================================
    全球选品平台 · 单文件数据平台
@@ -3712,7 +3715,11 @@ RENDER.board = function () {
   initGrowthHeroCarousel();
 };
 RENDER.opportunity = function () {
-  $('#view').innerHTML = opportunityPanelHtml();
+  var view = $('#view');
+  view.innerHTML = '<iframe class="opportunity-radar-frame" title="产品机会雷达" loading="eager"></iframe>';
+  var frame = view.querySelector('iframe');
+  if (window.mountOpportunityRadar) window.mountOpportunityRadar(frame);
+  else view.innerHTML = '<div class="opportunity-empty"><b>机会雷达加载失败</b><p>未能加载机会雷达组件，请刷新页面。</p></div>';
 };
 
 function boardTopHtml(list) {
