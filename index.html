@@ -7,6 +7,11 @@
 <title>全球选品平台 · 本地策略台整合版</title>
 <!-- 本地只读整合副本：不会回写或覆盖原 WorkBuddy 页面 -->
 <style>
+.growth-radar-context{display:flex;align-items:center;gap:12px;padding:8px 4px;color:#26364d}.growth-radar-context .growth-radar-kicker{color:#0b887b}.growth-radar-context b{font-size:14px}.growth-radar-context small{color:var(--hint);font-size:11px}.growth-radar-source{padding:18px 20px;border:1px solid #dce9ee;border-radius:14px;background:linear-gradient(135deg,#f7fcfb,#f4f8ff)}.growth-radar-source-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.growth-radar-source-head h2{margin-top:7px;font-size:16px}.growth-radar-source-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}.growth-radar-source-grid>div{padding:12px;border:1px solid rgba(49,125,144,.14);border-radius:10px;background:rgba(255,255,255,.72)}.growth-radar-source-grid b{font-size:12px;color:#18354d}.growth-radar-source-grid p{margin:6px 0 0;color:#67788c;font-size:11px;line-height:1.55}.growth-radar-source-foot{margin-top:12px;color:#7a899b;font-size:10.5px;line-height:1.5}
+.growth-radar-context{flex-wrap:wrap}.growth-radar-source-grid{align-items:stretch}
+@media(max-width:720px){.growth-radar-source-grid{grid-template-columns:1fr}.growth-radar-context{align-items:flex-start;flex-direction:column;gap:4px}.growth-radar-source{padding:15px}.growth-radar-source-head{flex-direction:column}}
+@media(max-width:1199px){.growth-ticker-card{flex-basis:calc((100% - 10px)/2)}}
+@media(max-width:720px){.growth-ticker-card{flex-basis:100%}.growth-radar-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.growth-radar-hero{padding:16px}.growth-radar-panel-head{align-items:flex-start;flex-direction:column}.growth-hero-slide{grid-template-columns:1fr;padding:16px}.growth-hero-footer{padding-left:16px;padding-right:16px}.growth-hero-live{font-size:11px}}
 :root{
   --bg:#F4F4F7;--surface:#FFFFFF;--surface-2:#FAFAFC;
   --line:#E7E7EC;--line-2:#F1F1F5;
@@ -27,7 +32,7 @@
   --side-w:212px;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;padding:0}
+html,body{margin:0;padding:0;overflow-x:hidden}
 body{
   background:var(--bg);color:var(--text);
   font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
@@ -77,7 +82,7 @@ svg{display:block}
 }
 .side-actions button:hover{border-color:#D5D5DA;color:var(--text)}
 
-.main{margin-left:var(--side-w);min-height:100vh;padding-bottom:32px}
+.main{margin-left:var(--side-w);min-height:100vh;padding-bottom:32px;min-width:0;max-width:calc(100vw - var(--side-w));overflow-x:hidden}
 .topbar{
   position:sticky;top:0;z-index:20;background:rgba(245,245,247,.86);
   backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);
@@ -110,7 +115,7 @@ svg{display:block}
 .chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
 .chip .cn{font-size:10.5px;opacity:.6;margin-left:3px}
 .chip-sep{flex:none;width:1px;height:18px;background:var(--line);margin:0 5px}
-.view{padding:18px 24px 40px}
+.view{padding:18px 24px 40px;min-width:0;max-width:100%;overflow-x:hidden}
 
 /* ---------- 通用块 ---------- */
 .sec{margin-bottom:22px}
@@ -139,6 +144,7 @@ svg{display:block}
 .board-hero{display:grid;grid-template-columns:minmax(260px,1fr) minmax(400px,1.2fr);gap:24px;align-items:center;padding:24px;border-radius:18px;color:#fff;background:linear-gradient(115deg,#111a39,#20265b 64%,#30305f);margin:0 0 20px}
 .board-eyebrow{font-size:11px;letter-spacing:.08em;color:#aebce4}
 .board-hero-main h2{font-size:22px;line-height:1.45;margin:10px 0 7px;font-weight:600}
+.board-live-broadcast{float:right;margin:1px 0 0 14px;color:#73f0d7;font-size:12px;font-weight:600;letter-spacing:.04em;white-space:nowrap}
 .board-hero-main p{font-size:12px;color:#b4bdd6}
 .board-hero-actions{display:flex;gap:8px;margin-top:16px}
 .board-hero-actions button{height:34px;padding:0 12px;border:1px solid rgba(255,255,255,.25);border-radius:8px;color:#fff;background:rgba(255,255,255,.08);font-size:12px}
@@ -147,6 +153,16 @@ svg{display:block}
 .board-stat{padding:12px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(255,255,255,.07);min-width:0}
 .board-stat span,.board-stat small{display:block;color:#aeb8d2;font-size:10.5px}
 .board-stat b{display:block;margin:6px 0;font-size:22px;line-height:1.1;white-space:nowrap}
+.growth-hero{display:block;padding:0;overflow:hidden}
+.growth-hero-slides{min-width:0}
+.growth-hero-slide{display:none;grid-template-columns:minmax(260px,1fr) minmax(400px,1.2fr);gap:24px;align-items:center;padding:24px}
+.growth-hero-slide.on{display:grid}
+.growth-hero-live{float:right;margin:1px 0 0 14px;color:#73f0d7;font-size:12px;font-weight:600;letter-spacing:.04em;white-space:nowrap}
+.growth-hero-footer{display:flex;align-items:center;gap:12px;padding:9px 24px 11px;border-top:1px solid rgba(255,255,255,.13);background:rgba(4,12,37,.22);color:#aebce4;font-size:10px}
+.growth-hero-footer b{color:#73f0d7;font-weight:600;white-space:nowrap}
+.growth-hero-progress{height:3px;flex:1;overflow:hidden;border-radius:99px;background:rgba(255,255,255,.16)}
+.growth-hero-progress i{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,#42c6ff,#57e1c2)}
+.growth-hero-footer button{width:23px;height:23px;border:1px solid rgba(255,255,255,.24);border-radius:6px;color:#dbe7ff;background:rgba(255,255,255,.08);font-size:14px;line-height:1;cursor:pointer}
 .board-section{margin-bottom:16px;padding:18px 20px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh)}
 .board-section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
 .board-section-head h2{font-size:15px;font-weight:600}
@@ -162,6 +178,7 @@ svg{display:block}
 .board-bar{height:8px;border-radius:8px;background:#f0f1f5;overflow:hidden}
 .board-bar i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,#f58c8c,#dc3c43)}
 .board-growth-value{text-align:right;font-size:13px;white-space:nowrap}
+.growth-radar{display:grid;gap:12px;margin-bottom:18px;min-width:0;overflow:hidden}.growth-radar-hero{padding:18px 20px;border-radius:18px;color:#fff;background:radial-gradient(circle at 86% 12%,rgba(61,214,190,.24),transparent 28%),linear-gradient(120deg,#10224b,#173e68 55%,#12645f);box-shadow:0 12px 30px rgba(20,43,88,.16);min-width:0}.growth-radar-kicker{display:flex;align-items:center;gap:8px;color:#9cefe1;font-size:11px;letter-spacing:.08em;text-transform:uppercase}.growth-radar-kicker i{width:7px;height:7px;border-radius:50%;background:#54e3c8;box-shadow:0 0 0 5px rgba(84,227,200,.13)}.growth-radar-hero h2{margin:10px 0 6px;font-size:22px;line-height:1.3}.growth-radar-hero p{margin:0;color:#bed3e7;font-size:12px}.growth-radar-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:14px}.growth-radar-stat{padding:10px 11px;border:1px solid rgba(255,255,255,.14);border-radius:11px;background:rgba(255,255,255,.08);min-width:0}.growth-radar-stat span,.growth-radar-stat small{display:block;color:#a8bfd6;font-size:10px}.growth-radar-stat b{display:block;margin:4px 0;font-size:18px;white-space:nowrap}.growth-ticker{min-width:0}.growth-ticker-viewport{overflow:hidden;border-radius:14px}.growth-ticker-track{display:flex;gap:10px;transition:transform .45s cubic-bezier(.22,.61,.36,1);will-change:transform}.growth-ticker-card{flex:0 0 calc((100% - 20px)/3);min-width:0;min-height:96px;padding:13px;border:1px solid #dbe5ee;border-radius:14px;background:linear-gradient(145deg,#fff,#f5fbfa);box-shadow:0 5px 16px rgba(31,67,96,.06)}.growth-ticker-card .top{display:flex;justify-content:space-between;gap:8px;align-items:center}.growth-ticker-card b{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.growth-ticker-card .rise{color:#07866f;font-size:17px;font-weight:700;white-space:nowrap}.growth-ticker-card p{margin:7px 0 0;color:var(--hint);font-size:10.5px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.growth-ticker-controls{display:flex;align-items:center;gap:10px;margin-top:8px}.growth-ticker-controls small{color:var(--hint);font-size:10px}.growth-ticker-progress{height:3px;flex:1;overflow:hidden;border-radius:99px;background:#e5edf5}.growth-ticker-progress i{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,#2b79df,#3bd2c3)}.growth-ticker-controls button{width:24px;height:24px;border:1px solid #d7e2ec;border-radius:7px;color:#2774cb;background:#fff;font-size:13px;line-height:1}.growth-radar-panel{padding:15px 17px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--sh)}.growth-radar-panel-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:10px}.growth-radar-panel-head h2{font-size:15px}.growth-radar-panel-head p{margin-top:3px;color:var(--hint);font-size:11px}.growth-country-tabs,.growth-category-tabs{display:flex;gap:7px;overflow:auto;padding-bottom:3px;margin-bottom:11px}.growth-country-tabs button,.growth-category-tabs button{flex:0 0 auto;padding:7px 13px;border:1px solid #dfe6ee;border-radius:999px;background:#fff;color:#536176;font:inherit;font-size:11px;cursor:pointer}.growth-country-tabs button.on,.growth-category-tabs button.on{color:#fff;background:#0e8d82;border-color:#0e8d82}.growth-category-list{display:grid;gap:3px}.growth-category-row{display:grid;grid-template-columns:180px minmax(120px,1fr) 84px 145px;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line-2)}.growth-category-row:last-child{border-bottom:0}.growth-category-name b,.growth-category-name small{display:block}.growth-category-name b{font-size:12px}.growth-category-name small{margin-top:2px;color:var(--hint);font-size:9.5px}.growth-category-bar{height:7px;border-radius:99px;background:#edf2f5;overflow:hidden}.growth-category-bar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#2ecbb2,#2777da)}.growth-category-rate{font-size:12px;font-weight:700;text-align:right}.growth-category-meta{color:var(--hint);font-size:10px}.growth-product-table{width:100%;border-collapse:collapse;min-width:720px}.growth-product-table th{padding:7px 9px;text-align:left;color:#8995a5;font-size:10px;font-weight:500;background:#f7f9fb}.growth-product-table td{padding:8px 9px;border-bottom:1px solid var(--line-2);font-size:11px;vertical-align:middle}.growth-product-table tr:last-child td{border-bottom:0}.growth-product-table .rank{display:inline-flex;width:22px;height:22px;border-radius:7px;align-items:center;justify-content:center;background:#edf5f6;color:#0b8276;font-weight:700}.growth-product-table .product-name{font-weight:600}.growth-product-table .sub{display:block;margin-top:3px;color:var(--hint);font-size:10px}.growth-product-table .source{color:#64748b;font-size:10.5px}.growth-radar-note{padding:9px 11px;border-radius:9px;background:#f5f8fb;color:#768397;font-size:10px;line-height:1.5}
 .board-ingredient-row{display:grid;grid-template-columns:minmax(100px,150px) minmax(100px,170px) minmax(110px,1fr) 82px minmax(130px,auto);align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--line-2)}
 .board-ingredient-row>b:first-child{font-size:12px;font-weight:500}
 .board-ingredient-row>span,.board-ingredient-row>small{font-size:10.5px;color:var(--hint)}
@@ -860,6 +877,13 @@ body.flt-lock{overflow:hidden}
 .pr-same{display:flex;gap:8px;flex-wrap:wrap}.pr-same button{padding:6px 9px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--blue);font-size:9px}.pr-foot-boundary{padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--hint);font-size:9px;line-height:1.75}
 @media(max-width:1050px){.pr-filter{grid-template-columns:1fr 170px auto}.pr-filter-count{grid-column:1/-1;justify-self:start}.pr-hero{grid-template-columns:220px 1fr}.pr-kpis{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:760px){.pr-toolbar{align-items:flex-start;flex-direction:column}.pr-routes{width:100%}.pr-routes button{flex:1}.pr-filter,.pr-hero,.pr-two,.pr-method-grid,.pr-ring-grid{grid-template-columns:1fr}.pr-hero-img{max-width:300px}.pr-kpis{grid-template-columns:repeat(2,1fr)}.pr-video-grid{grid-template-columns:1fr}.pr-dl{grid-template-columns:1fr 1fr}.pr-vitem>summary{grid-template-columns:100px 1fr}.pr-vthumb{width:100px;height:60px}.pr-vitem>summary>span{display:none}}
+/* Growth category comparison: keep long bars, arrange countries in two columns */
+.growth-category-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}
+.growth-category-row{min-width:0;padding:10px 0}
+.growth-category-row .growth-category-name{min-width:0}
+.growth-category-row .growth-category-name small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.growth-product-table .product-cell{display:flex;align-items:center;gap:10px;min-width:280px}.growth-product-table .product-thumb{width:42px;height:42px;flex:none;border-radius:9px;object-fit:cover;background:#edf3f6;border:1px solid #e0e9ee}.growth-product-table .product-thumb.is-empty{display:grid;place-items:center;color:#8ba0ae;font-size:10px}.growth-product-table .product-copy{min-width:0}.growth-product-table .product-copy .product-name{display:block;max-width:440px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.growth-product-table .region{color:#536b80;font-size:11px}.growth-product-table .gmv{color:#147c70;font-weight:700;white-space:nowrap}.growth-product-table .period{display:block;margin-top:3px;color:#768397;font-size:10px}
+@media(max-width:720px){.growth-category-list{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -3381,22 +3405,20 @@ function boardComparableGroups(list, withIngredient) {
 function boardHeroHtml(list) {
   var groups = boardComparableGroups(list, false), ranked = groups.filter(function (g) { return g.stats.n > 0; });
   ranked.sort(function (a, b) { return (b.stats.med === null ? -Infinity : b.stats.med) - (a.stats.med === null ? -Infinity : a.stats.med) || b.stats.n - a.stats.n; });
-  var best = ranked[0] || null, g = best ? best.stats : { med: null, pos: null, n: 0, posN: 0 };
   var latest = freshnessOf(list);
-  var heading = best
-    ? '增长线索：' + esc(best.country) + ' · ' + esc(best.category) + ' ' + (g.med === null ? '—' : fmtPct(g.med))
-    : '当前筛选下还没有可比较的增速数据';
-  var sourcePeriod = best ? esc(best.source + ' · ' + best.period + ' · ' + best.rows.length + ' 条样本')
-    + (g.n < 20 ? '；样本少于 20 条，先作观察线索' : '') : '先补充带统计周期和商品增速的数据';
-  function stat(label, value, foot) { return '<div class="board-stat"><span>' + label + '</span><b>' + value + '</b><small>' + foot + '</small></div>'; }
-  return '<section class="board-hero"><div class="board-hero-main"><span class="board-eyebrow">全球增长快照 · ' + esc(latest) + '</span>'
-    + '<h2>' + heading + '</h2><p>' + sourcePeriod + '</p>'
-    + '<div class="board-hero-actions"><button type="button" data-view="rank">查看商品榜</button><button type="button" data-view="strategy">查看策略台</button></div></div>'
-    + '<div class="board-stats">' + stat('增长中位数', g.med === null ? '—' : fmtPct(g.med), '同来源、同周期')
-    + stat('正增长占比', g.pos === null ? '—' : g.pos + '%', g.posN + ' / ' + g.n + ' 个有效样本')
-    + stat('有效样本', g.n, '已排除可识别低基数')
-    + stat('覆盖国家', new Set(list.map(function (r) { return txtOf(r, '国家/地区'); }).filter(Boolean)).size, '当前筛选范围')
-    + '</div></section>';
+  var candidates = ranked.slice(0, 8), countryCount = new Set(list.map(function (r) { return txtOf(r, '国家/地区'); }).filter(Boolean)).size;
+  function stat(label, value, foot) { return '<div class="board-stat"><span>' + label + '</span><b>' + value + '</b>' + (foot ? '<small>' + foot + '</small>' : '') + '</div>'; }
+  var h = '<section class="board-hero growth-hero" data-growth-hero><div class="growth-hero-slides">';
+  if (!candidates.length) {
+    h += '<article class="growth-hero-slide on"><div class="board-hero-main"><span class="board-eyebrow">全球增长快照 · ' + esc(latest) + '</span><span class="growth-hero-live">实时播报 · 6秒</span><h2>当前筛选下还没有可比较的增速数据</h2><p>等待新的增长线索</p></div><div class="board-stats">' + stat('增长幅度', '—', '') + stat('上涨商品', '—', '') + stat('商品数量', 0, '') + stat('覆盖国家', countryCount, '') + '</div></article>';
+  } else {
+    for (var i = 0; i < candidates.length; i++) {
+      var best = candidates[i], g = best.stats, heading = '增长线索：' + esc(best.country) + ' · ' + esc(best.category) + ' ' + (g.med === null ? '—' : fmtPct(g.med));
+      h += '<article class="growth-hero-slide ' + (i === 0 ? 'on' : '') + '" data-growth-hero-slide="' + i + '"><div class="board-hero-main"><span class="board-eyebrow">全球增长快照 · ' + esc(latest) + '</span><span class="growth-hero-live">实时播报 · 6秒</span><h2>' + heading + '</h2><p>' + esc(best.source || '数据源待补充') + '</p><div class="board-hero-actions"><button type="button" data-view="rank">查看商品榜</button><button type="button" data-view="strategy">查看策略台</button></div></div><div class="board-stats">' + stat('增长幅度', g.med === null ? '—' : fmtPct(g.med), '今日重点线索') + stat('上涨商品', g.pos === null ? '—' : g.pos + '%', '当前商品池') + stat('商品数量', g.n, '') + stat('覆盖国家', countryCount, '') + '</div></article>';
+    }
+  }
+  h += '</div><div class="growth-hero-footer"><b>增长线索自动播报</b><span>当前 ' + (candidates.length ? '1' : '0') + ' / ' + candidates.length + '</span><div class="growth-hero-progress"><i></i></div><button type="button" data-growth-hero-prev aria-label="上一个增长线索">‹</button><button type="button" data-growth-hero-next aria-label="下一个增长线索">›</button></div></section>';
+  return h;
 }
 function boardCountryListHtml(list) {
   var rows = boardComparableGroups(list, false).filter(function (g) { return g.stats.n > 0; });
@@ -3581,15 +3603,113 @@ function opportunityPanelHtml() {
   h += '<div class="opportunity-note">美国→中国和中国→美国分别计算；两边都已出现的商品只作为全球趋势观察，不会直接算成市场空白机会。</div>';
   return h;
 }
+function boardRadarProducts(list) {
+  return list.filter(function (r) { return numField(r, '环比增速') !== null; }).sort(function (a, b) {
+    return numField(b, '环比增速') - numField(a, '环比增速');
+  }).slice(0, 20);
+}
+function boardRadarCategories(list) {
+  var groups = boardComparableGroups(list, false).filter(function (g) { return g.stats.n > 0; });
+  groups.sort(function (a, b) { return (b.stats.med === null ? -Infinity : b.stats.med) - (a.stats.med === null ? -Infinity : a.stats.med) || b.stats.n - a.stats.n; });
+  return groups.slice(0, 20);
+}
+function boardRadarTitleZh(r) {
+  var name = txtOf(r, '商品名称') || '';
+  var rules = [
+    [/tooth|pasta gigi|gigi|oral/i, '口腔清洁类商品'],
+    [/foundation|skin tint|makeup/i, '底妆类商品'],
+    [/\blip\b|bibir|lip balm|lip tint/i, '唇妆 / 润唇类商品'],
+    [/soap|sabun|body wash/i, '身体清洁类商品'],
+    [/lotion|body booster/i, '身体保湿类商品'],
+    [/serum|essence/i, '精华类商品'],
+    [/nail|clamp/i, '美甲工具类商品'],
+    [/shaver|razor/i, '剃须护理类商品']
+  ];
+  for (var i = 0; i < rules.length; i++) if (rules[i][0].test(name)) return rules[i][1];
+  return txtOf(r, '二级类目') || txtOf(r, '品类') || '中文释义待补';
+}
+var growthCarouselTimer = null;
+var growthHeroTimer = null;
+function initGrowthHeroCarousel() {
+  if (growthHeroTimer) { clearInterval(growthHeroTimer); growthHeroTimer = null; }
+  var root = document.querySelector('[data-growth-hero]');
+  if (!root) return;
+  var slides = root.querySelectorAll('[data-growth-hero-slide]'), progress = root.querySelector('.growth-hero-progress i'), counter = root.querySelector('.growth-hero-footer span'), idx = 0, duration = 6000;
+  var prev = root.querySelector('[data-growth-hero-prev]'), next = root.querySelector('[data-growth-hero-next]');
+  if (!slides.length) return;
+  function move(nextIndex) {
+    idx = (nextIndex + slides.length) % slides.length;
+    for (var i = 0; i < slides.length; i++) slides[i].classList.toggle('on', i === idx);
+    if (counter) counter.textContent = '当前 ' + (idx + 1) + ' / ' + slides.length;
+    if (progress) { progress.style.transition = 'none'; progress.style.width = '0%'; void progress.offsetWidth; progress.style.transition = 'width ' + duration + 'ms linear'; progress.style.width = '100%'; }
+  }
+  if (prev) prev.addEventListener('click', function () { move(idx - 1); });
+  if (next) next.addEventListener('click', function () { move(idx + 1); });
+  move(0);
+  if (slides.length > 1) growthHeroTimer = setInterval(function () { move(idx + 1); }, duration);
+}
+function initGrowthCarousel() {
+  if (growthCarouselTimer) { clearInterval(growthCarouselTimer); growthCarouselTimer = null; }
+  var root = document.querySelector('[data-growth-carousel]');
+  if (!root) return;
+  var track = root.querySelector('.growth-ticker-track'), cards = track ? track.querySelectorAll('.growth-ticker-card') : [], progress = root.querySelector('.growth-ticker-progress i');
+  var prev = root.querySelector('[data-growth-prev]'), next = root.querySelector('[data-growth-next]'), idx = 0, duration = 6000;
+  if (!track || !cards.length) return;
+  function visible() { return window.innerWidth <= 720 ? 1 : (window.innerWidth <= 1199 ? 2 : 3); }
+  function move(nextIndex) {
+    var shown = visible(), max = Math.max(0, cards.length - shown);
+    idx = max ? Math.max(0, Math.min(nextIndex, max)) : 0;
+    var step = cards[0].getBoundingClientRect().width + 10;
+    track.style.transform = 'translate3d(' + (-idx * step) + 'px,0,0)';
+    if (progress) { progress.style.transition = 'none'; progress.style.width = '0%'; void progress.offsetWidth; progress.style.transition = 'width ' + duration + 'ms linear'; progress.style.width = '100%'; }
+  }
+  if (prev) prev.addEventListener('click', function () { move(idx - 1 < 0 ? Math.max(0, cards.length - visible()) : idx - 1); });
+  if (next) next.addEventListener('click', function () { move(idx + 1 > Math.max(0, cards.length - visible()) ? 0 : idx + 1); });
+  move(0);
+  if (cards.length > visible()) growthCarouselTimer = setInterval(function () { move(idx + 1 > Math.max(0, cards.length - visible()) ? 0 : idx + 1); }, duration);
+}
+function boardRadarHtml(list) {
+  var stats = growthStats(list), products = boardRadarProducts(list), categories = boardRadarCategories(list), countries = [], seen = {};
+  for (var i = 0; i < list.length; i++) { var c = txtOf(list[i], '国家/地区') || txtOf(list[i], '所属市场'); if (c && !seen[c]) { seen[c] = 1; countries.push(c); } }
+  function countrySignal(country) {
+    var rows = list.filter(function (r) { return (txtOf(r, '国家/地区') || txtOf(r, '所属市场')) === country; });
+    var stat = growthStats(rows);
+    return { med: stat.med === null ? -Infinity : stat.med, n: stat.n };
+  }
+  countries.sort(function (a, b) {
+    var priority = { '中国': 0, '美国': 1 };
+    var pa = Object.prototype.hasOwnProperty.call(priority, a) ? priority[a] : 2;
+    var pb = Object.prototype.hasOwnProperty.call(priority, b) ? priority[b] : 2;
+    if (pa !== pb) return pa - pb;
+    var sa = countrySignal(a), sb = countrySignal(b);
+    return sb.med - sa.med || sb.n - sa.n || a.localeCompare(b, 'zh-CN');
+  });
+  var active = state.market === '全部' ? '全部' : state.market;
+  var h = '<div class="growth-radar">' + boardHeroHtml(list);
+  h += '<div class="growth-radar-context"><span class="growth-radar-kicker"><i></i> TODAY · GLOBAL SIGNAL</span><b>今日快速增长商品</b></div>';
+  h += '<section class="growth-ticker"><div class="growth-ticker-viewport"><div class="growth-ticker-track">';
+  if (!products.length) h += '<div class="growth-radar-note">当前筛选没有可比较的商品级增速。请补充带统计周期的 FastMoss 商品数据。</div>';
+  for (i = 0; i < Math.min(6, products.length); i++) { var p = products[i], pg = numField(p, '环比增速');
+    h += '<article class="growth-ticker-card"><div class="top"><b>' + esc(txtOf(p, '国家/地区') || '未标国家') + ' · ' + esc(txtOf(p, '二级类目') || '未分类') + '</b><span class="rise">' + fmtPct(pg) + '</span></div><p>' + esc(txtOf(p, '商品名称') || '未命名商品') + ' · ' + esc(txtOf(p, '数据来源') || '来源未标') + '</p></article>'; }
+  h += '</div></div><div class="growth-ticker-controls"><small>增长商品明细 · 点击商品查看完整档案</small></div></section>';
+  h += '<section class="growth-radar-panel"><div class="growth-radar-panel-head"><div><h2>国家增长雷达</h2><p>点击国家，只看该市场的商品和类目增长，不跨国家合并口径。</p></div><span class="tag g">每日 09:30 更新</span></div><div class="growth-country-tabs"><button type="button" class="' + (active === '全部' ? 'on' : '') + '" data-f="market" data-v="全部">全球</button>';
+  for (i = 0; i < countries.length; i++) h += '<button type="button" class="' + (active === countries[i] ? 'on' : '') + '" data-f="market" data-v="' + esc(countries[i]) + '">' + esc(countries[i]) + '</button>';
+  h += '</div><div class="growth-radar-note">当前查看：<b>' + esc(active) + '</b> · 点击商品可查看完整档案。</div></section>';
+  h += '<section class="growth-radar-panel"><div class="growth-radar-panel-head"><div><h2>增长类目 Top20</h2><p>先看类目是否整体变强，再下钻到该类目的商品排行。</p></div><span class="tag">' + categories.length + ' 个可比类目</span></div>';
+  if (!categories.length) h += '<div class="growth-radar-note">当前筛选范围没有带有效增速的类目。</div>';
+  else { var max = Math.max.apply(null, categories.map(function (x) { return Math.max(0, x.stats.med || 0); })); h += '<div class="growth-category-list">'; for (i = 0; i < categories.length; i++) { var x = categories[i], rate = x.stats.med, width = max ? Math.max(3, Math.min(100, Math.max(0, rate || 0) / max * 100)) : 0; h += '<div class="growth-category-row"><div class="growth-category-name"><b>' + (i + 1) + '. ' + esc(x.category) + '</b><small>' + esc(x.country + ' · ' + x.source) + '</small></div><div class="growth-category-bar"><i style="width:' + width.toFixed(1) + '%"></i></div><b class="growth-category-rate ' + pctCls(rate) + '">' + (rate === null ? '—' : fmtPct(rate)) + '</b><span class="growth-category-meta">' + x.stats.n + ' 个商品</span></div>'; } h += '</div>'; }
+  h += '</section>';
+  h += '<section class="growth-radar-panel"><div class="growth-radar-panel-head"><div><h2>商品增长 Top20 · 近 7 天</h2><p>' + esc(active) + ' · 过去 7 天增长表现，点击商品进入完整档案。</p></div><span class="tag">' + products.length + ' 条</span></div><div style="overflow:auto">';
+  if (!products.length) h += '<div class="growth-radar-note">当前国家没有商品级近 7 天增长数据。</div>'; else { h += '<table class="growth-product-table"><thead><tr><th>#</th><th>商品</th><th>增长地区</th><th>近 7 天增长</th><th>7 天销售 GMV</th><th>来源</th></tr></thead><tbody>'; for (i = 0; i < products.length; i++) { var q = products[i], qg = numField(q, '环比增速'), qid = ridOf(q), qimg = paArchiveImage(q), qgmv = paMetricValue(q, '销售额'), qgmvLabel = qgmv !== null && qgmv >= 0 ? fmtNum(qgmv) : '—'; h += '<tr><td><span class="rank">' + (i + 1) + '</span></td><td><div class="product-cell">' + (qimg ? '<img class="product-thumb" src="' + esc(qimg) + '" alt="">' : '<span class="product-thumb is-empty">—</span>') + '<div class="product-copy"><button type="button" class="lnk product-name" data-open="' + esc(qid) + '">' + esc(txtOf(q, '商品名称') || '未命名商品') + '</button><span class="sub">' + esc(txtOf(q, '品牌') || '品牌未标') + ' · ' + esc(txtOf(q, '二级类目') || '未分类') + '</span><span class="sub">中文释义：' + esc(boardRadarTitleZh(q)) + '</span></div></div></td><td class="region">' + esc(txtOf(q, '国家/地区') || txtOf(q, '所属市场') || '—') + '</td><td class="' + pctCls(qg) + '"><b>' + fmtPct(qg) + '</b><span class="period">近 7 天</span></td><td class="gmv">' + esc(qgmvLabel) + '</td><td class="source">' + esc(txtOf(q, '数据来源') || '—') + '</td></tr>'; } h += '</tbody></table>'; }
+  h += '</div></section><div class="growth-radar-note">数据更新时间：' + esc(freshnessOf(list)) + ' · 页面展示当前筛选下的增长商品与类目。</div></div>';
+  return h;
+}
 RENDER.board = function () {
   var list = boardRankDataOf();
   var v = $('#view');
   if (!list.length) { v.innerHTML = diagHtml(list); return; }
-  var h = boardHeroHtml(list);
-  h += boardCountryListHtml(list);
-  h += boardIngredientHtml(list);
-  h += '<p class="board-footnote">增长中位数与正增长占比只在同一国家、来源、币种和周期内计算；商品样本不代表全市场份额。成分榜依赖已标注的商品成分字段。</p>';
-  v.innerHTML = h;
+  v.innerHTML = boardRadarHtml(list);
+  initGrowthHeroCarousel();
 };
 RENDER.opportunity = function () {
   $('#view').innerHTML = opportunityPanelHtml();
