@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>商品调研台 · 眼部护理 + 面部护理</title>
+<title>商品榜 · 产品分析</title>
 <style>
 :root{--bg:#f4f5f9;--card:#fff;--ink:#16202f;--ink2:#6b7a90;--ink3:#9aa7b8;--line:#e6eaf1;
 --pri:#4f46e5;--pri-soft:#eef2ff;--price:#e0245e;--good:#0d9488;--warn:#d97706;--bad:#dc2626;}
@@ -30,6 +30,17 @@ main{padding:16px 0}
 select,.chip{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 10px;font-size:12.5px;cursor:pointer;color:var(--ink)}
 .chip.on{background:var(--pri);color:#fff;border-color:var(--pri)}
 .cnt{font-size:12.5px;color:var(--ink2)}
+.shelf-tools{background:var(--card);border:1px solid var(--line);border-radius:13px;margin-bottom:14px;overflow:hidden}
+.search-row{display:flex;gap:10px;align-items:center;padding:13px 15px}
+.search-row input[type=search]{flex:1;min-width:220px;border:1px solid var(--line);border-radius:9px;padding:8px 12px;font-size:13px;outline:none}
+.search-row input[type=search]:focus{border-color:#a5b4fc;box-shadow:0 0 0 3px rgba(79,70,229,.08)}
+.search-row select{min-width:176px}
+.category-filter{border-top:1px solid var(--line);padding:12px 15px;display:grid;gap:9px}
+.level-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.level-label{width:64px;flex:0 0 64px;color:var(--ink2);font-size:12px;font-weight:600}
+.l3-panel{display:none}.l3-panel.show{display:flex}
+.list-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:18px 0 10px}
+.list-head h2{font-size:17px;line-height:1.3}.category-path{display:block;color:var(--ink2);font-size:12px;margin-top:3px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(216px,1fr));gap:14px}
 .gcard{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:.14s;position:relative}
 .gcard:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(30,41,59,.12);border-color:#c7d2fe}
@@ -216,21 +227,18 @@ function cleanText(v){
 function head(mode, prod){
   var h = '';
   if(mode==='wall'){
-    h = '<div class="logo">商品调研台 · <em>商品货架</em></div>'
-      + '<div class="sub">'+M.n+' 个具体商品链接 · 全部品牌一视同仁</div>'
-      + '<span class="pill g">'+esc(uiPeriod())+'</span>'
-      + '<span class="pill">'+esc(M.nEye||0)+' 眼部护理 + '+esc(M.nFace||0)+' 面部护理</span>'
-      + '<span class="pill">'+esc(uiSource())+'</span>'
-      + '<div class="navlinks"><a href="#/cmp">📊 全品对标表</a><button class="nav-compare" type="button" id="navCompare" disabled>☑ 多选对比 <span>0/5</span></button><a href="#/method">📋 口径与方法</a></div>';
+    h = '<div class="logo">商品榜</div>'
+      + '<div class="sub">二级类目 → 三级类目 → 商品</div>'
+      + '<div class="navlinks"><button class="nav-compare" type="button" id="navCompare" disabled>多选对比 <span>0/5</span></button></div>';
   } else {
-    h = '<div class="logo">单品调研 · <em>'+esc(cleanText((prod.brand||'')).slice(0,12))+'</em></div>'
+    h = '<div class="logo">商品详情 · <em>'+esc(cleanText((prod.brand||'')).slice(0,12))+'</em></div>'
       + '<span class="pill">'+esc(prod.cate)+'</span>'
       + '<span class="pill g">'+esc(prod.rankPeriod||'榜单')+' #'+prod.rank+'</span>'
       + (prod.badRate!=null?'<span class="pill r">差评率 '+prod.badRate+'%</span>':'')
       + '<div class="navlinks"><a href="#/">← 返回商品货架</a>'
       + (prod.i>1?'<a href="#/p/'+(prod.i-1)+'">上一个</a>':'')
       + (prod.i<P.length?'<a href="#/p/'+(prod.i+1)+'">下一个</a>':'')
-      + '<a href="#/method">口径说明</a></div>';
+      + '</div>';
   }
   document.getElementById('hd').innerHTML = h;
 }
@@ -257,7 +265,7 @@ function cardHTML(p){
    + (p.shelf['货架定位']?'<span class="tag">'+esc(p.shelf['货架定位'].split('（')[0])+'</span>':'')
    + '</div></div></a></article>';
 }
-var FILT={cate:null,deep:null,bad:null,q:''};
+var FILT={l2:null,cate:null,q:''};
 var SELECTED={};
 function selectedProducts(){return P.filter(function(p){return !!SELECTED[p.gid]})}
 function renderSelectionTray(){
@@ -284,26 +292,29 @@ function bindPickers(){
 function renderWall(){
   head('wall'); 
   ensureSelectionTray();
-  var cates = {}; P.forEach(function(p){cates[p.cate]=(cates[p.cate]||0)+1});
-  var chips = Object.keys(cates).map(function(k){return '<button class="chip" data-f="cate" data-v="'+esc(k)+'">'+esc(k)+' '+cates[k]+'</button>'}).join('');
+  var levels={};
+  P.forEach(function(p){
+    var l2=p.l2||'其他';
+    if(!levels[l2]) levels[l2]={count:0,l3:{}};
+    levels[l2].count++;
+    levels[l2].l3[p.cate]=(levels[l2].l3[p.cate]||0)+1;
+  });
+  var l2chips='<button class="chip" data-level="l2" data-v="">全部</button>'
+    +Object.keys(levels).map(function(k){return '<button class="chip" data-level="l2" data-v="'+esc(k)+'">'+esc(k)+'</button>'}).join('');
+  var l3rows=Object.keys(levels).map(function(k){
+    return '<div class="level-row l3-panel" data-parent="'+esc(k)+'"><span class="level-label">三级类目</span>'
+      +'<button class="chip" data-level="l3" data-parent="'+esc(k)+'" data-v="">全部</button>'
+      +Object.keys(levels[k].l3).map(function(x){return '<button class="chip" data-level="l3" data-parent="'+esc(k)+'" data-v="'+esc(x)+'">'+esc(x)+'</button>'}).join('')+'</div>';
+  }).join('');
   document.getElementById('app').innerHTML =
-    '<div class="notice"><b>商品分析口径：</b>每一张卡对应一个具体商品链接（不是品牌、不是品类）。点进去查看该商品的：'
-    +'产品核心要素｜货架策略｜主要消费人群｜一句话卖点｜差评率与差评词｜带货视频拆解｜带货达人｜内容词云。<br>'
-    +'<b>统计上下文：</b>'+esc(uiSource())+' · '+esc(uiPeriod())+' · 类目按「大类目 / 二级类目 / 三级类目」展示。卡面图优先使用商品主图，缺失时使用关联视频封面。<br>'
-    +'<b>对比方式：</b>勾选 2–5 个商品后，点击顶部或底部「多选对比」，按统一维度查看差异。</div>'
-    +'<div class="bar"><input type="search" id="q" placeholder="搜商品名 / 品牌 / 店铺 / 卖点…" value="'+esc(FILT.q)+'">'
+    '<div class="shelf-tools"><div class="search-row"><input type="search" id="q" placeholder="搜索商品 / 品牌 / 店铺" value="'+esc(FILT.q)+'">'
     +'<select id="sort"><option value="rank">排序：榜单排名</option><option value="sv">销售额（档位中值）</option>'
     +'<option value="vol">销量</option><option value="vw">浏览量</option><option value="cv">转化率</option>'
     +'<option value="vid">带货视频数</option><option value="tal">带货达人数</option><option value="pr">推算价格</option>'
-    +'<option value="cm">佣金率</option><option value="bad">差评率（低→高）</option></select>'
-    + chips + '<button class="chip" data-f="deep" data-v="1">仅已拆解</button>'
-    + '<button class="chip" data-f="bad" data-v="8">差评率 ≤8%</button>'
-    + '<span class="cnt" id="cnt"></span></div>'
-    + '<div class="grid" id="grid"></div>'
-    + '<div class="footnote"><b>数据来源类型</b>：'+esc(uiSource())+'，关键词 '+esc(M.kw)+'。<br>'
-    +'候选按标题校验 → 同品归一化去重 → <b>'+M.n+' 个可比链接</b>（眼部护理 '+(M.nEye||0)+' + 面部护理 '+(M.nFace||0)+'）；每个链接再单独采集：概览／属性／受众画像／商品评价／带货视频／带货达人。<br>'
-    +'<b>已知口径限制</b>：①销售额/销量按平台返回的档位展示，不把缺失值当作 0；②价格为可推算时的估算值；'
-    +'③评价比例按当前统计周期计算；④'+M.nCov+'/'+M.n+' 个链接有卡面图；⑤更新于 '+esc(M.now)+'。</div>';
+    +'<option value="cm">佣金率</option><option value="bad">差评率（低→高）</option></select></div>'
+    +'<div class="category-filter"><div class="level-row"><span class="level-label">二级类目</span>'+l2chips+'</div>'+l3rows+'</div></div>'
+    +'<div class="list-head"><div><h2>商品榜单</h2><span class="category-path" id="categoryPath"></span></div><span class="cnt" id="cnt"></span></div>'
+    +'<div class="grid" id="grid"></div>';
   var grid=document.getElementById('grid');
   grid.innerHTML = P.map(function(p){return cardHTML(p)}).join('');
   bindPickers();
@@ -312,15 +323,29 @@ function renderWall(){
   document.getElementById('sort').addEventListener('change',applyWall);
   var navBtn=document.getElementById('navCompare');
   if(navBtn) navBtn.onclick=function(){var rows=selectedProducts();if(rows.length<2){document.getElementById('selectionTray').classList.add('show');return;}location.hash='#/compare='+encodeURIComponent(rows.map(function(p){return p.gid}).join(','))};
-  document.querySelectorAll('.chip[data-f]').forEach(function(ch){
+  document.querySelectorAll('.chip[data-level]').forEach(function(ch){
     ch.addEventListener('click',function(){
-      var f=ch.dataset.f, v=ch.dataset.v;
-      document.querySelectorAll('.chip[data-f="'+f+'"]').forEach(function(x){x.classList.remove('on')});
-      if(FILT[f]===v){FILT[f]=null;ch.classList.remove('on')}else{FILT[f]=v;ch.classList.add('on')}
+      var level=ch.dataset.level, v=ch.dataset.v||null;
+      if(level==='l2'){FILT.l2=v;FILT.cate=null;}else{FILT.cate=v;}
+      updateCategoryFilterUI();
       applyWall();
     });
   });
+  updateCategoryFilterUI();
   applyWall();
+}
+function updateCategoryFilterUI(){
+  document.querySelectorAll('[data-level="l2"]').forEach(function(ch){
+    ch.classList.toggle('on',(ch.dataset.v||null)===FILT.l2);
+  });
+  document.querySelectorAll('.l3-panel').forEach(function(row){
+    row.classList.toggle('show',!!FILT.l2&&row.dataset.parent===FILT.l2);
+  });
+  document.querySelectorAll('[data-level="l3"]').forEach(function(ch){
+    ch.classList.toggle('on',ch.dataset.parent===FILT.l2&&(ch.dataset.v||null)===FILT.cate);
+  });
+  var path=FILT.l2?(FILT.l2+(FILT.cate?' / '+FILT.cate:' / 全部三级类目')):'全部二级类目';
+  var el=document.getElementById('categoryPath');if(el)el.textContent=path;
 }
 function applyWall(){
   var q=(document.getElementById('q').value||'').trim().toLowerCase();
@@ -333,13 +358,13 @@ function applyWall(){
   });
   var box=document.getElementById('grid'), n=0;
   arr.forEach(function(p){
-    var s=(p.title+' '+p.brand+' '+p.shop+' '+p.sellingPoint+' '+p.audienceLine+' '+p.cate).toLowerCase();
-    var ok=(!q||s.indexOf(q)>=0)&&(!FILT.cate||p.cate===FILT.cate)&&(!FILT.deep||p.viral.length>0)
-      &&(!FILT.bad||(p.badRate!=null&&p.badRate<=8));
+    var s=(p.title+' '+p.brand+' '+p.shop+' '+p.sellingPoint+' '+p.audienceLine+' '+p.l2+' '+p.cate).toLowerCase();
+    var ok=(!q||s.indexOf(q)>=0)&&(!FILT.l2||p.l2===FILT.l2)&&(!FILT.cate||p.cate===FILT.cate);
     var el=document.getElementById('c'+p.i); if(!el) return;
     el.style.display=ok?'':'none'; if(ok){box.appendChild(el);n++}
   });
-  document.getElementById('cnt').textContent='共 '+n+' 个商品 · 已拆解视频 '+P.reduce(function(a,p){return a+p.viral.length},0)+' 条';
+  FILT.q=q;
+  document.getElementById('cnt').textContent=n+' 件商品';
 }
 </script>
 <script>
@@ -428,7 +453,7 @@ function renderDetail(n){
   body += '<div class="crumb"><a href="#/">← 返回商品货架</a>'
    +(p.i>1?'<a href="#/p/'+(p.i-1)+'">← 上一个链接</a>':'')
    +(p.i<P.length?'<a href="#/p/'+(p.i+1)+'">下一个链接 →</a>':'')
-   +'<span>第 '+p.i+' / '+P.length+' 个链接</span></div>';
+   +'</div>';
   body += '<div class="hero"><div class="shot">'+(p.cover?'<img src="'+p.cover+'" alt="">':'<div class="nopic">该链接本月无带货视频，无卡面图</div>')+'</div>'
    +'<div class="hinfo"><h1>'+esc(p.title)+'</h1>'
    +'<div class="hrow"><span class="pill">'+esc(cleanText(p.brand))+'</span><span class="pill g">'+esc(cleanText(p.shop))+'</span>'
@@ -438,15 +463,14 @@ function renderDetail(n){
    +'<div class="hl">💡 <b>一句话卖点</b>：'+esc(p.sellingPoint)+'<br>👥 <b>主要消费人群</b>：'+esc(p.audienceLine)+'</div>'
    +'<div class="metas">'+meta+'</div>'
    +'<div class="btnrow">'+(p.link?'<a class="btn solid" href="'+esc(p.link)+'" target="_blank" rel="noopener">打开商品原页</a>':'')
-   +'<a class="btn gray" href="#/method">口径说明</a></div></div></div>';
+   +'</div></div></div>';
   body += '<div class="anchors"><a href="#/p/'+p.i+'#quick">商品速览</a><a href="#/p/'+p.i+'#cmp2">产品档案</a>'
    +'<a href="#/p/'+p.i+'#aud">受众画像</a><a href="#/p/'+p.i+'#rev">商品评价</a>'
    +'<a href="#/p/'+p.i+'#viral">🔥 视频拆解（'+p.viral.length+'）</a><a href="#/p/'+p.i+'#vsum">内容总结</a>'
    +'<a href="#/p/'+p.i+'#tal">达人与渠道</a><a href="#/p/'+p.i+'#core">产品核心要素</a></div>';
 
   /* 展开/收起工具条 */
-  body += '<div class="sec-tools"><b>下面 __SECN__ 个板块</b><span>默认收起，点标题展开你关心的那一块</span>'
-    +'<span style="margin-left:auto"></span>'
+  body += '<div class="sec-tools"><span style="margin-left:auto"></span>'
     +'<button onclick="secAll(1)">全部展开</button><button onclick="secAll(0)">全部收起</button></div>';
 
   /* 速览（默认展开） */
@@ -467,9 +491,7 @@ function renderDetail(n){
       +(fl && /无|兜底/.test(fl) ? '<div class="sub" style="font-size:11px;margin-top:5px">'+esc(fl)+'</div>':'')+'</div>';
   }).join('');
   var secCore = sec('🧪 产品核心要素','证据归纳结论',
-    '将前面的商品档案、受众、评价、视频与达人证据收束为可用于研发的产品结论：形态、功效、成分、使用体验、人群和场景。',
-    '<div class="facets">'+coreBox+'</div>',
-    '属性原文保留在「产品档案」；本板块只呈现结构化归纳，避免重复。', 'core');
+    '', '<div class="facets">'+coreBox+'</div>', '', 'core');
 
   /* 货架策略 */
   var sh = Object.keys(p.shelf).map(function(k){
@@ -504,12 +526,10 @@ function renderDetail(n){
     ['品牌 / 工厂线索', esc(p.factory)+'　<span class="sub">店铺评分 '+esc(p.shopScore)+'</span>']
   ].map(function(x){return '<tr><td style="width:130px"><b>'+x[0]+'</b></td><td>'+x[1]+'</td></tr>'}).join('');
   var secArchive = sec('📋 产品档案','身份 · 产品宣称 · 货架 · 包装',
-    '先说清「它是什么、怎么卖、怎么包装」。原「货架策略」与「产品视觉/包装」已合并进来，不再重复成独立大板块；拿不到的字段如实标注，<b>不编数据</b>。',
-    '<h3 style="margin:0 0 10px">基础产品档案</h3><table>'+c2+'</table>'
+    '', '<h3 style="margin:0 0 10px">基础产品档案</h3><table>'+c2+'</table>'
     +'<h3 style="margin:22px 0 10px">货架与定价策略</h3><table>'+sh+'</table>'
-    +'<div class="srcline" style="margin-top:10px">价格＝佣金金额÷佣金率推算；规格/活动词来自链接标题与属性原文；货架定位按价格带与佣金率判定。</div>'
     +'<h3 style="margin:22px 0 10px">视觉与包装证据</h3><div class="facets">'+vis+'</div>',
-    '包装文字证据来自属性与评价分类词云；无商品实拍图时，视觉结论仍需补图复核。', 'cmp2');
+    '', 'cmp2');
 
   /* 受众画像 */
   var auBox = p.audienceDetail.length? p.audienceDetail.map(function(d){
@@ -521,8 +541,7 @@ function renderDetail(n){
         +' <span style="font-size:11.5px;color:#6b7a90">'+esc(x.r)+'　TGI '+(x.tgi==null?'—':x.tgi)+'</span></div>'}).join('')+'</div></div>';
   }).join('') : '<div class="warnbox">该链接未返回受众画像</div>';
   var secAudience = sec('👥 受众画像','谁在买',
-    '谁在买：性别、年龄、地域、兴趣偏好、消费层级。这一节就是卡片上「主要消费人群」的完整版。',
-    auBox, '', 'aud');
+    '', auBox, '', 'aud');
 
   /* 商品评价 */
   var goodW = p.goodWords.map(function(w){return {k:w,c:''}}), badW=p.badWords.map(function(w){return {k:w,c:''}});
@@ -540,30 +559,21 @@ function renderDetail(n){
       : '<div class="sub">该链接未返回评价原文，上方好评词 / 差评词取自评价词云。</div>')
     +'</div>';
   var secReviews = sec('🗣️ 商品评价（好评 / 差评 / 差评率）','用户真实声音',
-    '差评率＝该链接'+esc(M.range)+'评价里「差评 ÷ 全部」；好评词与差评词取自评价词云的「感受体验 / 功效 / 痛点问题」分类。',
-    revBox, '', 'rev');
+    '', revBox, '', 'rev');
 
   /* 爆款视频拆解 */
   var excl = p.viralAll - p.viralAll + 0;
-  var viralBody = '<div class="okbox" style="margin-bottom:12px">按《产品AI工作流》3.2 的口径筛过：'
-    +'<b>排除</b>明星/大V（粉丝 &gt;100 万）、品牌自营账号（品牌广告）、9.9 福利款；'
-    +'<b>优先</b>中腰部创作者（1 万–50 万粉）。该链接近 30 天共 <b>'+p.videosTotal+'</b> 条带货视频，'
-    +'下面按预估销售额取 <b>'+p.viral.length+'</b> 条做拆解，点任意一条展开「5 段创作流」拆解。</div>'
+  var viralBody = '<div class="hrow"><span class="pill">近 30 天视频 '+p.videosTotal+' 条</span><span class="pill g">已拆解 '+p.viral.length+' 条</span></div>'
     +'<div class="vlist">'+p.viral.map(videoHTML).join('')+'</div>';
   var secViral = sec('🔥 爆款视频拆解 · TOP'+p.viral.length+'','创意与转化路径',
-    '每条视频按 <b>Input 层 → 框架层（0-3 秒钩子 / 3-10 秒核心利益点 / 10-15 秒转化强化 / 15 秒后信任背书）</b> 拆，'
-    +'并给出「框架类型 / 打什么痛点 / 框架拆解（段落序列）」这三行可直接抄作业的结论。',
-    viralBody, '', 'viral');
+    '', viralBody, '', 'viral');
 
   /* 该链接全部带货视频的内容总结：反复提及词云 + 分类 */
   var secSummary = '';
   if(p.vsummary && p.vsummary.n){
     var g = p.vsummary, mx = 0;
     g.cloud.forEach(function(w){ mx = Math.max(mx, w.c); });
-    var sumBody = '<div class="okbox" style="margin-bottom:12px">'
-      +'基于该链接 <b>'+g.n+'</b> 条带货视频的<b>文案原文</b>统计：先看「反复提及」词云，'
-      +'再按 痛点 / 功效 / 成分 / 人群 / 场景 / 钩子话术 / 转化话术 / 背书 / 品类词 归类。'
-      +'词后面的数字 = 提到它的视频条数。</div>';
+    var sumBody = '<div class="hrow"><span class="pill g">视频样本 '+g.n+' 条</span></div>';
     sumBody += '<div class="cloud">'+ g.cloud.map(function(w){
         return '<span class="kw'+(w.c>=mx*0.6?' big':'')+'">'+esc(w.k)+'<small>'+w.c+'</small></span>';
       }).join('') +'</div>';
@@ -577,12 +587,11 @@ function renderDetail(n){
         }).join('')
       +'</table>';
     if(p.wordcloud.length){
-      sumBody += '<h3 style="margin:22px 0 10px">全量视频内容词云</h3><div class="sub" style="margin-bottom:8px">来自该商品关联带货视频的高频词，用于对照上方的内容主题归类。</div>'+cloudHTML(p.wordcloud);
+      sumBody += '<h3 style="margin:22px 0 10px">全量视频内容词云</h3>'+cloudHTML(p.wordcloud);
     }
-    secSummary = sec('📊 视频内容总结','','反复讲什么、用什么话术、哪些内容最集中。', sumBody, '', 'vsum');
+    secSummary = sec('📊 视频内容总结','','', sumBody, '', 'vsum');
   }else if(p.wordcloud.length){
-    secSummary = sec('📊 视频内容总结','','当前未返回分类总结，保留全量视频词云作为原始证据。',
-      cloudHTML(p.wordcloud), '', 'vsum');
+    secSummary = sec('📊 视频内容总结','','', cloudHTML(p.wordcloud), '', 'vsum');
   }
 
   /* 带货达人 */
@@ -598,8 +607,7 @@ function renderDetail(n){
     var types = p.btypes.length? '<table style="margin-top:12px"><tr><th>达人层级</th><th>达人数</th><th>占比</th><th>带货销售额</th></tr>'
       +p.btypes.map(function(x){return '<tr><td>'+esc(x.type)+'</td><td class="num">'+esc(x.cnt)+'</td><td class="num">'+esc(x.ratio)+'</td><td class="num">'+esc(x.gmv)+'</td></tr>'}).join('')+'</table>' : '';
     secCreators = sec('👤 达人与渠道打法','谁在卖 · 如何放大',
-      '近 30 天该链接的带货达人（按带货销售额），以及集中度与层级结构 —— 判断是被少数号撑起来还是广撒网。',
-      '<table><tr><th>#</th><th>达人</th><th>粉丝</th><th>认证</th><th>带货销售额</th><th>销量</th><th>视频</th><th>直播</th><th>主页</th></tr>'+bt+'</table>'+conc+types,
+      '', '<table><tr><th>#</th><th>达人</th><th>粉丝</th><th>认证</th><th>带货销售额</th><th>销量</th><th>视频</th><th>直播</th><th>主页</th></tr>'+bt+'</table>'+conc+types,
       '', 'tal');
   }
 
@@ -612,11 +620,7 @@ function renderDetail(n){
   }
 
   body += secQuick + secArchive + secAudience + secReviews + secViral + secSummary + secCreators + secCore + secRelated;
-  body = body.replace('__SECN__', body.split('<details class="sec"').length - 1);   /* 板块总数 */
-  document.getElementById('app').innerHTML = body
-    +'<div class="footnote"><b>数据边界</b>：销售额/销量只给档位（100w+ / 2500-5000）；价格由佣金反推；'
-    +'视频互动数据（点赞/评论）在列表接口不返回；爆款拆解只依据<b>视频文案原文</b>逐句分析，<b>未做 ASR 口播转写</b>。<br>'
-    +'统计周期 '+esc(M.range)+'　|　抓取于 '+esc(M.now)+'</div>';
+  document.getElementById('app').innerHTML = body;
 }
 </script>
 <script>
@@ -775,7 +779,7 @@ function route(){
   var cm=h.match(/^#\/compare=(.*)$/);
   if(cm){ renderSelectedCompare(decodeURIComponent(cm[1]).split(',')); }
   else if(h.indexOf('#/cmp')===0){ renderCmp(); }
-  else if(h.indexOf('#/method')===0){ renderMethod(); }
+  else if(h.indexOf('#/method')===0){ renderWall(); }
   else if(m){ renderDetail(parseInt(m[1],10)); }
   else { renderWall(); }
   if(/#(quick|cmp2|aud|rev|viral|vsum|tal|core)$/.test(h)){
