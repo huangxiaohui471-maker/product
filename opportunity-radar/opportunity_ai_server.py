@@ -42,6 +42,13 @@ MODEL = (
     or "deepseek-chat"
 )
 API_STYLE = os.getenv("OPPORTUNITY_API_STYLE", "chat_completions").strip().lower()
+IMAGE_API_KEY = os.getenv("TIKBIT_API_KEY", "").strip() or os.getenv("IMAGE_API_KEY", "").strip()
+IMAGE_BASE_URL = os.getenv("TIKBIT_BASE_URL", "https://tikbit.ai").strip().rstrip("/")
+IMAGE_MODEL = os.getenv("TIKBIT_IMAGE_MODEL", "gpt-image-2.5-sunburst").strip()
+IMAGE_USER_AGENT = os.getenv(
+    "TIKBIT_USER_AGENT",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+)
 
 
 CLUSTER_SCHEMA = {
@@ -270,6 +277,50 @@ def call_model(system_prompt: str, user_prompt: str, schema_name: str, schema: d
         raise RuntimeError("模型返回不是有效 JSON。") from error
 
 
+def call_tikbit_image(prompt: str) -> dict[str, str]:
+    """Call the image provider without exposing its API key to the browser."""
+    if not IMAGE_API_KEY:
+        raise RuntimeError("未配置 TIKBIT_API_KEY。请通过环境变量提供生图服务密钥。")
+    clean_prompt = str(prompt or "").strip()[:2000]
+    if not clean_prompt:
+        raise RuntimeError("生图提示词不能为空。")
+    payload = {
+        "model": IMAGE_MODEL,
+        "prompt": clean_prompt,
+        "n": 1,
+        "size": "1024x1024",
+    }
+    request = Request(
+        f"{IMAGE_BASE_URL}/v1/images/generations",
+        data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {IMAGE_API_KEY}",
+            "Content-Type": "application/json",
+            "User-Agent": IMAGE_USER_AGENT,
+        },
+        method="POST",
+    )
+    try:
+        with urlopen(request, timeout=180) as response:
+            result = json.loads(response.read().decode("utf-8"))
+    except HTTPError as error:
+        error.read()
+        if error.code in (401, 403):
+            raise RuntimeError("生图服务认证失败，请检查 TIKBIT_API_KEY。") from error
+        raise RuntimeError(f"生图服务暂时不可用（HTTP {error.code}）。") from error
+    except URLError as error:
+        raise RuntimeError(f"无法连接生图服务：{error.reason}") from error
+    items = result.get("data") or []
+    if not items or not isinstance(items[0], dict):
+        raise RuntimeError("生图服务没有返回图片。")
+    item = items[0]
+    if item.get("b64_json"):
+        return {"mime_type": "image/png", "b64_json": str(item["b64_json"])}
+    if item.get("url"):
+        return {"url": str(item["url"])}
+    raise RuntimeError("生图服务返回中没有 b64_json 或 url。")
+
+
 def compact_records(data: dict[str, Any]) -> list[dict[str, str]]:
     records: list[dict[str, str]] = []
     for source_key, source_name in (("xhs", "小红书评论"), ("xhsPosts", "小红书帖子"), ("tb", "淘宝/天猫"), ("negative", "淘宝/天猫负面"), ("demands", "淘宝/天猫需求")):
@@ -304,7 +355,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self) -> None:
         if self.path == "/api/health":
-            json_response(self, {"ok": True, "configured": bool(API_KEY), "provider": PROVIDER, "model": MODEL, "base_url": BASE_URL, "api_style": API_STYLE})
+            json_response(self, {"ok": True, "configured": bool(API_KEY), "provider": PROVIDER, "model": MODEL, "base_url": BASE_URL, "api_style": API_STYLE, "image_configured": bool(IMAGE_API_KEY), "image_model": IMAGE_MODEL})
         else:
             json_response(self, {"error": "not_found"}, 404)
 
@@ -337,6 +388,11 @@ class Handler(BaseHTTPRequestHandler):
                     JUDGE_SCHEMA,
                 )
                 json_response(self, result)
+                return
+            if self.path == "/api/opportunity/image":
+                prompt = body.get("prompt") or "a clean, premium cosmetic product concept render for a new skincare opportunity, neutral studio background, no text, no logo"
+                image = call_tikbit_image(prompt)
+                json_response(self, {"model": IMAGE_MODEL, **image})
                 return
             json_response(self, {"error": "not_found"}, 404)
         except Exception as error:  # noqa: BLE001 - surface a safe local error to the UI

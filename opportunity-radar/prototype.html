@@ -240,6 +240,7 @@
     .concept-plan { margin-top: 14px; padding: 16px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
     .concept-plan-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
     .concept-plan-head small { color: var(--muted); font-size: 11px; }
+    .generated-image-preview { display: block; width: min(100%, 360px); aspect-ratio: 1; object-fit: cover; margin-top: 12px; border: 1px solid var(--line); border-radius: 16px; background: #f5f5ef; }
     .concept-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
     .concept-option { border: 1px solid var(--line); border-radius: 13px; padding: 11px; background: #fbfbf7; }
     .concept-option.primary { background: var(--yellow-soft); border-color: #e7d98c; }
@@ -558,6 +559,7 @@
               </div></details>
               <div class="inference"><h3>机会校准与产品方向</h3><p id="trialInference">等待真实评论数据加载后生成校准结果。</p></div>
               <div class="concept-plan" id="trialConceptPlan"><div class="concept-plan-head"><strong>可落地概念方案</strong><small>等待真实数据生成 · 方案仍需实验验证</small></div></div>
+              <div class="image-gen-panel"><div class="section-line"><h3>概念图预览</h3><button class="primary-btn btn-sm" id="generateImageBtn" type="button">生成一张概念图</button></div><p class="image-gen-status" id="imageGenStatus">只用于检查生图链路，不参与机会判断。</p><img class="generated-image-preview" id="generatedImage" alt="模型生成的产品概念图" hidden></div>
             </section>
 
             <aside class="panel trial-side">
@@ -675,7 +677,8 @@
         evidence: cluster.evidence || [],
         counterEvidence: cluster.counter_evidence || '',
         cluster,
-        trial: null
+        trial: null,
+        generatedImage: null
       };
     }
 
@@ -934,7 +937,50 @@
       $('#trialVerdictText').textContent = t ? t.verdictText : '第二层模型正在评估机会价值、证据缺口和最低成本验证动作。';
       $('#trialPrimaryConcept').textContent = concepts[0]?.name || '等待模型概念';
       $('#trialPrimaryTest').textContent = concepts[0]?.test || (t ? t.nextExperiment : '等待第二层模型给出最低成本验证动作。');
+      renderImagePreview(c);
       renderAnalytics(c);
+    }
+
+    function renderImagePreview(candidate) {
+      const image = $('#generatedImage');
+      const status = $('#imageGenStatus');
+      if (!image || !status) return;
+      const result = candidate && candidate.generatedImage;
+      if (!result) {
+        image.hidden = true;
+        image.removeAttribute('src');
+        status.textContent = '只用于检查生图链路，不参与机会判断。';
+        return;
+      }
+      image.src = result.b64_json ? `data:${result.mime_type || 'image/png'};base64,${result.b64_json}` : (result.url || '');
+      image.hidden = !image.src;
+      status.textContent = image.src ? `已生成 · ${result.model || '图像模型'}` : '生图服务未返回可预览图片。';
+    }
+
+    async function generateOpportunityImage() {
+      const button = $('#generateImageBtn');
+      const status = $('#imageGenStatus');
+      const candidate = candidates[selectedId];
+      if (!button || !status) return;
+      button.disabled = true;
+      status.textContent = '正在调用生图服务…';
+      const need = candidate && (candidate.actualNeed || candidate.summary || candidate.title);
+      const prompt = `A premium cosmetic product concept render inspired by this user need: ${need || 'a new skincare opportunity'}. Show one plausible product form, clean studio lighting, neutral background, no text, no logo, photorealistic.`;
+      try {
+        const result = await callOpportunityApi('/api/opportunity/image', { prompt });
+        if (candidate) {
+          candidate.generatedImage = result;
+          renderImagePreview(candidate);
+        } else {
+          status.textContent = '图片已生成，但当前还没有选中的需求机会。';
+        }
+        toast('概念图已生成');
+      } catch (error) {
+        status.textContent = error instanceof Error ? error.message : '生图失败，请检查本地服务。';
+        toast('生图调用失败');
+      } finally {
+        button.disabled = false;
+      }
     }
 
     async function requestJudgement(id) {
@@ -1068,6 +1114,7 @@
     $('#watchBtn').addEventListener('click', () => { moveToWatch(selectedId); toast('已加入持续观察：等待下一条能改变判断的证据'); });
     $('#ignoreBtn').addEventListener('click', () => rejectCandidate(selectedId, '当前证据不足或与目标不匹配'));
     $('#pauseBtn').addEventListener('click', () => { moveToWatch(selectedId); toast('已退回持续观察：不强行凑齐支持材料'); });
+    $('#generateImageBtn').addEventListener('click', generateOpportunityImage);
     $$('[data-open-queue]').forEach(btn => btn.addEventListener('click', () => openQueue(btn.dataset.openQueue)));
     $$('.queue-tab').forEach(btn => btn.addEventListener('click', () => openQueue(btn.dataset.queueTab)));
     $('#closeQueueBtn').addEventListener('click', closeQueue);
