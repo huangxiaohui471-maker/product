@@ -221,6 +221,14 @@
     .quote { background: rgba(255,255,255,.7); border-radius: 12px; padding: 10px 11px; font-size: 12px; line-height: 1.55; margin-top: 8px; }
     .quote small { display: block; color: var(--muted); margin-top: 4px; }
     .judgement-dashboard { margin-bottom: 16px; padding: 20px 22px; }
+    .selected-demand { margin-bottom: 16px; padding: 17px 20px; background: #fff; border-color: #b9d8d0; }
+    .selected-demand-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    .selected-demand-copy { min-width: 0; }
+    .selected-demand-copy h2 { margin-top: 8px; font-size: clamp(18px, 2.2vw, 25px); letter-spacing: -.035em; }
+    .selected-demand-copy p { margin: 7px 0 0; color: #55565b; font-size: 12px; line-height: 1.55; max-width: 760px; }
+    .selected-demand-meta { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 13px; }
+    .selected-demand-meta span { padding: 6px 9px; border-radius: 999px; background: #f1f6f4; color: #35665d; font-size: 10px; font-weight: 800; }
+    .selected-demand-note { margin-top: 12px; color: var(--muted); font-size: 10px; }
     .judgement-grid { display: grid; grid-template-columns: minmax(240px, .8fr) minmax(420px, 1.2fr); gap: 20px; align-items: center; }
     .judgement-verdict small { color: var(--muted); font-size: 11px; font-weight: 800; }
     .judgement-verdict strong { display: block; margin-top: 7px; font-size: clamp(24px, 3vw, 38px); letter-spacing: -.045em; }
@@ -591,10 +599,19 @@
         </section>
 
         <section class="view" id="trialView">
-          <div class="eyebrow">Opportunity Calibration</div>
-          <h1>先校准机会，再决定是否立项</h1>
-          <p class="subhead">先看机会结论和产品方向；支持证据、反证与审核标准需要时再展开。</p>
-          <div class="flow-steps"><span class="flow-step">需求信号</span><span class="arrow">→</span><span class="flow-step on">机会校准</span></div>
+          <div class="eyebrow">Solution Observation · 方案观察</div>
+          <h1>基于已选需求，观察产品方案</h1>
+          <p class="subhead">需求由你选择，方案由模型生成；页面只展示与这条需求直接相关的判断。</p>
+          <div class="flow-steps"><span class="flow-step">需求信号</span><span class="arrow">→</span><span class="flow-step on">方案观察</span></div>
+
+          <section class="panel selected-demand">
+            <div class="selected-demand-head">
+              <div class="selected-demand-copy"><span class="badge">已选需求</span><h2 id="trialDemandTitle">等待你从需求信号中选择一条需求</h2><p id="trialDemandText">选择需求后，第二层模型只围绕这条需求生成产品方案，不会自动替换你的选择。</p></div>
+              <button class="ghost-btn" type="button" data-go="radar">更换需求</button>
+            </div>
+            <div class="selected-demand-meta"><span id="trialDemandTarget">目标人群：等待选择</span><span id="trialDemandSource">证据来源：等待选择</span><span id="trialDemandEvidence">证据数量：等待模型</span><span id="trialDemandConfidence">置信度：待判断</span></div>
+            <div class="selected-demand-note">下面的判断、概念方案和验证动作，均绑定这条已选需求。</div>
+          </section>
 
           <section class="panel judgement-dashboard">
             <div class="judgement-grid">
@@ -629,7 +646,7 @@
             </section>
 
             <aside class="panel trial-side">
-              <h2>下一步</h2><p style="color:var(--muted);font-size:12px">先选择一条产品方向。评审结果只标注证据与风险，不阻断继续观察。</p>
+              <h2>下一步</h2><p style="color:var(--muted);font-size:12px">需求已经锁定。现在只需比较产品概念，选择一个进入下一步验证。</p>
               <div class="verdict"><small>优先方向</small><strong id="trialPrimaryConcept">等待真实数据</strong><p id="trialPrimaryTest">数据加载后显示最小验证动作。</p></div>
               <details class="research-details"><summary>查看判断标准</summary><div class="gate-note">评审结果用于标注证据缺口和风险提示，无论当前状态，都可以进入方案观察。</div><div class="gate-list" id="trialGates"></div><div class="market-assessment" id="trialMarketAssessment"></div></details>
               <div class="strategy-note">确认方向后，带入方案观察继续选择和验证；评分、市场规模评估与评审状态不会锁住这条路径。</div>
@@ -1080,9 +1097,20 @@
     function renderTrial(id) {
       const c = candidates[id]; if (!c) return;
       const t = c.trial;
+      const demandText = c.productNeed || c.summary || c.actualNeed || c.title || '等待需求信号';
+      const targetText = c.behavior ? `目标场景：${c.behavior}` : '目标场景：等待模型提炼';
+      const sourceText = `证据来源：小红书 ${c.analytics?.xhs ?? '—'} · 淘宝/天猫 ${c.analytics?.tb ?? '—'}`;
+      const evidenceText = `证据数量：${c.analytics?.total ?? '—'} 条相关信号`;
+      const confidenceText = `置信度：${c.confidence || '待判断'}`;
+      $('#trialDemandTitle').textContent = demandText;
+      $('#trialDemandText').textContent = `你已选择“${c.title}”。方案层只围绕这条需求生成产品概念，不把需求直接改写成固定产品。`;
+      $('#trialDemandTarget').textContent = targetText;
+      $('#trialDemandSource').textContent = sourceText;
+      $('#trialDemandEvidence').textContent = evidenceText;
+      $('#trialDemandConfidence').textContent = confidenceText;
       $('#trialState').textContent = t ? '第二层模型已完成 · ' + statusOf(id) : (c.judging ? '第二层模型判断中…' : '等待第二层模型');
       $('#trialTitle').textContent = c.title;
-      $('#trialCore').textContent = t ? '核心问题：' + t.core : '正在根据第一层语义机会和证据，判断是否值得投入。';
+      $('#trialCore').textContent = t ? '围绕已选需求的核心问题：' + t.core : '正在根据你选择的需求和第一层证据，生成产品方案。';
       $('#trialSupport').innerHTML = t ? t.support.map(item => `<div class="quote">${esc(item)}</div>`).join('') : '<div class="quote">等待模型整理支持证据…</div>';
       $('#trialCounter').innerHTML = t ? t.counter.map(item => `<div class="quote">${esc(item)}</div>`).join('') : '<div class="quote">等待模型整理反证与风险…</div>';
       $('#trialInference').textContent = t ? t.inference : '第二层模型会把需求机会转换成投入判断，并明确不能由当前数据证明的部分。';
