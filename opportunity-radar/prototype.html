@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>实验工厂 · 今日产品机会</title>
+  <title>全球选品平台 · 机会发现</title>
   <style>
     :root {
       --ink: #171717;
@@ -411,7 +411,7 @@
       </aside>
 
       <main>
-        <div class="embedded-module-tabs" aria-label="今日产品机会模块导航">
+        <div class="embedded-module-tabs" aria-label="机会发现模块导航">
           <button type="button" data-embedded-go="radar" class="active">发现机会</button>
           <button type="button" data-embedded-go="trial">机会判断</button>
         </div>
@@ -457,19 +457,19 @@
                 <span class="quadrant q1">优先验证</span><span class="quadrant q2">需求强但已有解</span>
                 <span class="quadrant q3">暂存观察</span><span class="quadrant q4">小众未满足</span>
                 <span class="axis-x">未满足程度 →</span><span class="axis-y">需求强度 →</span>
-                <button class="bubble b1 active" data-id="portable" data-source="cross">便携补涂<br>眼部护理</button>
-                <button class="bubble b2" data-id="lens" data-source="cross">隐形眼镜<br>低刺激护理</button>
-                <button class="bubble b3" data-id="night" data-source="tmall">夜间修护<br>无香敏感肌</button>
-                <button class="bubble b4" data-id="makeup" data-source="xhs">妆后<br>不卡粉</button>
-                <button class="bubble b5" data-id="child" data-source="tmall">儿童可用</button>
-                <button class="bubble b6" data-id="ice" data-source="xhs">冰感按摩</button>
+                <button class="bubble b1 active" data-id="" data-source="cross">等待分析</button>
+                <button class="bubble b2" data-id="" data-source="cross">等待分析</button>
+                <button class="bubble b3" data-id="" data-source="tmall">等待分析</button>
+                <button class="bubble b4" data-id="" data-source="xhs">等待分析</button>
+                <button class="bubble b5" data-id="" data-source="tmall">等待分析</button>
+                <button class="bubble b6" data-id="" data-source="xhs">等待分析</button>
               </div>
             </section>
 
             <aside class="panel detail" id="candidateDetail">
               <div class="detail-top"><span class="badge" id="candidateState">候选机会 · 系统已整理</span><span class="confidence" id="confidence">等待真实数据</span></div>
-              <h2 id="detailTitle">便携补涂型眼部护理</h2>
-              <p class="summary" id="detailSummary">用户不是嫌产品无效，而是现有眼霜在通勤、办公室和妆后场景中难以补涂。</p>
+              <h2 id="detailTitle">等待第一层模型分析</h2>
+              <p class="summary" id="detailSummary">读取清洗后的真实评论后，模型会按用户任务、场景和障碍发现需求机会。</p>
               <div class="signal-kpis">
                 <div class="signal-kpi"><small>相关评论</small><b id="radarTotal">—</b></div>
                 <div class="signal-kpi"><small>小红书</small><b id="radarXhs">—</b></div>
@@ -487,11 +487,11 @@
                 <div class="evidence-count tmall"><strong>淘宝/天猫 · 评论证据</strong><span id="tmallCount">等待数据</span></div>
                 <div class="evidence-count xhs"><strong>小红书 · 场景补证</strong><span id="xhsCount">等待数据</span></div>
               </div><div class="ai-grid">
-                <div class="ai-item"><small>01 重复需求</small><p id="repeatEvidence">跨商品反复出现“妆后怎么补”“办公室怎么用”，并非单一爆帖。</p></div>
-                <div class="ai-item"><small>02 行为证据</small><p id="behaviorEvidence">用户在找滚珠、分装和眼膜等替代方案，已有主动解决行为。</p></div>
-                <div class="ai-item"><small>03 现有方案</small><p id="solutionEvidence">现有眼霜重功效轻便携；滚珠产品少，但有效性与卫生感评价分化。</p></div>
-                <div class="ai-item"><small>04 变化趋势</small><p id="trendEvidence">近 8 周便携、补涂相关表达连续抬升，增长来自多个商品页。</p></div>
-              </div><div class="unknown"><strong>最大未知：</strong><span id="unknownText">用户是否愿意为便携形态牺牲部分容量，并支付 15%—20% 的价格溢价？</span></div></details>
+                <div class="ai-item"><small>01 重复需求</small><p id="repeatEvidence">等待第一层模型从不同商品和来源中归并重复表达。</p></div>
+                <div class="ai-item"><small>02 行为证据</small><p id="behaviorEvidence">等待模型区分真实解决行为与单纯愿望表达。</p></div>
+                <div class="ai-item"><small>03 现有方案</small><p id="solutionEvidence">等待模型拆解用户正在使用的替代方案及其缺口。</p></div>
+                <div class="ai-item"><small>04 变化趋势</small><p id="trendEvidence">当前数据先用于语义聚类，不预设固定趋势结论。</p></div>
+              </div><div class="unknown"><strong>最大未知：</strong><span id="unknownText">等待模型标注当前机会最需要补充的证据。</span></div></details>
               <div class="detail-actions">
                 <button class="primary-btn" id="enterTrialBtn">查看机会判断</button>
                 <button class="ghost-btn" id="watchBtn">继续观察</button>
@@ -503,14 +503,14 @@
           <section class="candidate-section">
             <div class="section-line"><h2>今日优先机会</h2><p>先看方向，需要时再展开判断依据</p></div>
             <div class="candidate-list">
-              <button class="candidate-card active" data-id="portable">
-                <div class="rank"><span>01 · 建议优先验证</span><span>跨源共振</span></div><h3>便携补涂型眼部护理</h3><p>“有效但不方便”正在从抱怨变成寻找替代品的行动。</p><div class="mini-tags"><span>重复需求</span><span>替代行为</span><span>持续上升</span></div><div class="candidate-mini-data"><span><b>—</b>相关评论</span><span><b>—</b>需求/负面</span><span><b>—</b>代表商品</span></div>
+              <button class="candidate-card active" data-id="">
+                <div class="rank"><span>01 · 等待模型</span><span>语义聚类</span></div><h3>等待第一层模型</h3><p>模型会从真实评论中整理用户需求机会。</p><div class="mini-tags"><span>等待数据</span><span>不使用固定主题</span><span>模型发现</span></div><div class="candidate-mini-data"><span><b>—</b>相关评论</span><span><b>—</b>需求/负面</span><span><b>—</b>代表商品</span></div>
               </button>
-              <button class="candidate-card" data-id="lens">
-                <div class="rank"><span>02 · 建议补证</span><span>跨源共振</span></div><h3>隐形眼镜人群低刺激护理</h3><p>戴镜用户希望眼周护理不熏眼、不移位、不影响镜片。</p><div class="mini-tags"><span>明确人群</span><span>现有解法弱</span><span>需补证</span></div><div class="candidate-mini-data"><span><b>—</b>相关评论</span><span><b>—</b>需求/负面</span><span><b>—</b>代表商品</span></div>
+              <button class="candidate-card" data-id="">
+                <div class="rank"><span>02 · 等待模型</span><span>语义聚类</span></div><h3>等待第一层模型</h3><p>模型会从真实评论中识别不同人群与场景。</p><div class="mini-tags"><span>等待数据</span><span>不使用固定主题</span><span>模型发现</span></div><div class="candidate-mini-data"><span><b>—</b>相关评论</span><span><b>—</b>需求/负面</span><span><b>—</b>代表商品</span></div>
               </button>
-              <button class="candidate-card" data-id="night">
-                <div class="rank"><span>03 · 高价值例外</span><span>天猫主信号</span></div><h3>夜间修护无香眼霜</h3><p>敏感肌对香味与刺激的规避明显，但市场已有较多替代。</p><div class="mini-tags"><span>强痛点</span><span>竞争偏高</span><span>观察</span></div><div class="candidate-mini-data"><span><b>—</b>相关评论</span><span><b>—</b>需求/负面</span><span><b>—</b>代表商品</span></div>
+              <button class="candidate-card" data-id="">
+                <div class="rank"><span>03 · 等待模型</span><span>语义聚类</span></div><h3>等待第一层模型</h3><p>模型会保留反证，不把评论直接当成产品结论。</p><div class="mini-tags"><span>等待数据</span><span>不使用固定主题</span><span>模型发现</span></div><div class="candidate-mini-data"><span><b>—</b>相关评论</span><span><b>—</b>需求/负面</span><span><b>—</b>代表商品</span></div>
               </button>
             </div>
           </section>
@@ -524,7 +524,7 @@
 
           <section class="panel judgement-dashboard">
             <div class="judgement-grid">
-              <div class="judgement-verdict"><small>当前判断</small><strong id="trialVerdict">值得进入小实验</strong><p id="trialVerdictText">先验证便携形态是否真正改善使用，以及用户是否愿意为此付费。</p></div>
+              <div class="judgement-verdict"><small>当前判断</small><strong id="trialVerdict">正在判断</strong><p id="trialVerdictText">第二层模型会根据第一层机会和证据给出是否投入的结论。</p></div>
               <div class="judgement-data">
                 <div class="signal-kpis">
                   <div class="signal-kpi"><small>相关评论</small><b id="trialTotal">—</b></div>
@@ -540,7 +540,7 @@
 
           <div class="trial-layout">
             <section class="panel trial-main">
-              <div class="candidate-title"><div><span class="badge" id="trialState">正在判断</span><h2 id="trialTitle" style="margin-top:10px">便携补涂型眼部护理</h2><p id="trialCore">核心命题：现有产品有效，但使用方式阻碍了用户在白天持续护理。</p></div><span class="confidence">机会判断</span></div>
+              <div class="candidate-title"><div><span class="badge" id="trialState">等待第一层模型</span><h2 id="trialTitle" style="margin-top:10px">等待需求机会</h2><p id="trialCore">第一层完成语义聚类后，第二层模型才会判断是否值得投入。</p></div><span class="confidence">机会判断</span></div>
               <div class="viz-card"><div class="viz-head"><h3>证据结构</h3><small>均为本次清洗数据中的真实命中条数</small></div><div class="bar-list">
                 <div class="bar-row"><span>小红书</span><div class="bar-track"><div class="bar-fill" id="trialXhsFill" style="width:0%"></div></div><b id="trialXhsBarValue">—</b></div>
                 <div class="bar-row"><span>淘宝/天猫</span><div class="bar-track"><div class="bar-fill" id="trialTbFill" style="width:0%"></div></div><b id="trialTbBarValue">—</b></div>
@@ -558,39 +558,12 @@
               <h2>下一步</h2><p style="color:var(--muted);font-size:12px">先选择一条产品方向，再决定是否交给策略台继续验证。</p>
               <div class="verdict"><small>优先方向</small><strong id="trialPrimaryConcept">等待真实数据</strong><p id="trialPrimaryTest">数据加载后显示最小验证动作。</p></div>
               <details class="research-details"><summary>查看判断标准</summary><div class="gate-list" id="trialGates"></div></details>
-              <div class="strategy-note">产品验证与开发动作将在策略台继续，本页面只负责发现机会与机会判断。</div>
+              <div class="strategy-note">确认方向后，带入产品决策台继续判断；本页面保留用户需求和评论证据。</div>
               <div class="action-stack"><button class="ghost-btn" data-go="radar">返回发现机会</button><button class="ghost-btn" id="pauseBtn">暂存观察</button></div>
             </aside>
           </div>
         </section>
 
-        <section class="view" id="labView">
-          <div class="eyebrow">Minimum Validation Lab</div>
-          <h1>先验证一个产品方向，再决定是否开发</h1>
-          <p class="subhead">只设计最便宜、最快、能改变决定的验证动作，不提前进入完整研发。</p>
-          <div class="flow-steps"><span class="flow-step">发现机会</span><span class="arrow">→</span><span class="flow-step">机会判断</span><span class="arrow">→</span><span class="flow-step on">小实验室</span></div>
-
-          <div class="lab-grid">
-            <section class="panel lab-panel">
-              <div class="candidate-title"><div><span class="badge">实验对象</span><h2 id="labTitle" style="margin-top:10px">便携补涂型眼部护理</h2></div><span class="pill" id="labId">实验编号 EF-001</span></div>
-              <div class="hypothesis"><small>本轮只验证一个关键假设</small><p id="labHypothesis">如果眼部护理变得便携、卫生且不影响底妆，目标用户会提高白天使用频率，并愿意接受小容量溢价。</p></div>
-              <h3 style="margin-bottom:10px">选择要测试的概念表达</h3>
-              <div class="concepts">
-                <div class="concept selected" tabindex="0" data-concept-id="A"><div class="concept-visual"><img class="concept-image" id="conceptImageA" alt="A 方案产品概念图" hidden><div class="pack roll" aria-hidden="true"></div></div><strong>A · 滚珠补涂</strong><p>强调按摩、快速和办公室场景</p></div>
-                <div class="concept" tabindex="0" data-concept-id="B"><div class="concept-visual"><img class="concept-image" id="conceptImageB" alt="B 方案产品概念图" hidden><div class="pack pen" aria-hidden="true"></div></div><strong>B · 精准护理笔</strong><p>强调卫生、控量和妆后精准</p></div>
-                <div class="concept" tabindex="0" data-concept-id="C"><div class="concept-visual"><img class="concept-image" id="conceptImageC" alt="C 方案产品概念图" hidden><div class="pack jar" aria-hidden="true"></div></div><strong>C · 便携小罐</strong><p>接近熟悉形态，降低认知成本</p></div>
-              </div>
-              <div class="image-gen-panel"><div class="section-line"><h3>概念可视化</h3><p class="image-gen-status" id="imageGenStatus">可选，不参与机会判断</p></div><button class="primary-btn" id="generateImagesBtn" type="button">生成 3 个概念草图</button><small>只用于辅助讨论，不影响机会结论和实验结果。</small></div>
-              <div class="test-plan"><div class="section-line"><h3>最小实验建议</h3><p>基于当前机会证据生成</p></div><div class="test-items"><div class="test-item"><small>测试对象</small><b id="labAudience">等待数据</b></div><div class="test-item"><small>关键动作</small><b id="labAction">等待数据</b></div><div class="test-item"><small>成功信号</small><b id="labSuccess">等待数据</b></div></div></div>
-            </section>
-
-            <aside>
-              <div class="lab-side-card"><h2>实验运行台</h2><p>Demo 会模拟一轮概念偏好测试，帮助确认最终决策界面是否清楚。</p><button class="primary-btn" style="width:100%" id="runExperimentBtn">运行演示实验</button><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><small id="progressText">等待开始</small><div class="result" id="experimentResult"><strong id="labResultTitle">模拟结果：建议继续</strong><br><span id="labResultText">A 方案偏好最高，但用户对“卫生”和“是否搓泥”仍有疑虑。下一轮应先做使用方式原型，不进入完整配方开发。</span></div></div>
-              <div class="lab-side-card"><h3>实验后的四种结论</h3><p>系统必须给出行动，不只产出报告。</p><div class="decision-list"><div class="decision recommended">继续：进入使用原型测试</div><div class="decision">调整：缩窄到妆后急救场景</div><div class="decision">观察：等待更多自然信号</div><div class="decision">淘汰：用户不愿改变行为</div></div></div>
-              <button class="ghost-btn" style="width:100%" data-go="trial">返回机会判断</button>
-            </aside>
-          </div>
-        </section>
       </main>
     </div>
   </div>
@@ -608,33 +581,14 @@
       <div class="queue-panel active" id="watchQueue">
         <div class="queue-intro"><strong>作用：</strong>保存“已有线索、但下一步尚不明确”的候选。系统不是等待固定数量达标，而是寻找能改变判断的新证据：强行为、跨场景复现、异常变化或高价值例外。</div>
         <div id="watchQueueList">
-        <article class="queue-card">
-          <div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">观察中 · 等待行为证据</span><h3>妆后不卡粉眼周护理</h3></div><span class="queue-score">缺口：购买行动</span></div><p>小红书场景表达集中，但还无法判断用户是否会主动寻找解决方案。</p></div>
-          <div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>已经看见</span><span class="trigger-state met">多用户重复相同场景</span></div><div class="trigger-row"><span>替代解释</span><span class="trigger-state wait">可能是底妆本身问题</span></div><div class="trigger-row"><span>下一条关键证据</span><span class="trigger-state wait">寻找替代品或放弃行为</span></div></div><div class="queue-actions"><button class="soft-btn btn-sm" data-early-trial="妆后不卡粉眼周护理">提前送审</button><button class="ghost-btn btn-sm" data-keep-watch>继续自动观察</button></div></div>
-        </article>
-        <article class="queue-card">
-          <div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">观察中 · 高价值例外</span><h3>儿童可用的家庭眼部护理</h3></div><span class="queue-score">缺口：边界与风险</span></div><p>频次不高，但涉及家庭共享与安全，不能因为样本少就直接丢弃。</p></div>
-          <div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>已经看见</span><span class="trigger-state met">少量但明确的家庭共用诉求</span></div><div class="trigger-row"><span>为何保留</span><span class="trigger-state">潜在损失和合规风险高</span></div><div class="trigger-row"><span>下一条关键证据</span><span class="trigger-state wait">真实使用者与安全要求</span></div></div><div class="queue-actions"><button class="soft-btn btn-sm" data-early-trial="儿童可用的家庭眼部护理">提前送审</button><button class="ghost-btn btn-sm" data-keep-watch>继续自动观察</button></div></div>
-        </article>
-        <article class="queue-card">
-          <div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">观察中 · 异常变化</span><h3>冰感按摩型眼部护理</h3></div><span class="queue-score">缺口：真实问题</span></div><p>内容互动突然上升，但可能主要来自新奇包装而非真实问题。</p></div>
-          <div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>已经看见</span><span class="trigger-state met">新表达连续出现并扩散</span></div><div class="trigger-row"><span>替代解释</span><span class="trigger-state wait">审美与内容传播效应</span></div><div class="trigger-row"><span>下一条关键证据</span><span class="trigger-state wait">具体痛点与主动购买行为</span></div></div><div class="queue-actions"><button class="soft-btn btn-sm" data-early-trial="冰感按摩型眼部护理">提前送审</button><button class="ghost-btn btn-sm" data-keep-watch>继续自动观察</button></div></div>
-        </article>
-        <div class="queue-empty-note">其余 9 个候选已折叠：只有信号发生变化时才会重新浮到前面。</div>
+        <div class="queue-empty-note">等待第一层模型完成语义聚类后，符合条件的机会会在这里出现。</div>
         </div>
       </div>
 
       <div class="queue-panel" id="waitingQueue">
         <div class="queue-intro"><strong>作用：</strong>存放“已经值得花时间判断”的候选。它不能长期停留；你需要开始判断、退回观察或淘汰，系统会记录理由。</div>
         <div id="waitingQueueList">
-        <article class="queue-card" data-waiting-card="portable">
-          <div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">等待 1 天 · 建议先审</span><h3>便携补涂型眼部护理</h3></div><span class="queue-score">入选：重复 + 行为</span></div><p>跨来源重复，已有寻找替代方案的行为，最大未知是支付意愿。</p></div>
-          <div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>进入原因</span><span class="trigger-state met">跨源共振 + 行为证据</span></div><div class="trigger-row"><span>必须判断</span><span>是否投入一次最小实验</span></div></div><div class="queue-actions"><button class="primary-btn btn-sm" data-start-trial="portable">开始判断</button><button class="ghost-btn btn-sm" data-return-watch>退回观察</button><button class="ghost-btn btn-sm" data-reject>淘汰</button></div></div>
-        </article>
-        <article class="queue-card" data-waiting-card="lens">
-          <div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">等待 2 天 · 建议判断</span><h3>隐形眼镜人群低刺激护理</h3></div><span class="queue-score">入选：强放弃行为</span></div><p>明确人群与使用放弃行为已经出现，需要判断问题是否可由产品解决。</p></div>
-          <div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>进入原因</span><span class="trigger-state met">明确人群 + 放弃行为</span></div><div class="trigger-row"><span>必须判断</span><span>刺激来源与企业能力匹配</span></div></div><div class="queue-actions"><button class="primary-btn btn-sm" data-start-trial="lens">开始判断</button><button class="ghost-btn btn-sm" data-return-watch>退回观察</button><button class="ghost-btn btn-sm" data-reject>淘汰</button></div></div>
-        </article>
+        <div class="queue-empty-note">等待第一层模型完成语义聚类后，符合条件的机会会在这里出现。</div>
         </div>
       </div>
     </aside>
@@ -642,172 +596,138 @@
   <div class="toast" id="toast">已更新</div>
 
   <script>
-    const candidates = {
-      portable: {
-        title: '便携补涂型眼部护理', confidence: '入选路径：重复需求 + 强行为',
-        summary: '用户不是嫌产品无效，而是现有眼霜在通勤、办公室和妆后场景中难以补涂。',
-        tmall: '32 个独立提问 / 8 款商品', xhs: '18 个独立用户 / 11 篇内容', route: '重复需求 + 强行为',
-        repeat: '跨商品反复出现“妆后怎么补”“办公室怎么用”，并非单一爆帖。',
-        behavior: '用户在找滚珠、分装和眼膜等替代方案，已有主动解决行为。',
-        solution: '现有眼霜重功效轻便携；滚珠产品少，但有效性与卫生感评价分化。',
-        trend: '近 8 周便携、补涂相关表达连续抬升，增长来自多个商品页。',
-        unknown: '用户是否愿意为便携形态牺牲部分容量，并支付 15%—20% 的价格溢价？',
-        trial: {
-          core: '现有产品有效，但使用方式阻碍了用户在白天持续护理。',
-          support: ['“带一罐去公司太麻烦，有没有像润唇膏一样能随手涂的？”｜淘宝/天猫评论 · 独立表达', '“眼下下午很干，但带妆后不敢再用眼霜。”｜小红书 · 通勤场景', '8 款不同商品下出现相似表达，且有用户主动分装。｜规则汇总'],
-          counter: ['部分用户认为白天补涂会破坏底妆，产品形态未必能解决。', '已有滚珠类产品，但销量未形成明显头部，可能是需求强度不足。', '小红书内容可能受便携包装审美驱动，不等同于真实购买。'],
-          inference: '机会更可能来自“带妆补涂 + 办公室应急”这一窄场景，而不是重新开发一款传统眼霜。优先验证使用形态和支付意愿，不急于验证复杂功效配方。',
-          gates: [['我们真正观察到了什么','跨商品表达 + 主动分装行为','有直接证据'],['还有什么其他解释','可能是底妆问题或包装审美','保留反证'],['如果是真的，值得我们做吗','场景明确，能力匹配待确认','值得验证'],['最便宜的下一步是什么','先测形态选择与支付意愿','可低成本验证']],
-          verdict: '值得进入小实验', verdictText: '先验证便携形态是否真正改善使用，以及用户是否愿意为此付费。'
-        },
-        lab: { id:'EF-001', hypothesis:'如果眼部护理变得便携、卫生且不影响底妆，目标用户会提高白天使用频率，并愿意接受小容量溢价。', audience:'50 名戴妆通勤用户', action:'三概念选择 + 价格询问', success:'选择与付费意愿同时出现', result:'A 方案偏好最高，但用户对“卫生”和“是否搓泥”仍有疑虑。下一轮应先做使用方式原型，不进入完整配方开发。' }
-      },
-      lens: {
-        title: '隐形眼镜人群低刺激眼部护理', confidence: '入选路径：强行为 + 明确人群',
-        summary: '戴镜人群反复提到熏眼、流泪、镜片移位，希望眼周产品与戴镜场景兼容。',
-        tmall: '24 个独立提问 / 6 款商品', xhs: '13 个独立用户 / 9 篇内容', route: '强行为 + 明确人群',
-        repeat: '相似困扰分布在眼霜、眼精华和隐形眼镜护理讨论中。',
-        behavior: '用户主动改到夜间使用、减少用量，或放弃眼周产品。',
-        solution: '市场强调温和，但很少明确验证“戴镜兼容”，沟通缺口明显。',
-        trend: '信号稳定但增幅有限，可能是长期小众刚需。',
-        unknown: '问题来自配方刺激、使用方法，还是隐形眼镜本身？',
-        trial: {
-          core: '戴镜场景下的刺激与移位问题，是否能被更温和、可控量的产品解决？',
-          support: ['“戴隐形时一涂就熏眼，只能晚上用。”｜天猫问大家 · 使用放弃', '多个戴镜用户主动减少用量或改用面霜替代。｜用户行为聚类', '同一困扰同时出现在眼霜与隐形眼镜护理讨论中。｜跨类目关联'],
-          counter: ['刺激可能来自镜片护理液、眼部状态或错误使用方法。', '小众刚需的总体规模尚未被充分证明。', '“低刺激”宣称需要安全测试，不能仅凭评论下结论。'],
-          inference: '先验证戴镜人群的真实边界与使用时段，再决定是否值得做专用形态；研发与合规约束需要提前加入。',
-          gates: [['我们真正观察到了什么','明确人群 + 改变/放弃行为','有直接证据'],['还有什么其他解释','可能来自镜片或护理液，而非眼部产品','需要排除'],['如果是真的，值得我们做吗','人群清晰，但规模与能力待确认','小范围验证'],['最便宜的下一步是什么','做戴镜场景访谈与安全边界问卷','可低成本验证']],
-          verdict: '先补证再实验', verdictText: '先确认刺激来源和安全边界，避免把其他变量误判成产品机会。'
-        },
-        lab: { id:'EF-002', hypothesis:'如果产品能明确适配戴镜场景并降低刺激，目标用户会愿意在白天恢复使用。', audience:'30 名日常佩戴隐形眼镜用户', action:'场景访谈 + 低刺激概念测试', success:'明确问题归因且出现主动试用意愿', result:'需要先区分镜片、护理液和配方刺激；若归因不清，不进入配方开发。' }
-      },
-      night: {
-        title: '夜间修护无香眼霜', confidence: '入选路径：高价值例外',
-        summary: '敏感肌用户明确规避香味与刺激，并期待夜间修护，但现有替代产品较多。',
-        tmall: '41 个独立提问 / 13 款商品', xhs: '待触发补证', route: '高价值例外',
-        repeat: '无香、敏感肌可用的询问量较高，跨多个价格带出现。',
-        behavior: '用户会查成分、退货或转向面霜替代，规避行为强。',
-        solution: '已有不少无香与敏感肌产品，机会可能不在“无香”本身。',
-        trend: '总体稳定，暂未发现明显加速变化。',
-        unknown: '除了无香之外，是否存在仍未满足、足以形成差异化的夜间场景？',
-        trial: {
-          core: '敏感肌夜间修护是否存在“无香”之外仍未被满足的具体场景？',
-          support: ['无香、敏感肌可用的表达跨多个价格带出现。｜淘宝/天猫评论', '用户会查成分、退货或转向面霜替代，规避行为明显。｜行为证据', '低频但涉及敏感与安全，符合高价值例外路径。｜规则汇总'],
-          counter: ['已有大量无香与敏感肌产品，需求可能已被满足。', '当前小红书补证尚未触发，跨源共振不足。', '夜间修护的差异化功效还没有可验证证据。'],
-          inference: '这是被保留而非被证明的例外机会。应先补充真实用户与场景证据，再决定是否进入研发实验。',
-          gates: [['我们真正观察到了什么','敏感与安全诉求跨价格带出现','有直接证据'],['还有什么其他解释','已有产品覆盖，可能只是选择困难','保留反证'],['如果是真的，值得我们做吗','潜在损失高，但差异化未成立','待补证'],['最便宜的下一步是什么','按敏感场景补充跨源用户证据','先补关键证据']],
-          verdict: '补证后再决定', verdictText: '先验证“无香之外”的真实缺口，不因高频词本身直接立项。'
-        },
-        lab: { id:'EF-003', hypothesis:'如果能找到无香之外的明确夜间场景缺口，用户才会对新方案产生主动尝试意愿。', audience:'40 名敏感肌夜间护理用户', action:'场景卡片排序 + 替代方案访谈', success:'出现未被现有产品覆盖的共同场景', result:'当前更适合做补证实验；若无法找到共同缺口，应退回观察而不是继续堆概念。' }
-      },
-      makeup: {
-        title: '妆后不卡粉眼周护理', confidence: '观察路径：重复需求，等待行为', summary: '小红书场景表达集中，但还无法判断用户是否会主动寻找解决方案。', tmall:'待补证', xhs:'多用户重复场景', route:'重复需求', repeat:'多用户反复描述妆后卡粉与眼周干燥。', behavior:'尚未看见稳定的购买或替代行为。', solution:'可能是底妆本身问题，也可能需要新的补涂形态。', trend:'场景表达在上升，但尚未跨源共振。', unknown:'用户是否会主动寻找或付费解决？', trial:{core:'妆后卡粉是否构成独立且可解决的产品问题？',support:['多用户在小红书重复描述妆后卡粉。｜场景信号'],counter:['可能是底妆本身问题。｜替代解释'],inference:'先补购买行动证据，不直接进入产品开发。',gates:[['我们真正观察到了什么','多用户重复相同场景','有线索'],['还有什么其他解释','可能是底妆本身问题','需排除'],['如果是真的，值得我们做吗','场景明确但价值未证实','待判断'],['最便宜的下一步是什么','寻找替代品、购买或放弃行为','补行为证据']],verdict:'补充关键证据',verdictText:'先找到会改变判断的购买或替代行为。'},lab:{id:'EF-004',hypothesis:'如果妆后卡粉是独立问题，用户会主动寻找专门解决方案。',audience:'30 名带妆用户',action:'替代行为访谈 + 概念卡片',success:'出现明确主动解决行为',result:'只有出现购买、替代或放弃行为，才进入下一轮实验。'}
-      },
-      child: {
-        title: '儿童可用的家庭眼部护理', confidence: '观察路径：高价值例外', summary: '频次不高，但涉及家庭共享与安全，不能因为样本少就直接丢弃。', tmall:'少量明确提问', xhs:'待补证', route:'高价值例外', repeat:'少量但明确的家庭共用诉求。', behavior:'尚未形成稳定购买证据。', solution:'安全边界、年龄范围和合规要求未知。', trend:'低频稳定。', unknown:'真实使用者与安全要求是什么？', trial:{core:'家庭共用与儿童使用是否构成需要独立解决的安全问题？',support:['少量家庭共用诉求。｜用户提问'],counter:['样本少且安全边界未知。｜风险'],inference:'这是高潜风险例外，不能按频次直接淘汰。',gates:[['我们真正观察到了什么','少量但明确的家庭共用诉求','有线索'],['还有什么其他解释','可能只是偶发咨询','待排除'],['如果是真的，值得我们做吗','潜在损失与合规风险高','值得谨慎验证'],['最便宜的下一步是什么','确认真实使用者与安全要求','补关键证据']],verdict:'先做安全补证',verdictText:'先确认边界和风险，再决定是否进入实验。'},lab:{id:'EF-005',hypothesis:'如果家庭共用是稳定需求，用户会明确提出年龄、安全和使用边界。',audience:'家庭护理决策者访谈',action:'安全边界问卷 + 场景访谈',success:'形成可验证的年龄与安全需求',result:'安全与合规证据不足时，自动退回观察。'}
-      },
-      ice: {
-        title: '冰感按摩型眼部护理', confidence: '观察路径：异常变化', summary: '内容互动突然上升，但可能主要来自新奇包装而非真实问题。', tmall:'待补证', xhs:'互动突然上升', route:'异常变化', repeat:'新表达连续出现并扩散。', behavior:'尚未确认具体痛点与主动购买。', solution:'可能是审美与内容传播效应。', trend:'短期互动异常上升。', unknown:'是否存在具体痛点与主动购买行为？', trial:{core:'冰感按摩的增长是否来自真实问题，而不是新奇内容？',support:['新表达连续出现并扩散。｜异常变化'],counter:['互动可能由新奇包装和内容传播驱动。｜替代解释'],inference:'必须把异常变化与真实问题、购买行为分开验证。',gates:[['我们真正观察到了什么','新表达连续出现并扩散','有异常'],['还有什么其他解释','审美与内容传播效应','保留反证'],['如果是真的，值得我们做吗','问题尚未明确','不直接立项'],['最便宜的下一步是什么','寻找具体痛点与主动购买行为','补行为证据']],verdict:'先补真实问题',verdictText:'异常变化只能触发调查，不能单独成为推荐理由。'},lab:{id:'EF-006',hypothesis:'如果冰感按摩对应真实痛点，用户会描述具体场景并愿意主动尝试。',audience:'内容互动用户与购买者',action:'评论回访 + 购买行为核验',success:'具体痛点与购买行为同时出现',result:'若只存在互动没有行为，退回观察并保留异常记录。'}
-      }
-    };
+    // 模型返回的语义机会；不再预置固定产品机会或固定概念。
+    const candidates = {};
 
-    // 只替换原 Demo 的证据层，不改变“机会雷达 → 机会审判 → 小实验室”的交互结构。
-    const DATA_ROOT = '../../data/eye-care-opportunities/';
+    const DATA_ROOT = '../data/eye-care-opportunities/';
     const DATA_FILES = { xhs: 'xhs_comments_clean.json', tb: 'tb_rates_all.json', negative: 'tb_rates_negative.json', demands: 'tb_rates_demands.json' };
-    const SLOT_IDS = ['portable', 'lens', 'night', 'makeup', 'child', 'ice'];
-    const OPPORTUNITY_RULES = [
-      { title: '干燥细纹与紧致改善', words: ['干燥','细纹','干纹','抚纹','紧致','抗皱','皱纹','滋润','保湿'], summary: '用户反复表达眼周保湿、淡纹与紧致期待，适合先验证功效感知与使用周期。', action: '先验证高保湿但不厚重的使用体验，再把淡纹周期与可感知效果写进实验指标。' },
-      { title: '黑眼圈、眼袋与暗沉', words: ['黑眼圈','眼袋','泪沟','暗沉','浮肿','肿眼','熬夜','眼周暗'], summary: '暗沉、黑眼圈和眼袋是不同问题，真实文本支持按人群和场景拆分验证。', action: '不要把所有眼周问题合并成一个功效，先分别验证黑眼圈、浮肿与疲态人群。' },
-      { title: '清爽吸收，不黏不厚重', words: ['油腻','黏腻','粘腻','厚重','吸收','清爽','肤感','清透','负担'], summary: '用户既要滋润，也在意吸收速度和白天使用负担，肤感是可直接验证的产品变量。', action: '把延展性、吸收时间和后续肤感做成量化测试，优先验证白天可用的清爽质地。' },
-      { title: '妆前兼容，不搓泥不卡粉', words: ['搓泥','卡粉','上妆','妆前','打底','眼妆','脱妆','起屑'], summary: '眼周护理与底妆、眼妆的兼容性是明确的白天场景，需要补充购买与替代行为证据。', action: '把妆前等待时间、叠加产品和搓泥情况纳入实测，验证护理后能否直接上妆。' },
-      { title: '敏感低刺激，不熏眼', words: ['敏感','刺激','辣眼','熏眼','刺痛','过敏','红肿','不舒服','温和'], summary: '刺激和安全感会直接影响眼周产品是否继续使用，适合进入安全边界与归因审查。', action: '优先做低刺激配方与眼周安全测试，不能只凭“温和”宣称下结论。' },
-      { title: '性价比与使用周期', words: ['性价比','便宜','贵','价格','容量','耐用','用量','回购'], summary: '价格、容量和用量预期会影响持续使用，适合拆成单次使用成本来验证。', action: '用单次使用成本和预期使用周期重做规格组合，验证价格敏感人群的接受区间。' }
-    ];
-    const CONCEPT_BLUEPRINTS = {
-      '干燥细纹与紧致改善': [
-        { name: '轻羽眼霜', track: '证据贴合方案', scene: '早晚常规护理', form: '轻乳霜质地，延展后快速成膜', promise: '保湿与淡纹体验不厚重', rationale: '直接回应“想滋润、又怕厚重”的核心张力。', risk: '淡纹效果需要更长周期，不能用一次体验替代功效证明。', test: '7 天肤感与持续使用测试' },
-        { name: '妆前隐形眼周底霜', track: '创意延展方案', scene: '早晨护理后接着上妆', form: '薄涂成膜，降低后续搓泥和卡粉', promise: '把保湿需求转成白天可持续的妆前动作', rationale: '把“保湿但不负担”延展到高频妆前场景。', risk: '需要确认用户是否愿意把眼霜当作妆前步骤。', test: '妆前等待时间、搓泥率与概念选择测试' },
-        { name: '微囊弹润眼膜笔', track: '前沿探索方案', scene: '细纹重点区域的短时护理', form: '定量笔头搭配局部贴敷膜', promise: '把淡纹期待转成更集中、更可控的护理动作', rationale: '用“定量+局部”减少大面积涂抹的浪费和负担。', risk: '形态和成本更复杂，需先验证用户是否理解并愿意尝试。', test: '形态理解度、点涂准确度与支付意愿测试' }
-      ],
-      '黑眼圈、眼袋与暗沉': [
-        { name: '早晨眼周舒缓精华棒', track: '证据贴合方案', scene: '熬夜后出门前', form: '便携棒状，带轻触按摩头', promise: '把疲态护理转成短时、可重复动作', rationale: '直接承接熬夜、浮肿和早晨状态差的场景表达。', risk: '即时清醒感不等于黑眼圈或眼袋的长期改善。', test: '晨间场景选择与即时体验测试' },
-        { name: '分区提亮眼周精华', track: '创意延展方案', scene: '黑眼圈重点区域护理', form: '轻薄精华，支持局部点涂', promise: '不把黑眼圈、眼袋和泪沟混成一个功效', rationale: '把混在一起的眼周问题拆成更清楚的使用对象。', risk: '用户未必能准确判断自己属于哪种问题。', test: '分区需求匹配、效果期待与使用理解测试' },
-        { name: '光感温变眼周贴', track: '前沿探索方案', scene: '重要场合前的短时护理', form: '独立包装，贴敷时产生轻微温感和光泽感', promise: '提供可感知的即时状态改善仪式', rationale: '把“想快速看起来精神”转成即时体验产品。', risk: '即时光泽可能被误认为真实功效，需控制宣称边界。', test: '即时体验、概念可信度与复购意愿测试' }
-      ],
-      '清爽吸收，不黏不厚重': [
-        { name: '轻羽眼霜', track: '证据贴合方案', scene: '白天日常护理', form: '低油感轻乳霜，快速吸收', promise: '保湿和清爽之间取得平衡', rationale: '把“不黏、不厚重”直接落成可测试的肤感方案。', risk: '清爽与保湿存在配方取舍，需实测而不是只靠命名。', test: '吸收时间、残留感与叠妆兼容性测试' },
-        { name: '雾感眼周乳', track: '创意延展方案', scene: '办公间隙和白天补涂', form: '轻乳液泵出后快速铺开，减少按摩步骤', promise: '让补涂变成不打断工作的短动作', rationale: '把“清爽”进一步转成便于高频补涂的体验。', risk: '泵头、用量和眼周安全需要单独验证。', test: '补涂动作完成率、肤感偏好与安全感测试' },
-        { name: '瞬吸眼周乳雾', track: '前沿探索方案', scene: '带妆或高频外出护理', form: '细雾化乳液，触肤后快速转为轻膜', promise: '减少手部接触和等待吸收的时间', rationale: '探索“无负担护理”是否可以通过全新施用方式实现。', risk: '用户对眼周喷雾的接受度、喷射安全和成本都未知。', test: '形态接受度、喷射安全感与支付意愿测试' }
-      ],
-      '妆前兼容，不搓泥不卡粉': [
-        { name: '妆前隐形眼周底霜', track: '证据贴合方案', scene: '上妆前 5—10 分钟', form: '薄涂成膜，减少后续搓泥和卡粉', promise: '护理后可以继续完成底妆', rationale: '直接解决护理与底妆之间的冲突。', risk: '必须用真实底妆组合测试，不能只凭配方描述判断。', test: '不同底妆组合的搓泥、卡粉和等待时间测试' },
-        { name: '随身补涂眼周棒', track: '创意延展方案', scene: '带妆办公与外出补涂', form: '不破坏妆面的固体棒', promise: '让白天补涂成为可执行动作', rationale: '把“妆前兼容”延展为“带妆也能补涂”。', risk: '补涂过程可能移动底妆，需要观察用户真实动作。', test: '带妆补涂前后妆面变化与重复使用测试' },
-        { name: '双仓护理底妆眼周笔', track: '前沿探索方案', scene: '护理和底妆衔接的同一步骤', form: '一端护理、一端眼周打底，分区控量', promise: '减少产品切换和步骤记忆', rationale: '尝试把“护理+妆前”整合成一个明确动作。', risk: '结构复杂且容易把两个功效混在一起，需先验证理解度。', test: '概念理解、操作顺序与妆面结果测试' }
-      ],
-      '敏感低刺激，不熏眼': [
-        { name: '无香低刺激眼周乳', track: '证据贴合方案', scene: '敏感肌晚间护理', form: '无香、低刺激乳状质地', promise: '先建立安全感，再谈功效', rationale: '直接回应刺激、熏眼和香味顾虑。', risk: '“温和”必须由安全测试和用户反馈共同确认。', test: '刺激感、安全边界与停用原因访谈' },
-        { name: '定量低接触护理笔', track: '创意延展方案', scene: '不想用手反复揉眼', form: '定量出口，减少手指接触', promise: '控制用量与接触方式', rationale: '把低刺激需求延展到低接触的使用机制。', risk: '笔头清洁、残留和眼周接触安全需要验证。', test: '使用方式偏好、卫生感与刺激归因测试' },
-        { name: '仿生屏障眼周贴', track: '前沿探索方案', scene: '敏感状态下的夜间护理', form: '短时贴敷，强调隔离外界摩擦', promise: '用“减少接触”替代反复涂抹', rationale: '探索敏感用户是否更需要保护动作，而不只是增加成分。', risk: '贴敷闷感、撕拉感和材料安全性未知。', test: '贴敷舒适度、卸除体验与连续使用意愿测试' }
-      ],
-      '性价比与使用周期': [
-        { name: '15 天眼周体验装', track: '证据贴合方案', scene: '首次尝试与换新', form: '小容量单品，明确使用周期', promise: '降低首次购买和试错成本', rationale: '直接回应价格、容量和“能用多久”的顾虑。', risk: '体验装可能只带来低价尝试，不代表会转正装。', test: '体验装转正装、周期认知与支付意愿测试' },
-        { name: '定量单次护理胶囊', track: '创意延展方案', scene: '旅行和出差使用', form: '单次剂量，减少过量与浪费', promise: '把用量、周期和成本说清楚', rationale: '把性价比转成可感知的单次成本。', risk: '包装成本和环保顾虑可能抵消便利性。', test: '单次成本接受度、便携性与复购测试' },
-        { name: '可替换芯轻羽眼霜', track: '前沿探索方案', scene: '长期稳定护理', form: '主容器复用，内芯按周期替换', promise: '同时降低长期使用成本和换新负担', rationale: '探索“长期护理”是否可以通过规格创新提升回购。', risk: '替换机制增加教育成本，且需要供应链支持。', test: '规格理解、长期价格接受度与替换意愿测试' }
-      ]
-    };
-    const rowText = row => String(row && (row.text || row.content || row.full) || '').replace(/\s+/g, ' ').trim();
-    const hitWords = (text, words) => words.filter(word => text.toLowerCase().includes(word.toLowerCase()));
-    const matchingRows = (rows, words) => rows.filter(row => hitWords(rowText(row), words).length);
-    const uniqueCount = (rows, key) => new Set(rows.map(row => row[key]).filter(Boolean)).size;
-    const productCounts = rows => Object.entries(rows.reduce((out, row) => { if (row.item_name) out[row.item_name] = (out[row.item_name] || 0) + 1; return out; }, {})).sort((a,b) => b[1] - a[1]).slice(0, 3);
-    const sampleRows = (rows, words) => matchingRows(rows, words).slice(0, 3);
-    const quoteOf = row => `“${rowText(row)}”｜${row.__source || (row.item_name ? '淘宝/天猫负面/需求' : '清洗评论')}${row.item_name ? ' · ' + row.item_name : ''}`;
+    const SLOT_IDS = ['cluster_1', 'cluster_2', 'cluster_3', 'cluster_4', 'cluster_5', 'cluster_6'];
+    const AI_API_BASE = 'http://127.0.0.1:4179';
+    const analysisState = { raw: null, clustering: null };
 
-    function buildEvidence(rule, data) {
-      const xhs = matchingRows(data.xhs, rule.words);
-      const tb = matchingRows(data.tb, rule.words);
-      const negative = matchingRows(data.negative, rule.words);
-      const demands = matchingRows(data.demands, rule.words);
-      const total = xhs.length + tb.length;
-      const score = total + (negative.length + demands.length) * 2;
-      return { rule, xhs, tb, negative, demands, total, score, products: productCounts(tb), samples: sampleRows([...data.xhs.map(r => ({...r, __source: '小红书'})), ...data.tb.map(r => ({...r, __source: '淘宝/天猫'}))], rule.words) };
+    function textOf(row) { return String(row && (row.text || row.content || row.full || '')).replace(/\s+/g, ' ').trim(); }
+    function asNumber(value) { const n = Number(value); return Number.isFinite(n) ? n : 0; }
+
+    async function callOpportunityApi(path, payload) {
+      const response = await fetch(AI_API_BASE + path, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.error || `AI 请求失败（${response.status}）`);
+      return result;
     }
 
-    function candidateFromEvidence(evidence) {
-      const { rule, xhs, tb, negative, demands, total, score, products, samples } = evidence;
-      const sourceType = xhs.length && tb.length ? '跨源共振' : (xhs.length ? '小红书主信号' : '淘宝/天猫主信号');
-      const signalText = `小红书 ${xhs.length} 条 / 淘宝天猫 ${tb.length} 条 / 负面与需求 ${negative.length + demands.length} 条`;
-      const sampleText = samples.length ? quoteOf(samples[0]) : '当前没有命中原文，需继续补采。';
-      const counterText = negative.length + demands.length ? `清洗数据中有 ${negative.length + demands.length} 条负面或未满足表达，代表性原文：${quoteOf((negative[0] || demands[0]))}` : '当前快照未单独命中负面或未满足样本，需要补充反证。';
-      const verdict = score >= 80 ? '值得进入小实验' : (score >= 30 ? '先补证再实验' : '先补关键证据');
-      const verdictText = score >= 80 ? '证据已经跨来源出现，先用最低成本实验验证使用方式、场景和支付意愿。' : '先补充能改变判断的场景、购买或放弃行为，再决定是否投入研发。';
-      const concepts = (CONCEPT_BLUEPRINTS[rule.title] || []).map((concept, index) => ({
-        ...concept,
-        status: index === 0 ? '优先验证' : (index === 1 ? '创意延展' : '前沿探索'),
-        evidence: index === 0 ? `由 ${xhs.length} 条小红书与 ${tb.length} 条淘宝/天猫相关证据进入初筛。` : '需在机会判断和小实验中验证，不代表用户已明确选择。'
-      }));
-      const primary = concepts[0] || { name: '待形成概念', scene: '待补证', form: '待补证', promise: '待验证', test: '补充场景与支付意愿测试' };
+    function candidateFromCluster(cluster, index) {
+      const a = cluster.analytics || {};
       return {
-        title: rule.title, confidence: `入选路径：${sourceType} + ${total} 条相关文本`, summary: rule.summary,
-        analytics: { total, xhs: xhs.length, tb: tb.length, pain: negative.length + demands.length, products: products.length },
-        tmall: `${tb.length} 条相关评价 / ${products.length ? products.length + ' 个代表商品' : '商品待标注'}`, xhs: `${xhs.length} 条相关内容 / ${uniqueCount(xhs, 'author') || xhs.length} 位用户`, route: sourceType,
-        repeat: `${signalText}。命中词：${hitWords([...xhs, ...tb].map(rowText).join(' '), rule.words).slice(0, 5).join('、') || '待补充'}。`,
-        behavior: negative.length || demands.length ? `负面与需求表达共 ${negative.length + demands.length} 条，说明用户存在明确顾虑或未满足点。` : '当前只确认需求表达，主动购买、替代或放弃行为仍需补证。',
-        solution: products.length ? `相关评价集中在：${products.map(item => item[0]).join('、')}；现有方案与用户反馈需要在判断阶段拆开看。` : '当前没有足够商品名信息，暂不推断市场已有解法。',
-        trend: '当前接入的是一次清洗快照，未连接连续日数据；趋势判断需后续每日采集后计算。',
-        unknown: `用户是否愿意为“${rule.title}”改变使用方式并付费？当前还缺少可验证的行为证据。此外，“${primary.name}”的形态是否被接受仍未验证。`,
-        concepts,
-        trial: {
-          core: `真实评论中的“${rule.title}”是否构成一个可由产品解决、且用户愿意付费的具体问题？`,
-          support: [sampleText + '｜真实评论原文', `${signalText}，不是单一内容命中。｜规则汇总`, rule.action + '｜下一步验证'],
-          counter: [counterText, '关键词命中可能混合不同人群和使用场景，不能直接等同于产品需求。', '当前没有连续日快照，暂不把一次性样本解释成增长趋势。'],
-          inference: `${rule.action} 主方案先采用“${primary.name}”，备选方案为“${concepts[1]?.name || '待补证'}”和“${concepts[2]?.name || '待补证'}”。这些是产品假设，不是评论直接证明的事实。`,
-          gates: [['我们真正观察到了什么', `${signalText}`, '有数据证据'], ['还有什么其他解释', '不同人群、场景或其他产品因素可能混在一起', '保留反证'], ['如果是真的，值得我们做吗', '问题明确度与付费意愿仍待确认', score >= 80 ? '值得验证' : '待补证'], ['最便宜的下一步是什么', '做场景访谈、概念选择与支付意愿测试', '可低成本验证']],
-          verdict, verdictText
+        // 用固定槽位承接模型返回，避免模型自定义 id 破坏已有交互和气泡布局。
+        id: SLOT_IDS[index],
+        modelId: cluster.id || SLOT_IDS[index],
+        title: cluster.title || '未命名需求机会',
+        confidence: '语义聚类置信度：' + (cluster.confidence || '待判断'),
+        summary: cluster.user_need || '模型正在整理真实用户需求。',
+        tmall: asNumber(a.tb) + ' 条淘宝/天猫相关评论',
+        xhs: asNumber(a.xhs) + ' 条小红书相关评论',
+        route: cluster.recommendation || '待判断',
+        repeat: cluster.evidence_summary || '等待模型整理支持证据。',
+        behavior: cluster.behavior_evidence || '尚未确认主动行为，需要继续核验。',
+        solution: cluster.existing_solutions || '等待模型拆解现有解决方式。',
+        trend: cluster.trigger_context || '当前数据暂不支持连续趋势判断。',
+        unknown: cluster.unknown || '等待模型标注最大未知。',
+        analytics: {
+          total: asNumber(a.total), xhs: asNumber(a.xhs), tb: asNumber(a.tb),
+          pain: asNumber(a.pain), products: asNumber(a.products)
         },
-        lab: { id: 'EF-000', hypothesis: `如果采用“${primary.name}”，${primary.scene}的目标用户会愿意尝试，并认为${primary.promise}。`, audience: '相关评论表达者与目标场景用户', action: `${primary.test} + 三概念选择 + 价格询问`, success: '明确选择、场景认同与付费意愿同时出现', result: '先比较三个概念的选择率和支付意愿；若只有需求表达没有行为，退回机会观察。' }
+        evidence: cluster.evidence || [],
+        counterEvidence: cluster.counter_evidence || '',
+        cluster,
+        trial: null
       };
     }
+
+    function applyClusterView(clusters) {
+      Object.keys(candidates).forEach(key => delete candidates[key]);
+      clusters.slice(0, SLOT_IDS.length).forEach((cluster, index) => {
+        const candidate = candidateFromCluster(cluster, index);
+        candidates[candidate.id] = candidate;
+      });
+      const ids = Object.keys(candidates);
+      const bubbles = $$('.bubble');
+      const cards = $$('.candidate-card');
+      bubbles.forEach((bubble, index) => {
+        const id = ids[index];
+        const c = id && candidates[id];
+        bubble.dataset.id = id || '';
+        bubble.dataset.source = c && c.analytics.xhs && c.analytics.tb ? 'cross' : (c && c.analytics.xhs ? 'xhs' : 'tmall');
+        bubble.classList.toggle('active', index === 0);
+        bubble.innerHTML = c ? `${esc(c.title).replace('，', '<br>')}<span class="bubble-count">${c.analytics.total} 条相关评论</span>` : '等待分析';
+      });
+      cards.forEach((card, index) => {
+        const id = ids[index];
+        const c = id && candidates[id];
+        card.dataset.id = id || '';
+        card.classList.toggle('active', index === 0);
+        if (!c) { card.hidden = true; return; }
+        card.hidden = false;
+        const rank = card.querySelector('.rank');
+        const title = card.querySelector('h3');
+        const summary = card.querySelector('p');
+        const tags = card.querySelector('.mini-tags');
+        const values = card.querySelectorAll('.candidate-mini-data b');
+        if (rank) rank.innerHTML = `<span>${String(index + 1).padStart(2, '0')} · ${esc(c.recommendation)}</span><span>${esc(c.confidence)}</span>`;
+        if (title) title.textContent = c.title;
+        if (summary) summary.textContent = c.summary;
+        if (tags) tags.innerHTML = `<span>${esc(c.route)}</span><span>真实评论 ${c.analytics.total} 条</span><span>模型待判断</span>`;
+        if (values[0]) values[0].textContent = c.analytics.total;
+        if (values[1]) values[1].textContent = c.analytics.pain;
+        if (values[2]) values[2].textContent = c.analytics.products;
+      });
+      const firstId = ids[0];
+      if (firstId) {
+        selectedId = firstId;
+        queueState.today = ids.slice(0, 3);
+        queueState.watch = ids.slice(3);
+        queueState.waiting = [];
+        queueState.rejected = [];
+        renderQueue();
+        renderCandidate(firstId);
+      }
+      const heroTitle = document.querySelector('.hero-row h1');
+      if (heroTitle) heroTitle.textContent = ids.length ? `模型发现 ${ids.length} 个需求机会` : '暂未形成稳定需求机会';
+      layoutOpportunityBubbles();
+    }
+
+    async function applyRealData(data) {
+      analysisState.raw = data;
+      $('#scanStatus').textContent = '正在调用第一层模型：语义聚类分析…';
+      const result = await callOpportunityApi('/api/opportunity/cluster', { data });
+      analysisState.clustering = result;
+      applyClusterView(result.clusters || []);
+      $('#signalPoolCount').textContent = (data.xhs.length + data.tb.length).toLocaleString();
+      $('#scanStatus').textContent = `第一层分析完成 · ${data.xhs.length} 条小红书 + ${data.tb.length} 条淘宝/天猫`;
+    }
+
+    async function loadRealOpportunityData(showToast = false) {
+      const button = $('#rescanBtn');
+      if (button) { button.disabled = true; button.textContent = '正在读取并分析…'; }
+      $('#scanStatus').textContent = '正在读取清洗评论数据…';
+      try {
+        const values = await Promise.all(Object.values(DATA_FILES).map(file => fetch(DATA_ROOT + file).then(response => {
+          if (!response.ok) throw new Error(file + ' ' + response.status);
+          return response.json();
+        })));
+        await applyRealData({ xhs: values[0], tb: values[1], negative: values[2], demands: values[3] });
+        if (showToast) toast('已重新读取原始评论并完成第一层语义聚类');
+      } catch (error) {
+        $('#scanStatus').textContent = '分析失败 · 请检查本地 AI 服务';
+        toast(error instanceof Error ? error.message : 'AI 分析失败');
+      } finally {
+        if (button) { button.disabled = false; button.textContent = '重新扫描评论'; }
+      }
+    }
+
 
     function layoutOpportunityBubbles() {
       const canvas = document.querySelector('.canvas');
@@ -840,89 +760,8 @@
       });
     }
 
-    function applyRealData(data) {
-      const ranked = OPPORTUNITY_RULES.map(rule => buildEvidence(rule, data)).sort((a, b) => b.score - a.score);
-      SLOT_IDS.forEach((slot, index) => { if (ranked[index]) { candidates[slot] = candidateFromEvidence(ranked[index]); candidates[slot].lab.id = 'EF-' + String(index + 1).padStart(3, '0'); } });
-      $('#signalPoolCount').textContent = (data.xhs.length + data.tb.length).toLocaleString();
-      $('#scanStatus').textContent = `真实数据就绪 · 小红书 ${data.xhs.length} 条 + 淘宝/天猫 ${data.tb.length} 条`;
-      const topicIds = SLOT_IDS;
-      topicIds.forEach(id => {
-        const candidate = candidates[id];
-        const analytics = candidate?.analytics || {};
-        const card = document.querySelector(`.candidate-card[data-id="${id}"]`);
-        if (card && candidate) {
-          card.querySelector('h3').textContent = candidate.title;
-          card.querySelector('p').textContent = candidate.summary;
-          card.querySelector('.mini-tags').innerHTML = `<span>${candidate.route}</span><span>真实评论 ${analytics.total ?? '—'} 条</span><span>待验证</span>`;
-          const miniValues = card.querySelectorAll('.candidate-mini-data b');
-          if (miniValues[0]) miniValues[0].textContent = analytics.total ?? '—';
-          if (miniValues[1]) miniValues[1].textContent = analytics.pain ?? '—';
-          if (miniValues[2]) miniValues[2].textContent = analytics.products ?? '—';
-        }
-        const bubble = document.querySelector(`.bubble[data-id="${id}"]`);
-        if (bubble && candidate) {
-          bubble.innerHTML = `${esc(candidate.title).replace('，', '<br>')}<span class="bubble-count">${analytics.total ?? '—'} 条相关评论</span>`;
-          bubble.dataset.source = (analytics.xhs || 0) === 0 ? 'tmall' : ((analytics.tb || 0) === 0 ? 'xhs' : 'cross');
-        }
-      });
-      layoutOpportunityBubbles();
-      renderQueue(); renderCandidate('portable');
-      const activeView = document.querySelector('.view.active')?.id;
-      if (activeView === 'trialView') renderTrial(selectedId);
-      if (activeView === 'labView') renderLab(selectedId);
-    }
-
-    async function loadRealOpportunityData(showToast = false) {
-      const button = $('#rescanBtn');
-      if (button) { button.disabled = true; button.textContent = '正在扫描评论…'; }
-      $('#scanStatus').textContent = '正在读取清洗评论数据…';
-      try {
-        const values = await Promise.all(Object.values(DATA_FILES).map(file => fetch(DATA_ROOT + file).then(response => { if (!response.ok) throw new Error(file + ' ' + response.status); return response.json(); })));
-        applyRealData({ xhs: values[0], tb: values[1], negative: values[2], demands: values[3] });
-        if (showToast) toast('已重新读取评论数据并刷新候选机会');
-      } catch (error) {
-        $('#scanStatus').textContent = '数据读取失败 · 请通过本地 HTTP 服务打开';
-        toast('评论数据读取失败，请检查本地服务');
-      } finally {
-        if (button) { button.disabled = false; button.textContent = '重新扫描评论'; }
-      }
-    }
-
-    const defaultConcepts = [
-      { id: 'A', name: '滚珠补涂', detail: '强调按摩、快速和办公室场景' },
-      { id: 'B', name: '精准护理笔', detail: '强调卫生、控量和妆后精准' },
-      { id: 'C', name: '便携小罐', detail: '接近熟悉形态，降低认知成本' }
-    ];
-    const conceptSets = {
-      portable: defaultConcepts,
-      lens: [
-        { id: 'A', name: '冷感滚珠', detail: '冷感触点、快速消肿、适合早晨出门前' },
-        { id: 'B', name: '定量护理笔', detail: '笔尖定量、卫生便携、适合妆后补涂' },
-        { id: 'C', name: '软头精华棒', detail: '柔软按摩头、低摩擦、强调舒适触感' }
-      ],
-      night: [
-        { id: 'A', name: '无香修护棒', detail: '无香、低刺激、夜间精准眼周护理' },
-        { id: 'B', name: '滴管精华油', detail: '轻质快吸收、睡前按摩、强调滋润包裹感' },
-        { id: 'C', name: '冷敷修护眼膜', detail: '舒缓冷敷、一次一片、形成夜间护理仪式' }
-      ],
-      makeup: [
-        { id: 'A', name: '妆后滚珠', detail: '不破坏底妆、快速补涂、适合办公间隙' },
-        { id: 'B', name: '隐形护理笔', detail: '精准点涂、控量卫生、适合随身携带' },
-        { id: 'C', name: '轻薄凝露盒', detail: '轻薄不搓泥、熟悉形态、降低尝试门槛' }
-      ],
-      child: [
-        { id: 'A', name: '家庭安全棒', detail: '圆润防误触、清晰用量、强调家庭共用边界' },
-        { id: 'B', name: '定量护理笔', detail: '锁量设计、卫生独立、适合照护者操作' },
-        { id: 'C', name: '分龄小罐', detail: '分龄标签、低刺激视觉、突出安全感' }
-      ],
-      ice: [
-        { id: 'A', name: '冰感滚珠', detail: '金属冰感触点、即时舒缓、突出新奇体验' },
-        { id: 'B', name: '冷敷护理笔', detail: '精准冷敷、干净便携、适合局部使用' },
-        { id: 'C', name: '冰感眼膜盒', detail: '独立包装、冷敷仪式、适合内容展示' }
-      ]
-    };
-    const queueState = { today: ['portable', 'lens', 'night'], watch: ['makeup', 'child', 'ice'], waiting: ['portable', 'lens'], rejected: [] };
-    let selectedId = 'portable';
+    const queueState = { today: [], watch: [], waiting: [], rejected: [] };
+    let selectedId = null;
     const $ = (s, root = document) => root.querySelector(s);
     const $$ = (s, root = document) => Array.from(root.querySelectorAll(s));
     const esc = (value) => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
@@ -930,59 +769,6 @@
       const el = $('#toast'); el.textContent = message; el.classList.add('show');
       clearTimeout(window.toastTimer); window.toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
     };
-    const IMAGE_API_BASE = location.protocol === 'file:' ? 'http://127.0.0.1:4176' : '';
-
-    function resetConceptImages() {
-      ['A', 'B', 'C'].forEach(id => {
-        const image = $('#conceptImage' + id);
-        if (image) { image.hidden = true; image.removeAttribute('src'); }
-        const card = $(`.concept[data-concept-id="${id}"]`);
-        const fallback = card && card.querySelector('.pack');
-        if (fallback) fallback.hidden = false;
-      });
-    }
-
-    function applyGeneratedImages(images) {
-      (images || []).forEach(item => {
-        const id = String(item.id || '').toUpperCase();
-        if (!['A', 'B', 'C'].includes(id) || !item.b64_json) return;
-        const image = $('#conceptImage' + id);
-        const card = $(`.concept[data-concept-id="${id}"]`);
-        if (!image || !card) return;
-        image.src = `data:${item.mime_type || 'image/png'};base64,${item.b64_json}`;
-        image.hidden = false;
-        const fallback = card.querySelector('.pack');
-        if (fallback) fallback.hidden = true;
-      });
-    }
-
-    async function generateConceptImages() {
-      const button = $('#generateImagesBtn');
-      const status = $('#imageGenStatus');
-      const candidate = candidates[selectedId];
-      const concepts = conceptSets[selectedId] || defaultConcepts;
-      if (!candidate || !button || !status) return;
-      button.disabled = true;
-      status.textContent = '正在请求本地生图代理 · 不会自动重复调用';
-      try {
-        const response = await fetch(`${IMAGE_API_BASE}/api/generate-concepts`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ candidate: candidate.title, hypothesis: candidate.lab.hypothesis, concepts })
-        });
-        const payload = await response.json().catch(() => ({}));
-        if (!response.ok) throw new Error(payload.error || `请求失败（${response.status}）`);
-        applyGeneratedImages(payload.images);
-        status.textContent = `已生成 3 个方案 · ${payload.model || '生图模型'}`;
-        toast('3 个产品概念图已回填到 A / B / C 方案');
-      } catch (error) {
-        status.textContent = error instanceof Error ? error.message : '生图请求失败';
-        toast('生图未执行成功，请检查本地服务与环境变量');
-      } finally {
-        button.disabled = false;
-      }
-    }
-
     function statusOf(id) {
       if (queueState.rejected.includes(id)) return '已淘汰';
       if (queueState.waiting.includes(id)) return '等待判断';
@@ -1006,7 +792,7 @@
 
     function queueWaitingCard(id) {
       const c = candidates[id];
-      return `<article class="queue-card" data-waiting-card="${esc(id)}"><div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">等待判断 · ${esc(c.route)}</span><h3>${esc(c.title)}</h3></div><span class="queue-score">${esc(c.confidence.replace('入选路径：',''))}</span></div><p>${esc(c.summary)} 最大未知：${esc(c.unknown)}</p></div><div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>进入原因</span><span class="trigger-state met">${esc(c.route)}</span></div><div class="trigger-row"><span>必须判断</span><span>${esc(c.trial.gates[3][1])}</span></div></div><div class="queue-actions"><button class="primary-btn btn-sm" data-start-trial="${esc(id)}">开始判断</button><button class="ghost-btn btn-sm" data-return-watch="${esc(id)}">退回观察</button><button class="ghost-btn btn-sm" data-reject="${esc(id)}">淘汰</button></div></div></article>`;
+      return `<article class="queue-card" data-waiting-card="${esc(id)}"><div class="queue-card-main"><div class="queue-card-top"><div><span class="badge">等待判断 · ${esc(c.route)}</span><h3>${esc(c.title)}</h3></div><span class="queue-score">${esc(c.confidence)}</span></div><p>${esc(c.summary)} 最大未知：${esc(c.unknown)}</p></div><div class="queue-detail"><div class="trigger-box"><div class="trigger-row"><span>进入原因</span><span class="trigger-state met">${esc(c.route)}</span></div><div class="trigger-row"><span>必须判断</span><span>${esc(c.unknown)}</span></div></div><div class="queue-actions"><button class="primary-btn btn-sm" data-start-trial="${esc(id)}">开始判断</button><button class="ghost-btn btn-sm" data-return-watch="${esc(id)}">退回观察</button><button class="ghost-btn btn-sm" data-reject="${esc(id)}">淘汰</button></div></div></article>`;
     }
 
     function bindQueueActions() {
@@ -1035,14 +821,9 @@
     }
 
     function renderRadarConceptPlan(c) {
-      const concepts = c.concepts || [];
-      $('#inlineRoute').textContent = c.route || '等待真实数据';
-      $('#inlineInference').textContent = concepts.length
-        ? `优先验证“${concepts[0].name}”，同时保留一条创意延展和一条前沿探索路线。`
-        : '真实数据加载后生成产品方向。';
-      $('#radarConceptPlan').innerHTML = concepts.length
-        ? concepts.map((concept, index) => `<article class="inline-concept ${index === 0 ? 'primary' : ''}"><small>${esc(concept.status || (index === 0 ? '优先验证' : index === 1 ? '创意延展' : '前沿探索'))}</small><strong>${esc(concept.name)}</strong><span>${esc(concept.scene)} · ${esc(concept.form)}</span></article>`).join('')
-        : '<article class="inline-concept primary"><small>等待数据</small><strong>等待概念方向</strong><span>真实数据加载后生成</span></article>';
+      $('#inlineRoute').textContent = c.route || '模型已完成语义聚类';
+      $('#inlineInference').textContent = c.user_need || c.summary || '第一层模型正在整理真实用户需求。';
+      $('#radarConceptPlan').innerHTML = `<article class="inline-concept primary"><small>第一层模型结论</small><strong>${esc(c.title)}</strong><span>点击“查看机会判断”，由第二层模型生成投入结论和产品概念。</span></article>`;
     }
 
     function renderAnalytics(c) {
@@ -1088,42 +869,58 @@
     }
 
     function renderTrial(id) {
-      const c = candidates[id]; if (!c) return; const t = c.trial;
-      $('#trialState').textContent = '正在判断 · ' + statusOf(id);
-      $('#trialTitle').textContent = c.title; $('#trialCore').textContent = '核心命题：' + t.core;
-      $('#trialSupport').innerHTML = t.support.map(item => { const parts = item.split('｜'); return `<div class="quote">${esc(parts[0])}<small>${esc(parts[1] || '来源待补')}</small></div>`; }).join('');
-      $('#trialCounter').innerHTML = t.counter.map(item => `<div class="quote">${esc(item)}</div>`).join('');
-      $('#trialInference').textContent = t.inference;
-      const concepts = c.concepts || [];
-      $('#trialConceptPlan').innerHTML = `<div class="concept-plan-head"><strong>产品概念方向</strong><small>优先方向 → 创意延展 → 前沿探索</small></div><div class="concept-options">${concepts.map((concept, index) => `<article class="concept-option ${index === 0 ? 'primary' : ''}"><small>${esc(concept.status || (index === 0 ? '优先验证' : '备选方案'))}</small><h4>${esc(concept.name)}</h4><p>${esc(concept.scene)} · ${esc(concept.form)}</p><strong class="concept-promise">${esc(concept.promise)}</strong><details class="concept-details"><summary>查看推导、风险与验证方式</summary><p><b>推导：</b>${esc(concept.rationale || '由当前需求信号推导，待验证。')}</p><p class="concept-risk"><b>风险：</b>${esc(concept.risk || '需求与方案的匹配度待验证。')}</p><p class="concept-test"><b>验证：</b>${esc(concept.test)}</p></details></article>`).join('')}</div>`;
-      $('#trialGates').innerHTML = t.gates.map((g, i) => `<div class="gate"><span class="gate-icon">${i + 1}</span><div><strong>${esc(g[0])}</strong><br><small>${esc(g[1])}</small></div><span class="gate-status">${esc(g[2])}</span></div>`).join('');
-      $('#trialVerdict').textContent = t.verdict; $('#trialVerdictText').textContent = t.verdictText;
-      $('#trialPrimaryConcept').textContent = concepts[0]?.name || '等待真实数据';
-      $('#trialPrimaryTest').textContent = concepts[0]?.test || '数据加载后显示最小验证动作。';
+      const c = candidates[id]; if (!c) return;
+      const t = c.trial;
+      $('#trialState').textContent = t ? '第二层模型已完成 · ' + statusOf(id) : (c.judging ? '第二层模型判断中…' : '等待第二层模型');
+      $('#trialTitle').textContent = c.title;
+      $('#trialCore').textContent = t ? '核心问题：' + t.core : '正在根据第一层语义机会和证据，判断是否值得投入。';
+      $('#trialSupport').innerHTML = t ? t.support.map(item => `<div class="quote">${esc(item)}</div>`).join('') : '<div class="quote">等待模型整理支持证据…</div>';
+      $('#trialCounter').innerHTML = t ? t.counter.map(item => `<div class="quote">${esc(item)}</div>`).join('') : '<div class="quote">等待模型整理反证与风险…</div>';
+      $('#trialInference').textContent = t ? t.inference : '第二层模型会把需求机会转换成投入判断，并明确不能由当前数据证明的部分。';
+      const concepts = t ? (c.concepts || []) : [];
+      $('#trialConceptPlan').innerHTML = t
+        ? `<div class="concept-plan-head"><strong>模型生成的产品概念方向</strong><small>每个方向都必须回到场景、证据和验证动作</small></div><div class="concept-options">${concepts.map((concept, index) => `<article class="concept-option ${index === 0 ? 'primary' : ''}"><small>${esc(concept.track || '模型方案')}</small><h4>${esc(concept.name)}</h4><p>${esc(concept.scene)} · ${esc(concept.form)}</p><strong class="concept-promise">${esc(concept.promise)}</strong><details class="concept-details"><summary>查看推导、风险与验证方式</summary><p><b>推导：</b>${esc(concept.rationale)}</p><p class="concept-risk"><b>风险：</b>${esc(concept.risk)}</p><p class="concept-test"><b>验证：</b>${esc(concept.test)}</p></details></article>`).join('')}</div>`
+        : '<div class="concept-plan-head"><strong>等待第二层模型</strong><small>不会使用预设产品模板</small></div>';
+      $('#trialGates').innerHTML = t ? t.gates.map((g, i) => `<div class="gate"><span class="gate-icon">${i + 1}</span><div><strong>${esc(g[0])}</strong><br><small>${esc(g[1])}</small></div><span class="gate-status">${esc(g[2])}</span></div>`).join('') : '<div class="gate">模型判断完成后显示投入审核问题。</div>';
+      $('#trialVerdict').textContent = t ? t.verdict : '正在判断';
+      $('#trialVerdictText').textContent = t ? t.verdictText : '第二层模型正在评估机会价值、证据缺口和最低成本验证动作。';
+      $('#trialPrimaryConcept').textContent = concepts[0]?.name || '等待模型概念';
+      $('#trialPrimaryTest').textContent = concepts[0]?.test || (t ? t.nextExperiment : '等待第二层模型给出最低成本验证动作。');
       renderAnalytics(c);
     }
 
-    function renderLab(id) {
-      const c = candidates[id]; if (!c) return; const l = c.lab;
-      $('#labTitle').textContent = c.title; $('#labId').textContent = '实验编号 ' + l.id; $('#labHypothesis').textContent = l.hypothesis;
-      $('#labAudience').textContent = l.audience; $('#labAction').textContent = l.action; $('#labSuccess').textContent = l.success;
-      $('#labResultTitle').textContent = '模拟结果：' + (c.trial.verdict.includes('实验') ? '建议继续' : '建议补证');
-      $('#labResultText').textContent = l.result; $('#progressBar').style.width = '0%'; $('#progressText').textContent = '等待开始'; $('#experimentResult').classList.remove('show');
-      const concepts = c.concepts ? c.concepts.map((concept, index) => ({ id: ['A', 'B', 'C'][index], name: concept.name, detail: `${concept.scene} · ${concept.form}` })) : (conceptSets[id] || defaultConcepts);
-      conceptSets[id] = concepts;
-      $$('.concept').forEach((card, index) => {
-        const concept = concepts[index] || defaultConcepts[index];
-        card.dataset.conceptId = concept.id;
-        card.classList.toggle('selected', index === 0);
-        const title = card.querySelector('strong');
-        const detail = card.querySelector('p');
-        if (title) title.textContent = `${concept.id} · ${concept.name}`;
-        if (detail) detail.textContent = concept.detail;
-      });
-      resetConceptImages();
-      $('#imageGenStatus').textContent = '可选，不参与机会判断';
-      $('#generateImagesBtn').disabled = false;
+    async function requestJudgement(id) {
+      const c = candidates[id]; if (!c || c.trial || c.judging) return;
+      c.judging = true;
+      renderTrial(id);
+      try {
+        const result = await callOpportunityApi('/api/opportunity/judge', {
+          opportunity: c.cluster,
+          evidence: c.evidence
+        });
+        c.trial = {
+          core: result.core_question,
+          support: result.support || [],
+          counter: result.counter || [],
+          inference: result.inference,
+          gates: (result.gates || []).map(g => [g.question, g.answer, g.status]),
+          verdict: result.verdict,
+          verdictText: result.verdict_text,
+          nextExperiment: result.next_experiment
+        };
+        c.concepts = result.concepts || [];
+        renderTrial(id);
+      } catch (error) {
+        $('#trialState').textContent = '第二层模型失败';
+        $('#trialInference').textContent = error instanceof Error ? error.message : '第二层模型调用失败，请检查本地 AI 服务。';
+        toast('机会判断调用失败');
+      } finally {
+        c.judging = false;
+      }
     }
+
+
+    function renderLab() { return; }
 
     function moveToWatch(id) {
       if (!candidates[id]) return; queueState.today = queueState.today.filter(x => x !== id); queueState.waiting = queueState.waiting.filter(x => x !== id); queueState.rejected = queueState.rejected.filter(x => x !== id);
@@ -1140,14 +937,19 @@
       if (!queueState.rejected.includes(id)) queueState.rejected.push(id); renderQueue(); renderCandidate(id); toast('已淘汰并记录理由：' + reason);
     }
 
-    function startTrial(id) { if (!candidates[id]) return; selectedId = id; renderCandidate(id); closeQueue(); go('trial'); }
+    function startTrial(id) { if (!candidates[id]) return; selectedId = id; renderCandidate(id); closeQueue(); go('trial'); requestJudgement(id); }
 
     function go(view) {
+      if (view === 'strategy') {
+        if (window.parent && window.parent !== window) window.parent.postMessage({ type: 'open-decision', source: 'opportunity', title: candidates[selectedId]?.title || '' }, '*');
+        return;
+      }
       const valid = ['radar','trial']; const target = valid.includes(view) ? view : 'radar';
       if (target === 'trial') renderTrial(selectedId);
       $$('.view').forEach(el => el.classList.toggle('active', el.id === target + 'View'));
       $$('.nav-btn').forEach(el => el.classList.toggle('active', el.dataset.view === target));
       $$('[data-embedded-go]').forEach(el => el.classList.toggle('active', el.dataset.embeddedGo === target));
+      if (target === 'trial' && selectedId) requestJudgement(selectedId);
       history.replaceState(null, '', '#' + target); window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -1156,8 +958,6 @@
     $$('[data-go]').forEach(btn => btn.addEventListener('click', () => go(btn.dataset.go)));
     $$('.candidate-card, .bubble[data-id]').forEach(el => el.addEventListener('click', () => renderCandidate(el.dataset.id)));
     $('#enterTrialBtn').addEventListener('click', () => startTrial(selectedId));
-    const enterLabButton = $('#enterLabBtn');
-    if (enterLabButton) enterLabButton.addEventListener('click', () => go('lab'));
     $('#watchBtn').addEventListener('click', () => { moveToWatch(selectedId); toast('已加入持续观察：等待下一条能改变判断的证据'); });
     $('#ignoreBtn').addEventListener('click', () => rejectCandidate(selectedId, '当前证据不足或与目标不匹配'));
     $('#pauseBtn').addEventListener('click', () => { moveToWatch(selectedId); toast('已退回持续观察：不强行凑齐支持材料'); });
@@ -1177,28 +977,12 @@
 
     $('#rescanBtn').addEventListener('click', () => loadRealOpportunityData(true));
 
-    $$('.concept').forEach(el => el.addEventListener('click', () => {
-      $$('.concept').forEach(c => c.classList.toggle('selected', c === el));
-      toast('已切换测试概念');
-    }));
-    $('#generateImagesBtn').addEventListener('click', generateConceptImages);
-
-    $('#runExperimentBtn').addEventListener('click', () => {
-      const btn = $('#runExperimentBtn'); btn.disabled = true; btn.textContent = '实验运行中…';
-      $('#progressBar').style.width = '68%'; $('#progressText').textContent = '已收到 34 / 50 份有效反馈';
-      setTimeout(() => {
-        $('#progressBar').style.width = '100%'; $('#progressText').textContent = '模拟实验完成 · 50 / 50';
-        $('#experimentResult').classList.add('show'); btn.textContent = '重新运行演示'; btn.disabled = false;
-      }, 1200);
-    });
-
     window.addEventListener('hashchange', () => go(location.hash.slice(1)));
     window.addEventListener('resize', layoutOpportunityBubbles);
     renderQueue();
-    renderCandidate('portable');
     go(location.hash.slice(1) || 'radar');
     loadRealOpportunityData();
   </script>
-  <script src="../../scripts/prototype-export-client.js?v=20260927"></script>
+  <script src="../scripts/prototype-export-client.js?v=20260927"></script>
 </body>
 </html>
