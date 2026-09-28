@@ -6,8 +6,10 @@ server-side and makes exactly one model call for each analysis stage:
   POST /api/opportunity/cluster -> semantic demand discovery
   POST /api/opportunity/judge   -> investment decision for one opportunity
 
-Run with:
-  OPENAI_API_KEY=... python3 opportunity-radar/opportunity_ai_server.py
+Run with a DeepSeek-compatible relay (the browser never receives the key):
+  OPPORTUNITY_RELAY_BASE_URL=https://your-relay.example/v1 \
+  DEEPSEEK_API_KEY=... DEEPSEEK_MODEL=deepseek-chat \
+  python3 opportunity-radar/opportunity_ai_server.py
 """
 
 from __future__ import annotations
@@ -22,9 +24,24 @@ from urllib.request import Request, urlopen
 
 HOST = os.getenv("OPPORTUNITY_AI_HOST", "127.0.0.1")
 PORT = int(os.getenv("OPPORTUNITY_AI_PORT", "4179"))
-API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
-BASE_URL = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
-MODEL = os.getenv("OPPORTUNITY_MODEL", "gpt-5-mini").strip()
+PROVIDER = "deepseek"
+API_KEY = (
+    os.getenv("DEEPSEEK_API_KEY", "").strip()
+    or os.getenv("OPPORTUNITY_RELAY_API_KEY", "").strip()
+    or os.getenv("OPENAI_API_KEY", "").strip()
+)
+BASE_URL = (
+    os.getenv("OPPORTUNITY_RELAY_BASE_URL", "").strip()
+    or os.getenv("DEEPSEEK_BASE_URL", "").strip()
+    or os.getenv("OPENAI_BASE_URL", "").strip()
+    or "https://api.deepseek.com/v1"
+).rstrip("/")
+MODEL = (
+    os.getenv("DEEPSEEK_MODEL", "").strip()
+    or os.getenv("OPPORTUNITY_MODEL", "").strip()
+    or "deepseek-chat"
+)
+API_STYLE = os.getenv("OPPORTUNITY_API_STYLE", "chat_completions").strip().lower()
 
 
 CLUSTER_SCHEMA = {
@@ -35,13 +52,15 @@ CLUSTER_SCHEMA = {
         "clusters": {
             "type": "array",
             "minItems": 3,
-            "maxItems": 6,
+            "maxItems": 5,
             "items": {
                 "type": "object",
                 "additionalProperties": False,
                 "properties": {
                     "id": {"type": "string"},
+                    "keyword": {"type": "string"},
                     "title": {"type": "string"},
+                    "actual_need": {"type": "string"},
                     "user_need": {"type": "string"},
                     "trigger_context": {"type": "string"},
                     "evidence_summary": {"type": "string"},
@@ -79,7 +98,7 @@ CLUSTER_SCHEMA = {
                     },
                 },
                 "required": [
-                    "id", "title", "user_need", "trigger_context", "evidence_summary",
+                    "id", "keyword", "title", "actual_need", "user_need", "trigger_context", "evidence_summary",
                     "behavior_evidence", "existing_solutions", "counter_evidence", "unknown",
                     "confidence", "recommendation", "analytics", "evidence",
                 ],
@@ -94,7 +113,7 @@ JUDGE_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
     "properties": {
-        "verdict": {"type": "string", "enum": ["建议投入", "先补证据", "暂不投入"]},
+        "verdict": {"type": "string", "enum": ["建议投入", "有条件投入", "先补证据", "暂不投入"]},
         "verdict_text": {"type": "string"},
         "core_question": {"type": "string"},
         "inference": {"type": "string"},
@@ -159,6 +178,12 @@ def json_response(handler: BaseHTTPRequestHandler, payload: Any, status: int = 2
 
 
 def response_text(payload: dict[str, Any]) -> str:
+    choices = payload.get("choices") or []
+    if choices:
+        message = choices[0].get("message") or {}
+        content = message.get("content")
+        if isinstance(content, str):
+            return content
     if isinstance(payload.get("output_text"), str):
         return payload["output_text"]
     chunks: list[str] = []
@@ -170,21 +195,55 @@ def response_text(payload: dict[str, Any]) -> str:
     return "".join(chunks)
 
 
-def call_openai(system_prompt: str, user_prompt: str, schema_name: str, schema: dict[str, Any]) -> dict[str, Any]:
+def schema_outline(schema: dict[str, Any]) -> Any:
+    properties = schema.get("properties") or {}
+    outline: dict[str, Any] = {}
+    for name, item in properties.items():
+        kind = item.get("type")
+        if kind == "object":
+            outline[name] = schema_outline(item)
+        elif kind == "array":
+            outline[name] = [schema_outline(item.get("items") or {})] if (item.get("items") or {}).get("type") == "object" else []
+        else:
+            outline[name] = kind or "string"
+    return outline
+
+
+def call_model(system_prompt: str, user_prompt: str, schema_name: str, schema: dict[str, Any]) -> dict[str, Any]:
     if not API_KEY:
-        raise RuntimeError("未配置 OPENAI_API_KEY。请在本机启动 AI 服务时通过环境变量提供。")
-    payload = {
-        "model": MODEL,
-        "store": False,
-        "max_output_tokens": 5000,
-        "input": [
-            {"role": "system", "content": [{"type": "input_text", "text": system_prompt}]},
-            {"role": "user", "content": [{"type": "input_text", "text": user_prompt}]},
-        ],
-        "text": {"format": {"type": "json_schema", "name": schema_name, "strict": True, "schema": schema}},
-    }
+        raise RuntimeError("未配置 DeepSeek API 密钥。请通过 DEEPSEEK_API_KEY 或中转站环境变量提供。")
+    contract = json.dumps(schema_outline(schema), ensure_ascii=False)
+    system = (
+        system_prompt
+        + "\n只返回一个合法 JSON 对象，不要 Markdown、解释文字或代码围栏。"
+        + f"输出契约（字段不可改名）：{contract}"
+    )
+    if API_STYLE == "responses":
+        payload = {
+            "model": MODEL,
+            "store": False,
+            "max_output_tokens": 5000,
+            "input": [
+                {"role": "system", "content": [{"type": "input_text", "text": system}]},
+                {"role": "user", "content": [{"type": "input_text", "text": user_prompt}]},
+            ],
+            "text": {"format": {"type": "json_schema", "name": schema_name, "strict": True, "schema": schema}},
+        }
+        endpoint = f"{BASE_URL}/responses"
+    else:
+        payload = {
+            "model": MODEL,
+            "messages": [
+                {"role": "system", "content": system},
+                {"role": "user", "content": user_prompt},
+            ],
+            "temperature": 0.2,
+            "max_tokens": 5000,
+            "response_format": {"type": "json_object"},
+        }
+        endpoint = f"{BASE_URL}/chat/completions"
     request = Request(
-        f"{BASE_URL}/responses",
+        endpoint,
         data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
         headers={"Authorization": f"Bearer {API_KEY}", "Content-Type": "application/json"},
         method="POST",
@@ -195,13 +254,16 @@ def call_openai(system_prompt: str, user_prompt: str, schema_name: str, schema: 
     except HTTPError as error:
         error.read()
         if error.code in (401, 403):
-            raise RuntimeError("AI 服务认证失败，请检查本机 OPENAI_API_KEY。") from error
+            raise RuntimeError("DeepSeek 中转服务认证失败，请检查 API 密钥。") from error
         raise RuntimeError(f"AI 服务暂时不可用（HTTP {error.code}）。") from error
     except URLError as error:
-        raise RuntimeError(f"无法连接 OpenAI API：{error.reason}") from error
+        raise RuntimeError(f"无法连接 DeepSeek 中转服务：{error.reason}") from error
     text = response_text(result)
     if not text:
         raise RuntimeError("模型没有返回结构化结果。")
+    text = text.strip()
+    if text.startswith("```") and text.endswith("```"):
+        text = text.split("\n", 1)[1].rsplit("\n", 1)[0].strip()
     try:
         return json.loads(text)
     except json.JSONDecodeError as error:
@@ -210,15 +272,15 @@ def call_openai(system_prompt: str, user_prompt: str, schema_name: str, schema: 
 
 def compact_records(data: dict[str, Any]) -> list[dict[str, str]]:
     records: list[dict[str, str]] = []
-    for source_key, source_name in (("xhs", "小红书"), ("tb", "淘宝/天猫"), ("negative", "淘宝/天猫负面"), ("demands", "淘宝/天猫需求")):
+    for source_key, source_name in (("xhs", "小红书评论"), ("xhsPosts", "小红书帖子"), ("tb", "淘宝/天猫"), ("negative", "淘宝/天猫负面"), ("demands", "淘宝/天猫需求")):
         for index, row in enumerate(data.get(source_key, []) or []):
             if not isinstance(row, dict):
                 continue
-            text = str(row.get("text") or row.get("content") or row.get("full") or "").strip()
+            text = str(row.get("text") or row.get("content") or row.get("full") or row.get("title") or "").strip()
             if not text:
                 continue
             records.append({
-                "id": f"{source_key}-{index + 1}",
+                "id": str(row.get("id") or f"{source_key}-{index + 1}"),
                 "source": source_name,
                 "item": str(row.get("item_name") or row.get("商品名称") or ""),
                 "text": text[:700],
@@ -228,7 +290,7 @@ def compact_records(data: dict[str, Any]) -> list[dict[str, str]]:
 
 def cluster_prompt(data: dict[str, Any]) -> str:
     records = compact_records(data)
-    return json.dumps({"任务": "从以下清洗后的真实评论中做语义聚类", "记录数": len(records), "records": records}, ensure_ascii=False)
+    return json.dumps({"任务": "从以下真实的小红书帖子/评论与淘宝/天猫评论中做需求语义聚类", "记录数": len(records), "records": records}, ensure_ascii=False)
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -242,7 +304,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self) -> None:
         if self.path == "/api/health":
-            json_response(self, {"ok": True, "configured": bool(API_KEY), "model": MODEL})
+            json_response(self, {"ok": True, "configured": bool(API_KEY), "provider": PROVIDER, "model": MODEL, "base_url": BASE_URL, "api_style": API_STYLE})
         else:
             json_response(self, {"error": "not_found"}, 404)
 
@@ -256,8 +318,8 @@ class Handler(BaseHTTPRequestHandler):
         try:
             body = self.read_json()
             if self.path == "/api/opportunity/cluster":
-                result = call_openai(
-                    "你是严谨的消费者需求研究员。只能根据给定评论判断，不得把关键词频次直接当成需求强度。请把相似表达按真实用户任务、场景和障碍聚成 3 到 6 个需求机会；保留反证，不发明未出现的用户行为。每条证据必须引用给定 record_id。不要输出产品名称或固定模板，第一层只发现机会。",
+                result = call_model(
+                    "你是严谨的消费者需求研究员。只能根据给定的小红书帖子/评论和淘宝/天猫评论判断，不得把关键词频次直接当成需求强度。请把相似表达按真实用户任务、场景和障碍聚成 3 到 5 个需求机会；保留反证，不发明未出现的用户行为。每条证据必须引用给定 record_id。每个机会必须提供 keyword：2 到 8 个汉字，或两个很短的词用“/”连接，专门作为图表标签，不能写完整句子。请另外提供 actual_need：用你自己的语言，把用户正在抱怨什么、遇到什么障碍、希望得到什么结果总结成一句 15 到 35 字的话；不要复述单条评论，不要写成产品名、成分名或功能方案。不要输出产品名称或固定模板，第一层只发现机会。analytics.xhs 统计小红书帖子与评论，analytics.tb 统计淘宝/天猫记录。",
                     cluster_prompt(body.get("data") or {}),
                     "opportunity_clusters",
                     CLUSTER_SCHEMA,
@@ -268,7 +330,7 @@ class Handler(BaseHTTPRequestHandler):
                 opportunity = body.get("opportunity") or {}
                 evidence = body.get("evidence") or {}
                 prompt = json.dumps({"机会": opportunity, "第一层证据": evidence}, ensure_ascii=False)
-                result = call_openai(
+                result = call_model(
                     "你是产品投资评审与概念策略顾问。只能依据第一层已经识别的机会和证据做判断，不得把评论中的愿望直接当成购买意愿。请给出是否投入的结论，并生成可落地但仍需验证的产品概念。概念必须回应用户场景、使用障碍和现有解法缺口；明确风险、反证和最便宜的下一步。不要声称已经证明功效或市场规模。",
                     prompt,
                     "opportunity_judgement",
