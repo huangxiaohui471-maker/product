@@ -924,7 +924,9 @@ var VIEWS = [
   { key: 'ing', name: '成分库', desc: '今日推送、新成分发现与全球国家 Top20 趋势雷达',
     icon: '<path d="M12 3l7 4v5c0 4.4-3 8-7 9-4-1-7-4.6-7-9V7z"/><path d="M9.5 12l2 2 3.5-4"/>' },
   { key: 'strategy', name: '策略台', desc: '机会识别、产品方向、供应链模拟与落地复盘',
-    icon: '<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-1.8 5.2-5.2 1.8 1.8-5.2z"/>' }
+    icon: '<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-1.8 5.2-5.2 1.8 1.8-5.2z"/>' },
+  { key: 'lab', name: '实验工厂', desc: '眼油产品开发全流程：项目记录、八阶段工作流与供应商匹配',
+    icon: '<path d="M9 3h6M10 3v5.4L4.8 17.1a2 2 0 0 0 1.8 2.9h10.8a2 2 0 0 0 1.8-2.9L14 8.4V3"/><path d="M7.2 14h9.6"/>' }
 ];
 function viewDef(k) { for (var i = 0; i < VIEWS.length; i++) { if (VIEWS[i].key === k) return VIEWS[i]; } return VIEWS[0]; }
 
@@ -2392,7 +2394,7 @@ function boardInsightsOf(list) {
 }
 
 RENDER.nav = function () {
-  var SHORT = { opportunity: '今日机会', board: '看板', rank: '榜单', ing: '成分', strategy: '策略' };
+  var SHORT = { opportunity: '今日机会', board: '看板', rank: '榜单', ing: '成分', strategy: '策略', lab: '工厂' };
   var h = '', t = '';
   for (var i = 0; i < VIEWS.length; i++) {
     var v = VIEWS[i], on = state.view === v.key;
@@ -3641,6 +3643,56 @@ RENDER.opportunity = function () {
   var frame = view.querySelector('.opportunity-radar-frame');
   if (frame) frame.src = './opportunity-radar/prototype.html#radar';
 };
+/* 实验工厂（eye-oil-lab 静态编译版）：Shadow DOM 挂载，样式与主站隔离。
+   宿主用 absolute 脱离文档流，#view 会塌成 0 高，必须显式撑高并跟随窗口调整。 */
+function layoutLabView() {
+  if (state.view !== 'lab') return;
+  var v = $('#view');
+  var top = v.getBoundingClientRect().top;
+  v.style.height = Math.max(320, window.innerHeight - top - 8) + 'px';
+}
+if (!window.__labResizeBound) {
+  window.__labResizeBound = true;
+  window.addEventListener('resize', layoutLabView);
+}
+RENDER.lab = function () {
+  var v = $('#view');
+  v.style.position = 'relative';
+  v.style.padding = '0';
+  v.style.overflow = 'hidden';
+  v.style.background = '#f5f7f6';
+  v.innerHTML = '<div id="lab-host" style="position:absolute;inset:0;overflow:auto;">'
+    + '<div style="padding:40px;text-align:center;color:#65706c;font-size:13px;">实验工厂加载中…</div></div>';
+  layoutLabView();
+  var host = v.querySelector('#lab-host');
+  window.__EYE_OIL_LAB_ASSET_BASE__ = './lab/';
+  fetch('./lab/manifest.json').then(function (r) { return r.json(); }).then(function (m) {
+    var loadCss = window.__eyeOilLabCss
+      ? Promise.resolve(window.__eyeOilLabCss)
+      : fetch('./lab/' + m.css).then(function (r) { return r.text(); }).then(function (css) {
+          /* 把全局选择器改写到 :host，使样式只在 Shadow DOM 内生效；
+             fixed 一律改 absolute 锚定到宿主容器（fixed 相对视口会盖住主站导航，
+             且 transform 合成层在部分环境下不绘制），顶栏再单独改 sticky 保持吸顶 */
+          window.__eyeOilLabCss = css.replace(/:root/g, ':host').replace(/([},])html(?=[{.,:\s])/g, '$1:host').replace(/([},])body(?=[{.,:\s])/g, '$1:host')
+            .replace(/position:fixed/g, 'position:absolute')
+            + '\n.app-header{position:sticky;top:0;left:0;right:0;bottom:auto;}\n';
+          return window.__eyeOilLabCss;
+        });
+    return Promise.all([loadCss, import('./lab/' + m.js)]);
+  }).then(function (results) {
+    if (!host.isConnected) return;
+    var shadow = host.attachShadow({ mode: 'open' });
+    var style = document.createElement('style');
+    style.textContent = results[0];
+    var mountEl = document.createElement('div');
+    shadow.appendChild(style);
+    shadow.appendChild(mountEl);
+    host.innerHTML = '';
+    window.EyeOilLab.mount(mountEl);
+  }).catch(function (err) {
+    host.innerHTML = '<div style="padding:40px;text-align:center;color:#c00;font-size:13px;">实验工厂加载失败：' + esc(err && err.message || '未知错误') + '，请确认 lab/ 目录完整。</div>';
+  });
+};
 
 function boardTopHtml(list) {
   var cty = {}, src = {}, c2 = {}, i;
@@ -4718,6 +4770,12 @@ function bindDb(root) {
 }
 function renderView() {
   var v = state.view;
+  /* 离开实验工厂视图时：卸载 React 根并复位 #view 的内联样式 */
+  if (v !== 'lab') {
+    var vwReset = $('#view');
+    if (window.EyeOilLab) { try { window.EyeOilLab.unmount(); } catch (e) {} }
+    vwReset.style.cssText = '';
+  }
   /* 进入动效只在「换视图」时播一次；筛选/搜索重绘不重播，免得闪 */
   var vw = $('#view');
   if (state._lastView !== v) { vw.classList.add('anim'); state._lastView = v; }
@@ -4726,6 +4784,7 @@ function renderView() {
   else if (v === 'board') RENDER.board();
   else if (v === 'rank') RENDER.rank();
   else if (v === 'ing') RENDER.ing();
+  else if (v === 'lab') RENDER.lab();
   else RENDER.strategy();
 }
 function refreshAll() {
