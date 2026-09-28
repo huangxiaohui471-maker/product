@@ -29,6 +29,9 @@ main{padding:16px 0}
 .bar input[type=search]{flex:1;min-width:180px;border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-size:13px;outline:none}
 select,.chip{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 10px;font-size:12.5px;cursor:pointer;color:var(--ink)}
 .chip.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.chip.pending-chip{color:#94a3b8;background:#fafbfc}
+.chip-count{font-size:10px;color:#64748b;margin-left:3px;font-weight:400}.chip-count.pending{color:#a8b1c0}
+.chip.on .chip-count{color:rgba(255,255,255,.8)}
 .cnt{font-size:12.5px;color:var(--ink2)}
 .shelf-tools{background:var(--card);border:1px solid var(--line);border-radius:13px;margin-bottom:14px;overflow:hidden}
 .search-row{display:flex;gap:10px;align-items:center;padding:13px 15px}
@@ -314,6 +317,26 @@ function cardHTML(p){
    + (p.shelf['货架定位']?'<span class="tag">'+esc(p.shelf['货架定位'].split('（')[0])+'</span>':'')
    + '</div></div></a></article>';
 }
+/* 类目导航底表：先展示完整个护家清目录，商品数据按接入进度逐步挂载。 */
+var CATEGORY_TREE={
+  '面部护理':['洁面','面膜','面霜','面部精华','爽肤水','防晒','卸妆','乳液','喷雾'],
+  '眼部护理':['眼部精华','眼膜','眼霜','眼贴','眼部护理工具'],
+  '洗发护发':['洗发水','护发素','发膜','护发精油','头皮护理','免洗洗发水/喷雾','固色洗发水'],
+  '美发/造型':['染发剂','烫发产品','定型喷雾','假发','造型工具'],
+  '身体护理':['身体乳/霜','身体精华','身体磨砂/去角质','脱毛膏/凝胶','护手','护足','止汗/香体'],
+  '身体清洁':['沐浴露/油','香皂','洗手液','浴盐/泡澡','搓泥浴宝','身体磨砂/去角质'],
+  '口腔护理':['牙膏','牙刷/口腔清洁工具','漱口水','口腔喷剂','牙线/牙签','牙齿美白/护理剂'],
+  '卫生巾/私处护理':['卫生巾','护垫','安睡裤/安心裤','私处洗液','卫生棉条','私护湿巾'],
+  '纸品/湿巾':['抽纸','卷纸','湿巾','湿厕纸','厨房纸巾','棉柔巾/洗脸巾'],
+  '衣物清洁剂/护理剂':['洗衣液','洗衣粉','洗衣凝珠','衣物柔顺剂','衣领净','内衣洗涤剂','织物喷雾'],
+  '家庭环境清洁剂':['洗洁精','洁厕剂/马桶清洁剂','地板清洁剂','油污清洁剂','管道疏通剂','洗衣机槽清洁剂','多用途清洁剂'],
+  '驱虫用品':['驱蚊喷雾','蚊香液','蚊香片/盘香','家用杀虫剂','除螨喷雾','防虫/防蚊用品'],
+  '彩妆':['粉底/气垫','遮瑕','口红/唇釉','眼影/眼线/睫毛','腮红/修容','妆前/隔离','定妆'],
+  '美容仪器/工具':['美容仪','洁面仪','脱毛仪','化妆刷/粉扑','美甲工具','按摩工具'],
+  '香水/香氛':['香水','身体香氛','家居香氛','香薰蜡烛','香氛精油'],
+  '男士护理':['男士洁面','男士护肤','剃须/修剪','男士身体护理'],
+  '婴童护理':['婴儿洗护','婴童湿巾','纸尿裤/拉拉裤','婴童护肤','婴童清洁']
+};
 var FILT={l2:null,cate:null,q:'',deep:false,bad:false,cover:false};
 var SELECTED={};
 function selectedProducts(){return P.filter(function(p){return !!SELECTED[p.gid]})}
@@ -342,18 +365,23 @@ function renderWall(){
   head('wall'); 
   ensureSelectionTray();
   var levels={};
+  Object.keys(CATEGORY_TREE).forEach(function(k){
+    levels[k]={count:0,l3:{}};
+    CATEGORY_TREE[k].forEach(function(x){levels[k].l3[x]=0});
+  });
   P.forEach(function(p){
     var l2=p.l2||'其他';
     if(!levels[l2]) levels[l2]={count:0,l3:{}};
     levels[l2].count++;
     levels[l2].l3[p.cate]=(levels[l2].l3[p.cate]||0)+1;
   });
+  var levelCount=function(k){return levels[k].count?' <small class="chip-count">'+levels[k].count+'</small>':' <small class="chip-count pending">待接入</small>'};
   var l2chips='<button class="chip" data-level="l2" data-v="">全部</button>'
-    +Object.keys(levels).map(function(k){return '<button class="chip" data-level="l2" data-v="'+esc(k)+'">'+esc(k)+'</button>'}).join('');
+    +Object.keys(levels).map(function(k){return '<button class="chip '+(levels[k].count?'':'pending-chip')+'" data-level="l2" data-v="'+esc(k)+'" title="'+(levels[k].count?'已有 '+levels[k].count+' 个商品':'类目已建立，数据待接入')+'">'+esc(k)+levelCount(k)+'</button>'}).join('');
   var l3rows=Object.keys(levels).map(function(k){
     return '<div class="level-row l3-panel" data-parent="'+esc(k)+'"><span class="level-label">三级类目</span>'
       +'<button class="chip" data-level="l3" data-parent="'+esc(k)+'" data-v="">全部</button>'
-      +Object.keys(levels[k].l3).map(function(x){return '<button class="chip" data-level="l3" data-parent="'+esc(k)+'" data-v="'+esc(x)+'">'+esc(x)+'</button>'}).join('')+'</div>';
+      +Object.keys(levels[k].l3).map(function(x){var n=levels[k].l3[x];return '<button class="chip '+(n?'':'pending-chip')+'" data-level="l3" data-parent="'+esc(k)+'" data-v="'+esc(x)+'" title="'+(n?'已有 '+n+' 个商品':'类目已建立，数据待接入')+'">'+esc(x)+(n?' <small class="chip-count">'+n+'</small>':' <small class="chip-count pending">待接入</small>')+'</button>'}).join('')+'</div>';
   }).join('');
   document.getElementById('app').innerHTML =
     '<div class="shelf-tools"><div class="search-row"><input type="search" id="q" placeholder="搜索商品 / 品牌 / 店铺" value="'+esc(FILT.q)+'">'
@@ -367,7 +395,7 @@ function renderWall(){
     +'<div class="country-row"><span class="country-title">国家亮点</span><button class="country-chip" type="button" disabled>全球</button><button class="country-chip on" type="button">中国</button><button class="country-chip" type="button" disabled>美国</button><button class="country-chip" type="button" disabled>印度尼西亚</button><button class="country-chip" type="button" disabled>越南</button><button class="country-chip" type="button" disabled>泰国</button><button class="country-chip" type="button" disabled>菲律宾</button><button class="country-chip" type="button" disabled>马来西亚</button><button class="country-chip" type="button" disabled>巴西</button><button class="country-chip" type="button" disabled>墨西哥</button><button class="country-chip" type="button" disabled>日本</button><button class="country-chip" type="button" disabled>新加坡</button><button class="country-chip" type="button" disabled>英国</button></div>'
     +'<div class="category-filter"><div class="level-row"><span class="level-label">二级类目</span>'+l2chips+'</div>'+l3rows+'</div></div>'
     +'<div class="list-head"><div><h2>竞品情报</h2><span class="category-path" id="categoryPath"></span></div><span class="cnt" id="cnt"></span></div>'
-    +'<div class="grid" id="grid"></div>';
+    +'<div class="grid" id="grid"></div><div class="empty" id="gridEmpty" style="display:none">该类目已建立，商品数据待接入</div>';
   var grid=document.getElementById('grid');
   grid.innerHTML = P.map(function(p){return cardHTML(p)}).join('');
   bindPickers();
@@ -422,6 +450,8 @@ function applyWall(){
   });
   FILT.q=q;
   document.getElementById('cnt').textContent=n+' 件商品';
+  var empty=document.getElementById('gridEmpty');
+  if(empty){empty.style.display=n?'none':'';empty.textContent=(FILT.l2||FILT.cate||q)?'当前筛选暂无已接入商品':'暂无商品数据';}
 }
 </script>
 <script>
