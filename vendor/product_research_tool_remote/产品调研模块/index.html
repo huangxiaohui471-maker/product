@@ -430,15 +430,34 @@ function renderWall(){
   document.querySelectorAll('.chip[data-level]').forEach(function(ch){
     ch.addEventListener('click',function(){
       var level=ch.dataset.level, v=ch.dataset.v||null;
-      if(level==='group'){FILT.group=v;FILT.l2=null;FILT.cate=null;}
-      else if(level==='l2'){FILT.l2=v;FILT.cate=null;}
-      else{FILT.cate=v;}
+      if(level==='group'){
+        /* 再点当前二级类目即收起其三级类目行。 */
+        if(FILT.group===v){FILT.group=null;FILT.l2=null;FILT.cate=null;}
+        else{FILT.group=v;FILT.l2=null;FILT.cate=null;}
+      } else if(level==='l2'){
+        /* 再点当前三级类目即回到二级类目层。 */
+        if(v && FILT.l2===v){FILT.l2=null;FILT.cate=null;}
+        else{FILT.l2=v;FILT.cate=null;}
+      } else{FILT.cate=(FILT.cate===v?null:v);}
       updateCategoryFilterUI();
       applyWall();
     });
   });
+  bindDisclosureToggles();
   updateCategoryFilterUI();
   applyWall();
+}
+/* 统一处理筛选面板和详情折叠，避免浏览器原生 details 与重绘事件抢状态。 */
+function bindDisclosureToggles(){
+  document.querySelectorAll('details.date-filter > summary, details.advanced-filter > summary, details.sec > summary, details.vitem > summary, details.compare-group > summary').forEach(function(summary){
+    if(summary.dataset.toggleBound) return;
+    summary.dataset.toggleBound='1';
+    summary.addEventListener('click',function(e){
+      e.preventDefault();
+      var details=summary.parentElement;
+      details.open=!details.open;
+    });
+  });
 }
 function updateCategoryFilterUI(){
   document.querySelectorAll('[data-level="group"]').forEach(function(ch){
@@ -957,6 +976,7 @@ function route(){
   else if(h.indexOf('#/method')===0){ renderWall(); }
   else if(m){ renderDetail(parseInt(m[1],10)); }
   else { renderWall(); }
+  bindDisclosureToggles();
   if(/#(quick|cmp2|aud|rev|viral|vsum|tal|core)$/.test(h)){
     var id=h.split('#').pop();
     var el=document.getElementById(id);
