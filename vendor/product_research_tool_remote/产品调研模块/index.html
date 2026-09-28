@@ -69,6 +69,11 @@ select,.chip{border:1px solid var(--line);background:#fff;border-radius:8px;padd
 .list-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:18px 0 10px}
 .list-head h2{font-size:17px;line-height:1.3}.category-path{display:block;color:var(--ink2);font-size:12px;margin-top:3px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(216px,1fr));gap:14px}
+.pager{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 0 8px;padding:9px 11px;background:var(--card);border:1px solid var(--line);border-radius:10px}
+.pager-info{font-size:11.5px;color:var(--ink2);white-space:nowrap}.pager-actions{display:flex;align-items:center;gap:5px;min-width:0}
+.pager button{min-width:30px;height:28px;padding:0 8px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink2);font-size:11.5px;cursor:pointer}
+.pager button:hover:not(:disabled){border-color:#c7d2fe;color:var(--pri);background:var(--pri-soft)}
+.pager button.on{border-color:var(--pri);background:var(--pri);color:#fff}.pager button:disabled{opacity:.42;cursor:not-allowed}.pager-ellipsis{font-size:11px;color:var(--ink3);padding:0 2px}
 .gcard{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:.14s;position:relative}
 .gcard:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(30,41,59,.12);border-color:#c7d2fe}
 .pic{position:relative;width:100%;padding-top:100%;background:#f1f3f7;overflow:hidden}
@@ -226,7 +231,7 @@ td.num{text-align:right;white-space:nowrap}
 @media(max-width:860px){.selection-tray{left:10px;right:10px;bottom:8px;flex-direction:column;align-items:stretch;gap:8px}.selection-actions{justify-content:flex-end}.compare-head{align-items:flex-start;flex-direction:column}.compare-table th:first-child{position:static}}
 @media(max-width:860px){.hero{grid-template-columns:1fr}.shot{width:100%;height:240px}.grid2{grid-template-columns:1fr}
 .vitem>summary{grid-template-columns:110px 1fr}.vthumb{width:110px;height:64px}}
-@media(max-width:680px){.insight-grid{grid-template-columns:1fr}.section-insight{display:block}.section-insight .si-meta{display:block;margin:4px 0 0}}
+@media(max-width:680px){.insight-grid{grid-template-columns:1fr}.section-insight{display:block}.section-insight .si-meta{display:block;margin:4px 0 0}.pager{align-items:flex-start;flex-direction:column}.pager-actions{width:100%;overflow-x:auto;padding-bottom:1px}}
 @media(max-width:680px){.detail-nav{align-items:flex-start;flex-direction:column;gap:6px}.detail-nav-title{width:100%;border-right:0;border-bottom:1px solid var(--line);padding:0 0 5px}.anchors{width:100%}}
 .compare-table tr.summary-row th,.compare-table tr.summary-row td{background:#f5f7ff}.compare-table tr.summary-row td{font-weight:600;color:#1e293b}
 @media print{header,.bar,.btnrow,.anchors,.navlinks{display:none}}
@@ -357,6 +362,8 @@ var CATEGORY_GROUPS={
 };
 var FILT={group:'护肤品',l2:null,cate:null,q:'',deep:false,bad:false,cover:false};
 var SELECTED={};
+var PAGE_SIZE=12;
+var CURRENT_PAGE=1;
 function selectedProducts(){return P.filter(function(p){return !!SELECTED[p.gid]})}
 function renderSelectionTray(){
   var rows=selectedProducts(), tray=document.getElementById('selectionTray');
@@ -420,14 +427,14 @@ function renderWall(){
     +'<div class="country-row"><span class="country-title">国家亮点</span><button class="country-chip" type="button" disabled>全球</button><button class="country-chip on" type="button">中国</button><button class="country-chip" type="button" disabled>美国</button><button class="country-chip" type="button" disabled>印度尼西亚</button><button class="country-chip" type="button" disabled>越南</button><button class="country-chip" type="button" disabled>泰国</button><button class="country-chip" type="button" disabled>菲律宾</button><button class="country-chip" type="button" disabled>马来西亚</button><button class="country-chip" type="button" disabled>巴西</button><button class="country-chip" type="button" disabled>墨西哥</button><button class="country-chip" type="button" disabled>日本</button><button class="country-chip" type="button" disabled>新加坡</button><button class="country-chip" type="button" disabled>英国</button></div>'
     +'<div class="category-filter"><div class="level-row"><span class="level-label">二级类目</span>'+groupChips+'</div>'+l2rows+l3rows+'</div></div>'
     +'<div class="list-head"><div><h2>竞品情报</h2><span class="category-path" id="categoryPath"></span></div><span class="cnt" id="cnt"></span></div>'
-    +'<div class="grid" id="grid"></div><div class="empty" id="gridEmpty" style="display:none">该类目已建立，商品数据待接入</div>';
+    +'<div class="grid" id="grid"></div><div class="empty" id="gridEmpty" style="display:none">该类目已建立，商品数据待接入</div><div class="pager" id="pager" style="display:none"></div>';
   var grid=document.getElementById('grid');
   grid.innerHTML = P.map(function(p){return cardHTML(p)}).join('');
   bindPickers();
   renderSelectionTray();
-  document.getElementById('q').addEventListener('input',applyWall);
-  document.getElementById('sort').addEventListener('change',applyWall);
-  document.querySelectorAll('[data-advanced]').forEach(function(ch){ch.addEventListener('change',function(){FILT[ch.dataset.advanced]=ch.checked;applyWall()})});
+  document.getElementById('q').addEventListener('input',function(){CURRENT_PAGE=1;applyWall()});
+  document.getElementById('sort').addEventListener('change',function(){CURRENT_PAGE=1;applyWall()});
+  document.querySelectorAll('[data-advanced]').forEach(function(ch){ch.addEventListener('change',function(){FILT[ch.dataset.advanced]=ch.checked;CURRENT_PAGE=1;applyWall()})});
   document.getElementById('applyDate').addEventListener('click',function(){this.closest('details').removeAttribute('open')});
   var navBtn=document.getElementById('navCompare');
   if(navBtn) navBtn.onclick=function(){var rows=selectedProducts();if(rows.length<2){document.getElementById('selectionTray').classList.add('show');return;}location.hash='#/compare='+encodeURIComponent(rows.map(function(p){return p.gid}).join(','))};
@@ -443,6 +450,7 @@ function renderWall(){
         if(v && FILT.l2===v){FILT.l2=null;FILT.cate=null;}
         else{FILT.l2=v;FILT.cate=null;}
       } else{FILT.cate=(FILT.cate===v?null:v);}
+      CURRENT_PAGE=1;
       updateCategoryFilterUI();
       applyWall();
     });
@@ -482,6 +490,27 @@ function updateCategoryFilterUI(){
   var path=FILT.l2?(FILT.l2+(FILT.cate?' / '+FILT.cate:' / 全部四级类目')):(FILT.group?(FILT.group+' / 全部三级类目'):'全部二级类目');
   var el=document.getElementById('categoryPath');if(el)el.textContent=path;
 }
+function renderPager(total,totalPages){
+  var pager=document.getElementById('pager');
+  if(!pager) return;
+  if(total<=PAGE_SIZE){pager.style.display='none';pager.innerHTML='';return}
+  var pages=[];
+  if(totalPages<=7){for(var i=1;i<=totalPages;i++) pages.push(i)}
+  else{
+    pages=[1];
+    var start=Math.max(2,CURRENT_PAGE-1), end=Math.min(totalPages-1,CURRENT_PAGE+1);
+    if(start>2) pages.push('…');
+    for(var j=start;j<=end;j++) pages.push(j);
+    if(end<totalPages-1) pages.push('…');
+    pages.push(totalPages);
+  }
+  var buttons='<button type="button" data-page="'+(CURRENT_PAGE-1)+'" aria-label="上一页"'+(CURRENT_PAGE===1?' disabled':'')+'>上一页</button>';
+  buttons+=pages.map(function(page){return page==='…'?'<span class="pager-ellipsis">…</span>':'<button type="button" data-page="'+page+'" class="'+(page===CURRENT_PAGE?'on':'')+'" aria-label="第 '+page+' 页"'+(page===CURRENT_PAGE?' aria-current="page"':'')+'>'+page+'</button>'}).join('');
+  buttons+='<button type="button" data-page="'+(CURRENT_PAGE+1)+'" aria-label="下一页"'+(CURRENT_PAGE===totalPages?' disabled':'')+'>下一页</button>';
+  pager.innerHTML='<span class="pager-info">共 '+total+' 件 · 每页 '+PAGE_SIZE+' 件 · 第 '+CURRENT_PAGE+' / '+totalPages+' 页</span><div class="pager-actions">'+buttons+'</div>';
+  pager.style.display='flex';
+  pager.querySelectorAll('[data-page]').forEach(function(btn){btn.addEventListener('click',function(){var page=Number(btn.dataset.page);if(!page||page<1||page>totalPages||page===CURRENT_PAGE)return;CURRENT_PAGE=page;applyWall()})});
+}
 function applyWall(){
   var q=(document.getElementById('q').value||'').trim().toLowerCase();
   var mode=document.getElementById('sort').value;
@@ -491,7 +520,7 @@ function applyWall(){
     if(mode==='bad') return (a.badRate==null?99:a.badRate)-(b.badRate==null?99:b.badRate);
     return b.sortkey[mode]-a.sortkey[mode];
   });
-  var box=document.getElementById('grid'), n=0;
+  var box=document.getElementById('grid'), matches=[];
   arr.forEach(function(p){
     var s=(p.title+' '+p.brand+' '+p.shop+' '+p.sellingPoint+' '+p.audienceLine+' '+p.l2+' '+p.cate).toLowerCase();
     var groupOk=!FILT.group||((CATEGORY_GROUPS[FILT.group]||[]).indexOf(p.l2)>=0);
@@ -499,12 +528,17 @@ function applyWall(){
       &&(!FILT.deep||((p.viral||[]).length>0))&&(!FILT.cover||(p.cover&&p.cover.indexOf('assets/products/')===0))
       &&(!FILT.bad||(p.badRate!=null&&p.badRate<=8));
     var el=document.getElementById('c'+p.i); if(!el) return;
-    el.style.display=ok?'':'none'; if(ok){box.appendChild(el);n++}
+    el.style.display='none'; if(ok) matches.push(el);
   });
+  var n=matches.length, totalPages=Math.max(1,Math.ceil(n/PAGE_SIZE));
+  if(CURRENT_PAGE>totalPages) CURRENT_PAGE=totalPages;
+  var start=(CURRENT_PAGE-1)*PAGE_SIZE;
+  matches.slice(start,start+PAGE_SIZE).forEach(function(el){el.style.display='';box.appendChild(el)});
   FILT.q=q;
   document.getElementById('cnt').textContent=n+' 件商品';
   var empty=document.getElementById('gridEmpty');
   if(empty){empty.style.display=n?'none':'';empty.textContent=(FILT.group||FILT.l2||FILT.cate||q)?'当前筛选暂无已接入商品':'暂无商品数据';}
+  renderPager(n,totalPages);
 }
 </script>
 <script>
