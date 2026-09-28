@@ -410,10 +410,10 @@ function renderWall(){
   }).join('');
   document.getElementById('app').innerHTML =
     '<div class="shelf-tools"><div class="search-row"><input type="search" id="q" placeholder="搜索商品 / 品牌 / 店铺" value="'+esc(FILT.q)+'">'
-    +'<select id="sort"><option value="rank">排序：榜单排名</option><option value="sv">销售额（档位中值）</option>'
-    +'<option value="vol">销量</option><option value="vw">浏览量</option><option value="cv">转化率</option>'
-    +'<option value="vid">带货视频数</option><option value="tal">带货达人数</option><option value="pr">推算价格</option>'
-    +'<option value="cm">佣金率</option><option value="bad">差评率（低→高）</option></select></div>'
+    +'<select id="sort" aria-label="商品排序方式" title="按不同指标重新排列商品，不改变商品数据"><option value="rank">排序：榜单原始名次</option>'
+    +'<optgroup label="规模与转化"><option value="sv">销售额估算（区间中值）</option><option value="vol">销量估算</option><option value="vw">浏览量估算</option><option value="cv">转化率估算</option></optgroup>'
+    +'<optgroup label="推广规模"><option value="vid">带货视频数</option><option value="tal">带货达人数</option></optgroup>'
+    +'<optgroup label="价格与口碑"><option value="pr">价格估算</option><option value="cm">佣金率</option><option value="bad">差评率（低→高）</option></optgroup></select></div>'
     +'<div class="context-row"><span class="context-label">数据范围</span><span class="context-chip"><strong>中国</strong></span><span class="context-chip"><strong>抖音电商</strong></span>'
     +'<details class="date-filter"><summary>选择时间</summary><div class="date-panel"><label>开始日期 <input id="dateStart" type="date" value="2026-08-30"></label><label>结束日期 <input id="dateEnd" type="date" value="2026-09-28"></label><button type="button" id="applyDate">应用时间</button></div></details>'
     +'<details class="advanced-filter"><summary>更多筛选</summary><div class="advanced-panel"><label><input type="checkbox" data-advanced="deep" '+(FILT.deep?'checked':'')+'> 仅显示已拆解视频</label><label><input type="checkbox" data-advanced="cover" '+(FILT.cover?'checked':'')+'> 仅显示商品主图</label><label><input type="checkbox" data-advanced="bad" '+(FILT.bad?'checked':'')+'> 差评率 ≤ 8%</label></div></details></div>'
