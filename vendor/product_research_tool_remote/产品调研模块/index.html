@@ -286,7 +286,7 @@ function head(mode, prod){
   if(mode==='wall'){
     h = '<div class="logo">竞品情报</div>'
       + '<div class="sub">二级类目 → 三级类目 → 四级类目 → 商品</div>'
-      + '<div class="navlinks"><button class="nav-compare" type="button" id="navCompare" disabled>多选对比 <span>0/5</span></button></div>';
+      + '<div class="navlinks"><button class="nav-compare" type="button" id="navCompare" disabled>多选对比 <span>0/10</span></button></div>';
   } else {
     h = '<div class="logo">商品详情 · <em>'+esc(cleanText((prod.brand||'')).slice(0,12))+'</em></div>'
       + '<span class="pill">'+esc(prod.cate)+'</span>'
@@ -365,18 +365,18 @@ function renderSelectionTray(){
   document.getElementById('selectionCount').textContent=rows.length;
   document.getElementById('selectionList').innerHTML=rows.map(function(p){return '<button type="button" data-unpick="'+esc(p.gid)+'" title="移除 '+esc(p.title)+'"><img src="'+esc(p.cover||'')+'" alt=""></button>'}).join('');
   var btn=document.getElementById('compareSelected'); btn.disabled=rows.length<2;
-  var nav=document.getElementById('navCompare'); if(nav){nav.disabled=rows.length<2; nav.innerHTML='☑ 多选对比 <span>'+rows.length+'/5</span>';}
+  var nav=document.getElementById('navCompare'); if(nav){nav.disabled=rows.length<2; nav.innerHTML='☑ 多选对比 <span>'+rows.length+'/10</span>';}
   document.querySelectorAll('[data-unpick]').forEach(function(b){b.onclick=function(){delete SELECTED[b.dataset.unpick];route()}});
 }
 function ensureSelectionTray(){
   var tray=document.getElementById('selectionTray');
   if(tray) return;
-  document.body.insertAdjacentHTML('beforeend','<div class="selection-tray" id="selectionTray"><div><strong>已选商品 <span id="selectionCount">0</span>/5</strong><small>勾选 2–5 个商品后，可按相同维度查看完整差异</small><div class="selection-list" id="selectionList"></div></div><div class="selection-actions"><button class="btn" id="clearSelected" type="button">清空</button><button class="btn solid" id="compareSelected" type="button" disabled>对比商品 →</button></div></div>');
+  document.body.insertAdjacentHTML('beforeend','<div class="selection-tray" id="selectionTray"><div><strong>已选商品 <span id="selectionCount">0</span>/10</strong><small>勾选 2–10 个商品后，可按相同维度查看完整差异</small><div class="selection-list" id="selectionList"></div></div><div class="selection-actions"><button class="btn" id="clearSelected" type="button">清空</button><button class="btn solid" id="compareSelected" type="button" disabled>对比商品 →</button></div></div>');
   document.getElementById('clearSelected').onclick=function(){SELECTED={};route()};
   document.getElementById('compareSelected').onclick=function(){var rows=selectedProducts();if(rows.length<2)return;location.hash='#/compare='+encodeURIComponent(rows.map(function(p){return p.gid}).join(','))};
 }
 function bindPickers(){
-  document.querySelectorAll('[data-pick]').forEach(function(input){input.addEventListener('change',function(e){e.stopPropagation();var gid=input.dataset.pick;if(!SELECTED[gid]&&selectedProducts().length>=5){input.checked=false;alert('最多同时对比 5 个商品');return}if(input.checked)SELECTED[gid]=1;else delete SELECTED[gid];renderSelectionTray()});});
+  document.querySelectorAll('[data-pick]').forEach(function(input){input.addEventListener('change',function(e){e.stopPropagation();var gid=input.dataset.pick;if(!SELECTED[gid]&&selectedProducts().length>=10){input.checked=false;alert('最多同时对比 10 个商品');return}if(input.checked)SELECTED[gid]=1;else delete SELECTED[gid];renderSelectionTray()});});
   document.querySelectorAll('.pickbox').forEach(function(btn){btn.addEventListener('click',function(e){e.stopPropagation();});});
 }
 function renderWall(){
