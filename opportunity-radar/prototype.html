@@ -395,9 +395,59 @@
       .ai-grid { grid-template-columns: 1fr; }
       h1 { font-size: 34px; }
     }
-    /* Voyager Atlas · 01 纯净层级 + 02 指标色带 */
-    .device{background:#f7f8fb}.sidebar,.panel,.candidate-card,.queue-card,.concept-card{box-shadow:0 6px 18px rgba(15,23,42,.045)}
-    .nav-btn.active{background:#1f2937}.embedded-module-tabs button.on{color:#1d4ed8}.panel{border-top:3px solid #e5e7eb}.signal-kpi:nth-child(1){border-top:3px solid #6d5df5}.signal-kpi:nth-child(2){border-top:3px solid #2563eb}.signal-kpi:nth-child(3){border-top:3px solid #0f9f8c}.signal-kpi:nth-child(4){border-top:3px solid #d97706}.candidate-card.active{border-top-color:#6d5df5}.primary-btn{background:#1f2937;border-color:#1f2937}.strategy-note{border-left-color:#2563eb}.flow-step.on{background:#eaf2ff;color:#1d4ed8}
+    /* Voyager Atlas · quiet data hierarchy: color separates meaning, not containers. */
+    :root {
+      --ink: #16243b;
+      --muted: #74839a;
+      --line: #dfe5ef;
+      --paper: #f7f9fc;
+      --yellow-soft: #fff8eb;
+      --coral-soft: #fff2f1;
+      --teal-soft: #e7f5f1;
+      --lavender-soft: #eaf3fe;
+      --yellow: #f4d99a;
+      --coral: #efb7b5;
+      --teal: #9ed8ce;
+      --lavender: #b9d7f5;
+      --green: #0e7c6b;
+      --shadow: 0 6px 18px rgba(28, 52, 92, .045);
+    }
+    body { background: #eef1f7; }
+    .device { background: #eef1f7; }
+    .sidebar { background: rgba(255,255,255,.94); border-right-color: var(--line); }
+    .panel, .candidate-card, .queue-card, .concept-card { box-shadow: var(--shadow); border-color: var(--line); }
+    .panel { border-top: 0; }
+    .metric { background: #fff; border-radius: 14px; box-shadow: none; }
+    .metric:nth-child(1) { background: #eaf3fe; border-top: 3px solid #0071e3; }
+    .metric:nth-child(2) { background: #e7f5f1; border-top: 3px solid #0e7c6b; }
+    .metric:nth-child(3) { background: #fff8eb; border-top: 3px solid #b26a00; }
+    .metric:nth-child(4) { background: #fff; border-top: 3px solid #cbd6e5; }
+    .canvas { background-color: #f7f9fc; background-image: radial-gradient(#d9e3ef 1px, transparent 1px); border-color: #dfe5ef; }
+    .cross-v, .cross-h { background: #cbd6e5; }
+    .bubble { border-color: #49627d; box-shadow: 0 7px 0 rgba(28,52,92,.12); }
+    .bubble.active { box-shadow: 0 0 0 5px #f7f9fc, 0 0 0 8px #16243b; }
+    .b1 { background: #f4d99a; }
+    .b2 { background: #9ed8ce; }
+    .b3 { background: #b9d7f5; }
+    .b4 { background: #efb7b5; }
+    .b5 { background: #c7dec7; }
+    .b6 { background: #d2ccef; }
+    .signal-kpi { background: #fff; border-color: var(--line); }
+    .signal-kpi:nth-child(1) { border-top: 3px solid #0071e3; }
+    .signal-kpi:nth-child(2) { border-top: 3px solid #0e7c6b; }
+    .signal-kpi:nth-child(3) { border-top: 3px solid #b26a00; }
+    .signal-kpi:nth-child(4) { border-top: 3px solid #8c98aa; }
+    .evidence-count.tmall, .evidence-count.xhs { background: #f7f9fc; }
+    .evidence-count.tmall { border-left: 3px solid #efb7b5; }
+    .evidence-count.xhs { border-left: 3px solid #9ed8ce; }
+    .inline-judgement { background: #eaf3fe; }
+    .candidate-card { background: #fff !important; }
+    .candidate-card:nth-child(1) { border-top: 3px solid #0071e3; }
+    .candidate-card:nth-child(2) { border-top: 3px solid #0e7c6b; }
+    .candidate-card:nth-child(3) { border-top: 3px solid #b26a00; }
+    .primary-btn { background: #16243b; border-color: #16243b; }
+    .strategy-note { border-left-color: #0071e3; }
+    .flow-step.on { background: #eaf3fe; color: #0071e3; }
   </style>
 </head>
 <body>
@@ -436,7 +486,7 @@
             <div>
               <div class="eyebrow">Opportunity Radar</div>
               <h1>雷达发现 5 个需求机会</h1>
-              <p class="subhead">先看用户正在抱怨什么，再看证据是否足够进入最小验证。</p>
+              <p class="subhead">从用户遇到的问题，下钻到她希望出现的产品结果。</p>
             </div>
             <button class="primary-btn" id="rescanBtn">重新扫描评论</button>
           </div>
@@ -451,7 +501,7 @@
           <div class="radar-grid">
             <section class="panel discovery-panel">
               <div class="panel-head">
-                <div><h2>发现机会</h2><p>图表只展示核心痛点关键词；点击后在下方查看实际需求、证据与反证。</p></div>
+                <div><h2>发现机会</h2><p>图表展示痛点入口；点击后查看用户想要的产品结果、证据与反证。</p></div>
                 <div class="source-chips">
                   <button class="source-chip active" data-source="all">全部</button>
                   <button class="source-chip" data-source="cross">跨源</button>
@@ -476,7 +526,7 @@
             <aside class="panel detail" id="candidateDetail">
               <div class="detail-top"><span class="badge" id="candidateState">候选机会 · 系统已整理</span><span class="confidence" id="confidence">等待真实数据</span></div>
               <h2 id="detailTitle">等待第一层模型分析</h2>
-              <p class="summary" id="detailSummary">读取清洗后的真实评论后，模型会按用户任务、场景和障碍发现需求机会。</p>
+              <p class="summary" id="detailSummary">读取清洗后的真实评论后，模型会从问题证据下钻到用户希望出现的产品需求。</p>
               <div class="signal-kpis">
                 <div class="signal-kpi"><small>相关评论</small><b id="radarTotal">—</b></div>
                 <div class="signal-kpi"><small>小红书</small><b id="radarXhs">—</b></div>
@@ -494,7 +544,7 @@
                 <div class="evidence-count tmall"><strong>淘宝/天猫 · 评论证据</strong><span id="tmallCount">等待数据</span></div>
                 <div class="evidence-count xhs"><strong>小红书 · 场景补证</strong><span id="xhsCount">等待数据</span></div>
               </div><div class="ai-grid">
-                <div class="ai-item"><small>01 重复需求</small><p id="repeatEvidence">等待第一层模型从不同商品和来源中归并重复表达。</p></div>
+                <div class="ai-item"><small>01 需求证据</small><p id="repeatEvidence">等待第一层模型从不同商品和来源中归并重复表达。</p></div>
                 <div class="ai-item"><small>02 行为证据</small><p id="behaviorEvidence">等待模型区分真实解决行为与单纯愿望表达。</p></div>
                 <div class="ai-item"><small>03 现有方案</small><p id="solutionEvidence">等待模型拆解用户正在使用的替代方案及其缺口。</p></div>
                 <div class="ai-item"><small>04 变化趋势</small><p id="trendEvidence">当前数据先用于语义聚类，不预设固定趋势结论。</p></div>
@@ -511,13 +561,13 @@
             <div class="section-line"><h2>今日需求信号</h2><p>先看方向，需要时再展开校准依据</p></div>
             <div class="candidate-list">
               <button class="candidate-card active" data-id="">
-                <div class="rank"><span>01 · 等待模型</span><span>语义聚类</span></div><h3>等待第一层模型</h3><p>模型会总结用户正在抱怨什么，以及真正想解决的问题。</p><div class="mini-tags"><span>等待数据</span><span>核心痛点</span><span>实际需求</span></div><div class="candidate-mini-data"><span><b>—</b>关联信号</span><span><b>—</b>需求/负面</span><span><b>—</b>代表商品</span></div>
+                <div class="rank"><span>01 · 等待模型</span><span>语义聚类</span></div><h3>等待第一层模型</h3><p>模型会把用户问题下钻成她希望出现的产品需求。</p><div class="mini-tags"><span>等待数据</span><span>问题证据</span><span>产品需求</span></div><div class="candidate-mini-data"><span><b>—</b>关联信号</span><span><b>—</b>需求/负面</span><span><b>—</b>代表商品</span></div>
               </button>
               <button class="candidate-card" data-id="">
-                <div class="rank"><span>02 · 等待模型</span><span>语义聚类</span></div><h3>等待第一层模型</h3><p>模型会区分用户场景、使用障碍和未被满足的结果。</p><div class="mini-tags"><span>等待数据</span><span>核心痛点</span><span>实际需求</span></div><div class="candidate-mini-data"><span><b>—</b>关联信号</span><span><b>—</b>需求/负面</span><span><b>—</b>代表商品</span></div>
+                <div class="rank"><span>02 · 等待模型</span><span>语义聚类</span></div><h3>等待第一层模型</h3><p>模型会区分场景、障碍、期望结果和产品约束。</p><div class="mini-tags"><span>等待数据</span><span>问题证据</span><span>产品需求</span></div><div class="candidate-mini-data"><span><b>—</b>关联信号</span><span><b>—</b>需求/负面</span><span><b>—</b>代表商品</span></div>
               </button>
               <button class="candidate-card" data-id="">
-                <div class="rank"><span>03 · 等待模型</span><span>语义聚类</span></div><h3>等待第一层模型</h3><p>模型会保留反证，避免把用户抱怨直接翻译成产品功能。</p><div class="mini-tags"><span>等待数据</span><span>核心痛点</span><span>实际需求</span></div><div class="candidate-mini-data"><span><b>—</b>关联信号</span><span><b>—</b>需求/负面</span><span><b>—</b>代表商品</span></div>
+                <div class="rank"><span>03 · 等待模型</span><span>语义聚类</span></div><h3>等待第一层模型</h3><p>模型会保留反证，避免把用户痛点直接当成产品结论。</p><div class="mini-tags"><span>等待数据</span><span>问题证据</span><span>产品需求</span></div><div class="candidate-mini-data"><span><b>—</b>关联信号</span><span><b>—</b>需求/负面</span><span><b>—</b>代表商品</span></div>
               </button>
             </div>
           </section>
@@ -559,7 +609,6 @@
               </div></details>
               <div class="inference"><h3>机会校准与产品方向</h3><p id="trialInference">等待真实评论数据加载后生成校准结果。</p></div>
               <div class="concept-plan" id="trialConceptPlan"><div class="concept-plan-head"><strong>可落地概念方案</strong><small>等待真实数据生成 · 方案仍需实验验证</small></div></div>
-              <div class="image-gen-panel"><div class="section-line"><h3>概念图预览</h3><button class="primary-btn btn-sm" id="generateImageBtn" type="button">生成一张概念图</button></div><p class="image-gen-status" id="imageGenStatus">只用于检查生图链路，不参与机会判断。</p><img class="generated-image-preview" id="generatedImage" alt="模型生成的产品概念图" hidden></div>
             </section>
 
             <aside class="panel trial-side">
@@ -610,9 +659,10 @@
     const DATA_ROOT = '../data/eye-care-opportunities/';
     const DATA_FILES = { xhs: 'xhs_comments_clean.json', xhsPosts: 'xhs_posts_raw.json', tb: 'tb_rates_all.json', negative: 'tb_rates_negative.json', demands: 'tb_rates_demands.json' };
     const ANALYSIS_CACHE_FILE = 'xhs_cluster_result.json';
+    const CLUSTER_PROMPT_VERSION = 'v2-product-need';
     const SLOT_IDS = ['cluster_1', 'cluster_2', 'cluster_3', 'cluster_4', 'cluster_5', 'cluster_6'];
+    const RADAR_SNAPSHOT_KEY = 'voyager-opportunity-radar-snapshot-v1';
     const AI_API_BASE = 'http://127.0.0.1:4179';
-    const IMAGE_API_BASE = 'http://127.0.0.1:4182';
     const analysisState = { raw: null, clustering: null };
 
     function textOf(row) { return String(row && (row.text || row.content || row.full || '')).replace(/\s+/g, ' ').trim(); }
@@ -659,10 +709,11 @@
         id: SLOT_IDS[index],
         modelId: cluster.id || SLOT_IDS[index],
         keyword: cluster.keyword || keywordFromCluster(cluster),
-        title: cluster.title || '未命名需求机会',
+        title: cluster.product_need || cluster.title || '未命名需求机会',
         confidence: '语义聚类置信度：' + (cluster.confidence || '待判断'),
-        actualNeed: cluster.actual_need || cluster.user_need || '模型正在整理用户正在抱怨什么，以及真正想解决的问题。',
-        summary: cluster.actual_need || cluster.user_need || '模型正在整理真实用户需求。',
+        actualNeed: cluster.product_need || cluster.actual_need || cluster.user_need || '模型正在整理用户希望出现的产品解决方案。',
+        summary: cluster.product_need || cluster.actual_need || cluster.user_need || '模型正在整理真实产品需求。',
+        painPoint: cluster.title || cluster.keyword || '待提炼痛点',
         tmall: asNumber(a.tb) + ' 条淘宝/天猫相关信号',
         xhs: asNumber(a.xhs) + ' 条小红书相关信号',
         route: recommendationLabel(cluster.recommendation, a),
@@ -679,14 +730,50 @@
         counterEvidence: cluster.counter_evidence || '',
         cluster,
         trial: null,
-        generatedImage: null
       };
     }
 
-    function applyClusterView(clusters) {
+    function readRadarSnapshot() {
+      try {
+        const value = localStorage.getItem(RADAR_SNAPSHOT_KEY);
+        return value ? JSON.parse(value) : null;
+      } catch (error) {
+        console.warn('读取机会雷达快照失败', error);
+        return null;
+      }
+    }
+
+    function saveRadarSnapshot() {
+      try {
+        const candidatesSnapshot = Object.fromEntries(Object.entries(candidates).map(([id, candidate]) => [id, {
+          id: candidate.id,
+          modelId: candidate.modelId,
+          trial: candidate.trial || null,
+          concepts: candidate.concepts || [],
+        }]));
+        localStorage.setItem(RADAR_SNAPSHOT_KEY, JSON.stringify({
+          raw: analysisState.raw,
+          clustering: analysisState.clustering,
+          candidates: candidatesSnapshot,
+          selectedId,
+          queueState,
+          savedAt: new Date().toISOString(),
+          promptVersion: CLUSTER_PROMPT_VERSION
+        }));
+      } catch (error) {
+        console.warn('保存机会雷达快照失败', error);
+      }
+    }
+
+    function applyClusterView(clusters, snapshot = null) {
       Object.keys(candidates).forEach(key => delete candidates[key]);
       clusters.slice(0, SLOT_IDS.length).forEach((cluster, index) => {
         const candidate = candidateFromCluster(cluster, index);
+        const saved = snapshot?.candidates?.[candidate.id];
+        if (saved) {
+          candidate.trial = saved.trial || null;
+          candidate.concepts = saved.concepts || [];
+        }
         candidates[candidate.id] = candidate;
       });
       const ids = Object.keys(candidates);
@@ -713,46 +800,49 @@
         const tags = card.querySelector('.mini-tags');
         const values = card.querySelectorAll('.candidate-mini-data b');
         if (rank) rank.innerHTML = `<span>${String(index + 1).padStart(2, '0')} · ${esc(c.recommendation)}</span><span>${esc(c.confidence)}</span>`;
-        if (title) title.textContent = c.keyword;
+        if (title) title.textContent = c.title;
         if (summary) summary.textContent = c.actualNeed;
-        if (tags) tags.innerHTML = `<span>核心痛点</span><span>实际需求</span><span>${esc(c.route)}</span>`;
+        if (tags) tags.innerHTML = `<span>痛点：${esc(c.keyword)}</span><span>产品需求</span><span>${esc(c.route)}</span>`;
         if (values[0]) values[0].textContent = c.analytics.total;
         if (values[1]) values[1].textContent = c.analytics.pain;
         if (values[2]) values[2].textContent = c.analytics.products;
       });
       const firstId = ids[0];
       if (firstId) {
-        selectedId = firstId;
-        queueState.today = ids.slice(0, 3);
-        queueState.watch = ids.slice(3);
-        queueState.waiting = [];
-        queueState.rejected = [];
+        selectedId = snapshot?.selectedId && candidates[snapshot.selectedId] ? snapshot.selectedId : firstId;
+        queueState.today = Array.isArray(snapshot?.queueState?.today) ? snapshot.queueState.today.filter(id => candidates[id]) : ids.slice(0, 3);
+        queueState.watch = Array.isArray(snapshot?.queueState?.watch) ? snapshot.queueState.watch.filter(id => candidates[id]) : ids.slice(3);
+        queueState.waiting = Array.isArray(snapshot?.queueState?.waiting) ? snapshot.queueState.waiting.filter(id => candidates[id]) : [];
+        queueState.rejected = Array.isArray(snapshot?.queueState?.rejected) ? snapshot.queueState.rejected.filter(id => candidates[id]) : [];
         renderQueue();
-        renderCandidate(firstId);
+        renderCandidate(selectedId);
       }
       const heroTitle = document.querySelector('.hero-row h1');
       if (heroTitle) heroTitle.textContent = ids.length ? `雷达发现 ${ids.length} 个需求机会` : '暂未形成稳定需求机会';
       layoutOpportunityBubbles();
+      saveRadarSnapshot();
     }
 
-    async function applyRealData(data, cachedResult = null) {
+    async function applyRealData(data, cachedResult = null, snapshot = null) {
       analysisState.raw = data;
       $('#scanStatus').textContent = '正在调用第一层模型：语义聚类分析…';
       let result;
       try {
-        result = await callOpportunityApi('/api/opportunity/cluster', { provider: 'deepseek', stage: '需求聚类', data });
+        const reuseSnapshot = snapshot?.promptVersion === CLUSTER_PROMPT_VERSION && snapshot?.clustering?.clusters?.length;
+        result = reuseSnapshot ? snapshot.clustering : await callOpportunityApi('/api/opportunity/cluster', { provider: 'deepseek', stage: '需求聚类', data });
       } catch (error) {
         if (!cachedResult || !Array.isArray(cachedResult.clusters) || !cachedResult.clusters.length) throw error;
         result = cachedResult;
         $('#scanStatus').textContent = '已载入上次 DeepSeek 分析 · 原始数据已导入';
       }
       analysisState.clustering = result;
-      applyClusterView(result.clusters || []);
+      applyClusterView(result.clusters || [], snapshot);
       $('#signalPoolCount').textContent = (data.xhs.length + data.xhsPosts.length + data.tb.length).toLocaleString();
-      if (!cachedResult || result !== cachedResult) $('#scanStatus').textContent = `第一层 DeepSeek 分析完成 · ${data.xhs.length} 条评论 + ${data.xhsPosts.length} 条帖子 + ${data.tb.length} 条淘宝/天猫`;
+      if (snapshot?.promptVersion === CLUSTER_PROMPT_VERSION && snapshot?.savedAt) $('#scanStatus').textContent = `已恢复上次分析结果 · ${data.xhs.length} 条评论 + ${data.xhsPosts.length} 条帖子 + ${data.tb.length} 条淘宝/天猫`;
+      else if (!cachedResult || result !== cachedResult) $('#scanStatus').textContent = `第一层 DeepSeek 分析完成 · ${data.xhs.length} 条评论 + ${data.xhsPosts.length} 条帖子 + ${data.tb.length} 条淘宝/天猫`;
     }
 
-    async function loadRealOpportunityData(showToast = false) {
+    async function loadRealOpportunityData(showToast = false, force = false) {
       const button = $('#rescanBtn');
       if (button) { button.disabled = true; button.textContent = '正在读取并分析…'; }
       $('#scanStatus').textContent = '正在读取清洗评论数据…';
@@ -768,7 +858,8 @@
         } catch (cacheError) {
           console.warn('读取 DeepSeek 分析缓存失败', cacheError);
         }
-        await applyRealData({ xhs: values[0], xhsPosts: values[1], tb: values[2], negative: values[3], demands: values[4] }, cachedResult);
+        const snapshot = force ? null : readRadarSnapshot();
+        await applyRealData({ xhs: values[0], xhsPosts: values[1], tb: values[2], negative: values[3], demands: values[4] }, cachedResult, snapshot);
         if (showToast) toast('已重新读取原始评论并完成第一层语义聚类');
       } catch (error) {
         console.error('机会数据读取失败', error);
@@ -911,13 +1002,14 @@
       if (!candidates[id]) return;
       selectedId = id; const c = candidates[id];
       $('#candidateState').textContent = statusOf(id) + ' · 系统已整理';
-      $('#detailTitle').textContent = c.keyword; $('#confidence').textContent = c.confidence;
+      $('#detailTitle').textContent = c.title; $('#confidence').textContent = c.confidence;
       $('#detailSummary').textContent = c.actualNeed || c.summary; $('#tmallCount').textContent = c.tmall; $('#xhsCount').textContent = c.xhs;
       $('#repeatEvidence').textContent = c.repeat; $('#behaviorEvidence').textContent = c.behavior;
       $('#solutionEvidence').textContent = c.solution; $('#trendEvidence').textContent = c.trend; $('#unknownText').textContent = c.unknown;
       renderRadarConceptPlan(c);
       renderAnalytics(c);
       $$('.candidate-card, .bubble').forEach(el => el.classList.toggle('active', el.dataset.id === id));
+      saveRadarSnapshot();
     }
 
     function renderTrial(id) {
@@ -938,50 +1030,7 @@
       $('#trialVerdictText').textContent = t ? t.verdictText : '第二层模型正在评估机会价值、证据缺口和最低成本验证动作。';
       $('#trialPrimaryConcept').textContent = concepts[0]?.name || '等待模型概念';
       $('#trialPrimaryTest').textContent = concepts[0]?.test || (t ? t.nextExperiment : '等待第二层模型给出最低成本验证动作。');
-      renderImagePreview(c);
       renderAnalytics(c);
-    }
-
-    function renderImagePreview(candidate) {
-      const image = $('#generatedImage');
-      const status = $('#imageGenStatus');
-      if (!image || !status) return;
-      const result = candidate && candidate.generatedImage;
-      if (!result) {
-        image.hidden = true;
-        image.removeAttribute('src');
-        status.textContent = '只用于检查生图链路，不参与机会判断。';
-        return;
-      }
-      image.src = result.b64_json ? `data:${result.mime_type || 'image/png'};base64,${result.b64_json}` : (result.url || '');
-      image.hidden = !image.src;
-      status.textContent = image.src ? `已生成 · ${result.model || '图像模型'}` : '生图服务未返回可预览图片。';
-    }
-
-    async function generateOpportunityImage() {
-      const button = $('#generateImageBtn');
-      const status = $('#imageGenStatus');
-      const candidate = candidates[selectedId];
-      if (!button || !status) return;
-      button.disabled = true;
-      status.textContent = '正在调用生图服务…';
-      const need = candidate && (candidate.actualNeed || candidate.summary || candidate.title);
-      const prompt = `A premium cosmetic product concept render inspired by this user need: ${need || 'a new skincare opportunity'}. Show one plausible product form, clean studio lighting, neutral background, no text, no logo, photorealistic.`;
-      try {
-        const result = await callOpportunityApi('/api/opportunity/image', { prompt }, IMAGE_API_BASE);
-        if (candidate) {
-          candidate.generatedImage = result;
-          renderImagePreview(candidate);
-        } else {
-          status.textContent = '图片已生成，但当前还没有选中的需求机会。';
-        }
-        toast('概念图已生成');
-      } catch (error) {
-        status.textContent = error instanceof Error ? error.message : '生图失败，请检查本地服务。';
-        toast('生图调用失败');
-      } finally {
-        button.disabled = false;
-      }
     }
 
     async function requestJudgement(id) {
@@ -1007,6 +1056,7 @@
         };
         c.concepts = result.concepts || [];
         renderTrial(id);
+        saveRadarSnapshot();
       } catch (error) {
         console.error('机会判断服务调用失败', error);
         const missingConfig = error instanceof Error && error.message.includes('DeepSeek API');
@@ -1115,7 +1165,6 @@
     $('#watchBtn').addEventListener('click', () => { moveToWatch(selectedId); toast('已加入持续观察：等待下一条能改变判断的证据'); });
     $('#ignoreBtn').addEventListener('click', () => rejectCandidate(selectedId, '当前证据不足或与目标不匹配'));
     $('#pauseBtn').addEventListener('click', () => { moveToWatch(selectedId); toast('已退回持续观察：不强行凑齐支持材料'); });
-    $('#generateImageBtn').addEventListener('click', generateOpportunityImage);
     $$('[data-open-queue]').forEach(btn => btn.addEventListener('click', () => openQueue(btn.dataset.openQueue)));
     $$('.queue-tab').forEach(btn => btn.addEventListener('click', () => openQueue(btn.dataset.queueTab)));
     $('#closeQueueBtn').addEventListener('click', closeQueue);
@@ -1130,7 +1179,7 @@
       });
     }));
 
-    $('#rescanBtn').addEventListener('click', () => loadRealOpportunityData(true));
+    $('#rescanBtn').addEventListener('click', () => loadRealOpportunityData(true, true));
 
     window.addEventListener('hashchange', () => go(location.hash.slice(1)));
     window.addEventListener('resize', layoutOpportunityBubbles);

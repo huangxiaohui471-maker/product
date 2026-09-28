@@ -72,6 +72,7 @@ CLUSTER_SCHEMA = {
                     "id": {"type": "string"},
                     "keyword": {"type": "string"},
                     "title": {"type": "string"},
+                    "product_need": {"type": "string"},
                     "actual_need": {"type": "string"},
                     "user_need": {"type": "string"},
                     "trigger_context": {"type": "string"},
@@ -110,7 +111,7 @@ CLUSTER_SCHEMA = {
                     },
                 },
                 "required": [
-                    "id", "keyword", "title", "actual_need", "user_need", "trigger_context", "evidence_summary",
+                    "id", "keyword", "title", "product_need", "actual_need", "user_need", "trigger_context", "evidence_summary",
                     "behavior_evidence", "existing_solutions", "counter_evidence", "unknown",
                     "confidence", "recommendation", "analytics", "evidence",
                 ],
@@ -375,7 +376,7 @@ class Handler(BaseHTTPRequestHandler):
             body = self.read_json()
             if self.path == "/api/opportunity/cluster":
                 result = call_model(
-                    "你是严谨的消费者需求研究员。只能根据给定的小红书帖子/评论和淘宝/天猫评论判断，不得把关键词频次直接当成需求强度。请把相似表达按真实用户任务、场景和障碍聚成 3 到 5 个需求机会；保留反证，不发明未出现的用户行为。每条证据必须引用给定 record_id。每个机会必须提供 keyword：2 到 8 个汉字，或两个很短的词用“/”连接，专门作为图表标签，不能写完整句子。请另外提供 actual_need：用你自己的语言，把用户正在抱怨什么、遇到什么障碍、希望得到什么结果总结成一句 15 到 35 字的话；不要复述单条评论，不要写成产品名、成分名或功能方案。不要输出产品名称或固定模板，第一层只发现机会。analytics.xhs 统计小红书帖子与评论，analytics.tb 统计淘宝/天猫记录。",
+                    "你是严谨的消费者需求研究员。只能根据给定的小红书帖子/评论和淘宝/天猫评论判断，不得把关键词频次直接当成需求强度。请把相似表达按真实用户任务、使用场景、障碍和期望结果聚成 3 到 5 个需求机会；保留反证，不发明未出现的用户行为。每条证据必须引用给定 record_id。请严格区分以下字段：keyword 只写 2 到 8 个汉字的痛点标签，供雷达图使用，例如“脂肪粒/糊眼”；title 是面向产品决策的机会标题，不能只是“黑眼圈”“浮肿”“敏感”等症状；product_need 必须明确回答“用户希望有一款什么样的产品或服务来解决这个问题”，用“希望有一款……”或“希望有一种……”开头，描述用户期待的结果、使用体验和必要约束，但不能凭空捏造评论中没有出现的成分或功效；actual_need 要写用户真正想达成的结果和购买任务，而不是重复症状，15 到 40 字；user_need 用更短的一句话概括同一产品需求。不要把痛点标签直接当成产品需求，不要直接输出产品名称，不要把未经证实的功能当成结论。每条机会都要形成“问题证据 → 用户期望结果 → 产品需求机会”的链条。analytics.xhs 统计小红书帖子与评论，analytics.tb 统计淘宝/天猫记录。",
                     cluster_prompt(body.get("data") or {}),
                     "opportunity_clusters",
                     CLUSTER_SCHEMA,
