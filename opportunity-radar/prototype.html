@@ -327,6 +327,37 @@
     .queue-empty-note { color: var(--muted); font-size: 12px; text-align: center; padding: 24px; }
     .scan-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #45a47f; margin-right: 5px; box-shadow: 0 0 0 4px rgba(69,164,127,.13); }
 
+    /* 嵌入主工作台时保留业务内容，只收起第二套产品外壳。气泡尺寸与颜色不覆盖。 */
+    html.embedded-shell body { background: transparent; }
+    html.embedded-shell .device { min-height: 0; background: transparent; }
+    html.embedded-shell .app { display: block; min-height: 0; }
+    html.embedded-shell .sidebar { display: none; }
+    html.embedded-shell main { padding: 0; }
+    html.embedded-shell .topbar { display: none; }
+    html.embedded-shell .view { padding: 0; animation: none; }
+    html.embedded-shell .embedded-module-tabs { display: flex; }
+    html.embedded-shell .hero-row { align-items: center; margin-bottom: 16px; }
+    html.embedded-shell .eyebrow { display: none; }
+    html.embedded-shell h1 { font-size: 19px; letter-spacing: .2px; line-height: 1.4; margin: 0 0 3px; }
+    html.embedded-shell .subhead { font-size: 12px; }
+    html.embedded-shell .metrics { gap: 8px; margin: 16px 0; }
+    html.embedded-shell .metric { min-height: 86px; padding: 12px; border-radius: 12px; }
+    html.embedded-shell .metric b { font-size: 22px; margin: 5px 0 1px; }
+    html.embedded-shell .metric span, html.embedded-shell .metric small { font-size: 11px; }
+    html.embedded-shell .radar-grid { gap: 12px; }
+    html.embedded-shell .panel { border-radius: 12px; box-shadow: 0 1px 2px rgba(16,24,40,.05); }
+    html.embedded-shell .panel-head { padding: 16px 16px 0; }
+    html.embedded-shell .canvas { margin: 16px; border-radius: 16px; }
+    html.embedded-shell .detail { padding: 16px; }
+    html.embedded-shell .candidate-section { margin-top: 16px; }
+    html.embedded-shell .trial-layout { gap: 12px; }
+    html.embedded-shell .trial-panel, html.embedded-shell .judgement-panel { border-radius: 12px; box-shadow: 0 1px 2px rgba(16,24,40,.05); }
+    html.embedded-shell .trial-panel { padding: 16px; }
+
+    .embedded-module-tabs { display: none; align-items: center; gap: 4px; width: max-content; max-width: 100%; margin: 0 0 14px; padding: 4px; border: 1px solid #e7e7ec; border-radius: 10px; background: #f7f7fa; }
+    .embedded-module-tabs button { min-height: 30px; padding: 0 12px; border-radius: 7px; color: #5e5f67; font-size: 12px; }
+    .embedded-module-tabs button.active { background: #fff; color: #0058b0; box-shadow: 0 1px 4px rgba(16,24,40,.08); font-weight: 600; }
+
     @media (max-width: 1100px) {
       .app { grid-template-columns: 80px minmax(0, 1fr); }
       .sidebar { padding: 20px 12px; }
@@ -363,6 +394,7 @@
   </style>
 </head>
 <body>
+  <script>if (window.parent !== window) document.documentElement.classList.add('embedded-shell');</script>
   <div class="device">
     <div class="app">
       <aside class="sidebar">
@@ -379,6 +411,10 @@
       </aside>
 
       <main>
+        <div class="embedded-module-tabs" aria-label="今日产品机会模块导航">
+          <button type="button" data-embedded-go="radar" class="active">发现机会</button>
+          <button type="button" data-embedded-go="trial">机会判断</button>
+        </div>
         <header class="topbar">
           <div class="crumb"><span class="scan-dot"></span><span id="scanStatus">正在读取清洗评论数据…</span></div>
           <div class="filters">
@@ -1111,10 +1147,12 @@
       if (target === 'trial') renderTrial(selectedId);
       $$('.view').forEach(el => el.classList.toggle('active', el.id === target + 'View'));
       $$('.nav-btn').forEach(el => el.classList.toggle('active', el.dataset.view === target));
+      $$('[data-embedded-go]').forEach(el => el.classList.toggle('active', el.dataset.embeddedGo === target));
       history.replaceState(null, '', '#' + target); window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     $$('.nav-btn').forEach(btn => btn.addEventListener('click', () => go(btn.dataset.view)));
+    $$('[data-embedded-go]').forEach(btn => btn.addEventListener('click', () => go(btn.dataset.embeddedGo)));
     $$('[data-go]').forEach(btn => btn.addEventListener('click', () => go(btn.dataset.go)));
     $$('.candidate-card, .bubble[data-id]').forEach(el => el.addEventListener('click', () => renderCandidate(el.dataset.id)));
     $('#enterTrialBtn').addEventListener('click', () => startTrial(selectedId));
