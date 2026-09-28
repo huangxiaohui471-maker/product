@@ -132,9 +132,11 @@ td.num{text-align:right;white-space:nowrap}
 .btn{display:inline-block;font-size:12.5px;padding:7px 13px;border-radius:8px;text-decoration:none;border:1px solid var(--pri);color:var(--pri);background:var(--pri-soft);cursor:pointer}
 .btn.solid{background:var(--pri);color:#fff}
 .btn.gray{border-color:var(--line);color:var(--ink2);background:#f8fafc}
-.anchors{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}
-.anchors a{font-size:12.5px;padding:5px 11px;border-radius:20px;background:var(--card);border:1px solid var(--line);text-decoration:none;color:var(--ink2)}
-.anchors a:hover{border-color:#c7d2fe;color:var(--pri)}
+.detail-nav{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:7px 10px;margin:12px 0 8px;box-shadow:0 3px 10px rgba(15,23,42,.035)}
+.detail-nav-title{flex:0 0 auto;font-size:11px;color:var(--ink2);font-weight:700;padding-right:10px;border-right:1px solid var(--line);white-space:nowrap}
+.anchors{display:flex;gap:5px;flex-wrap:wrap;margin:0;min-width:0}
+.anchors a{font-size:11.5px;padding:4px 9px;border-radius:7px;background:#f8fafc;border:1px solid transparent;text-decoration:none;color:var(--ink2);white-space:nowrap}
+.anchors a:hover{border-color:#c7d2fe;color:var(--pri);background:var(--pri-soft)}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin:6px 0 0}
 .kpi{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:8px 9px}
 .kpi .lb{font-size:10.5px;color:var(--ink2)}.kpi .vl{font-size:17px;font-weight:700;margin:1px 0}
@@ -155,7 +157,8 @@ td.num{text-align:right;white-space:nowrap}
 .secbody{padding:13px 15px 15px}
 .sec .lead{font-size:11.8px;color:var(--ink2);margin-bottom:11px;line-height:1.75;
   background:#f8fafc;border-left:3px solid #dbe0fb;border-radius:0 7px 7px 0;padding:7px 11px}
-.sec-tools{display:flex;gap:8px;align-items:center;margin:12px 0 8px;font-size:12.5px;color:var(--ink2)}
+.sec-tools{display:flex;gap:8px;align-items:center;margin:0 0 10px;padding:6px 2px;border-bottom:1px solid #eef2f7;font-size:11.5px;color:var(--ink2)}
+.sec-tools-label{font-weight:600;color:#64748b}
 .sec-tools button{font-size:12px;padding:5px 12px;border-radius:7px;border:1px solid var(--line);
   background:#fff;color:var(--ink2);cursor:pointer}
 .sec-tools button:hover{border-color:#c7d2fe;color:var(--pri)}
@@ -224,6 +227,7 @@ td.num{text-align:right;white-space:nowrap}
 @media(max-width:860px){.hero{grid-template-columns:1fr}.shot{width:100%;height:240px}.grid2{grid-template-columns:1fr}
 .vitem>summary{grid-template-columns:110px 1fr}.vthumb{width:110px;height:64px}}
 @media(max-width:680px){.insight-grid{grid-template-columns:1fr}.section-insight{display:block}.section-insight .si-meta{display:block;margin:4px 0 0}}
+@media(max-width:680px){.detail-nav{align-items:flex-start;flex-direction:column;gap:6px}.detail-nav-title{width:100%;border-right:0;border-bottom:1px solid var(--line);padding:0 0 5px}.anchors{width:100%}}
 .compare-table tr.summary-row th,.compare-table tr.summary-row td{background:#f5f7ff}.compare-table tr.summary-row td{font-weight:600;color:#1e293b}
 @media print{header,.bar,.btnrow,.anchors,.navlinks{display:none}}
 /* Voyager Atlas · 01 纯净层级 + 02 指标色带 */
@@ -652,13 +656,13 @@ function renderDetail(n){
    +'<div class="metas">'+meta+'</div>'
    +'<div class="btnrow">'+(p.link?'<a class="btn solid" href="'+esc(p.link)+'" target="_blank" rel="noopener">打开商品原页</a>':'')
    +'</div></div></div>';
-  body += '<div class="anchors"><a href="#/p/'+p.i+'#quick">商品速览</a><a href="#/p/'+p.i+'#cmp2">产品档案</a>'
+  body += '<div class="detail-nav"><span class="detail-nav-title">快速定位</span><div class="anchors"><a href="#/p/'+p.i+'#quick">商品速览</a><a href="#/p/'+p.i+'#cmp2">产品档案</a>'
    +'<a href="#/p/'+p.i+'#aud">受众画像</a><a href="#/p/'+p.i+'#rev">商品评价</a>'
    +'<a href="#/p/'+p.i+'#viral">🔥 视频拆解（'+p.viral.length+'）</a><a href="#/p/'+p.i+'#vsum">内容总结</a>'
-   +'<a href="#/p/'+p.i+'#tal">达人与渠道</a><a href="#/p/'+p.i+'#core">产品核心要素</a></div>';
+   +'<a href="#/p/'+p.i+'#tal">达人与渠道</a><a href="#/p/'+p.i+'#core">产品核心要素</a></div></div>';
 
   /* 展开/收起工具条 */
-  body += '<div class="sec-tools"><span style="margin-left:auto"></span>'
+  body += '<div class="sec-tools"><span class="sec-tools-label">板块操作</span><span style="margin-left:auto"></span>'
     +'<button onclick="secAll(1)">全部展开</button><button onclick="secAll(0)">全部收起</button></div>';
 
   /* 速览（默认展开） */
