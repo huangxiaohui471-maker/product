@@ -82,6 +82,18 @@ td.num{text-align:right;white-space:nowrap}
 .pricebox b{color:var(--price);font-size:25px}.pricebox span{font-size:12.5px;color:var(--ink2)}
 .hl{background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:9px 12px;font-size:12.5px;margin-top:8px;line-height:1.7}
 .hl b{color:#0f766e}
+.insight-strip{margin:12px 0 14px;padding:12px 14px;background:linear-gradient(135deg,#f8faff,#fff);border:1px solid #dbe4f5;border-radius:12px}
+.insight-strip>.insight-title{font-size:12px;font-weight:700;color:#334155;margin-bottom:9px;letter-spacing:.02em}
+.insight-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.insight-card{min-width:0;background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 11px;border-left:3px solid #818cf8}
+.insight-card.review{border-left-color:#0d9488}.insight-card.video{border-left-color:#f59e0b}.insight-card.product{border-left-color:#4f46e5}
+.insight-card .ic-title{font-size:11px;color:var(--ink2);font-weight:700;margin-bottom:4px}
+.insight-card .ic-text{font-size:12px;line-height:1.6;color:var(--ink);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.insight-card .ic-meta{font-size:10.5px;color:var(--ink3);margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.section-insight{display:flex;gap:9px;align-items:flex-start;padding:9px 11px;margin-bottom:12px;background:#f8fafc;border:1px solid #e4eaf3;border-radius:9px}
+.section-insight .si-label{flex:0 0 auto;font-size:11px;color:var(--pri);font-weight:700;padding-top:1px}
+.section-insight .si-text{font-size:12px;line-height:1.65;color:var(--ink)}
+.section-insight .si-meta{font-size:10.5px;color:var(--ink3);margin-left:auto;white-space:nowrap}
 .metas{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:8px 16px;font-size:12.5px;color:var(--ink2);margin-top:10px}
 .metas b{color:var(--ink)}
 .btnrow{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
@@ -179,6 +191,8 @@ td.num{text-align:right;white-space:nowrap}
 @media(max-width:860px){.selection-tray{left:10px;right:10px;bottom:8px;flex-direction:column;align-items:stretch;gap:8px}.selection-actions{justify-content:flex-end}.compare-head{align-items:flex-start;flex-direction:column}.compare-table th:first-child{position:static}}
 @media(max-width:860px){.hero{grid-template-columns:1fr}.shot{width:100%;height:240px}.grid2{grid-template-columns:1fr}
 .vitem>summary{grid-template-columns:110px 1fr}.vthumb{width:110px;height:64px}}
+@media(max-width:680px){.insight-grid{grid-template-columns:1fr}.section-insight{display:block}.section-insight .si-meta{display:block;margin:4px 0 0}}
+.compare-table tr.summary-row th,.compare-table tr.summary-row td{background:#f5f7ff}.compare-table tr.summary-row td{font-weight:600;color:#1e293b}
 @media print{header,.bar,.btnrow,.anchors,.navlinks{display:none}}
 </style>
 </head>
@@ -382,6 +396,58 @@ function sec(title, badge, lead, body, src, id, open){
 function secAll(open){
   document.querySelectorAll('details.sec').forEach(function(d){ d.open = !!open; });
 }
+function topWords(list, n){
+  var out=[];
+  (list||[]).forEach(function(x){
+    var v=typeof x==='object'?(x.k||x.n||x.name||''):String(x||'');
+    v=String(v).trim();
+    if(v&&out.indexOf(v)<0) out.push(v);
+  });
+  return out.slice(0,n||3);
+}
+function reviewInsight(p){
+  var bad=topWords(p.badWords,3), badSet={};
+  topWords(p.badWords,20).forEach(function(x){badSet[x]=1;});
+  var good=topWords((p.goodWords||[]).filter(function(x){var v=typeof x==='object'?(x.k||x.n||x.name||''):String(x||'');return !badSet[String(v).trim()];}),3);
+  if(p.badRate==null&&!good.length&&!bad.length){
+    return {text:'当前没有足够的评价数据，暂不生成口碑结论。',meta:'评价证据不足'};
+  }
+  var text=(p.badRate==null?'评价比例未返回':'差评率 '+p.badRate+'%')
+    +(p.nReviews?'，共 '+p.nReviews+' 条评价':'')+'。';
+  if(good.length) text+='高频提及 '+good.join('、')+'。';
+  if(bad.length) text+='顾虑高频词 '+bad.join('、')+'。';
+  return {text:text,meta:(p.nReviews?'评价样本 '+p.nReviews+' 条':'评价样本待补')};
+}
+function videoInsight(p){
+  var vs=p.vsummary||{}, groups=(vs.groups||[]).slice().sort(function(a,b){return (b.nVid||0)-(a.nVid||0)});
+  var names=groups.slice(0,2).map(function(x){return x.name}).filter(Boolean);
+  var terms=topWords(vs.cloud,3), cta=groups.filter(function(x){return /转化/.test(x.name||'')})[0];
+  if(!names.length&&!terms.length&&!(p.viral||[]).length){
+    return {text:'当前没有足够的视频样本，暂不生成内容结论。',meta:'视频证据不足'};
+  }
+  var text='内容主要围绕'+(names.length?names.join('、'):'商品卖点')+'展开。';
+  if(terms.length) text+='高频表达：'+terms.join('、')+'。';
+  if(cta&&cta.words&&cta.words.length) text+='常见转化话术：'+topWords(cta.words,2).join('、')+'。';
+  return {text:text,meta:'视频样本 '+(vs.n||p.viral.length||0)+' 条'};
+}
+function productInsight(p, review, video){
+  var text='核心卖点：'+(p.sellingPoint||'未返回')+'。';
+  if(p.audienceLine) text+='主要人群：'+p.audienceLine+'。';
+  return {text:text,meta:'基于商品档案与受众字段'};
+}
+function insightCard(cls,title,data){
+  return '<div class="insight-card '+cls+'"><div class="ic-title">'+title+'</div><div class="ic-text">'+esc(data.text)+'</div><div class="ic-meta">'+esc(data.meta||'')+'</div></div>';
+}
+function sectionInsight(title,data){
+  return '<div class="section-insight"><span class="si-label">'+title+'</span><span class="si-text">'+esc(data.text)+'</span><span class="si-meta">'+esc(data.meta||'')+'</span></div>';
+}
+function insightStrip(p, review, video, product){
+  return '<div class="insight-strip"><div class="insight-title">分析摘要</div><div class="insight-grid">'
+    +insightCard('review','一句话口碑',review)
+    +insightCard('video','一句话视频结论',video)
+    +insightCard('product','产品定位',product)
+    +'</div></div>';
+}
 function cloudHTML(words, cls){
   var mx=0; words.forEach(function(w){mx=Math.max(mx, w.c||0)});
   return '<div class="cloud">'+words.map(function(w){
@@ -447,6 +513,7 @@ function renderDetail(n){
       + '<div class="ratebar"><i style="width:'+p.goodRate+'%;background:#10b981"></i><i style="width:'+p.midRate+'%;background:#f59e0b"></i><i style="width:'+p.badRate+'%;background:#ef4444"></i></div>'
       + '<div style="font-size:11.5px;color:#6b7a90">🟩好评 '+p.goodRate+'%　🟨中评 '+p.midRate+'%　🟥差评 '+p.badRate+'%</div></div>'
     : '<div class="warnbox">该链接未返回评价极性数据</div>';
+  var reviewI=reviewInsight(p), videoI=videoInsight(p), productI=productInsight(p,reviewI,videoI);
 
   var body='';
   /* hero */
@@ -475,6 +542,7 @@ function renderDetail(n){
 
   /* 速览（默认展开） */
   var secQuick = sec('⚡ 商品速览','','', '<div class="kpis">'+kpis+'</div>'
+    +insightStrip(p,reviewI,videoI,productI)
     +'<div class="grid2" style="margin-top:12px">'
     +'<div>'+ring(p.channel,C)+'</div>'
     +'<div>'+ring(p.selltype,C.slice(1).concat(C[0]))+'</div>'
@@ -545,7 +613,7 @@ function renderDetail(n){
 
   /* 商品评价 */
   var goodW = p.goodWords.map(function(w){return {k:w,c:''}}), badW=p.badWords.map(function(w){return {k:w,c:''}});
-  var revBox = rate
+  var revBox = sectionInsight('一句话口碑',reviewI)+rate
     +'<div class="grid2" style="margin-top:12px">'
     +'<div><div class="ft" style="font-size:12px;font-weight:600;margin-bottom:6px">👍 好评高频词（感受体验+功效）</div>'
     +(goodW.length?cloudHTML(goodW,'good'):'<div class="srcline">无</div>')+'</div>'
@@ -573,7 +641,7 @@ function renderDetail(n){
   if(p.vsummary && p.vsummary.n){
     var g = p.vsummary, mx = 0;
     g.cloud.forEach(function(w){ mx = Math.max(mx, w.c); });
-    var sumBody = '<div class="hrow"><span class="pill g">视频样本 '+g.n+' 条</span></div>';
+    var sumBody = sectionInsight('一句话视频结论',videoI)+'<div class="hrow"><span class="pill g">视频样本 '+g.n+' 条</span></div>';
     sumBody += '<div class="cloud">'+ g.cloud.map(function(w){
         return '<span class="kw'+(w.c>=mx*0.6?' big':'')+'">'+esc(w.k)+'<small>'+w.c+'</small></span>';
       }).join('') +'</div>';
@@ -591,7 +659,7 @@ function renderDetail(n){
     }
     secSummary = sec('📊 视频内容总结','','', sumBody, '', 'vsum');
   }else if(p.wordcloud.length){
-    secSummary = sec('📊 视频内容总结','','', cloudHTML(p.wordcloud), '', 'vsum');
+    secSummary = sec('📊 视频内容总结','','', sectionInsight('一句话视频结论',videoI)+cloudHTML(p.wordcloud), '', 'vsum');
   }
 
   /* 带货达人 */
@@ -701,8 +769,13 @@ function cmpVal(v){
 }
 function cmpStrings(a){return (a||[]).map(function(x){return typeof x==='object'?(x.k||x.n||JSON.stringify(x)):x})}
 function cmpProductHead(p){return '<div class="compare-product">'+(p.cover?'<img src="'+esc(p.cover)+'" alt="">':'<div class="nopic" style="width:52px;height:52px;position:static">—</div>')+'<div><b>'+esc(cleanText(p.brand||'未标品牌'))+'</b><small>'+esc((p.title||'').slice(0,68))+'</small></div><small>ID '+esc(p.gid)+'</small></div>'}
-function cmpRow(label, products, getter){return '<tr><th>'+esc(label)+'</th>'+products.map(function(p){return '<td>'+getter(p)+'</td>'}).join('')+'</tr>'}
-function cmpGroup(no,title,desc,products,rows){return '<details class="compare-group" open><summary><div><h2>'+esc(no+' · '+title)+'</h2><p>'+esc(desc)+'</p></div><span>同维度对齐</span></summary><div class="compare-scroll"><table class="compare-table"><thead><tr><th>对比维度</th>'+products.map(function(p){return '<th>'+cmpProductHead(p)+'</th>'}).join('')+'</tr></thead><tbody>'+rows.map(function(r){return cmpRow(r[0],products,r[1])}).join('')+'</tbody></table></div></details>'}
+function cmpRow(label, products, getter){var cls=/一句话/.test(label)?' class="summary-row"':'';return '<tr'+cls+'><th>'+esc(label)+'</th>'+products.map(function(p){return '<td>'+getter(p)+'</td>'}).join('')+'</tr>'}
+function cmpGroup(no,title,desc,products,rows){
+  var prepared=rows.slice();
+  if(title==='商品评价') prepared.unshift(['一句话口碑',function(p){return cmpVal(reviewInsight(p).text)}]);
+  if(title==='爆款视频拆解') prepared.unshift(['一句话视频结论',function(p){return cmpVal(videoInsight(p).text)}]);
+  return '<details class="compare-group" open><summary><div><h2>'+esc(no+' · '+title)+'</h2><p>'+esc(desc)+'</p></div><span>同维度对齐</span></summary><div class="compare-scroll"><table class="compare-table"><thead><tr><th>对比维度</th>'+products.map(function(p){return '<th>'+cmpProductHead(p)+'</th>'}).join('')+'</tr></thead><tbody>'+prepared.map(function(r){return cmpRow(r[0],products,r[1])}).join('')+'</tbody></table></div></details>'
+}
 function cmpShelf(p){
   var s=p.shelf||{}, keys=['现行价（推算）','佣金','规格信号','每克/每单位均价','SKU 形态','货架定位','标题里的活动词','上架时间','累计评价','好评率'];
   return '<div class="cmp-stack">'+keys.map(function(k){return '<div class="cmp-card"><b>'+esc(k)+'</b><div class="cmp-small">'+esc(s[k]==null?'—':s[k])+'</div></div>'}).join('')+'</div>';
