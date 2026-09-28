@@ -108,6 +108,8 @@
     .source-chips { display: flex; flex-wrap: wrap; gap: 6px; }
     .source-chip { border: 1px solid var(--line); background: #fff; padding: 6px 9px; border-radius: 999px; font-size: 11px; cursor: pointer; }
     .source-chip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .category-switch { display: inline-flex; align-items: center; gap: 7px; padding: 5px 8px 5px 10px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--muted); font-size: 11px; }
+    .category-switch select { border: 0; outline: 0; background: transparent; color: var(--ink); font: inherit; font-weight: 800; cursor: pointer; }
 
     .discovery-panel { display: flex; flex-direction: column; }
     .canvas { position: relative; flex: 1; min-height: 420px; height: auto; margin: 18px 20px 20px; border-radius: 22px; overflow: hidden; background-color: #fafaf7; background-image: radial-gradient(#d9d9d2 1px, transparent 1px); background-size: 20px 20px; border: 1px solid #e6e6df; }
@@ -476,7 +478,12 @@
           <div class="crumb"><span class="scan-dot"></span><span id="scanStatus">正在读取清洗评论数据…</span></div>
           <div class="filters">
             <span class="pill demo">真实评论数据 · 已接入</span>
-            <span class="pill">范围：眼部护理</span>
+            <label class="category-switch">分析类目
+              <select id="categorySelect" aria-label="选择分析类目">
+                <option value="eye">眼部护理</option>
+                <option value="face">面部洗护 · 洁面</option>
+              </select>
+            </label>
             <span class="pill">真实评论证据 · 可展开查看</span>
           </div>
         </header>
@@ -656,12 +663,16 @@
     // 模型返回的语义机会；不再预置固定产品机会或固定概念。
     const candidates = {};
 
-    const DATA_ROOT = '../data/eye-care-opportunities/';
+    const DATASETS = {
+      eye: { label: '眼部护理', root: '../data/eye-care-opportunities/', cache: 'xhs_cluster_result_v2.json' },
+      face: { label: '面部洗护 · 洁面', root: '../data/face-care-opportunities/', cache: 'xhs_cluster_result_v2.json' }
+    };
     const DATA_FILES = { xhs: 'xhs_comments_clean.json', xhsPosts: 'xhs_posts_raw.json', tb: 'tb_rates_all.json', negative: 'tb_rates_negative.json', demands: 'tb_rates_demands.json' };
-    const ANALYSIS_CACHE_FILE = 'xhs_cluster_result.json';
+    const currentDatasetKey = new URLSearchParams(location.search).get('category') === 'face' ? 'face' : 'eye';
+    const activeDataset = DATASETS[currentDatasetKey];
     const CLUSTER_PROMPT_VERSION = 'v2-product-need';
     const SLOT_IDS = ['cluster_1', 'cluster_2', 'cluster_3', 'cluster_4', 'cluster_5', 'cluster_6'];
-    const RADAR_SNAPSHOT_KEY = 'voyager-opportunity-radar-snapshot-v1';
+    const RADAR_SNAPSHOT_KEY = 'voyager-opportunity-radar-snapshot-' + currentDatasetKey;
     const AI_API_BASE = 'http://127.0.0.1:4179';
     const analysisState = { raw: null, clustering: null };
 
@@ -847,13 +858,13 @@
       if (button) { button.disabled = true; button.textContent = '正在读取并分析…'; }
       $('#scanStatus').textContent = '正在读取清洗评论数据…';
       try {
-        const values = await Promise.all(Object.values(DATA_FILES).map(file => fetch(DATA_ROOT + file).then(response => {
+        const values = await Promise.all(Object.values(DATA_FILES).map(file => fetch(activeDataset.root + file).then(response => {
           if (!response.ok) throw new Error(file + ' ' + response.status);
           return response.json();
         })));
         let cachedResult = null;
         try {
-          const cacheResponse = await fetch(DATA_ROOT + ANALYSIS_CACHE_FILE, { cache: 'no-store' });
+          const cacheResponse = await fetch(activeDataset.root + activeDataset.cache, { cache: 'no-store' });
           if (cacheResponse.ok) cachedResult = await cacheResponse.json();
         } catch (cacheError) {
           console.warn('读取 DeepSeek 分析缓存失败', cacheError);
@@ -1157,6 +1168,17 @@
       history.replaceState(null, '', '#' + target); window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    const categorySelect = $('#categorySelect');
+    if (categorySelect) {
+      categorySelect.value = currentDatasetKey;
+      categorySelect.addEventListener('change', () => {
+        const next = categorySelect.value === 'face' ? 'face' : 'eye';
+        const nextUrl = new URL(location.href);
+        nextUrl.searchParams.set('category', next);
+        nextUrl.hash = 'radar';
+        location.href = nextUrl.toString();
+      });
+    }
     $$('.nav-btn').forEach(btn => btn.addEventListener('click', () => go(btn.dataset.view)));
     $$('[data-embedded-go]').forEach(btn => btn.addEventListener('click', () => go(btn.dataset.embeddedGo)));
     $$('[data-go]').forEach(btn => btn.addEventListener('click', () => go(btn.dataset.go)));
@@ -1185,6 +1207,9 @@
     window.addEventListener('resize', layoutOpportunityBubbles);
     renderQueue();
     go(location.hash.slice(1) || 'radar');
+    const rangePill = document.querySelector('.filters .pill:nth-child(2)');
+    if (rangePill) rangePill.textContent = '范围：' + activeDataset.label;
+    document.title = 'Voyager Atlas · ' + activeDataset.label + '需求信号';
     loadRealOpportunityData();
   </script>
   <script src="../scripts/prototype-export-client.js?v=20260927"></script>
