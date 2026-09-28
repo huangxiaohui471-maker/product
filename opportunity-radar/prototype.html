@@ -612,6 +612,7 @@
     const ANALYSIS_CACHE_FILE = 'xhs_cluster_result.json';
     const SLOT_IDS = ['cluster_1', 'cluster_2', 'cluster_3', 'cluster_4', 'cluster_5', 'cluster_6'];
     const AI_API_BASE = 'http://127.0.0.1:4179';
+    const IMAGE_API_BASE = 'http://127.0.0.1:4182';
     const analysisState = { raw: null, clustering: null };
 
     function textOf(row) { return String(row && (row.text || row.content || row.full || '')).replace(/\s+/g, ' ').trim(); }
@@ -631,8 +632,8 @@
       return shortParts.slice(0, 2).join('/') || '待分析';
     }
 
-    async function callOpportunityApi(path, payload) {
-      const response = await fetch(AI_API_BASE + path, {
+    async function callOpportunityApi(path, payload, base = AI_API_BASE) {
+      const response = await fetch(base + path, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -967,7 +968,7 @@
       const need = candidate && (candidate.actualNeed || candidate.summary || candidate.title);
       const prompt = `A premium cosmetic product concept render inspired by this user need: ${need || 'a new skincare opportunity'}. Show one plausible product form, clean studio lighting, neutral background, no text, no logo, photorealistic.`;
       try {
-        const result = await callOpportunityApi('/api/opportunity/image', { prompt });
+        const result = await callOpportunityApi('/api/opportunity/image', { prompt }, IMAGE_API_BASE);
         if (candidate) {
           candidate.generatedImage = result;
           renderImagePreview(candidate);

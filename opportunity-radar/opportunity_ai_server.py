@@ -10,6 +10,11 @@ Run with a DeepSeek-compatible relay (the browser never receives the key):
   OPPORTUNITY_RELAY_BASE_URL=https://your-relay.example/v1 \
   DEEPSEEK_API_KEY=... DEEPSEEK_MODEL=deepseek-chat \
   python3 opportunity-radar/opportunity_ai_server.py
+
+The optional image smoke test runs on a separate local port so it does not
+interrupt the existing opportunity-analysis service:
+  TIKBIT_API_KEY=... OPPORTUNITY_AI_PORT=4182 \
+  python3 opportunity-radar/opportunity_ai_server.py
 """
 
 from __future__ import annotations
