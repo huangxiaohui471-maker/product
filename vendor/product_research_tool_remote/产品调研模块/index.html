@@ -439,10 +439,10 @@ function renderDetail(n){
    +'<div class="metas">'+meta+'</div>'
    +'<div class="btnrow">'+(p.link?'<a class="btn solid" href="'+esc(p.link)+'" target="_blank" rel="noopener">打开商品原页</a>':'')
    +'<a class="btn gray" href="#/method">口径说明</a></div></div></div>';
-  body += '<div class="anchors"><a href="#/p/'+p.i+'#quick">速览</a><a href="#/p/'+p.i+'#core">产品核心要素</a><a href="#/p/'+p.i+'#shelf">货架策略</a>'
-   +'<a href="#/p/'+p.i+'#visual">视觉/包装</a><a href="#/p/'+p.i+'#cmp2">产品档案</a>'
-   +'<a href="#/p/'+p.i+'#aud">消费人群</a><a href="#/p/'+p.i+'#rev">商品评价</a>'
-   +'<a href="#/p/'+p.i+'#viral">🔥 爆款视频拆解（'+p.viral.length+'）</a><a href="#/p/'+p.i+'#tal">带货达人</a><a href="#/p/'+p.i+'#vsum">内容总结</a></div>';
+  body += '<div class="anchors"><a href="#/p/'+p.i+'#quick">商品速览</a><a href="#/p/'+p.i+'#cmp2">产品档案</a>'
+   +'<a href="#/p/'+p.i+'#aud">受众画像</a><a href="#/p/'+p.i+'#rev">商品评价</a>'
+   +'<a href="#/p/'+p.i+'#viral">🔥 视频拆解（'+p.viral.length+'）</a><a href="#/p/'+p.i+'#vsum">内容总结</a>'
+   +'<a href="#/p/'+p.i+'#tal">达人与渠道</a><a href="#/p/'+p.i+'#core">产品核心要素</a></div>';
 
   /* 展开/收起工具条 */
   body += '<div class="sec-tools"><b>下面 __SECN__ 个板块</b><span>默认收起，点标题展开你关心的那一块</span>'
@@ -450,7 +450,7 @@ function renderDetail(n){
     +'<button onclick="secAll(1)">全部展开</button><button onclick="secAll(0)">全部收起</button></div>';
 
   /* 速览（默认展开） */
-  body += sec('⚡ 这个链接的速览','','', '<div class="kpis">'+kpis+'</div>'
+  var secQuick = sec('⚡ 商品速览','','', '<div class="kpis">'+kpis+'</div>'
     +'<div class="grid2" style="margin-top:12px">'
     +'<div>'+ring(p.channel,C)+'</div>'
     +'<div>'+ring(p.selltype,C.slice(1).concat(C[0]))+'</div>'
@@ -466,18 +466,14 @@ function renderDetail(n){
       +'<div class="cloud" style="gap:6px">'+val+'</div>'
       +(fl && /无|兜底/.test(fl) ? '<div class="sub" style="font-size:11px;margin-top:5px">'+esc(fl)+'</div>':'')+'</div>';
   }).join('');
-  body += sec('🧪 产品核心要素','2.1 / 全球选品 1.1',
-    '形态·香型·功效·成分·使用体验 —— 用于敲定核心研发方向。值来自该链接的<b>属性 tab 原文</b> + <b>商品评价的 16 类分类词云</b>（功效/成分/气味/质地/规格/目标受众/痛点问题/使用场景…）。',
-    '<div class="facets">'+coreBox+'</div>'
-    +(p.attr?'<div class="srcline" style="margin-top:12px"><b>属性 tab 原文：</b>'+esc(p.attr)+'</div>':''),
-    '', 'core');
+  var secCore = sec('🧪 产品核心要素','证据归纳结论',
+    '将前面的商品档案、受众、评价、视频与达人证据收束为可用于研发的产品结论：形态、功效、成分、使用体验、人群和场景。',
+    '<div class="facets">'+coreBox+'</div>',
+    '属性原文保留在「产品档案」；本板块只呈现结构化归纳，避免重复。', 'core');
 
   /* 货架策略 */
   var sh = Object.keys(p.shelf).map(function(k){
     return '<tr><td style="width:150px"><b>'+esc(k)+'</b></td><td>'+esc(p.shelf[k])+'</td></tr>'}).join('');
-  body += sec('🛒 货架策略','2.3','SKU 怎么设计、价格怎么定、打什么活动 —— 用于产出 SKU 矩阵 & 定价方案。',
-    '<table>'+sh+'</table>',
-    '价格＝佣金金额÷佣金率推算；规格/活动词来自链接标题与属性原文；定位按价格带与佣金率判定', 'shelf');
 
   /* 视觉包装 */
   var vis = [['外观/包装词',p.core['外观/包装词']],['香型/气味',p.core['香型/气味']],['美妆概念',p.core['美妆概念']]]
@@ -485,18 +481,19 @@ function renderDetail(n){
       return '<div class="facet"><div class="ft">'+esc(x[0])+'</div><div class="cloud" style="gap:6px">'
         +((x[1]||[]).length? x[1].map(function(w){return '<span class="kw">'+esc(w)+'</span>'}).join(' ') : '—')+'</div></div>';
     }).join('');
-  body += sec('🎨 产品视觉 / 包装调研','2.4 / 全球选品 1.2',
-    '颜色、材质、瓶型、风格 —— 从评论词云反推「用户眼里这个包装是什么样、哪里被夸哪里被骂」。这一节只做文字侧（评价侧）的证据。',
-    '<div class="facets">'+vis+'</div>',
-    '<b>缺口：</b>无商品实拍图，包装视觉结论需补图后复核。', 'visual');
 
-  /* 竞品分析2 口径的产品档案 */
-  var perG = (p.price&&p.core['规格']&&p.core['规格'].length)? '' : '';
+  /* 产品档案：把身份、属性、货架和视觉证据收到一个板块 */
   var c2 = [
     ['品名', esc(p.title)],
     ['图片', p.cover? '<img src="'+p.cover+'" style="max-width:150px;border-radius:8px;border:1px solid var(--line)">' : '<span class="sub">暂无商品主图，已使用关联视频封面</span>'],
-    ['渠道', (p.channel||[]).map(function(x){return esc(x.name||x.n||'')+(x.rate?' '+esc(x.rate):'')}).join('　')||'—'],
+    ['品牌 / 店铺', esc(cleanText(p.brand))+' / '+esc(cleanText(p.shop))],
+    ['类目层级', esc(taxonomy(p))],
+    ['榜单 / 统计周期', esc(p.rankPeriod||'—')+' · TOP'+esc(p.rank||'—')+' / 类目第 '+esc(p.rankNo||'—')+' 名'],
+    ['上架 / 更新', esc(p.onSale||'—')+' / '+esc(p.upd||'—')],
+    ['渠道结构', (p.channel||[]).map(function(x){return esc(x.name||x.n||'')+(x.gmv?' '+esc(x.gmv):'')+(x.pct?' · '+esc(x.pct):'')+(x.rate?' · '+esc(x.rate):'')}).join('<br>')||'—'],
+    ['经营形态', (p.selltype||[]).map(function(x){return esc(x.name||x.n||'')+(x.gmv?' '+esc(x.gmv):'')+(x.pct?' · '+esc(x.pct):'')+(x.rate?' · '+esc(x.rate):'')}).join('<br>')||'—'],
     ['配赠', esc(p.gift)],
+    ['属性 tab 原文', esc(p.attr||'—')],
     ['产品宣称 · 功能', esc(p.sell['功能'])],
     ['一句话卖点', '<b>'+esc(p.sell['一句话卖点'])+'</b>'],
     ['产品宣称 · 主打技术', esc(p.sell['主打技术'])],
@@ -504,16 +501,15 @@ function renderDetail(n){
     ['产品宣称 · 香味', esc(p.sell['香味'])],
     ['产品宣称 · 背书', esc(p.sell['背书'])],
     ['备案成分', esc(p.sell['备案成分'])],
-    ['好评', (p.goodCmt||[]).length? p.goodCmt.slice(0,4).map(function(t){return '<div class="quote">'+esc(t)+'</div>'}).join('') : ((p.core['感受体验']||[]).slice(0,10).map(function(w){return '<span class="kw good">'+esc(w)+'</span>'}).join(' ') || '<span class="sub">无</span>')],
-    ['差评 / 顾虑', (p.badCmt||[]).length? p.badCmt.slice(0,10).map(function(w){return '<span class="kw bad">'+esc(w)+'</span>'}).join(' ') : '<span class="sub">无</span>'],
-    ['差评率', p.badRate!=null? '<b>'+p.badRate+'%</b>（'+p.nReviews+' 条评价，中评 '+p.midRate+'%）' : '<span class="sub">当前数据未返回评价极性</span>'],
-    ['品牌 / 工厂', esc(p.factory)+'　<span class="sub">店铺评分 '+esc(p.shopScore)+'</span>']
+    ['品牌 / 工厂线索', esc(p.factory)+'　<span class="sub">店铺评分 '+esc(p.shopScore)+'</span>']
   ].map(function(x){return '<tr><td style="width:130px"><b>'+x[0]+'</b></td><td>'+x[1]+'</td></tr>'}).join('');
-  body += sec('📋 产品档案','产品信息 / 卖点 / 评论',
-    '集中展示产品身份、渠道、赠品与产品宣称原文；销量、价格、规格、消费人群和用户痛点分别在「速览」「货架策略」「产品核心要素」中展示，避免重复但不丢字段。'
-    +'拿不到的字段如实标注缺口，<b>不编数据</b>。',
-    '<table>'+c2+'</table>',
-    '', 'cmp2');
+  var secArchive = sec('📋 产品档案','身份 · 产品宣称 · 货架 · 包装',
+    '先说清「它是什么、怎么卖、怎么包装」。原「货架策略」与「产品视觉/包装」已合并进来，不再重复成独立大板块；拿不到的字段如实标注，<b>不编数据</b>。',
+    '<h3 style="margin:0 0 10px">基础产品档案</h3><table>'+c2+'</table>'
+    +'<h3 style="margin:22px 0 10px">货架与定价策略</h3><table>'+sh+'</table>'
+    +'<div class="srcline" style="margin-top:10px">价格＝佣金金额÷佣金率推算；规格/活动词来自链接标题与属性原文；货架定位按价格带与佣金率判定。</div>'
+    +'<h3 style="margin:22px 0 10px">视觉与包装证据</h3><div class="facets">'+vis+'</div>',
+    '包装文字证据来自属性与评价分类词云；无商品实拍图时，视觉结论仍需补图复核。', 'cmp2');
 
   /* 受众画像 */
   var auBox = p.audienceDetail.length? p.audienceDetail.map(function(d){
@@ -524,7 +520,7 @@ function renderDetail(n){
         +'<span style="display:inline-block;height:9px;border-radius:5px;background:#4f46e5;width:'+(mx?Math.max(2,v/mx*150):2)+'px;vertical-align:middle"></span>'
         +' <span style="font-size:11.5px;color:#6b7a90">'+esc(x.r)+'　TGI '+(x.tgi==null?'—':x.tgi)+'</span></div>'}).join('')+'</div></div>';
   }).join('') : '<div class="warnbox">该链接未返回受众画像</div>';
-  body += sec('👥 主要消费人群（受众画像）','4.1 / 竞品分析「消费人群」',
+  var secAudience = sec('👥 受众画像','谁在买',
     '谁在买：性别、年龄、地域、兴趣偏好、消费层级。这一节就是卡片上「主要消费人群」的完整版。',
     auBox, '', 'aud');
 
@@ -543,7 +539,7 @@ function renderDetail(n){
       }).join('')
       : '<div class="sub">该链接未返回评价原文，上方好评词 / 差评词取自评价词云。</div>')
     +'</div>';
-  body += sec('🗣️ 商品评价（好评 / 差评 / 差评率）','竞品分析「评论」',
+  var secReviews = sec('🗣️ 商品评价（好评 / 差评 / 差评率）','用户真实声音',
     '差评率＝该链接'+esc(M.range)+'评价里「差评 ÷ 全部」；好评词与差评词取自评价词云的「感受体验 / 功效 / 痛点问题」分类。',
     revBox, '', 'rev');
 
@@ -554,12 +550,13 @@ function renderDetail(n){
     +'<b>优先</b>中腰部创作者（1 万–50 万粉）。该链接近 30 天共 <b>'+p.videosTotal+'</b> 条带货视频，'
     +'下面按预估销售额取 <b>'+p.viral.length+'</b> 条做拆解，点任意一条展开「5 段创作流」拆解。</div>'
     +'<div class="vlist">'+p.viral.map(videoHTML).join('')+'</div>';
-  body += sec('🔥 爆款视频拆解 · TOP'+p.viral.length+'','3.2（重点）',
+  var secViral = sec('🔥 爆款视频拆解 · TOP'+p.viral.length+'','创意与转化路径',
     '每条视频按 <b>Input 层 → 框架层（0-3 秒钩子 / 3-10 秒核心利益点 / 10-15 秒转化强化 / 15 秒后信任背书）</b> 拆，'
     +'并给出「框架类型 / 打什么痛点 / 框架拆解（段落序列）」这三行可直接抄作业的结论。',
     viralBody, '', 'viral');
 
   /* 该链接全部带货视频的内容总结：反复提及词云 + 分类 */
+  var secSummary = '';
   if(p.vsummary && p.vsummary.n){
     var g = p.vsummary, mx = 0;
     g.cloud.forEach(function(w){ mx = Math.max(mx, w.c); });
@@ -579,10 +576,17 @@ function renderDetail(n){
           +(x.egs.length? x.egs.map(function(e){return '“'+esc(e)+'”'}).join('<br>') : '—')+'</td></tr>';
         }).join('')
       +'</table>';
-    body += sec('📊 这些视频在反复讲什么（内容总结）','','', sumBody, '', 'vsum');
+    if(p.wordcloud.length){
+      sumBody += '<h3 style="margin:22px 0 10px">全量视频内容词云</h3><div class="sub" style="margin-bottom:8px">来自该商品关联带货视频的高频词，用于对照上方的内容主题归类。</div>'+cloudHTML(p.wordcloud);
+    }
+    secSummary = sec('📊 视频内容总结','','反复讲什么、用什么话术、哪些内容最集中。', sumBody, '', 'vsum');
+  }else if(p.wordcloud.length){
+    secSummary = sec('📊 视频内容总结','','当前未返回分类总结，保留全量视频词云作为原始证据。',
+      cloudHTML(p.wordcloud), '', 'vsum');
   }
 
   /* 带货达人 */
+  var secCreators = '';
   if(p.bloggers.length){
     var bt = p.bloggers.map(function(b,i){
       return '<tr><td>'+i+'</td><td><b>'+esc(b.n)+'</b> <span style="color:#9aa7b8">'+esc(b.lvl||'')+'</span></td>'
@@ -593,25 +597,21 @@ function renderDetail(n){
       +p.conc.map(function(x,i){return '<tr><td>'+(i+1)+'</td><td>'+esc(x.name)+'</td><td>'+esc(x.gmv)+'</td><td class="num">'+esc(x.rate)+'</td></tr>'}).join('')+'</table>' : '';
     var types = p.btypes.length? '<table style="margin-top:12px"><tr><th>达人层级</th><th>达人数</th><th>占比</th><th>带货销售额</th></tr>'
       +p.btypes.map(function(x){return '<tr><td>'+esc(x.type)+'</td><td class="num">'+esc(x.cnt)+'</td><td class="num">'+esc(x.ratio)+'</td><td class="num">'+esc(x.gmv)+'</td></tr>'}).join('')+'</table>' : '';
-    body += sec('👤 谁在给这个链接带货','3.1 TOP玩家筛选',
+    secCreators = sec('👤 达人与渠道打法','谁在卖 · 如何放大',
       '近 30 天该链接的带货达人（按带货销售额），以及集中度与层级结构 —— 判断是被少数号撑起来还是广撒网。',
       '<table><tr><th>#</th><th>达人</th><th>粉丝</th><th>认证</th><th>带货销售额</th><th>销量</th><th>视频</th><th>直播</th><th>主页</th></tr>'+bt+'</table>'+conc+types,
       '', 'tal');
   }
 
-  /* 内容词云 */
-  if(p.wordcloud.length){
-    body += sec('💬 这个链接的视频在说什么（内容词云）','','来自该链接关联带货视频的高频词 —— 直接是可抄的话术素材。',
-      cloudHTML(p.wordcloud), '');
-  }
-
   /* 同品牌其它链接 */
   var same = P.filter(function(x){return x.gid!==p.gid && (x.brand===p.brand||x.shop===p.shop)});
+  var secRelated = '';
   if(same.length){
-    body += sec('🔗 同品牌 / 同店铺的其它链接','','', '<div style="font-size:12.5px">'
+    secRelated = sec('🔗 同品牌 / 同店铺的其它商品','附录','','<div style="font-size:12.5px">'
       +same.map(function(x){return '<a href="#/p/'+x.i+'">'+esc(x.title.slice(0,34))+'</a>'}).join('　·　')+'</div>');
   }
 
+  body += secQuick + secArchive + secAudience + secReviews + secViral + secSummary + secCreators + secCore + secRelated;
   body = body.replace('__SECN__', body.split('<details class="sec"').length - 1);   /* 板块总数 */
   document.getElementById('app').innerHTML = body
     +'<div class="footnote"><b>数据边界</b>：销售额/销量只给档位（100w+ / 2500-5000）；价格由佣金反推；'
@@ -685,7 +685,13 @@ function renderMethod(){
 /* ---------------- 已选商品横向对比 ---------------- */
 function cmpVal(v){
   if(v===null||v===undefined||v==='') return '<span class="cmp-muted">—</span>';
-  if(Array.isArray(v)) return v.length?'<div class="cmp-tags">'+v.map(function(x){return '<span class="kw">'+esc(typeof x==='object'?(x.k||x.n||JSON.stringify(x)):x)+'</span>'}).join('')+'</div>':'<span class="cmp-muted">—</span>';
+  if(Array.isArray(v)) return v.length?'<div class="cmp-tags">'+v.map(function(x){
+    if(typeof x!=='object') return '<span class="kw">'+esc(x)+'</span>';
+    var label=x.k||x.n||x.name||'';
+    if(x.gmv) label+=' '+x.gmv;
+    if(x.pct||x.rate||x.r) label+=' · '+(x.pct||x.rate||x.r);
+    return '<span class="kw">'+esc(label||JSON.stringify(x))+'</span>';
+  }).join('')+'</div>':'<span class="cmp-muted">—</span>';
   if(typeof v==='object') return '<pre class="cmp-cell">'+esc(JSON.stringify(v,null,2))+'</pre>';
   return '<div class="cmp-cell">'+esc(v)+'</div>';
 }
@@ -724,7 +730,7 @@ function renderSelectedCompare(gids){
   var ids=(gids||[]).map(function(x){return decodeURIComponent(x)}), products=ids.map(function(id){return P.filter(function(p){return p.gid===id})[0]}).filter(Boolean).slice(0,5);
   if(products.length<2){location.hash='#/';return;}
   head('wall'); ensureSelectionTray(); document.getElementById('selectionTray').classList.remove('show');
-  var base=[['商品图 / 标题',function(p){return cmpProductHead(p)}],['商品 ID',function(p){return cmpVal(p.gid)}],['品牌 / 店铺',function(p){return cmpVal(cleanText(p.brand)+' / '+cleanText(p.shop))}],['国家 / 平台 / 类目',function(p){return cmpVal('中国 · '+uiSource()+' · '+taxonomy(p))}],['商品链接',function(p){return p.link?'<a href="'+esc(p.link)+'" target="_blank" rel="noopener">打开商品原页 ↗</a>':'—'}]];
+  var base=[['商品 ID',function(p){return cmpVal(p.gid)}],['品牌 / 店铺',function(p){return cmpVal(cleanText(p.brand)+' / '+cleanText(p.shop))}],['国家 / 平台 / 类目',function(p){return cmpVal('中国 · '+uiSource()+' · '+taxonomy(p))}],['商品链接',function(p){return p.link?'<a href="'+esc(p.link)+'" target="_blank" rel="noopener">打开商品原页 ↗</a>':'—'}]];
   var sales=[
     ['榜单排名 / 周期',function(p){return cmpVal((p.rankPeriod||'—')+' · TOP'+(p.rank||'—')+' / 类目第 '+(p.rankNo||'—'))}],
     ['销售额',function(p){return cmpVal(p.sales)}],
@@ -739,10 +745,21 @@ function renderSelectedCompare(gids){
   ];
   var core=Object.keys(pCoreForCompare(products)).map(function(k){return [k,function(p){return cmpVal(p.core&&p.core[k])}]});
   core.push(['一句话卖点',function(p){return cmpVal(p.sellingPoint)}]);
-  var archive=[['渠道结构',function(p){return cmpVal(p.channel)}],['经营形态',function(p){return cmpVal(p.selltype)}],['配赠',function(p){return cmpVal(p.gift)}],['工厂 / 品牌线索',function(p){return cmpVal(p.factory)}],['属性 tab 原文',function(p){return cmpVal(p.attr)}],['产品宣称 · 功能',function(p){return cmpVal(p.sell&&p.sell['功能'])}],['产品宣称 · 主打技术 / 工艺',function(p){return cmpVal(p.sell&&p.sell['主打技术'])}],['产品宣称 · 主打成分',function(p){return cmpVal(p.sell&&p.sell['主打成分'])}],['产品宣称 · 香味 / 气味',function(p){return cmpVal(p.sell&&p.sell['香味'])}],['产品宣称 · 背书',function(p){return cmpVal(p.sell&&p.sell['背书'])}],['备案成分',function(p){return cmpVal(p.sell&&p.sell['备案成分'])}],['评价分类词云',function(p){return '<div class="cmp-stack">'+Object.keys(p.cats||{}).map(function(k){return '<div><b>'+esc(k)+'</b> '+cmpTags(cmpStrings(p.cats[k]))+'</div>'}).join('')+'</div>'}]];
+  var archive=[['渠道结构',function(p){return cmpVal(p.channel)}],['经营形态',function(p){return cmpVal(p.selltype)}],['配赠',function(p){return cmpVal(p.gift)}],['工厂 / 品牌线索',function(p){return cmpVal(p.factory)}],['属性 tab 原文',function(p){return cmpVal(p.attr)}],['产品宣称 · 功能',function(p){return cmpVal(p.sell&&p.sell['功能'])}],['产品宣称 · 主打技术 / 工艺',function(p){return cmpVal(p.sell&&p.sell['主打技术'])}],['产品宣称 · 主打成分',function(p){return cmpVal(p.sell&&p.sell['主打成分'])}],['产品宣称 · 香味 / 气味',function(p){return cmpVal(p.sell&&p.sell['香味'])}],['产品宣称 · 背书',function(p){return cmpVal(p.sell&&p.sell['背书'])}],['备案成分',function(p){return cmpVal(p.sell&&p.sell['备案成分'])}]];
+  var productArchive=base.concat(sales).concat(archive);
   var audience=[['一句话人群摘要',function(p){return cmpVal(p.audienceLine)}],['性别 / 年龄 / 地域明细',function(p){return cmpAudience(p)}]];
-  var content=[['关联视频 / 直播 / 达人',function(p){return cmpVal(p.nV+' / '+p.nL+' / '+p.nT)}],['用户评价与原文（完整）',function(p){return cmpReviews(p)}],['爆款视频逐条拆解（完整样本）',function(p){return cmpVideos(p)}],['内容总结与代表原句',function(p){return cmpContent(p)}],['达人结构与关联主页',function(p){return cmpCreators(p)}],['视频内容词云',function(p){return cmpWordcloud(p)}]];
-  document.getElementById('app').innerHTML='<div class="compare-page"><div class="compare-head"><div><h1>多商品对比分析</h1><p>已选 '+products.length+' 个商品 · 统一展开商品档案、评价原文、视频拆解、内容总结、达人结构与词云</p></div><a class="btn" href="#/">← 返回商品货架</a></div>'+cmpGroup('01','基础档案','确认同一国家、平台、类目与具体商品链接。',products,base)+cmpGroup('02','销售与货架表现','按同一统计周期查看销售、销量、价格、上架和口碑。',products,sales)+cmpGroup('03','产品核心要素','逐项对齐原调研页中的内料、功效、成分、肤感、规格、人群、场景与痛点。',products,core)+cmpGroup('04','完整产品档案','保留渠道、经营形态、卖点七项、评价分类词云和来源原文。',products,archive)+cmpGroup('05','用户画像','把每个商品的画像摘要和明细放在同一行比较。',products,audience)+cmpGroup('06','评价、视频、内容与达人','完整证据只做折叠，不做摘要替代；每个单元格都能继续展开查看。',products,content)+'</div>';
+  var reviews=[['用户评价与原文（完整）',function(p){return cmpReviews(p)}],['评价分类词云（16 类）',function(p){return '<div class="cmp-stack">'+Object.keys(p.cats||{}).map(function(k){return '<div><b>'+esc(k)+'</b> '+cmpTags(cmpStrings(p.cats[k]))+'</div>'}).join('')+'</div>'}]];
+  var videos=[['爆款视频逐条拆解（完整样本）',function(p){return cmpVideos(p)}]];
+  var summary=[['内容总结与代表原句',function(p){return cmpContent(p)}],['视频内容词云',function(p){return cmpWordcloud(p)}]];
+  var creators=[['关联视频 / 直播 / 达人',function(p){return cmpVal(p.nV+' / '+p.nL+' / '+p.nT)}],['达人结构与关联主页',function(p){return cmpCreators(p)}]];
+  document.getElementById('app').innerHTML='<div class="compare-page"><div class="compare-head"><div><h1>多商品对比分析</h1><p>已选 '+products.length+' 个商品 · 从商品事实到市场证据，再收束为产品结论</p></div><a class="btn" href="#/">← 返回商品货架</a></div>'
+    +cmpGroup('01','产品档案','身份、榜单、销售、定价、货架、渠道、宣称与属性原文一次对齐。',products,productArchive)
+    +cmpGroup('02','受众画像','先对比谁在买，包括人群摘要与性别、年龄、地域等明细。',products,audience)
+    +cmpGroup('03','商品评价','对齐好评、差评、评价原文和 16 类评价词云。',products,reviews)
+    +cmpGroup('04','爆款视频拆解','保留每个商品的逐条视频拆解，可继续展开看原文。',products,videos)
+    +cmpGroup('05','视频内容总结','对比各商品反复讲什么、代表原句和全量内容词云。',products,summary)
+    +cmpGroup('06','达人与渠道打法','对比内容供给量、达人集中度、达人层级和关联主页。',products,creators)
+    +cmpGroup('07','产品核心要素','把前面的商品、用户、内容与渠道证据收束为研发可用的结构化结论。',products,core)+'</div>';
   window.scrollTo(0,0);
 }
 function pCoreForCompare(products){
@@ -761,7 +778,7 @@ function route(){
   else if(h.indexOf('#/method')===0){ renderMethod(); }
   else if(m){ renderDetail(parseInt(m[1],10)); }
   else { renderWall(); }
-  if(/#(quick|core|shelf|visual|cmp2|aud|rev|viral|vsum|tal)$/.test(h)){
+  if(/#(quick|cmp2|aud|rev|viral|vsum|tal|core)$/.test(h)){
     var id=h.split('#').pop();
     var el=document.getElementById(id);
     if(el){
