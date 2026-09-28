@@ -451,6 +451,7 @@
     .strategy-note { border-left-color: #0071e3; }
     .flow-step.on { background: #eaf3fe; color: #0071e3; }
   </style>
+<link rel="stylesheet" href="../voyager-ui.css">
 </head>
 <body>
   <script>if (window.parent !== window) document.documentElement.classList.add('embedded-shell');</script>
@@ -670,7 +671,7 @@
     const DATA_FILES = { xhs: 'xhs_comments_clean.json', xhsPosts: 'xhs_posts_raw.json', tb: 'tb_rates_all.json', negative: 'tb_rates_negative.json', demands: 'tb_rates_demands.json' };
     const currentDatasetKey = new URLSearchParams(location.search).get('category') === 'face' ? 'face' : 'eye';
     const activeDataset = DATASETS[currentDatasetKey];
-    const CLUSTER_PROMPT_VERSION = 'v2-product-need';
+    const CLUSTER_PROMPT_VERSION = 'v3-product-need-source-aware';
     const SLOT_IDS = ['cluster_1', 'cluster_2', 'cluster_3', 'cluster_4', 'cluster_5', 'cluster_6'];
     const RADAR_SNAPSHOT_KEY = 'voyager-opportunity-radar-snapshot-' + currentDatasetKey;
     const AI_API_BASE = 'http://127.0.0.1:4179';
@@ -691,6 +692,31 @@
       if (hit) return hit[1];
       const shortParts = title.split(/[与和的：:，,、/]/).map(part => part.trim()).filter(part => part.length >= 2);
       return shortParts.slice(0, 2).join('/') || '待分析';
+    }
+
+    // 旧缓存曾经把 promptVersion 标成 v2，但实际上没有写入 product_need。
+    // 这里做向后兼容，避免 API 暂不可用时页面又退回只展示症状。
+    function inferredProductNeed(cluster) {
+      const existing = String(cluster && cluster.product_need || '').trim();
+      if (existing) return existing;
+      const category = currentDatasetKey === 'face' ? '洁面产品' : '眼周护理产品';
+      const userNeed = String(cluster && cluster.user_need || '').trim();
+      const actualNeed = String(cluster && cluster.actual_need || '').trim();
+      const source = userNeed || actualNeed;
+      if (!source) return `希望有一款${category}，能在当前场景下减少用户的选择和使用试错。`;
+      if (/^希望有一款|^希望有一种/.test(source)) return source;
+      if (/^需要一款|^需要一种/.test(source)) return '希望有' + source.slice(2);
+      return `希望有一款${category}，能够${source.replace(/^用户(希望|需要)/, '')}`;
+    }
+
+    function normalizeAnalysisResult(result) {
+      if (!result || !Array.isArray(result.clusters)) return result;
+      return Object.assign({}, result, {
+        clusters: result.clusters.map(cluster => Object.assign({}, cluster, {
+          product_need: inferredProductNeed(cluster),
+          analytics: Object.assign({ total: 0, xhs: 0, tb: 0, pain: 0, products: 0 }, cluster.analytics || {})
+        }))
+      });
     }
 
     async function callOpportunityApi(path, payload, base = AI_API_BASE) {
@@ -720,10 +746,11 @@
         id: SLOT_IDS[index],
         modelId: cluster.id || SLOT_IDS[index],
         keyword: cluster.keyword || keywordFromCluster(cluster),
-        title: cluster.product_need || cluster.title || '未命名需求机会',
+        title: cluster.title || cluster.product_need || '未命名需求机会',
         confidence: '语义聚类置信度：' + (cluster.confidence || '待判断'),
-        actualNeed: cluster.product_need || cluster.actual_need || cluster.user_need || '模型正在整理用户希望出现的产品解决方案。',
-        summary: cluster.product_need || cluster.actual_need || cluster.user_need || '模型正在整理真实产品需求。',
+        productNeed: cluster.product_need || inferredProductNeed(cluster),
+        actualNeed: cluster.actual_need || cluster.user_need || '模型正在整理用户希望出现的产品解决方案。',
+        summary: cluster.product_need || inferredProductNeed(cluster),
         painPoint: cluster.title || cluster.keyword || '待提炼痛点',
         tmall: asNumber(a.tb) + ' 条淘宝/天猫相关信号',
         xhs: asNumber(a.xhs) + ' 条小红书相关信号',
@@ -840,17 +867,23 @@
       let result;
       try {
         const reuseSnapshot = snapshot?.promptVersion === CLUSTER_PROMPT_VERSION && snapshot?.clustering?.clusters?.length;
-        result = reuseSnapshot ? snapshot.clustering : await callOpportunityApi('/api/opportunity/cluster', { provider: 'deepseek', stage: '需求聚类', data });
+        result = reuseSnapshot ? snapshot.clustering : await callOpportunityApi('/api/opportunity/cluster', {
+          provider: 'deepseek',
+          stage: '需求聚类',
+          dataset: { key: currentDatasetKey, label: activeDataset.label, promptVersion: CLUSTER_PROMPT_VERSION },
+          data
+        });
       } catch (error) {
         if (!cachedResult || !Array.isArray(cachedResult.clusters) || !cachedResult.clusters.length) throw error;
-        result = cachedResult;
-        $('#scanStatus').textContent = '已载入上次 DeepSeek 分析 · 原始数据已导入';
+        result = normalizeAnalysisResult(cachedResult);
+        $('#scanStatus').textContent = `已载入本地${activeDataset.label}分析缓存 · 实时模型未连接`;
       }
+      result = normalizeAnalysisResult(result);
       analysisState.clustering = result;
       applyClusterView(result.clusters || [], snapshot);
       $('#signalPoolCount').textContent = (data.xhs.length + data.xhsPosts.length + data.tb.length).toLocaleString();
       if (snapshot?.promptVersion === CLUSTER_PROMPT_VERSION && snapshot?.savedAt) $('#scanStatus').textContent = `已恢复上次分析结果 · ${data.xhs.length} 条评论 + ${data.xhsPosts.length} 条帖子 + ${data.tb.length} 条淘宝/天猫`;
-      else if (!cachedResult || result !== cachedResult) $('#scanStatus').textContent = `第一层 DeepSeek 分析完成 · ${data.xhs.length} 条评论 + ${data.xhsPosts.length} 条帖子 + ${data.tb.length} 条淘宝/天猫`;
+      else if (!cachedResult || result !== cachedResult) $('#scanStatus').textContent = `第一层模型分析完成 · ${activeDataset.label} · ${data.xhs.length} 条评论 + ${data.xhsPosts.length} 条帖子 + ${data.tb.length} 条淘宝/天猫`;
     }
 
     async function loadRealOpportunityData(showToast = false, force = false) {
@@ -977,7 +1010,7 @@
     function renderRadarConceptPlan(c) {
       $('#inlineRoute').textContent = c.route || '模型已完成语义聚类';
       $('#inlineInference').textContent = c.actualNeed || c.summary || '第一层模型正在整理真实用户需求。';
-      $('#radarConceptPlan').innerHTML = `<article class="inline-concept primary"><small>实际需求</small><strong>${esc(c.actualNeed || c.summary)}</strong><span>关联信号 ${c.analytics.total} 条 · 点击“进入机会校准”查看证据与反证。</span></article>`;
+      $('#radarConceptPlan').innerHTML = `<article class="inline-concept primary"><small>产品需求机会</small><strong>${esc(c.productNeed || c.summary)}</strong><span>关联信号 ${c.analytics.total} 条 · 点击“进入机会校准”查看证据与反证。</span></article>`;
     }
 
     function renderAnalytics(c) {
@@ -1070,10 +1103,30 @@
         saveRadarSnapshot();
       } catch (error) {
         console.error('机会判断服务调用失败', error);
-        const missingConfig = error instanceof Error && error.message.includes('DeepSeek API');
-        $('#trialState').textContent = missingConfig ? '待配置 DeepSeek 中转' : '等待数据恢复';
-        $('#trialInference').textContent = missingConfig ? '第一层原始数据已就绪，配置 DeepSeek 中转后即可继续机会校准。' : '当前数据暂时不可用，恢复后可继续判断。';
-        toast(missingConfig ? '数据已导入，配置 DeepSeek 中转后开始校准' : '机会判断暂时不可用，请稍后重试');
+        const cached = analysisState.clustering && analysisState.clustering.firstJudgement;
+        const cachedMatches = cached && (!cached.clusterId || cached.clusterId === c.modelId || cached.clusterId === c.cluster?.id);
+        if (cachedMatches) {
+          c.trial = {
+            core: cached.core_question || '',
+            support: cached.support || [],
+            counter: cached.counter || [],
+            inference: cached.inference || '',
+            gates: (cached.gates || []).map(g => [g.question || '', g.answer || '', g.status || '待验证']),
+            verdict: cached.verdict || '先补证据',
+            verdictText: cached.verdict_text || '',
+            nextExperiment: cached.next_experiment || ''
+          };
+          c.concepts = cached.concepts || [];
+          renderTrial(id);
+          saveRadarSnapshot();
+          $('#trialState').textContent = '已载入本地校准缓存 · API 待配置';
+          toast('实时判断服务未连接，已载入该机会的本地校准结果');
+        } else {
+          const missingConfig = error instanceof Error && (error.message.includes('DeepSeek API') || error.message.includes('Failed to fetch') || error.message.includes('NetworkError'));
+          $('#trialState').textContent = missingConfig ? '待配置 DeepSeek 中转' : '等待数据恢复';
+          $('#trialInference').textContent = missingConfig ? '第一层原始数据已就绪；当前服务未连接，配置文本模型中转后即可继续机会校准。' : '当前数据暂时不可用，恢复后可继续判断。';
+          toast(missingConfig ? '已保留本地分析，配置文本模型中转后可实时校准' : '机会判断暂时不可用，请稍后重试');
+        }
       } finally {
         c.judging = false;
       }

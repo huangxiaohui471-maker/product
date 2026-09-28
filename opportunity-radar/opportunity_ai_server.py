@@ -6,8 +6,8 @@ server-side and makes exactly one model call for each analysis stage:
   POST /api/opportunity/cluster -> semantic demand discovery
   POST /api/opportunity/judge   -> investment decision for one opportunity
 
-Run with a DeepSeek-compatible relay (the browser never receives the key):
-  OPPORTUNITY_RELAY_BASE_URL=https://your-relay.example/v1 \
+Run with the official DeepSeek API (the browser never receives the key):
+  DEEPSEEK_BASE_URL=https://api.deepseek.com/v1 \
   DEEPSEEK_API_KEY=... DEEPSEEK_MODEL=deepseek-chat \
   python3 opportunity-radar/opportunity_ai_server.py
 
@@ -32,13 +32,9 @@ PORT = int(os.getenv("OPPORTUNITY_AI_PORT", "4179"))
 PROVIDER = "deepseek"
 API_KEY = (
     os.getenv("DEEPSEEK_API_KEY", "").strip()
-    or os.getenv("OPPORTUNITY_RELAY_API_KEY", "").strip()
-    or os.getenv("OPENAI_API_KEY", "").strip()
 )
 BASE_URL = (
-    os.getenv("OPPORTUNITY_RELAY_BASE_URL", "").strip()
-    or os.getenv("DEEPSEEK_BASE_URL", "").strip()
-    or os.getenv("OPENAI_BASE_URL", "").strip()
+    os.getenv("DEEPSEEK_BASE_URL", "").strip()
     or "https://api.deepseek.com/v1"
 ).rstrip("/")
 MODEL = (
@@ -224,7 +220,7 @@ def schema_outline(schema: dict[str, Any]) -> Any:
 
 def call_model(system_prompt: str, user_prompt: str, schema_name: str, schema: dict[str, Any]) -> dict[str, Any]:
     if not API_KEY:
-        raise RuntimeError("未配置 DeepSeek API 密钥。请通过 DEEPSEEK_API_KEY 或中转站环境变量提供。")
+        raise RuntimeError("未配置 DeepSeek API 密钥。请通过 DEEPSEEK_API_KEY 提供。")
     contract = json.dumps(schema_outline(schema), ensure_ascii=False)
     system = (
         system_prompt
@@ -267,10 +263,10 @@ def call_model(system_prompt: str, user_prompt: str, schema_name: str, schema: d
     except HTTPError as error:
         error.read()
         if error.code in (401, 403):
-            raise RuntimeError("DeepSeek 中转服务认证失败，请检查 API 密钥。") from error
-        raise RuntimeError(f"AI 服务暂时不可用（HTTP {error.code}）。") from error
+            raise RuntimeError("DeepSeek 官方 API 认证失败，请检查 DEEPSEEK_API_KEY。") from error
+        raise RuntimeError(f"DeepSeek 官方 API 暂时不可用（HTTP {error.code}）。") from error
     except URLError as error:
-        raise RuntimeError(f"无法连接 DeepSeek 中转服务：{error.reason}") from error
+        raise RuntimeError(f"无法连接 DeepSeek 官方 API：{error.reason}") from error
     text = response_text(result)
     if not text:
         raise RuntimeError("模型没有返回结构化结果。")
@@ -347,7 +343,18 @@ def compact_records(data: dict[str, Any]) -> list[dict[str, str]]:
 
 def cluster_prompt(data: dict[str, Any]) -> str:
     records = compact_records(data)
-    return json.dumps({"任务": "从以下真实的小红书帖子/评论与淘宝/天猫评论中做需求语义聚类", "记录数": len(records), "records": records}, ensure_ascii=False)
+    dataset = data.get("dataset") if isinstance(data.get("dataset"), dict) else {}
+    source_counts = {
+        "小红书": sum(1 for record in records if record["source"] in ("小红书评论", "小红书帖子")),
+        "淘宝/天猫": sum(1 for record in records if record["source"] in ("淘宝/天猫", "淘宝/天猫负面", "淘宝/天猫需求")),
+    }
+    return json.dumps({
+        "任务": "从以下真实的小红书帖子/评论与淘宝/天猫评论中做需求语义聚类",
+        "数据集": {"key": dataset.get("key", ""), "label": dataset.get("label", ""), "prompt_version": dataset.get("promptVersion", "")},
+        "记录数": len(records),
+        "来源记录数": source_counts,
+        "records": records,
+    }, ensure_ascii=False)
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -376,7 +383,7 @@ class Handler(BaseHTTPRequestHandler):
             body = self.read_json()
             if self.path == "/api/opportunity/cluster":
                 result = call_model(
-                    "你是严谨的消费者需求研究员。只能根据给定的小红书帖子/评论和淘宝/天猫评论判断，不得把关键词频次直接当成需求强度。请把相似表达按真实用户任务、使用场景、障碍和期望结果聚成 3 到 5 个需求机会；保留反证，不发明未出现的用户行为。每条证据必须引用给定 record_id。请严格区分以下字段：keyword 只写 2 到 8 个汉字的痛点标签，供雷达图使用，例如“脂肪粒/糊眼”；title 是面向产品决策的机会标题，不能只是“黑眼圈”“浮肿”“敏感”等症状；product_need 必须明确回答“用户希望有一款什么样的产品或服务来解决这个问题”，用“希望有一款……”或“希望有一种……”开头，描述用户期待的结果、使用体验和必要约束，但不能凭空捏造评论中没有出现的成分或功效；actual_need 要写用户真正想达成的结果和购买任务，而不是重复症状，15 到 40 字；user_need 用更短的一句话概括同一产品需求。不要把痛点标签直接当成产品需求，不要直接输出产品名称，不要把未经证实的功能当成结论。每条机会都要形成“问题证据 → 用户期望结果 → 产品需求机会”的链条。analytics.xhs 统计小红书帖子与评论，analytics.tb 统计淘宝/天猫记录。",
+                    "你是严谨的消费者需求研究员。只能根据给定的真实记录和数据集口径判断，不得把关键词频次直接当成需求强度。请把相似表达按真实用户任务、使用场景、障碍和期望结果聚成 3 到 5 个需求机会；保留反证，不发明未出现的用户行为。每条证据必须引用给定 record_id，并在 analytics 中按来源记录真实统计。请严格区分以下字段：keyword 只写 2 到 8 个汉字的痛点标签，供雷达图使用；title 是面向产品决策的机会标题，不能只是“黑眼圈”“浮肿”“敏感”等症状；product_need 必须明确回答“用户希望有一款什么样的产品或服务来解决这个问题”，用“希望有一款……”或“希望有一种……”开头，描述用户期待的结果、使用体验和必要约束，但不能凭空捏造评论中没有出现的成分或功效；actual_need 要写用户真正想达成的结果和购买任务，而不是重复症状，15 到 40 字；user_need 用更短的一句话概括同一产品需求。不要把痛点标签直接当成产品需求，不要直接输出产品名称，不要把未经证实的功能当成结论。每条机会都要形成“问题证据 → 用户期望结果 → 产品需求机会”的链条。当前数据集名称只用于区分品类，不得把其他品类的经验混入当前结论。analytics.xhs 统计小红书帖子与评论，analytics.tb 统计淘宝/天猫记录。",
                     cluster_prompt(body.get("data") or {}),
                     "opportunity_clusters",
                     CLUSTER_SCHEMA,
@@ -388,7 +395,7 @@ class Handler(BaseHTTPRequestHandler):
                 evidence = body.get("evidence") or {}
                 prompt = json.dumps({"机会": opportunity, "第一层证据": evidence}, ensure_ascii=False)
                 result = call_model(
-                    "你是产品投资评审与概念策略顾问。只能依据第一层已经识别的机会和证据做判断，不得把评论中的愿望直接当成购买意愿。请给出是否投入的结论，并生成可落地但仍需验证的产品概念。概念必须回应用户场景、使用障碍和现有解法缺口；明确风险、反证和最便宜的下一步。不要声称已经证明功效或市场规模。",
+                    "你是产品投资评审与概念策略顾问。只能依据第一层已经识别的机会、来源和证据做判断，不得重新发明机会，也不得把评论中的愿望直接当成购买意愿。请给出是否投入的结论，并生成 2 到 4 个可落地但仍需验证的产品概念。每个概念必须回应用户场景、使用障碍、价格或形态线索和现有解法缺口；明确风险、反证、未知项和最便宜的下一步。不要声称已经证明功效或市场规模。产品概念要能直接供产品实验舱继续生成产品 Demo，不要只给抽象口号。",
                     prompt,
                     "opportunity_judgement",
                     JUDGE_SCHEMA,

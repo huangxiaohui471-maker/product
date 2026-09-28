@@ -4,7 +4,61 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
-<title>全球选品平台 · 本地策略台整合版</title>
+<title>Voyager Atlas · 全球选品星图</title>
+<script>
+/* 可选实时分享层：带 ?sync=房间名 时启用；不带参数时完全保持原来的本地版行为。 */
+(function () {
+  function initSync() {
+  var params = new URLSearchParams(location.search), room = params.get('sync');
+  if (!room) return;
+  var role = params.get('role') === 'editor' ? 'editor' : 'viewer', applying = false, timer = null, lastRevision = 0;
+  /* 本地编辑端也直接写入 WorkBuddy 云端 atlas 房间。
+     云端部署版仍使用当前站点 origin；这样本地改数据和云端改数据走同一条通道。 */
+  var CLOUD_SYNC_ORIGIN = 'https://global-selection-atlas.app.workbuddy.host';
+  var isLocalHost = /^(127\.0\.0\.1|localhost)$/.test(location.hostname);
+  var base = isLocalHost ? CLOUD_SYNC_ORIGIN : location.origin, status;
+  /* 只同步主应用自己的 wb_ 数据键。
+     产品实验舱使用工作台内的独立 React 根节点，它的持久化键不进入顶层同步快照，
+     避免两个应用的状态保存互相触发刷新链。 */
+  function isSyncKey(k) { return String(k || '').indexOf('wb_') === 0; }
+  function snapshot() { var data = {}; for (var i = 0; i < localStorage.length; i++) { var k = localStorage.key(i); if (isSyncKey(k)) data[k] = localStorage.getItem(k); } return data; }
+  function same(a, b) { return JSON.stringify(a) === JSON.stringify(b); }
+  function setStatus(text, good) { if (!status) { status = document.createElement('div'); status.style.cssText = 'position:fixed;right:16px;top:12px;z-index:2147483647;padding:6px 10px;border-radius:999px;background:rgba(19,28,45,.88);color:#fff;font:12px/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.16);pointer-events:none'; document.body.appendChild(status); } status.textContent = (good ? '● ' : '○ ') + text; status.style.color = good ? '#b8f5c7' : '#ffd5a8'; }
+  /* 去抖：与上次实际应用过的内容完全一致（含自己发布后的回声）就不再覆盖。
+     实验舱启动后会把自己的持久化键改写一遍；如果每次都把云端值盖回去，
+     快照永远不一致，就会不停 reload（闪烁）。lastApplied 存 sessionStorage，
+     让它在 reload 之后仍然记得。 */
+  var lastAppliedJson = null; try { lastAppliedJson = sessionStorage.getItem('__wb_sync_applied'); } catch (_) {}
+  function apply(data, revision) {
+    data = data || {};
+    var incoming = JSON.stringify(data);
+    if (incoming === lastAppliedJson) { lastRevision = revision || lastRevision; return; }
+    lastAppliedJson = incoming;
+    try { sessionStorage.setItem('__wb_sync_applied', incoming); } catch (_) {}
+    var before = snapshot(); applying = true;
+    try {
+      Object.keys(data).forEach(function (k) { if (!isSyncKey(k)) return; if (localStorage.getItem(k) !== data[k]) localStorage.setItem(k, data[k]); });
+      Object.keys(before).forEach(function (k) {
+        /* 实验舱自己的键只写不删：云端没有它时不清掉本地值，交给实验舱自己管 */
+        if (k === 'eye-oil-experiment-lab-v2') return;
+        if (!Object.prototype.hasOwnProperty.call(data, k)) localStorage.removeItem(k);
+      });
+    } finally { applying = false; }
+    lastRevision = revision || lastRevision;
+    if (!same(before, snapshot())) setTimeout(function () { location.reload(); }, 80);
+  }
+  function publish() { if (role !== 'editor' || applying) return; clearTimeout(timer); timer = setTimeout(function () { fetch(base + '/api/state?room=' + encodeURIComponent(room), { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({data:snapshot()}) }).then(function (r) { if (!r.ok) throw new Error(); setStatus('实时同步中', true); }).catch(function () { setStatus('同步失败，请检查服务', false); }); }, 180); }
+  var originalSet = localStorage.setItem.bind(localStorage), originalRemove = localStorage.removeItem.bind(localStorage), originalClear = localStorage.clear.bind(localStorage);
+  localStorage.setItem = function (k, v) { originalSet(k, v); publish(); }; localStorage.removeItem = function (k) { originalRemove(k); publish(); }; localStorage.clear = function () { originalClear(); publish(); };
+  function consume(payload) { var state = typeof payload === 'string' ? JSON.parse(payload) : payload; if (!state || state.revision < lastRevision) return; if (state.revision) apply(state.data || {}, state.revision); setStatus(role === 'editor' ? '实时同步中' : '已连接 · 实时查看', true); }
+  fetch(base + '/api/state?room=' + encodeURIComponent(room)).then(function (r) { return r.json(); }).then(function (state) { if (state.revision) apply(state.data || {}, state.revision); else if (role === 'editor') publish(); });
+  var events = new EventSource(base + '/api/events?room=' + encodeURIComponent(room)); events.onmessage = function (e) { try { consume(e.data); } catch (_) {} }; events.onerror = function () { setStatus('连接中断，正在重连', false); };
+  setStatus(role === 'editor' ? '正在连接同步' : '正在连接查看', false);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initSync);
+  else initSync();
+})();
+</script>
 <!-- 本地只读整合副本：不会回写或覆盖原 WorkBuddy 页面 -->
 <style>
 .growth-radar-context{display:flex;align-items:center;gap:12px;padding:8px 4px;color:#26364d}.growth-radar-context .growth-radar-kicker{color:#0b887b}.growth-radar-context b{font-size:14px}.growth-radar-context small{color:var(--hint);font-size:11px}.growth-radar-source{padding:18px 20px;border:1px solid #dce9ee;border-radius:14px;background:linear-gradient(135deg,#f7fcfb,#f4f8ff)}.growth-radar-source-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.growth-radar-source-head h2{margin-top:7px;font-size:16px}.growth-radar-source-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}.growth-radar-source-grid>div{padding:12px;border:1px solid rgba(49,125,144,.14);border-radius:10px;background:rgba(255,255,255,.72)}.growth-radar-source-grid b{font-size:12px;color:#18354d}.growth-radar-source-grid p{margin:6px 0 0;color:#67788c;font-size:11px;line-height:1.55}.growth-radar-source-foot{margin-top:12px;color:#7a899b;font-size:10.5px;line-height:1.5}
@@ -30,6 +84,8 @@
   --sh-3:0 26px 60px -26px rgba(10,16,48,.62),0 2px 10px rgba(10,16,48,.12);
   --grad-hero:linear-gradient(142deg,#0B1124 0%,#141A3B 46%,#201540 100%);
   --side-w:212px;
+  --band-signal:#6E4BD1;--band-market:#0071E3;--band-formula:#0E7C6B;
+  --band-competitor:#D4537E;--band-decision:#B26A00;--band-lab:#6E4BD1;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;padding:0;overflow-x:hidden}
@@ -199,6 +255,55 @@ svg{display:block}
 .opportunity-empty b{display:block;margin-bottom:7px;font-size:14px}.opportunity-empty p{font-size:12px;color:var(--hint);line-height:1.7;margin-bottom:12px}
 .opportunity-note{margin-top:12px;padding:12px 14px;border-radius:10px;background:#f7f8fb;color:var(--hint);font-size:11px;line-height:1.7}
 .opportunity-radar-frame{display:block;width:100%;height:calc(100vh - 160px);min-height:760px;border:0;border-radius:12px;background:#fbfbf8}
+/* 机会发现入口：第一层只回答“从哪里开始”，详细证据进入路径后再展示 */
+.opportunity-discovery{display:grid;gap:16px;max-width:1180px;margin:0 auto 18px}
+.opportunity-discovery-hero{padding:20px 22px;border:1px solid #DDE3EC;border-radius:16px;background:#FBFCFE}
+.opportunity-discovery-hero .eyebrow{display:inline-flex;align-items:center;gap:7px;color:#536176;font-size:10px;letter-spacing:.08em}
+.opportunity-discovery-hero .eyebrow i{width:7px;height:7px;border-radius:50%;background:#0E8D82}
+.opportunity-discovery-hero h2{margin:8px 0 5px;font-size:21px;letter-spacing:-.02em}
+.opportunity-discovery-hero p{max-width:720px;color:var(--sub);font-size:12px;line-height:1.7}
+.opportunity-paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.opportunity-paths.single{grid-template-columns:minmax(0,1fr)}
+.opportunity-path-card{position:relative;display:flex;flex-direction:column;min-height:250px;padding:20px;border:1px solid var(--path-line);border-top:4px solid var(--path);border-radius:16px;background:var(--path-bg);box-shadow:var(--sh);overflow:hidden}
+.opportunity-path-card.demand{--path:#6E4BD1;--path-line:#DED5F5;--path-bg:#FBF9FF}
+.opportunity-path-card.market{--path:#0071E3;--path-line:#CFE2F8;--path-bg:#F7FBFF}
+.opportunity-path-kicker{display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--path);font-size:10px;font-weight:650;letter-spacing:.04em}
+.opportunity-path-kicker span:last-child{padding:4px 7px;border:1px solid var(--path-line);border-radius:999px;background:rgba(255,255,255,.72);font-size:9.5px;font-weight:500;letter-spacing:0;color:var(--sub)}
+.opportunity-path-card h3{margin:17px 0 7px;font-size:19px;letter-spacing:-.02em}
+.opportunity-path-card>p{max-width:430px;min-height:49px;color:var(--sub);font-size:11.5px;line-height:1.7}
+.opportunity-path-answer{margin-top:12px;padding:10px 11px;border-radius:10px;background:rgba(255,255,255,.72);color:var(--text);font-size:11px;line-height:1.55}
+.opportunity-path-answer b{display:block;margin-bottom:2px;color:var(--path);font-size:10px;font-weight:600}
+.opportunity-path-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:18px}
+.opportunity-path-footer small{color:var(--hint);font-size:10px}
+.opportunity-path-action{min-height:36px;padding:0 13px;border:1px solid var(--path);border-radius:9px;background:var(--path);color:#fff;font-size:11.5px;font-weight:600;white-space:nowrap}
+.opportunity-evidence-strip{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:18px;padding:15px 17px;border:1px solid #CFE2F8;border-radius:14px;background:#F7FBFF}
+.opportunity-evidence-strip .eyebrow{display:block;margin-bottom:5px;color:#1763A8;font-size:10px;font-weight:650;letter-spacing:.04em}
+.opportunity-evidence-strip h3{margin-bottom:4px;font-size:15px}.opportunity-evidence-strip p{max-width:680px;color:var(--sub);font-size:11px;line-height:1.6}
+.opportunity-evidence-metrics{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.opportunity-evidence-metrics span{display:grid;gap:2px;min-width:70px;padding:8px 10px;border:1px solid #DDEAF8;border-radius:9px;background:#fff;color:var(--hint);font-size:9.5px}.opportunity-evidence-metrics b{color:var(--text);font-size:16px}
+.opportunity-evidence-strip>button{min-height:36px;padding:0 13px;border:1px solid #0071E3;border-radius:9px;background:#0071E3;color:#fff;font-size:11.5px;font-weight:600;white-space:nowrap}
+.opportunity-convergence{display:flex;align-items:center;gap:14px;padding:13px 16px;border:1px solid #DDE3EC;border-radius:13px;background:#fff}
+.opportunity-convergence b{flex:none;font-size:11.5px}
+.opportunity-convergence p{color:var(--hint);font-size:10.5px;line-height:1.55}
+.opportunity-convergence-flow{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-left:auto;color:#536176;font-size:10px}
+.opportunity-convergence-flow span{padding:5px 8px;border-radius:7px;background:#F4F6F9}
+.opportunity-convergence-flow i{font-style:normal;color:#9AA5B4}
+.opportunity-route{display:grid;gap:12px;max-width:1180px;margin:0 auto 18px}
+.opportunity-route-head{display:flex;align-items:flex-start;gap:14px;padding:15px 17px;border:1px solid #DDE3EC;border-radius:14px;background:#FBFCFE}
+.opportunity-route-head button{flex:none;min-height:32px;padding:0 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--sub);font-size:11px}
+.opportunity-route-head .route-label{display:block;color:#536176;font-size:10px;margin-bottom:4px}
+.opportunity-route-head h2{font-size:18px;margin-bottom:4px}
+.opportunity-route-head p{color:var(--sub);font-size:11px;line-height:1.6}
+.opportunity-route-copy{min-width:0;flex:1}
+.opportunity-category-filter{display:flex;align-items:center;gap:7px;flex:none;padding:5px 8px 5px 10px;border:1px solid #DDE3EC;border-radius:999px;background:#fff;color:var(--hint);font-size:10.5px;white-space:nowrap}
+.opportunity-category-filter select{border:0;outline:0;background:transparent;color:var(--text);font:inherit;font-weight:650;cursor:pointer}
+.opportunity-market-summary{display:grid;gap:14px;padding:20px;border:1px solid #CFE2F8;border-radius:15px;background:#F7FBFF}
+.opportunity-market-summary h3{font-size:16px}.opportunity-market-summary>p{color:var(--sub);font-size:11px;line-height:1.65;max-width:720px}
+.opportunity-market-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.opportunity-market-metric{padding:12px;border:1px solid #DDEAF8;border-radius:10px;background:#fff}
+.opportunity-market-metric span,.opportunity-market-metric small{display:block;color:var(--hint);font-size:10px}.opportunity-market-metric b{display:block;margin:4px 0;font-size:20px}.opportunity-market-metric small{font-size:9.5px}
+.opportunity-market-actions{display:flex;justify-content:flex-start;gap:8px;flex-wrap:wrap}.opportunity-market-actions button{min-height:36px;padding:0 13px;border:1px solid #A9C9EC;border-radius:9px;background:#fff;color:#1763A8;font-size:11.5px}.opportunity-market-actions button.primary{background:#0071E3;border-color:#0071E3;color:#fff}
+@media(max-width:760px){.opportunity-paths{grid-template-columns:1fr}.opportunity-convergence{align-items:flex-start;flex-direction:column;gap:8px}.opportunity-convergence-flow{margin-left:0}.opportunity-route-head{flex-direction:column}.opportunity-market-metrics{grid-template-columns:1fr 1fr}.opportunity-evidence-strip{grid-template-columns:1fr}.opportunity-evidence-metrics{justify-content:flex-start}.opportunity-evidence-strip>button{width:max-content}}
+@media(max-width:460px){.opportunity-market-metrics{grid-template-columns:1fr}.opportunity-path-footer{align-items:flex-start;flex-direction:column}.opportunity-path-action{width:100%}}
 .cross-market-head{padding:18px 20px;border:1px solid #CFE1F7;border-radius:14px;background:linear-gradient(135deg,#F7FBFF,#EEF6FF);margin-bottom:12px}
 .cross-market-head h2{font-size:18px;margin:7px 0 5px}.cross-market-head p{font-size:11px;color:var(--sub);line-height:1.65}
 .cross-market-status{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.cross-market-status span{padding:6px 9px;border-radius:999px;background:#fff;border:1px solid #D9E7F7;color:#51647E;font-size:10px}.cross-market-status .ok{color:#167848;background:#E8F6EE;border-color:#C9EBD8}.cross-market-status .warn{color:#8A5B18;background:#FFF7E7;border-color:#F5DFB0}
@@ -828,7 +933,7 @@ body.flt-lock{overflow:hidden}
 .st-collect-hub{display:grid;gap:12px}.st-collect-title{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding:3px 2px}.st-collect-title h2{font-size:18px;margin-bottom:4px}.st-collect-title p{font-size:10.5px;color:var(--hint);line-height:1.6}.st-collect-title>span{font-size:9.5px;color:#45698E;background:#EEF6FF;border:1px solid #CDE3FA;border-radius:999px;padding:6px 9px;white-space:nowrap}.st-collect-modules{display:grid;grid-template-columns:1fr 1fr;gap:12px}.st-collect-card{display:grid;align-content:start;gap:13px;padding:19px;border:1px solid var(--line);border-radius:15px;background:var(--surface);box-shadow:0 8px 24px rgba(35,60,95,.04)}.st-collect-card.primary{border-color:#BBD7F5;background:linear-gradient(145deg,#F7FBFF,#FFFFFF 58%)}.st-collect-card-head{display:grid;grid-template-columns:36px 1fr;gap:11px;align-items:start}.st-collect-card-head>i{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;background:#E7F2FF;color:var(--blue);font-size:10px;font-style:normal;font-weight:700}.st-collect-card-head h3{font-size:14px;margin-bottom:4px}.st-collect-card-head p{font-size:9.5px;line-height:1.55;color:var(--hint)}.st-route-switch{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:4px;border-radius:10px;background:var(--surface-2)}.st-route-switch button{min-height:36px;border-radius:8px;font-size:10px;color:var(--sub)}.st-route-switch button.on{background:#fff;color:var(--blue);font-weight:650;box-shadow:0 2px 8px rgba(40,76,115,.08)}.st-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.st-field{display:grid;gap:5px}.st-field.full{grid-column:1/-1}.st-field label{font-size:9px;color:var(--hint)}.st-field input,.st-field select,.st-field textarea{width:100%;min-height:40px;padding:9px 10px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--text);font:inherit;font-size:10.5px;outline:none}.st-field textarea{min-height:64px;resize:vertical}.st-field input:focus,.st-field select:focus,.st-field textarea:focus{border-color:#7CB2ED;box-shadow:0 0 0 3px rgba(0,113,227,.08)}.st-checks{display:flex;flex-wrap:wrap;gap:6px}.st-checks label{display:flex;align-items:center;gap:5px;min-height:30px;padding:0 8px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--sub);font-size:9px}.st-checks input{width:13px;height:13px}.st-collect-action{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:2px}.st-collect-action span{font-size:9px;color:var(--hint);line-height:1.5}.st-collect-action button{min-height:40px;padding:0 14px;border-radius:9px;background:#122044;color:#fff;font-size:10.5px;font-weight:650;white-space:nowrap}.st-collect-card.primary .st-collect-action button{background:var(--blue)}.st-task-board{padding:17px 18px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}.st-task-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.st-task-head h3{font-size:12px}.st-task-head span{font-size:9px;color:var(--hint)}.st-task-list{display:grid;gap:7px}.st-task-row{display:grid;grid-template-columns:1.2fr .7fr .7fr .8fr auto;gap:10px;align-items:center;padding:10px 11px;border-radius:10px;background:var(--surface-2)}.st-task-row b,.st-task-row small{display:block}.st-task-row b{font-size:10px}.st-task-row small{font-size:8.5px;color:var(--hint);margin-top:3px}.st-task-row>span{font-size:9px;color:var(--sub)}.st-task-row button{min-height:31px;padding:0 9px;border:1px solid #BDD4EE;border-radius:8px;background:#fff;color:var(--blue);font-size:9px}.st-task-empty{padding:14px;border:1px dashed #C7D0DA;border-radius:10px;color:var(--hint);font-size:10px;text-align:center}.st-nav button.locked{opacity:.48;background:#F4F5F7;color:#7C8491;cursor:not-allowed}.st-nav button.locked:hover{border-color:var(--line)}.st-nav button.locked small{color:#9AA1AC}.st-human-review{display:grid;grid-template-columns:1fr .72fr;gap:14px;padding:19px;border:1px solid #BFD9F6;border-radius:14px;background:linear-gradient(135deg,#F5F9FF,#EFF7FF)}.st-human-review h3{font-size:14px;margin:7px 0}.st-human-review p{font-size:10.5px;line-height:1.65;color:var(--sub)}.st-review-form{display:grid;gap:8px}.st-review-form label{font-size:9.5px;color:var(--hint)}.st-review-form textarea{width:100%;min-height:76px;padding:10px 11px;border:1px solid #BDD4EE;border-radius:9px;background:#fff;resize:vertical;font:inherit;font-size:10.5px;line-height:1.55;outline:none}.st-review-form textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,113,227,.08)}.st-review-actions{display:flex;gap:8px}.st-review-actions button{min-height:36px;padding:0 12px;border:1px solid #B9CDE5;border-radius:9px;background:#fff;color:var(--sub);font-size:10.5px;font-weight:600}.st-review-actions button.pri{background:var(--blue);border-color:var(--blue);color:#fff}.st-review-actions button.danger{color:#A14444}.st-review-record{display:grid;gap:8px;padding:13px;border-radius:10px;background:#fff;border:1px solid #D7E5F4}.st-review-record div{display:flex;justify-content:space-between;gap:12px;font-size:10px}.st-review-record span{color:var(--hint)}.st-review-record b{text-align:right}.st-locked-panel{padding:24px;border:1px dashed #BAC5D2;border-radius:14px;background:#F7F8FA;text-align:center}.st-locked-panel h3{font-size:15px;margin:9px 0 6px}.st-locked-panel p{font-size:10.5px;color:var(--hint);line-height:1.65}.st-locked-panel button{min-height:36px;margin-top:14px;padding:0 13px;border-radius:9px;background:#122044;color:#fff;font-size:10.5px;font-weight:600}
 .st-collect-buttons{display:flex;gap:7px}.st-collect-card.primary .st-collect-action button.alt{border:1px solid #A9CAEE;background:#fff;color:var(--blue)}
 .st-simple-search{padding:22px;border:1px solid #BBD8F6;border-radius:16px;background:linear-gradient(135deg,#F4F9FF,#FFFFFF 58%);box-shadow:0 10px 30px rgba(35,77,120,.05)}.st-simple-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:17px}.st-simple-head h2{font-size:18px;margin:5px 0}.st-simple-head p{font-size:10.5px;color:var(--hint);line-height:1.6}.st-simple-form{display:grid;grid-template-columns:1.2fr .8fr .9fr;gap:10px;align-items:end}.st-simple-form .st-field label{font-size:9.5px}.st-simple-form .st-field input,.st-simple-form .st-field select{min-height:44px}.st-simple-optional{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end;margin-top:10px;padding-top:13px;border-top:1px solid #DDEAF8}.st-simple-optional button{min-height:44px;padding:0 20px;border-radius:10px;background:var(--blue);color:#fff;font-size:11px;font-weight:650}.st-simple-note{display:flex;gap:16px;flex-wrap:wrap;margin-top:13px;color:var(--hint);font-size:9px}.st-simple-note span:before{content:'✓';color:var(--down);font-weight:700;margin-right:5px}.st-empty-output{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:16px;border:1px dashed #C8D4E0;border-radius:14px;background:#FAFBFC}.st-empty-output div{padding:12px;border-radius:10px;background:#fff}.st-empty-output b,.st-empty-output span{display:block}.st-empty-output b{font-size:10.5px}.st-empty-output span{font-size:9px;color:var(--hint);margin-top:5px;line-height:1.5}.st-analysis-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.st-analysis-card{padding:16px;border:1px solid var(--line);border-radius:13px;background:var(--surface)}.st-analysis-card>span{font-size:9px;color:var(--hint)}.st-analysis-card strong{display:block;font-size:21px;margin:7px 0 4px}.st-analysis-card p{font-size:9px;color:var(--sub);line-height:1.55}.st-opportunity-summary{display:grid;grid-template-columns:1.2fr .8fr;gap:10px}.st-opportunity-main,.st-gap-card{padding:18px;border-radius:14px}.st-opportunity-main{background:#122044;color:#fff}.st-opportunity-main h3{font-size:15px;margin:9px 0}.st-opportunity-main p{font-size:10.5px;color:#B7C5DF;line-height:1.7}.st-opportunity-main ul{display:grid;gap:6px;margin:12px 0 0;padding:0;list-style:none}.st-opportunity-main li{font-size:9.5px;color:#DCE6F6}.st-opportunity-main li:before{content:'→';color:#54DFC0;margin-right:6px}.st-gap-card{border:1px solid var(--line);background:var(--surface)}.st-gap-card h3{font-size:12px;margin-bottom:10px}.st-gap-card ul{display:grid;gap:7px;margin:0;padding-left:17px}.st-gap-card li{font-size:9.5px;color:var(--sub);line-height:1.5}.st-gap-card button{width:100%;min-height:38px;margin-top:13px;border-radius:9px;background:#EEF6FF;color:var(--blue);font-size:10px;font-weight:600}
-@media(max-width:1050px){.st-nav{grid-template-columns:repeat(3,1fr)}.st-grid-2,.st-sim{grid-template-columns:1fr}.st-directions{grid-template-columns:1fr}.st-docs{grid-template-columns:repeat(2,1fr)}.st-layers{grid-template-columns:1fr 1fr}}
+@media(max-width:1050px){.st-nav{grid-template-columns:repeat(3,1fr)}.st-grid-2,.st-grid-3,.st-sim{grid-template-columns:1fr}.st-directions{grid-template-columns:1fr}.st-docs{grid-template-columns:repeat(2,1fr)}.st-layers{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.st-nav{display:flex;overflow-x:auto}.st-nav button{min-width:125px}.st-hero{display:block;padding:23px}.st-hero h2{font-size:21px}.st-score{width:100%;margin-top:24px}.st-kpis{grid-template-columns:1fr 1fr}.st-opp-row{grid-template-columns:28px 35px 1fr 46px}.st-opp-row>*:nth-child(5),.st-opp-row>*:nth-child(6){display:none}.st-metrics{grid-template-columns:1fr 1fr}.st-selects,.st-docs,.st-plan,.st-edit-grid,.st-gates,.st-human-review{grid-template-columns:1fr}.st-layers,.st-job-strip{grid-template-columns:1fr 1fr}.st-doc-evidence{grid-template-columns:1fr 1fr}.st-budget{border-left:0;border-top:1px solid rgba(255,255,255,.12);padding:16px 0 0}.st-table{min-width:620px}.st-table-wrap{overflow-x:auto}}
 @media(max-width:1050px){.st-collect-modules{grid-template-columns:1fr}.st-task-row{grid-template-columns:1.2fr .7fr .7fr auto}.st-task-row>span:nth-child(4){display:none}}
 @media(max-width:620px){.st-collect-title{align-items:flex-start;flex-direction:column}.st-form-grid{grid-template-columns:1fr}.st-field.full{grid-column:auto}.st-collect-action{align-items:stretch;flex-direction:column}.st-collect-action button{width:100%}.st-task-row{grid-template-columns:1fr auto}.st-task-row>span{display:none}.st-route-switch button{min-height:42px}}
@@ -844,31 +949,35 @@ body.flt-lock{overflow:hidden}
 .growth-category-row .growth-category-name small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .growth-product-table .product-cell{display:flex;align-items:center;gap:10px;min-width:280px}.growth-product-table .product-thumb{width:42px;height:42px;flex:none;border-radius:9px;object-fit:cover;background:#edf3f6;border:1px solid #e0e9ee}.growth-product-table .product-thumb.is-empty{display:grid;place-items:center;color:#8ba0ae;font-size:10px}.growth-product-table .product-copy{min-width:0}.growth-product-table .product-copy .product-name{display:block;max-width:440px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.growth-product-table .region{color:#536b80;font-size:11px}.growth-product-table .gmv{color:#147c70;font-weight:700;white-space:nowrap}.growth-product-table .period{display:block;margin-top:3px;color:#768397;font-size:10px}
 @media(max-width:720px){.growth-category-list{grid-template-columns:1fr}}
+/* Voyager Atlas · single-shell lab navigation. The embedded lab owns content only. */
+.nav-group-lab .nav-sub-item { padding-left: 18px; }
+.nav-group-lab .nav-sub-item.on { background: #fff4df; color: #9a5b00; }
+.nav-group-lab .nav-sub-dot { width: 5px; height: 5px; }
+#spChatFab, #spChatPanel { display: none !important; }
 </style>
+<link rel="stylesheet" href="workbench-tokens.css">
 </head>
 <body>
 <div class="app">
   <aside class="side">
     <div class="brand">
-      <span class="brand-mark"><svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12 4 7.5"/></svg></span>
-      <span class="brand-text"><b>全球选品平台</b><i>GLOBAL SELECTION DESK</i></span>
+      <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10.5"/><path d="M5.5 16h21M16 5.5c3 3 4.5 6.5 4.5 10.5S19 23.5 16 26.5M16 5.5c-3 3-4.5 6.5-4.5 10.5S13 23.5 16 26.5"/><path d="M7.5 10.3c2.8 1.5 5.6 2.2 8.5 2.2s5.7-.7 8.5-2.2"/><path d="M8.3 21.3c2.6-1.3 5.2-1.9 7.7-1.9s5.1.6 7.7 1.9"/><path d="M23.5 7.5l2.2 2.2" stroke="#8fe0d1"/><circle cx="25.7" cy="9.7" r="1.7" fill="#8fe0d1" stroke="none"/></svg></span>
+      <span class="brand-text"><i>全球选品星图</i><b>Voyager Atlas</b></span>
     </div>
     <nav class="nav" id="nav" data-bind></nav>
     <div class="side-foot">
-      <div class="sync"><span class="sync-dot" id="syncDot" data-sp-bindable="database" data-sp-database-id="Hu5q2PAyW17BmdP5JPQ9os"></span><span id="syncText">初始化…</span></div>
-      <div class="side-actions">
-        <button type="button" id="btnImport">导入数据</button>
-        <button type="button" id="btnExport">导出</button>
+      <button type="button" class="side-tools-toggle" id="sideToolsToggle" aria-expanded="false" aria-controls="sideToolsPanel">
+        <span class="sync"><span class="sync-dot" id="syncDot" data-sp-bindable="database" data-sp-database-id="Hu5q2PAyW17BmdP5JPQ9os"></span><span id="syncText">初始化…</span></span><span class="side-tools-label">工具</span><span class="side-tools-chevron">›</span>
+      </button>
+      <div class="side-tools-panel" id="sideToolsPanel" hidden>
+        <div class="side-actions">
+          <button type="button" id="btnImport">导入数据</button>
+          <button type="button" id="btnExport">导出</button>
+        </div>
+        <button type="button" class="side-map" data-go="srcmap">全球航图 · 数据从哪里来</button>
+        <button type="button" class="side-map" data-go="standards">数据说明 · 查看来源</button>
+        <button type="button" id="btnOnline">打开线上版 · 云端同步</button>
       </div>
-      <button type="button" class="side-map" data-go="srcmap" style="width:100%;margin-top:7px;min-height:38px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--blue);font-size:12.5px;font-weight:500">
-        数据源地图 · 各国数据从哪来
-      </button>
-      <button type="button" class="side-map" data-go="standards" style="width:100%;margin-top:7px;min-height:38px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--blue);font-size:12.5px;font-weight:500">
-        抓取标准 · 计算口径
-      </button>
-      <button type="button" id="btnOnline" style="display:none;width:100%;margin-top:7px;min-height:38px;border:0;border-radius:9px;background:var(--blue);color:#fff;font-size:12.5px;font-weight:600">
-        打开线上版 · 云端同步
-      </button>
     </div>
   </aside>
   <main class="main">
@@ -876,7 +985,7 @@ body.flt-lock{overflow:hidden}
       <div class="tabs" id="tabs"></div>
       <div class="topbar-row">
         <div class="topbar-title">
-          <h1 id="viewTitle">全球看板</h1>
+          <h1 id="viewTitle">全球航图</h1>
           <p id="viewDesc"></p>
         </div>
         <div class="topbar-tools">
@@ -915,17 +1024,15 @@ var DB = { product: { databaseId: DATABASE_ID } };
 
 /* ---------- 2. 视图定义（四个区） ---------- */
 var VIEWS = [
-  { key: 'opportunity', name: '今日产品机会', desc: '实验工厂三层机会分析 · 已接入眼部护理评论数据',
+  { key: 'opportunity', name: '机会发现', desc: '从用户真实反馈中识别值得验证的需求，市场证据在全球航图补充',
     icon: '<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 14l1 2.5 2.5 1-2.5 1L19 21l-1-2.5-2.5-1 2.5-1z"/>' },
-  { key: 'board', name: '全球数据看板', desc: '按市场与品类查看增长线索',
+  { key: 'board', name: '全球航图', desc: '查看全球市场规模、趋势与增长线索',
     icon: '<path d="M3 20h18"/><path d="M6 20v-7M11 20V6M16 20v-4M21 20v-9"/>' },
-  { key: 'rank', name: '商品榜', desc: '类目排行：分来源分榜，可切市场与品类',
-    icon: '<path d="M8 21h8M12 17v4"/><path d="M7 3h10v6a5 5 0 0 1-10 0z"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"/>' },
-  { key: 'ing', name: '成分库', desc: '今日推送、新成分发现与全球国家 Top20 趋势雷达',
+  { key: 'ing', name: '成分雷达', desc: '观察成分变化，并寻找可借鉴的产品方向',
     icon: '<path d="M12 3l7 4v5c0 4.4-3 8-7 9-4-1-7-4.6-7-9V7z"/><path d="M9.5 12l2 2 3.5-4"/>' },
-  { key: 'strategy', name: '策略台', desc: '机会识别、产品方向、供应链模拟与落地复盘',
-    icon: '<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-1.8 5.2-5.2 1.8 1.8-5.2z"/>' },
-  { key: 'lab', name: '实验工厂', desc: '眼油产品开发全流程：项目记录、八阶段工作流与供应商匹配',
+  { key: 'rank', name: '竞品情报', desc: '从商品、评价和内容中理解竞品为什么卖得动',
+    icon: '<path d="M8 21h8M12 17v4"/><path d="M7 3h10v6a5 5 0 0 1-10 0z"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"/>' },
+  { key: 'lab', name: '产品实验舱', desc: '把产品方向推进到样品、供应商与上市验证',
     icon: '<path d="M9 3h6M10 3v5.4L4.8 17.1a2 2 0 0 0 1.8 2.9h10.8a2 2 0 0 0 1.8-2.9L14 8.4V3"/><path d="M7.2 14h9.6"/>' }
 ];
 function viewDef(k) { for (var i = 0; i < VIEWS.length; i++) { if (VIEWS[i].key === k) return VIEWS[i]; } return VIEWS[0]; }
@@ -1160,8 +1267,8 @@ var state = {
   view: 'board', list: [], schema: null, ready: false,
   market: '全部', cat: '全部', c2: '全部', c3: '全部', country: '全部', kw: '', src: '全部',
   period: '全部', rankBy: 'rank', fltOpen: '0',
-  busy: false, demoOnly: false, realOnly: false, libTab: 'cat', boardTab: 'overview', opportunityTab: 'crossborder',
-  expL1: {}, expL2: {}
+  busy: false, demoOnly: false, realOnly: false, libTab: 'cat', boardTab: 'overview', opportunityTab: 'crossborder', ingTab: 'daily-discovery',
+  expL1: {}, expL2: {}, opportunityPath: 'demand', opportunityCategory: 'eye', _navAnchor: '', _navHash: '', _labView: 'development', navOpen: {}
 };
 
 /* ---------- 顶部多标签：侧边栏=入口，顶部标签=已打开的模块，各保留独立筛选+滚动 ----------
@@ -1199,7 +1306,50 @@ function _restoreViewState(view) {
 }
 
 /* 打开（或聚焦）一个模块标签：若已开则切过去，否则新开并恢复其快照 */
+function normalizeView(view) { return view === 'strategy' ? 'lab' : view; }
+var _historyRestoring = false;
+var _validRouteViews = ['board', 'opportunity', 'rank', 'ing', 'lab'];
+var _validLabViews = ['opportunity', 'development', 'projects'];
+function routeHref(view, labView) {
+  var url = new URL(window.location.href);
+  var normalized = normalizeView(view || state.view);
+  url.searchParams.set('view', normalized);
+  if (normalized === 'opportunity') url.searchParams.set('opportunityCategory', state.opportunityCategory === 'face' ? 'face' : 'eye');
+  if (normalized === 'lab') url.searchParams.set('labView', _validLabViews.indexOf(labView || state._labView) >= 0 ? (labView || state._labView) : 'development');
+  else url.searchParams.delete('labView');
+  return url.pathname + url.search + url.hash;
+}
+function pushRouteHistory() {
+  if (_historyRestoring || !window.history || !window.history.pushState) return;
+  var href = routeHref(state.view, state._labView);
+  var current = window.location.pathname + window.location.search + window.location.hash;
+  if (href === current) return;
+  window.history.pushState({ view: normalizeView(state.view), labView: state._labView }, '', href);
+}
+function routeFromUrl() {
+  var url = new URL(window.location.href);
+  var requestedView = normalizeView(url.searchParams.get('view') || 'board');
+  var view = _validRouteViews.indexOf(requestedView) >= 0 ? requestedView : 'board';
+  var requestedLabView = url.searchParams.get('labView') || 'development';
+  var labView = _validLabViews.indexOf(requestedLabView) >= 0 ? requestedLabView : 'development';
+  var requestedOpportunityCategory = url.searchParams.get('opportunityCategory') || url.searchParams.get('category') || 'eye';
+  var opportunityCategory = requestedOpportunityCategory === 'face' ? 'face' : 'eye';
+  return { view: view, labView: labView, opportunityCategory: opportunityCategory };
+}
+function applyRouteFromUrl() {
+  var route = routeFromUrl();
+  _historyRestoring = true;
+  state._labView = route.labView;
+  state.opportunityCategory = route.opportunityCategory;
+  if (_openTabs.indexOf(route.view) < 0) _openTabs.push(route.view);
+  if (state.view !== route.view) switchView(route.view, false);
+  else if (route.view === 'lab') { RENDER.nav(); RENDER.titles(); }
+  else refreshAll();
+  if (route.view === 'lab') navigateLab(route.labView, false);
+  _historyRestoring = false;
+}
 function openView(view) {
+  view = normalizeView(view);
   if (_openTabs.indexOf(view) < 0) _openTabs.push(view);
   switchView(view);
 }
@@ -1207,7 +1357,8 @@ function openView(view) {
 /* 下钻专用：把「当前筛选」原样带到目标 view（不恢复目标 view 的旧筛选），
    例如从看板热力格下钻到榜单，要保留看板里选的筛选而不是榜单上次的状态 */
 function _openViewWithCurrent(view) {
-  if (view === state.view) { renderTabs(); refreshAll(); return; }
+  view = normalizeView(view);
+  if (view === state.view) { renderTabs(); refreshAll(); pushRouteHistory(); return; }
   _saveViewState(state.view);
   state.view = view;
   state.fltOpen = '0';
@@ -1218,11 +1369,14 @@ function _openViewWithCurrent(view) {
   _viewStates[view] = s;
   renderTabs();
   refreshAll();
+  pushRouteHistory();
 }
 
 /* 切换当前视图：存旧视图状态 → 切 view → 恢复新视图状态 → 刷新 */
-function switchView(view) {
-  if (view === state.view) { renderTabs(); refreshAll(); return; }
+function switchView(view, addHistory) {
+  if (addHistory === undefined) addHistory = true;
+  view = normalizeView(view);
+  if (view === state.view) { renderTabs(); refreshAll(); if (addHistory) pushRouteHistory(); return; }
   _saveViewState(state.view);
   state.view = view;
   state.fltOpen = '0';
@@ -1231,6 +1385,7 @@ function switchView(view) {
   renderTabs();
   refreshAll();
   /* 切到新视图后，若页面仍停在顶部（无快照），确保标签栏可见 */
+  if (addHistory) pushRouteHistory();
 }
 
 /* 关闭一个标签：移除后若还有标签则切到相邻标签，否则回到默认看板 */
@@ -1248,13 +1403,14 @@ function closeView(view) {
   }
   renderTabs();
   refreshAll();
+  pushRouteHistory();
 }
 
 /* 渲染顶部标签栏 */
 function renderTabs() {
   var el = $('#tabs');
   if (!el) return;
-  var SHORT = { board: '看板', rank: '榜单', ing: '成分', strategy: '策略' };
+  var SHORT = { board: '航图', rank: '竞品', ing: '成分雷达', lab: '实验' };
   var h = '';
   for (var i = 0; i < _openTabs.length; i++) {
     var k = _openTabs[i], v = viewDef(k);
@@ -2394,12 +2550,29 @@ function boardInsightsOf(list) {
 }
 
 RENDER.nav = function () {
-  var SHORT = { opportunity: '今日机会', board: '看板', rank: '榜单', ing: '成分', strategy: '策略', lab: '工厂' };
+  var SHORT = { opportunity: '发现', board: '航图', rank: '竞品', ing: '成分雷达', lab: '实验' };
+  /* 页面内部的模块导航由页面自己承载；左侧只保留工作台入口。 */
+  var SUBNAV = { opportunity: [], board: [], ing: [], rank: [], lab: [] };
   var h = '', t = '';
   for (var i = 0; i < VIEWS.length; i++) {
     var v = VIEWS[i], on = state.view === v.key;
-    h += '<button type="button" class="nav-item' + (on ? ' on' : '') + '" data-view="' + v.key + '">'
-      + '<svg class="ic" viewBox="0 0 24 24">' + v.icon + '</svg><span>' + esc(v.name) + '</span></button>';
+    var children = SUBNAV[v.key] || [], expanded = state.navOpen[v.key] !== undefined ? state.navOpen[v.key] : on;
+    h += '<div class="nav-group nav-group-' + v.key + (expanded ? ' open' : '') + '"><div class="nav-main-row"><button type="button" class="nav-item' + (on ? ' on' : '') + '" data-view="' + v.key + '">'
+      + '<svg class="ic" viewBox="0 0 24 24">' + v.icon + '</svg><span>' + esc(v.name) + '</span></button>'
+      + (children.length ? '<button type="button" class="nav-toggle" data-nav-toggle="' + v.key + '" aria-label="' + (expanded ? '收起' : '展开') + esc(v.name) + '" aria-expanded="' + (expanded ? 'true' : 'false') + '">›</button>' : '') + '</div>';
+    if (children.length) {
+      h += '<div class="nav-sub">';
+      for (var j = 0; j < children.length; j++) {
+        var c = children[j], active = on && (c.labView ? state._labView === c.labView : (c.opportunityRoute ? state.opportunityPath === c.opportunityRoute : ((c.hash && state._navHash === c.hash) || (!c.hash && state._navAnchor === c.anchor))));
+        h += '<button type="button" class="nav-sub-item' + (active ? ' on' : '') + '" data-view="' + v.key + '"'
+          + (c.anchor ? ' data-nav-anchor="' + esc(c.anchor) + '"' : '')
+          + (c.hash ? ' data-nav-hash="' + esc(c.hash) + '"' : '')
+          + (c.labView ? ' data-lab-nav="' + esc(c.labView) + '"' : '')
+          + (c.opportunityRoute ? ' data-opportunity-route="' + esc(c.opportunityRoute) + '"' : '') + '><span class="nav-sub-dot"></span>' + esc(c.name) + '</button>';
+      }
+      h += '</div>';
+    }
+    h += '</div>';
     t += '<button type="button" class="' + (on ? 'on' : '') + '" data-view="' + v.key + '">'
       + '<svg class="ic" viewBox="0 0 24 24">' + v.icon + '</svg><span>' + esc(SHORT[v.key] || v.name) + '</span></button>';
   }
@@ -2409,26 +2582,43 @@ RENDER.nav = function () {
 
 RENDER.titles = function () {
   var v = viewDef(state.view);
+  var isLab = state.view === 'lab';
   var searchInput=$('#kw');if(searchInput)searchInput.placeholder=state.view==='strategy'?'快速检索已有数据（不会自动立项）':'搜索商品 / 品牌 / 成分 / 概念';
-  if (searchInput && searchInput.closest('.search')) searchInput.closest('.search').style.display = (state.view === 'board' || state.view === 'opportunity') ? 'none' : '';
+  if (searchInput && searchInput.closest('.search')) searchInput.closest('.search').style.display = (state.view === 'board' || state.view === 'opportunity' || isLab) ? 'none' : '';
+  var moreButton = $('#btnMore'); if (moreButton) moreButton.style.display = isLab ? 'none' : '';
   if (state.view === 'opportunity') {
     $('#viewTitle').textContent = v.name;
-    $('#viewDesc').textContent = v.desc + '　·　规则初筛，保留原文证据';
+    var opportunityDesc = state.opportunityPath === 'demand'
+      ? '从真实评论和用户反馈中识别用户正在遇到的问题'
+      : (state.opportunityPath === 'market' ? '市场证据已统一放入全球航图，选中线索后再带入产品实验舱' : v.desc);
+    $('#viewDesc').textContent = opportunityDesc;
     return;
   }
   if (state.view === 'strategy') {
     $('#viewTitle').textContent = v.name;
-    $('#viewDesc').textContent = v.desc + '　·　' + (STRATEGY.searchTerm?'市场机会分析“'+(STRATEGY.searchCategory||STRATEGY.searchTerm)+'”':'类目 × 国家 × 平台 → 机会分析 → 人工决策');
+    $('#viewDesc').textContent = v.desc + (STRATEGY.searchTerm?'　·　当前查看：'+(STRATEGY.searchCategory||STRATEGY.searchTerm):'');
     return;
   }
   if (state.view === 'rank') {
     $('#viewTitle').textContent = v.name;
-    $('#viewDesc').textContent = '国内商品榜单 · 海外跨境商品榜单 · 按类目查看榜单 Top20';
+    $('#viewDesc').textContent = '按国家、品类和平台查看竞品结构与商品表现';
     return;
   }
   if (state.view === 'ing') {
-    $('#viewTitle').textContent = '全球成分趋势雷达';
-    $('#viewDesc').textContent = '今日推送、新成分发现与全球国家 Top20　·　每日 09:30 更新';
+    $('#viewTitle').textContent = '成分雷达';
+    $('#viewDesc').textContent = '观察成分变化，并寻找可借鉴的产品方向　·　每日 09:30 更新';
+    return;
+  }
+  if (isLab) {
+    var labTitles = {
+      opportunity: { title: '机会来源', desc: '先确认机会来自哪里，再评审产品方向。' },
+      development: { title: '项目执行', desc: '围绕已确认的产品方向推进样品、供应商和上市验证。' },
+      projects: { title: '项目记录', desc: '查看已经立项的产品、路径和关键决策。' }
+    };
+    var labTitle = labTitles[state._labView] || labTitles.development;
+    $('#viewTitle').textContent = labTitle.title;
+    $('#viewDesc').textContent = labTitle.desc;
+    document.title = 'Voyager Atlas · ' + labTitle.title;
     return;
   }
   /* v11·复审：board/rank 用默认真实数据口径；lib/insight/review 保持 V10 */
@@ -2444,13 +2634,21 @@ RENDER.titles = function () {
 };
 
 RENDER.filter = function () {
+  if (state.view === 'lab') {
+    $('#chips').innerHTML = '';
+    $('#chips').style.display = 'none';
+    state.fltOpen = '0';
+    fltLayerRender();
+    return;
+  }
+  $('#chips').style.display = '';
   if (state.view === 'opportunity') {
     $('#chips').innerHTML = '';
     fltLayerRender();
     return;
   }
   if (state.view === 'strategy') {
-    $('#chips').innerHTML = '<span class="hint" style="margin:2px 0">'+(STRATEGY.searchTerm?'正在分析“<b>'+esc(STRATEGY.searchCategory||STRATEGY.searchTerm)+'</b>”：系统整理已有证据和数据缺口，最终仍由人工决定是否入链。':'进入“市场机会检索”，选择类目、国家和平台即可自动生成机会分析。')+'</span>';
+    $('#chips').innerHTML = '<span class="hint" style="margin:2px 0">'+(STRATEGY.searchTerm?'正在查看“<b>'+esc(STRATEGY.searchCategory||STRATEGY.searchTerm)+'</b>”的市场证据。':'从机会校准开始，把需求、市场和竞品证据放在一起。')+'</span>';
     fltLayerRender();
     return;
   }
@@ -3166,7 +3364,7 @@ function heroHtml(list) {
     + '<p class="hero-p hero-foot">' + foot + '</p>'
     + '<div class="hero-btns">'
     + '<button type="button" class="hero-btn pri" data-view="rank">去榜单中心</button>'
-    + '<button type="button" class="hero-btn" data-view="strategy">去策略台</button>'
+    + '<button type="button" class="hero-btn" data-view="lab">进入产品实验舱</button>'
     + '</div></div>'
     + '<div class="hero-r">'
     + heroStat('稳健增长中枢', (gAll.med === null ? '—' : fmtPct(gAll.med)), '', '中位数 · 剔除低基数')
@@ -3331,19 +3529,18 @@ function boardComparableGroups(list, withIngredient) {
 function boardHeroHtml(list) {
   var groups = boardComparableGroups(list, false), ranked = groups.filter(function (g) { return g.stats.n > 0; });
   ranked.sort(function (a, b) { return (b.stats.med === null ? -Infinity : b.stats.med) - (a.stats.med === null ? -Infinity : a.stats.med) || b.stats.n - a.stats.n; });
-  var latest = freshnessOf(list);
   var candidates = ranked.slice(0, 8), countryCount = new Set(list.map(function (r) { return txtOf(r, '国家/地区'); }).filter(Boolean)).size;
   function stat(label, value, foot) { return '<div class="board-stat"><span>' + label + '</span><b>' + value + '</b>' + (foot ? '<small>' + foot + '</small>' : '') + '</div>'; }
-  var h = '<section class="board-hero growth-hero" data-growth-hero><div class="growth-hero-slides">';
+  var h = '<section id="board-panel-overview" class="board-hero growth-hero" data-growth-hero data-board-panel="overview"><div class="growth-hero-slides">';
   if (!candidates.length) {
-    h += '<article class="growth-hero-slide on"><div class="board-hero-main"><span class="board-eyebrow">全球增长快照 · ' + esc(latest) + '</span><span class="growth-hero-live">实时播报 · 6秒</span><h2>当前筛选下还没有可比较的增速数据</h2><p>等待新的增长线索</p></div><div class="board-stats">' + stat('增长幅度', '—', '') + stat('上涨商品', '—', '') + stat('商品数量', 0, '') + stat('覆盖国家', countryCount, '') + '</div></article>';
+    h += '<article class="growth-hero-slide on"><div class="board-hero-main"><h2>当前筛选下还没有可比较的增速数据</h2><p>暂无可用的增长数据</p></div><div class="board-stats">' + stat('增长幅度', '—', '') + stat('上涨商品', '—', '') + stat('商品数量', 0, '') + stat('覆盖国家', countryCount, '') + '</div></article>';
   } else {
     for (var i = 0; i < candidates.length; i++) {
-      var best = candidates[i], g = best.stats, heading = '增长线索：' + esc(best.country) + ' · ' + esc(best.category) + ' ' + (g.med === null ? '—' : fmtPct(g.med));
-      h += '<article class="growth-hero-slide ' + (i === 0 ? 'on' : '') + '" data-growth-hero-slide="' + i + '"><div class="board-hero-main"><span class="board-eyebrow">全球增长快照 · ' + esc(latest) + '</span><span class="growth-hero-live">实时播报 · 6秒</span><h2>' + heading + '</h2><p>' + esc(best.source || '数据源待补充') + '</p><div class="board-hero-actions"><button type="button" data-view="rank">查看商品榜</button><button type="button" data-view="strategy">查看策略台</button></div></div><div class="board-stats">' + stat('增长幅度', g.med === null ? '—' : fmtPct(g.med), '今日重点线索') + stat('上涨商品', g.pos === null ? '—' : g.pos + '%', '当前商品池') + stat('商品数量', g.n, '') + stat('覆盖国家', countryCount, '') + '</div></article>';
+      var best = candidates[i], g = best.stats, heading = esc(best.country) + ' · ' + esc(best.category) + ' ' + (g.med === null ? '—' : fmtPct(g.med));
+    h += '<article class="growth-hero-slide ' + (i === 0 ? 'on' : '') + '" data-growth-hero-slide="' + i + '"><div class="board-hero-main"><h2>' + heading + '</h2><p>' + esc(best.source || '数据源待补充') + '</p><div class="board-hero-actions"><button type="button" data-view="rank">查看竞品情报</button><button type="button" data-view="lab" data-lab-title="' + esc(best.country + ' · ' + best.category) + '" data-lab-opportunity="' + esc(opportunityIdFromParts(best.country, best.category, best.source, best.period)) + '" data-lab-market="' + esc(best.country || '') + '" data-lab-category="' + esc(best.category || '') + '" data-lab-source="' + esc(best.source || '') + '" data-lab-period="' + esc(best.period || '') + '" data-lab-growth="' + esc(g.med === null ? '' : fmtPct(g.med)) + '" data-lab-count="' + esc(String(g.n || '')) + '">带入产品实验舱</button></div></div><div class="board-stats">' + stat('增长幅度', g.med === null ? '—' : fmtPct(g.med), '') + stat('上涨商品', g.pos === null ? '—' : g.pos + '%', '') + stat('商品数量', g.n, '') + stat('覆盖国家', countryCount, '') + '</div></article>';
     }
   }
-  h += '</div><div class="growth-hero-footer"><b>增长线索自动播报</b><span>当前 ' + (candidates.length ? '1' : '0') + ' / ' + candidates.length + '</span><div class="growth-hero-progress"><i></i></div><button type="button" data-growth-hero-prev aria-label="上一个增长线索">‹</button><button type="button" data-growth-hero-next aria-label="下一个增长线索">›</button></div></section>';
+  h += '</div><div class="growth-hero-footer"><span class="growth-hero-count">' + (candidates.length ? '1' : '0') + ' / ' + candidates.length + '</span><div class="growth-hero-progress"><i></i></div><button type="button" data-growth-hero-prev aria-label="上一个增长线索">‹</button><button type="button" data-growth-hero-next aria-label="下一个增长线索">›</button></div></section>';
   return h;
 }
 function boardCountryListHtml(list) {
@@ -3367,7 +3564,7 @@ function boardIngredientHtml(list) {
   rows.sort(function (a, b) { return (b.stats.med === null ? -Infinity : b.stats.med) - (a.stats.med === null ? -Infinity : a.stats.med) || b.stats.n - a.stats.n; });
   rows = rows.slice(0, 10);
   var max = rows.length ? Math.max.apply(null, rows.map(function (x) { return Math.max(0, x.stats.med || 0); })) : 0;
-  var h = '<section class="board-section"><div class="board-section-head"><div><h2>成分增长线索 TOP10</h2><p>按商品已记录的显性成分标签统计，不代表平台成分销售榜</p></div><button type="button" data-view="ing">打开成分库 →</button></div>';
+  var h = '<section class="board-section"><div class="board-section-head"><div><h2>成分增长线索 TOP10</h2><p>按商品已记录的显性成分标签统计，不代表平台成分销售榜</p></div><button type="button" data-view="ing">进入成分雷达 →</button></div>';
   if (!rows.length) return h + '<div class="board-empty">当前筛选下没有同时具备成分标签和有效增速的商品。成分热度榜需接入平台成分趋势数据后才能生成。</div></section>';
   h += '<div class="board-ingredient-list">';
   for (var i = 0; i < rows.length; i++) {
@@ -3517,7 +3714,7 @@ function opportunityPanelHtml() {
   var data = result.data;
   var audit = opportunityHistoryAudit(isCnToUs ? 'domestic' : 'crossborder');
   var h = '<div class="cross-market-head">'
-    + '<h2>今日产品机会</h2>'
+    + '<h2>今日需求信号</h2>'
     + '<p>每天从美国和中国的新品榜中各找出值得关注的商品，再判断是否适合进入另一个市场。</p></div>';
   h += '<div class="cross-market-direction" role="tablist">'
     + '<button type="button" data-opportunity-tab="crossborder" class="' + (isCnToUs ? '' : 'on') + '">美国 → 中国</button>'
@@ -3637,19 +3834,143 @@ RENDER.board = function () {
   v.innerHTML = boardRadarHtml(list);
   initGrowthHeroCarousel();
 };
+function opportunityHubHtml() {
+  var list = boardRankDataOf(), g = growthStats(list), countries = {}, countryCount = 0;
+  for (var i = 0; i < list.length; i++) {
+    var country = txtOf(list[i], '国家/地区') || txtOf(list[i], '所属市场');
+    if (country && !countries[country]) { countries[country] = 1; countryCount++; }
+  }
+  return '<div class="opportunity-discovery">'
+    + '<section class="opportunity-discovery-hero opportunity-discovery-hero-anchor">'
+    + '<span class="eyebrow"><i></i>OPPORTUNITY DISCOVERY</span>'
+    + '<h2>先确认用户问题，再补充市场证据</h2>'
+    + '<p>机会发现先回答“用户为什么需要”，再到全球航图确认“哪里有生意”。两类证据最后统一进入产品实验舱的「机会来源」，不在这里重复跑一套市场工作台。</p>'
+    + '</section>'
+    + '<section class="opportunity-paths single">'
+    + '<article class="opportunity-path-card demand">'
+    + '<div class="opportunity-path-kicker"><span>主入口 · 从用户问题出发</span><span>用户为什么需要它</span></div>'
+    + '<h3>用户需求雷达</h3>'
+    + '<p>从真实评论、帖子和问答里，找出用户正在抱怨什么，以及哪些需求还没有被很好解决。</p>'
+    + '<div class="opportunity-path-answer"><b>这里重点看</b>痛点、吐槽、未满足需求和代表性原话</div>'
+    + '<div class="opportunity-path-footer"><small>输出：用户痛点机会卡</small><button type="button" class="opportunity-path-action" data-opportunity-route="demand">查看用户痛点 →</button></div>'
+    + '</article>'
+    + '</section>'
+    + '<section class="opportunity-evidence-strip">'
+    + '<div><span class="eyebrow">补充证据 · 全球航图</span><h3>市场增长证据放在全球航图</h3><p>查看规模、趋势、国家与品类增长；选中一条线索后，直接带入产品实验舱的「机会来源」，和用户需求一起判断。</p></div>'
+    + '<div class="opportunity-evidence-metrics"><span>可比商品<b>' + (g.n || list.length || '—') + '</b></span><span>稳健增长<b>' + (g.med === null ? '—' : fmtPct(g.med)) + '</b></span><span>覆盖市场<b>' + (countryCount || '—') + '</b></span></div>'
+    + '<button type="button" data-view="board">打开全球航图 →</button>'
+    + '</section>'
+    + '<section class="opportunity-convergence"><b>统一回流</b><p>用户需求雷达与全球航图的证据，不在机会发现里分成两套工作台，而是汇入产品实验舱的「机会来源」。</p><div class="opportunity-convergence-flow"><span>用户痛点</span><i>+</i><span>市场证据</span><i>→</i><span>机会来源</span><i>→</i><span>MVP 实验</span></div></section>'
+    + '</div>';
+}
+function opportunityDemandRouteHtml() {
+  return '<div class="opportunity-route">'
+    + '<section class="opportunity-route-head"><div class="opportunity-route-copy"><span class="route-label">主入口 · 从用户问题出发</span><h2>用户需求雷达</h2><p>先看用户真正的痛点和原始表达，再决定哪些需求值得进入后续验证。</p></div><label class="opportunity-category-filter">分析品类<select data-opportunity-category aria-label="切换机会发现品类"><option value="eye"' + (state.opportunityCategory === 'eye' ? ' selected' : '') + '>眼部护理</option><option value="face"' + (state.opportunityCategory === 'face' ? ' selected' : '') + '>面部洗护 · 洁面</option></select></label></section>'
+    + '<iframe class="opportunity-radar-frame" title="用户需求雷达" loading="eager"></iframe>'
+    + '</div>';
+}
+function opportunityMarketRouteHtml() {
+  var list = boardRankDataOf(), g = growthStats(list), countries = {}, countryCount = 0;
+  for (var i = 0; i < list.length; i++) {
+    var country = txtOf(list[i], '国家/地区') || txtOf(list[i], '所属市场');
+    if (country && !countries[country]) { countries[country] = 1; countryCount++; }
+  }
+  return '<div class="opportunity-route">'
+    + '<section class="opportunity-route-head"><button type="button" data-opportunity-route="hub">← 返回机会发现</button><div><span class="route-label">兼容入口 · 市场证据</span><h2>市场证据已统一放入全球航图</h2><p>市场增长不再作为机会发现里的独立工作台。请在全球航图完成规模、趋势与商品证据判断，再把选中的线索带入产品实验舱。</p></div></section>'
+    + '<section class="opportunity-market-summary"><div><h3>下一步去全球航图</h3><p>这里仅保留旧入口的兼容提示和少量状态，完整榜单、筛选条件与商品下钻统一在全球航图里完成。</p></div>'
+    + '<div class="opportunity-market-metrics">'
+    + '<div class="opportunity-market-metric"><span>可比商品</span><b>' + (g.n || list.length || '—') + '</b><small>当前可用样本</small></div>'
+    + '<div class="opportunity-market-metric"><span>稳健增长</span><b>' + (g.med === null ? '—' : fmtPct(g.med)) + '</b><small>当前筛选中位增速</small></div>'
+    + '<div class="opportunity-market-metric"><span>覆盖市场</span><b>' + (countryCount || '—') + '</b><small>国家 / 地区</small></div>'
+    + '</div><div class="opportunity-market-actions"><button type="button" class="primary" data-view="board">打开完整全球航图 →</button><button type="button" data-opportunity-route="hub">换一条路径</button></div></section>'
+    + '</div>';
+}
 RENDER.opportunity = function () {
-  var view = $('#view');
-  view.innerHTML = '<iframe class="opportunity-radar-frame" title="今日产品机会" loading="eager"></iframe>';
-  var frame = view.querySelector('.opportunity-radar-frame');
-  if (frame) frame.src = './opportunity-radar/prototype.html#radar';
+  var view = $('#view'), route = state.opportunityPath === 'market' ? 'market' : 'demand';
+  if (route === 'demand') {
+    view.innerHTML = opportunityDemandRouteHtml();
+    var frame = view.querySelector('.opportunity-radar-frame');
+    if (frame) frame.src = './opportunity-radar/prototype.html?category=' + (state.opportunityCategory === 'face' ? 'face' : 'eye') + '#radar';
+  } else if (route === 'market') {
+    view.innerHTML = opportunityMarketRouteHtml();
+  } else {
+    view.innerHTML = opportunityHubHtml();
+  }
 };
-/* 实验工厂（eye-oil-lab 静态编译版）：Shadow DOM 挂载，样式与主站隔离。
-   宿主用 absolute 脱离文档流，#view 会塌成 0 高，必须显式撑高并跟随窗口调整。 */
+/* 产品实验舱：直接挂载到当前工作台的 shadow root。
+   之前这里使用 iframe，切换阶段时会同时受 browsing context、动态 chunk
+   和外层滚动容器影响；现在仍保留独立构建产物，但不再创建 iframe。 */
+var LAB_ORIGIN = window.location.origin;
+var LAB_SCRIPT_URL = new URL('./lab/assets/index-BpZWLwD0.js?v=20260929-11', window.location.href).href;
+var LAB_STYLE_URL = new URL('./lab/assets/index-DScVHvQr.css?v=20260929-7', window.location.href).href;
+function voyagerLabPayload() {
+  var ctx = typeof stContext === 'function' ? stContext() : null;
+  var m = ctx && ctx.current ? ctx.current : {};
+  var gate = ctx && typeof stGate === 'function' ? stGate(ctx) : { eligible: false, decision: '待补充证据', confidence: '不足', earned: 0, observable: 1 };
+  var imported = (STRATEGY && STRATEGY.demandPayload) || {};
+  var prefill = (STRATEGY && STRATEGY.labPrefill) || {};
+  var direction = null;
+  if (STRATEGY && STRATEGY.direction && typeof stDirections === 'function') {
+    var choices = stDirections(ctx || { current: m });
+    for (var i = 0; i < choices.length; i++) if (choices[i].id === STRATEGY.direction) direction = choices[i];
+  }
+  var selectedDirection = direction || imported.direction || null;
+  var title = imported.title || (STRATEGY && STRATEGY.demandSignal) || prefill.title || (ctx && ctx.searchLabel) || [m.country, m.c2].filter(Boolean).join(' · ') || '当前全球商品机会';
+  var market = imported.market || prefill.market || m.country || '当前市场';
+  var category = imported.category || prefill.category || m.c2 || '当前细分类目';
+  var source = imported.source || prefill.source || m.src || '全球选品星图';
+  var sourceType = imported.sourceType || (Object.keys(imported).length ? 'demand-signal' : 'global-atlas');
+  var sourceLabel = imported.sourceLabel || (sourceType === 'demand-signal' ? '用户需求信号' : '全球航图');
+  var period = imported.period || prefill.period || m.period || '当前周期';
+  var prefillGrowth = prefill.growth || '';
+  var stable = [title, market, category, source, period].filter(Boolean).join('|').replace(/[^\w\u4e00-\u9fff-]+/g, '-').slice(0, 110);
+  var opportunityId = imported.opportunityId || prefill.opportunityId || opportunityIdFromParts(market, category, source, period);
+  var evidence = [];
+  /* 只有真实需求回流或通过严格机会门槛的数据，才可以进入机会证据链。
+     类目、增长和榜单字段本身只能作为市场线索，不能伪装成用户需求。 */
+  if (imported.signal || imported.summary || imported.unmetNeed) evidence.push({ finding: imported.signal || imported.summary || imported.unmetNeed, source: imported.source || '需求信号', sample: imported.targetUser || '前置用户需求样本', confidence: imported.confidence || '待复核', scope: '需求信号', note: imported.counterEvidence || '保留原始来源，进入小实验后继续验证。' });
+  if (gate.eligible && (m.src || m.c2 || prefill.category)) evidence.push({ finding: '市场与商品增长线索：' + category + ' · ' + market + (prefillGrowth ? ' · 中位增速 ' + prefillGrowth : ''), source: source, sample: prefill.count ? '可比商品 ' + prefill.count + ' 条' : (m.n ? '可比商品 ' + m.n + ' 条' : '当前数据快照'), confidence: '待复核', scope: '市场规模与增长', note: '来自前置数据平台，回流后继续核验口径和时效。' });
+  if (gate.eligible && (m.top50 !== undefined || m.pos !== undefined)) evidence.push({ finding: '增长结构：中位增速 ' + (m.med === null || m.med === undefined ? '—' : fmtPct(m.med)) + ' · 正增长 ' + (m.pos === null || m.pos === undefined ? '—' : m.pos + '%'), source: m.src || '全球航图', sample: m.period || '当前周期', confidence: '待复核', scope: '增长质量', note: '不得与其他国家、来源或周期混算。' });
+  if (!evidence.length && imported.evidenceItems && imported.evidenceItems.length) evidence = imported.evidenceItems;
+  var payload = {
+    id: opportunityId,
+    opportunityId: opportunityId,
+    title: title,
+    summary: imported.summary || (gate.eligible ? '这条机会已通过市场数据门槛，可带入产品路径继续验证。' : '当前仅形成市场线索，用户需求证据或可比数据不足，不能直接立项。'),
+    signal: imported.signal || (source + ' · ' + category + ' · ' + period),
+    targetUser: imported.targetUser || '', unmetNeed: imported.unmetNeed || '', counterEvidence: imported.counterEvidence || (gate.eligible ? '后续样品和真实用户验证仍可能推翻当前判断。' : '尚未形成可复核的用户任务，需补充评论、搜索词或访谈原话。'), confidence: imported.confidence || gate.confidence || '不足',
+    sourceType: sourceType, sourceLabel: sourceLabel, source: source, market: market, category: category, period: period, currency: imported.currency || m.currency || '',
+    projectName: imported.projectName || (selectedDirection && selectedDirection.name ? selectedDirection.name : title),
+    direction: selectedDirection ? { id: selectedDirection.id, name: selectedDirection.name, premise: selectedDirection.premise || selectedDirection.desc || '', risk: selectedDirection.risk || (gate.eligible ? '' : '当前只有市场线索，用户任务和产品需求尚未成立。'), buildable: !!gate.eligible && !!(imported.signal || imported.summary || imported.unmetNeed), scores: selectedDirection.scores || { userFit: 0, differentiation: 0, margin: 0, feasibility: 0 } } : null,
+    evidenceItems: evidence,
+    stage: gate.eligible && (imported.signal || imported.summary || imported.unmetNeed) ? 'ready' : 'validation',
+    scoreBreakdown: { demand: imported.signal || imported.summary || imported.unmetNeed ? (m.med === null || m.med === undefined ? 0 : Math.max(0, Math.min(100, Number(m.med) + 50))) : 0, differentiation: 0, margin: 0, feasibility: 0, evidence: imported.evidenceItems && imported.evidenceItems.length ? Math.min(100, imported.evidenceItems.length * 20) : 0 }
+  };
+  upsertOpportunityRecord({
+    id: opportunityId,
+    title: title,
+    market: market,
+    category: category,
+    source: source,
+    period: period,
+    currency: imported.currency || m.currency || '',
+    status: payload.stage === 'ready' ? 'ready' : 'validation',
+    confidence: payload.confidence,
+    evidenceItems: evidence,
+    sourceSnapshot: { growth: prefillGrowth, count: prefill.count || m.n || 0, medianGrowth: m.med, positiveGrowth: m.pos, top50: m.top50, complete: m.complete }
+  });
+  return payload;
+}
 function layoutLabView() {
   if (state.view !== 'lab') return;
-  var v = $('#view');
-  var top = v.getBoundingClientRect().top;
-  v.style.height = Math.max(320, window.innerHeight - top - 8) + 'px';
+  var host = window.__labHost;
+  if (!host) return;
+  var bar = document.querySelector('.topbar');
+  var top = bar ? bar.getBoundingClientRect().bottom : 0;
+  host.style.top = Math.max(0, top) + 'px';
+  host.style.left = 'var(--side-w)';
+  host.style.right = '0';
+  host.style.bottom = '0';
 }
 if (!window.__labResizeBound) {
   window.__labResizeBound = true;
@@ -3657,42 +3978,71 @@ if (!window.__labResizeBound) {
 }
 RENDER.lab = function () {
   var v = $('#view');
-  v.style.position = 'relative';
-  v.style.padding = '0';
-  v.style.overflow = 'hidden';
-  v.style.background = '#f5f7f6';
-  v.innerHTML = '<div id="lab-host" style="position:absolute;inset:0;overflow:auto;">'
-    + '<div style="padding:40px;text-align:center;color:#65706c;font-size:13px;">实验工厂加载中…</div></div>';
+  v.style.cssText = '';
+  v.innerHTML = '';
+  document.title = 'Voyager Atlas · ' + ({ opportunity: '机会来源', development: '项目执行', projects: '项目记录' }[state._labView] || '产品实验舱');
+  /* 工作台只创建一次，切换板块时只隐藏，避免 React 根节点被反复销毁。 */
+  var host = window.__labHost;
+  if (!host) {
+    host = document.createElement('div');
+    host.id = 'lab-host';
+    host.style.cssText = 'position:fixed;display:block;overflow:auto;background:#f7f8fb;z-index:15;';
+    var shadow = host.attachShadow ? host.attachShadow({ mode: 'open' }) : host;
+    shadow.innerHTML = '<style>:host{display:block;min-height:100%;}#lab-root{position:relative;min-height:100%;}</style>'
+      + '<link rel="stylesheet" href="' + LAB_STYLE_URL + '">'
+      + '<div id="lab-loading" style="position:absolute;inset:0;display:grid;place-items:center;color:#65706c;font-size:13px;z-index:1;">产品实验舱加载中…</div>'
+      + '<div id="lab-root" style="z-index:2;"></div>';
+    host.__labShadow = shadow;
+    host.__labRoot = shadow.querySelector('#lab-root');
+    host.__labLoading = shadow.querySelector('#lab-loading');
+    document.body.appendChild(host);
+    window.__labHost = host;
+  } else {
+    host.style.display = 'block';
+  }
   layoutLabView();
-  var host = v.querySelector('#lab-host');
+  window.__EYE_OIL_LAB_EMBEDDED__ = true;
   window.__EYE_OIL_LAB_ASSET_BASE__ = './lab/';
-  fetch('./lab/manifest.json').then(function (r) { return r.json(); }).then(function (m) {
-    var loadCss = window.__eyeOilLabCss
-      ? Promise.resolve(window.__eyeOilLabCss)
-      : fetch('./lab/' + m.css).then(function (r) { return r.text(); }).then(function (css) {
-          /* 把全局选择器改写到 :host，使样式只在 Shadow DOM 内生效；
-             fixed 一律改 absolute 锚定到宿主容器（fixed 相对视口会盖住主站导航，
-             且 transform 合成层在部分环境下不绘制），顶栏再单独改 sticky 保持吸顶 */
-          window.__eyeOilLabCss = css.replace(/:root/g, ':host').replace(/([},])html(?=[{.,:\s])/g, '$1:host').replace(/([},])body(?=[{.,:\s])/g, '$1:host')
-            .replace(/position:fixed/g, 'position:absolute')
-            + '\n.app-header{position:sticky;top:0;left:0;right:0;bottom:auto;}\n';
-          return window.__eyeOilLabCss;
-        });
-    return Promise.all([loadCss, import('./lab/' + m.js)]);
-  }).then(function (results) {
-    if (!host.isConnected) return;
-    var shadow = host.attachShadow({ mode: 'open' });
-    var style = document.createElement('style');
-    style.textContent = results[0];
-    var mountEl = document.createElement('div');
-    shadow.appendChild(style);
-    shadow.appendChild(mountEl);
-    host.innerHTML = '';
-    window.EyeOilLab.mount(mountEl);
-  }).catch(function (err) {
-    host.innerHTML = '<div style="padding:40px;text-align:center;color:#c00;font-size:13px;">实验工厂加载失败：' + esc(err && err.message || '未知错误') + '，请确认 lab/ 目录完整。</div>';
-  });
+  function pushLabContext() {
+    var validLabViews = ['opportunity', 'development', 'projects'];
+    var initialLabView = validLabViews.indexOf(state._labView) >= 0 ? state._labView : (STRATEGY.labIntent === 'execute' ? 'development' : 'opportunity');
+    window.dispatchEvent(new MessageEvent('message', { data: { type: 'voyager-atlas-opportunity', source: 'voyager-atlas', intent: STRATEGY.labIntent || 'import', payload: voyagerLabPayload() }, origin: LAB_ORIGIN }));
+    window.dispatchEvent(new MessageEvent('message', { data: { type: 'voyager-lab-navigation', view: initialLabView }, origin: LAB_ORIGIN }));
+  }
+  function mountLab() {
+    if (!window.EyeOilLab || !host.__labRoot) return;
+    if (host.__labMounted) {
+      pushLabContext();
+      return;
+    }
+    window.__EYE_OIL_LAB_INITIAL_VIEW__ = ['opportunity', 'development', 'projects'].indexOf(state._labView) >= 0 ? state._labView : 'development';
+    window.EyeOilLab.mount(host.__labRoot);
+    host.__labMounted = true;
+    if (host.__labLoading) host.__labLoading.remove();
+    pushLabContext();
+    window.setTimeout(pushLabContext, 250);
+    window.setTimeout(pushLabContext, 1000);
+  }
+  if (window.EyeOilLab) {
+    mountLab();
+    return;
+  }
+  if (!window.__labBundleLoading) {
+    window.__labBundleLoading = true;
+    var script = document.createElement('script');
+    script.type = 'module';
+    script.src = LAB_SCRIPT_URL;
+    script.onload = mountLab;
+    script.onerror = function () { if (host.__labLoading) host.__labLoading.textContent = '产品实验舱加载失败，请刷新后重试。'; };
+    document.head.appendChild(script);
+  }
 };
+
+function navigateLab(view, addHistory) {
+  state._labView = view || 'development';
+  if (window.__labHost && window.EyeOilLab) window.dispatchEvent(new MessageEvent('message', { data: { type: 'voyager-lab-navigation', view: state._labView }, origin: LAB_ORIGIN }));
+  if (addHistory !== false) pushRouteHistory();
+}
 
 function boardTopHtml(list) {
   var cty = {}, src = {}, c2 = {}, i;
@@ -4060,7 +4410,7 @@ function rankNoText(r) {
    原工作台商品榜逻辑已移除；融合原型保留榜单、筛选、对比和单品深度分析。 ---------- */
 RENDER.rank = function () {
   var v = $('#view');
-  v.innerHTML = '<iframe class="rank-fusion-frame" title="商品榜与产品分析融合" loading="eager"></iframe>';
+  v.innerHTML = '<iframe class="rank-fusion-frame" title="竞品情报与商品分析" loading="eager"></iframe>';
   var frame = v.querySelector('.rank-fusion-frame');
   if (frame) frame.src = './vendor/product_research_tool_remote/产品调研模块/index.html';
 };
@@ -4125,7 +4475,7 @@ var ING_RADAR_NEW=[['海茴香提取物','美国','快速增长'],['藻蓝蛋白
 function ingRadarEffect(name){return ING_RADAR_EFFECTS[name]||'具体功效需结合浓度、剂型与配方验证。';}
 function ingRadarItems(key){var m=ING_RADAR_MARKETS[key],out=[],i;for(i=0;i<m.items.length;i++)out.push({name:m.items[i][0],heat:m.items[i][1],move:m.items[i][2],body:'面部护理'});for(i=0;i<ING_RADAR_EXTRAS.length;i++)out.push({name:ING_RADAR_EXTRAS[i],heat:64-i*2+(key==='JP'?4:0),move:(i%5)-1,body:'面部护理'});return out.slice(0,20);}
 function ingRadarHtml(){
-  var key=state.ingRadarMarket||'US',m=ING_RADAR_MARKETS[key],items=ingRadarItems(key),h='<section class="ing-radar"><div class="ing-radar-head"><div><h2>全球成分趋势雷达</h2><p>今日推送、新成分发现与各国家 Top20，作为原成分库的趋势补充。</p></div><span class="ing-radar-pill">每日 09:30 · '+esc(m.source)+'</span></div>';
+  var key=state.ingRadarMarket||'US',m=ING_RADAR_MARKETS[key],items=ingRadarItems(key),h='<section class="ing-radar"><div class="ing-radar-head"><div><h2>成分前沿</h2><p>观察全球成分变化，寻找可以进入产品方向的配方线索。</p></div><span class="ing-radar-pill">每日 09:30 · '+esc(m.source)+'</span></div>';
   h+='<div class="ing-radar-push">';for(var i=0;i<ING_RADAR_PUSH.length;i++){var p=ING_RADAR_PUSH[i];h+='<article class="ing-radar-card"><h3>'+esc(p[0])+'</h3><p>'+esc(p[4])+'<br><span class="ing-radar-effect">功效：'+esc(ingRadarEffect(p[0]))+'</span></p><div class="ing-radar-meta"><span>'+esc(p[1])+'</span><span>'+esc(p[2])+'</span><span>'+esc(p[3])+'</span></div><a class="ing-radar-link" href="#" onclick="return false">查看来源证据 ↗</a></article>';}h+='</div>';
   h+='<div class="ing-radar-head" style="margin:4px 0 0"><div><b>今日新成分发现</b><p>每个国家 1 条线索，先作为观察，不直接视为成熟成分。</p></div><span class="ing-radar-pill">每国 1 项 · 4 个市场</span></div><div class="ing-radar-meta" style="margin-bottom:8px">';for(i=0;i<ING_RADAR_NEW.length;i++)h+='<span>'+esc(ING_RADAR_NEW[i][1]+' · '+ING_RADAR_NEW[i][0]+' · '+ING_RADAR_NEW[i][2])+'</span>';h+='</div>';
   h+='<div class="ing-radar-head" style="margin:12px 0 0"><div><b>'+esc(m.name)+' · 成分趋势 Top20</b><p>点击国家直接切换榜单；功效仅作一句话方向提示。</p></div></div><div class="ing-radar-tabs">';Object.keys(ING_RADAR_MARKETS).forEach(function(k){h+='<button type="button" class="'+(k===key?'on':'')+'" data-ing-market="'+k+'">'+esc(ING_RADAR_MARKETS[k].name)+'</button>';});h+='</div><div style="overflow-x:auto"><table class="ing-radar-table"><thead><tr><th>#</th><th>成分 / 功效</th><th>热度</th><th>变化</th><th>主要部位</th></tr></thead><tbody>';
@@ -4227,7 +4577,18 @@ RENDER.ingLegacy = function () {
 /* 成分库只承载 1:1 成分榜单页面；原旧版成分卡片不再作为入口渲染。 */
 RENDER.ing = function () {
   var v = $('#view');
-  v.innerHTML = '<iframe class="ingredient-radar-frame" src="ingredient-radar.html?v=1" title="全球成分趋势雷达"></iframe>';
+  var tab = state.ingTab || 'daily-discovery';
+  var tabs = [
+    ['daily-discovery', '今日新发现'],
+    ['market-title', '市场成分热度'],
+    ['list-title', '成分排行']
+  ];
+  var h = '<div class="page-inline-workbench"><nav class="page-inline-tabs" role="tablist" aria-label="成分雷达模块">';
+  for (var i = 0; i < tabs.length; i++) {
+    h += '<button type="button" role="tab" aria-selected="' + (tab === tabs[i][0] ? 'true' : 'false') + '" class="' + (tab === tabs[i][0] ? 'on' : '') + '" data-ing-tab="' + tabs[i][0] + '">' + tabs[i][1] + '</button>';
+  }
+  h += '</nav><iframe class="ingredient-radar-frame" src="ingredient-radar.html?v=4#' + tab + '" title="成分雷达"></iframe></div>';
+  v.innerHTML = h;
 };
 
 /* ---------- local strategy integration：数据台 → 决策 → 落地 → 复盘 ---------- */
@@ -4235,11 +4596,11 @@ function stLoadReviews(){try{return JSON.parse(localStorage.getItem('wb_strategy
 function stSaveReviews(){try{localStorage.setItem('wb_strategy_human_reviews',JSON.stringify(STRATEGY.reviews));}catch(e){toast('人工决策记录仅在本次浏览有效');}}
 function stLoadTasks(){try{var a=JSON.parse(localStorage.getItem('wb_strategy_collect_tasks')||'[]');return Array.isArray(a)?a:[];}catch(e){return [];}}
 function stSaveTasks(){try{localStorage.setItem('wb_strategy_collect_tasks',JSON.stringify(STRATEGY.tasks));}catch(e){toast('采集任务草稿仅在本次浏览有效');}}
-var STRATEGY = { view: 'desk', pick: 0, direction: null, searchTerm: '', searchCategory: '', searchProduct: '', searchMarket: '全部', searchSource: '全部', exploreMode: 'category', collectPrefill: '', packaging: 'stock', formula: 'upgrade', qty: 5000, raw: 'local', testing: 'basic', generated: {}, reviews: stLoadReviews(), tasks: stLoadTasks() };
+var STRATEGY = { view: 'desk', pick: 0, direction: null, demandSignal: '', demandPayload: null, labPrefill: null, labIntent: 'import', searchTerm: '', searchCategory: '', searchProduct: '', searchMarket: '全部', searchSource: '全部', exploreMode: 'category', collectPrefill: '', packaging: 'stock', formula: 'upgrade', qty: 5000, raw: 'local', testing: 'basic', generated: {}, reviews: stLoadReviews(), tasks: stLoadTasks() };
 var ST_NAV = [
-  ['desk', '决策工作台', '今日优先级'], ['opportunity', '市场机会检索', '类目、国家与平台'],
-  ['direction', 'AI 产品方向', '2–3 个可选方向'], ['simulation', '方案决策与模拟', '供应链可行性'],
-  ['delivery', '一键落地', '生成执行资料'], ['review', '验证与复盘', '结果回流']
+  ['desk', '立项总览', '待判断机会'], ['opportunity', '机会校准', '需求、市场与竞品证据'],
+  ['direction', '产品方向', '选择值得验证的方向'], ['simulation', '方案推演', '评估成本与可行性'],
+  ['delivery', '执行资料', '生成项目所需资料'], ['review', '结果回航', '回看验证结果']
 ];
 function stPct(v) { return v === null || v === undefined || !isFinite(v) ? '—' : (v > 0 ? '+' : '') + Math.round(v * 10) / 10 + '%'; }
 function stBadge(text, cls) { return '<span class="st-badge ' + (cls || '') + '">' + esc(text) + '</span>'; }
@@ -4254,6 +4615,27 @@ function stCommitMarketAnalysis(category,product,market,source){STRATEGY.searchC
 function stSearchRows(q){var out=[],categoryQ=String(STRATEGY.searchCategory||'').trim(),productQ=String(STRATEGY.searchProduct||'').trim();for(var i=0;i<state.list.length;i++){var r=state.list[i];if(isDemoFilteredOut(r))continue;if(STRATEGY.searchMarket!=='全部'&&txtOf(r,'国家/地区')!==STRATEGY.searchMarket)continue;if(STRATEGY.searchSource!=='全部'&&txtOf(r,'数据来源')!==STRATEGY.searchSource)continue;var categoryHay=[txtOf(r,'品类'),txtOf(r,'细分品类'),txtOf(r,'二级类目'),txtOf(r,'三级类目')].join(' '),productHay=[txtOf(r,'商品ID'),txtOf(r,'商品名称'),txtOf(r,'品牌'),txtOf(r,'概念标签'),txtOf(r,'功效宣称'),txtOf(r,'核心功效成分')].join(' '),allHay=categoryHay+' '+productHay;if(categoryQ&&!matchesSearchHay(categoryHay,categoryQ))continue;if(productQ&&!matchesSearchHay(productHay,productQ))continue;if(!categoryQ&&!productQ&&!matchesSearchHay(allHay,q))continue;out.push(r);}return out;}
 function stAlternativeSources(){var counts={},out=[],categoryQ=String(STRATEGY.searchCategory||STRATEGY.searchTerm||'').trim(),productQ=String(STRATEGY.searchProduct||'').trim();for(var i=0;i<state.list.length;i++){var r=state.list[i];if(isDemoFilteredOut(r))continue;if(STRATEGY.searchMarket!=='全部'&&txtOf(r,'国家/地区')!==STRATEGY.searchMarket)continue;var categoryHay=[txtOf(r,'品类'),txtOf(r,'细分品类'),txtOf(r,'二级类目'),txtOf(r,'三级类目')].join(' '),productHay=[txtOf(r,'商品ID'),txtOf(r,'商品名称'),txtOf(r,'品牌'),txtOf(r,'概念标签'),txtOf(r,'功效宣称'),txtOf(r,'核心功效成分')].join(' ');if(categoryQ&&!matchesSearchHay(categoryHay,categoryQ))continue;if(productQ&&!matchesSearchHay(productHay,productQ))continue;var src=txtOf(r,'数据来源')||'未标来源';counts[src]=(counts[src]||0)+1;}for(var k in counts)if(Object.prototype.hasOwnProperty.call(counts,k))out.push({source:k,n:counts[k]});out.sort(function(a,b){return b.n-a.n;});return out;}
 function stSearchCells(rows,q){var groups={},out=[];for(var i=0;i<rows.length;i++){var r=rows[i],dim=compareCellOf(r,txtOf(r,'二级类目')||txtOf(r,'细分品类')||q),key=dim.key;if(!groups[key])groups[key]={country:dim.country||'未标市场',src:dim.src||'未标来源',currency:dim.currency||'—',period:dim.period||'未标周期',c2:dim.c2||q,rows:[]};groups[key].rows.push(r);}for(var k in groups){if(!Object.prototype.hasOwnProperty.call(groups,k))continue;var c=groups[k],gate=opportunityGate(c.rows),gs=gate.g;out.push({country:c.country,src:c.src,currency:c.currency,period:c.period,c2:c.c2,rows:c.rows,n:c.rows.length,nKeep:gs.n,med:gs.med,pos:gs.pos,top50:gate.top50,complete:gate.complete,manualSearch:true,query:q});}out.sort(function(a,b){return b.n-a.n||((b.med===null?-1e9:b.med)-(a.med===null?-1e9:a.med));});return out;}
+var OPPORTUNITY_STORE_KEY = 'wb_opportunities_v1';
+function opportunityIdFromParts(market, category, source, period) {
+  var seed = [market, category, source, period].map(function (v) { return String(v || '').trim(); }).join('|') || '未命名机会';
+  var hash = 2166136261;
+  for (var i = 0; i < seed.length; i++) { hash ^= seed.charCodeAt(i); hash += (hash << 1) + (hash << 4) + (hash << 7) + (hash << 8) + (hash << 24); }
+  return 'OPP-' + (hash >>> 0).toString(16).toUpperCase();
+}
+function loadOpportunityStore() {
+  try { var data = JSON.parse(localStorage.getItem(OPPORTUNITY_STORE_KEY) || '[]'); return Array.isArray(data) ? data : []; } catch (e) { return []; }
+}
+function saveOpportunityStore(list) {
+  try { localStorage.setItem(OPPORTUNITY_STORE_KEY, JSON.stringify(list.slice(0, 100))); } catch (e) { toast('机会卡暂时只保存在当前浏览器'); }
+}
+function upsertOpportunityRecord(record) {
+  if (!record || !record.id) return;
+  var list = loadOpportunityStore(), found = -1;
+  for (var i = 0; i < list.length; i++) if (list[i].id === record.id) { found = i; break; }
+  if (found >= 0) list[found] = Object.assign({}, list[found], record, { updatedAt: new Date().toISOString() });
+  else list.unshift(Object.assign({}, record, { createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() }));
+  saveOpportunityStore(list);
+}
 function stOpportunityKey(m){return [m.country||'',m.src||'',m.c2||'',m.currency||'',m.period||''].join('|');}
 function stReviewForCell(m){var r=STRATEGY.reviews[stOpportunityKey(m)]||{status:'pending',reason:'',at:''};if(r.status==='approved'&&r.expiresOn&&r.expiresOn<new Date().toISOString().slice(0,10)){var copy={};for(var k in r)copy[k]=r[k];copy.status='expired';return copy;}return r;}
 function stHumanRecord(ctx){return stReviewForCell(ctx.current);}
@@ -4312,7 +4694,7 @@ function stHumanReviewHtml(ctx) {
   var held=r.status==='held',warning=g.eligible?'系统证据门槛已通过，但仍需人工判断是否符合公司战略、供应链和品牌方向。':'当前还有证据缺口。如果仍决定进入，将作为人工例外保留判断理由。';
   return '<section class="st-human-review"><div><span class="st-badge '+(held?'amber':'blue')+'">'+(held?'已暂缓':'等待人工判断')+'</span><h3>是否让这个候选机会进入决策链？</h3><p>'+warning+'</p><p style="margin-top:7px">人工需要结合公司战略、品牌适配、开发意愿与实际资源做最终决定；AI 只提供线索和证据，不代替立项。</p></div><div class="st-review-form"><label for="stReviewNote">人工判断理由（必填）</label><textarea id="stReviewNote" placeholder="例：符合今年眼部护理战略，且现有供应链可承接小批验证。">'+esc(r.reason||'')+'</textarea><div class="st-review-actions"><button type="button" data-st-hold="1">暂不进入</button><button type="button" class="pri" data-st-approve="1">确认进入决策链并生成方向 →</button></div></div></section>';
 }
-function stLockedHtml(ctx){var approved=stApproved(ctx);return '<div class="st-view-in"><section class="st-locked-panel"><span class="st-badge amber">尚未解锁</span><h3>'+(approved?'先选择一个产品方向':'先完成候选机会的人工判断')+'</h3><p>'+(approved?'该机会已人工入链，但还没有选定具体产品方向。请先在 AI 产品方向中从 2–3 个草案里作出选择。':'AI 发现增长信号不等于公司已立项。只有人工明确点击“进入决策链”后，才会生成产品方向和后续方案。')+'</p><button type="button" data-st-go="'+(approved?'direction':'opportunity')+'">'+(approved?'返回选择产品方向':'返回市场机会池审核')+' →</button></section></div>';}
+function stLockedHtml(ctx){var approved=stApproved(ctx);return '<div class="st-view-in"><section class="st-locked-panel"><span class="st-badge amber">尚未解锁</span><h3>'+(approved?'先选择一个产品方向':'先完成机会校准')+'</h3><p>'+(approved?'该机会已确认，但还没有选定具体产品方向。请先从 2–3 个草案里作出选择。':'需求信号不等于正式立项。请先把需求、市场和竞品证据放在一起判断。')+'</p><button type="button" data-st-go="'+(approved?'direction':'opportunity')+'">'+(approved?'返回选择产品方向':'返回机会校准')+' →</button></section></div>';}
 function stDirections(ctx) {
   var c = ctx.current.c2 || '眼部护理', eye = /眼|睫毛/.test(c);
   return eye ? [
@@ -4352,7 +4734,7 @@ function stCollectionHubHtml(ctx){
   return h+'</div></section></section>';
 }
 function stSimpleSearchHtml(ctx){
-  var markets=stDistinct(['国家/地区']),sources=stDistinct(['数据来源']),sourceDefaults=['抖音罗盘','蝉妈妈','飞瓜','FastMoss','Hwahae','Olive Young'],seen={},merged=[],cats=stDistinct(['二级类目','细分品类','品类']),h='<section class="st-simple-search"><div class="st-simple-head"><div><span class="st-badge blue">ONE INPUT → MARKET ANALYSIS</span><h2>市场机会检索</h2><p>选择类目、国家和平台，系统自动调用前面已经收集的数据，输出大盘证据、销量结构、增长质量和机会点。</p></div><span class="st-badge green">'+Number(state.localSnapshotN||0)+' 条数据可检索</span></div><div class="st-simple-form"><div class="st-field"><label for="stSimpleCategory">类目（必填）</label><input id="stSimpleCategory" list="stCategoryList" value="'+esc(STRATEGY.searchCategory||STRATEGY.searchTerm||'')+'" placeholder="输入或选择，例如：眼部护理"><datalist id="stCategoryList">';
+  var markets=stDistinct(['国家/地区']),sources=stDistinct(['数据来源']),sourceDefaults=['抖音罗盘','蝉妈妈','飞瓜','FastMoss','Hwahae','Olive Young'],seen={},merged=[],cats=stDistinct(['二级类目','细分品类','品类']),h='<section class="st-simple-search"><div class="st-simple-head"><div><span class="st-badge blue">MARKET CHECK</span><h2>市场机会检索</h2><p>选择类目、国家和平台，查看市场规模、增长质量和竞品切入空间。</p></div><span class="st-badge green">'+Number(state.localSnapshotN||0)+' 条数据可检索</span></div><div class="st-simple-form"><div class="st-field"><label for="stSimpleCategory">类目（必填）</label><input id="stSimpleCategory" list="stCategoryList" value="'+esc(STRATEGY.searchCategory||STRATEGY.searchTerm||'')+'" placeholder="输入或选择，例如：眼部护理"><datalist id="stCategoryList">';
   for(var c=0;c<cats.length;c++)h+='<option value="'+esc(cats[c])+'">';
   h+='</datalist></div><div class="st-field"><label for="stSimpleMarket">国家 / 地区（必填）</label><select id="stSimpleMarket"><option value="">请选择国家</option>'+stOptions(markets,STRATEGY.searchMarket==='全部'?'':STRATEGY.searchMarket,'')+'</select></div>';
   for(var s=0;s<sourceDefaults.length;s++){seen[sourceDefaults[s]]=1;merged.push(sourceDefaults[s]);}for(s=0;s<sources.length;s++)if(!seen[sources[s]])merged.push(sources[s]);
@@ -4373,17 +4755,31 @@ function stMarketAnalysisHtml(ctx){
   h+='</ul></article><aside class="st-gap-card"><h3>数据缺口与下一步</h3><ul>';for(i=0;i<gaps.length;i++)h+='<li>'+esc(gaps[i])+'</li>';return h+'</ul><button type="button" data-st-fill-gap="1">生成补充采集任务</button></aside></section>';
 }
 function stNavHtml(ctx) {
-  var h='<div class="st-local"><i></i><b>本地整合预览</b><span>已加载 '+Number(state.localSnapshotN||0)+' 条本地只读数据快照，并合并本机导入记录；知识库、供应链与复盘为模拟内容；不回写 WorkBuddy。</span></div><div class="st-nav">';
-  for(var i=0;i<ST_NAV.length;i++){var n=ST_NAV[i],preview=!stApproved(ctx)&&i>=2;h+='<button type="button" class="'+(STRATEGY.view===n[0]?'on ':'')+'" data-st-view="'+n[0]+'"><b>0'+(i+1)+' · '+esc(n[1])+'</b><small>'+(preview?'可预览 · 入链后转正式':esc(n[2]))+'</small></button>';}
+  var h='<div class="st-local"><i></i><b>产品立项</b><span>把需求、市场和竞品证据放在一起，帮助你决定是否值得投入。</span></div><div class="st-nav">';
+  for(var i=0;i<ST_NAV.length;i++){var n=ST_NAV[i];h+='<button type="button" class="'+(STRATEGY.view===n[0]?'on ':'')+'" data-st-view="'+n[0]+'"><b>0'+(i+1)+' · '+esc(n[1])+'</b><small>'+esc(n[2])+'</small></button>';}
   return h+'</div>';
 }
 function stDeskHtml(ctx) {
   var m=ctx.current,g=stGate(ctx),approved=stApproved(ctx),r=stHumanRecord(ctx),d=approved&&STRATEGY.direction?stDirection(ctx):null;
-  return '<div class="st-view-in"><section class="st-hero"><div><span class="st-eye"><i></i>AI 候选线索 · '+esc(g.rule)+'</span><h2>'+(approved?esc(m.country)+' · '+esc(m.c2)+' 已由人工确认进入决策链，<br><em>现在才生成产品方向。</em>':'系统发现 '+esc(m.country)+' · '+esc(m.c2)+' 增长线索，<br><em>等待人工判断是否进入决策链。</em>')+'</h2><p>'+(approved?'人工判断理由：'+esc(r.reason)+'。后续的产品方向、供应链模拟和落地资料已解锁。':'增长信号只是提醒，不代表自动立项。进入市场机会检索，只需选择类目、国家和平台，系统会自动整理已有数据并分析机会点。')+'</p><div class="st-actions"><button data-st-go="'+(approved?'direction':'opportunity')+'">'+(approved?'继续产品方向':'进入市场机会检索')+'</button><button data-st-go="opportunity">查看证据与门槛</button></div></div><div class="st-score st-score-frac"><span>证据支持分</span><strong>'+g.earned+'</strong><small>/'+g.observable+'</small><div class="bar"><i style="width:'+(g.earned/g.observable*100)+'%"></i></div><b>'+(approved?'人工已入链':'待人工判断')+' · 置信度 '+g.confidence+'</b></div></section>'
+  return '<div class="st-view-in"><section class="st-hero"><div><span class="st-eye"><i></i>AI 候选线索 · '+esc(g.rule)+'</span><h2>'+(approved?esc(m.country)+' · '+esc(m.c2)+' 已由人工确认进入决策链，<br><em>现在才生成产品方向。</em>':'系统发现 '+esc(m.country)+' · '+esc(m.c2)+' 增长线索，<br><em>等待人工判断是否进入决策链。</em>')+'</h2><p>'+(approved?'人工判断理由：'+esc(r.reason)+'。后续的产品方向、供应链模拟和落地资料已解锁。':'增长信号只是提醒，不代表自动立项。进入市场机会检索，只需选择类目、国家和平台，系统会自动整理已有数据并分析机会点。')+'</p><div class="st-actions"><button type="button" data-st-go="'+(approved?'direction':'opportunity')+'">'+(approved?'继续产品方向':'进入市场机会检索')+'</button><button type="button" data-st-go="opportunity">查看证据与门槛</button></div></div><div class="st-score st-score-frac"><span>证据支持分</span><strong>'+g.earned+'</strong><small>/'+g.observable+'</small><div class="bar"><i style="width:'+(g.earned/g.observable*100)+'%"></i></div><b>'+(approved?'人工已入链':'待人工判断')+' · 置信度 '+g.confidence+'</b></div></section>'
     +'<section class="st-kpis"><div class="st-kpi"><span>AI 候选线索</span><strong>'+ctx.cells.length+'</strong><small>只代表待审核线索</small></div><div class="st-kpi"><span>人工已入链</span><strong>'+(approved?1:0)+'</strong><small>'+(approved?'后续步骤已解锁':'尚未确认')+'</small></div><div class="st-kpi"><span>当前有效样本</span><strong>'+g.n+'</strong><small>证据门槛 ≥20</small></div><div class="st-kpi"><span>规则版本</span><strong style="font-size:16px">'+esc(g.rule.replace('GSP-Opportunity ',''))+'</strong><small>人机协同版</small></div></section>'
     +stEvidenceHtml(ctx)
     +'<section class="st-grid-2"><article class="st-card"><div class="st-card-h"><h3>当前候选线索</h3><span>01</span></div><div class="st-opp-head"><span class="st-flag">'+esc((m.country||'市场').slice(0,2))+'</span><div><b>'+esc(m.country)+' · '+esc(m.c2)+'</b><small>'+esc(m.src||'多来源')+' · '+esc(m.currency||'原币')+' · '+esc(m.period||'当前周期')+'</small></div>'+stBadge(approved?'人工已入链':'待人工判断',approved?'green':'amber')+'</div><div class="st-metrics"><div><span>中位增速</span><b>'+stPct(m.med)+'</b></div><div><span>正增长占比</span><b>'+(m.pos===null?'—':m.pos+'%')+'</b></div><div><span>Top50 样本覆盖</span><b>'+(m.top50||'—')+'%</b></div><div><span>完整率</span><b>'+(m.complete||'—')+'%</b></div></div><p class="st-evidence">比较单元：'+esc(m.country+' × '+m.src+' × '+m.c2+' × '+m.currency+' × '+m.period)+'。它是线索，不是自动推荐。</p></article>'
-    +'<article class="st-card"><div class="st-card-h"><h3>人工决策节点</h3>'+stBadge(approved?'已确认':'等待审核',approved?'green':'amber')+'</div>'+(approved?'<div class="st-review-record"><div><span>已选定类目</span><b>'+esc(m.country)+' · '+esc(m.c2)+'</b></div><div><span>判断理由</span><b>'+esc(r.reason)+'</b></div><div><span>下一步</span><b>'+esc(d?d.name:'生成产品方向')+'</b></div></div><button class="st-dark-btn" style="margin-top:12px" data-st-go="direction">进入 AI 产品方向 →</button>':'<p class="st-evidence">系统不会在这里自动输出眼油、滚珠精华等具体方向。请先完成人工审核，判断该类目是否值得投入下一阶段。</p><button class="st-dark-btn" style="margin-top:12px" data-st-go="opportunity">去审核这条线索 →</button>')+'</article></section></div>';
+    +'<article class="st-card"><div class="st-card-h"><h3>人工决策节点</h3>'+stBadge(approved?'已确认':'等待审核',approved?'green':'amber')+'</div>'+(approved?'<div class="st-review-record"><div><span>已选定类目</span><b>'+esc(m.country)+' · '+esc(m.c2)+'</b></div><div><span>判断理由</span><b>'+esc(r.reason)+'</b></div><div><span>下一步</span><b>'+esc(d?d.name:'生成产品方向')+'</b></div></div><button type="button" class="st-dark-btn" style="margin-top:12px" data-st-go="direction">进入 AI 产品方向 →</button>':'<p class="st-evidence">系统不会在这里自动输出眼油、滚珠精华等具体方向。请先完成人工审核，判断该类目是否值得投入下一阶段。</p><button type="button" class="st-dark-btn" style="margin-top:12px" data-st-go="opportunity">去审核这条线索 →</button>')+'</article></section></div>';
+}
+function stDecisionOverviewHtml(ctx) {
+  var m=ctx.current,g=stGate(ctx),r=stHumanRecord(ctx),approved=stApproved(ctx);
+  var market=(m.country||'待选市场')+' · '+(m.c2||'待选类目');
+  var demand=STRATEGY.demandSignal||'';
+  return '<div class="st-view-in">'
+    +'<section class="st-hero"><div><span class="st-eye"><i></i>产品立项</span><h2>先把需求、市场和竞品放在一起，再决定要不要做</h2><p>需求信号告诉我们用户遇到了什么，全球航图告诉我们市场发生了什么，竞品情报帮助我们找到可切入的方向。</p><div class="st-actions"><button type="button" data-st-go="opportunity">补充需求证据</button><button type="button" data-st-go="direction">查看产品方向</button></div></div><div class="st-score"><span>当前状态</span><strong>'+(approved?'已确认':'待判断')+'</strong><b>'+(approved?'可以继续完善产品方向':'先补齐或确认关键证据')+'</b></div></section>'
+    +'<section class="st-grid-3">'
+    +'<article class="st-card"><div class="st-card-h"><h3>需求信号</h3>'+stBadge('来自需求信号','blue')+'</div><h2>'+(demand?esc(demand):'用户正在遇到什么问题？')+'</h2><p class="st-evidence">'+(demand?'这条需求已带入产品立项，可以继续和市场及竞品证据放在一起判断。':'当前立项单还没有关联具体的用户需求卡。可以从“需求信号”选择一条需求，再回到这里继续判断。')+'</p><div class="st-review-actions"><button type="button" class="st-dark-btn" data-st-go="opportunity">'+(demand?'查看需求证据':'去关联需求')+'</button></div></article>'
+    +'<article class="st-card"><div class="st-card-h"><h3>市场证据</h3>'+stBadge('来自全球航图','green')+'</div><h2>'+esc(market)+'</h2><p class="st-evidence">'+esc((m.src||'来源待补')+' · '+(m.currency||'币种待补')+' · '+(m.period||'周期待补'))+'</p><div class="st-metrics"><div><span>稳健增长</span><b>'+stPct(m.med)+'</b></div><div><span>正增长</span><b>'+(m.pos===null?'—':m.pos+'%')+'</b></div><div><span>样本完整</span><b>'+(m.complete||'—')+'%</b></div></div><div class="st-review-actions"><button type="button" class="st-dark-btn" data-st-go="opportunity">查看市场证据</button></div></article>'
+    +'<article class="st-card"><div class="st-card-h"><h3>竞品情报</h3>'+stBadge('来自竞品情报','amber')+'</div><h2>'+esc((m.c2||'当前细分类目')+' · 商品结构')+'</h2><p class="st-evidence">'+esc((m.nKeep||m.n||0)+' 条可比商品 · '+(m.src||'来源待补')+' · '+(m.period||'周期待补'))+'</p><div class="st-metrics"><div><span>可比样本</span><b>'+((m.nKeep||m.n||0)||'—')+'</b></div><div><span>竞品卖点</span><b>待展开</b></div><div><span>切入空档</span><b>待判断</b></div></div><div class="st-review-actions"><button type="button" class="st-dark-btn" data-st-go="opportunity">查看竞品证据</button></div></article>'
+    +'</section>'
+    +'<section class="st-card st-decision-next"><div class="st-card-h"><h3>下一步</h3>'+stBadge(approved?'已确认':'待判断',approved?'green':'amber')+'</div><p>'+esc(approved?'机会已进入产品方向，可以继续选择方案并进入产品实验舱。':'把需求、市场和竞品证据补齐后，由你决定是否进入产品方向。')+'</p><div class="st-actions"><button type="button" data-st-go="opportunity">进入机会校准</button><button type="button" data-st-go="direction">选择产品方向</button></div></section>'
+    +'</div>';
 }
 function stOpportunityHtml(ctx) {
   var h='<div class="st-view-in">'+stSimpleSearchHtml(ctx);
@@ -4415,22 +4811,22 @@ function stReviewHtml() {
   return '<div class="st-view-in"><section class="st-heading"><div><span class="st-badge amber">SIMULATED LEARNING LOOP</span><h2>每次新品验证，都要反哺下一次决策</h2><p>下面的数据用于演示复盘结构，并非真实经营结果；正式接入后只显示已回流的实际指标。</p></div>'+stBadge('演示样例','amber')+'</section><section class="st-grid-2"><article class="st-card"><div class="st-card-h"><h3>预测 vs 实际（模拟）</h3><span>01</span></div><div class="st-table-wrap"><table class="st-table"><thead><tr><th>指标</th><th>目标</th><th>模拟实际</th><th>结论</th></tr></thead><tbody><tr><td>首发 7 日转化率</td><td>3.8%</td><td>4.2%</td><td>'+stBadge('达标','green')+'</td></tr><tr><td>首月复购意向</td><td>24%</td><td>19%</td><td>'+stBadge('观察','amber')+'</td></tr><tr><td>核心差评占比</td><td>&lt;2%</td><td>1.1%</td><td>'+stBadge('达标','green')+'</td></tr><tr><td>实测单件成本</td><td>¥26.4</td><td>¥27.2</td><td>'+stBadge('偏差 +3%','blue')+'</td></tr></tbody></table></div></article><article class="st-card"><div class="st-card-h"><h3>AI 学习示例</h3><span>02</span></div><ul class="st-learning"><li><b>验证策略有效</b><span>现货包材没有明显拉低首发转化。</span></li><li><b>复购假设偏高</b><span>用户认可使用体验，但长期价值感知不足。</span></li><li><b>规则建议更新</b><span>规则变更需至少三个完整周期回测后才能生效。</span></li></ul><button class="st-dark-btn" data-st-doc="决策规则">查看规则更新草案</button></article></section></div>';
 }
 function strategyHtml() {
-  var ctx=stContext(),approved=stApproved(ctx),body=STRATEGY.view==='opportunity'?stOpportunityHtml(ctx):STRATEGY.view==='direction'?stDirectionHtml(ctx):STRATEGY.view==='simulation'?stSimulationHtml(ctx):STRATEGY.view==='delivery'?stDeliveryHtml(ctx):STRATEGY.view==='review'?stReviewHtml(ctx):stDeskHtml(ctx),preview=stLockedView(STRATEGY.view)&&!approved?'<div class="st-local"><i style="background:#E2A14A"></i><b>预览模式 · 未正式立项</b><span>当前步骤可以浏览、选择和试算；人工确认进入决策链后，才转为正式项目与执行依据。</span></div>':'';
-  return '<div class="st-shell">'+stNavHtml(ctx)+preview+body+'<p class="st-footnote">说明：AI 识别候选线索并生成可预览草案，但不会自动立项。人工确认只控制正式项目状态，不再限制查看产品方向、供应链模拟、落地资料和复盘结构；知识库、供应链与复盘仍为本地模拟数据。原 WorkBuddy 未被修改。</p></div>';
+  var ctx=stContext(),approved=stApproved(ctx),body=STRATEGY.view==='opportunity'?stOpportunityHtml(ctx):STRATEGY.view==='direction'?stDirectionHtml(ctx):STRATEGY.view==='simulation'?stSimulationHtml(ctx):STRATEGY.view==='delivery'?stDeliveryHtml(ctx):STRATEGY.view==='review'?stReviewHtml(ctx):stDecisionOverviewHtml(ctx),preview='';
+  return '<div class="st-shell">'+stNavHtml(ctx)+preview+body+'</div>';
 }
 function stDocField(label, value, full) {
   return '<div class="st-edit-field '+(full?'full':'')+'"><label>'+esc(label)+'</label><div class="st-edit" contenteditable="true" data-st-field="'+esc(label)+'">'+esc(value)+'</div></div>';
 }
 function stDocSources(type) {
   var map={
-    '产品定义书':[['全球数据看板','board'],['商品榜','rank'],['市场机会池','st:opportunity'],['AI 产品方向','st:direction']],
-    '研发配方 Brief':[['成分库','ing'],['AI 产品方向','st:direction']],
-         '包装设计 Brief':[['AI 产品方向','st:direction']],
-    '供应链询价单':[['方案决策与模拟','st:simulation']],
-    '内容策略卡':[['商品榜','rank'],['AI 产品方向','st:direction']],
-    '首发验证计划':[['全球数据看板','board'],['方案决策与模拟','st:simulation'],['市场机会池','st:opportunity']],
-    '完整项目包':[['产品定义书','st:delivery'],['方案决策与模拟','st:simulation'],['验证与复盘','st:review']],
-    '决策规则':[['验证与复盘','st:review'],['全球数据看板','board']]
+    '产品定义书':[['全球数据看板','board'],['商品研究','rank'],['机会验证','st:opportunity'],['产品方向','st:direction']],
+    '研发配方 Brief':[['成分趋势','ing'],['产品方向','st:direction']],
+         '包装设计 Brief':[['产品方向','st:direction']],
+    '供应链询价单':[['方案模拟','st:simulation']],
+    '内容策略卡':[['商品研究','rank'],['产品方向','st:direction']],
+    '首发验证计划':[['全球数据看板','board'],['方案模拟','st:simulation'],['机会验证','st:opportunity']],
+    '完整项目包':[['产品定义书','st:delivery'],['方案模拟','st:simulation'],['结果复盘','st:review']],
+    '决策规则':[['结果复盘','st:review'],['全球数据看板','board']]
   },arr=map[type]||[],h='';
   for(var i=0;i<arr.length;i++)h+='<button type="button" data-st-source="'+arr[i][1]+'">'+esc(arr[i][0])+' ↗</button>';
   return h;
@@ -4496,7 +4892,7 @@ function openStrategyDoc(type) {
   openModal(type+' · '+(approved?'正式项目草稿':'预览草稿 · 未立项'),stDocumentBody(type,ctx),'<button type="button" class="btn sec" data-close="1">关闭</button><button type="button" class="btn sec" id="stDocSave">保存本地草稿</button><button type="button" class="btn" id="stDocExport">导出 Markdown</button>');
   $('#modal').classList.add('wide');
   var save=$('#stDocSave'),exp=$('#stDocExport'); if(save)save.addEventListener('click',function(){stSaveDocument(type);}); if(exp)exp.addEventListener('click',function(){stExportDocument(type);});
-  var links=$('#modal').querySelectorAll('[data-st-source]'); for(var i=0;i<links.length;i++)links[i].addEventListener('click',function(){var target=this.getAttribute('data-st-source');closeAll();if(target.indexOf('st:')===0){state.view='strategy';STRATEGY.view=target.slice(3);refreshAll();}else openView(target);});
+  var links=$('#modal').querySelectorAll('[data-st-source]'); for(var i=0;i<links.length;i++)links[i].addEventListener('click',function(){var target=this.getAttribute('data-st-source');closeAll();if(target.indexOf('st:')===0){state.view='lab';refreshAll();}else openView(target);});
 }
 function bindStrategyEvents() {
   var root=$('#view'), els=root.querySelectorAll('[data-st-view],[data-st-go]');
@@ -4770,10 +5166,10 @@ function bindDb(root) {
 }
 function renderView() {
   var v = state.view;
-  /* 离开实验工厂视图时：卸载 React 根并复位 #view 的内联样式 */
+  /* 离开实验舱视图时复位主站容器样式；实验舱本身由独立应用管理生命周期。 */
   if (v !== 'lab') {
+    if (window.__labHost) window.__labHost.style.display = 'none';
     var vwReset = $('#view');
-    if (window.EyeOilLab) { try { window.EyeOilLab.unmount(); } catch (e) {} }
     vwReset.style.cssText = '';
   }
   /* 进入动效只在「换视图」时播一次；筛选/搜索重绘不重播，免得闪 */
@@ -5259,14 +5655,65 @@ function clearDemo() {
 
 /* ---------- 12. 事件绑定（统一入口调度，不在渲染函数里触发渲染） ---------- */
 function bindEvents() {
+  if (!window.__decisionBridgeBound) {
+    window.__decisionBridgeBound = true;
+    window.addEventListener('message', function (e) {
+      var data = e && e.data;
+      if (!data || data.type !== 'open-decision') return;
+      STRATEGY.demandSignal = String(data.title || '来自需求信号');
+      STRATEGY.demandPayload = data.payload && typeof data.payload === 'object'
+        ? Object.assign({}, data.payload, { sourceType: data.payload.sourceType || 'demand-signal', sourceLabel: data.payload.sourceLabel || '用户需求信号' })
+        : null;
+      STRATEGY.labIntent = 'execute';
+      STRATEGY.view = 'desk';
+      state._labView = 'development';
+      openView('lab');
+      toast('需求信号已带入产品实验舱');
+    });
+  }
   document.addEventListener('click', function (e) {
-    var el = e.target && e.target.closest ? e.target.closest('[data-view],[data-f],[data-rank],[data-open],[data-close],[data-go],[data-drill],[data-tab],[data-close-tab],[data-board-tab],[data-opportunity-tab],[data-opportunity-refresh],[data-ing-market]') : null;
+    var el = e.target && e.target.closest ? e.target.closest('[data-view],[data-nav-toggle],[data-lab-nav],[data-opportunity-route],[data-f],[data-rank],[data-open],[data-close],[data-go],[data-drill],[data-tab],[data-close-tab],[data-board-tab],[data-ing-tab],[data-opportunity-tab],[data-opportunity-refresh],[data-ing-market]') : null;
     if (!el) return;
+    if (el.hasAttribute('data-opportunity-route')) {
+      state.opportunityPath = el.getAttribute('data-opportunity-route') === 'market' ? 'market' : 'demand';
+      state._navAnchor = ''; state._navHash = '';
+      if (state.view !== 'opportunity') openView('opportunity');
+      else refreshAll();
+      return;
+    }
+    if (el.hasAttribute('data-lab-nav')) {
+      state.navOpen.lab = true;
+      state._navAnchor = ''; state._navHash = '';
+      state._labView = el.getAttribute('data-lab-nav') || 'development';
+      if (state.view !== 'lab') openView('lab');
+      else { navigateLab(state._labView); RENDER.nav(); RENDER.titles(); }
+      return;
+    }
+    if (el.hasAttribute('data-nav-toggle')) {
+      var navKey = el.getAttribute('data-nav-toggle'), group = el.closest('.nav-group'), nextOpen = !group.classList.contains('open');
+      state.navOpen[navKey] = nextOpen;
+      group.classList.toggle('open', nextOpen);
+      el.setAttribute('aria-expanded', nextOpen ? 'true' : 'false');
+      el.setAttribute('aria-label', (nextOpen ? '收起' : '展开') + (viewDef(navKey).name || '导航'));
+      return;
+    }
+    if (el.hasAttribute('data-ing-tab')) {
+      state.ingTab = el.getAttribute('data-ing-tab') || 'daily-discovery';
+      state._navAnchor = ''; state._navHash = state.ingTab;
+      if (state.view !== 'ing') openView('ing'); else refreshAll();
+      return;
+    }
     if (el.hasAttribute('data-ing-market')) { state.ingRadarMarket = el.getAttribute('data-ing-market'); refreshAll(); return; }
     if (el.hasAttribute('data-opportunity-tab')) { state.opportunityTab = el.getAttribute('data-opportunity-tab'); refreshAll(); return; }
     if (el.hasAttribute('data-opportunity-refresh')) {
       el.disabled = true; el.textContent = '同步中…';
       loadAll().then(function () { refreshAll(); toast('数据同步完成，已更新首次发现记录'); }).catch(function () { refreshAll(); toast('同步失败，请检查数据源连接'); });
+      return;
+    }
+    if (el.hasAttribute('data-board-tab')) {
+      state.boardTab = el.getAttribute('data-board-tab') || 'overview';
+      state._navAnchor = ''; state._navHash = '';
+      if (state.view !== 'board') openView('board'); else refreshAll();
       return;
     }
     if (el.hasAttribute('data-close')) { closeAll(); return; }
@@ -5281,8 +5728,42 @@ function bindEvents() {
     /* 顶部标签：点击切换 / 点 × 关闭 */
     if (el.hasAttribute('data-close-tab')) { closeView(el.getAttribute('data-close-tab')); return; }
     if (el.hasAttribute('data-tab')) { switchView(el.getAttribute('data-tab')); return; }
-    /* 侧边栏模块入口：打开（或聚焦）对应顶部标签 */
-    if (el.hasAttribute('data-view')) { openView(el.getAttribute('data-view')); return; }
+    /* 左侧二级导航：先切工作域，再定位到该工作域的具体区块。 */
+    if (el.hasAttribute('data-nav-anchor') || el.hasAttribute('data-nav-hash')) {
+      state._navAnchor = el.getAttribute('data-nav-anchor') || '';
+      state._navHash = el.getAttribute('data-nav-hash') || '';
+      openView(el.getAttribute('data-view'));
+      window.setTimeout(function () {
+        if (state._navHash) return;
+        var target = document.querySelector(state._navAnchor);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 120);
+      return;
+    }
+    /* 侧边栏模块入口：打开（或聚焦）对应顶部标签；从全球航图带上下文进入实验舱 */
+    if (el.hasAttribute('data-view')) {
+      state.navOpen[el.getAttribute('data-view')] = true;
+      state._navAnchor = ''; state._navHash = '';
+      if (el.getAttribute('data-view') === 'opportunity') state.opportunityPath = 'demand';
+      if (el.getAttribute('data-view') === 'lab') {
+        STRATEGY.labIntent = 'import';
+        /* 从全球航图进入时清除上一次需求信号上下文，避免两条来源路径被误合并。 */
+        STRATEGY.demandSignal = '';
+        STRATEGY.demandPayload = null;
+        state._labView = 'opportunity';
+        STRATEGY.labPrefill = {
+          title: el.getAttribute('data-lab-title') || '',
+          opportunityId: el.getAttribute('data-lab-opportunity') || '',
+          market: el.getAttribute('data-lab-market') || '',
+          category: el.getAttribute('data-lab-category') || '',
+          source: el.getAttribute('data-lab-source') || '',
+          period: el.getAttribute('data-lab-period') || '',
+          growth: el.getAttribute('data-lab-growth') || '',
+          count: el.getAttribute('data-lab-count') || ''
+        };
+      }
+      openView(el.getAttribute('data-view')); return;
+    }
     if (el.hasAttribute('data-drill')) {
       /* 热力格 / 国家行下钻：继承当前筛选，叠加国家与类目后跳到榜单标签 */
       var dc = el.getAttribute('data-d-country'), dc2 = el.getAttribute('data-d-c2'), dcat = el.getAttribute('data-d-cat'), dsrc = el.getAttribute('data-d-src');
@@ -5307,6 +5788,13 @@ function bindEvents() {
   $('#mask').addEventListener('click', closeAll);
   $('#btnImport').addEventListener('click', openImport);
   $('#btnExport').addEventListener('click', openMore);
+  var sideToolsToggle = $('#sideToolsToggle'), sideToolsPanel = $('#sideToolsPanel');
+  if (sideToolsToggle && sideToolsPanel) sideToolsToggle.addEventListener('click', function () {
+    var open = !sideToolsPanel.hidden;
+    sideToolsPanel.hidden = open;
+    sideToolsToggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+    sideToolsToggle.closest('.side-foot').classList.toggle('open', !open);
+  });
   $('#btnMore').addEventListener('click', openMore);
   var bo = $('#btnOnline');
   if (bo) bo.addEventListener('click', function () { window.open(ONLINE_URL, '_blank'); });
@@ -5324,6 +5812,14 @@ function bindEvents() {
   document.addEventListener('change', function (e) {
     var el = e.target;
     if (!el || !el.getAttribute) return;
+    if (el.hasAttribute('data-opportunity-category')) {
+      state.opportunityCategory = el.value === 'face' ? 'face' : 'eye';
+      if (state.view === 'opportunity' && state.opportunityPath === 'demand') {
+        renderView();
+        pushRouteHistory();
+      }
+      return;
+    }
     var f = el.getAttribute('data-f-sel');
     if (!f) return;
     state[f] = el.value;
@@ -5343,6 +5839,12 @@ function bindEvents() {
 }
 
 function init() {
+  var initialRoute = routeFromUrl();
+  state.view = initialRoute.view;
+  state._labView = initialRoute.labView;
+  state.opportunityCategory = initialRoute.opportunityCategory;
+  if (_openTabs.indexOf(state.view) < 0) _openTabs.push(state.view);
+  window.addEventListener('popstate', applyRouteFromUrl);
   bindEvents();
   seedLocalIfEmpty();
   subscribeUpdates();
@@ -5479,9 +5981,254 @@ else init();
   #spFetchCard .fc-btn.run { background: #7c5cff; color: #fff; }
   #spFetchCard .fc-btn.run:hover { background: #6b4cf5; }
   #spFetchCard .fc-btn:disabled { opacity: .5; cursor: not-allowed; }
+  /* Voyager Atlas · 01 纯净层级 + 02 指标色带 */
+  .side,.topbar,.card,.board-section,.st-card,.st-heading,.st-controls,.st-result{box-shadow:0 6px 18px rgba(15,23,42,.045)}
+  .nav-item.on{box-shadow:inset 3px 0 0 var(--band-signal)}
+  .tab.on{border-bottom:2px solid var(--band-decision)}
+  .kpi,.board-stat,.st-card,.st-heading{border-top:3px solid #e5e7eb}
+  .kpi:nth-child(4n+1),.board-stat:nth-child(4n+1),.st-metrics>div:nth-child(1){border-top-color:var(--band-market)}
+  .kpi:nth-child(4n+2),.board-stat:nth-child(4n+2),.st-metrics>div:nth-child(2){border-top-color:var(--band-formula)}
+  .kpi:nth-child(4n+3),.board-stat:nth-child(4n+3),.st-metrics>div:nth-child(3){border-top-color:var(--band-competitor)}
+  .kpi:nth-child(4n),.board-stat:nth-child(4n),.st-metrics>div:nth-child(4){border-top-color:var(--band-decision)}
+  .board-bar i{background:linear-gradient(90deg,var(--band-market),var(--band-formula))}
+  .growth-category-bar i{background:linear-gradient(90deg,var(--band-formula),var(--band-market))}
+  .st-grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+  @media(max-width:1050px){.st-grid-3{grid-template-columns:1fr}}
+  .st-nav button.on{box-shadow:inset 0 3px 0 var(--band-decision)}
+  .st-decision-next{border-top-color:var(--band-decision)}
+
+  /* Finesse v1 · light data workbench: hierarchy first, decoration second. */
+  :root{
+    --bg:var(--wb-page);--surface:var(--wb-surface);--surface-2:var(--wb-surface-2);
+    --line:var(--wb-border);--line-2:var(--wb-border-soft);--text:var(--wb-ink);
+    --sub:var(--wb-body);--hint:var(--wb-muted);--blue:var(--wb-cobalt);
+    --blue-soft:var(--wb-cobalt-soft);--blue-deep:#2349ad;--teal:var(--wb-teal);
+    --teal-soft:var(--wb-teal-soft);--amber:var(--wb-amber);--amber-soft:var(--wb-amber-soft);--rose:var(--wb-rose);--rose-soft:var(--wb-rose-soft);
+    --band-signal:var(--wb-violet);--band-market:var(--wb-cobalt);--band-formula:var(--wb-teal);--band-competitor:var(--wb-rose);--band-decision:var(--wb-amber);--band-lab:var(--wb-violet);
+    --purple:var(--wb-violet);--purple-soft:var(--wb-violet-soft);--grad-hero:linear-gradient(135deg,#f8fbff,#eef4ff)
+  }
+  body{background:var(--wb-page);color:var(--wb-ink)}
+  .side{background:rgba(255,255,255,.92);border-right-color:var(--wb-border);box-shadow:4px 0 18px rgba(28,52,92,.025)}
+  .brand-mark{background:var(--wb-cobalt)}.nav-item.on{background:var(--wb-cobalt-soft);color:#2349ad}
+  .main{background:var(--wb-page)}.topbar{background:rgba(238,241,247,.86);border-bottom-color:var(--wb-border)}.view{padding-top:20px}
+  .card,.board-section,.st-card,.st-heading,.st-controls,.st-result{background:var(--wb-surface);border-color:var(--wb-border);box-shadow:var(--wb-shadow);border-radius:var(--wb-radius)}
+  .hero{color:var(--wb-ink);background:linear-gradient(135deg,#fafdff 0%,#eef4ff 62%,#f8f3ff 100%);border:1px solid #cbdaf5;border-top:4px solid var(--wb-cobalt);box-shadow:var(--wb-shadow);border-radius:16px;padding:22px 24px 20px}
+  .hero::before,.hero::after{display:none}.hero-eye{color:var(--wb-cobalt)}.hero-eye i{background:var(--wb-teal);box-shadow:0 0 0 4px rgba(23,108,107,.12)}.hero-h{color:var(--wb-ink);font-weight:650}.hero-h em{background:none;color:var(--wb-cobalt)}.hero-p{color:var(--wb-body)}.hero-p b{color:var(--wb-ink)}.hero-foot{color:var(--wb-muted)}
+  .hero-btn{color:var(--wb-cobalt);background:var(--wb-surface);border-color:#cbdaf5}.hero-btn:hover{background:var(--wb-cobalt-soft)}.hero-btn.pri{background:var(--wb-cobalt);border-color:var(--wb-cobalt);color:#fff}.hero-btn.pri:hover{background:#2349ad}.hero-stat{background:rgba(255,255,255,.74);border-color:#d6e2f6;backdrop-filter:none}.hero-stat .l,.hero-stat .f{color:var(--wb-muted)}.hero-stat .v{color:var(--wb-ink);text-shadow:none}
+  .kpi,.board-stat,.st-metrics>div{background:var(--wb-surface);border-color:var(--wb-border)}.board-section-head button,.mini{color:var(--wb-cobalt)}
+  .ingredient-radar-frame{background:var(--wb-page);border:1px solid var(--wb-border);border-radius:14px}
+  .nav-group{margin-bottom:6px}.nav-main-row{display:flex;align-items:center;gap:3px}.nav-main-row .nav-item{flex:1;width:auto}.nav-toggle{width:28px;height:34px;border-radius:8px;color:var(--wb-muted);font-size:18px;line-height:1;transform:rotate(0deg);transition:transform .18s,background .18s}.nav-toggle:hover{background:var(--wb-surface-2);color:var(--wb-ink)}.nav-group.open .nav-toggle{transform:rotate(90deg)}
+  .nav-sub{display:none;gap:2px;margin:0 0 7px 28px;padding-left:10px;border-left:1px solid var(--wb-border)}.nav-group.open .nav-sub{display:grid}.nav-sub-item{display:flex;align-items:center;min-height:30px;padding:0 8px;border-radius:7px;color:var(--wb-muted);font-size:11.5px;text-align:left;white-space:nowrap}.nav-sub-item:hover{background:var(--wb-surface-2);color:var(--wb-ink)}.nav-sub-item.on{background:var(--wb-cobalt-soft);color:var(--wb-cobalt);font-weight:600}.nav-sub-item .nav-sub-dot{width:4px;height:4px;margin-right:7px;border-radius:50%;background:currentColor;opacity:.55}
+  @media(max-width:860px){.nav-sub{display:none}}
+  /* Finesse v2 · compact top workspace tabs. */
+  .topbar{padding:8px 18px 0}.tabs{gap:2px;padding:4px 0 0}.tab{height:30px;padding:0 5px 0 9px;gap:5px;border-radius:8px 8px 0 0;font-size:12px}.tab .ic{width:14px;height:14px}.tab .tab-x{width:16px;height:16px;font-size:12px}.tabs .tabs-add{width:28px;height:28px;margin-bottom:1px;border-radius:8px}.topbar-row{gap:10px}.topbar-title h1{font-size:18px}.topbar-title p{font-size:12px}.chips{padding:7px 0 9px}.search{height:34px;min-width:230px}.icon-btn{width:34px;height:34px}
+  /* Finesse v3 · premium brand rail + hidden utility drawer. */
+  .brand{gap:12px;padding:7px 8px 22px}.brand-mark{width:44px;height:44px;border-radius:13px;background:#172b52;box-shadow:0 7px 16px rgba(22,36,59,.16)}.brand-mark svg{width:29px;height:29px;stroke:#f6fbff;stroke-width:1.35}.brand-text{display:flex;flex-direction:column;gap:3px}.brand-text i{order:1;font-size:17px;line-height:1.15;font-style:normal;font-weight:700;letter-spacing:.02em;color:var(--wb-ink)}.brand-text b{order:2;font-size:10px;line-height:1.1;font-weight:600;letter-spacing:.15em;color:var(--wb-muted);text-transform:uppercase}
+  .nav-sub{margin:3px 0 9px 0;padding:4px 0 4px 28px;border:0;border-radius:10px;background:transparent}.nav-sub-item{min-height:28px;padding:0 9px;border-radius:7px;font-size:11.5px}.nav-sub-item .nav-sub-dot{display:none}.nav-sub-item.on{box-shadow:inset 2px 0 0 var(--nav-accent,var(--wb-cobalt));background:var(--nav-soft,var(--wb-cobalt-soft));color:var(--nav-accent,var(--wb-cobalt))}
+  .nav-group-opportunity{--nav-accent:#d4537e;--nav-soft:#fbeaf0}.nav-group-board{--nav-accent:#0071e3;--nav-soft:#eaf3fe}.nav-group-ing{--nav-accent:#0e7c6b;--nav-soft:#e5f5f1}.nav-group-rank{--nav-accent:#6e4bd1;--nav-soft:#f1edfc}.nav-group-lab{--nav-accent:#b26a00;--nav-soft:#fff4df}.nav-group .nav-item .ic{color:var(--nav-accent,var(--wb-muted))}.nav-group .nav-item.on{box-shadow:inset 3px 0 0 var(--nav-accent,var(--wb-cobalt))}
+  .side-tools-toggle{display:flex;align-items:center;width:100%;min-height:38px;padding:0 8px;border:1px solid var(--wb-border);border-radius:10px;background:var(--wb-surface);color:var(--wb-body);text-align:left;cursor:pointer}.side-tools-toggle:hover{border-color:#b8c9e2;background:var(--wb-surface-2)}.side-tools-toggle .sync{flex:1;min-width:0;padding:0;font-size:11px}.side-tools-label{margin-left:8px;color:var(--wb-muted);font-size:10px}.side-tools-chevron{margin-left:6px;color:var(--wb-muted);font-size:18px;line-height:1;transition:transform .18s}.side-foot.open .side-tools-chevron{transform:rotate(90deg)}.side-tools-panel{padding-top:8px}.side-tools-panel[hidden]{display:none}.side-tools-panel .side-actions{gap:6px}.side-tools-panel .side-map,.side-tools-panel #btnOnline{display:block;width:100%;margin-top:7px;min-height:34px;border:1px solid var(--wb-border);border-radius:9px;background:var(--wb-surface);color:var(--wb-cobalt);font-size:11.5px;font-weight:600;cursor:pointer}.side-tools-panel .side-map:hover{background:var(--wb-cobalt-soft)}.side-tools-panel #btnOnline{border:0;background:var(--wb-cobalt);color:#fff}
+  /* Finesse v4 · connect the radar → category → product drill-down. */
+  .growth-radar{gap:0;margin-bottom:18px;padding:0;overflow:hidden;border:1px solid var(--wb-border);border-radius:16px;background:var(--wb-surface);box-shadow:var(--wb-shadow)}.growth-radar .growth-hero{border:0;border-radius:0;box-shadow:none;margin:0}.growth-radar-context{margin:0;padding:12px 20px;background:var(--wb-surface-2);border-top:1px solid var(--wb-border-soft);border-bottom:1px solid var(--wb-border-soft)}.growth-radar-panel{padding:18px 20px;border:0;border-radius:0;background:transparent;box-shadow:none}.growth-radar-panel+.growth-radar-panel{border-top:1px solid var(--wb-border-soft)}.growth-radar-bridge{display:flex;align-items:center;gap:10px;padding:10px 20px;background:linear-gradient(90deg,#f1faf8,#f7fbff);border-top:1px solid #dceeea;border-bottom:1px solid #dce9f4;color:var(--wb-body);font-size:11px}.growth-radar-bridge span{padding:3px 7px;border-radius:999px;background:var(--wb-teal-soft);color:var(--wb-teal);font-size:10px;font-weight:700}.growth-radar-bridge b{color:var(--wb-ink);font-size:11px}.growth-radar-bridge small{color:var(--wb-muted);font-size:10.5px}.growth-radar>.growth-radar-note:last-child{margin:0;padding:10px 20px;border-radius:0;border-top:1px solid var(--wb-border-soft);background:var(--wb-surface-2)}
+  @media(max-width:620px){.growth-radar-panel{padding:15px 14px}.growth-radar-context{padding-left:14px;padding-right:14px}.growth-radar-bridge{align-items:flex-start;flex-wrap:wrap;padding:10px 14px;gap:5px 8px}.growth-radar-bridge small{flex-basis:100%;margin-left:0}}
+  /* Finesse v5 · quiet connected data path. Remove internal narration; keep only the evidence hierarchy. */
+  .growth-radar{border-radius:18px;background:var(--wb-surface);box-shadow:0 10px 28px rgba(37,61,96,.07)}
+  .growth-radar .growth-hero{padding:20px 22px 16px;background:linear-gradient(135deg,#11234c 0%,#173c68 64%,#176d68 100%);border-radius:17px 17px 0 0}
+  .growth-radar .growth-hero-slide{min-height:0;grid-template-columns:minmax(0,1fr) minmax(300px,1.05fr);gap:24px;align-items:center}
+  .growth-radar .board-hero-main h2{margin:0;color:#f5f8ff;font-size:22px;line-height:1.25}
+  .growth-radar .board-hero-main p{margin:7px 0 0;color:#b9cde3;font-size:11px}
+  .growth-radar .board-hero-actions{margin-top:14px;gap:8px}
+  .growth-radar .board-hero-actions button{min-height:30px;padding:0 12px;border-radius:8px;font-size:11px}
+  .growth-radar .board-stats{gap:7px}
+  .growth-radar .board-stat{padding:9px 10px;border-radius:9px;border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.09)}
+  .growth-radar .board-stat span,.growth-radar .board-stat small{color:#abc1d8;font-size:9px}
+  .growth-radar .board-stat b{margin:3px 0 0;color:#f5f8ff;font-size:16px}
+  .growth-radar .growth-hero-footer{padding:8px 2px 0;color:#b9cde3}
+  .growth-radar .growth-hero-count{font-size:10px;min-width:30px}
+  .growth-radar .growth-hero-progress{height:2px;background:rgba(255,255,255,.2)}
+  .growth-radar .growth-hero-progress i{background:#54e3c8}
+  .growth-radar .growth-hero-footer button{width:22px;height:22px;border-color:rgba(255,255,255,.2);border-radius:6px;background:rgba(255,255,255,.08);color:#eaf3ff}
+  .growth-radar-context{display:flex;align-items:center;gap:10px;padding:10px 22px;background:#f6f9fc;border-top:0;border-bottom:1px solid var(--wb-border-soft)}
+  .growth-radar-context .growth-radar-kicker{display:inline-flex;align-items:center;gap:7px;color:var(--wb-body);font-size:11px;letter-spacing:0;font-weight:650;text-transform:none}
+  .growth-radar-context .growth-radar-kicker i{width:6px;height:6px;box-shadow:0 0 0 4px rgba(14,124,107,.11)}
+  .growth-radar-context b{color:var(--wb-muted);font-size:10px;font-weight:500}
+  .growth-radar .growth-ticker{padding:10px 22px 12px;background:#f6f9fc;border-bottom:1px solid var(--wb-border-soft)}
+  .growth-radar .growth-ticker-viewport{border-radius:10px}
+  .growth-radar .growth-ticker-card{min-height:70px;padding:10px 12px;border-radius:10px;box-shadow:none;background:var(--wb-surface);border-color:var(--wb-border)}
+  .growth-radar .growth-ticker-card .rise{font-size:14px}
+  .growth-radar .growth-ticker-card p{margin-top:5px;font-size:10px}
+  .growth-radar .growth-ticker-controls{display:flex;align-items:center;gap:7px;margin-top:8px}
+  .growth-radar .growth-ticker-controls .growth-ticker-progress{height:2px;margin-right:auto}
+  .growth-radar .growth-ticker-controls button{width:22px;height:22px;border-radius:6px;background:var(--wb-surface);font-size:12px}
+  .growth-radar .growth-radar-panel{padding:20px 22px}
+  .growth-radar .growth-radar-panel-head{align-items:center;margin-bottom:14px}
+  .growth-radar .growth-radar-panel-head h2{font-size:17px;line-height:1.25}
+  .growth-radar .growth-radar-panel-head p{font-size:10.5px}
+  .growth-radar .growth-country-tabs,.growth-radar .growth-category-tabs{margin-bottom:10px}
+  .growth-radar .growth-radar-note{margin-top:10px;padding:8px 10px;border-radius:8px;background:#f7f9fb;font-size:10px}
+  .growth-radar-flow{display:flex;align-items:center;gap:8px;padding:10px 22px;border-top:1px solid var(--wb-border-soft);border-bottom:1px solid var(--wb-border-soft);background:#fbfcfe;color:var(--wb-muted);font-size:10px;font-weight:650}
+  .growth-radar-flow span{padding:4px 9px;border:1px solid var(--wb-border);border-radius:7px;background:var(--wb-surface)}
+  .growth-radar-flow span.is-done{color:var(--wb-teal);border-color:#bfe6de;background:var(--wb-teal-soft)}
+  .growth-radar-flow span.is-current{color:var(--wb-cobalt);border-color:#c8dcf8;background:var(--wb-cobalt-soft)}
+  .growth-radar-flow i{width:22px;height:1px;background:#cbd7e5}
+  .growth-radar .growth-category-row{grid-template-columns:minmax(170px,1.1fr) minmax(120px,1fr) 84px 90px;padding:10px 0}
+  .growth-radar .growth-product-table th{background:#f6f8fb}
+  .growth-radar>.growth-radar-note:last-child{padding:9px 22px;border-radius:0 0 17px 17px}
+  @media(max-width:720px){.growth-radar .growth-hero-slide{grid-template-columns:1fr;gap:14px}.growth-radar .growth-hero{padding:17px 15px 13px}.growth-radar .growth-radar-panel,.growth-radar .growth-ticker{padding-left:15px;padding-right:15px}.growth-radar-context,.growth-radar-flow{padding-left:15px;padding-right:15px}.growth-radar>.growth-radar-note:last-child{padding-left:15px;padding-right:15px}.growth-radar .growth-category-row{grid-template-columns:minmax(120px,1fr) minmax(90px,1fr) 68px 66px;gap:7px}}
+  /* Finesse v6 · restore first-screen density without removing any data. */
+  .growth-radar .growth-hero{padding:12px 18px 9px}
+  .growth-radar .growth-hero-slide{padding:10px 0;gap:18px}
+  .growth-radar .board-hero-main h2{font-size:19px;line-height:1.2}
+  .growth-radar .board-hero-main p{margin-top:4px;font-size:10px}
+  .growth-radar .board-hero-actions{margin-top:9px}
+  .growth-radar .board-hero-actions button{min-height:27px;padding:0 10px;font-size:10px}
+  .growth-radar .board-stat{padding:7px 9px;border-radius:8px}
+  .growth-radar .board-stat span,.growth-radar .board-stat small{font-size:8.5px}
+  .growth-radar .board-stat b{margin-top:2px;font-size:14px}
+  .growth-radar .growth-hero-footer{padding-top:5px}
+  .growth-radar .growth-hero-footer button{width:20px;height:20px}
+  .growth-radar .growth-ticker{padding-top:8px;padding-bottom:9px}
+  .growth-radar .growth-ticker-card{min-height:58px;padding:8px 10px}
+  .growth-radar .growth-ticker-card p{margin-top:3px;font-size:9px}
+  .growth-radar .growth-radar-panel{padding-top:16px;padding-bottom:16px}
+  /* Finesse v7 · mature monochrome navigation + unboxed analysis path. */
+  .side{padding-left:14px;padding-right:14px}
+  .brand{gap:12px;padding:7px 9px 24px}
+  .brand-mark{width:42px;height:42px;border-radius:12px;box-shadow:0 5px 14px rgba(22,36,59,.12)}
+  .brand-mark svg{width:27px;height:27px;stroke-width:1.2}
+  .nav{gap:5px}
+  .nav-group{margin-bottom:4px}
+  .nav-main-row{gap:4px}
+  .nav-main-row .nav-item{min-height:42px;padding:0 11px;border-radius:10px;gap:11px;font-size:13px}
+  .nav-group .nav-item .ic{width:18px;height:18px;color:#667892;stroke-width:1.45;opacity:.92}
+  .nav-group .nav-item.on .ic{color:var(--wb-cobalt)}
+  .nav-group .nav-item.on{box-shadow:inset 3px 0 0 var(--wb-cobalt)}
+  .nav-toggle{width:25px;height:32px;border-radius:7px;color:#7b8ba2;font-size:17px}
+  .nav-toggle:hover{background:transparent;color:var(--wb-ink)}
+  .nav-sub{margin:2px 0 7px 29px;padding:3px 0 3px 11px}
+  .nav-sub-item{min-height:27px;padding:0 8px;font-size:11px}
+  .growth-radar-flow{gap:10px;padding-top:9px;padding-bottom:9px;color:#718096;font-size:10px;font-weight:600}
+  .growth-radar-flow span{padding:0;border:0;border-radius:0;background:transparent;color:#718096}
+  .growth-radar-flow span.is-done{color:var(--wb-teal);border:0;background:transparent}
+  .growth-radar-flow span.is-current{color:var(--wb-cobalt);border:0;background:transparent}
+  .growth-radar-flow i{width:34px;background:#c9d5e2}
+  /* Finesse v8 · compact workspace chrome so the active page owns the viewport. */
+  .topbar{padding:5px 16px 0}
+  .tabs{gap:2px;padding:2px 0 0;margin-bottom:0}
+  .tab{height:27px;padding:0 4px 0 8px;gap:4px;border-radius:7px 7px 0 0;font-size:11px}
+  .tab .ic{width:13px;height:13px}.tab .tab-x{width:14px;height:14px;font-size:11px}
+  .tabs .tabs-add{width:25px;height:25px;margin-bottom:1px;border-radius:7px}
+  .topbar-row{align-items:center;gap:8px;min-height:44px}
+  .topbar-title h1{font-size:16px}.topbar-title p{margin-top:1px;font-size:10.5px}
+  .topbar-tools{gap:6px}.search{height:30px;min-width:210px;border-radius:8px;padding:0 9px}.search input{font-size:12px}.icon-btn{width:30px;height:30px;border-radius:8px}
+  .chips{padding:4px 0 6px;min-height:0}.chip{height:25px;padding:0 9px;border-radius:13px;font-size:11px}
+  .view{padding-top:14px}
+  @media(prefers-reduced-motion:reduce){.hero,.card,.nav-item{animation:none!important;transition:none!important}}
 </style>
 
-<button id="spChatFab" aria-label="打开选品参谋">
+<style id="voyager-unified-system">
+  /* Voyager Atlas unified system: one cool research-console language across all workbenches. */
+  :root {
+    --bg: var(--wb-page); --surface: var(--wb-surface); --surface-2: var(--wb-surface-2);
+    --line: var(--wb-border); --line-2: var(--wb-border-soft);
+    --text: var(--wb-ink); --sub: var(--wb-body); --hint: var(--wb-muted);
+    --blue: var(--wb-cobalt); --blue-soft: var(--wb-cobalt-soft); --blue-deep: var(--wb-cobalt);
+    --up: var(--wb-down); --up-soft: var(--wb-rose-soft); --down: var(--wb-up); --down-soft: var(--wb-teal-soft);
+    --amber: var(--wb-amber); --amber-soft: var(--wb-amber-soft);
+    --purple: var(--wb-teal); --purple-soft: var(--wb-teal-soft);
+    --teal: var(--wb-teal); --teal-soft: var(--wb-teal-soft);
+    --r: var(--wb-radius-sm); --r-s: 10px; --r-l: var(--wb-radius); --r-xl: 22px;
+    --sh: var(--wb-shadow);
+    --band-signal: var(--wb-teal); --band-market: var(--wb-teal); --band-formula: var(--wb-teal);
+    --band-competitor: var(--wb-rose); --band-decision: var(--wb-amber); --band-lab: var(--wb-teal);
+  }
+  body { background: var(--wb-page); color: var(--wb-ink); }
+  .side { background: rgba(255,255,255,.96); border-right-color: var(--wb-border); box-shadow: 4px 0 18px rgba(19,61,74,.025); }
+  .brand-mark { background: var(--wb-ink); border-radius: 12px; }
+  .nav { gap: 6px; }
+  .nav-item { border-radius: 12px; color: var(--wb-body); }
+  .nav-item:hover { background: var(--wb-surface-2); color: var(--wb-ink); }
+  .nav-item.on { background: var(--wb-cobalt-soft); color: var(--wb-cobalt); box-shadow: inset 3px 0 0 var(--wb-cobalt); }
+  .topbar { background: rgba(237,242,241,.9); border-bottom-color: var(--wb-border); }
+  .topbar-title h1, .sec-hd h2, .board-section-head h2, .growth-radar-panel-head h2 { color: var(--wb-ink); }
+  .search, .icon-btn, .chip, .card, .board-section, .growth-radar-panel, .opportunity-card, .run-card, .country-board,
+  .st-card, .st-heading, .st-controls, .st-doc-section, .st-gate-card, .st-collect-card, .st-task-board { border-color: var(--wb-border); border-radius: var(--wb-radius-sm); box-shadow: var(--wb-shadow); }
+  .chip.on, .growth-country-tabs button.on, .growth-category-tabs button.on { background: var(--wb-cobalt); border-color: var(--wb-cobalt); }
+  .chip:hover, .search:focus-within, .icon-btn:hover { border-color: #a9cbc4; }
+  .board-hero, .growth-radar .growth-hero { background: linear-gradient(135deg, #123d3d 0%, #176c6b 72%, #2d8783 100%); box-shadow: var(--wb-shadow-strong); }
+  .board-section, .growth-radar-panel, .opportunity-card, .st-card, .st-heading, .st-controls { background: var(--wb-surface); }
+  .board-stat { border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.10); }
+  .board-bar i, .growth-category-bar i, .growth-ticker-progress i, .st-fit i { background: var(--wb-teal); }
+  .opportunity-tabs { background: var(--wb-teal-soft); border-radius: var(--wb-radius-sm); }
+  .opportunity-tabs button.on { color: var(--wb-cobalt); box-shadow: 0 1px 3px rgba(19,61,74,.08); }
+  .opportunity-path-card.demand, .opportunity-path-card.market { --path: var(--wb-teal); --path-line: #c5dfda; --path-bg: #f7fbfa; }
+  .opportunity-path-card { border-radius: var(--wb-radius); box-shadow: var(--wb-shadow); }
+  .st-nav button.on, .st-hero, .st-result, .st-plan, .st-opportunity-main { background: var(--wb-ink); border-color: var(--wb-ink); }
+  .st-nav button.on { box-shadow: inset 0 3px 0 var(--wb-teal); }
+  .st-actions button:first-child, .st-reco button, .st-result .st-dark-btn { color: var(--wb-ink); }
+  .st-collect-card.primary { border-color: #c5dfda; background: linear-gradient(145deg,#f6fbfa,#fff 62%); }
+  .st-collect-card.primary .st-collect-action button, .st-simple-optional button, .st-review-actions button.pri, .st-doc-actions button.pri { background: var(--wb-teal); border-color: var(--wb-teal); }
+  .side-tools-toggle, .side-tools-panel .side-map, .side-tools-panel #btnOnline { border-color: var(--wb-border); border-radius: var(--wb-radius-sm); }
+  .side-tools-panel #btnOnline { background: var(--wb-teal); }
+  button, a, input, select, textarea { transition: background-color 140ms var(--wb-ease), border-color 140ms var(--wb-ease), color 140ms var(--wb-ease), box-shadow 140ms var(--wb-ease), transform 140ms var(--wb-ease); }
+  button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--wb-focus); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+</style>
+
+<style id="voyager-glass-refinement">
+  /* Apple-inspired refinement: glass for the shell, clarity for the data. */
+  :root {
+    --wb-page: #f5f5f7; --wb-surface: rgba(255,255,255,.78); --wb-surface-2: rgba(255,255,255,.58);
+    --wb-panel: rgba(255,255,255,.68); --wb-border: rgba(60,60,67,.16); --wb-border-soft: rgba(60,60,67,.09);
+    --wb-ink: #1d1d1f; --wb-body: #515154; --wb-muted: #86868b;
+    --wb-cobalt: #0a84ff; --wb-cobalt-soft: rgba(10,132,255,.10);
+    --wb-shadow: 0 1px 2px rgba(0,0,0,.04), 0 12px 36px -24px rgba(0,0,0,.20);
+    --wb-shadow-strong: 0 22px 60px -30px rgba(0,0,0,.32); --wb-focus: rgba(10,132,255,.24);
+  }
+  body {
+    background: radial-gradient(circle at 8% -8%, rgba(10,132,255,.08), transparent 28rem), radial-gradient(circle at 94% 0%, rgba(88,86,214,.06), transparent 24rem), #f5f5f7;
+  }
+  .side, .topbar { background: rgba(255,255,255,.72); border-color: rgba(60,60,67,.14); backdrop-filter: saturate(180%) blur(22px); -webkit-backdrop-filter: saturate(180%) blur(22px); }
+  .side { box-shadow: 4px 0 30px -28px rgba(0,0,0,.30); }
+  .topbar { box-shadow: 0 1px 0 rgba(0,0,0,.04), 0 10px 30px -24px rgba(0,0,0,.28); }
+  .brand-mark { background: #1d1d1f; }
+  .nav-group-opportunity, .nav-group-board, .nav-group-ing, .nav-group-rank, .nav-group-lab { --nav-accent: #0a84ff; --nav-soft: rgba(10,132,255,.10); }
+  .nav-group .nav-item .ic { color: #86868b; }
+  .nav-group .nav-item.on, .nav-sub-item.on { color: #0a84ff; box-shadow: inset 3px 0 0 #0a84ff; background: rgba(10,132,255,.10); }
+  .card, .board-section, .growth-radar-panel, .opportunity-card, .run-card, .country-board, .st-card, .st-heading, .st-controls, .st-doc-section, .st-gate-card, .st-collect-card, .st-task-board {
+    background: rgba(255,255,255,.78) !important; border-color: rgba(60,60,67,.14) !important; box-shadow: var(--wb-shadow) !important;
+  }
+  .hero, .st-simple-search { background: linear-gradient(135deg, rgba(255,255,255,.88), rgba(232,241,255,.72)) !important; border-color: rgba(10,132,255,.20) !important; }
+  .board-hero, .growth-radar .growth-hero, .st-hero, .st-result, .st-plan, .st-opportunity-main, .st-reco { background: linear-gradient(135deg, #1d1d1f, #2c2c2e 68%, #174a75) !important; }
+  .board-bar i, .growth-category-bar i, .growth-ticker-progress i, .st-fit i { background: #0a84ff; }
+  .growth-country-tabs button.on, .growth-category-tabs button.on, .chip.on, .st-direction.on>button, .st-simple-optional button, .st-review-actions button.pri, .st-doc-actions button.pri { background: #0a84ff; border-color: #0a84ff; }
+  .st-direction.on { border-color: #0a84ff; box-shadow: 0 12px 30px rgba(10,132,255,.12); }
+  .opportunity-path-card.demand, .opportunity-path-card.market { --path: #0a84ff; --path-line: rgba(10,132,255,.22); --path-bg: rgba(255,255,255,.78); }
+  .st-local, .st-human-review { background: rgba(255,255,255,.68); border-color: rgba(10,132,255,.20); }
+  .st-nav button.on { background: #1d1d1f; border-color: #1d1d1f; box-shadow: inset 0 3px 0 #0a84ff; }
+  .st-collect-card.primary { border-color: rgba(10,132,255,.24); background: linear-gradient(145deg, rgba(232,241,255,.78), rgba(255,255,255,.76) 62%); }
+  .side-tools-toggle, .side-tools-panel .side-map, .side-tools-panel #btnOnline { border-color: rgba(60,60,67,.16); background: rgba(255,255,255,.64); }
+  .side-tools-panel #btnOnline { background: #0a84ff; }
+  .board-workbench { display: grid; gap: 12px; }
+  .board-inline-tabs { display: inline-flex; width: max-content; max-width: 100%; gap: 3px; padding: 4px; border: 1px solid rgba(60,60,67,.12); border-radius: 14px; background: rgba(255,255,255,.62); box-shadow: 0 8px 24px -20px rgba(0,0,0,.28); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+  .board-inline-tabs button { min-height: 34px; padding: 0 15px; border: 0; border-radius: 10px; background: transparent; color: #6e6e73; font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .board-inline-tabs button:hover { color: #1d1d1f; background: rgba(255,255,255,.68); }
+  .board-inline-tabs button.on { color: #fff; background: #1d1d1f; box-shadow: 0 3px 10px rgba(0,0,0,.12); }
+  .page-inline-workbench { display: grid; gap: 12px; min-width: 0; }
+  .page-inline-tabs { display: inline-flex; width: max-content; max-width: 100%; gap: 3px; padding: 4px; border: 1px solid rgba(60,60,67,.12); border-radius: 14px; background: rgba(255,255,255,.62); box-shadow: 0 8px 24px -20px rgba(0,0,0,.28); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+  .page-inline-tabs button { min-height: 34px; padding: 0 15px; border: 0; border-radius: 10px; background: transparent; color: #6e6e73; font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .page-inline-tabs button:hover { color: #1d1d1f; background: rgba(255,255,255,.68); }
+  .page-inline-tabs button.on { color: #fff; background: #1d1d1f; box-shadow: 0 3px 10px rgba(0,0,0,.12); }
+  .page-inline-workbench .ingredient-radar-frame { width: 100%; min-height: 720px; }
+  [data-board-panel][hidden] { display: none !important; }
+  .board-workbench .growth-radar { min-width: 0; }
+  @media (max-width: 720px) { .board-inline-tabs, .page-inline-tabs { width: 100%; overflow-x: auto; } .board-inline-tabs button, .page-inline-tabs button { flex: 1 0 auto; } }
+  @keyframes voyager-glass-in { from { opacity: 0; transform: translateY(8px) scale(.995); } to { opacity: 1; transform: none; } }
+  .view > .sec, .view > .growth-radar, .view > .opportunity-discovery, .view > .st-shell { animation: voyager-glass-in 420ms var(--wb-ease) both; }
+  .view > :nth-child(2) { animation-delay: 35ms; } .view > :nth-child(3) { animation-delay: 70ms; } .view > :nth-child(4) { animation-delay: 105ms; }
+  @media (prefers-reduced-motion: reduce) { .view > *, .screen > * { animation: none !important; } }
+</style>
+
+<button type="button" id="spChatFab" aria-label="打开选品参谋">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
   </svg>
@@ -5490,12 +6237,12 @@ else init();
 <div id="spChatPanel" role="dialog" aria-label="选品参谋对话">
   <div class="sp-chat-head">
     <div class="sp-title"><span class="sp-dot"></span>选品参谋</div>
-    <button class="sp-chat-close" id="spChatClose" aria-label="关闭">×</button>
+    <button type="button" class="sp-chat-close" id="spChatClose" aria-label="关闭">×</button>
   </div>
   <div class="sp-chat-body" id="spChatBody"></div>
   <div class="sp-chat-input">
     <textarea id="spChatText" rows="1" placeholder="问选品问题，如：眼油赛道值不值得进？"></textarea>
-    <button class="sp-chat-send" id="spChatSend">发送</button>
+    <button type="button" class="sp-chat-send" id="spChatSend">发送</button>
   </div>
 </div>
 
@@ -5519,8 +6266,8 @@ else init();
       <div class="fc-warn" id="fcWarn">—</div>
     </div>
     <div class="fc-actions">
-      <button class="fc-btn cancel" id="fcCancel">取消</button>
-      <button class="fc-btn run" id="fcRun">确认执行</button>
+      <button type="button" class="fc-btn cancel" id="fcCancel">取消</button>
+      <button type="button" class="fc-btn run" id="fcRun">确认执行</button>
     </div>
   </div>
 </div>
@@ -5805,6 +6552,27 @@ else init();
   });
 })();
 </script>
-
+<link rel="stylesheet" href="voyager-ui.css">
+<script>
+  // Keep dynamically-rendered controls safe inside any future form container.
+  (function () {
+    function normalizeButtons(root) {
+      (root || document).querySelectorAll('button:not([type])').forEach(function (button) {
+        button.type = 'button';
+      });
+    }
+    normalizeButtons(document);
+    new MutationObserver(function (records) {
+      records.forEach(function (record) {
+        record.addedNodes.forEach(function (node) {
+          if (node.nodeType === 1) {
+            if (node.matches && node.matches('button:not([type])')) node.type = 'button';
+            normalizeButtons(node);
+          }
+        });
+      });
+    }).observe(document.body, { childList: true, subtree: true });
+  }());
+</script>
 </body>
 </html>

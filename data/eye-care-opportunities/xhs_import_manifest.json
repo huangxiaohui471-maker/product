@@ -1,0 +1,32 @@
+{
+  "source_package": "小红书眼部护理数据包_20260928.zip",
+  "source_path": "/Users/huizidemac/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_0nfs068wddpd21_53d6/temp/drag/小红书眼部护理数据包_20260928.zip",
+  "imported_at": "2026-09-28T07:32:55.785964+00:00",
+  "scope": {
+    "categories": [
+      "眼部护理"
+    ],
+    "platforms": [
+      "xiaohongshu"
+    ]
+  },
+  "raw_archive_dir": "/Users/huizidemac/Documents/ChatGPT/软件/全球选品平台-策略台本地整合版/data/eye-care-opportunities/imports/20260928_xhs_eye_care",
+  "raw_files": [
+    "01_帖子汇总.csv",
+    "02_评论原文汇总.csv",
+    "03_数据汇总审阅.html",
+    "04_原始数据_evidence.json",
+    "README.md"
+  ],
+  "records": {
+    "posts_raw": 104,
+    "comments_raw": 1207,
+    "comments_for_analysis": 1176,
+    "comments_excluded_low_info": 31
+  },
+  "analysis_files": [
+    "xhs_comments_clean.json",
+    "xhs_posts_raw.json"
+  ],
+  "notes": "原始 CSV/HTML/evidence.json 保存在 raw_archive_dir；需求信号第一层使用有效评论与帖子标题上下文。"
+}

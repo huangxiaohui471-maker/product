@@ -1,0 +1,211 @@
+/* Voyager Atlas UI contract
+ * One restrained data-workbench language shared by the host and standalone views.
+ * Semantic color is reserved for state; module identity is carried by layout and labels.
+ */
+:root {
+  --atlas-page: #f5f5f7;
+  --atlas-surface: rgba(255, 255, 255, .84);
+  --atlas-surface-solid: #ffffff;
+  --atlas-surface-muted: rgba(255, 255, 255, .58);
+  --atlas-ink: #1d1d1f;
+  --atlas-body: #515154;
+  --atlas-muted: #86868b;
+  --atlas-line: rgba(60, 60, 67, .15);
+  --atlas-line-soft: rgba(60, 60, 67, .09);
+  --atlas-blue: #0a84ff;
+  --atlas-blue-soft: rgba(10, 132, 255, .10);
+  --atlas-green: #248a3d;
+  --atlas-green-soft: rgba(52, 199, 89, .12);
+  --atlas-orange: #a76300;
+  --atlas-orange-soft: rgba(255, 159, 10, .13);
+  --atlas-red: #c51d3f;
+  --atlas-red-soft: rgba(255, 55, 95, .11);
+  --atlas-radius: 16px;
+  --atlas-radius-sm: 12px;
+  --atlas-shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 16px 38px -30px rgba(0, 0, 0, .28);
+  --atlas-shadow-strong: 0 22px 60px -34px rgba(0, 0, 0, .32);
+  --atlas-ease: cubic-bezier(.2, .8, .2, 1);
+  --atlas-fast: 140ms;
+  --atlas-normal: 200ms;
+}
+
+html { background: var(--atlas-page); }
+button, a, input, select, textarea { font-family: inherit; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid rgba(10, 132, 255, .42);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Host shell ------------------------------------------------------------- */
+body:has(.main) {
+  color: var(--atlas-ink);
+  background:
+    radial-gradient(circle at 12% -10%, rgba(10, 132, 255, .07), transparent 28rem),
+    radial-gradient(circle at 92% 0%, rgba(88, 86, 214, .045), transparent 24rem),
+    var(--atlas-page);
+}
+body:has(.main) .side,
+body:has(.main) .topbar {
+  background: rgba(255, 255, 255, .74);
+  border-color: var(--atlas-line);
+  backdrop-filter: saturate(180%) blur(22px);
+  -webkit-backdrop-filter: saturate(180%) blur(22px);
+}
+body:has(.main) .side { box-shadow: 1px 0 0 rgba(0, 0, 0, .03), 8px 0 30px -28px rgba(0, 0, 0, .26); }
+body:has(.main) .topbar { box-shadow: 0 1px 0 rgba(0, 0, 0, .04), 0 10px 30px -24px rgba(0, 0, 0, .28); }
+body:has(.main) .brand-mark { background: var(--atlas-ink); border-radius: 12px; }
+body:has(.main) .nav-item { color: var(--atlas-body); border-radius: 12px; }
+body:has(.main) .nav-item:hover { color: var(--atlas-ink); background: var(--atlas-surface-muted); }
+body:has(.main) .nav-item.on { color: var(--atlas-blue); background: var(--atlas-blue-soft); box-shadow: inset 3px 0 0 var(--atlas-blue); }
+body:has(.main) .nav-group .nav-item .ic,
+body:has(.main) .nav-group-opportunity .nav-item .ic,
+body:has(.main) .nav-group-board .nav-item .ic,
+body:has(.main) .nav-group-ing .nav-item .ic,
+body:has(.main) .nav-group-rank .nav-item .ic,
+body:has(.main) .nav-group-lab .nav-item .ic { color: var(--atlas-muted); }
+body:has(.main) .nav-group .nav-item.on .ic { color: var(--atlas-blue); }
+body:has(.main) .nav-sub-item.on { color: var(--atlas-blue); background: var(--atlas-blue-soft); box-shadow: inset 2px 0 0 var(--atlas-blue); }
+body:has(.main) .nav-group-opportunity,
+body:has(.main) .nav-group-board,
+body:has(.main) .nav-group-ing,
+body:has(.main) .nav-group-rank,
+body:has(.main) .nav-group-lab { --nav-accent: var(--atlas-blue); --nav-soft: var(--atlas-blue-soft); }
+body:has(.main) .card,
+body:has(.main) .board-section,
+body:has(.main) .growth-radar,
+body:has(.main) .opportunity-card,
+body:has(.main) .st-card,
+body:has(.main) .st-heading,
+body:has(.main) .st-controls,
+body:has(.main) .st-result,
+body:has(.main) .hero {
+  background: var(--atlas-surface) !important;
+  border-color: var(--atlas-line) !important;
+  box-shadow: var(--atlas-shadow) !important;
+  border-radius: var(--atlas-radius) !important;
+}
+body:has(.main) .hero,
+body:has(.main) .board-hero,
+body:has(.main) .growth-radar .growth-hero,
+body:has(.main) .st-hero,
+body:has(.main) .st-result,
+body:has(.main) .st-plan,
+body:has(.main) .st-opportunity-main,
+body:has(.main) .st-reco {
+  background: linear-gradient(135deg, #1d1d1f 0%, #2c2c2e 68%, #174a75 100%) !important;
+  color: #fff;
+}
+body:has(.main) .kpi,
+body:has(.main) .board-stat,
+body:has(.main) .st-metrics > div {
+  border-top: 2px solid var(--atlas-line) !important;
+}
+body:has(.main) .kpi:nth-child(n),
+body:has(.main) .board-stat:nth-child(n),
+body:has(.main) .st-metrics > div:nth-child(n) { border-top-color: var(--atlas-line) !important; }
+body:has(.main) .board-bar i,
+body:has(.main) .growth-category-bar i,
+body:has(.main) .growth-ticker-progress i,
+body:has(.main) .st-fit i,
+body:has(.main) .bar i { background: var(--atlas-blue) !important; }
+body:has(.main) .opportunity-tabs { background: var(--atlas-surface-muted); border: 1px solid var(--atlas-line); border-radius: var(--atlas-radius-sm); }
+body:has(.main) .opportunity-tabs button.on,
+body:has(.main) .chip.on,
+body:has(.main) .growth-country-tabs button.on,
+body:has(.main) .growth-category-tabs button.on { background: var(--atlas-blue); border-color: var(--atlas-blue); color: #fff; }
+body:has(.main) .board-inline-tabs { border-color: var(--atlas-line); background: rgba(255, 255, 255, .72); box-shadow: var(--atlas-shadow); }
+body:has(.main) .board-inline-tabs button.on { background: var(--atlas-ink); color: #fff; }
+body:has(.main) .ingredient-radar-frame,
+body:has(.main) .opportunity-radar-frame,
+body:has(.main) .rank-fusion-frame { border-color: var(--atlas-line); border-radius: var(--atlas-radius); background: var(--atlas-page); }
+body:has(.main) .ingredient-radar-frame { height: 2050px; min-height: 0; }
+body:has(.main) .opportunity-radar-frame { min-height: 720px; }
+body:has(.main) .rank-fusion-frame { min-height: 1180px; }
+
+/* Ingredient radar ------------------------------------------------------- */
+body:has(.daily-discovery) {
+  color: var(--atlas-ink);
+  background: var(--atlas-page);
+}
+body:has(.daily-discovery) .shell { max-width: 1440px; padding: 20px 32px 44px; }
+body:has(.daily-discovery) .daily-discovery,
+body:has(.daily-discovery) .panel,
+body:has(.daily-discovery) .market,
+body:has(.daily-discovery) .push-card,
+body:has(.daily-discovery) .new-discovery {
+  border: 1px solid var(--atlas-line) !important;
+  border-top: 2px solid var(--atlas-line) !important;
+  border-radius: var(--atlas-radius) !important;
+  background: var(--atlas-surface-solid) !important;
+  box-shadow: var(--atlas-shadow) !important;
+}
+body:has(.daily-discovery) .daily-discovery { border-top-color: var(--atlas-blue) !important; }
+body:has(.daily-discovery) .daily-track-push { background: #f5f8ff !important; border-color: #dce8fa !important; }
+body:has(.daily-discovery) .daily-track-new { background: #fffaf2 !important; border-color: #eee0c3 !important; }
+body:has(.daily-discovery) .daily-track .push-card,
+body:has(.daily-discovery) .daily-track .discovery-card { border-color: var(--atlas-line) !important; border-top: 1px solid var(--atlas-line) !important; background: rgba(255, 255, 255, .86) !important; box-shadow: none !important; }
+body:has(.daily-discovery) .push-card:nth-child(n),
+body:has(.daily-discovery) .market:nth-child(n) { border-top-color: var(--atlas-line) !important; }
+body:has(.daily-discovery) .push-visual i,
+body:has(.daily-discovery) .bar i { background: var(--atlas-blue) !important; }
+body:has(.daily-discovery) .discovery-visual i { background: var(--atlas-orange) !important; }
+body:has(.daily-discovery) .push-tag,
+body:has(.daily-discovery) .chip,
+body:has(.daily-discovery) .discovery-meta span { background: var(--atlas-surface-muted); border-color: var(--atlas-line); color: var(--atlas-body); }
+body:has(.daily-discovery) .push-link,
+body:has(.daily-discovery) .discovery-card a,
+body:has(.daily-discovery) .source-link { color: var(--atlas-blue); }
+body:has(.daily-discovery) .period { background: var(--atlas-surface-muted); border-color: var(--atlas-line); }
+body:has(.daily-discovery) .period button.on { background: var(--atlas-ink); color: #fff; }
+
+/* Opportunity radar ------------------------------------------------------ */
+body:has(.radar-grid) { color: var(--atlas-ink); background: var(--atlas-page); }
+body:has(.radar-grid) .device,
+body:has(.radar-grid) main { background: transparent; }
+body:has(.radar-grid) .sidebar { background: rgba(255, 255, 255, .78); border-color: var(--atlas-line); backdrop-filter: saturate(180%) blur(22px); -webkit-backdrop-filter: saturate(180%) blur(22px); }
+body:has(.radar-grid) .nav-btn { border-radius: 12px; color: var(--atlas-body); }
+body:has(.radar-grid) .nav-btn:hover { background: var(--atlas-blue-soft); }
+body:has(.radar-grid) .nav-btn.active { background: var(--atlas-ink); color: #fff; }
+body:has(.radar-grid) .panel,
+body:has(.radar-grid) .metric { background: var(--atlas-surface-solid); border-color: var(--atlas-line); border-radius: var(--atlas-radius); box-shadow: var(--atlas-shadow); }
+body:has(.radar-grid) .metric:nth-child(n) { background: var(--atlas-surface-solid); }
+body:has(.radar-grid) .metric { border-top: 2px solid var(--atlas-line); }
+body:has(.radar-grid) .metric:first-child { border-top-color: var(--atlas-blue); }
+body:has(.radar-grid) .primary-btn { background: var(--atlas-blue); border-color: var(--atlas-blue); }
+body:has(.radar-grid) .soft-btn { background: var(--atlas-orange-soft); border-color: #efd9ac; color: var(--atlas-orange); }
+body:has(.radar-grid) .canvas { background-color: #fbfbfc; background-image: radial-gradient(rgba(60,60,67,.16) 1px, transparent 1px); border-color: var(--atlas-line); }
+body:has(.radar-grid) .panel-head { border-bottom-color: var(--atlas-line-soft); }
+
+/* Competitor intelligence ------------------------------------------------ */
+body:has(.gcard) { color: var(--atlas-ink); background: var(--atlas-page); }
+body:has(.gcard) header,
+body:has(.gcard) .bar,
+body:has(.gcard) .shelf-tools,
+body:has(.gcard) .pager { background: rgba(255, 255, 255, .78); border-color: var(--atlas-line); box-shadow: var(--atlas-shadow); }
+body:has(.gcard) .gcard { border-color: var(--atlas-line); border-radius: var(--atlas-radius-sm); box-shadow: none; }
+body:has(.gcard) .gcard:hover { border-color: rgba(10,132,255,.36); box-shadow: var(--atlas-shadow); }
+body:has(.gcard) .chip.on,
+body:has(.gcard) .country-chip.on { background: var(--atlas-blue); border-color: var(--atlas-blue); }
+body:has(.gcard) .navlinks a,
+body:has(.gcard) .navlinks .nav-compare { background: var(--atlas-blue-soft); border-color: rgba(10,132,255,.22); color: var(--atlas-blue); }
+body:has(.gcard) .dg { background: var(--atlas-blue); }
+body:has(.gcard) .pri b { color: var(--atlas-red); }
+
+/* Cross-surface density and state rules --------------------------------- */
+body:has(.main) .button,
+body:has(.main) button,
+body:has(.daily-discovery) button,
+body:has(.radar-grid) button,
+body:has(.gcard) button { transition: background-color var(--atlas-fast) var(--atlas-ease), border-color var(--atlas-fast) var(--atlas-ease), color var(--atlas-fast) var(--atlas-ease), box-shadow var(--atlas-fast) var(--atlas-ease), transform var(--atlas-fast) var(--atlas-ease); }
+body:has(.main) .button-primary,
+body:has(.main) .control-text-button,
+body:has(.main) .text-action { background: var(--atlas-blue); border-color: var(--atlas-blue); color: #fff; }
+body:has(.main) .status-success,
+body:has(.main) .confidence-high { background: var(--atlas-green-soft); color: var(--atlas-green); }
+body:has(.main) .status-warning,
+body:has(.main) .confidence-medium { background: var(--atlas-orange-soft); color: var(--atlas-orange); }
+body:has(.main) .status-danger,
+body:has(.main) .confidence-low { background: var(--atlas-red-soft); color: var(--atlas-red); }

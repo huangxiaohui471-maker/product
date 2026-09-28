@@ -1,0 +1,88 @@
+/* Finesse shared workbench tokens: one visual contract for host + embedded views. */
+:root {
+  --wb-font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Segoe UI", Arial, sans-serif;
+  --wb-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  /* One cool research-console language shared by the host and the lab. */
+  --wb-page: #f5f5f7;
+  --wb-surface: rgba(255, 255, 255, .78);
+  --wb-surface-2: rgba(255, 255, 255, .58);
+  --wb-panel: rgba(255, 255, 255, .68);
+  --wb-border: rgba(60, 60, 67, .16);
+  --wb-border-soft: rgba(60, 60, 67, .09);
+  --wb-ink: #1d1d1f;
+  --wb-body: #515154;
+  --wb-muted: #86868b;
+  --wb-cobalt: #0a84ff;
+  --wb-cobalt-soft: rgba(10, 132, 255, .10);
+  --wb-teal: #34c759;
+  --wb-teal-soft: rgba(52, 199, 89, .11);
+  --wb-rose: #ff375f;
+  --wb-rose-soft: rgba(255, 55, 95, .10);
+  --wb-amber: #ff9f0a;
+  --wb-amber-soft: rgba(255, 159, 10, .12);
+  --wb-violet: #5856d6;
+  --wb-violet-soft: rgba(88, 86, 214, .10);
+  --wb-up: #248a3d;
+  --wb-down: #d70015;
+  --wb-warn: #b76e00;
+  --wb-focus: rgba(10, 132, 255, .24);
+  /* Data semantics: hue answers one question only. */
+  --wb-data-primary: var(--wb-cobalt);
+  --wb-data-positive: var(--wb-up);
+  --wb-data-warning: var(--wb-warn);
+  --wb-data-negative: var(--wb-down);
+  --wb-data-neutral: var(--wb-muted);
+  --wb-space-1: 4px;
+  --wb-space-2: 8px;
+  --wb-space-3: 12px;
+  --wb-space-4: 16px;
+  --wb-space-5: 20px;
+  --wb-space-6: 24px;
+  --wb-space-7: 32px;
+  --wb-type-display: 28px;
+  --wb-type-title: 20px;
+  --wb-type-section: 16px;
+  --wb-type-body: 14px;
+  --wb-type-caption: 12px;
+  --wb-radius: 16px;
+  --wb-radius-sm: 12px;
+  --wb-shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 12px 36px -24px rgba(0, 0, 0, .20);
+  --wb-shadow-strong: 0 22px 60px -30px rgba(0, 0, 0, .32);
+  --wb-ease: cubic-bezier(.2, .8, .2, 1);
+  --wb-motion-fast: 140ms;
+  --wb-motion: 180ms;
+  --wb-motion-slow: 240ms;
+}
+
+/* Shared type contract: Chinese UI uses the system sans; numbers keep a stable width. */
+html, body, button, input, select, textarea {
+  font-family: var(--wb-font-sans);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+}
+body { font-size: 14px; line-height: 1.5; }
+h1, h2, h3, h4 { color: var(--wb-ink); letter-spacing: -.02em; }
+h1 { font-size: 28px; line-height: 1.2; font-weight: 700; }
+h2 { font-size: 20px; line-height: 1.3; font-weight: 700; }
+h3 { font-size: 16px; line-height: 1.35; font-weight: 650; }
+small, .muted, .hint { font-size: 12px; line-height: 1.45; }
+code, pre, .path { font-family: var(--wb-font-mono); }
+.board-stat b, .kpi .vl, .st-kpi strong, .st-score strong, .growth-category-rate, .growth-product-table td {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Interaction contract: quiet feedback, no decorative motion. */
+button, a, input, select, textarea {
+  transition: background-color var(--wb-motion-fast) var(--wb-ease),
+    border-color var(--wb-motion-fast) var(--wb-ease),
+    color var(--wb-motion-fast) var(--wb-ease),
+    box-shadow var(--wb-motion-fast) var(--wb-ease),
+    transform var(--wb-motion-fast) var(--wb-ease);
+}
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--wb-focus);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

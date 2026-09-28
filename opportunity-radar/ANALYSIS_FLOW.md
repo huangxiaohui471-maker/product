@@ -2,7 +2,7 @@
 
 ## 结论
 
-DeepSeek 的分析规则已经内置在 `opportunity_ai_server.py`，但 API Key 不内置。密钥只通过本机环境变量注入，浏览器不会接触密钥。
+DeepSeek 官方 API 的分析规则已经内置在 `opportunity_ai_server.py`，但 API Key 不内置。密钥只通过本机环境变量注入，浏览器不会接触密钥。机会发现文本分析不使用中转站。
 
 提示词的唯一运行时来源是服务端 `Handler.do_POST()` 中的两段系统提示词：
 
@@ -80,4 +80,4 @@ DEEPSEEK_MODEL="deepseek-chat" \
 python3 opportunity-radar/opportunity_ai_server.py
 ```
 
-生图接口是独立的可选能力，使用 `TIKBIT_API_KEY` 和 4182 端口，不参与两层机会判断。
+生图接口是独立的可选能力，使用 `TIKBIT_API_KEY`、`TIKBIT_BASE_URL` 和 `TIKBIT_IMAGE_MODEL`，不参与两层机会判断；中转站只用于最终产品概念图生成。
