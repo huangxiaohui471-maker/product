@@ -259,6 +259,15 @@
     .gate-icon { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: var(--teal-soft); }
     .gate small { color: var(--muted); }
     .gate-status { font-size: 11px; font-weight: 900; color: var(--green); }
+    .gate-note { margin: 6px 0 12px; padding: 10px 12px; border-radius: 12px; background: #eef6f4; color: #176b5d; font-size: 11px; line-height: 1.5; }
+    .market-assessment { margin: 12px 0 4px; padding: 14px; border: 1px solid var(--line); border-radius: 15px; background: #fbfbf7; }
+    .market-assessment-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+    .market-assessment-head strong { display: block; font-size: 12px; }
+    .market-assessment-head small { display: block; margin-top: 4px; color: var(--muted); font-size: 10px; line-height: 1.4; }
+    .market-assessment-level { flex: 0 0 auto; padding: 5px 8px; border-radius: 999px; background: var(--yellow-soft); color: #8b6530; font-size: 10px; font-weight: 900; }
+    .market-assessment-grid { display: grid; grid-template-columns: 72px 1fr; gap: 7px 10px; margin-top: 12px; font-size: 11px; line-height: 1.5; }
+    .market-assessment-grid span { color: var(--muted); }
+    .market-assessment-grid b { font-weight: 700; }
     .verdict { margin-top: 16px; border-radius: 20px; padding: 18px; background: var(--yellow); }
     .verdict strong { font-size: 20px; display: block; }
     .verdict p { margin: 7px 0 0; font-size: 12px; }
@@ -620,11 +629,11 @@
             </section>
 
             <aside class="panel trial-side">
-              <h2>下一步</h2><p style="color:var(--muted);font-size:12px">先选择一条产品方向，再决定是否进入产品立项继续验证。</p>
+              <h2>下一步</h2><p style="color:var(--muted);font-size:12px">先选择一条产品方向。评审结果只标注证据与风险，不阻断继续观察。</p>
               <div class="verdict"><small>优先方向</small><strong id="trialPrimaryConcept">等待真实数据</strong><p id="trialPrimaryTest">数据加载后显示最小验证动作。</p></div>
-              <details class="research-details"><summary>查看判断标准</summary><div class="gate-list" id="trialGates"></div></details>
-              <div class="strategy-note">确认方向后，带入产品立项继续判断；本页面保留用户需求和评论证据。</div>
-              <div class="action-stack"><button class="ghost-btn" data-go="radar">返回需求信号</button><button class="ghost-btn" id="pauseBtn">暂存观察</button><button class="primary-btn" data-go="strategy">带入产品立项</button></div>
+              <details class="research-details"><summary>查看判断标准</summary><div class="gate-note">评审结果用于标注证据缺口和风险提示，无论当前状态，都可以进入方案观察。</div><div class="gate-list" id="trialGates"></div><div class="market-assessment" id="trialMarketAssessment"></div></details>
+              <div class="strategy-note">确认方向后，带入方案观察继续选择和验证；评分、市场规模评估与评审状态不会锁住这条路径。</div>
+              <div class="action-stack"><button class="ghost-btn" data-go="radar">返回需求信号</button><button class="ghost-btn" id="pauseBtn">暂存观察</button><button class="primary-btn" data-go="strategy">进入方案观察</button></div>
             </aside>
           </div>
         </section>
@@ -1056,6 +1065,18 @@
       saveRadarSnapshot();
     }
 
+    function renderMarketAssessment(trial) {
+      const el = $('#trialMarketAssessment');
+      if (!el) return;
+      const market = trial?.marketAssessment || {};
+      const level = market.level || '待补证';
+      const score = market.score || '—';
+      const evidence = market.evidence || '当前判断未提供独立的市场规模或份额分母。';
+      const confidence = market.confidence || '低';
+      const rationale = market.rationale || '仅保留为待补证线索，不影响继续进入方案观察。';
+      el.innerHTML = `<div class="market-assessment-head"><div><strong>市场规模与份额空间</strong><small>只展示有同口径证据支持的估计，不作为流转门槛</small></div><span class="market-assessment-level">${esc(level)}</span></div><div class="market-assessment-grid"><span>评估值</span><b>${esc(score)}</b><span>证据</span><b>${esc(evidence)}</b><span>置信度</span><b>${esc(confidence)}</b><span>说明</span><b>${esc(rationale)}</b></div>`;
+    }
+
     function renderTrial(id) {
       const c = candidates[id]; if (!c) return;
       const t = c.trial;
@@ -1069,9 +1090,10 @@
       $('#trialConceptPlan').innerHTML = t
         ? `<div class="concept-plan-head"><strong>模型生成的产品概念方向</strong><small>每个方向都必须回到场景、证据和验证动作</small></div><div class="concept-options">${concepts.map((concept, index) => `<article class="concept-option ${index === 0 ? 'primary' : ''}"><small>${esc(concept.track || '模型方案')}</small><h4>${esc(concept.name)}</h4><p>${esc(concept.scene)} · ${esc(concept.form)}</p><strong class="concept-promise">${esc(concept.promise)}</strong><details class="concept-details"><summary>查看推导、风险与验证方式</summary><p><b>推导：</b>${esc(concept.rationale)}</p><p class="concept-risk"><b>风险：</b>${esc(concept.risk)}</p><p class="concept-test"><b>验证：</b>${esc(concept.test)}</p></details></article>`).join('')}</div>`
         : '<div class="concept-plan-head"><strong>等待第二层模型</strong><small>不会使用预设产品模板</small></div>';
-      $('#trialGates').innerHTML = t ? t.gates.map((g, i) => `<div class="gate"><span class="gate-icon">${i + 1}</span><div><strong>${esc(g[0])}</strong><br><small>${esc(g[1])}</small></div><span class="gate-status">${esc(g[2])}</span></div>`).join('') : '<div class="gate">模型判断完成后显示投入审核问题。</div>';
+      $('#trialGates').innerHTML = t ? (t.gates || []).map((g, i) => `<div class="gate"><span class="gate-icon">${i + 1}</span><div><strong>${esc(g[0])}</strong><br><small>${esc(g[1])}</small></div><span class="gate-status">${esc(g[2])}</span></div>`).join('') : '<div class="gate">模型判断完成后显示投入审核问题。</div>';
+      renderMarketAssessment(t);
       $('#trialVerdict').textContent = t ? t.verdict : '正在判断';
-      $('#trialVerdictText').textContent = t ? t.verdictText : '第二层模型正在评估机会价值、证据缺口和最低成本验证动作。';
+      $('#trialVerdictText').textContent = t ? (t.verdictText || '') + ' 当前结论只用于风险标注，不阻断下一步方案观察。' : '第二层模型正在评估机会价值、证据缺口和最低成本验证动作。';
       $('#trialPrimaryConcept').textContent = concepts[0]?.name || '等待模型概念';
       $('#trialPrimaryTest').textContent = concepts[0]?.test || (t ? t.nextExperiment : '等待第二层模型给出最低成本验证动作。');
       renderAnalytics(c);
@@ -1094,6 +1116,7 @@
           counter: result.counter || [],
           inference: result.inference,
           gates: (result.gates || []).map(g => [g.question, g.answer, g.status]),
+          marketAssessment: result.market_assessment || null,
           verdict: result.verdict,
           verdictText: result.verdict_text,
           nextExperiment: result.next_experiment
@@ -1112,6 +1135,7 @@
             counter: cached.counter || [],
             inference: cached.inference || '',
             gates: (cached.gates || []).map(g => [g.question || '', g.answer || '', g.status || '待验证']),
+            marketAssessment: cached.market_assessment || null,
             verdict: cached.verdict || '先补证据',
             verdictText: cached.verdict_text || '',
             nextExperiment: cached.next_experiment || ''
@@ -1123,9 +1147,9 @@
           toast('实时判断服务未连接，已载入该机会的本地校准结果');
         } else {
           const missingConfig = error instanceof Error && (error.message.includes('DeepSeek API') || error.message.includes('Failed to fetch') || error.message.includes('NetworkError'));
-          $('#trialState').textContent = missingConfig ? '待配置 DeepSeek 中转' : '等待数据恢复';
-          $('#trialInference').textContent = missingConfig ? '第一层原始数据已就绪；当前服务未连接，配置文本模型中转后即可继续机会校准。' : '当前数据暂时不可用，恢复后可继续判断。';
-          toast(missingConfig ? '已保留本地分析，配置文本模型中转后可实时校准' : '机会判断暂时不可用，请稍后重试');
+          $('#trialState').textContent = missingConfig ? '待配置 DeepSeek 官方 API' : '等待数据恢复';
+          $('#trialInference').textContent = missingConfig ? '第一层原始数据已就绪；当前服务未连接，配置 DeepSeek 官方文本 API 后即可继续机会校准。' : '当前数据暂时不可用，恢复后可继续判断。';
+          toast(missingConfig ? '已保留本地分析，配置 DeepSeek 官方 API 后可实时校准' : '机会判断暂时不可用，请稍后重试');
         }
       } finally {
         c.judging = false;
@@ -1207,6 +1231,7 @@
               core: trial.core || '',
               nextExperiment: trial.nextExperiment || '',
               verdict: trial.verdict || '',
+              marketAssessment: trial.marketAssessment || null,
             }
           }
         }, '*');
