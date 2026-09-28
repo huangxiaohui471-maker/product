@@ -281,7 +281,7 @@ function head(mode, prod){
   var h = '';
   if(mode==='wall'){
     h = '<div class="logo">竞品情报</div>'
-      + '<div class="sub">业务板块 → 二级类目 → 三级类目 → 商品</div>'
+      + '<div class="sub">二级类目 → 三级类目 → 四级类目 → 商品</div>'
       + '<div class="navlinks"><button class="nav-compare" type="button" id="navCompare" disabled>多选对比 <span>0/5</span></button></div>';
   } else {
     h = '<div class="logo">商品详情 · <em>'+esc(cleanText((prod.brand||'')).slice(0,12))+'</em></div>'
@@ -322,7 +322,7 @@ var CATEGORY_TREE={
   '面部护理':['洁面','面膜','面霜','面部精华','爽肤水','防晒','卸妆','乳液','喷雾'],
   '眼部护理':['眼部精华','眼膜','眼霜','眼贴','眼部护理工具'],
   '洗发护发':['洗发水','护发素','发膜','护发精油','头皮护理','免洗洗发水/喷雾','固色洗发水'],
-  '美发/造型':['染发剂','烫发产品','定型喷雾','假发','造型工具'],
+  '染发烫发/头发造型':['染发剂','烫发产品','定型喷雾','假发','造型工具'],
   '身体护理':['身体乳/霜','身体精华','身体磨砂/去角质','脱毛膏/凝胶','护手','护足','止汗/香体'],
   '身体清洁':['沐浴露/油','香皂','洗手液','浴盐/泡澡','搓泥浴宝','身体磨砂/去角质'],
   '口腔护理':['牙膏','牙刷/口腔清洁工具','漱口水','口腔喷剂','牙线/牙签','牙齿美白/护理剂'],
@@ -332,22 +332,26 @@ var CATEGORY_TREE={
   '家庭环境清洁剂':['洗洁精','洁厕剂/马桶清洁剂','地板清洁剂','油污清洁剂','管道疏通剂','洗衣机槽清洁剂','多用途清洁剂'],
   '驱虫用品':['驱蚊喷雾','蚊香液','蚊香片/盘香','家用杀虫剂','除螨喷雾','防虫/防蚊用品'],
   '彩妆':['粉底/气垫','遮瑕','口红/唇釉','眼影/眼线/睫毛','腮红/修容','妆前/隔离','定妆'],
-  '美容仪器/工具':['美容仪','洁面仪','脱毛仪','化妆刷/粉扑','美甲工具','按摩工具'],
-  '香水/香氛':['香水','身体香氛','家居香氛','香薰蜡烛','香氛精油'],
+  '面部美容仪器':['美容仪','洁面仪','脱毛仪'],
+  '美妆工具':['化妆刷/粉扑','美甲工具','按摩工具'],
+  '香水/香膏':['香水','身体香氛','家居香氛','香薰蜡烛','香氛精油'],
   '男士护理':['男士洁面','男士护肤','剃须/修剪','男士身体护理'],
-  '婴童护理':['婴儿洗护','婴童湿巾','纸尿裤/拉拉裤','婴童护肤','婴童清洁']
+  '婴童护理':['婴儿洗护','婴童湿巾','纸尿裤/拉拉裤','婴童护肤','婴童清洁'],
+  '家庭收纳用具':['收纳箱/盒','收纳袋','收纳架'],
+  '厨房收纳工具':['厨房置物架','保鲜收纳','餐具收纳'],
+  '衣物收纳用品':['衣架','衣物防尘罩','衣物整理袋']
 };
-/* 一级业务板块只负责导航，不改变原有商品口径；点击后再进入二级、三级类目。 */
+/* 蝉妈妈 categoryV7（deep=5）中的二级类目；数据未接入的类目先保留导航位。 */
 var CATEGORY_GROUPS={
-  '护肤':['面部护理','眼部护理'],
-  '洗护':['洗发护发','美发/造型'],
-  '身体护理':['身体护理','身体清洁'],
-  '口腔与女性':['口腔护理','卫生巾/私处护理'],
-  '纸品与家清':['纸品/湿巾','衣物清洁剂/护理剂','家庭环境清洁剂','驱虫用品'],
-  '彩妆与工具':['彩妆','美容仪器/工具'],
-  '香氛与人群':['香水/香氛','男士护理','婴童护理']
+  '护肤品':['面部护理','眼部护理'],
+  '彩妆/香水':['彩妆','香水/香膏'],
+  '美妆工具/美容仪器':['面部美容仪器','美妆工具'],
+  '个人护理':['洗发护发','染发烫发/头发造型','身体护理','身体清洁','口腔护理','卫生巾/私处护理','男士护理','婴童护理'],
+  '生活日用':['纸品/湿巾','驱虫用品'],
+  '家庭清洁':['衣物清洁剂/护理剂','家庭环境清洁剂'],
+  '收纳整理':['家庭收纳用具','厨房收纳工具','衣物收纳用品']
 };
-var FILT={group:'护肤',l2:null,cate:null,q:'',deep:false,bad:false,cover:false};
+var FILT={group:'护肤品',l2:null,cate:null,q:'',deep:false,bad:false,cover:false};
 var SELECTED={};
 function selectedProducts(){return P.filter(function(p){return !!SELECTED[p.gid]})}
 function renderSelectionTray(){
@@ -390,13 +394,13 @@ function renderWall(){
   var groupChips='<button class="chip" data-level="group" data-v="">全部</button>'
     +Object.keys(CATEGORY_GROUPS).map(function(g){var n=groupCount(g);return '<button class="chip '+(n?'':'pending-chip')+'" data-level="group" data-v="'+esc(g)+'" title="'+(n?'已有 '+n+' 个商品':'类目已建立，数据待接入')+'">'+esc(g)+(n?' <small class="chip-count">'+n+'</small>':' <small class="chip-count pending">待接入</small>')+'</button>'}).join('');
   var l2rows=Object.keys(CATEGORY_GROUPS).map(function(g){
-    return '<div class="level-row l2-panel" data-group="'+esc(g)+'"><span class="level-label">子类目</span>'
+    return '<div class="level-row l2-panel" data-group="'+esc(g)+'"><span class="level-label">三级类目</span>'
       +'<button class="chip" data-level="l2" data-group="'+esc(g)+'" data-v="">全部</button>'
       +CATEGORY_GROUPS[g].map(function(k){return '<button class="chip '+(levels[k]&&levels[k].count?'':'pending-chip')+'" data-level="l2" data-group="'+esc(g)+'" data-v="'+esc(k)+'" title="'+(levels[k]&&levels[k].count?'已有 '+levels[k].count+' 个商品':'类目已建立，数据待接入')+'">'+esc(k)+levelCount(k)+'</button>'}).join('')
       +'</div>';
   }).join('');
   var l3rows=Object.keys(levels).map(function(k){
-    return '<div class="level-row l3-panel" data-parent="'+esc(k)+'"><span class="level-label">三级类目</span>'
+    return '<div class="level-row l3-panel" data-parent="'+esc(k)+'"><span class="level-label">四级类目</span>'
       +'<button class="chip" data-level="l3" data-parent="'+esc(k)+'" data-v="">全部</button>'
       +Object.keys(levels[k].l3).map(function(x){var n=levels[k].l3[x];return '<button class="chip '+(n?'':'pending-chip')+'" data-level="l3" data-parent="'+esc(k)+'" data-v="'+esc(x)+'" title="'+(n?'已有 '+n+' 个商品':'类目已建立，数据待接入')+'">'+esc(x)+(n?' <small class="chip-count">'+n+'</small>':' <small class="chip-count pending">待接入</small>')+'</button>'}).join('')+'</div>';
   }).join('');
@@ -410,7 +414,7 @@ function renderWall(){
     +'<details class="date-filter"><summary>选择时间</summary><div class="date-panel"><label>开始日期 <input id="dateStart" type="date" value="2026-08-30"></label><label>结束日期 <input id="dateEnd" type="date" value="2026-09-28"></label><button type="button" id="applyDate">应用时间</button></div></details>'
     +'<details class="advanced-filter"><summary>更多筛选</summary><div class="advanced-panel"><label><input type="checkbox" data-advanced="deep" '+(FILT.deep?'checked':'')+'> 仅显示已拆解视频</label><label><input type="checkbox" data-advanced="cover" '+(FILT.cover?'checked':'')+'> 仅显示商品主图</label><label><input type="checkbox" data-advanced="bad" '+(FILT.bad?'checked':'')+'> 差评率 ≤ 8%</label></div></details></div>'
     +'<div class="country-row"><span class="country-title">国家亮点</span><button class="country-chip" type="button" disabled>全球</button><button class="country-chip on" type="button">中国</button><button class="country-chip" type="button" disabled>美国</button><button class="country-chip" type="button" disabled>印度尼西亚</button><button class="country-chip" type="button" disabled>越南</button><button class="country-chip" type="button" disabled>泰国</button><button class="country-chip" type="button" disabled>菲律宾</button><button class="country-chip" type="button" disabled>马来西亚</button><button class="country-chip" type="button" disabled>巴西</button><button class="country-chip" type="button" disabled>墨西哥</button><button class="country-chip" type="button" disabled>日本</button><button class="country-chip" type="button" disabled>新加坡</button><button class="country-chip" type="button" disabled>英国</button></div>'
-    +'<div class="category-filter"><div class="level-row"><span class="level-label">业务板块</span>'+groupChips+'</div>'+l2rows+l3rows+'</div></div>'
+    +'<div class="category-filter"><div class="level-row"><span class="level-label">二级类目</span>'+groupChips+'</div>'+l2rows+l3rows+'</div></div>'
     +'<div class="list-head"><div><h2>竞品情报</h2><span class="category-path" id="categoryPath"></span></div><span class="cnt" id="cnt"></span></div>'
     +'<div class="grid" id="grid"></div><div class="empty" id="gridEmpty" style="display:none">该类目已建立，商品数据待接入</div>';
   var grid=document.getElementById('grid');
@@ -452,7 +456,7 @@ function updateCategoryFilterUI(){
   document.querySelectorAll('[data-level="l3"]').forEach(function(ch){
     ch.classList.toggle('on',ch.dataset.parent===FILT.l2&&(ch.dataset.v||null)===FILT.cate);
   });
-  var path=FILT.l2?(FILT.l2+(FILT.cate?' / '+FILT.cate:' / 全部三级类目')):(FILT.group?(FILT.group+' / 全部子类目'):'全部业务板块');
+  var path=FILT.l2?(FILT.l2+(FILT.cate?' / '+FILT.cate:' / 全部四级类目')):(FILT.group?(FILT.group+' / 全部三级类目'):'全部二级类目');
   var el=document.getElementById('categoryPath');if(el)el.textContent=path;
 }
 function applyWall(){
