@@ -3903,8 +3903,8 @@ RENDER.opportunity = function () {
    之前这里使用 iframe，切换阶段时会同时受 browsing context、动态 chunk
    和外层滚动容器影响；现在仍保留独立构建产物，但不再创建 iframe。 */
 var LAB_ORIGIN = window.location.origin;
-var LAB_SCRIPT_URL = new URL('./lab/assets/index-DyPdZ6Rz.js?v=20260929-15', window.location.href).href;
-var LAB_STYLE_URL = new URL('./lab/assets/index-D3BVy6T5.css?v=20260929-15', window.location.href).href;
+var LAB_SCRIPT_URL = new URL('./lab/assets/index-D1OyD06-.js?v=20260929-17', window.location.href).href;
+var LAB_STYLE_URL = new URL('./lab/assets/index-D3BVy6T5.css?v=20260929-17', window.location.href).href;
 function voyagerLabPayload() {
   var ctx = typeof stContext === 'function' ? stContext() : null;
   var m = ctx && ctx.current ? ctx.current : {};
@@ -3944,6 +3944,7 @@ function voyagerLabPayload() {
     projectName: imported.projectName || (selectedDirection && selectedDirection.name ? selectedDirection.name : title),
     direction: selectedDirection ? { id: selectedDirection.id, name: selectedDirection.name, premise: selectedDirection.premise || selectedDirection.desc || '', risk: selectedDirection.risk || (!imported.signal && !imported.summary && !imported.unmetNeed ? '当前以市场线索为主，用户任务仍需在方案观察中补证。' : ''), buildable: !!selectedDirection, scores: selectedDirection.scores || { userFit: 0, differentiation: 0, margin: 0, feasibility: 0 } } : null,
     evidenceItems: evidence,
+    productAnalysis: imported.productAnalysis || null,
     stage: selectedDirection ? 'ready' : 'validation',
     scoreBreakdown: { demand: imported.signal || imported.summary || imported.unmetNeed ? (m.med === null || m.med === undefined ? 0 : Math.max(0, Math.min(100, Number(m.med) + 50))) : 0, differentiation: 0, margin: 0, feasibility: 0, evidence: imported.evidenceItems && imported.evidenceItems.length ? Math.min(100, imported.evidenceItems.length * 20) : 0 }
   };
@@ -3987,9 +3988,11 @@ RENDER.lab = function () {
   if (!host) {
     host = document.createElement('div');
     host.id = 'lab-host';
-    host.style.cssText = 'position:fixed;display:block;overflow:auto;background:#f7f8fb;z-index:15;';
+    host.style.cssText = 'position:fixed;display:block;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;-webkit-overflow-scrolling:touch;background:#f7f8fb;z-index:15;';
     var shadow = host.attachShadow ? host.attachShadow({ mode: 'open' }) : host;
-    shadow.innerHTML = '<style>:host{display:block;min-height:100%;}#lab-root{position:relative;min-height:100%;}</style>'
+    /* fixed 容器已经由 top + bottom 决定可视高度，不能再用 100vh/100% 的
+       min-height 把底部推出视口；滚动只交给 lab-host，避免页面出现不可达区域。 */
+    shadow.innerHTML = '<style>:host{display:block;min-height:0;}#lab-root{position:relative;min-height:100%;}</style>'
       + '<link rel="stylesheet" href="' + LAB_STYLE_URL + '">'
       + '<div id="lab-loading" style="position:absolute;inset:0;display:grid;place-items:center;color:#65706c;font-size:13px;z-index:1;">产品实验舱加载中…</div>'
       + '<div id="lab-root" style="z-index:2;"></div>';
