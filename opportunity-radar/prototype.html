@@ -247,19 +247,28 @@
     .bar-row b { text-align: right; font-variant-numeric: tabular-nums; }
     .inference { margin-top: 14px; padding: 16px; border-radius: 18px; background: var(--lavender-soft); }
     .inference p { margin: 7px 0 0; font-size: 13px; }
-    .concept-plan { margin-top: 14px; padding: 16px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+    .concept-plan { margin-top: 14px; padding: 14px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
     .concept-plan-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
-    .concept-plan-head small { color: var(--muted); font-size: 11px; }
+    .concept-plan-head small { color: var(--muted); font-size: 10px; }
+    .concept-choice-note { margin: 5px 0 0; color: var(--muted); font-size: 10px; }
     .generated-image-preview { display: block; width: min(100%, 360px); aspect-ratio: 1; object-fit: cover; margin-top: 12px; border: 1px solid var(--line); border-radius: 16px; background: #f5f5ef; }
-    .concept-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
-    .concept-option { border: 1px solid var(--line); border-radius: 13px; padding: 11px; background: #fbfbf7; }
-    .concept-option.primary { background: var(--yellow-soft); border-color: #e7d98c; }
-    .concept-option small { color: var(--muted); font-size: 10px; font-weight: 800; }
-    .concept-option h4 { margin: 6px 0; font-size: 13px; }
-    .concept-option p { margin: 4px 0 0; color: #57585a; font-size: 11px; line-height: 1.5; }
-    .concept-promise { display: block; margin-top: 8px; font-size: 12px; line-height: 1.45; }
-    .concept-details { margin-top: 9px; border-top: 1px solid var(--line); }
-    .concept-details summary { padding-top: 8px; cursor: pointer; color: var(--muted); font-size: 10px; font-weight: 800; }
+    .concept-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 9px; }
+    .concept-option { position: relative; border: 1px solid var(--line); border-radius: 13px; padding: 10px; background: #fbfbf7; transition: border-color .16s ease, background .16s ease, box-shadow .16s ease; }
+    .concept-option.selected { background: var(--teal-soft); border-color: #77bfb2; box-shadow: 0 0 0 2px rgba(32, 139, 124, .1); }
+    .concept-option small { display: block; padding-right: 48px; color: var(--muted); font-size: 10px; font-weight: 800; }
+    .concept-option h4 { margin: 5px 0 3px; font-size: 13px; line-height: 1.3; }
+    .concept-option p { margin: 3px 0 0; color: #57585a; font-size: 10px; line-height: 1.4; }
+    .concept-scene { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; overflow: hidden; }
+    .concept-promise { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin-top: 6px; font-size: 11px; line-height: 1.4; }
+    .concept-risk-line { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; overflow: hidden; color: #8b6530 !important; }
+    .concept-details { margin-top: 7px; border-top: 1px solid var(--line); }
+    .concept-details summary { padding-top: 7px; cursor: pointer; color: var(--muted); font-size: 10px; font-weight: 800; }
+    .concept-select-btn { width: 100%; margin-top: 8px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink); cursor: pointer; font-size: 10px; font-weight: 800; }
+    .concept-option.selected .concept-select-btn { border-color: var(--teal); background: var(--teal); color: #fff; }
+    .concept-choice-bar { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 9px; padding-top: 9px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
+    .concept-choice-bar strong { color: var(--ink); }
+    .concept-scope-btn { flex: 0 0 auto; padding: 6px 9px; border: 1px solid #b8c8e4; border-radius: 8px; background: #f3f6ff; color: #3159a8; cursor: pointer; font-size: 10px; font-weight: 800; }
+    .concept-scope-btn.selected { border-color: var(--ink); background: var(--ink); color: #fff; }
     .concept-option .concept-test { color: var(--green); }
     .concept-option .concept-risk { color: #8b6530; }
     .gate-list { display: grid; gap: 9px; margin: 16px 0; }
@@ -411,6 +420,8 @@
       .candidate-list, .concepts, .concept-options, .test-items, .evidence-columns, .inline-concepts { grid-template-columns: 1fr; }
       .signal-kpis { grid-template-columns: 1fr 1fr; }
       .concept-plan-head { display: block; }
+      .concept-choice-bar { align-items: flex-start; flex-direction: column; }
+      .concept-scope-btn { width: 100%; }
       .ai-grid { grid-template-columns: 1fr; }
       h1 { font-size: 34px; }
     }
@@ -601,16 +612,16 @@
         <section class="view" id="trialView">
           <div class="eyebrow">Solution Observation · 方案观察</div>
           <h1>基于已选需求，观察产品方案</h1>
-          <p class="subhead">需求由你选择，方案由模型生成；页面只展示与这条需求直接相关的判断。</p>
+          <p class="subhead">围绕当前需求生成并筛选产品方向。</p>
           <div class="flow-steps"><span class="flow-step">需求信号</span><span class="arrow">→</span><span class="flow-step on">方案观察</span></div>
 
           <section class="panel selected-demand">
             <div class="selected-demand-head">
-              <div class="selected-demand-copy"><span class="badge">已选需求</span><h2 id="trialDemandTitle">等待你从需求信号中选择一条需求</h2><p id="trialDemandText">选择需求后，第二层模型只围绕这条需求生成产品方案，不会自动替换你的选择。</p></div>
+              <div class="selected-demand-copy"><span class="badge">已选需求</span><h2 id="trialDemandTitle">等待你从需求信号中选择一条需求</h2><p id="trialDemandText">方案只围绕当前需求生成。</p></div>
               <button class="ghost-btn" type="button" data-go="radar">更换需求</button>
             </div>
             <div class="selected-demand-meta"><span id="trialDemandTarget">目标人群：等待选择</span><span id="trialDemandSource">证据来源：等待选择</span><span id="trialDemandEvidence">证据数量：等待模型</span><span id="trialDemandConfidence">置信度：待判断</span></div>
-            <div class="selected-demand-note">下面的判断、概念方案和验证动作，均绑定这条已选需求。</div>
+            <div class="selected-demand-note">以下判断与方案均围绕这条需求。</div>
           </section>
 
           <section class="panel judgement-dashboard">
@@ -641,16 +652,16 @@
                 <div class="evidence-box support"><h3>支持证据</h3><div id="trialSupport"></div></div>
                 <div class="evidence-box counter"><h3>反证与风险</h3><div id="trialCounter"></div></div>
               </div></details>
-              <div class="inference"><h3>机会校准与产品方向</h3><p id="trialInference">等待真实评论数据加载后生成校准结果。</p></div>
-              <div class="concept-plan" id="trialConceptPlan"><div class="concept-plan-head"><strong>可落地概念方案</strong><small>等待真实数据生成 · 方案仍需实验验证</small></div></div>
+              <div class="inference"><h3>机会结论</h3><p id="trialInference">等待真实评论数据加载后生成结论。</p></div>
+              <div class="concept-plan" id="trialConceptPlan"><div class="concept-plan-head"><strong>选择产品方向</strong><small>等待模型生成</small></div></div>
             </section>
 
             <aside class="panel trial-side">
-              <h2>下一步</h2><p style="color:var(--muted);font-size:12px">需求已经锁定。现在只需比较产品概念，选择一个进入下一步验证。</p>
-              <div class="verdict"><small>优先方向</small><strong id="trialPrimaryConcept">等待真实数据</strong><p id="trialPrimaryTest">数据加载后显示最小验证动作。</p></div>
+              <h2>下一步</h2><p style="color:var(--muted);font-size:12px">选一个方向，进入方案观察。</p>
+              <div class="verdict"><small id="trialPrimaryLabel">当前选择</small><strong id="trialPrimaryConcept">等待真实数据</strong><p id="trialPrimaryTest">数据加载后显示最小验证动作。</p></div>
               <details class="research-details"><summary>查看判断标准</summary><div class="gate-note">评审结果用于标注证据缺口和风险提示，无论当前状态，都可以进入方案观察。</div><div class="gate-list" id="trialGates"></div><div class="market-assessment" id="trialMarketAssessment"></div></details>
-              <div class="strategy-note">确认方向后，带入方案观察继续选择和验证；评分、市场规模评估与评审状态不会锁住这条路径。</div>
-              <div class="action-stack"><button class="ghost-btn" data-go="radar">返回需求信号</button><button class="ghost-btn" id="pauseBtn">暂存观察</button><button class="primary-btn" data-go="strategy">进入方案观察</button></div>
+              <div class="strategy-note">确认后继续做方案与验证。</div>
+              <div class="action-stack"><button class="ghost-btn" data-go="radar">返回需求信号</button><button class="ghost-btn" id="pauseBtn">暂存观察</button><button class="primary-btn" id="confirmConceptBtn" disabled>确认方向并进入方案观察</button></div>
             </aside>
           </div>
         </section>
@@ -697,7 +708,7 @@
     const DATA_FILES = { xhs: 'xhs_comments_clean.json', xhsPosts: 'xhs_posts_raw.json', tb: 'tb_rates_all.json', negative: 'tb_rates_negative.json', demands: 'tb_rates_demands.json' };
     const currentDatasetKey = new URLSearchParams(location.search).get('category') === 'face' ? 'face' : 'eye';
     const activeDataset = DATASETS[currentDatasetKey];
-    const CLUSTER_PROMPT_VERSION = 'v3-product-need-source-aware';
+    const CLUSTER_PROMPT_VERSION = 'v4-demand-to-concept-quality';
     const SLOT_IDS = ['cluster_1', 'cluster_2', 'cluster_3', 'cluster_4', 'cluster_5', 'cluster_6'];
     const RADAR_SNAPSHOT_KEY = 'voyager-opportunity-radar-snapshot-' + currentDatasetKey;
     const AI_API_BASE = 'http://127.0.0.1:4179';
@@ -794,6 +805,8 @@
         counterEvidence: cluster.counter_evidence || '',
         cluster,
         trial: null,
+        selectedConceptIndex: -1,
+        selectedObservationMode: null,
       };
     }
 
@@ -814,6 +827,8 @@
           modelId: candidate.modelId,
           trial: candidate.trial || null,
           concepts: candidate.concepts || [],
+          selectedConceptIndex: Number.isInteger(candidate.selectedConceptIndex) ? candidate.selectedConceptIndex : -1,
+          selectedObservationMode: candidate.selectedObservationMode || null,
         }]));
         localStorage.setItem(RADAR_SNAPSHOT_KEY, JSON.stringify({
           raw: analysisState.raw,
@@ -837,6 +852,8 @@
         if (saved) {
           candidate.trial = saved.trial || null;
           candidate.concepts = saved.concepts || [];
+          candidate.selectedConceptIndex = Number.isInteger(saved.selectedConceptIndex) ? saved.selectedConceptIndex : -1;
+          candidate.selectedObservationMode = saved.selectedObservationMode || null;
         }
         candidates[candidate.id] = candidate;
       });
@@ -1094,6 +1111,66 @@
       el.innerHTML = `<div class="market-assessment-head"><div><strong>市场规模与份额空间</strong><small>只展示有同口径证据支持的估计，不作为流转门槛</small></div><span class="market-assessment-level">${esc(level)}</span></div><div class="market-assessment-grid"><span>评估值</span><b>${esc(score)}</b><span>证据</span><b>${esc(evidence)}</b><span>置信度</span><b>${esc(confidence)}</b><span>说明</span><b>${esc(rationale)}</b></div>`;
     }
 
+    function selectedConceptFor(candidate) {
+      const concepts = Array.isArray(candidate?.concepts) ? candidate.concepts : [];
+      const index = Number.isInteger(candidate?.selectedConceptIndex) ? candidate.selectedConceptIndex : -1;
+      const mode = candidate?.selectedObservationMode || (index >= 0 && concepts[index] ? 'concept' : null);
+      return mode === 'concept' && index >= 0 && concepts[index] ? concepts[index] : null;
+    }
+
+    function selectedObservationFor(candidate) {
+      const concept = selectedConceptFor(candidate);
+      if (concept) return { mode: 'concept', concept };
+      if (candidate?.selectedObservationMode === 'demand') return { mode: 'demand', concept: null };
+      return null;
+    }
+
+    function selectConcept(index) {
+      const candidate = candidates[selectedId];
+      if (!candidate || !Array.isArray(candidate.concepts) || !candidate.concepts[index]) return;
+      candidate.selectedConceptIndex = index;
+      candidate.selectedObservationMode = 'concept';
+      renderTrial(selectedId);
+      saveRadarSnapshot();
+    }
+
+    function selectDemandObservation() {
+      const candidate = candidates[selectedId];
+      if (!candidate) return;
+      candidate.selectedConceptIndex = -1;
+      candidate.selectedObservationMode = 'demand';
+      renderTrial(selectedId);
+      saveRadarSnapshot();
+    }
+
+    function renderConceptPlan(candidate, trial) {
+      const concepts = trial ? (candidate.concepts || []) : [];
+      const mode = candidate.selectedObservationMode || (Number.isInteger(candidate.selectedConceptIndex) && candidate.concepts?.[candidate.selectedConceptIndex] ? 'concept' : null);
+      const selectedIndex = mode === 'concept' && Number.isInteger(candidate.selectedConceptIndex) ? candidate.selectedConceptIndex : -1;
+      const selected = selectedIndex >= 0 && concepts[selectedIndex] ? concepts[selectedIndex] : null;
+      if (!trial) return '<div class="concept-plan-head"><strong>选择产品方向</strong><small>等待模型生成</small></div>';
+      if (!concepts.length) {
+        const demandSelected = mode === 'demand';
+        return `<div class="concept-plan-head"><div><strong>选择观察范围</strong><p class="concept-choice-note">暂无单一方案，也可以先观察整条需求</p></div><small>${demandSelected ? '已选 1 项' : '尚未选择'}</small></div><div class="concept-choice-bar"><span>${demandSelected ? '当前选择：<strong>整个需求</strong>' : '请选择观察范围'}</span><button type="button" class="concept-scope-btn${demandSelected ? ' selected' : ''}" data-observe-demand aria-pressed="${demandSelected}">${demandSelected ? '已选择整个需求' : '观察整个需求'}</button></div>`;
+      }
+      const cards = concepts.map((concept, index) => {
+        const isSelected = index === selectedIndex;
+        const scene = [concept.scene, concept.form].filter(Boolean).join(' · ');
+        return `<article class="concept-option${isSelected ? ' selected' : ''}">
+          <small>${esc(concept.track || '模型方案')}${isSelected ? ' · 已选' : ''}</small>
+          <h4>${esc(concept.name || '未命名方向')}</h4>
+          <p class="concept-scene">${esc(scene || '场景与形态待补充')}</p>
+          <strong class="concept-promise">${esc(concept.promise || '核心承诺待补充')}</strong>
+          <p class="concept-risk-line">风险：${esc(concept.risk || '待验证')}</p>
+          <details class="concept-details"><summary>查看推导与验证</summary><p><b>推导：</b>${esc(concept.rationale || '待补充')}</p><p class="concept-risk"><b>风险：</b>${esc(concept.risk || '待验证')}</p><p class="concept-test"><b>验证：</b>${esc(concept.test || '待补充')}</p></details>
+          <button type="button" class="concept-select-btn" data-concept-index="${index}" aria-pressed="${isSelected}">${isSelected ? '已选择' : '选择此方向'}</button>
+        </article>`;
+      }).join('');
+      const demandSelected = mode === 'demand';
+      const choiceText = selected ? `当前方向：<strong>${esc(selected.name || '未命名方向')}</strong>` : (demandSelected ? '当前选择：<strong>整个需求</strong>' : '请选择一个方向，或观察整个需求');
+      return `<div class="concept-plan-head"><div><strong>选择观察范围</strong><p class="concept-choice-note">选 1 个方案，或保留整条需求进入下一步</p></div><small>${selected || demandSelected ? '已选 1 项' : '尚未选择'}</small></div><div class="concept-options">${cards}</div><div class="concept-choice-bar"><span>${choiceText}</span><button type="button" class="concept-scope-btn${demandSelected ? ' selected' : ''}" data-observe-demand aria-pressed="${demandSelected}">${demandSelected ? '已选择整个需求' : '观察整个需求'}</button></div>`;
+    }
+
     function renderTrial(id) {
       const c = candidates[id]; if (!c) return;
       const t = c.trial;
@@ -1103,7 +1180,7 @@
       const evidenceText = `证据数量：${c.analytics?.total ?? '—'} 条相关信号`;
       const confidenceText = `置信度：${c.confidence || '待判断'}`;
       $('#trialDemandTitle').textContent = demandText;
-      $('#trialDemandText').textContent = `你已选择“${c.title}”。方案层只围绕这条需求生成产品概念，不把需求直接改写成固定产品。`;
+      $('#trialDemandText').textContent = `方案只围绕“${c.title}”生成。`;
       $('#trialDemandTarget').textContent = targetText;
       $('#trialDemandSource').textContent = sourceText;
       $('#trialDemandEvidence').textContent = evidenceText;
@@ -1115,15 +1192,21 @@
       $('#trialCounter').innerHTML = t ? t.counter.map(item => `<div class="quote">${esc(item)}</div>`).join('') : '<div class="quote">等待模型整理反证与风险…</div>';
       $('#trialInference').textContent = t ? t.inference : '第二层模型会把需求机会转换成投入判断，并明确不能由当前数据证明的部分。';
       const concepts = t ? (c.concepts || []) : [];
-      $('#trialConceptPlan').innerHTML = t
-        ? `<div class="concept-plan-head"><strong>模型生成的产品概念方向</strong><small>每个方向都必须回到场景、证据和验证动作</small></div><div class="concept-options">${concepts.map((concept, index) => `<article class="concept-option ${index === 0 ? 'primary' : ''}"><small>${esc(concept.track || '模型方案')}</small><h4>${esc(concept.name)}</h4><p>${esc(concept.scene)} · ${esc(concept.form)}</p><strong class="concept-promise">${esc(concept.promise)}</strong><details class="concept-details"><summary>查看推导、风险与验证方式</summary><p><b>推导：</b>${esc(concept.rationale)}</p><p class="concept-risk"><b>风险：</b>${esc(concept.risk)}</p><p class="concept-test"><b>验证：</b>${esc(concept.test)}</p></details></article>`).join('')}</div>`
-        : '<div class="concept-plan-head"><strong>等待第二层模型</strong><small>不会使用预设产品模板</small></div>';
+      $('#trialConceptPlan').innerHTML = renderConceptPlan(c, t);
       $('#trialGates').innerHTML = t ? (t.gates || []).map((g, i) => `<div class="gate"><span class="gate-icon">${i + 1}</span><div><strong>${esc(g[0])}</strong><br><small>${esc(g[1])}</small></div><span class="gate-status">${esc(g[2])}</span></div>`).join('') : '<div class="gate">模型判断完成后显示投入审核问题。</div>';
       renderMarketAssessment(t);
       $('#trialVerdict').textContent = t ? t.verdict : '正在判断';
       $('#trialVerdictText').textContent = t ? (t.verdictText || '') + ' 当前结论只用于风险标注，不阻断下一步方案观察。' : '第二层模型正在评估机会价值、证据缺口和最低成本验证动作。';
-      $('#trialPrimaryConcept').textContent = concepts[0]?.name || '等待模型概念';
-      $('#trialPrimaryTest').textContent = concepts[0]?.test || (t ? t.nextExperiment : '等待第二层模型给出最低成本验证动作。');
+      const selectedObservation = selectedObservationFor(c);
+      const selectedConcept = selectedObservation?.concept;
+      $('#trialPrimaryLabel').textContent = selectedObservation?.mode === 'demand' ? '观察范围' : '当前方向';
+      $('#trialPrimaryConcept').textContent = selectedObservation?.mode === 'demand' ? '整个需求' : (selectedConcept?.name || (concepts.length ? '请选择一个方向' : '等待模型概念'));
+      $('#trialPrimaryTest').textContent = selectedObservation?.mode === 'demand' ? (t?.nextExperiment || '保留多个方向，继续观察需求变化。') : (selectedConcept?.test || (t ? '选择方向后显示最低成本验证动作。' : '等待第二层模型给出最低成本验证动作。'));
+      const confirmButton = $('#confirmConceptBtn');
+      if (confirmButton) {
+        confirmButton.disabled = !selectedObservation;
+        confirmButton.textContent = selectedObservation?.mode === 'demand' ? '进入需求观察' : (selectedConcept ? '确认方向并进入方案观察' : '先选择一个方向');
+      }
       renderAnalytics(c);
     }
 
@@ -1150,6 +1233,7 @@
           nextExperiment: result.next_experiment
         };
         c.concepts = result.concepts || [];
+        if (!c.concepts[c.selectedConceptIndex]) c.selectedConceptIndex = -1;
         renderTrial(id);
         saveRadarSnapshot();
       } catch (error) {
@@ -1169,6 +1253,7 @@
             nextExperiment: cached.next_experiment || ''
           };
           c.concepts = cached.concepts || [];
+          if (!c.concepts[c.selectedConceptIndex]) c.selectedConceptIndex = -1;
           renderTrial(id);
           saveRadarSnapshot();
           $('#trialState').textContent = '已载入本地校准缓存 · API 待配置';
@@ -1208,7 +1293,13 @@
       if (view === 'strategy') {
         const candidate = candidates[selectedId] || {};
         const trial = candidate.trial || {};
-        const primaryConcept = (candidate.concepts || [])[0] || {};
+        const observation = selectedObservationFor(candidate);
+        const primaryConcept = observation?.concept || null;
+        if (!observation) {
+          toast('请先选择一个产品方向，或观察整个需求');
+          renderTrial(selectedId);
+          return;
+        }
         const evidence = Array.isArray(candidate.evidence) ? candidate.evidence : [];
         const evidenceItems = evidence.slice(0, 8).map((item, index) => ({
           id: item.id || `${candidate.id || selectedId}-evidence-${index + 1}`,
@@ -1236,15 +1327,17 @@
             confidence: candidate.confidence || '',
             source: '需求信号',
             period: '当前快照',
+            observationMode: observation.mode,
             direction: {
-              name: primaryConcept.name || candidate.solution || candidate.route || candidate.title || '待确认产品方向',
-              premise: primaryConcept.promise || primaryConcept.scene || candidate.solution || candidate.route || '',
-              risk: primaryConcept.risk || candidate.unknown || '',
+              mode: observation.mode,
+              name: primaryConcept?.name || '整个需求观察',
+              premise: primaryConcept?.promise || primaryConcept?.scene || candidate.summary || '',
+              risk: primaryConcept?.risk || candidate.unknown || '',
               project: {
-                name: primaryConcept.name || '',
-                form: primaryConcept.form || '',
-                structure: primaryConcept.structure || '',
-                priceBand: primaryConcept.priceBand || '',
+                name: primaryConcept?.name || '',
+                form: primaryConcept?.form || '',
+                structure: primaryConcept?.structure || '',
+                priceBand: primaryConcept?.priceBand || '',
               },
             },
             evidenceItems: evidenceItems.length ? evidenceItems : [{
@@ -1288,6 +1381,24 @@
     $$('.nav-btn').forEach(btn => btn.addEventListener('click', () => go(btn.dataset.view)));
     $$('[data-embedded-go]').forEach(btn => btn.addEventListener('click', () => go(btn.dataset.embeddedGo)));
     $$('[data-go]').forEach(btn => btn.addEventListener('click', () => go(btn.dataset.go)));
+    $('#trialConceptPlan').addEventListener('click', e => {
+      const button = e.target.closest('[data-concept-index]');
+      const demandButton = e.target.closest('[data-observe-demand]');
+      if (button) {
+        e.stopPropagation();
+        selectConcept(Number(button.dataset.conceptIndex));
+      } else if (demandButton) {
+        e.stopPropagation();
+        selectDemandObservation();
+      }
+    });
+    $('#confirmConceptBtn').addEventListener('click', () => {
+      if (!selectedObservationFor(candidates[selectedId])) {
+        toast('请先选择一个产品方向，或观察整个需求');
+        return;
+      }
+      go('strategy');
+    });
     $$('.candidate-card, .bubble[data-id]').forEach(el => el.addEventListener('click', () => renderCandidate(el.dataset.id)));
     $('#enterTrialBtn').addEventListener('click', () => startTrial(selectedId));
     $('#watchBtn').addEventListener('click', () => { moveToWatch(selectedId); toast('已加入持续观察：等待下一条能改变判断的证据'); });

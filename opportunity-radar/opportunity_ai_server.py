@@ -130,6 +130,18 @@ JUDGE_SCHEMA = {
         "counter": {"type": "array", "maxItems": 5, "items": {"type": "string"}},
         "unknown": {"type": "string"},
         "next_experiment": {"type": "string"},
+        "market_assessment": {
+            "type": "object",
+            "additionalProperties": False,
+            "properties": {
+                "level": {"type": "string", "enum": ["大", "中", "小", "待补证"]},
+                "score": {"type": "string"},
+                "evidence": {"type": "string"},
+                "confidence": {"type": "string", "enum": ["高", "中", "低"]},
+                "rationale": {"type": "string"},
+            },
+            "required": ["level", "score", "evidence", "confidence", "rationale"],
+        },
         "concepts": {
             "type": "array",
             "minItems": 2,
@@ -152,8 +164,8 @@ JUDGE_SCHEMA = {
         },
         "gates": {
             "type": "array",
-            "minItems": 3,
-            "maxItems": 5,
+            "minItems": 4,
+            "maxItems": 6,
             "items": {
                 "type": "object",
                 "additionalProperties": False,
@@ -168,7 +180,7 @@ JUDGE_SCHEMA = {
     },
     "required": [
         "verdict", "verdict_text", "core_question", "inference", "support", "counter",
-        "unknown", "next_experiment", "concepts", "gates",
+        "unknown", "next_experiment", "market_assessment", "concepts", "gates",
     ],
 }
 
@@ -216,6 +228,132 @@ def schema_outline(schema: dict[str, Any]) -> Any:
         else:
             outline[name] = kind or "string"
     return outline
+
+
+def _text(value: Any) -> str:
+    return str(value or "").strip()
+
+
+def _has_any(text: str, words: tuple[str, ...]) -> bool:
+    return any(word in text for word in words)
+
+
+def cluster_quality_issues(result: dict[str, Any]) -> list[str]:
+    """Cheap deterministic checks for the first pass.
+
+    These checks are deliberately conservative: they do not replace the model,
+    but catch the failure modes that make a demand summary unusable in the UI.
+    """
+    issues: list[str] = []
+    clusters = result.get("clusters") if isinstance(result, dict) else None
+    if not isinstance(clusters, list) or not 3 <= len(clusters) <= 5:
+        issues.append("需求机会必须有 3 到 5 条，且不能用空数组占位")
+        return issues
+    titles: set[str] = set()
+    symptom_only = ("黑眼圈", "浮肿", "敏感", "脂肪粒", "干燥", "痘痘", "清洁", "假滑")
+    for index, cluster in enumerate(clusters, 1):
+        if not isinstance(cluster, dict):
+            issues.append(f"第 {index} 条需求机会不是对象")
+            continue
+        title = _text(cluster.get("title"))
+        if not title:
+            issues.append(f"第 {index} 条缺少面向决策的机会标题")
+        if title and title in titles:
+            issues.append(f"第 {index} 条与其他机会标题重复")
+        titles.add(title)
+        if title and title in symptom_only:
+            issues.append(f"第 {index} 条标题仍是症状标签，必须写成用户任务或产品缺口")
+        product_need = _text(cluster.get("product_need"))
+        if not product_need or not _has_any(product_need, ("希望", "需要", "想要")):
+            issues.append(f"第 {index} 条没有明确写出用户希望得到的产品/服务")
+        actual_need = _text(cluster.get("actual_need"))
+        if len(actual_need) < 12 or len(actual_need) > 60:
+            issues.append(f"第 {index} 条 actual_need 过短或过长，需压缩为一句可读总结")
+        if not isinstance(cluster.get("evidence"), list) or not cluster.get("evidence"):
+            issues.append(f"第 {index} 条没有可追溯证据")
+        analytics = cluster.get("analytics") if isinstance(cluster.get("analytics"), dict) else {}
+        if any(not isinstance(analytics.get(key), int) for key in ("total", "xhs", "tb", "pain", "products")):
+            issues.append(f"第 {index} 条来源统计不是整数")
+    return issues[:8]
+
+
+def judgement_quality_issues(result: dict[str, Any], context: str = "") -> list[str]:
+    """Self-review the concept output before it reaches the product workflow."""
+    issues: list[str] = []
+    if not isinstance(result, dict):
+        return ["第二层没有返回对象"]
+    concepts = result.get("concepts")
+    if not isinstance(concepts, list) or not 2 <= len(concepts) <= 4:
+        issues.append("必须输出 2 到 4 个真正不同的概念方向")
+        concepts = concepts if isinstance(concepts, list) else []
+    names: set[str] = set()
+    unsupported_claims = ("根治", "彻底消除", "100%", "绝对不会", "保证有效", "立刻治愈")
+    actionable_words = ("招募", "访谈", "试用", "对照", "记录", "落地页", "点击", "留资", "复购", "支付", "样本")
+    for index, concept in enumerate(concepts, 1):
+        if not isinstance(concept, dict):
+            issues.append(f"第 {index} 个概念不是对象")
+            continue
+        name = _text(concept.get("name"))
+        if not name:
+            issues.append(f"第 {index} 个概念没有名称")
+        normalized_name = name.replace(" ", "").lower()
+        if normalized_name in names:
+            issues.append(f"第 {index} 个概念与前面重复，必须改变解决路径或形态")
+        names.add(normalized_name)
+        for field, limit in (("name", 24), ("promise", 80), ("rationale", 180), ("risk", 120), ("test", 180)):
+            value = _text(concept.get(field))
+            if not value:
+                issues.append(f"第 {index} 个概念缺少 {field}")
+            elif len(value) > limit:
+                issues.append(f"第 {index} 个概念的 {field} 太长，需压缩到 {limit} 字以内")
+            if field in ("promise", "rationale") and _has_any(value, unsupported_claims):
+                issues.append(f"第 {index} 个概念含有未经证实的绝对功效表述")
+        test = _text(concept.get("test"))
+        if test and not _has_any(test, actionable_words):
+            issues.append(f"第 {index} 个概念的验证动作缺少样本、行为或通过标准")
+    gates = result.get("gates")
+    if not isinstance(gates, list) or len(gates) < 4:
+        issues.append("审核问题至少要覆盖 4 个维度，不能只给 2 到 3 条")
+    market = result.get("market_assessment") if isinstance(result.get("market_assessment"), dict) else {}
+    market_text = context.lower()
+    has_denominator = _has_any(market_text, ("gmv", "份额", "市场规模", "分母", "可比样本"))
+    if not has_denominator and (_text(market.get("level")) != "待补证" or _text(market.get("score")) not in ("", "—")):
+        issues.append("输入没有同口径市场分母时，市场评估必须标为待补证，不能猜规模")
+    return issues[:10]
+
+
+def call_quality_checked(
+    system_prompt: str,
+    user_prompt: str,
+    schema_name: str,
+    schema: dict[str, Any],
+    stage: str,
+) -> dict[str, Any]:
+    """Run one model pass, then at most one targeted revision pass.
+
+    This is the stopping rule for language quality: never loop indefinitely;
+    keep the best available structured result after one correction round.
+    """
+    result = call_model(system_prompt, user_prompt, schema_name, schema)
+    context = user_prompt
+    issues = cluster_quality_issues(result) if stage == "cluster" else judgement_quality_issues(result, context)
+    if not issues:
+        return result
+    feedback = "\n".join(f"- {issue}" for issue in issues)
+    revision_prompt = (
+        user_prompt
+        + "\n\n【第一版自审未通过】\n"
+        + feedback
+        + "\n请重新生成一份完整 JSON，不要解释修改过程；逐条修正以上问题，并再次检查证据、逻辑和可执行性。"
+        + "\n第一版草稿如下：\n"
+        + json.dumps(result, ensure_ascii=False)
+    )
+    revised_system = system_prompt + "\n你现在处于第二遍编辑：宁可减少空泛结论，也不能补写输入中没有的事实。"
+    revised = call_model(revised_system, revision_prompt, schema_name, schema)
+    revised_issues = cluster_quality_issues(revised) if stage == "cluster" else judgement_quality_issues(revised, context)
+    if revised_issues:
+        print(f"[opportunity-ai] {stage} 二次修订后仍有质量提示：{'；'.join(revised_issues)}")
+    return revised
 
 
 def call_model(system_prompt: str, user_prompt: str, schema_name: str, schema: dict[str, Any]) -> dict[str, Any]:
@@ -382,11 +520,33 @@ class Handler(BaseHTTPRequestHandler):
         try:
             body = self.read_json()
             if self.path == "/api/opportunity/cluster":
-                result = call_model(
-                    "你是严谨的消费者需求研究员。只能根据给定的真实记录和数据集口径判断，不得把关键词频次直接当成需求强度。请把相似表达按真实用户任务、使用场景、障碍和期望结果聚成 3 到 5 个需求机会；保留反证，不发明未出现的用户行为。每条证据必须引用给定 record_id，并在 analytics 中按来源记录真实统计。请严格区分以下字段：keyword 只写 2 到 8 个汉字的痛点标签，供雷达图使用；title 是面向产品决策的机会标题，不能只是“黑眼圈”“浮肿”“敏感”等症状；product_need 必须明确回答“用户希望有一款什么样的产品或服务来解决这个问题”，用“希望有一款……”或“希望有一种……”开头，描述用户期待的结果、使用体验和必要约束，但不能凭空捏造评论中没有出现的成分或功效；actual_need 要写用户真正想达成的结果和购买任务，而不是重复症状，15 到 40 字；user_need 用更短的一句话概括同一产品需求。不要把痛点标签直接当成产品需求，不要直接输出产品名称，不要把未经证实的功能当成结论。每条机会都要形成“问题证据 → 用户期望结果 → 产品需求机会”的链条。当前数据集名称只用于区分品类，不得把其他品类的经验混入当前结论。analytics.xhs 统计小红书帖子与评论，analytics.tb 统计淘宝/天猫记录。",
+                call_quality_checked(
+                    """
+你是严谨的消费者需求研究员，负责把真实用户原文整理成可供产品经理决策的需求机会。
+
+工作顺序：
+1. 先按“用户要完成的任务 + 发生场景 + 当前障碍 + 期待结果”聚类，不按症状词频机械分组。
+2. 每个机会都要经过“原文证据 → 用户任务 → 产品缺口”的推理链；只把输入记录能支持的内容写成结论。
+3. 反证必须保留：如果评论只是抱怨、询问或表达愿望，不能升级成购买意愿、普遍需求或功效证明。
+4. 自审一遍：机会之间不能只是换词；如果两组用户任务、场景和障碍相同，应合并，空出名额给真正不同的机会。
+
+字段规则：
+- keyword：2 到 8 个汉字的痛点标签，只给雷达图用。
+- title：面向产品决策的机会标题，必须包含任务或缺口，不能只写“黑眼圈/浮肿/敏感/清洁”等症状。
+- product_need：必须以“希望有一款/希望有一种/需要一种”开头，写清产品或服务形态、使用约束和期待结果；不要直接写成具体品牌或未经证实的成分方案。
+- actual_need：15 到 40 字，一句话说清用户要完成什么购买或使用任务。
+- user_need：比 actual_need 更短，但不能退化成症状词。
+- trigger_context：只写输入中出现的触发场景。
+- evidence_summary、behavior_evidence、existing_solutions、counter_evidence、unknown：分别写证据、已发生行为、现有解法、反证和最大未知，不能互相重复。
+- evidence：每条必须引用给定 record_id、来源和原文短引；不能编造 record_id。
+- analytics：只统计输入记录，total 应与 xhs + tb 的来源口径一致，不能估算。
+
+语言要求：短句、具体、少形容词。不要使用“赋能、闭环、全方位、精准解决、重新定义”等空泛词。当前数据集名称只用于区分品类，不得把其他品类经验混入结论。
+                    """,
                     cluster_prompt(body.get("data") or {}),
                     "opportunity_clusters",
                     CLUSTER_SCHEMA,
+                    "cluster",
                 )
                 json_response(self, result)
                 return
@@ -394,11 +554,35 @@ class Handler(BaseHTTPRequestHandler):
                 opportunity = body.get("opportunity") or {}
                 evidence = body.get("evidence") or {}
                 prompt = json.dumps({"机会": opportunity, "第一层证据": evidence}, ensure_ascii=False)
-                result = call_model(
-                    "你是产品投资评审与概念策略顾问。只能依据第一层已经识别的机会、来源和证据做判断，不得重新发明机会，也不得把评论中的愿望直接当成购买意愿。请给出是否投入的结论，并生成 2 到 4 个可落地但仍需验证的产品概念。每个概念必须回应用户场景、使用障碍、价格或形态线索和现有解法缺口；明确风险、反证、未知项和最便宜的下一步。不要声称已经证明功效或市场规模。产品概念要能直接供产品实验舱继续生成产品 Demo，不要只给抽象口号。",
+                result = call_quality_checked(
+                    """
+你是产品投资评审与概念策略顾问。你的任务不是写漂亮文案，而是把一条真实需求变成可比较、可验证、可继续执行的产品方向。
+
+请按以下顺序推理：
+1. 先用一句话界定核心问题：用户在什么场景下，因什么障碍，想完成什么任务。
+2. 再拆支持证据、反证和未知项，明确哪些来自原文，哪些仍未被证明。
+3. 给出投入判断，但把它当作风险提示，不得把评论愿望当成购买意愿，也不得把评论条数当成市场规模。
+4. 生成 2 到 4 个真正不同的概念方向。差异必须来自解决路径、使用时机、产品形态或服务方式，不能只是“精华/眼霜/眼油”换名。
+5. 对每个方向做一次自审：它是否回到真实用户任务？是否使用了输入中不存在的成分、功效、价格或市场事实？是否有明确的最小验证动作？不合格就重写，不要把问题留给页面。
+
+概念字段规则：
+- name：16 个汉字以内，像产品方向，不写广告口号。
+- track：短标签，说明解决路径或形态。
+- scene：具体到使用时机、触发场景和用户状态，避免“日常使用”这种空话。
+- form：写清产品/服务形态、关键交互或使用方式；只有输入明确提到某成分时才可写成分，否则写质地、剂型、流程或工具形态。
+- promise：一句可验证的用户结果，不使用“根治、保证、100%、立刻治愈、完全不会”等绝对功效。
+- rationale：说明“哪条证据支持这个方向、它填补了什么缺口”，尽量引用输入中的 record_id 或来源，不得编造研究结论。
+- risk：至少写一个可能推翻方向的风险或反证。
+- test：必须是 7 到 14 天内可执行的最小验证，写清对象数量/样本、要观察的行为、通过或失败标准；不要只写“收集反馈”。
+
+市场评估规则：只能使用输入中存在的同口径市场规模、GMV、份额分母或可比样本证据。没有分母时 level 必须为“待补证”、score 必须为“—”，不得用评论条数或常识猜市场大小。
+
+gates 只用于页面展示证据检查项，不是页面流转权限；必须至少覆盖：证据可追溯、用户任务清晰度、支付/购买行为、市场分母、差异化/商业空间和下一步验证路径。最终输出前再检查：概念之间有差异、语言具体、每个结论都有来源或明确标注未知。
+                    """,
                     prompt,
                     "opportunity_judgement",
                     JUDGE_SCHEMA,
+                    "judge",
                 )
                 json_response(self, result)
                 return
