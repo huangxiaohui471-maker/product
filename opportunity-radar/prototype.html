@@ -713,6 +713,32 @@
     const RADAR_SNAPSHOT_KEY = 'voyager-opportunity-radar-snapshot-' + currentDatasetKey;
     const AI_API_BASE = 'http://127.0.0.1:4179';
     const analysisState = { raw: null, clustering: null, judgements: null };
+    let radarDataUpdatedAt = null;
+    const RADAR_SNAPSHOT_VERSION = 2;
+
+    function localDayKey(value = new Date()) {
+      const date = value instanceof Date ? value : new Date(value);
+      if (Number.isNaN(date.getTime())) return '';
+      return [date.getFullYear(), String(date.getMonth() + 1).padStart(2, '0'), String(date.getDate()).padStart(2, '0')].join('-');
+    }
+
+    function formatRadarTime(value) {
+      const date = new Date(value);
+      return Number.isNaN(date.getTime()) ? '—' : date.toLocaleString('zh-CN', { hour12: false });
+    }
+
+    function isRadarSnapshotFresh(snapshot) {
+      const timestamp = snapshot?.updatedAt || snapshot?.savedAt;
+      const raw = snapshot?.raw || {};
+      return snapshot?.promptVersion === CLUSTER_PROMPT_VERSION
+        && Array.isArray(raw.xhs)
+        && Array.isArray(raw.xhsPosts)
+        && Array.isArray(raw.tb)
+        && Array.isArray(snapshot?.clustering?.clusters)
+        && snapshot.clustering.clusters.length > 0
+        && timestamp
+        && localDayKey(timestamp) === localDayKey();
+    }
 
     function textOf(row) { return String(row && (row.text || row.content || row.full || '')).replace(/\s+/g, ' ').trim(); }
     function asNumber(value) { const n = Number(value); return Number.isFinite(n) ? n : 0; }
@@ -896,6 +922,7 @@
 
     function saveRadarSnapshot() {
       try {
+        const previous = readRadarSnapshot();
         const candidatesSnapshot = Object.fromEntries(Object.entries(candidates).map(([id, candidate]) => [id, {
           id: candidate.id,
           modelId: candidate.modelId,
@@ -905,12 +932,15 @@
           selectedObservationMode: candidate.selectedObservationMode || null,
         }]));
         localStorage.setItem(RADAR_SNAPSHOT_KEY, JSON.stringify({
+          snapshotVersion: RADAR_SNAPSHOT_VERSION,
           raw: analysisState.raw,
           clustering: analysisState.clustering,
+          judgements: analysisState.judgements,
           candidates: candidatesSnapshot,
           selectedId,
           queueState,
           savedAt: new Date().toISOString(),
+          updatedAt: radarDataUpdatedAt || previous?.updatedAt || previous?.savedAt || new Date().toISOString(),
           promptVersion: CLUSTER_PROMPT_VERSION
         }));
       } catch (error) {
@@ -983,9 +1013,10 @@
       saveRadarSnapshot();
     }
 
-    async function applyRealData(data, cachedResult = null, snapshot = null, judgementCache = null) {
+    async function applyRealData(data, cachedResult = null, snapshot = null, judgementCache = null, updatedAt = null) {
+      radarDataUpdatedAt = updatedAt || snapshot?.updatedAt || snapshot?.savedAt || new Date().toISOString();
       analysisState.raw = data;
-      analysisState.judgements = judgementCache?.judgements || {};
+      analysisState.judgements = judgementCache?.judgements || snapshot?.judgements || {};
       $('#scanStatus').textContent = '正在调用第一层模型：语义聚类分析…';
       let result;
       try {
@@ -1005,12 +1036,28 @@
       analysisState.clustering = result;
       applyClusterView(result.clusters || [], snapshot);
       $('#signalPoolCount').textContent = (data.xhs.length + data.xhsPosts.length + data.tb.length).toLocaleString();
-      if (snapshot?.promptVersion === CLUSTER_PROMPT_VERSION && snapshot?.savedAt) $('#scanStatus').textContent = `已恢复上次分析结果 · ${data.xhs.length} 条评论 + ${data.xhsPosts.length} 条帖子 + ${data.tb.length} 条淘宝/天猫`;
+      if (snapshot?.promptVersion === CLUSTER_PROMPT_VERSION && (snapshot?.updatedAt || snapshot?.savedAt)) $('#scanStatus').textContent = `已使用今日缓存 · 上次更新 ${formatRadarTime(snapshot.updatedAt || snapshot.savedAt)} · ${data.xhs.length} 条评论 + ${data.xhsPosts.length} 条帖子 + ${data.tb.length} 条淘宝/天猫`;
       else if (!cachedResult || result !== cachedResult) $('#scanStatus').textContent = `第一层模型分析完成 · ${activeDataset.label} · ${data.xhs.length} 条评论 + ${data.xhsPosts.length} 条帖子 + ${data.tb.length} 条淘宝/天猫`;
     }
 
     async function loadRealOpportunityData(showToast = false, force = false) {
       const button = $('#rescanBtn');
+      const storedSnapshot = force ? null : readRadarSnapshot();
+      if (!force && isRadarSnapshotFresh(storedSnapshot)) {
+        try {
+          await applyRealData(
+            storedSnapshot.raw,
+            storedSnapshot.clustering,
+            storedSnapshot,
+            { judgements: storedSnapshot.judgements || {} },
+            storedSnapshot.updatedAt || storedSnapshot.savedAt
+          );
+          if (showToast) toast('已使用今日缓存，未重复读取数据');
+          return;
+        } catch (cacheError) {
+          console.warn('恢复今日机会雷达缓存失败，转为读取数据', cacheError);
+        }
+      }
       if (button) { button.disabled = true; button.textContent = '正在读取并分析…'; }
       $('#scanStatus').textContent = '正在读取清洗评论数据…';
       try {
@@ -1034,9 +1081,8 @@
             console.warn('读取第二层判断缓存失败', judgementError);
           }
         }
-        const snapshot = force ? null : readRadarSnapshot();
-        await applyRealData({ xhs: values[0], xhsPosts: values[1], tb: values[2], negative: values[3], demands: values[4] }, cachedResult, snapshot, judgementCache);
-        if (showToast) toast('已重新读取原始评论并完成第一层语义聚类');
+        await applyRealData({ xhs: values[0], xhsPosts: values[1], tb: values[2], negative: values[3], demands: values[4] }, cachedResult, null, judgementCache);
+        if (showToast) toast(force ? '已强制重新读取原始评论并刷新今日分析' : '已读取数据并完成今日分析');
       } catch (error) {
         console.error('机会数据读取失败', error);
         const missingConfig = error instanceof Error && error.message.includes('DeepSeek API');
