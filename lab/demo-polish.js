@@ -299,6 +299,16 @@
   function polish(root) {
     if (!root || !root.querySelectorAll) return
     addStyle(root)
+    Array.prototype.forEach.call(root.querySelectorAll('button, h1, h2, h3, p, span, small, strong'), function (node) {
+      if (node.children.length) return
+      var value = cleanText(node)
+      if (!value) return
+      var next = value.replace(/生成产品 Demo/g, '生成产品方案').replace(/确认 Demo/g, '确认方案')
+      if (next !== value) node.textContent = next
+    })
+    Array.prototype.forEach.call(root.querySelectorAll('.stage-rail .stage-label'), function (label) {
+      if (cleanText(label) === '产品 Demo') label.textContent = '产品方案'
+    })
     var headings = root.querySelectorAll('.stage-heading')
     Array.prototype.forEach.call(headings, function (heading) {
       var title = heading.querySelector('h1')
@@ -307,7 +317,7 @@
     var panel = root.querySelector('.demo-decision-panel')
     if (panel) {
       var title = panel.querySelector('.panel-heading h2')
-      if (title) title.textContent = '产品 Demo · 核心判断'
+      if (title) title.textContent = '产品方案 · 核心判断'
       ensurePlanningStats(root, panel)
     }
     var analysis = root.querySelector('.demo-analysis-panel')
