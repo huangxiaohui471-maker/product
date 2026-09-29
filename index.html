@@ -3909,8 +3909,8 @@ RENDER.opportunity = function () {
    之前这里使用 iframe，切换阶段时会同时受 browsing context、动态 chunk
    和外层滚动容器影响；现在仍保留独立构建产物，但不再创建 iframe。 */
 var LAB_ORIGIN = window.location.origin;
-var LAB_SCRIPT_URL = new URL('./lab/assets/index-CseiPD39.js?v=20260929-20', window.location.href).href;
-var LAB_STYLE_URL = new URL('./lab/assets/index-zGhbCCOe.css?v=20260929-20', window.location.href).href;
+var LAB_SCRIPT_URL = new URL('./lab/assets/index-4roCCtRB.js?v=20260929-21', window.location.href).href;
+var LAB_STYLE_URL = new URL('./lab/assets/index-R0O5eeKP.css?v=20260929-21', window.location.href).href;
 function voyagerLabPayload() {
   var ctx = typeof stContext === 'function' ? stContext() : null;
   var m = ctx && ctx.current ? ctx.current : {};
@@ -3928,7 +3928,10 @@ function voyagerLabPayload() {
   var category = imported.category || prefill.category || m.c2 || '当前细分类目';
   var source = imported.source || prefill.source || m.src || '全球选品星图';
   var sourceType = imported.sourceType || (Object.keys(imported).length ? 'demand-signal' : 'global-atlas');
-  var sourceLabel = imported.sourceLabel || (sourceType === 'demand-signal' ? '用户需求信号' : '全球趋势');
+  var importedSourceLabel = String(imported.sourceLabel || '').trim();
+  var sourceLabel = importedSourceLabel === '全球航图' || importedSourceLabel === '航图'
+    ? '全球趋势'
+    : (importedSourceLabel || (sourceType === 'demand-signal' ? '用户需求信号' : '全球趋势'));
   var period = imported.period || prefill.period || m.period || '当前周期';
   var prefillGrowth = prefill.growth || '';
   var stable = [title, market, category, source, period].filter(Boolean).join('|').replace(/[^\w\u4e00-\u9fff-]+/g, '-').slice(0, 110);
@@ -5691,7 +5694,7 @@ function bindEvents() {
       if (!data || data.type !== 'open-decision') return;
       STRATEGY.demandSignal = String(data.title || '来自需求信号');
       STRATEGY.demandPayload = data.payload && typeof data.payload === 'object'
-        ? Object.assign({}, data.payload, { sourceType: data.payload.sourceType || 'demand-signal', sourceLabel: data.payload.sourceLabel || '用户需求信号' })
+        ? Object.assign({}, data.payload, { sourceType: data.payload.sourceType || 'demand-signal', sourceLabel: data.payload.sourceLabel === '全球航图' || data.payload.sourceLabel === '航图' ? '全球趋势' : (data.payload.sourceLabel || '用户需求信号') })
         : null;
       STRATEGY.labIntent = 'execute';
       STRATEGY.view = 'desk';
