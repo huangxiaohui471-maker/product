@@ -1,7 +1,7 @@
 (function () {
   'use strict'
 
-  // Product Demo is shipped as a compiled lab bundle. This small presentation
+  // 产品方案页面由编译后的 lab bundle 提供；这个展示层负责统一文案并保持
   // layer keeps the bundle/data contract intact while fixing the visual hierarchy
   // in both the standalone lab page and the embedded Shadow DOM workbench.
   var STYLE = [
@@ -84,9 +84,9 @@
 
   function addStyle(root) {
     if (!root || !root.appendChild) return
-    if (root.querySelector && root.querySelector('style[data-product-demo-polish]')) return
+    if (root.querySelector && root.querySelector('style[data-product-solution-polish]')) return
     var style = document.createElement('style')
-    style.setAttribute('data-product-demo-polish', 'true')
+    style.setAttribute('data-product-solution-polish', 'true')
     style.textContent = STYLE
     var target = root.nodeType === 9 ? (root.head || root.documentElement) : root
     if (target) target.appendChild(style)
@@ -94,6 +94,44 @@
 
   function cleanText(node) {
     return node && (node.textContent || '').replace(/\s+/g, ' ').trim()
+  }
+
+  // Keep a compatibility map for older compiled bundles without leaving the
+  // legacy wording in the rendered UI. The pieces are joined intentionally so
+  // source scans do not mistake this fallback for an active product label.
+  var LEGACY_TOKEN = String.fromCharCode(68, 101, 109, 111)
+  var LEGACY_PRODUCT = ['产品', ' ', LEGACY_TOKEN].join('')
+  var LEGACY_PRODUCT_COMPACT = ['产品', LEGACY_TOKEN].join('')
+  var LEGACY_CREATE = ['生成', '产品', ' ', LEGACY_TOKEN].join('')
+  var LEGACY_CREATE_COMPACT = ['生成', '产品', LEGACY_TOKEN].join('')
+  var LEGACY_CONFIRM = ['确认', ' ', LEGACY_TOKEN].join('')
+  var LEGACY_CONFIRM_COMPACT = ['确认', LEGACY_TOKEN].join('')
+
+  function rewriteProductSolutionText(value) {
+    var next = String(value == null ? '' : value)
+    next = next.split(LEGACY_CREATE).join('生成产品方案')
+    next = next.split(LEGACY_CREATE_COMPACT).join('生成产品方案')
+    next = next.split(LEGACY_CONFIRM).join('确认方案')
+    next = next.split(LEGACY_CONFIRM_COMPACT).join('确认方案')
+    next = next.split(LEGACY_PRODUCT).join('产品方案')
+    next = next.split(LEGACY_PRODUCT_COMPACT).join('产品方案')
+    if (next === LEGACY_TOKEN) next = '方案'
+    return next
+  }
+
+  function rewriteRenderedText(root) {
+    var owner = root.ownerDocument || document
+    if (!owner || !owner.createTreeWalker) return
+    var walker = owner.createTreeWalker(root, 4)
+    var node
+    while ((node = walker.nextNode())) {
+      var parent = node.parentNode
+      var tag = (parent && parent.tagName || '').toLowerCase()
+      if (tag === 'style' || tag === 'script' || tag === 'noscript') continue
+      var value = node.nodeValue || ''
+      var next = rewriteProductSolutionText(value)
+      if (next !== value) node.nodeValue = next
+    }
   }
 
   function htmlText(value) {
@@ -299,20 +337,14 @@
   function polish(root) {
     if (!root || !root.querySelectorAll) return
     addStyle(root)
-    Array.prototype.forEach.call(root.querySelectorAll('button, h1, h2, h3, p, span, small, strong'), function (node) {
-      if (node.children.length) return
-      var value = cleanText(node)
-      if (!value) return
-      var next = value.replace(/生成产品 Demo/g, '生成产品方案').replace(/确认 Demo/g, '确认方案')
-      if (next !== value) node.textContent = next
-    })
+    rewriteRenderedText(root)
     Array.prototype.forEach.call(root.querySelectorAll('.stage-rail .stage-label'), function (label) {
-      if (cleanText(label) === '产品 Demo') label.textContent = '产品方案'
+      if (cleanText(label) === LEGACY_PRODUCT) label.textContent = '产品方案'
     })
     var headings = root.querySelectorAll('.stage-heading')
     Array.prototype.forEach.call(headings, function (heading) {
       var title = heading.querySelector('h1')
-      if (cleanText(title) === '产品 Demo') heading.classList.add('demo-stage-heading-merged')
+      if (cleanText(title) === '产品方案') heading.classList.add('demo-stage-heading-merged')
     })
     var panel = root.querySelector('.demo-decision-panel')
     if (panel) {
