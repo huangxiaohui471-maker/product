@@ -703,7 +703,7 @@
 
     const DATASETS = {
       eye: { label: '眼部护理', root: '../data/eye-care-opportunities/', cache: 'xhs_cluster_result_v2.json' },
-      face: { label: '面部洗护 · 洁面', root: '../data/face-care-opportunities/', cache: 'xhs_cluster_result_v2.json' }
+      face: { label: '面部洗护 · 洁面', root: '../data/face-care-opportunities/', cache: 'xhs_cluster_result_v2.json', judgements: 'xhs_judgements_v2.json' }
     };
     const DATA_FILES = { xhs: 'xhs_comments_clean.json', xhsPosts: 'xhs_posts_raw.json', tb: 'tb_rates_all.json', negative: 'tb_rates_negative.json', demands: 'tb_rates_demands.json' };
     const currentDatasetKey = new URLSearchParams(location.search).get('category') === 'face' ? 'face' : 'eye';
@@ -712,7 +712,7 @@
     const SLOT_IDS = ['cluster_1', 'cluster_2', 'cluster_3', 'cluster_4', 'cluster_5', 'cluster_6'];
     const RADAR_SNAPSHOT_KEY = 'voyager-opportunity-radar-snapshot-' + currentDatasetKey;
     const AI_API_BASE = 'http://127.0.0.1:4179';
-    const analysisState = { raw: null, clustering: null };
+    const analysisState = { raw: null, clustering: null, judgements: null };
 
     function textOf(row) { return String(row && (row.text || row.content || row.full || '')).replace(/\s+/g, ' ').trim(); }
     function asNumber(value) { const n = Number(value); return Number.isFinite(n) ? n : 0; }
@@ -810,6 +810,80 @@
       };
     }
 
+    function brandSignalForFace(raw) {
+      const records = [...(raw?.xhs || []), ...(raw?.xhsPosts || [])];
+      const brands = [
+        ['芙丽芳丝', '温和清洁对标线索', '重点核验清洁力、温和度和洗后肤感'],
+        ['溪木源', '肤感与成分对标线索', '重点核验敏感/油痘人群的适配差异'],
+        ['旁氏', '清洁力与性价比对标线索', '重点核验假滑、紧绷与价格感知'],
+        ['珂润', '敏感肌温和线索', '重点核验成分安全与洗后舒适度'],
+        ['黛珂', '高端肤感对标线索', '重点核验高价体验是否能被感知']
+      ];
+      return brands.map(([name, role, takeaway]) => {
+        const count = records.reduce((total, item) => total + (textOf(item).includes(name) ? 1 : 0), 0);
+        return { name, role, count, takeaway };
+      }).filter(item => item.count > 0).sort((a, b) => b.count - a.count).slice(0, 3).map(item => ({
+        name: item.name,
+        role: item.role,
+        price: '待补价格数据',
+        strength: `当前语料提及 ${item.count} 条`,
+        risk: item.takeaway
+      }));
+    }
+
+    function faceProductAnalysis(candidate, trial, primaryConcept) {
+      const cluster = candidate?.cluster || {};
+      const analytics = cluster.analytics || candidate?.analytics || {};
+      const raw = analysisState.raw || {};
+      const totalRecords = (raw.xhs?.length || 0) + (raw.xhsPosts?.length || 0);
+      const sourceLabel = '自动分析 · 面部洗护 · 洁面';
+      const userTask = cluster.actual_need || cluster.user_need || candidate?.actualNeed || '用户需要在当前肤质和使用场景下选到合适的洁面。';
+      const desiredResult = cluster.user_need || cluster.recommendation || '希望减少试错，获得清洁力、温和度与洗后肤感之间的平衡。';
+      const selectedName = primaryConcept?.name || '待在方案观察中确认';
+      const evidence = [
+        { label: '核心用户任务', value: userTask, detail: `${analytics.total || 0} 条相关信号，来自小红书语料聚类。` },
+        { label: '用户想要的效果', value: desiredResult, detail: '这是需求假设，仍需通过样品和真实用户验证。' },
+        { label: '本方向重点', value: selectedName, detail: primaryConcept?.promise || cluster.evidence_summary || '由第二层判断生成，进入设计前仍需核验。' },
+        { label: '价格数据边界', value: '待补价格数据', detail: `当前自动回流 ${totalRecords} 条小红书帖子/评论，未提供淘宝/天猫价格分布。` }
+      ];
+      const marketPrice = {
+        mainstream: '待补价格数据',
+        recommended: '待补价格数据',
+        strategy: '先补市场价格，再定切入带',
+        note: '当前面部洗护数据没有同口径价格样本，因此不把评论条数或常识换算成价格结论。'
+      };
+      const benchmarkBrands = brandSignalForFace(raw);
+      const criteria = [
+        '清洁力与温和度要在同一轮样品测试中同时验证。',
+        '把紧绷、假滑、残留和刺激转成可记录的体验指标。',
+        '敏感肌适配以配方评审与安全测试为准，不用评论替代。',
+        '补齐同口径市场价格和品牌商品资料后，再判断商业空间。'
+      ];
+      return {
+        sourceLabel,
+        summary: `基于 ${totalRecords} 条小红书帖子/评论，当前方向围绕“${userTask}”展开。数据已识别需求、人群与体验缺口；价格、购买和市场规模证据仍待补齐。`,
+        evidence,
+        marketPrice,
+        benchmarkBrands,
+        opportunityCriteria: criteria,
+        competitorInsight: benchmarkBrands.length
+          ? `当前语料可先用 ${benchmarkBrands.map(item => item.name).join('、')} 做体验与价格资料对标；品牌差异需要回到同口径商品、配方和真实盲测，不把提及次数当成市场份额。`
+          : '当前语料尚未形成可用的品牌对标清单，需要补充商品分析数据。',
+        validation: [
+          '清洁力：统一防晒/油脂残留样本，记录清洁完成度。',
+          '温和度：记录洗后紧绷、泛红、刺痛和舒适度评分。',
+          '肤感：记录冲洗时长、假滑/残留和复测一致性。',
+          '商业性：补价格、购买和复购数据后，再验证切入带。'
+        ],
+        judgement: trial ? {
+          verdict: trial.verdict || '',
+          coreQuestion: trial.core || '',
+          nextExperiment: trial.nextExperiment || '',
+          unknown: trial.unknown || ''
+        } : null
+      };
+    }
+
     function readRadarSnapshot() {
       try {
         const value = localStorage.getItem(RADAR_SNAPSHOT_KEY);
@@ -854,6 +928,11 @@
           candidate.concepts = saved.concepts || [];
           candidate.selectedConceptIndex = Number.isInteger(saved.selectedConceptIndex) ? saved.selectedConceptIndex : -1;
           candidate.selectedObservationMode = saved.selectedObservationMode || null;
+        }
+        const cachedJudgement = analysisState.judgements?.[candidate.modelId];
+        if (!candidate.trial && cachedJudgement) {
+          candidate.trial = cachedJudgement;
+          candidate.concepts = cachedJudgement.concepts || [];
         }
         candidates[candidate.id] = candidate;
       });
@@ -904,8 +983,9 @@
       saveRadarSnapshot();
     }
 
-    async function applyRealData(data, cachedResult = null, snapshot = null) {
+    async function applyRealData(data, cachedResult = null, snapshot = null, judgementCache = null) {
       analysisState.raw = data;
+      analysisState.judgements = judgementCache?.judgements || {};
       $('#scanStatus').textContent = '正在调用第一层模型：语义聚类分析…';
       let result;
       try {
@@ -945,8 +1025,17 @@
         } catch (cacheError) {
           console.warn('读取 DeepSeek 分析缓存失败', cacheError);
         }
+        let judgementCache = null;
+        if (activeDataset.judgements) {
+          try {
+            const judgementResponse = await fetch(activeDataset.root + activeDataset.judgements, { cache: 'no-store' });
+            if (judgementResponse.ok) judgementCache = await judgementResponse.json();
+          } catch (judgementError) {
+            console.warn('读取第二层判断缓存失败', judgementError);
+          }
+        }
         const snapshot = force ? null : readRadarSnapshot();
-        await applyRealData({ xhs: values[0], xhsPosts: values[1], tb: values[2], negative: values[3], demands: values[4] }, cachedResult, snapshot);
+        await applyRealData({ xhs: values[0], xhsPosts: values[1], tb: values[2], negative: values[3], demands: values[4] }, cachedResult, snapshot, judgementCache);
         if (showToast) toast('已重新读取原始评论并完成第一层语义聚类');
       } catch (error) {
         console.error('机会数据读取失败', error);
@@ -1226,6 +1315,7 @@
           support: result.support || [],
           counter: result.counter || [],
           inference: result.inference,
+          unknown: result.unknown || '',
           gates: (result.gates || []).map(g => [g.question, g.answer, g.status]),
           marketAssessment: result.market_assessment || null,
           verdict: result.verdict,
@@ -1246,6 +1336,7 @@
             support: cached.support || [],
             counter: cached.counter || [],
             inference: cached.inference || '',
+            unknown: cached.unknown || '',
             gates: (cached.gates || []).map(g => [g.question || '', g.answer || '', g.status || '待验证']),
             marketAssessment: cached.market_assessment || null,
             verdict: cached.verdict || '先补证据',
@@ -1320,6 +1411,8 @@
             id: candidate.id,
             title: candidate.title,
             summary: candidate.summary,
+            category: currentDatasetKey === 'face' ? '面部洗护 · 洁面' : '眼部护理',
+            market: currentDatasetKey === 'face' ? '小红书语料' : '当前市场',
             signal: candidate.route || candidate.trend || candidate.summary,
             targetUser: candidate.behavior || '',
             unmetNeed: candidate.summary || '',
@@ -1353,7 +1446,8 @@
               nextExperiment: trial.nextExperiment || '',
               verdict: trial.verdict || '',
               marketAssessment: trial.marketAssessment || null,
-            }
+            },
+            productAnalysis: currentDatasetKey === 'face' ? faceProductAnalysis(candidate, trial, primaryConcept) : null
           }
         }, '*');
         return;
