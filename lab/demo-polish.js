@@ -78,6 +78,16 @@
     '.lab-delivery-inline-grid small{color:#8792a2;font-size:9.5px}',
     '.lab-delivery-inline-grid b{margin-top:4px;color:#334155;font-size:11px;line-height:1.45}',
     '.lab-delivery-note{padding:11px 12px;border-left:3px solid #e0a33e;border-radius:4px 9px 9px 4px;background:#fff9ee;color:#795a2e;font-size:10px;line-height:1.6}',
+    '.opportunity-list-row{position:relative;cursor:pointer}',
+    '.opportunity-list-row.has-observe-action{padding-right:18px}',
+    '.opportunity-list-row .opportunity-inline-action{display:inline-flex;align-items:center;gap:4px;margin-top:7px;padding:4px 8px;border:1px solid #cbd8ef;border-radius:999px;background:#f5f8ff;color:#315fd5;font-size:10px;font-weight:800;line-height:1;white-space:nowrap}',
+    '.opportunity-list-row:hover .opportunity-inline-action,.opportunity-list-row:focus-visible .opportunity-inline-action{border-color:#7d9df2;background:#eaf0ff;color:#244cc0}',
+    '.opportunity-flow-helper{display:flex;align-items:center;gap:10px;margin:10px 0 14px;padding:10px 12px;border:1px solid #dfe7f4;border-radius:11px;background:#f8faff;color:#52627a;font-size:11px;line-height:1.45}',
+    '.opportunity-flow-helper strong{color:#253553;font-size:11px}',
+    '.opportunity-flow-helper small{margin-left:auto;color:#8794a8;font-size:10px}',
+    '.opportunity-gate-panel{scroll-margin-top:24px}',
+    '.opportunity-gate-panel .opportunity-observe-note{margin:10px 0 0;padding:9px 11px;border-left:3px solid #4775e8;border-radius:4px 8px 8px 4px;background:#f5f8ff;color:#52627a;font-size:11px;line-height:1.5}',
+    '@media (max-width:720px){.opportunity-flow-helper{display:block}.opportunity-flow-helper strong{display:block;margin-top:3px}.opportunity-flow-helper small{display:block;margin-top:4px}}',
     '@media (max-width:1000px){.lab-delivery-overview{grid-template-columns:repeat(3,minmax(0,1fr))}.lab-delivery-inline-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}',
     '@media (max-width:600px){.lab-delivery-sheet{margin:10px 12px 0}.lab-delivery-sheet-head{display:block;padding:16px}.lab-delivery-status{justify-content:flex-start;margin-top:10px}.lab-delivery-overview,.lab-delivery-sections{padding-left:16px;padding-right:16px}.lab-delivery-overview{grid-template-columns:repeat(2,minmax(0,1fr))}.lab-delivery-inline-grid{grid-template-columns:1fr}}'
   ].join('')
@@ -334,9 +344,82 @@
     stats.classList.add('demo-decision-stats-expanded')
   }
 
+  function addOpportunityFlow(root) {
+    if (!root || !root.querySelectorAll) return
+    var library = root.querySelector('.opportunity-library-panel')
+    if (library && !library.querySelector('.opportunity-flow-helper')) {
+      var list = library.querySelector('.opportunity-list')
+      if (list) {
+        var helper = document.createElement('div')
+        helper.className = 'opportunity-flow-helper'
+        helper.setAttribute('role', 'note')
+        helper.innerHTML = '<span>操作路径</span><strong>点击卡片 → 选择方向 → 进入观察 → 继续验证</strong><small>待验证 / 待评审不会自动变成已确认</small>'
+        list.parentNode.insertBefore(helper, list)
+      }
+    }
+
+    Array.prototype.forEach.call(root.querySelectorAll('.opportunity-list-row'), function (row) {
+      if (row.getAttribute('data-opportunity-flow-ready') === 'true') return
+      var score = row.querySelector('.opportunity-list-score')
+      if (!score) return
+      var status = cleanText(score)
+      if (!/待验证|待评审/.test(status)) return
+      row.classList.add('has-observe-action')
+      row.setAttribute('title', '查看这条机会并进入观察流程')
+      var action = document.createElement('span')
+      action.className = 'opportunity-inline-action'
+      action.setAttribute('data-opportunity-entry', 'true')
+      action.setAttribute('role', 'button')
+      action.setAttribute('tabindex', '0')
+      action.textContent = '进入观察 →'
+      score.appendChild(action)
+      row.setAttribute('data-opportunity-flow-ready', 'true')
+    })
+
+    var gate = root.querySelector('.opportunity-gate-panel')
+    if (gate && !gate.querySelector('.opportunity-observe-note')) {
+      var button = Array.prototype.find.call(gate.querySelectorAll('button'), function (item) {
+        return /进入方案观察/.test(cleanText(item))
+      })
+      if (button) {
+        var note = document.createElement('div')
+        note.className = 'opportunity-observe-note'
+        note.textContent = button.disabled
+          ? '先在上方选择一个产品方向；选择后这里会亮起“进入方案观察”。'
+          : '已完成方向选择；点击“进入方案观察”即可进入下一环节。'
+        button.parentNode.insertBefore(note, button)
+      }
+    }
+  }
+
+  function bindOpportunityFlow(root) {
+    if (!root || !root.addEventListener || root.__opportunityFlowBound) return
+    root.addEventListener('click', function (event) {
+      var action = event.target && event.target.closest ? event.target.closest('[data-opportunity-entry]') : null
+      if (!action || !root.contains(action)) return
+      event.preventDefault()
+      event.stopPropagation()
+      var row = action.closest('.opportunity-list-row')
+      if (!row) return
+      row.click()
+      window.setTimeout(function () {
+        var gate = root.querySelector('.opportunity-gate-panel')
+        if (gate) gate.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 120)
+    })
+    root.addEventListener('keydown', function (event) {
+      if ((event.key !== 'Enter' && event.key !== ' ') || !event.target || !event.target.matches('[data-opportunity-entry]')) return
+      event.preventDefault()
+      event.target.click()
+    })
+    root.__opportunityFlowBound = true
+  }
+
   function polish(root) {
     if (!root || !root.querySelectorAll) return
     addStyle(root)
+    bindOpportunityFlow(root)
+    addOpportunityFlow(root)
     rewriteRenderedText(root)
     Array.prototype.forEach.call(root.querySelectorAll('.stage-rail .stage-label'), function (label) {
       if (cleanText(label) === LEGACY_PRODUCT) label.textContent = '产品方案'
